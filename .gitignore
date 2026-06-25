@@ -1,0 +1,14 @@
+# Ignore original HTML source files (PHP versions are the live files)
+*.html
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+*.code-workspace
+
+# Logs
+*.log
