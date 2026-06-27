@@ -33,10 +33,9 @@ function bc(array $items): array {
 
 const SITE  = 'https://homecarecreators.com';
 const ORG   = 'Homecare Creators';
-const PHONE = '+1-786-505-1234';
 const EMAIL = 'info@homecarecreators.com';
-const ADDR  = ['@type'=>'PostalAddress','streetAddress'=>'1200 Brickell Ave Suite 1950',
-               'addressLocality'=>'Miami','addressRegion'=>'FL','postalCode'=>'33131','addressCountry'=>'US'];
+const ADDR  = ['@type'=>'PostalAddress','streetAddress'=>'984 Old Camp Rd',
+               'addressLocality'=>'The Villages','addressRegion'=>'FL','postalCode'=>'32162','addressCountry'=>'US'];
 
 // ── City data: path => city info ─────────────────────────────────
 // Paths match $page_canonical (domain stripped) from each actual page file.
@@ -75,7 +74,7 @@ if ($run) {
         'name'        => ORG,
         'description' => 'Homecare Creators is the only full-service digital marketing agency in Florida built exclusively for home care agencies. We specialize in local SEO, Google Maps optimization, custom website design, and AI search visibility — helping homecare businesses attract more private-pay and Medicaid clients.',
         'url'         => SITE,
-        'telephone'   => PHONE,
+
         'email'       => EMAIL,
         'foundingDate'=> '2021',
         'address'     => ADDR,
@@ -193,7 +192,7 @@ if ($run) {
             'name'        => ORG,
             'description' => "Homecare Creators provides expert digital marketing for home care agencies in {$c}, Florida — including local SEO, Google Maps optimization, and website design to help {$c} homecare businesses attract more private-pay and Medicaid clients.",
             'url'         => $url,
-            'telephone'   => PHONE,
+    
             'email'       => EMAIL,
             'address'     => ADDR,
             'areaServed'  => [
