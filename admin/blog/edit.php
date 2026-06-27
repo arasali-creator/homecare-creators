@@ -22,22 +22,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mdesc    = trim($_POST['meta_desc'] ?? '') ?: $excerpt;
     $ogimg    = trim($_POST['og_image'] ?? '') ?: $featured;
     $status   = $_POST['status'] ?? 'draft';
-    $pub_at   = $status === 'published' ? ($post['published_at'] ?? date('Y-m-d H:i:s')) : null;
+    $pub_at   = $status === 'published' ? (($post['published_at'] ?? null) ?: date('Y-m-d H:i:s')) : null;
 
     if ($title) {
-        if ($id) {
-            hc_q("UPDATE hc_blog_posts SET title=?,slug=?,excerpt=?,content=?,author=?,featured_image=?,focus_keyword=?,secondary_keywords=?,meta_title=?,meta_desc=?,og_image=?,status=?,published_at=?,updated_at=NOW() WHERE id=?",
-                [$title,$slug,$excerpt,$content,$author,$featured,$fkw,$skw,$mtitle,$mdesc,$ogimg,$status,$pub_at,$id]);
-        } else {
-            hc_q("INSERT INTO hc_blog_posts (title,slug,excerpt,content,author,featured_image,focus_keyword,secondary_keywords,meta_title,meta_desc,og_image,status,published_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
-                [$title,$slug,$excerpt,$content,$author,$featured,$fkw,$skw,$mtitle,$mdesc,$ogimg,$status,$pub_at]);
-            $id = (int)hc_db()->lastInsertId();
+        try {
+            if ($id) {
+                hc_q("UPDATE hc_blog_posts SET title=?,slug=?,excerpt=?,content=?,author=?,featured_image=?,focus_keyword=?,secondary_keywords=?,meta_title=?,meta_desc=?,og_image=?,status=?,published_at=?,updated_at=NOW() WHERE id=?",
+                    [$title,$slug,$excerpt,$content,$author,$featured,$fkw,$skw,$mtitle,$mdesc,$ogimg,$status,$pub_at,$id]);
+            } else {
+                // Ensure unique slug
+                $base = $slug; $n = 1;
+                while (hc_val("SELECT id FROM hc_blog_posts WHERE slug=?", [$slug])) {
+                    $slug = $base . '-' . $n++;
+                }
+                hc_q("INSERT INTO hc_blog_posts (title,slug,excerpt,content,author,featured_image,focus_keyword,secondary_keywords,meta_title,meta_desc,og_image,status,published_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                    [$title,$slug,$excerpt,$content,$author,$featured,$fkw,$skw,$mtitle,$mdesc,$ogimg,$status,$pub_at]);
+                $id = (int)hc_db()->lastInsertId();
+            }
+            hc_flash('Post ' . ($status==='published'?'published':'saved as draft') . '.');
+            header('Location: /admin/blog/edit.php?id=' . $id);
+            exit;
+        } catch (Exception $e) {
+            hc_flash('Database error: ' . $e->getMessage(), 'error');
         }
-        hc_flash('Post ' . ($status==='published'?'published':'saved as draft') . '.');
-        header('Location: /admin/blog/edit.php?id=' . $id);
-        exit;
+    } else {
+        hc_flash('Title is required.', 'error');
     }
-    hc_flash('Title is required.', 'error');
 }
 
 $title_val = $post ? 'Edit: ' . $post['title'] : 'New Blog Post';

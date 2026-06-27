@@ -77,6 +77,20 @@ function hc_extract_page_meta(string $file): array {
     return $out;
 }
 
+function hc_setting(string $key, string $default = ''): string {
+    static $cache = [];
+    if (array_key_exists($key, $cache)) return $cache[$key];
+    try {
+        $v = hc_val("SELECT setting_value FROM hc_settings WHERE setting_key=?", [$key]);
+        $cache[$key] = ($v !== null && $v !== '') ? (string)$v : $default;
+    } catch (Exception $e) { $cache[$key] = $default; }
+    return $cache[$key];
+}
+
+function hc_setting_save(string $key, string $value): void {
+    hc_q("INSERT INTO hc_settings (setting_key,setting_value) VALUES (?,?) ON DUPLICATE KEY UPDATE setting_value=VALUES(setting_value)", [$key, $value]);
+}
+
 function hc_slug(string $text): string {
     $text = strtolower(trim($text));
     $text = preg_replace('/[^a-z0-9\s-]/', '', $text);

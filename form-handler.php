@@ -36,10 +36,36 @@ if (empty($name) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL))
     exit;
 }
 
-$to      = 'info@homecarecreators.com';
-$subject = "New Inquiry — {$name} | Homecare Creators";
+// Load DB settings (notification email etc.) — silently skip if DB unavailable
+$notification_email = 'info@homecarecreators.com';
+$notification_cc    = '';
+$reply_from         = 'noreply@homecarecreators.com';
+$site_name          = 'Homecare Creators';
 
-$body  = "New inquiry received from the Homecare Creators website.\n\n";
+try {
+    $cfg = __DIR__ . '/admin/config.php';
+    if (file_exists($cfg)) {
+        require_once $cfg;
+        require_once __DIR__ . '/admin/includes/db.php';
+        require_once __DIR__ . '/admin/includes/functions.php';
+
+        // Save submission first
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? '';
+        hc_q("INSERT INTO hc_form_submissions (name,email,phone,agency_name,city,service,message,ip_address) VALUES (?,?,?,?,?,?,?,?)",
+            [$name,$email,$phone,$agency,$city,$service,$message,$ip]);
+
+        // Read settings
+        $db_email = hc_setting('notification_email', '');
+        if ($db_email) $notification_email = $db_email;
+        $notification_cc = hc_setting('notification_cc', '');
+        $reply_from      = hc_setting('reply_to_email', 'noreply@homecarecreators.com');
+        $site_name       = hc_setting('site_name', 'Homecare Creators');
+    }
+} catch(Exception $e) { /* fail silently */ }
+
+$subject = "New Inquiry — {$name} | {$site_name}";
+
+$body  = "New inquiry received from the {$site_name} website.\n\n";
 $body .= "Name:    {$name}\n";
 $body .= "Email:   {$email}\n";
 if ($phone)   $body .= "Phone:   {$phone}\n";
@@ -50,25 +76,14 @@ if ($message) $body .= "\nMessage:\n{$message}\n";
 $body .= "\nSource: {$source}\n";
 $body .= "\n---\nSent from homecarecreators.com\n";
 
-$headers  = "From: noreply@homecarecreators.com\r\n";
+$headers  = "From: {$reply_from}\r\n";
 $headers .= "Reply-To: {$email}\r\n";
+if ($notification_cc) $headers .= "Cc: {$notification_cc}\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-// Save to DB (silently — never block the email path)
-try {
-    $cfg = __DIR__ . '/admin/config.php';
-    if (file_exists($cfg)) {
-        require_once $cfg;
-        require_once __DIR__ . '/admin/includes/db.php';
-        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? '';
-        hc_q("INSERT INTO hc_form_submissions (name,email,phone,agency_name,city,service,message,ip_address) VALUES (?,?,?,?,?,?,?,?)",
-            [$name,$email,$phone,$agency,$city,$service,$message,$ip]);
-    }
-} catch(Exception $e) { /* fail silently */ }
-
-if (mail($to, $subject, $body, $headers)) {
+if (mail($notification_email, $subject, $body, $headers)) {
     echo json_encode(['success' => true, 'message' => 'Message sent successfully']);
 } else {
     http_response_code(500);

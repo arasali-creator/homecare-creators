@@ -149,12 +149,31 @@ try {
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
             UNIQUE KEY uq_src_page (image_src(200), page_path(200))
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+
+        'hc_settings' => "CREATE TABLE IF NOT EXISTS hc_settings (
+            setting_key VARCHAR(100) PRIMARY KEY,
+            setting_value TEXT,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+
+        'hc_org_schema' => "CREATE TABLE IF NOT EXISTS hc_org_schema (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            field_key VARCHAR(100) NOT NULL UNIQUE,
+            field_value TEXT,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
     ];
 
     foreach ($sql_tables as $name => $sql) {
         $pdo->exec($sql);
         $tables[] = $name;
     }
+
+    // Seed default settings if empty
+    $pdo->exec("INSERT IGNORE INTO hc_settings (setting_key, setting_value) VALUES
+        ('notification_email', 'info@homecarecreators.com'),
+        ('reply_to_email',     'noreply@homecarecreators.com'),
+        ('site_name',          'Homecare Creators')");
 
     // Seed entity fields if empty
     $count = (int)$pdo->query("SELECT COUNT(*) FROM hc_entity")->fetchColumn();

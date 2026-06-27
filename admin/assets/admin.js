@@ -95,24 +95,32 @@ document.querySelectorAll('.tags-wrap').forEach(wrap => {
 });
 
 // ── Blog editor toolbar ──────────────────────────────────────
+const blogContent = document.getElementById('blog-content');
+const blogHidden  = document.getElementById('blog-html');
+
+function syncBlogContent() {
+  if (blogContent && blogHidden) blogHidden.value = blogContent.innerHTML;
+}
+
 document.querySelectorAll('.editor-btn').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
-    const cmd  = btn.dataset.cmd;
-    const val  = btn.dataset.val || null;
+    const cmd = btn.dataset.cmd;
+    const val = btn.dataset.val || null;
     document.execCommand(cmd, false, val);
-    document.getElementById('blog-content')?.focus();
+    blogContent?.focus();
+    syncBlogContent(); // sync after every toolbar action
   });
 });
 
 // Sync contenteditable → hidden textarea for blog
-const blogContent = document.getElementById('blog-content');
-const blogHidden  = document.getElementById('blog-html');
 if (blogContent && blogHidden) {
+  // Load existing content into editor on page load
   blogContent.innerHTML = blogHidden.value;
-  blogContent.addEventListener('input', () => {
-    blogHidden.value = blogContent.innerHTML;
-  });
+  // Sync on every keystroke
+  blogContent.addEventListener('input', syncBlogContent);
+  // Final sync on form submit (catches toolbar-only edits)
+  blogContent.closest('form')?.addEventListener('submit', syncBlogContent);
 }
 
 // ── Confirm delete ───────────────────────────────────────────
