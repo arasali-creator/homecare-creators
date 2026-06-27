@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /includes/
+
+Sitemap: https://homecarecreators.com/sitemap.xml
