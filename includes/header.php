@@ -251,6 +251,7 @@ try {
   <ul class="nav-links">
     <li><a href="/#why">Why Us</a></li>
     <li><a href="/seo/homecare-website-design">Website Design</a></li>
+    <li><a href="/blog">Blog</a></li>
     <li><a href="/seo/local-seo-for-home-care-agencies">Local SEO</a></li>
     <li><a href="/#bundles">Pricing</a></li>
     <li><a href="/#reviews">Results</a></li>

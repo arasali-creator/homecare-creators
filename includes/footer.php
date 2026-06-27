@@ -27,6 +27,7 @@
         <li><a href="/#services">AI Search SEO</a></li>
         <li><a href="/#bundles">Pricing &amp; Packages</a></li>
         <li><a href="/#careos">CareOS Platform</a></li>
+        <li><a href="/blog">Marketing Blog</a></li>
       </ul>
     </div>
     <div>

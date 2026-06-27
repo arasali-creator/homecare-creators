@@ -65,6 +65,18 @@ function h(mixed $v): string {
     return htmlspecialchars((string)($v ?? ''), ENT_QUOTES, 'UTF-8');
 }
 
+function hc_extract_page_meta(string $file): array {
+    if (!file_exists($file)) return [];
+    $src = file_get_contents($file);
+    $out = [];
+    foreach (['page_title','page_desc','page_canonical','og_title','og_desc'] as $var) {
+        if (preg_match('/\$' . $var . '\s*=\s*["\']([^"\']+)["\']/', $src, $m)) {
+            $out[$var] = $m[1];
+        }
+    }
+    return $out;
+}
+
 function hc_slug(string $text): string {
     $text = strtolower(trim($text));
     $text = preg_replace('/[^a-z0-9\s-]/', '', $text);

@@ -12,6 +12,12 @@ if (!$path) { header('Location: /admin/seo-pages.php'); exit; }
 // Load existing or create default
 $seo = hc_one("SELECT * FROM hc_seo_pages WHERE page_path = ?", [$path]);
 
+// Extract current values from the PHP file itself
+$pages_list = hc_scan_pages();
+$page_file  = '';
+foreach ($pages_list as $p) { if ($p['path'] === $path) { $page_file = $p['file']; break; } }
+$file_meta  = $page_file ? hc_extract_page_meta($page_file) : [];
+
 // Handle Save
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $d = [
@@ -90,22 +96,44 @@ hc_topbar('Edit Page SEO', '<a href="/admin/">Admin</a> › <a href="/admin/seo-
   <div class="card">
     <div class="card-header"><div class="card-title">Meta Tags</div></div>
 
+    <?php if ($file_meta && !$seo): ?>
+    <div class="alert alert-info" style="margin-bottom:16px">
+      <div><strong>Current values from PHP file</strong> — shown as placeholders below. Fill in the fields to override them in the database (the DB value always wins).</div>
+    </div>
+    <?php elseif ($seo): ?>
+    <div class="alert alert-success" style="margin-bottom:16px">
+      <div><strong>DB override is active</strong> — these values are currently overriding the PHP file defaults on the live site.</div>
+    </div>
+    <?php endif ?>
+
+    <?php if (!empty($file_meta['page_title'])): ?>
+    <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:13px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin-bottom:6px">Current PHP file values (read-only)</div>
+      <div style="margin-bottom:4px"><span style="color:var(--muted);width:100px;display:inline-block">Title:</span> <strong><?= h($file_meta['page_title']) ?></strong> <span style="color:var(--muted);font-size:11px">(<?= strlen($file_meta['page_title']) ?> chars)</span></div>
+      <?php if (!empty($file_meta['page_desc'])): ?>
+      <div><span style="color:var(--muted);width:100px;display:inline-block">Description:</span> <?= h($file_meta['page_desc']) ?> <span style="color:var(--muted);font-size:11px">(<?= strlen($file_meta['page_desc']) ?> chars)</span></div>
+      <?php endif ?>
+    </div>
+    <?php endif ?>
+
     <div class="form-group">
-      <label for="meta_title">Meta Title <span>target 50–60 characters</span></label>
+      <label for="meta_title">Meta Title Override <span>target 50–60 characters</span></label>
       <input type="text" id="meta_title" name="meta_title" value="<?= h($seo['meta_title'] ?? '') ?>"
-             data-counter="cnt-title" data-range="50,60" maxlength="120">
+             data-counter="cnt-title" data-range="50,60" maxlength="120"
+             placeholder="<?= h($file_meta['page_title'] ?? 'Enter meta title override…') ?>">
       <div class="char-row">
-        <span class="form-hint">Appears as the blue clickable headline in Google.</span>
+        <span class="form-hint">Overrides the PHP file value. Leave blank to use the PHP default.</span>
         <span id="cnt-title" class="char-count"></span>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="meta_desc">Meta Description <span>target 150–160 characters</span></label>
+      <label for="meta_desc">Meta Description Override <span>target 150–160 characters</span></label>
       <textarea id="meta_desc" name="meta_desc" rows="3"
-                data-counter="cnt-desc" data-range="150,160"><?= h($seo['meta_desc'] ?? '') ?></textarea>
+                data-counter="cnt-desc" data-range="150,160"
+                placeholder="<?= h($file_meta['page_desc'] ?? 'Enter meta description override…') ?>"><?= h($seo['meta_desc'] ?? '') ?></textarea>
       <div class="char-row">
-        <span class="form-hint">The snippet shown below the title in search results.</span>
+        <span class="form-hint">Leave blank to use the PHP default.</span>
         <span id="cnt-desc" class="char-count"></span>
       </div>
     </div>
