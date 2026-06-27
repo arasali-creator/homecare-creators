@@ -10,5 +10,8 @@ desktop.ini
 .vscode/
 *.code-workspace
 
+# Admin config — never commit real credentials
+admin/config.php
+
 # Logs
 *.log
