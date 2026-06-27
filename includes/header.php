@@ -28,6 +28,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--warm);color:var(--text);o
 @keyframes spin-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes shimmer{0%,100%{opacity:.7}50%{opacity:1}}
+@keyframes scaleIn{from{opacity:0;transform:scale(0.92)}to{opacity:1;transform:scale(1)}}
 [data-reveal]{opacity:0;transform:translateY(32px);transition:opacity .75s ease,transform .75s ease}
 [data-reveal].visible{opacity:1;transform:translateY(0)}
 
@@ -146,9 +147,9 @@ footer{background:var(--forest);padding:64px 48px 0}
   <div class="popup-box">
     <button class="popup-close" id="popupCloseBtn" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
     <div id="popupFormEl">
-      <div class="popup-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-      <h2 class="popup-title">Book Your Free Audit</h2>
-      <p class="popup-sub">Fill in your details and we'll reply within 24 hours with a personalised growth plan for your homecare agency.</p>
+      <div class="popup-icon" id="popupIconEl"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+      <h2 class="popup-title" id="popupTitleEl">Book Your Free Audit</h2>
+      <p class="popup-sub" id="popupSubEl">Fill in your details and we'll reply within 24 hours with a personalised growth plan for your homecare agency.</p>
       <div class="popup-form-group"><label class="form-label" for="pName">Full Name *</label><input type="text" class="form-input" id="pName" placeholder="Sarah Johnson" autocomplete="name"></div>
       <div class="popup-form-row">
         <div class="popup-form-group" style="margin-bottom:0"><label class="form-label" for="pEmail">Email *</label><input type="email" class="form-input" id="pEmail" placeholder="sarah@agency.com"></div>
@@ -164,6 +165,7 @@ footer{background:var(--forest);padding:64px 48px 0}
           <option>AI Search SEO (ChatGPT &amp; Google AI)</option>
           <option>Full Bundle Package</option>
           <option>Free Growth Audit</option>
+          <option>CareOS Waitlist</option>
         </select>
       </div>
       <div class="popup-form-group"><label class="form-label" for="pMsg">Message (optional)</label><textarea class="form-textarea" id="pMsg" placeholder="Tell us about your agency, current challenges, or what you've tried before..."></textarea></div>

@@ -429,7 +429,7 @@ function submitContact() {
 // ── OPEN POPUP OVERRIDE (homepage type-based variant) ──
 function openPopup(type) {
   var overlay  = document.getElementById('mainPopup');
-  var formDiv  = document.getElementById('popupForm');
+  var formDiv  = document.getElementById('popupFormEl');
   var succDiv  = document.getElementById('popupSuccessEl');
   var iconEl   = document.getElementById('popupIconEl');
   var titleEl  = document.getElementById('popupTitleEl');
@@ -592,7 +592,7 @@ include 'includes/header.php';
     <div class="why-inner">
       <div class="why-image-wrap" data-reveal>
         <div class="why-image-main">
-          <img src="./danie-franco-CeZypKDceQc-unsplash.jpg" alt="Homecare team meeting and training">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80&fit=crop" alt="Homecare team meeting and training">
         </div>
         <div class="why-img-stat">
           <div class="why-img-stat-num">98%</div>
