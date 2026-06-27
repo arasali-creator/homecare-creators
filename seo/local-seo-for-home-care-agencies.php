@@ -155,9 +155,30 @@ $page_css = <<<CSS
 .cta-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--teal-lt);flex-shrink:0}
 .cta-badge-text{font-family:'Syne',sans-serif;font-size:12px;color:rgba(255,255,255,.65)}
 
+/* SECTION BACKGROUNDS */
+.why-section{background:#fff}
+.included-section{background:var(--cream)}
+.how-section{background:#fff}
+.packages-section{background:var(--warm)}
+.kw-section{background:var(--cream)}
+.results-section{background:var(--forest)}
+.cities-section{background:#fff}
+.faq-section{background:#fff}
+
+/* KEYWORD GRID */
+.kw-intro{margin-bottom:8px}
+.kw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.kw-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:.25s}
+.kw-card:hover{border-color:rgba(29,158,117,.3);box-shadow:0 6px 24px rgba(10,46,30,.08);transform:translateY(-2px)}
+.kw-term{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--forest);margin-bottom:5px}
+.kw-intent{font-size:12.5px;color:var(--muted);line-height:1.5}
+.kw-badge{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.8px;padding:5px 12px;border-radius:20px;flex-shrink:0;text-transform:uppercase}
+.kw-high{background:rgba(29,158,117,.12);color:var(--teal)}
+.kw-med{background:rgba(201,168,76,.15);color:var(--gold)}
+
 /* RESPONSIVE */
-@media(max-width:1024px){.hero{grid-template-columns:1fr;min-height:auto}.hero-right{display:none}.hero-left{padding:140px 48px 80px}.packages-grid,.included-grid{grid-template-columns:1fr 1fr}.results-grid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:1fr;gap:48px}.how-grid{grid-template-columns:repeat(2,1fr)}.cta-inner{grid-template-columns:1fr}.cta-image{display:none}}
-@media(max-width:640px){section{padding:64px 20px}.packages-grid,.included-grid,.results-grid{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr}}
+@media(max-width:1024px){.hero{grid-template-columns:1fr;min-height:auto}.hero-right{display:none}.hero-left{padding:140px 48px 80px}.packages-grid,.included-grid{grid-template-columns:1fr 1fr}.results-grid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:1fr;gap:48px}.how-grid{grid-template-columns:repeat(2,1fr)}.cta-inner{grid-template-columns:1fr}.cta-image{display:none}.kw-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){section{padding:64px 20px}.packages-grid,.included-grid,.results-grid,.kw-grid{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr}}
 CSS;
 include '../includes/header.php';
 ?>
