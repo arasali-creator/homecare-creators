@@ -56,6 +56,18 @@ $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
+// Save to DB (silently — never block the email path)
+try {
+    $cfg = __DIR__ . '/admin/config.php';
+    if (file_exists($cfg)) {
+        require_once $cfg;
+        require_once __DIR__ . '/admin/includes/db.php';
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? '';
+        hc_q("INSERT INTO hc_form_submissions (name,email,phone,agency_name,city,service,message,ip_address) VALUES (?,?,?,?,?,?,?,?)",
+            [$name,$email,$phone,$agency,$city,$service,$message,$ip]);
+    }
+} catch(Exception $e) { /* fail silently */ }
+
 if (mail($to, $subject, $body, $headers)) {
     echo json_encode(['success' => true, 'message' => 'Message sent successfully']);
 } else {

@@ -1,4 +1,37 @@
-﻿<!DOCTYPE html>
+﻿<?php
+// ── SEO Override + Redirect System ──────────────────────────
+// Loads DB overrides if admin/config.php exists. Silently skips
+// if DB is unavailable (site works normally without it).
+(function() use (&$page_title, &$page_desc, &$page_canonical, &$og_title, &$og_desc) {
+    $cfg = dirname(__DIR__) . '/admin/config.php';
+    if (!file_exists($cfg)) return;
+    try {
+        require_once $cfg;
+        require_once dirname(__DIR__) . '/admin/includes/db.php';
+
+        // 301 Redirect check
+        $uri = strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
+        $redir = hc_one("SELECT destination_url, code FROM hc_redirects WHERE source_path = ? AND active = 1", [$uri]);
+        if ($redir && !headers_sent()) {
+            header('Location: ' . $redir['destination_url'], true, (int)$redir['code']);
+            exit;
+        }
+
+        // SEO overrides
+        if (!empty($page_canonical)) {
+            $seo = hc_one("SELECT * FROM hc_seo_pages WHERE page_path = ?", [$page_canonical]);
+            if ($seo) {
+                if (!empty($seo['meta_title']))   $page_title    = $seo['meta_title'];
+                if (!empty($seo['meta_desc']))    $page_desc     = $seo['meta_desc'];
+                if (!empty($seo['canonical_url'])) $page_canonical = $seo['canonical_url'];
+                if (!empty($seo['og_title']))     $og_title      = $seo['og_title'];
+                if (!empty($seo['og_desc']))      $og_desc       = $seo['og_desc'];
+            }
+        }
+    } catch (Exception $e) { /* silently continue */ }
+})();
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -137,6 +170,28 @@ footer{background:var(--forest);padding:64px 48px 0}
 <?php if (!empty($page_css)): ?>
 <style><?= $page_css ?></style>
 <?php endif; ?>
+<?php
+// ── Inject LD+JSON schema from DB ───────────────────────────
+try {
+    if (!empty($page_canonical) && function_exists('hc_all')) {
+        $schemas = hc_all("SELECT schema_type, schema_data FROM hc_page_schema WHERE page_path = ? AND active = 1", [$page_canonical]);
+        foreach ($schemas as $s) {
+            if (empty($s['schema_data'])) continue;
+            $data = json_decode($s['schema_data'], true);
+            if (!$data) continue;
+            echo '<script type="application/ld+json">' . json_encode(array_merge(['@context'=>'https://schema.org','@type'=>$s['schema_type']], $data), JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
+        }
+        // Org schema on every page
+        $org_fields = hc_all("SELECT field_key, field_value FROM hc_org_schema");
+        if ($org_fields) {
+            $od = []; foreach($org_fields as $f) $od[$f['field_key']]=$f['field_value'];
+            $kg = array_column(hc_all("SELECT url FROM hc_kg_links") ?? [], 'url');
+            $org = array_filter(['@context'=>'https://schema.org','@type'=>$od['org_type']??'LocalBusiness','name'=>$od['org_name']??'','url'=>SITE_URL,'description'=>$od['org_desc']??'','telephone'=>$od['org_phone']??'','email'=>$od['org_email']??'','sameAs'=>$kg?:null]);
+            if (!empty($od['org_name'])) echo '<script type="application/ld+json">' . json_encode($org, JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
+        }
+    }
+} catch(Exception $e) {}
+?>
 </head>
 <body>
 
