@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $page_title    = "Homecare Creators — Market It. Manage It. Grow It.";
 $page_desc     = "The only marketing agency built exclusively for homecare agencies in Florida. Website design, local SEO, AI search optimization, and CareOS platform — all built for homecare.";
 $page_canonical = "https://homecarecreators.com/";
@@ -686,7 +686,7 @@ include 'includes/header.php';
             <li><i class="fa-solid fa-check"></i>Caregiver careers + job board page</li>
             <li><i class="fa-solid fa-check"></i>Under 2s load speed guaranteed</li>
           </ul>
-          <a href="/seo/homecare-website-design.php" class="service-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/seo/homecare-website-design" class="service-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -709,7 +709,7 @@ include 'includes/header.php';
             <li><i class="fa-solid fa-check"></i>Monthly ranking reports</li>
             <li><i class="fa-solid fa-check"></i>Review velocity management</li>
           </ul>
-          <a href="/seo/local-seo-for-home-care-agencies.php" class="service-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/seo/local-seo-for-home-care-agencies" class="service-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 

@@ -1,7 +1,7 @@
-<?php
+﻿<?php
 $page_title    = "Privacy Policy | Homecare Creators";
 $page_desc     = "Privacy Policy for Homecare Creators — learn how we collect, use, and protect your information.";
-$page_canonical = "https://homecarecreators.com/privacy-policy.php";
+$page_canonical = "https://homecarecreators.com/privacy-policy";
 $og_title      = "Privacy Policy | Homecare Creators";
 $og_desc       = "Privacy Policy for Homecare Creators, the only marketing agency built exclusively for homecare agencies in Florida.";
 

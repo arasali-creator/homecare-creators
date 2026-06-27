@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $page_title = "Homecare Website Design in Miami, FL | Homecare Creators";
 $page_desc = "Professional homecare website design for Miami, FL agencies. We build fast, SEO-optimized websites that rank on Google, convert families, and recruit caregivers across Miami-Dade County.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design-miami-fl/";
@@ -334,8 +334,8 @@ include '../includes/header.php';
     <!-- LOCAL SEO INTERNAL LINK -->
     <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <div><i class="fa-solid fa-magnifying-glass-chart" style="font-size:28px;color:var(--teal)"></i></div>
-      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website needs visibility. Our <a href="/seo/local-seo-for-home-care-agencies.php" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service ranks your new Miami website at #1 on Google Maps — driving more leads from day one.</div></div>
-      <a href="/seo/local-seo-for-home-care-agencies.php" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Packages</a>
+      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website needs visibility. Our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service ranks your new Miami website at #1 on Google Maps — driving more leads from day one.</div></div>
+      <a href="/seo/local-seo-for-home-care-agencies" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Packages</a>
     </div>
   </div>
 </section>

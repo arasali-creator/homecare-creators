@@ -1,4 +1,4 @@
-<!-- FOOTER -->
+﻿<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div>
@@ -22,8 +22,8 @@
     <div>
       <div class="footer-col-title">Services</div>
       <ul class="footer-links">
-        <li><a href="/seo/homecare-website-design.php">Website Design</a></li>
-        <li><a href="/seo/local-seo-for-home-care-agencies.php">Local SEO</a></li>
+        <li><a href="/seo/homecare-website-design">Website Design</a></li>
+        <li><a href="/seo/local-seo-for-home-care-agencies">Local SEO</a></li>
         <li><a href="/#services">AI Search SEO</a></li>
         <li><a href="/#bundles">Pricing &amp; Packages</a></li>
         <li><a href="/#careos">CareOS Platform</a></li>
@@ -32,33 +32,33 @@
     <div>
       <div class="footer-col-title">Florida Cities</div>
       <ul class="footer-links">
-        <li><a href="/Marketing/home-care-miami-fl.php">Miami</a></li>
-        <li><a href="/Marketing/home-care-orlando-fl.php">Orlando</a></li>
-        <li><a href="/Marketing/home-care-sarasota-fl.php">Sarasota</a></li>
-        <li><a href="/Marketing/home-care-jacksonville-fl.php">Jacksonville</a></li>
-        <li><a href="/Marketing/home-care-fort-lauderdale-fl.php">Fort Lauderdale</a></li>
-        <li><a href="/Marketing/home-care-naples-fl.php">Naples</a></li>
-        <li><a href="/Marketing/home-care-west-palm-beach-fl.php">West Palm Beach</a></li>
-        <li><a href="/Marketing/home-care-boca-raton-fl.php">Boca Raton</a></li>
-        <li><a href="/Marketing/home-care-clearwater-fl.php">Clearwater</a></li>
-        <li><a href="/Marketing/home-care-tampa-fl.php">Tampa</a></li>
+        <li><a href="/Marketing/home-care-miami-fl">Miami</a></li>
+        <li><a href="/Marketing/home-care-orlando-fl">Orlando</a></li>
+        <li><a href="/Marketing/home-care-sarasota-fl">Sarasota</a></li>
+        <li><a href="/Marketing/home-care-jacksonville-fl">Jacksonville</a></li>
+        <li><a href="/Marketing/home-care-fort-lauderdale-fl">Fort Lauderdale</a></li>
+        <li><a href="/Marketing/home-care-naples-fl">Naples</a></li>
+        <li><a href="/Marketing/home-care-west-palm-beach-fl">West Palm Beach</a></li>
+        <li><a href="/Marketing/home-care-boca-raton-fl">Boca Raton</a></li>
+        <li><a href="/Marketing/home-care-clearwater-fl">Clearwater</a></li>
+        <li><a href="/Marketing/home-care-tampa-fl">Tampa</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Web Design Cities</div>
       <ul class="footer-links">
-        <li><a href="/web-design/homecare-website-design-miami-fl.php">Miami Web Design</a></li>
-        <li><a href="/web-design/homecare-website-design-orlando-fl.php">Orlando Web Design</a></li>
-        <li><a href="/web-design/homecare-website-design-tampa-fl.php">Tampa Web Design</a></li>
-        <li><a href="/web-design/homecare-website-design-jacksonville-fl.php">Jacksonville Web Design</a></li>
-        <li><a href="/web-design/homecare-website-design-fort-lauderdale-fl.php">Fort Lauderdale Web Design</a></li>
-        <li><a href="/web-design/homecare-website-design-naples-fl.php">Naples Web Design</a></li>
+        <li><a href="/web-design/homecare-website-design-miami-fl">Miami Web Design</a></li>
+        <li><a href="/web-design/homecare-website-design-orlando-fl">Orlando Web Design</a></li>
+        <li><a href="/web-design/homecare-website-design-tampa-fl">Tampa Web Design</a></li>
+        <li><a href="/web-design/homecare-website-design-jacksonville-fl">Jacksonville Web Design</a></li>
+        <li><a href="/web-design/homecare-website-design-fort-lauderdale-fl">Fort Lauderdale Web Design</a></li>
+        <li><a href="/web-design/homecare-website-design-naples-fl">Naples Web Design</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <div class="footer-copy">© 2026 Homecare Creators &middot; <a href="mailto:info@homecarecreators.com" style="color:inherit">info@homecarecreators.com</a> &middot; All rights reserved.</div>
-    <div class="footer-bottom-links"><a href="/privacy-policy.php">Privacy Policy</a><a href="/terms-of-service.php">Terms of Service</a></div>
+    <div class="footer-bottom-links"><a href="/privacy-policy">Privacy Policy</a><a href="/terms-of-service">Terms of Service</a></div>
   </div>
 </footer>
 

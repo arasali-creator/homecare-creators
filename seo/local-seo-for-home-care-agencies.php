@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $page_title = "Local SEO for Home Care Agencies | Homecare Creators";
 $page_desc = "Local SEO built exclusively for home care agencies. Rank #1 on Google Maps, dominate local search in Florida, and grow private-pay clients. Packages from $399/mo. No contracts. Results in 60–90 days.";
 $page_canonical = "https://homecarecreators.com/local-seo-for-home-care-agencies/";
@@ -442,7 +442,7 @@ include '../includes/header.php';
     </div>
 
     <div style="text-align:center;margin-top:32px">
-      <p style="font-size:14px;color:var(--muted);margin-bottom:16px">Need a website first? <a href="/seo/homecare-website-design.php" style="color:var(--teal);font-weight:600">See our Homecare Website Design packages starting at $699</a></p>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:16px">Need a website first? <a href="/seo/homecare-website-design" style="color:var(--teal);font-weight:600">See our Homecare Website Design packages starting at $699</a></p>
     </div>
 
   </div>
@@ -533,7 +533,7 @@ include '../includes/header.php';
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need a website to start local SEO?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">You need at minimum a basic website — even a simple 3-page site gives Google something to evaluate. Without any website, local SEO is significantly limited. We offer <a href="/seo/homecare-website-design.php" style="color:var(--teal);font-weight:600">website design as a separate service starting at $699</a>, and many clients combine our website design and local SEO services for maximum results. If you already have a website, we'll audit it during our free review and let you know if any improvements are needed to support the SEO work.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">You need at minimum a basic website — even a simple 3-page site gives Google something to evaluate. Without any website, local SEO is significantly limited. We offer <a href="/seo/homecare-website-design" style="color:var(--teal);font-weight:600">website design as a separate service starting at $699</a>, and many clients combine our website design and local SEO services for maximum results. If you already have a website, we'll audit it during our free review and let you know if any improvements are needed to support the SEO work.</div></div>
       </div>
 
       <div class="faq-item">
