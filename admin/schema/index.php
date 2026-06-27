@@ -39,6 +39,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             hc_flash('Schema saved.');
         }
     }
+    if ($action === 'update') {
+        $id   = (int)($_POST['id'] ?? 0);
+        $data = trim($_POST['schema_data'] ?? '');
+        if ($id && json_decode($data) !== null) {
+            hc_q("UPDATE hc_page_schema SET schema_data=? WHERE id=?", [$data, $id]);
+            hc_flash('Schema updated.');
+        } else {
+            hc_flash('Invalid JSON — not saved. Check your syntax.', 'error');
+        }
+    }
     if ($action === 'toggle') {
         hc_q("UPDATE hc_page_schema SET active=1-active WHERE id=?", [(int)($_POST['id']??0)]);
         hc_flash('Schema updated.');
@@ -106,10 +116,31 @@ hc_topbar('Schema / LD+JSON', '<a href="/admin/">Admin</a> › Schema');
       <tr>
         <td><strong><?= h($s['schema_type']) ?></strong></td>
         <td><span class="badge <?= $s['active']?'badge-green':'badge-gray' ?>"><?= $s['active']?'active':'off' ?></span></td>
-        <td style="font-size:11.5px;color:var(--muted);font-family:monospace;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><?= h(substr($s['schema_data']??'',0,80)) ?></td>
+        <td style="font-size:11.5px;color:var(--muted);font-family:monospace;max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><?= h(substr($s['schema_data']??'',0,80)) ?></td>
         <td class="td-actions">
+          <button type="button" class="btn btn-ghost btn-sm" onclick="toggleEditRow(<?= $s['id'] ?>)">Edit</button>
           <form method="POST" style="display:inline"><input type="hidden" name="action" value="toggle"><input type="hidden" name="id" value="<?= $s['id'] ?>"><input type="hidden" name="schema_path" value="<?= h($schema_path) ?>"><input type="hidden" name="fs_path" value="<?= h($path) ?>"><button class="btn btn-ghost btn-sm"><?= $s['active']?'Disable':'Enable' ?></button></form>
           <form method="POST" style="display:inline"><input type="hidden" name="action" value="delete"><input type="hidden" name="id" value="<?= $s['id'] ?>"><input type="hidden" name="schema_path" value="<?= h($schema_path) ?>"><input type="hidden" name="fs_path" value="<?= h($path) ?>"><button class="btn btn-ghost btn-sm danger" data-confirm="Delete this schema block?">Delete</button></form>
+        </td>
+      </tr>
+      <tr class="edit-row" id="edit-row-<?= $s['id'] ?>" style="display:none">
+        <td colspan="4" style="padding:0;background:var(--cream)">
+          <form method="POST" style="padding:16px 20px">
+            <input type="hidden" name="action" value="update">
+            <input type="hidden" name="id" value="<?= $s['id'] ?>">
+            <input type="hidden" name="schema_path" value="<?= h($schema_path) ?>">
+            <input type="hidden" name="fs_path" value="<?= h($path) ?>">
+            <div style="font-size:12px;font-weight:600;color:var(--forest);margin-bottom:8px">
+              Editing: <?= h($s['schema_type']) ?> — paste valid JSON below (without @context / @type)
+            </div>
+            <textarea name="schema_data" rows="12"
+              style="width:100%;font-family:monospace;font-size:12px;padding:10px;border:1px solid var(--border);border-radius:8px;background:#fff;resize:vertical"
+            ><?= h(json_encode(json_decode($s['schema_data']??'{}'), JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES)) ?></textarea>
+            <div style="display:flex;gap:8px;margin-top:10px">
+              <button type="submit" class="btn btn-primary btn-sm">Save Changes</button>
+              <button type="button" class="btn btn-ghost btn-sm" onclick="toggleEditRow(<?= $s['id'] ?>)">Cancel</button>
+            </div>
+          </form>
         </td>
       </tr>
       <?php endforeach ?>
@@ -201,4 +232,18 @@ hc_topbar('Schema / LD+JSON', '<a href="/admin/">Admin</a> › Schema');
 <?php endif ?>
 
 </div>
+<script>
+function toggleEditRow(id) {
+  const row = document.getElementById('edit-row-' + id);
+  if (!row) return;
+  const isOpen = row.style.display !== 'none';
+  // Close all open edit rows first
+  document.querySelectorAll('.edit-row').forEach(r => r.style.display = 'none');
+  if (!isOpen) {
+    row.style.display = '';
+    row.querySelector('textarea').focus();
+    row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+</script>
 <?php hc_foot(); ?>
