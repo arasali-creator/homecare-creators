@@ -3,6 +3,7 @@ require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/auth.php';
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/includes/mailer.php';
 require_once __DIR__ . '/includes/layout.php';
 hc_require_auth();
 
@@ -15,11 +16,30 @@ try {
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 } catch(Exception $e){}
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $keys = ['notification_email','notification_cc','site_name','reply_to_email'];
+// Handle test email
+if (isset($_POST['action']) && $_POST['action'] === 'test_email') {
+    $testTo = trim($_POST['test_to'] ?? hc_setting('notification_email','info@homecarecreators.com'));
+    $sent   = HcMailer::send(
+        $testTo,
+        'Test Email — Homecare Creators Admin',
+        "This is a test email from your Homecare Creators admin panel.\n\nIf you received this, your email delivery is working correctly.\n\nSMTP Host: " . hc_setting('smtp_host','(none — using PHP mail())'),
+        '',''
+    );
+    hc_flash($sent ? "Test email sent to {$testTo} — check your inbox (and spam folder)." : 'Test email FAILED. Check your SMTP settings below.', $sent ? 'success' : 'error');
+    header('Location: /admin/settings.php');
+    exit;
+}
+
+// Handle save
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') !== 'test_email') {
+    $keys = [
+        'notification_email','notification_cc','reply_to_email','site_name',
+        'smtp_host','smtp_port','smtp_enc','smtp_user','smtp_pass',
+    ];
     foreach ($keys as $k) {
-        $val = trim($_POST[$k] ?? '');
-        try { hc_setting_save($k, $val); } catch(Exception $e){}
+        // Don't overwrite password if left blank
+        if ($k === 'smtp_pass' && trim($_POST[$k] ?? '') === '') continue;
+        hc_setting_save($k, trim($_POST[$k] ?? ''));
     }
     hc_flash('Settings saved.');
     header('Location: /admin/settings.php');
@@ -28,82 +48,147 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 hc_head('Settings');
 hc_topbar('Settings', '<a href="/admin/">Admin</a> › Settings');
+
+$smtp_host = hc_setting('smtp_host','');
+$smtp_configured = !empty($smtp_host);
 ?>
 <div class="page-content">
 
 <?= hc_show_flash() ?>
 
+<!-- Status banner -->
+<div class="alert <?= $smtp_configured ? 'alert-success' : 'alert-info' ?>" style="margin-bottom:20px">
+  <?php if ($smtp_configured): ?>
+    <strong>SMTP configured</strong> — emails send via <code><?= h($smtp_host) ?>:<?= h(hc_setting('smtp_port','587')) ?></code> (<?= h(strtoupper(hc_setting('smtp_enc','tls'))) ?>)
+  <?php else: ?>
+    <strong>SMTP not configured</strong> — emails use PHP <code>mail()</code> which often fails on VPS servers. Set up SMTP below to fix email delivery.
+  <?php endif ?>
+</div>
+
 <form method="POST">
 
-<!-- Form Notifications -->
+<!-- Email Recipients -->
 <div class="card">
   <div class="card-header">
     <div>
-      <div class="card-title">Form Notifications</div>
-      <div class="card-sub">Where enquiry form submissions are emailed</div>
+      <div class="card-title">Email Recipients</div>
+      <div class="card-sub">Where form submissions are sent</div>
     </div>
   </div>
-
   <div class="form-grid">
     <div class="form-group">
       <label for="notification_email">Notification Email <span>(required)</span></label>
       <input type="email" id="notification_email" name="notification_email"
-             value="<?= h(hc_setting('notification_email','info@homecarecreators.com')) ?>"
-             placeholder="info@homecarecreators.com">
-      <div class="form-hint">All form submissions are sent to this address. Make sure it's correct or you'll miss leads.</div>
+             value="<?= h(hc_setting('notification_email','info@homecarecreators.com')) ?>">
+      <div class="form-hint">Every contact form submission goes to this address.</div>
     </div>
     <div class="form-group">
       <label for="notification_cc">CC Email <span>(optional)</span></label>
       <input type="email" id="notification_cc" name="notification_cc"
              value="<?= h(hc_setting('notification_cc','')) ?>"
-             placeholder="team@youragency.com">
-      <div class="form-hint">Optional second address to CC on every submission.</div>
+             placeholder="second@email.com">
+      <div class="form-hint">Optional second recipient on every submission.</div>
     </div>
   </div>
-
   <div class="form-grid">
     <div class="form-group">
-      <label for="reply_to_email">Reply-To Email</label>
+      <label for="reply_to_email">From / Reply-To Address</label>
       <input type="email" id="reply_to_email" name="reply_to_email"
-             value="<?= h(hc_setting('reply_to_email','noreply@homecarecreators.com')) ?>"
-             placeholder="noreply@homecarecreators.com">
-      <div class="form-hint">The From/Reply-To address on outgoing notification emails.</div>
+             value="<?= h(hc_setting('reply_to_email','noreply@homecarecreators.com')) ?>">
     </div>
     <div class="form-group">
       <label for="site_name">Site Name</label>
       <input type="text" id="site_name" name="site_name"
              value="<?= h(hc_setting('site_name','Homecare Creators')) ?>">
-      <div class="form-hint">Used in email subject lines and signatures.</div>
     </div>
   </div>
 </div>
 
-<!-- Test section -->
+<!-- SMTP Settings -->
 <div class="card">
   <div class="card-header">
-    <div class="card-title">Test Email Delivery</div>
+    <div>
+      <div class="card-title">SMTP Settings</div>
+      <div class="card-sub">Required for reliable email delivery. Use Gmail, Outlook, or any SMTP provider.</div>
+    </div>
   </div>
-  <p style="font-size:13px;color:var(--muted);margin-bottom:14px">
-    Submit the contact form on the live site to test delivery. Check spam folders if emails don't arrive —
-    most VPS setups need an SMTP relay (Mailgun, SendGrid, or Postmark) for reliable delivery.<br><br>
-    On Bluehost/CloudPanel, PHP <code>mail()</code> may work out of the box via the server's local MTA.
-    If emails consistently fail, configure an SMTP plugin or ask your host.
-  </p>
 
-  <div style="background:var(--cream);border-radius:10px;padding:16px 20px;font-size:13px;line-height:1.8">
-    <strong>Current delivery path:</strong><br>
-    form-handler.php → PHP <code>mail()</code> →
-    <code><?= h(hc_setting('notification_email','info@homecarecreators.com')) ?></code>
-    <?php if (hc_setting('notification_cc')): ?>
-      + CC <code><?= h(hc_setting('notification_cc')) ?></code>
-    <?php endif ?>
+  <div style="background:var(--cream);border-radius:10px;padding:16px 20px;margin-bottom:20px;font-size:13px;line-height:1.9">
+    <strong>Quick setup options:</strong><br>
+    <strong>Gmail:</strong> Host <code>smtp.gmail.com</code> · Port <code>587</code> · TLS · Use a <a href="https://myaccount.google.com/apppasswords" target="_blank" style="color:var(--teal)">Google App Password</a> (not your normal password)<br>
+    <strong>Outlook/Hotmail:</strong> Host <code>smtp-mail.outlook.com</code> · Port <code>587</code> · TLS<br>
+    <strong>Brevo (free 300/day):</strong> Host <code>smtp-relay.brevo.com</code> · Port <code>587</code> · TLS<br>
+    <strong>Mailgun:</strong> Host <code>smtp.mailgun.org</code> · Port <code>587</code> · TLS
+  </div>
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="smtp_host">SMTP Host</label>
+      <input type="text" id="smtp_host" name="smtp_host"
+             value="<?= h(hc_setting('smtp_host','')) ?>"
+             placeholder="smtp.gmail.com">
+    </div>
+    <div class="form-group">
+      <label for="smtp_port">Port</label>
+      <input type="number" id="smtp_port" name="smtp_port"
+             value="<?= h(hc_setting('smtp_port','587')) ?>"
+             placeholder="587">
+    </div>
+  </div>
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="smtp_enc">Encryption</label>
+      <select id="smtp_enc" name="smtp_enc">
+        <option value="tls"  <?= hc_setting('smtp_enc','tls')==='tls' ?'selected':'' ?>>TLS / STARTTLS (recommended — port 587)</option>
+        <option value="ssl"  <?= hc_setting('smtp_enc')==='ssl' ?'selected':'' ?>>SSL (port 465)</option>
+        <option value="none" <?= hc_setting('smtp_enc')==='none'?'selected':'' ?>>None (port 25 — not recommended)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="smtp_user">SMTP Username</label>
+      <input type="text" id="smtp_user" name="smtp_user"
+             value="<?= h(hc_setting('smtp_user','')) ?>"
+             placeholder="your@gmail.com" autocomplete="off">
+    </div>
+  </div>
+
+  <div class="form-group" style="max-width:420px">
+    <label for="smtp_pass">SMTP Password / App Password</label>
+    <input type="password" id="smtp_pass" name="smtp_pass"
+           value="" placeholder="<?= $smtp_configured ? '(saved — leave blank to keep)' : 'Enter password' ?>"
+           autocomplete="new-password">
+    <div class="form-hint">
+      <?= $smtp_configured ? 'Password is saved. Only fill this in to change it.' : 'For Gmail, generate an App Password at myaccount.google.com/apppasswords' ?>
+    </div>
   </div>
 </div>
 
-<div style="display:flex;gap:12px;margin-top:4px">
+<div style="display:flex;gap:12px;margin-top:4px;flex-wrap:wrap">
   <button type="submit" class="btn btn-primary btn-lg">Save Settings</button>
 </div>
 
 </form>
+
+<!-- Test Email -->
+<div class="card" style="margin-top:20px">
+  <div class="card-header">
+    <div class="card-title">Send Test Email</div>
+  </div>
+  <form method="POST" style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap">
+    <input type="hidden" name="action" value="test_email">
+    <div class="form-group" style="margin-bottom:0;flex:1;min-width:200px">
+      <label>Send test to</label>
+      <input type="email" name="test_to"
+             value="<?= h(hc_setting('notification_email','info@homecarecreators.com')) ?>"
+             placeholder="info@homecarecreators.com">
+    </div>
+    <button type="submit" class="btn btn-secondary">Send Test Email</button>
+  </form>
+  <div style="font-size:12px;color:var(--muted);margin-top:10px">
+    Sends a test message using your current SMTP settings. Check spam/junk if it doesn't arrive.
+  </div>
+</div>
+
 </div>
 <?php hc_foot(); ?>
