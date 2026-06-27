@@ -182,7 +182,11 @@ footer{background:var(--forest);padding:64px 48px 0}
 // ── Inject LD+JSON schema from DB ───────────────────────────
 try {
     if (!empty($page_canonical) && function_exists('hc_all')) {
-        $schemas = hc_all("SELECT schema_type, schema_data FROM hc_page_schema WHERE page_path = ? AND active = 1", [$page_canonical]);
+        // Normalize to path-only so seeder/admin can store relative paths regardless of canonical format
+        $_schema_path = $page_canonical;
+        if (preg_match('#^https?://[^/]+(/.*)$#', $page_canonical, $_m)) $_schema_path = $_m[1];
+        if ($_schema_path === '') $_schema_path = '/';
+        $schemas = hc_all("SELECT schema_type, schema_data FROM hc_page_schema WHERE page_path = ? AND active = 1", [$_schema_path]);
         foreach ($schemas as $s) {
             if (empty($s['schema_data'])) continue;
             $data = json_decode($s['schema_data'], true);
