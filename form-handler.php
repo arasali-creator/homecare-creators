@@ -51,6 +51,16 @@ try {
         if ($db_email) $notification_email = $db_email;
         $notification_cc = hc_setting('notification_cc', '');
         $db_loaded = true;
+
+        // WhatsApp notification
+        $wa_msg  = "🔔 New lead on Homecare Creators!\n";
+        $wa_msg .= "👤 Name: {$name}\n";
+        $wa_msg .= "📧 Email: {$email}\n";
+        if ($phone)   $wa_msg .= "📞 Phone: {$phone}\n";
+        if ($agency)  $wa_msg .= "🏢 Agency: {$agency}\n";
+        if ($city)    $wa_msg .= "📍 City: {$city}\n";
+        if ($service) $wa_msg .= "🎯 Service: {$service}\n";
+        hc_whatsapp_notify($wa_msg);
     }
 } catch(Exception $e) { /* fail silently — still send email */ }
 

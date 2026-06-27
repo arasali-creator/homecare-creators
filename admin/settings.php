@@ -16,6 +16,14 @@ try {
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 } catch(Exception $e){}
 
+// Handle test WhatsApp
+if (isset($_POST['action']) && $_POST['action'] === 'test_whatsapp') {
+    $sent = hc_whatsapp_notify("✅ Test message from Homecare Creators admin. WhatsApp notifications are working!");
+    hc_flash($sent ? 'Test WhatsApp sent — check your phone.' : 'Failed — check your phone number and API key.', $sent ? 'success' : 'error');
+    header('Location: /admin/settings.php');
+    exit;
+}
+
 // Handle test email
 if (isset($_POST['action']) && $_POST['action'] === 'test_email') {
     $testTo = trim($_POST['test_to'] ?? hc_setting('notification_email','info@homecarecreators.com'));
@@ -36,9 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') !== 'test_
         'notification_email','notification_cc','reply_to_email','site_name',
         'smtp_host','smtp_port','smtp_enc','smtp_user','smtp_pass',
         'logo_url','favicon_url',
+        'wa_phone','wa_apikey',
     ];
     foreach ($keys as $k) {
-        // Don't overwrite password if left blank
         if ($k === 'smtp_pass' && trim($_POST[$k] ?? '') === '') continue;
         hc_setting_save($k, trim($_POST[$k] ?? ''));
     }
@@ -203,11 +211,67 @@ $smtp_configured = !empty($smtp_host);
   </div>
 </div>
 
+<!-- WhatsApp Notifications -->
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="card-title">WhatsApp Notifications</div>
+      <div class="card-sub">Get an instant WhatsApp message when someone submits the contact form</div>
+    </div>
+    <?php $wa_ok = hc_setting('wa_phone') && hc_setting('wa_apikey'); ?>
+    <span class="badge <?= $wa_ok ? 'badge-green' : 'badge-gray' ?>" style="font-size:12px">
+      <?= $wa_ok ? 'Active' : 'Not set up' ?>
+    </span>
+  </div>
+
+  <div style="background:rgba(37,211,102,.07);border:1px solid rgba(37,211,102,.25);border-radius:10px;padding:16px 20px;margin-bottom:20px;font-size:13px;line-height:2">
+    <strong>One-time setup (takes 2 minutes):</strong><br>
+    1. Save this number in your phone contacts: <strong>+34 644 77 81 82</strong> (name it "CallMeBot")<br>
+    2. Open WhatsApp and send this exact message to that contact:<br>
+    &nbsp;&nbsp;&nbsp;<code style="background:#fff;padding:3px 8px;border-radius:4px;font-size:12px">I allow callmebot to send me messages</code><br>
+    3. You'll receive your API key in reply — paste it below<br>
+    4. Enter your WhatsApp number in international format (no + sign, e.g. <code>923411420970</code>)
+  </div>
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="wa_phone">Your WhatsApp Number</label>
+      <input type="text" id="wa_phone" name="wa_phone"
+             value="<?= h(hc_setting('wa_phone','')) ?>"
+             placeholder="923411420970">
+      <div class="form-hint">International format without + or spaces. Your number: 923411420970</div>
+    </div>
+    <div class="form-group">
+      <label for="wa_apikey">CallMeBot API Key</label>
+      <input type="text" id="wa_apikey" name="wa_apikey"
+             value="<?= h(hc_setting('wa_apikey','')) ?>"
+             placeholder="e.g. 123456">
+      <div class="form-hint">You receive this key via WhatsApp after sending the activation message.</div>
+    </div>
+  </div>
+</div>
+
 <div style="display:flex;gap:12px;margin-top:4px;flex-wrap:wrap">
   <button type="submit" class="btn btn-primary btn-lg">Save Settings</button>
 </div>
 
 </form>
+
+<!-- Test WhatsApp -->
+<?php if (hc_setting('wa_phone') && hc_setting('wa_apikey')): ?>
+<div class="card" style="margin-top:20px">
+  <div class="card-header">
+    <div class="card-title">Test WhatsApp</div>
+  </div>
+  <form method="POST">
+    <input type="hidden" name="action" value="test_whatsapp">
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <span style="font-size:13px;color:var(--muted)">Send a test WhatsApp message to <strong><?= h(hc_setting('wa_phone')) ?></strong></span>
+      <button type="submit" class="btn btn-secondary">Send Test WhatsApp</button>
+    </div>
+  </form>
+</div>
+<?php endif ?>
 
 <!-- Test Email -->
 <div class="card" style="margin-top:20px">

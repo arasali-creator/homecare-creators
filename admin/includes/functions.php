@@ -91,6 +91,23 @@ function hc_setting_save(string $key, string $value): void {
     hc_q("INSERT INTO hc_settings (setting_key,setting_value) VALUES (?,?) ON DUPLICATE KEY UPDATE setting_value=VALUES(setting_value)", [$key, $value]);
 }
 
+function hc_whatsapp_notify(string $message): bool {
+    $phone  = hc_setting('wa_phone', '');
+    $apikey = hc_setting('wa_apikey', '');
+    if (!$phone || !$apikey) return false;
+
+    $url = 'https://api.callmebot.com/whatsapp.php?phone=' . urlencode($phone)
+         . '&text=' . urlencode($message)
+         . '&apikey=' . urlencode($apikey);
+
+    $ctx = stream_context_create(['http' => [
+        'timeout'        => 8,
+        'ignore_errors'  => true,
+    ]]);
+    @file_get_contents($url, false, $ctx);
+    return true;
+}
+
 function hc_slug(string $text): string {
     $text = strtolower(trim($text));
     $text = preg_replace('/[^a-z0-9\s-]/', '', $text);
