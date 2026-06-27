@@ -51,6 +51,7 @@ function is_active(string ...$paths): bool {
       <a href="/admin/technical/redirects.php" class="nav-item <?= is_active('redirects') ? 'active' : '' ?>">301 Redirects</a>
       <a href="/admin/technical/canonicals.php" class="nav-item <?= is_active('canonicals') ? 'active' : '' ?>">Canonical URLs</a>
       <a href="/admin/technical/hreflang.php" class="nav-item <?= is_active('hreflang') ? 'active' : '' ?>">Hreflang</a>
+      <a href="/admin/technical/bulk-404.php" class="nav-item <?= is_active('bulk-404') ? 'active' : '' ?>">Bulk 404 Fix</a>
     </div>
 
     <!-- AI / GEO toggle -->

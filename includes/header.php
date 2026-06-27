@@ -2,12 +2,15 @@
 // ── SEO Override + Redirect System ──────────────────────────
 // Loads DB overrides if admin/config.php exists. Silently skips
 // if DB is unavailable (site works normally without it).
-(function() use (&$page_title, &$page_desc, &$page_canonical, &$og_title, &$og_desc) {
+$_hc_logo_url    = '';
+$_hc_favicon_url = '';
+(function() use (&$page_title, &$page_desc, &$page_canonical, &$og_title, &$og_desc, &$_hc_logo_url, &$_hc_favicon_url) {
     $cfg = dirname(__DIR__) . '/admin/config.php';
     if (!file_exists($cfg)) return;
     try {
         require_once $cfg;
         require_once dirname(__DIR__) . '/admin/includes/db.php';
+        require_once dirname(__DIR__) . '/admin/includes/functions.php';
 
         // 301 Redirect check
         $uri = strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
@@ -21,13 +24,17 @@
         if (!empty($page_canonical)) {
             $seo = hc_one("SELECT * FROM hc_seo_pages WHERE page_path = ?", [$page_canonical]);
             if ($seo) {
-                if (!empty($seo['meta_title']))   $page_title    = $seo['meta_title'];
-                if (!empty($seo['meta_desc']))    $page_desc     = $seo['meta_desc'];
+                if (!empty($seo['meta_title']))    $page_title     = $seo['meta_title'];
+                if (!empty($seo['meta_desc']))     $page_desc      = $seo['meta_desc'];
                 if (!empty($seo['canonical_url'])) $page_canonical = $seo['canonical_url'];
-                if (!empty($seo['og_title']))     $og_title      = $seo['og_title'];
-                if (!empty($seo['og_desc']))      $og_desc       = $seo['og_desc'];
+                if (!empty($seo['og_title']))      $og_title       = $seo['og_title'];
+                if (!empty($seo['og_desc']))       $og_desc        = $seo['og_desc'];
             }
         }
+
+        // Site identity
+        $_hc_logo_url    = hc_setting('logo_url', '');
+        $_hc_favicon_url = hc_setting('favicon_url', '');
     } catch (Exception $e) { /* silently continue */ }
 })();
 ?>
@@ -43,6 +50,7 @@
 <?php if (!empty($og_desc)): ?><meta property="og:description" content="<?= htmlspecialchars($og_desc) ?>"><?php endif; ?>
 <?php if (!empty($page_canonical)): ?><meta property="og:url" content="<?= htmlspecialchars($page_canonical) ?>"><?php endif; ?>
 <meta property="og:type" content="website">
+<?php if ($_hc_favicon_url): ?><link rel="icon" href="<?= htmlspecialchars($_hc_favicon_url) ?>"><?php else: ?><link rel="icon" href="/favicon.ico"><?php endif ?>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -238,6 +246,9 @@ try {
 <!-- NAVIGATION -->
 <nav id="mainNav">
   <a href="/" class="nav-logo" aria-label="Homecare Creators Home">
+    <?php if ($_hc_logo_url): ?>
+    <img src="<?= htmlspecialchars($_hc_logo_url) ?>" alt="Homecare Creators" style="height:46px;width:auto;display:block">
+    <?php else: ?>
     <svg height="46" viewBox="0 0 690 290" xmlns="http://www.w3.org/2000/svg">
       <line x1="42" y1="28" x2="42" y2="248" stroke="white" stroke-width="8" stroke-linecap="round"/>
       <line x1="42" y1="248" x2="270" y2="248" stroke="white" stroke-width="8" stroke-linecap="round"/>
@@ -247,6 +258,7 @@ try {
       <text x="58" y="170" font-family="'Arial Rounded MT Bold','Trebuchet MS',Arial,sans-serif" font-size="130" font-weight="900" fill="white" letter-spacing="-3">Homecare</text>
       <text x="345" y="218" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="500" fill="#2ec68f" letter-spacing="10" text-anchor="middle">CREATORS</text>
     </svg>
+    <?php endif ?>
   </a>
   <ul class="nav-links">
     <li><a href="/#why">Why Us</a></li>

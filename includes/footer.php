@@ -3,6 +3,9 @@
   <div class="footer-inner">
     <div>
       <div class="footer-logo">
+        <?php if (!empty($_hc_logo_url)): ?>
+        <img src="<?= htmlspecialchars($_hc_logo_url) ?>" alt="Homecare Creators" style="height:48px;width:auto;display:block">
+        <?php else: ?>
         <svg height="48" viewBox="0 0 690 290" xmlns="http://www.w3.org/2000/svg">
           <line x1="42" y1="28" x2="42" y2="248" stroke="white" stroke-width="8" stroke-linecap="round"/>
           <line x1="42" y1="248" x2="270" y2="248" stroke="white" stroke-width="8" stroke-linecap="round"/>
@@ -12,6 +15,7 @@
           <text x="58" y="170" font-family="'Arial Rounded MT Bold','Trebuchet MS',Arial,sans-serif" font-size="130" font-weight="900" fill="white" letter-spacing="-3">Homecare</text>
           <text x="345" y="218" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="500" fill="#2ec68f" letter-spacing="10" text-anchor="middle">CREATORS</text>
         </svg>
+        <?php endif ?>
       </div>
       <p class="footer-tagline">Market It. Manage It. Grow It — Built Exclusively for Homecare.</p>
       <div class="footer-socials">

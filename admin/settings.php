@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') !== 'test_
     $keys = [
         'notification_email','notification_cc','reply_to_email','site_name',
         'smtp_host','smtp_port','smtp_enc','smtp_user','smtp_pass',
+        'logo_url','favicon_url',
     ];
     foreach ($keys as $k) {
         // Don't overwrite password if left blank
@@ -66,6 +67,44 @@ $smtp_configured = !empty($smtp_host);
 </div>
 
 <form method="POST">
+
+<!-- Site Identity -->
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="card-title">Site Identity</div>
+      <div class="card-sub">Logo and favicon shown across the entire website</div>
+    </div>
+  </div>
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="logo_url">Logo Image URL</label>
+      <input type="url" id="logo_url" name="logo_url"
+             value="<?= h(hc_setting('logo_url','')) ?>"
+             placeholder="https://homecarecreators.com/assets/logo.png">
+      <div class="form-hint">PNG or SVG, recommended height 46px. Leave blank to use the built-in SVG logo. Appears in the header nav and footer.</div>
+      <?php $lurl = hc_setting('logo_url',''); if ($lurl): ?>
+      <div style="margin-top:10px;padding:12px;background:var(--forest);border-radius:8px;display:inline-block">
+        <img src="<?= h($lurl) ?>" alt="Logo preview" style="height:46px;width:auto;display:block" onerror="this.style.display='none'">
+      </div>
+      <?php endif ?>
+    </div>
+    <div class="form-group">
+      <label for="favicon_url">Favicon URL</label>
+      <input type="url" id="favicon_url" name="favicon_url"
+             value="<?= h(hc_setting('favicon_url','')) ?>"
+             placeholder="https://homecarecreators.com/favicon.ico">
+      <div class="form-hint">.ico, .png, or .svg. Shown in the browser tab. Recommended size: 32×32px or 64×64px.</div>
+      <?php $furl = hc_setting('favicon_url',''); if ($furl): ?>
+      <div style="margin-top:10px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)">
+        <img src="<?= h($furl) ?>" alt="Favicon preview" style="width:32px;height:32px;border:1px solid var(--border);border-radius:4px" onerror="this.style.display='none'">
+        <span>Current favicon</span>
+      </div>
+      <?php endif ?>
+    </div>
+  </div>
+</div>
 
 <!-- Email Recipients -->
 <div class="card">

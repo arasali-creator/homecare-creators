@@ -217,17 +217,6 @@ $toc = $headings[1] ?? [];
     </div>
     <?php endif ?>
 
-    <!-- Author -->
-    <div class="sidebar-card">
-      <div class="sidebar-card-title">Written By</div>
-      <div class="author-card">
-        <div class="author-avatar-lg"><span><?= strtoupper(substr($post['author'],0,1)) ?></span></div>
-        <div class="author-name"><?= htmlspecialchars($post['author']) ?></div>
-        <div class="author-title">Homecare Marketing Specialist</div>
-        <p class="author-bio">Helping Florida homecare agencies grow their client base through proven SEO, local search, and AI-driven marketing strategies.</p>
-      </div>
-    </div>
-
     <!-- Mini CTA 2 -->
     <div class="sidebar-card" style="background:rgba(29,158,117,.05);border-color:rgba(29,158,117,.2)">
       <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px">Struggling to get new clients?</div>
