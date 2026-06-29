@@ -28,14 +28,14 @@ $page_css = <<<CSS
 .post-hero{position:relative;background:var(--forest);min-height:480px;display:flex;align-items:flex-end;overflow:hidden}
 .post-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.3}
 .post-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,46,30,1) 0%,rgba(10,46,30,.6) 60%,rgba(10,46,30,.2) 100%)}
-.post-hero-content{position:relative;z-index:2;padding:80px 48px 56px;max-width:900px;width:100%}
+.post-hero-content{position:relative;z-index:2;padding:80px 48px 56px;max-width:900px;width:100%;margin:0 auto;text-align:center}
 .post-breadcrumb{display:flex;align-items:center;gap:6px;font-family:'Syne',sans-serif;font-size:12px;color:rgba(255,255,255,.45);margin-bottom:20px;text-decoration:none}
 .post-breadcrumb a{color:rgba(255,255,255,.45);text-decoration:none}
 .post-breadcrumb a:hover{color:rgba(255,255,255,.8)}
 .post-breadcrumb span{opacity:.4}
 .post-kw{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);background:rgba(29,158,117,.15);padding:5px 12px;border-radius:20px;display:inline-block;margin-bottom:16px}
 .post-hero h1{font-family:'Instrument Serif',serif;font-size:clamp(28px,4vw,52px);color:#fff;line-height:1.18;margin-bottom:20px;max-width:800px}
-.post-meta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.post-meta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center}
 .post-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--forest));display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .post-avatar span{color:#fff;font-family:'Syne',sans-serif;font-size:13px;font-weight:700}
 .post-author-info{display:flex;flex-direction:column}

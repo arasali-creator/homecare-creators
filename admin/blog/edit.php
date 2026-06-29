@@ -150,6 +150,17 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/blog/">Bl
       </select>
     </div>
 
+    <div class="form-group">
+      <label>Featured Image</label>
+      <?php if ($post['featured_image']??''): ?>
+      <img src="<?= h($post['featured_image']) ?>" id="feat-preview" style="width:100%;height:130px;object-fit:cover;border-radius:8px;border:1px solid var(--border);margin-bottom:8px" onerror="this.style.display='none'">
+      <?php else: ?>
+      <div id="feat-preview" style="width:100%;height:130px;background:var(--cream);border:2px dashed var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;color:var(--muted);font-size:12px">No image set</div>
+      <?php endif ?>
+      <input type="text" name="featured_image" id="feat-url" value="<?= h($post['featured_image']??'') ?>" placeholder="/images/blog/filename.jpg" oninput="document.getElementById('feat-preview').src=this.value||''">
+      <div class="form-hint">Use path like <code>/images/blog/filename.jpg</code> for hosted images.</div>
+    </div>
+
     <div style="display:flex;gap:8px;flex-direction:column">
       <button class="btn btn-primary btn-lg" type="submit">Save Post</button>
       <a href="/admin/blog/" class="btn btn-secondary">Cancel</a>
@@ -160,13 +171,6 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/blog/">Bl
     <div class="form-group">
       <label>Author</label>
       <input type="text" name="author" value="<?= h($post['author']??'Homecare Creators') ?>">
-    </div>
-    <div class="form-group">
-      <label>Featured Image URL</label>
-      <input type="url" name="featured_image" value="<?= h($post['featured_image']??'') ?>" placeholder="https://...">
-      <?php if ($post['featured_image']??''): ?>
-      <img src="<?= h($post['featured_image']) ?>" style="margin-top:8px;width:100%;height:120px;object-fit:cover;border-radius:6px;border:1px solid var(--border)" onerror="this.style.display='none'">
-      <?php endif ?>
     </div>
 
     <?php if ($post && $post['status']==='published'): ?>
