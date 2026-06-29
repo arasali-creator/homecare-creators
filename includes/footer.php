@@ -94,10 +94,34 @@ function toggleFaq(q) {
   if (!isOpen) item.classList.add('open');
 }
 
-// Popup open / close
+// ── CAPTCHA ──────────────────────────────────────────────────
+var _captchaA = 0, _captchaB = 0;
+function generateCaptcha() {
+  _captchaA = Math.floor(Math.random() * 9) + 1;
+  _captchaB = Math.floor(Math.random() * 9) + 1;
+  var el = document.getElementById('captchaQuestion');
+  if (el) { el.textContent = 'What is ' + _captchaA + ' + ' + _captchaB + '?'; }
+  var inp = document.getElementById('pCaptcha');
+  if (inp) inp.value = '';
+}
+generateCaptcha();
+
+// ── Phone formatting (US) ─────────────────────────────────────
+document.getElementById('pPhone').addEventListener('input', function() {
+  var digits = this.value.replace(/\D/g, '').substring(0, 10);
+  var fmt = '';
+  if (digits.length > 0) fmt = '(' + digits.substring(0, 3);
+  if (digits.length >= 4) fmt += ') ' + digits.substring(3, 6);
+  if (digits.length >= 7) fmt += '-' + digits.substring(6, 10);
+  this.value = fmt;
+  this.classList.toggle('error', digits.length > 0 && digits.length < 10);
+});
+
+// ── Popup open / close ────────────────────────────────────────
 function openPopup() {
   document.getElementById('mainPopup').classList.add('open');
   document.body.style.overflow = 'hidden';
+  generateCaptcha();
 }
 function closePopup() {
   document.getElementById('mainPopup').classList.remove('open');
@@ -107,12 +131,34 @@ document.getElementById('mainPopup').addEventListener('click', function(e) { if 
 document.getElementById('popupCloseBtn').addEventListener('click', closePopup);
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePopup(); });
 
-// Popup form submit — sends to PHP handler which emails info@homecarecreators.com
+// ── Form submit ───────────────────────────────────────────────
 document.getElementById('popupSubmitBtn').addEventListener('click', function() {
-  var name  = (document.getElementById('pName').value  || '').trim();
-  var email = (document.getElementById('pEmail').value || '').trim();
-  if (!name)  { alert('Please enter your full name.'); return; }
-  if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+  var name    = (document.getElementById('pName').value  || '').trim();
+  var email   = (document.getElementById('pEmail').value || '').trim();
+  var phone   = (document.getElementById('pPhone').value || '').trim();
+  var captcha = parseInt(document.getElementById('pCaptcha').value, 10);
+  var consent = document.getElementById('pConsent').checked;
+
+  // Validation
+  if (!name)  { markError('pName',  'Please enter your full name.'); return; }
+  if (!email || !email.includes('@') || !email.includes('.')) { markError('pEmail', 'Please enter a valid email address.'); return; }
+  if (phone) {
+    var digits = phone.replace(/\D/g, '');
+    if (digits.length !== 10) { markError('pPhone', 'Please enter a valid 10-digit US phone number.'); return; }
+  }
+  if (isNaN(captcha) || captcha !== _captchaA + _captchaB) {
+    markError('pCaptcha', 'Incorrect answer. Please try again.');
+    generateCaptcha();
+    return;
+  }
+  if (!consent) {
+    var cb = document.getElementById('pConsent');
+    cb.style.outline = '2px solid #e53e3e';
+    setTimeout(function(){ cb.style.outline = ''; }, 2000);
+    alert('Please check the consent box to continue.');
+    return;
+  }
+
   var btnLabel = document.getElementById('popupBtnLabel');
   btnLabel.textContent = 'Sending...';
   this.disabled = true;
@@ -122,7 +168,7 @@ document.getElementById('popupSubmitBtn').addEventListener('click', function() {
     body: JSON.stringify({
       name:    name,
       email:   email,
-      phone:   document.getElementById('pPhone').value,
+      phone:   phone,
       agency:  document.getElementById('pAgency').value,
       city:    document.getElementById('pCity').value,
       service: document.getElementById('pService').value,
@@ -147,6 +193,23 @@ document.getElementById('popupSubmitBtn').addEventListener('click', function() {
     document.getElementById('popupSubmitBtn').disabled = false;
   });
 });
+
+function markError(id, msg) {
+  var el = document.getElementById(id);
+  if (!el) { alert(msg); return; }
+  el.classList.add('error');
+  el.focus();
+  el.addEventListener('input', function(){ el.classList.remove('error'); }, { once: true });
+  // Show inline message below field
+  var existing = el.parentNode.querySelector('.field-error-msg');
+  if (existing) existing.remove();
+  var err = document.createElement('div');
+  err.className = 'field-error-msg';
+  err.style.cssText = 'font-size:11px;color:#e53e3e;margin-top:4px;font-family:Arial,sans-serif';
+  err.textContent = msg;
+  el.parentNode.appendChild(err);
+  setTimeout(function(){ if (err.parentNode) err.remove(); }, 3000);
+}
 
 // Mobile hamburger nav
 document.getElementById('navHamburger').addEventListener('click', function() {

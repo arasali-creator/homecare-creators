@@ -114,7 +114,7 @@ section{padding:96px 40px}
 /* POPUP / FORM */
 .popup-overlay{display:none;position:fixed;inset:0;background:rgba(5,20,12,.75);backdrop-filter:blur(8px);z-index:1000;align-items:center;justify-content:center;padding:20px}
 .popup-overlay.open{display:flex}
-.popup-box{background:#fff;border-radius:20px;padding:40px;width:100%;max-width:480px;position:relative;max-height:90vh;overflow-y:auto;animation:fadeUp .3s ease both}
+.popup-box{background:#fff;border-radius:20px;padding:40px;width:100%;max-width:580px;position:relative;max-height:90vh;overflow-y:auto;animation:fadeUp .3s ease both}
 .popup-close{position:absolute;top:16px;right:16px;background:var(--cream);border:none;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);font-size:14px;transition:.2s}
 .popup-close:hover{background:var(--border);color:var(--text)}
 .popup-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--teal),var(--teal-lt));border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;margin-bottom:18px}
@@ -132,6 +132,13 @@ section{padding:96px 40px}
 .popup-success i{font-size:52px;color:var(--teal);margin-bottom:16px;display:block}
 .popup-success-title{font-family:'Instrument Serif',serif;font-size:26px;color:var(--forest);margin-bottom:10px}
 .popup-success-sub{font-size:14px;color:var(--muted);line-height:1.65}
+.form-input.error{border-color:#e53e3e;background:#fff8f8}
+.captcha-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.captcha-question{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--forest);white-space:nowrap;background:var(--cream);border-radius:8px;padding:10px 14px;flex-shrink:0}
+.captcha-input{width:90px!important;text-align:center;font-size:16px!important;font-weight:700}
+.consent-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:16px}
+.consent-row input[type=checkbox]{width:18px;height:18px;accent-color:var(--teal);flex-shrink:0;margin-top:2px;cursor:pointer}
+.consent-label{font-size:12px;color:var(--muted);line-height:1.6;cursor:pointer}
 
 /* FOOTER */
 footer{background:var(--forest);padding:64px 48px 0}
@@ -224,11 +231,13 @@ try {
       <div class="popup-form-group"><label class="form-label" for="pName">Full Name *</label><input type="text" class="form-input" id="pName" placeholder="Sarah Johnson" autocomplete="name"></div>
       <div class="popup-form-row">
         <div class="popup-form-group" style="margin-bottom:0"><label class="form-label" for="pEmail">Email *</label><input type="email" class="form-input" id="pEmail" placeholder="sarah@agency.com"></div>
-        <div class="popup-form-group" style="margin-bottom:0"><label class="form-label" for="pPhone">Phone</label><input type="tel" class="form-input" id="pPhone" placeholder="+1 (555) 000-0000"></div>
+        <div class="popup-form-group" style="margin-bottom:0"><label class="form-label" for="pPhone">Phone</label><input type="tel" class="form-input" id="pPhone" placeholder="+1 (555) 000-0000" maxlength="15"></div>
       </div>
-      <div class="popup-form-group" style="margin-top:16px"><label class="form-label" for="pAgency">Agency Name</label><input type="text" class="form-input" id="pAgency" placeholder="Comfort Home Care LLC"></div>
-      <div class="popup-form-group"><label class="form-label" for="pCity">City You Serve</label><input type="text" class="form-input" id="pCity" placeholder="e.g. Miami, Tampa, Orlando..."></div>
-      <div class="popup-form-group"><label class="form-label" for="pService">What Do You Need Most?</label>
+      <div class="popup-form-row" style="margin-top:16px">
+        <div class="popup-form-group" style="margin-bottom:0"><label class="form-label" for="pAgency">Agency Name</label><input type="text" class="form-input" id="pAgency" placeholder="Comfort Home Care LLC"></div>
+        <div class="popup-form-group" style="margin-bottom:0"><label class="form-label" for="pCity">City You Serve</label><input type="text" class="form-input" id="pCity" placeholder="Miami, Tampa..."></div>
+      </div>
+      <div class="popup-form-group" style="margin-top:16px"><label class="form-label" for="pService">What Do You Need Most?</label>
         <select class="form-select" id="pService">
           <option value="">Select a service...</option>
           <option>Website Design &amp; Development</option>
@@ -240,6 +249,20 @@ try {
         </select>
       </div>
       <div class="popup-form-group"><label class="form-label" for="pMsg">Message (optional)</label><textarea class="form-textarea" id="pMsg" placeholder="Tell us about your agency, current challenges, or what you've tried before..."></textarea></div>
+      <!-- Math CAPTCHA -->
+      <div style="margin-bottom:16px">
+        <label class="form-label">Verify You&rsquo;re Human *</label>
+        <div class="captcha-row">
+          <div class="captcha-question" id="captchaQuestion"></div>
+          <span style="font-size:18px;color:var(--muted)">=</span>
+          <input type="number" class="form-input captcha-input" id="pCaptcha" placeholder="?" min="0" max="99" autocomplete="off">
+        </div>
+      </div>
+      <!-- Consent -->
+      <div class="consent-row">
+        <input type="checkbox" id="pConsent">
+        <label class="consent-label" for="pConsent">I agree to be contacted by Homecare Creators about my inquiry. We respect your privacy and will never share your information.</label>
+      </div>
       <button class="form-submit" id="popupSubmitBtn"><i class="fa-solid fa-paper-plane"></i><span id="popupBtnLabel">Send My Request</span></button>
       <p style="text-align:center;margin-top:14px;font-size:12px;color:var(--muted)"><i class="fa-solid fa-lock" style="margin-right:4px;color:var(--teal)"></i>100% private. No spam, ever.</p>
     </div>
