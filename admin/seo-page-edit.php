@@ -9,19 +9,28 @@ hc_require_auth();
 $path = $_GET['path'] ?? '';
 if (!$path) { header('Location: /admin/seo-pages.php'); exit; }
 
-// Load existing or create default
-$seo = hc_one("SELECT * FROM hc_seo_pages WHERE page_path = ?", [$path]);
-
 // Extract current values from the PHP file itself
 $pages_list = hc_scan_pages();
 $page_file  = '';
 foreach ($pages_list as $p) { if ($p['path'] === $path) { $page_file = $p['file']; break; } }
 $file_meta  = $page_file ? hc_extract_page_meta($page_file) : [];
 
+// Resolve canonical-stripped path for DB (matches header.php lookup)
+$db_path = $path;
+if (!empty($file_meta['page_canonical'])) {
+    if (preg_match('#^https?://[^/]+(/.*)$#', $file_meta['page_canonical'], $_m))
+        $db_path = $_m[1] ?: '/';
+    else
+        $db_path = $file_meta['page_canonical'];
+}
+
+// Load existing SEO record using canonical path
+$seo = hc_one("SELECT * FROM hc_seo_pages WHERE page_path = ?", [$db_path]);
+
 // Handle Save
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $d = [
-        'page_path'          => $path,
+        'page_path'          => $db_path,
         'page_name'          => $_POST['page_name'] ?? '',
         'meta_title'         => trim($_POST['meta_title'] ?? ''),
         'meta_desc'          => trim($_POST['meta_desc'] ?? ''),

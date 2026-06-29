@@ -1,5 +1,5 @@
 ﻿<?php
-$page_title = "Home Care Agency in Fort Lauderdale, FL | Homecare Creators";
+$page_title = "Home Care Agency SEO in Fort Lauderdale, FL | Homecare Creators";
 $page_desc = "Expert SEO services for home care agencies in Fort Lauderdale, FL. We help Fort Lauderdale homecare agencies rank #1 on Google, build high-converting websites, and grow private-pay clients across Broward County, FL.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-fort-lauderdale-fl/";
 $og_title = "Home Care Agency SEO in Fort Lauderdale, FL | Homecare Creators";

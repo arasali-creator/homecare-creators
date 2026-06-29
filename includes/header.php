@@ -22,7 +22,11 @@ $_hc_favicon_url = '';
 
         // SEO overrides
         if (!empty($page_canonical)) {
-            $seo = hc_one("SELECT * FROM hc_seo_pages WHERE page_path = ?", [$page_canonical]);
+            // Strip domain so lookup matches what seo-page-edit.php stores
+            $_seo_path = $page_canonical;
+            if (preg_match('#^https?://[^/]+(/.*)$#', $page_canonical, $_m)) $_seo_path = $_m[1];
+            if (empty($_seo_path)) $_seo_path = '/';
+            $seo = hc_one("SELECT * FROM hc_seo_pages WHERE page_path = ?", [$_seo_path]);
             if ($seo) {
                 if (!empty($seo['meta_title']))    $page_title     = $seo['meta_title'];
                 if (!empty($seo['meta_desc']))     $page_desc      = $seo['meta_desc'];
