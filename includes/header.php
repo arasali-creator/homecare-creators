@@ -225,13 +225,11 @@ try {
   <div class="popup-box">
     <button class="popup-close" id="popupCloseBtn" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
     <div id="popupFormEl">
-      <div class="popup-icon" id="popupIconEl"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
       <h2 class="popup-title" id="popupTitleEl">Book Your Free Audit</h2>
-      <p class="popup-sub" id="popupSubEl">Fill in your details and we'll reply within 24 hours with a personalised growth plan for your homecare agency.</p>
-      <div class="popup-form-group"><label class="form-label" for="pName">Full Name *</label><input type="text" class="form-input" id="pName" placeholder="Sarah Johnson" autocomplete="name"></div>
+      <div class="popup-form-group" style="margin-top:20px"><label class="form-label" for="pName">Full Name *</label><input type="text" class="form-input" id="pName" placeholder="Sarah Johnson" autocomplete="name"></div>
       <div class="popup-form-row">
         <div class="popup-form-group" style="margin-bottom:0"><label class="form-label" for="pEmail">Email *</label><input type="email" class="form-input" id="pEmail" placeholder="sarah@agency.com"></div>
-        <div class="popup-form-group" style="margin-bottom:0"><label class="form-label" for="pPhone">Phone</label><input type="tel" class="form-input" id="pPhone" placeholder="+1 (555) 000-0000" maxlength="15"></div>
+        <div class="popup-form-group" style="margin-bottom:0"><label class="form-label" for="pPhone">Phone *</label><input type="tel" class="form-input" id="pPhone" placeholder="+1 (555) 000-0000" maxlength="15"></div>
       </div>
       <div class="popup-form-row" style="margin-top:16px">
         <div class="popup-form-group" style="margin-bottom:0"><label class="form-label" for="pAgency">Agency Name</label><input type="text" class="form-input" id="pAgency" placeholder="Comfort Home Care LLC"></div>

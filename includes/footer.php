@@ -142,10 +142,8 @@ document.getElementById('popupSubmitBtn').addEventListener('click', function() {
   // Validation
   if (!name)  { markError('pName',  'Please enter your full name.'); return; }
   if (!email || !email.includes('@') || !email.includes('.')) { markError('pEmail', 'Please enter a valid email address.'); return; }
-  if (phone) {
-    var digits = phone.replace(/\D/g, '');
-    if (digits.length !== 10) { markError('pPhone', 'Please enter a valid 10-digit US phone number.'); return; }
-  }
+  var phoneDigits = phone.replace(/\D/g, '');
+  if (!phone || phoneDigits.length !== 10) { markError('pPhone', 'Please enter a valid 10-digit phone number.'); return; }
   if (isNaN(captcha) || captcha !== _captchaA + _captchaB) {
     markError('pCaptcha', 'Incorrect answer. Please try again.');
     generateCaptcha();
