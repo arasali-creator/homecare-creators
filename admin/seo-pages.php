@@ -7,6 +7,20 @@ require_once __DIR__ . '/includes/layout.php';
 hc_require_auth();
 
 $pages   = hc_scan_pages();
+// Resolve canonical URL path for each page (strips domain from $page_canonical)
+foreach ($pages as &$page) {
+    $meta = hc_extract_page_meta($page['file']);
+    if (!empty($meta['page_canonical'])) {
+        if (preg_match('#^https?://[^/]+(/.*)$#', $meta['page_canonical'], $m))
+            $page['canonical'] = rtrim($m[1], '/') . '/';
+        else
+            $page['canonical'] = $meta['page_canonical'];
+    } else {
+        $page['canonical'] = $page['path'];
+    }
+}
+unset($page);
+
 $seo_map = [];
 foreach (hc_all("SELECT page_path, meta_title, meta_desc, focus_keyword, robots_index, robots_follow, updated_at FROM hc_seo_pages") as $row) {
     $seo_map[$row['page_path']] = $row;
@@ -44,7 +58,7 @@ hc_topbar('SEO Pages', '<a href="/admin/">Admin</a> › SEO Pages');
       ?>
       <tr>
         <td><strong><?= h($page['name']) ?></strong></td>
-        <td class="td-path"><?= h($page['path']) ?></td>
+        <td class="td-path"><?= h($page['canonical']) ?></td>
         <td>
           <?php if ($seo && $seo['meta_title']): ?>
             <span style="font-size:12.5px"><?= h(substr($seo['meta_title'],0,52)) ?><?= strlen($seo['meta_title'])>52?'…':'' ?></span>
@@ -73,7 +87,7 @@ hc_topbar('SEO Pages', '<a href="/admin/">Admin</a> › SEO Pages');
         </td>
         <td class="td-actions">
           <a href="/admin/seo-page-edit.php?path=<?= urlencode($page['path']) ?>">Edit SEO</a>
-          <a href="<?= h($page['path']) ?>" target="_blank" style="color:var(--muted)">↗</a>
+          <a href="<?= h($page['canonical']) ?>" target="_blank" style="color:var(--muted)">↗</a>
         </td>
       </tr>
       <?php endforeach ?>

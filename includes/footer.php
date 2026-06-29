@@ -37,16 +37,16 @@
     <div>
       <div class="footer-col-title">Florida Cities</div>
       <ul class="footer-links">
-        <li><a href="/Marketing/home-care-miami-fl">Miami</a></li>
-        <li><a href="/Marketing/home-care-orlando-fl">Orlando</a></li>
-        <li><a href="/Marketing/home-care-sarasota-fl">Sarasota</a></li>
-        <li><a href="/Marketing/home-care-jacksonville-fl">Jacksonville</a></li>
-        <li><a href="/Marketing/home-care-fort-lauderdale-fl">Fort Lauderdale</a></li>
-        <li><a href="/Marketing/home-care-naples-fl">Naples</a></li>
-        <li><a href="/Marketing/home-care-west-palm-beach-fl">West Palm Beach</a></li>
-        <li><a href="/Marketing/home-care-boca-raton-fl">Boca Raton</a></li>
-        <li><a href="/Marketing/home-care-clearwater-fl">Clearwater</a></li>
-        <li><a href="/Marketing/home-care-tampa-fl">Tampa</a></li>
+        <li><a href="/home-care-agency-seo-miami-fl/">Miami</a></li>
+        <li><a href="/home-care-agency-seo-orlando-fl/">Orlando</a></li>
+        <li><a href="/home-care-agency-seo-sarasota-fl/">Sarasota</a></li>
+        <li><a href="/home-care-agency-seo-jacksonville-fl/">Jacksonville</a></li>
+        <li><a href="/home-care-agency-seo-fort-lauderdale-fl/">Fort Lauderdale</a></li>
+        <li><a href="/home-care-agency-seo-naples-fl/">Naples</a></li>
+        <li><a href="/home-care-agency-seo-west-palm-beach-fl/">West Palm Beach</a></li>
+        <li><a href="/home-care-agency-seo-boca-raton-fl/">Boca Raton</a></li>
+        <li><a href="/home-care-agency-seo-clearwater-fl/">Clearwater</a></li>
+        <li><a href="/home-care-agency-seo-tampa-fl/">Tampa</a></li>
       </ul>
     </div>
     <div>

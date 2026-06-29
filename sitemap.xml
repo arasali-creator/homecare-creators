@@ -4,135 +4,143 @@
   <!-- Homepage -->
   <url>
     <loc>https://homecarecreators.com/</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- SEO / Service pages -->
+  <!-- Service pages -->
   <url>
-    <loc>https://homecarecreators.com/seo/homecare-website-design</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/homecare-website-design/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/seo/local-seo-for-home-care-agencies</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/local-seo-for-home-care-agencies/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Marketing / City pages -->
+  <!-- Marketing / City SEO pages -->
   <url>
-    <loc>https://homecarecreators.com/Marketing/home-care-miami-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/home-care-agency-seo-miami-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/Marketing/home-care-tampa-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/home-care-agency-seo-tampa-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/Marketing/home-care-orlando-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/home-care-agency-seo-orlando-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/Marketing/home-care-jacksonville-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/home-care-agency-seo-jacksonville-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/Marketing/home-care-fort-lauderdale-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/home-care-agency-seo-fort-lauderdale-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/Marketing/home-care-naples-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/home-care-agency-seo-naples-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/Marketing/home-care-sarasota-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/home-care-agency-seo-sarasota-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/Marketing/home-care-west-palm-beach-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/home-care-agency-seo-west-palm-beach-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/Marketing/home-care-boca-raton-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/home-care-agency-seo-boca-raton-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/Marketing/home-care-clearwater-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/home-care-agency-seo-clearwater-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Web Design city pages -->
   <url>
-    <loc>https://homecarecreators.com/web-design/homecare-website-design-miami-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/homecare-website-design-miami-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/web-design/homecare-website-design-tampa-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/homecare-website-design-tampa-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/web-design/homecare-website-design-orlando-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/homecare-website-design-orlando-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/web-design/homecare-website-design-jacksonville-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/homecare-website-design-jacksonville-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/web-design/homecare-website-design-fort-lauderdale-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/homecare-website-design-fort-lauderdale-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://homecarecreators.com/web-design/homecare-website-design-naples-fl</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://homecarecreators.com/homecare-website-design-naples-fl/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://homecarecreators.com/blog</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Legal pages -->
   <url>
     <loc>https://homecarecreators.com/privacy-policy</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://homecarecreators.com/terms-of-service</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
