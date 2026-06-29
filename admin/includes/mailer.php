@@ -47,6 +47,8 @@ class HcMailer
         if ($this->sock) { @fclose($this->sock); $this->sock = null; }
     }
 
+    public $lastError = '';
+
     public function sendSmtp(
         string $smtpHost,
         int    $smtpPort,
@@ -62,7 +64,10 @@ class HcMailer
         string $body
     ): bool {
         try {
-            if (!$this->connect($smtpHost, $smtpPort, $smtpEnc)) return false;
+            if (!$this->connect($smtpHost, $smtpPort, $smtpEnc)) {
+                $this->lastError = "Cannot connect to {$smtpHost}:{$smtpPort} — check host/port and firewall.";
+                return false;
+            }
 
             $this->read(); // server greeting
 
@@ -70,11 +75,18 @@ class HcMailer
 
             if (strtolower($smtpEnc) === 'tls') {
                 $resp = $this->cmd("STARTTLS");
-                if (substr($resp, 0, 3) !== '220') { $this->close(); return false; }
+                if (substr($resp, 0, 3) !== '220') {
+                    $this->lastError = "STARTTLS rejected: " . trim($resp);
+                    $this->close(); return false;
+                }
                 $ctx = stream_context_create([
                     'ssl' => ['verify_peer' => false, 'verify_peer_name' => false]
                 ]);
-                if (!stream_socket_enable_crypto($this->sock, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+                $method = STREAM_CRYPTO_METHOD_TLS_CLIENT
+                    | (defined('STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT') ? STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT : 0)
+                    | (defined('STREAM_CRYPTO_METHOD_TLSv1_3_CLIENT') ? STREAM_CRYPTO_METHOD_TLSv1_3_CLIENT : 0);
+                if (!stream_socket_enable_crypto($this->sock, true, $method)) {
+                    $this->lastError = "TLS handshake failed — PHP may need OpenSSL or the server requires a newer TLS version.";
                     $this->close(); return false;
                 }
                 $this->cmd("EHLO homecarecreators.com");
@@ -82,16 +94,42 @@ class HcMailer
 
             if ($smtpUser && $smtpPass) {
                 $resp = $this->cmd("AUTH LOGIN");
-                if (substr($resp, 0, 3) !== '334') { $this->close(); return false; }
-                $this->cmd(base64_encode($smtpUser));
+                if (substr($resp, 0, 3) !== '334') {
+                    $this->lastError = "AUTH LOGIN rejected: " . trim($resp);
+                    $this->close(); return false;
+                }
+                $resp = $this->cmd(base64_encode($smtpUser));
+                if (substr($resp, 0, 3) !== '334') {
+                    $this->lastError = "Username rejected: " . trim($resp);
+                    $this->close(); return false;
+                }
                 $resp = $this->cmd(base64_encode($smtpPass));
-                if (substr($resp, 0, 3) !== '235') { $this->close(); return false; }
+                if (substr($resp, 0, 3) !== '235') {
+                    $this->lastError = "Authentication failed (wrong password?): " . trim($resp);
+                    $this->close(); return false;
+                }
             }
 
-            $this->cmd("MAIL FROM:<{$fromAddr}>");
-            $this->cmd("RCPT TO:<{$toAddr}>");
+            // Zoho and many providers require MAIL FROM to match the authenticated user
+            $envelopeFrom = $smtpUser ?: $fromAddr;
+
+            $resp = $this->cmd("MAIL FROM:<{$envelopeFrom}>");
+            if (substr($resp, 0, 3) !== '250') {
+                $this->lastError = "MAIL FROM rejected: " . trim($resp);
+                $this->close(); return false;
+            }
+            $resp = $this->cmd("RCPT TO:<{$toAddr}>");
+            if (substr($resp, 0, 3) !== '250' && substr($resp, 0, 3) !== '251') {
+                $this->lastError = "RCPT TO rejected: " . trim($resp);
+                $this->close(); return false;
+            }
             if ($cc) $this->cmd("RCPT TO:<{$cc}>");
-            $this->cmd("DATA");
+
+            $resp = $this->cmd("DATA");
+            if (substr($resp, 0, 3) !== '354') {
+                $this->lastError = "DATA command rejected: " . trim($resp);
+                $this->close(); return false;
+            }
 
             $date    = date('r');
             $msgId   = '<' . time() . '.hc@homecarecreators.com>';
@@ -100,7 +138,7 @@ class HcMailer
 
             $msg  = "Date: {$date}\r\n";
             $msg .= "Message-ID: {$msgId}\r\n";
-            $msg .= "From: {$encFrom} <{$fromAddr}>\r\n";
+            $msg .= "From: {$encFrom} <{$envelopeFrom}>\r\n";
             $msg .= "To: {$toAddr}\r\n";
             if ($cc) $msg .= "Cc: {$cc}\r\n";
             if ($replyTo) $msg .= "Reply-To: {$replyTo}\r\n";
@@ -116,8 +154,13 @@ class HcMailer
             $this->cmd("QUIT");
             $this->close();
 
-            return substr($resp, 0, 3) === '250';
+            if (substr($resp, 0, 3) !== '250') {
+                $this->lastError = "Message rejected by server: " . trim($resp);
+                return false;
+            }
+            return true;
         } catch (Exception $e) {
+            $this->lastError = "Exception: " . $e->getMessage();
             $this->close();
             return false;
         }
@@ -125,6 +168,7 @@ class HcMailer
 
     /**
      * Main entry point. Uses SMTP if configured, falls back to mail().
+     * Returns [bool $sent, string $error].
      */
     public static function send(
         string $to,
@@ -143,13 +187,18 @@ class HcMailer
 
         if ($smtpHost && $smtpUser) {
             $mailer = new self();
-            return $mailer->sendSmtp(
+            $ok = $mailer->sendSmtp(
                 $smtpHost, $smtpPort, $smtpEnc,
                 $smtpUser, $smtpPass,
                 $fromAddr, $fromName,
                 $to, $replyTo, $cc,
                 $subject, $body
             );
+            if (!$ok) {
+                // Store last error globally so test handler can surface it
+                $GLOBALS['_hc_mailer_last_error'] = $mailer->lastError;
+            }
+            return $ok;
         }
 
         // Fallback: PHP mail()

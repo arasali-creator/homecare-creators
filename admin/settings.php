@@ -33,7 +33,12 @@ if (isset($_POST['action']) && $_POST['action'] === 'test_email') {
         "This is a test email from your Homecare Creators admin panel.\n\nIf you received this, your email delivery is working correctly.\n\nSMTP Host: " . hc_setting('smtp_host','(none — using PHP mail())'),
         '',''
     );
-    hc_flash($sent ? "Test email sent to {$testTo} — check your inbox (and spam folder)." : 'Test email FAILED. Check your SMTP settings below.', $sent ? 'success' : 'error');
+    if ($sent) {
+        hc_flash("Test email sent to {$testTo} — check your inbox (and spam folder).", 'success');
+    } else {
+        $err = $GLOBALS['_hc_mailer_last_error'] ?? 'Unknown error — check SMTP settings.';
+        hc_flash("Test email FAILED: {$err}", 'error');
+    }
     header('Location: /admin/settings.php');
     exit;
 }
