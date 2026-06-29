@@ -47,7 +47,7 @@ $page_css = <<<CSS
 /* ── TWO-COLUMN LAYOUT ── */
 .post-body-wrap{max-width:1160px;margin:0 auto;padding:60px 48px;display:grid;grid-template-columns:1fr 320px;gap:60px;align-items:start}
 .post-article{}
-.post-article h2{font-family:'Instrument Serif',serif;font-size:clamp(22px,2.8vw,34px);font-weight:400;color:var(--forest);margin:52px 0 16px;line-height:1.25}
+.post-article h2{font-family:'Instrument Serif',serif;font-size:clamp(22px,2.8vw,34px);font-weight:600;color:var(--forest);margin:52px 0 16px;line-height:1.25}
 .post-article h3{font-family:'Instrument Serif',serif;font-size:clamp(19px,2.2vw,26px);font-weight:400;color:var(--forest);margin:36px 0 12px;line-height:1.3}
 .post-article p{font-size:16px;line-height:1.88;color:#374151;margin-bottom:22px}
 .post-article ul,.post-article ol{margin:0 0 22px 22px;display:flex;flex-direction:column;gap:10px}
@@ -70,7 +70,7 @@ $page_css = <<<CSS
 .sidebar-cta-card{background:var(--forest);border-radius:16px;padding:28px;text-align:center}
 .sidebar-cta-card .sc-icon{width:52px;height:52px;background:rgba(29,158,117,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
 .sidebar-cta-card .sc-icon svg{width:24px;height:24px;color:var(--teal);stroke:var(--teal)}
-.sidebar-cta-card h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#fff;margin-bottom:8px;line-height:1.3}
+.sidebar-cta-card h3{font-size:16px;font-weight:600;color:#fff;margin-bottom:8px;line-height:1.3}
 .sidebar-cta-card p{font-size:12.5px;color:rgba(255,255,255,.5);margin-bottom:20px;line-height:1.6}
 .sidebar-cta-btn{display:block;background:var(--teal);color:#fff;border:none;padding:13px 20px;border-radius:50px;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:.2s;text-align:center}
 .sidebar-cta-btn:hover{background:#178a64;transform:translateY(-2px)}
