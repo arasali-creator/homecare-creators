@@ -120,8 +120,8 @@ section{padding:96px 40px}
 .popup-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--teal),var(--teal-lt));border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;margin-bottom:18px}
 .popup-title{font-family:'Instrument Serif',serif;font-size:26px;color:var(--forest);margin-bottom:8px}
 .popup-sub{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:24px}
-.popup-form-group{margin-bottom:16px}
-.popup-form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.popup-form-group{margin-bottom:10px}
+.popup-form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
 .form-label{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
 .form-input,.form-select,.form-textarea{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:#fff;transition:border-color .2s;outline:none}
 .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--teal)}
@@ -226,18 +226,18 @@ try {
     <button class="popup-close" id="popupCloseBtn" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
     <div id="popupFormEl">
       <h2 class="popup-title" id="popupTitleEl">Book Your Free Audit</h2>
-      <div class="popup-form-group" style="margin-top:20px"><label class="form-label" for="pName">Full Name *</label><input type="text" class="form-input" id="pName" placeholder="Sarah Johnson" autocomplete="name"></div>
+      <div class="popup-form-group" style="margin-top:20px"><input type="text" class="form-input" id="pName" placeholder="Full Name *" autocomplete="name"></div>
       <div class="popup-form-row">
-        <div class="popup-form-group" style="margin-bottom:0"><label class="form-label" for="pEmail">Email *</label><input type="email" class="form-input" id="pEmail" placeholder="sarah@agency.com"></div>
-        <div class="popup-form-group" style="margin-bottom:0"><label class="form-label" for="pPhone">Phone *</label><input type="tel" class="form-input" id="pPhone" placeholder="+1 (555) 000-0000" maxlength="15"></div>
+        <div class="popup-form-group" style="margin-bottom:0"><input type="email" class="form-input" id="pEmail" placeholder="Email *"></div>
+        <div class="popup-form-group" style="margin-bottom:0"><input type="tel" class="form-input" id="pPhone" placeholder="Phone * (555) 000-0000" maxlength="15"></div>
       </div>
-      <div class="popup-form-row" style="margin-top:16px">
-        <div class="popup-form-group" style="margin-bottom:0"><label class="form-label" for="pAgency">Agency Name</label><input type="text" class="form-input" id="pAgency" placeholder="Comfort Home Care LLC"></div>
-        <div class="popup-form-group" style="margin-bottom:0"><label class="form-label" for="pCity">City You Serve</label><input type="text" class="form-input" id="pCity" placeholder="Miami, Tampa..."></div>
+      <div class="popup-form-row" style="margin-top:12px">
+        <div class="popup-form-group" style="margin-bottom:0"><input type="text" class="form-input" id="pAgency" placeholder="Agency Name"></div>
+        <div class="popup-form-group" style="margin-bottom:0"><input type="text" class="form-input" id="pCity" placeholder="City You Serve"></div>
       </div>
-      <div class="popup-form-group" style="margin-top:16px"><label class="form-label" for="pService">What Do You Need Most?</label>
+      <div class="popup-form-group" style="margin-top:12px">
         <select class="form-select" id="pService">
-          <option value="">Select a service...</option>
+          <option value="">What Do You Need Most?</option>
           <option>Website Design &amp; Development</option>
           <option>Local SEO — Google Maps Rankings</option>
           <option>AI Search SEO (ChatGPT &amp; Google AI)</option>
@@ -246,10 +246,9 @@ try {
           <option>CareOS Waitlist</option>
         </select>
       </div>
-      <div class="popup-form-group"><label class="form-label" for="pMsg">Message (optional)</label><textarea class="form-textarea" id="pMsg" placeholder="Tell us about your agency, current challenges, or what you've tried before..."></textarea></div>
+      <div class="popup-form-group"><textarea class="form-textarea" id="pMsg" placeholder="Message (optional) — tell us about your agency..." style="min-height:80px"></textarea></div>
       <!-- Math CAPTCHA -->
-      <div style="margin-bottom:16px">
-        <label class="form-label">Verify You&rsquo;re Human *</label>
+      <div style="margin-bottom:12px">
         <div class="captcha-row">
           <div class="captcha-question" id="captchaQuestion"></div>
           <span style="font-size:18px;color:var(--muted)">=</span>
