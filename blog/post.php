@@ -18,7 +18,7 @@ $reading_time = max(1, round($word_count / 200));
 
 $page_title    = $post['meta_title'] ?: ($post['title'] . ' | Homecare Creators Blog');
 $page_desc     = $post['meta_desc'] ?: ($post['excerpt'] ?? '');
-$page_canonical = "https://homecarecreators.com/blog/post?slug=" . urlencode($post['slug']);
+$page_canonical = "https://homecarecreators.com/blog/" . $post['slug'];
 $og_title      = $post['title'];
 $og_desc       = $page_desc;
 
@@ -237,7 +237,7 @@ $toc = $headings[1] ?? [];
     <div style="font-family:'Instrument Serif',serif;font-size:clamp(24px,3vw,36px);color:var(--forest)">More Homecare Marketing Insights</div>
     <div class="related-grid">
       <?php foreach ($related as $r): ?>
-      <a href="/blog/post.php?slug=<?= urlencode($r['slug']) ?>" class="related-card">
+      <a href="/blog/<?= htmlspecialchars($r['slug']) ?>" class="related-card">
         <?php if ($r['featured_image']): ?>
         <img class="related-card-img" src="<?= htmlspecialchars($r['featured_image']) ?>" alt="<?= htmlspecialchars($r['title']) ?>" loading="lazy">
         <?php else: ?>

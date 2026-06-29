@@ -59,7 +59,7 @@ try {
         <?php if ($p['focus_keyword']): ?>
         <div class="blog-card-cat"><?= htmlspecialchars($p['focus_keyword']) ?></div>
         <?php endif ?>
-        <div class="blog-card-title"><a href="/blog/post.php?slug=<?= urlencode($p['slug']) ?>"><?= htmlspecialchars($p['title']) ?></a></div>
+        <div class="blog-card-title"><a href="/blog/<?= htmlspecialchars($p['slug']) ?>"><?= htmlspecialchars($p['title']) ?></a></div>
         <div class="blog-card-excerpt"><?= htmlspecialchars($p['excerpt'] ?? '') ?></div>
         <div class="blog-card-meta">
           <span><?= htmlspecialchars($p['author']) ?></span>

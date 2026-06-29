@@ -179,7 +179,7 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/blog/">Bl
       Published: <?= date('M j, Y', strtotime($post['published_at']??$post['created_at'])) ?><br>
       Updated: <?= date('M j, Y', strtotime($post['updated_at']??$post['created_at'])) ?>
     </div>
-    <a href="/blog/post.php?slug=<?= urlencode($post['slug']) ?>" target="_blank" class="btn btn-ghost btn-sm" style="margin-top:8px;width:100%;justify-content:center">↗ View live post</a>
+    <a href="/blog/<?= htmlspecialchars($post['slug']) ?>" target="_blank" class="btn btn-ghost btn-sm" style="margin-top:8px;width:100%;justify-content:center">↗ View live post</a>
     <?php endif ?>
   </div>
 </div>
