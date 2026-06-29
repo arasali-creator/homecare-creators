@@ -48,6 +48,7 @@ class HcMailer
     }
 
     public $lastError = '';
+    public $htmlBody  = '';
 
     public function sendSmtp(
         string $smtpHost,
@@ -135,6 +136,7 @@ class HcMailer
             $msgId   = '<' . time() . '.hc@homecarecreators.com>';
             $encSubj = '=?UTF-8?B?' . base64_encode($subject) . '?=';
             $encFrom = '=?UTF-8?B?' . base64_encode($fromName) . '?=';
+            $boundary = 'hcbnd_' . md5(uniqid());
 
             $msg  = "Date: {$date}\r\n";
             $msg .= "Message-ID: {$msgId}\r\n";
@@ -144,10 +146,26 @@ class HcMailer
             if ($replyTo) $msg .= "Reply-To: {$replyTo}\r\n";
             $msg .= "Subject: {$encSubj}\r\n";
             $msg .= "MIME-Version: 1.0\r\n";
-            $msg .= "Content-Type: text/plain; charset=UTF-8\r\n";
-            $msg .= "Content-Transfer-Encoding: base64\r\n";
-            $msg .= "\r\n";
-            $msg .= chunk_split(base64_encode($body));
+
+            if (!empty($this->htmlBody)) {
+                $msg .= "Content-Type: multipart/alternative; boundary=\"{$boundary}\"\r\n";
+                $msg .= "\r\n";
+                $msg .= "--{$boundary}\r\n";
+                $msg .= "Content-Type: text/plain; charset=UTF-8\r\n";
+                $msg .= "Content-Transfer-Encoding: base64\r\n\r\n";
+                $msg .= chunk_split(base64_encode($body)) . "\r\n";
+                $msg .= "--{$boundary}\r\n";
+                $msg .= "Content-Type: text/html; charset=UTF-8\r\n";
+                $msg .= "Content-Transfer-Encoding: base64\r\n\r\n";
+                $msg .= chunk_split(base64_encode($this->htmlBody)) . "\r\n";
+                $msg .= "--{$boundary}--";
+            } else {
+                $msg .= "Content-Type: text/plain; charset=UTF-8\r\n";
+                $msg .= "Content-Transfer-Encoding: base64\r\n";
+                $msg .= "\r\n";
+                $msg .= chunk_split(base64_encode($body));
+            }
+
             $msg .= "\r\n.";
 
             $resp = $this->cmd($msg);
@@ -168,14 +186,15 @@ class HcMailer
 
     /**
      * Main entry point. Uses SMTP if configured, falls back to mail().
-     * Returns [bool $sent, string $error].
+     * $html: optional HTML version of the body (sends multipart/alternative if provided).
      */
     public static function send(
         string $to,
         string $subject,
         string $body,
         string $replyTo = '',
-        string $cc      = ''
+        string $cc      = '',
+        string $html    = ''
     ): bool {
         $fromAddr = hc_setting('reply_to_email', 'noreply@homecarecreators.com');
         $fromName = hc_setting('site_name', 'Homecare Creators');
@@ -187,6 +206,7 @@ class HcMailer
 
         if ($smtpHost && $smtpUser) {
             $mailer = new self();
+            $mailer->htmlBody = $html;
             $ok = $mailer->sendSmtp(
                 $smtpHost, $smtpPort, $smtpEnc,
                 $smtpUser, $smtpPass,
@@ -195,13 +215,23 @@ class HcMailer
                 $subject, $body
             );
             if (!$ok) {
-                // Store last error globally so test handler can surface it
                 $GLOBALS['_hc_mailer_last_error'] = $mailer->lastError;
             }
             return $ok;
         }
 
         // Fallback: PHP mail()
+        $boundary = 'hcbnd_' . md5(uniqid());
+        if ($html) {
+            $headers  = "From: {$fromAddr}\r\n";
+            if ($replyTo) $headers .= "Reply-To: {$replyTo}\r\n";
+            if ($cc)      $headers .= "Cc: {$cc}\r\n";
+            $headers .= "MIME-Version: 1.0\r\nContent-Type: multipart/alternative; boundary=\"{$boundary}\"\r\n";
+            $mbody  = "--{$boundary}\r\nContent-Type: text/plain; charset=UTF-8\r\n\r\n{$body}\r\n";
+            $mbody .= "--{$boundary}\r\nContent-Type: text/html; charset=UTF-8\r\n\r\n{$html}\r\n";
+            $mbody .= "--{$boundary}--";
+            return mail($to, $subject, $mbody, $headers);
+        }
         $headers  = "From: {$fromAddr}\r\n";
         if ($replyTo) $headers .= "Reply-To: {$replyTo}\r\n";
         if ($cc)      $headers .= "Cc: {$cc}\r\n";
