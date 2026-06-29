@@ -47,8 +47,8 @@ $page_css = <<<CSS
 /* ── TWO-COLUMN LAYOUT ── */
 .post-body-wrap{max-width:1160px;margin:0 auto;padding:60px 48px;display:grid;grid-template-columns:1fr 320px;gap:60px;align-items:start}
 .post-article{}
-.post-article h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--forest);margin:44px 0 14px;line-height:1.3}
-.post-article h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--forest);margin:32px 0 10px}
+.post-article h2{font-family:'Instrument Serif',serif;font-size:clamp(22px,2.8vw,34px);font-weight:400;color:var(--forest);margin:52px 0 16px;line-height:1.25}
+.post-article h3{font-family:'Instrument Serif',serif;font-size:clamp(19px,2.2vw,26px);font-weight:400;color:var(--forest);margin:36px 0 12px;line-height:1.3}
 .post-article p{font-size:16px;line-height:1.88;color:#374151;margin-bottom:22px}
 .post-article ul,.post-article ol{margin:0 0 22px 22px;display:flex;flex-direction:column;gap:10px}
 .post-article li{font-size:16px;line-height:1.7;color:#374151}
