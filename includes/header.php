@@ -229,7 +229,7 @@ try {
       <div class="popup-form-group" style="margin-top:20px"><input type="text" class="form-input" id="pName" placeholder="Full Name *" autocomplete="name"></div>
       <div class="popup-form-row">
         <div class="popup-form-group" style="margin-bottom:0"><input type="email" class="form-input" id="pEmail" placeholder="Email *"></div>
-        <div class="popup-form-group" style="margin-bottom:0"><input type="tel" class="form-input" id="pPhone" placeholder="Phone * (555) 000-0000" maxlength="15"></div>
+        <div class="popup-form-group" style="margin-bottom:0"><input type="tel" class="form-input" id="pPhone" placeholder="Phone *" maxlength="15"></div>
       </div>
       <div class="popup-form-row" style="margin-top:12px">
         <div class="popup-form-group" style="margin-bottom:0"><input type="text" class="form-input" id="pAgency" placeholder="Agency Name"></div>
