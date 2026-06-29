@@ -431,9 +431,7 @@ function openPopup(type) {
   var overlay  = document.getElementById('mainPopup');
   var formDiv  = document.getElementById('popupFormEl');
   var succDiv  = document.getElementById('popupSuccessEl');
-  var iconEl   = document.getElementById('popupIconEl');
   var titleEl  = document.getElementById('popupTitleEl');
-  var subEl    = document.getElementById('popupSubEl');
   var btnLabel = document.getElementById('popupBtnLabel');
   var svcSel   = document.getElementById('pService');
 
@@ -441,26 +439,21 @@ function openPopup(type) {
   succDiv.style.display = 'none';
 
   if (type === 'waitlist') {
-    iconEl.innerHTML     = '<i class="fa-solid fa-rocket"></i>';
     titleEl.textContent  = 'Join the CareOS Waitlist';
-    subEl.textContent    = 'Be first in line. Early access members lock in 40% lifetime discount.';
     btnLabel.textContent = 'Join the Waitlist';
     svcSel.value         = 'CareOS Waitlist';
   } else if (type === 'audit') {
-    iconEl.innerHTML     = '<i class="fa-solid fa-magnifying-glass-chart"></i>';
     titleEl.textContent  = 'Book Your Free Growth Audit';
-    subEl.textContent    = "Fill in your details and we'll respond within 24 hours with a personalised growth plan — no obligation.";
     btnLabel.textContent = 'Book My Free Audit';
     svcSel.value         = 'Free Growth Audit';
   } else {
     var names = { starter: 'Starter Bundle', scale: 'Scale Bundle', dominate: 'Dominate Bundle' };
-    iconEl.innerHTML     = '<i class="fa-solid fa-handshake"></i>';
     titleEl.textContent  = 'Get Started — ' + (names[type] || 'Bundle');
-    subEl.textContent    = 'Fill in your details and our team will reach out within 24 hours.';
     btnLabel.textContent = 'Send My Request';
     svcSel.value         = 'Full Bundle Package';
   }
 
+  generateCaptcha();
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
