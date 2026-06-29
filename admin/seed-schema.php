@@ -40,16 +40,16 @@ const ADDR  = ['@type'=>'PostalAddress','streetAddress'=>'984 Old Camp Rd',
 // ── City data: path => city info ─────────────────────────────────
 // Paths match $page_canonical (domain stripped) from each actual page file.
 $mkt_cities = [
-    '/Marketing/home-care-miami-fl'  => ['name'=>'Miami',          'county'=>'Miami-Dade',  'pop'=>'over 478,000 seniors in the metro area'],
-    '/home-care-tampa-fl/'           => ['name'=>'Tampa',           'county'=>'Hillsborough','pop'=>'over 320,000 seniors in Hillsborough County'],
-    '/home-care-jacksonville-fl/'    => ['name'=>'Jacksonville',    'county'=>'Duval',       'pop'=>'over 200,000 seniors in the metro'],
-    '/home-care-clearwater-fl/'      => ['name'=>'Clearwater',      'county'=>'Pinellas',   'pop'=>'a county with one of the oldest median ages in Florida'],
-    '/home-care-west-palm-beach-fl/' => ['name'=>'West Palm Beach', 'county'=>'Palm Beach', 'pop'=>'over 280,000 seniors in Palm Beach County'],
-    '/home-care-sarasota-fl/'        => ['name'=>'Sarasota',        'county'=>'Sarasota',   'pop'=>'over 30% of residents aged 65 or older'],
-    '/home-care-fort-lauderdale-fl/' => ['name'=>'Fort Lauderdale', 'county'=>'Broward',    'pop'=>'over 350,000 seniors in Broward County'],
-    '/home-care-naples-fl/'          => ['name'=>'Naples',          'county'=>'Collier',    'pop'=>'one of the highest senior-per-capita ratios in the United States'],
-    '/home-care-boca-raton-fl/'      => ['name'=>'Boca Raton',      'county'=>'Palm Beach', 'pop'=>'a high concentration of affluent retirees and senior residents'],
-    '/home-care-orlando-fl/'         => ['name'=>'Orlando',         'county'=>'Orange',     'pop'=>'over 280,000 seniors in the greater metro area'],
+    '/home-care-agency-seo-miami-fl/'          => ['name'=>'Miami',          'county'=>'Miami-Dade',  'pop'=>'over 478,000 seniors in the metro area'],
+    '/home-care-agency-seo-tampa-fl/'          => ['name'=>'Tampa',           'county'=>'Hillsborough','pop'=>'over 320,000 seniors in Hillsborough County'],
+    '/home-care-agency-seo-jacksonville-fl/'   => ['name'=>'Jacksonville',    'county'=>'Duval',       'pop'=>'over 200,000 seniors in the metro'],
+    '/home-care-agency-seo-clearwater-fl/'     => ['name'=>'Clearwater',      'county'=>'Pinellas',   'pop'=>'a county with one of the oldest median ages in Florida'],
+    '/home-care-agency-seo-west-palm-beach-fl/'=> ['name'=>'West Palm Beach', 'county'=>'Palm Beach', 'pop'=>'over 280,000 seniors in Palm Beach County'],
+    '/home-care-agency-seo-sarasota-fl/'       => ['name'=>'Sarasota',        'county'=>'Sarasota',   'pop'=>'over 30% of residents aged 65 or older'],
+    '/home-care-agency-seo-fort-lauderdale-fl/'=> ['name'=>'Fort Lauderdale', 'county'=>'Broward',    'pop'=>'over 350,000 seniors in Broward County'],
+    '/home-care-agency-seo-naples-fl/'         => ['name'=>'Naples',          'county'=>'Collier',    'pop'=>'one of the highest senior-per-capita ratios in the United States'],
+    '/home-care-agency-seo-boca-raton-fl/'     => ['name'=>'Boca Raton',      'county'=>'Palm Beach', 'pop'=>'a high concentration of affluent retirees and senior residents'],
+    '/home-care-agency-seo-orlando-fl/'        => ['name'=>'Orlando',         'county'=>'Orange',     'pop'=>'over 280,000 seniors in the greater metro area'],
 ];
 
 $wd_cities = [
@@ -226,7 +226,7 @@ if ($run) {
         $log[] = "✓ {$path} → FAQPage (5 questions)";
 
         add_schema($path, 'BreadcrumbList', bc([
-            ['Home', SITE.'/'], ['Florida Markets', SITE.'/Marketing/'], ["{$c} Home Care Marketing", $url]
+            ['Home', SITE.'/'], ['Home Care Agency SEO', SITE.'/local-seo-for-home-care-agencies/'], ["{$c} Home Care Agency SEO", $url]
         ]));
         $log[] = "✓ {$path} → BreadcrumbList";
     }
