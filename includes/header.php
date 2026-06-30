@@ -45,6 +45,14 @@ $_hc_favicon_url = '';
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<?php
+try {
+    if (function_exists('hc_all')) {
+        $rows = hc_all("SELECT code FROM hc_tracking_codes WHERE position='head' AND active=1 ORDER BY id ASC");
+        foreach ($rows as $r) echo $r['code'] . "\n";
+    }
+} catch(Exception $e){}
+?>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= htmlspecialchars($page_title ?? 'Homecare Creators — Market It. Manage It. Grow It.') ?></title>
@@ -217,6 +225,14 @@ try {
 ?>
 </head>
 <body>
+<?php
+try {
+    if (function_exists('hc_all')) {
+        $rows = hc_all("SELECT code FROM hc_tracking_codes WHERE position='body' AND active=1 ORDER BY id ASC");
+        foreach ($rows as $r) echo $r['code'] . "\n";
+    }
+} catch(Exception $e){}
+?>
 
 <div id="scrollProgress"></div>
 
