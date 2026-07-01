@@ -25,10 +25,16 @@ function is_active(string ...$paths): bool {
       Form Log
       <?php if ($new_submissions > 0): ?><span class="badge badge-red" style="margin-left:auto;font-size:9px"><?= $new_submissions ?></span><?php endif ?>
     </a>
-    <a href="/admin/blog/" class="nav-item <?= is_active('/admin/blog') ? 'active' : '' ?>">
+    <!-- Blog toggle -->
+    <div class="nav-item nav-toggle <?= is_active('/admin/blog') ? 'open' : '' ?>" onclick="toggleNav(this)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-      Blog Posts
-    </a>
+      Blog
+      <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px;margin-left:auto;transition:.2s"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="nav-sub-group <?= is_active('/admin/blog') ? 'open' : '' ?>">
+      <a href="/admin/blog/" class="nav-item <?= (str_contains($cur,'/admin/blog/edit') || $cur==='/admin/blog/' || $cur==='/admin/blog/index.php') ? 'active' : '' ?>">All Posts</a>
+      <a href="/admin/blog/categories.php" class="nav-item <?= str_contains($cur,'categories') ? 'active' : '' ?>">Categories</a>
+    </div>
   </div>
 
   <div class="nav-group">
