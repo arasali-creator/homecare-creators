@@ -35,11 +35,13 @@ $page_css = <<<CSS
 
 /* MARKET SECTION */
 .market-section{background:#fff}
-.market-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.market-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
 .market-body p{font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:16px}
-.market-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
-.fact-card{background:var(--warm);border:1px solid var(--border);border-radius:var(--r);padding:22px;border-left:4px solid var(--teal)}
-.fact-num{font-family:'Instrument Serif',serif;font-size:32px;color:var(--teal);line-height:1;margin-bottom:6px}
+.market-facts{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.fact-text h4{margin:0 0 4px}
+.fact-text p{margin:0}
+.fact-card{background:var(--warm);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;border-left:4px solid var(--teal);display:flex;align-items:center;gap:20px}
+.fact-num{font-family:'Instrument Serif',serif;font-size:32px;color:var(--teal);line-height:1;flex-shrink:0;min-width:90px}
 .fact-card h4{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--forest);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
 .fact-card p{font-size:13px;color:var(--muted);line-height:1.6}
 
@@ -130,7 +132,7 @@ $page_css = <<<CSS
   .services-grid,.why-grid{grid-template-columns:1fr}
   .hero{padding:100px 24px 60px}
   .cta-image{display:none}
-  .market-facts{grid-template-columns:1fr}
+  .fact-card{flex-direction:column;align-items:flex-start;gap:6px}
 }
 CSS;
 include '../includes/header.php';
@@ -223,10 +225,10 @@ include '../includes/header.php';
         <p>Homecare Creators is the only marketing agency built exclusively for homecare businesses. We know this market. We know the exact phrases Orlando families type into Google, and we know how to get your agency to the top of Maps and organic results faster than a generalist agency ever could.</p>
       </div>
       <div class="market-facts" data-reveal style="transition-delay:.15s">
-        <div class="fact-card"><div class="fact-num">1.5M+</div><h4>Orlando area Population</h4><p>One of Florida's largest metros, and the senior population here keeps climbing year over year</p></div>
-        <div class="fact-card"><div class="fact-num">20%</div><h4>Residents Aged 65+</h4><p>1 in 5 Orange County residents is a senior. That's your core target audience</p></div>
-        <div class="fact-card"><div class="fact-num">$5,900</div><h4>Avg Private-Pay Value</h4><p>One new private-pay client in Orlando is worth $3,000–$8,000 per year to your agency</p></div>
-        <div class="fact-card"><div class="fact-num">High</div><h4>Market Competition</h4><p>This is a competitive homecare market, so ranking here takes an agency that specializes in it</p></div>
+        <div class="fact-card"><div class="fact-num">1.5M+</div><div class="fact-text"><h4>Orlando area Population</h4><p>One of Florida's largest metros, and the senior population here keeps climbing year over year</p></div></div>
+        <div class="fact-card"><div class="fact-num">20%</div><div class="fact-text"><h4>Residents Aged 65+</h4><p>1 in 5 Orange County residents is a senior. That's your core target audience</p></div></div>
+        <div class="fact-card"><div class="fact-num">$5,900</div><div class="fact-text"><h4>Avg Private-Pay Value</h4><p>One new private-pay client in Orlando is worth $3,000–$8,000 per year to your agency</p></div></div>
+        <div class="fact-card"><div class="fact-num">High</div><div class="fact-text"><h4>Market Competition</h4><p>This is a competitive homecare market, so ranking here takes an agency that specializes in it</p></div></div>
       </div>
     </div>
   </div>
