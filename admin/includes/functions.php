@@ -4,23 +4,34 @@ function hc_scan_pages(): array {
     $root  = SITE_ROOT;
     $pages = [];
     $skip  = ['admin','blog','includes','assets'];
+    // These folders are served at clean, flat URLs by the server's rewrite rules
+    // (e.g. Marketing/foo.php -> /foo/), not at their real on-disk path.
+    $flatten = ['Marketing','web-design','seo'];
 
-    $scan = function(string $dir, string $prefix) use (&$scan, $root, $skip, &$pages) {
+    $scan = function(string $dir, string $prefix, ?string $flattenFolder) use (&$scan, $root, $skip, $flatten, &$pages) {
         foreach (glob("$dir/*.php") as $f) {
             $base = basename($f, '.php');
             if (in_array($base, ['form-handler','install'])) continue;
-            $path  = str_replace($root, '', $f);
-            $path  = str_replace(['\\','.php'], ['/',  ''], $path);
+            if ($flattenFolder) {
+                $path = '/' . $base . '/';
+            } elseif ($base === 'index' && rtrim(str_replace($root, '', $dir), '/\\') === '') {
+                $path = '/';
+            } else {
+                $path = str_replace($root, '', $f);
+                $path = str_replace(['\\','.php'], ['/',  ''], $path);
+            }
             $name  = ucwords(str_replace(['-','_'], ' ', $base));
             $pages[] = ['path' => $path, 'name' => ($prefix ? $prefix . ' › ' : '') . $name, 'file' => $f];
         }
         foreach (glob("$dir/*", GLOB_ONLYDIR) as $sub) {
             $d = basename($sub);
-            if (!in_array($d, $skip)) $scan($sub, ucfirst($d));
+            if (in_array($d, $skip)) continue;
+            $nextFlatten = in_array($d, $flatten) ? $d : $flattenFolder;
+            $scan($sub, ucfirst($d), $nextFlatten);
         }
     };
 
-    $scan($root, '');
+    $scan($root, '', null);
     usort($pages, fn($a,$b) => strcmp($a['path'], $b['path']));
     return $pages;
 }
