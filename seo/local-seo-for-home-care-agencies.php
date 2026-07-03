@@ -66,7 +66,7 @@ $page_css = <<<CSS
 .why-point-icon{width:44px;height:44px;border-radius:12px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
 .why-point-title{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--forest);margin-bottom:4px}
 .why-point-desc{font-size:13.5px;line-height:1.6;color:var(--muted)}
-.why-visual{position:relative}
+.why-visual{position:relative;align-self:start}
 .why-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:0 24px 80px rgba(10,46,30,.18);aspect-ratio:4/5}
 .why-img img{width:100%;height:100%;object-fit:cover;display:block}
 .why-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,46,30,.55) 100%);border-radius:var(--r-lg)}

@@ -42,7 +42,7 @@ $page_css = <<<CSS
 /* ── WHY US ── */
 .why{background:#fff}
 .why-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.why-image-wrap{position:relative}
+.why-image-wrap{position:relative;align-self:start}
 .why-image-main{border-radius:24px;overflow:hidden;box-shadow:0 24px 80px rgba(10,46,30,.18);position:relative;aspect-ratio:4/5}
 .why-image-main img{width:100%;height:100%;object-fit:cover;display:block}
 .why-image-main::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,46,30,.55) 100%);border-radius:24px}
@@ -193,7 +193,7 @@ $page_css = <<<CSS
 /* ── RESULTS ── */
 .results{background:var(--cream)}
 .results-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.results-image-wrap{position:relative}
+.results-image-wrap{position:relative;align-self:start}
 .results-image{border-radius:24px;overflow:hidden;box-shadow:0 24px 80px rgba(10,46,30,.18);aspect-ratio:4/5}
 .results-image img{width:100%;height:100%;object-fit:cover;display:block}
 .results-stat-card{position:absolute;bottom:-16px;right:-16px;background:#fff;border-radius:18px;padding:20px 24px;box-shadow:0 12px 48px rgba(10,46,30,.16);border:1px solid var(--border);min-width:150px;text-align:center}
