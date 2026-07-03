@@ -49,7 +49,7 @@ try {
     <?php foreach ($posts as $p): ?>
     <div class="blog-card" data-reveal>
       <?php if ($p['featured_image']): ?>
-      <img class="blog-card-img" src="<?= htmlspecialchars($p['featured_image']) ?>" alt="<?= htmlspecialchars($p['title']) ?>" loading="lazy">
+      <img class="blog-card-img" src="<?= htmlspecialchars($p['featured_image']) ?>" alt="<?= htmlspecialchars($p['title']) ?>" title="<?= htmlspecialchars($p['title']) ?>" loading="lazy">
       <?php else: ?>
       <div class="blog-card-img" style="background:linear-gradient(135deg,var(--forest) 0%,var(--teal) 100%);display:flex;align-items:center;justify-content:center">
         <span style="font-family:'Instrument Serif',serif;color:rgba(255,255,255,.2);font-size:48px">HC</span>

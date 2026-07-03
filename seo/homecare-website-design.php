@@ -287,13 +287,13 @@ include '../includes/header.php';
   <div class="container">
     <p class="certs-label">Certified &amp; Trusted By</p>
     <div class="certs-row">
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-BBB-Certified.png" alt="BBB Certified" loading="lazy"><span>BBB Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-Google-my-business-profile.png" alt="Google Business Profile Verified" loading="lazy"><span>Google Business Profile</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-google-partner.jpg" alt="Google Partner" loading="lazy"><span>Google Partner</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" alt="HubSpot Partner" loading="lazy"><span>HubSpot Partner</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" alt="Meta Certified" loading="lazy"><span>Meta Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" alt="SEMrush Certified" loading="lazy"><span>SEMrush Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-NACH.webp" alt="NAHC Certified" loading="lazy"><span>NAHC Member</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-BBB-Certified.png" alt="Homecare Creators BBB accredited business certification badge" title="BBB Accredited Business" loading="lazy"><span>BBB Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-Google-my-business-profile.png" alt="Homecare Creators verified Google Business Profile badge" title="Verified Google Business Profile" loading="lazy"><span>Google Business Profile</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-google-partner.jpg" alt="Homecare Creators Google Partner certification badge" title="Google Partner Certified Agency" loading="lazy"><span>Google Partner</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" alt="Homecare Creators HubSpot certified partner badge" title="HubSpot Certified Partner" loading="lazy"><span>HubSpot Partner</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" alt="Homecare Creators Meta certified marketing partner badge" title="Meta Certified Marketing Partner" loading="lazy"><span>Meta Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" alt="Homecare Creators SEMrush certified SEO partner badge" title="SEMrush Certified Agency Partner" loading="lazy"><span>SEMrush Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-NACH.webp" alt="Homecare Creators National Association for Home Care and Hospice member badge" title="NAHC Member Agency" loading="lazy"><span>NAHC Member</span></div>
     </div>
   </div>
 </section>
@@ -357,7 +357,7 @@ include '../includes/header.php';
       </div>
       <div class="what-visual" data-reveal style="transition-delay:.15s">
         <div class="what-img">
-          <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&q=80&fit=crop&crop=faces,center" alt="Professional homecare agency website design">
+          <img src="/images/home/hero-caregiver-elderly.jpg" alt="Professional home care agency website design showcasing a caregiver with an elderly client" title="Home care agency website design example">
         </div>
         <div class="what-stat-float">
           <div class="what-stat-num">312%</div>
@@ -625,7 +625,7 @@ include '../includes/header.php';
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free quote &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Live in 14 days guaranteed</div>
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&fit=crop" alt="Homecare agency website design results">
+        <img src="/images/home/service-website-dev.jpg" alt="Home care agency website design results delivered by Homecare Creators" title="Home care agency website design results">
         <div class="cta-image-badge">
           <div class="cta-image-badge-title"><i class="fa-solid fa-circle-dot" style="color:var(--teal-lt);margin-right:4px"></i>Your Quote Includes</div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Current website audit</div></div>

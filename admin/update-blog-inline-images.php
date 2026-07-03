@@ -12,7 +12,7 @@ if (($_GET['run'] ?? '') !== '1') {
 // Inline image HTML block
 function img_block(string $src, string $alt, string $caption = ''): string {
     return '<figure style="margin:36px 0;text-align:center">'
-        . '<img src="' . htmlspecialchars($src) . '" alt="' . htmlspecialchars($alt) . '" '
+        . '<img src="' . htmlspecialchars($src) . '" alt="' . htmlspecialchars($alt) . '" title="' . htmlspecialchars($alt) . '" '
         . 'style="width:100%;max-width:820px;border-radius:12px;border:1px solid #e5e7eb;display:inline-block" loading="lazy">'
         . ($caption ? '<figcaption style="margin-top:10px;font-size:13px;color:#9ca3af;font-style:italic">' . htmlspecialchars($caption) . '</figcaption>' : '')
         . '</figure>';

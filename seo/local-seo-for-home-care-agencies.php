@@ -265,13 +265,13 @@ include '../includes/header.php';
   <div class="container">
     <p class="certs-label">Certified &amp; Trusted By</p>
     <div class="certs-row">
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-BBB-Certified.png" alt="BBB Certified" loading="lazy"><span>BBB Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-Google-my-business-profile.png" alt="Google Business Profile Verified" loading="lazy"><span>Google Business Profile</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-google-partner.jpg" alt="Google Partner" loading="lazy"><span>Google Partner</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" alt="HubSpot Partner" loading="lazy"><span>HubSpot Partner</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" alt="Meta Certified" loading="lazy"><span>Meta Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" alt="SEMrush Certified" loading="lazy"><span>SEMrush Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-NACH.webp" alt="NAHC Certified" loading="lazy"><span>NAHC Member</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-BBB-Certified.png" alt="Homecare Creators BBB accredited business certification badge" title="BBB Accredited Business" loading="lazy"><span>BBB Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-Google-my-business-profile.png" alt="Homecare Creators verified Google Business Profile badge" title="Verified Google Business Profile" loading="lazy"><span>Google Business Profile</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-google-partner.jpg" alt="Homecare Creators Google Partner certification badge" title="Google Partner Certified Agency" loading="lazy"><span>Google Partner</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" alt="Homecare Creators HubSpot certified partner badge" title="HubSpot Certified Partner" loading="lazy"><span>HubSpot Partner</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" alt="Homecare Creators Meta certified marketing partner badge" title="Meta Certified Marketing Partner" loading="lazy"><span>Meta Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" alt="Homecare Creators SEMrush certified SEO partner badge" title="SEMrush Certified Agency Partner" loading="lazy"><span>SEMrush Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-NACH.webp" alt="Homecare Creators National Association for Home Care and Hospice member badge" title="NAHC Member Agency" loading="lazy"><span>NAHC Member</span></div>
     </div>
   </div>
 </section>
@@ -334,7 +334,7 @@ include '../includes/header.php';
       </div>
       <div class="why-visual" data-reveal style="transition-delay:.15s">
         <div class="why-img">
-          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80&fit=crop" alt="Local SEO for homecare agencies Florida">
+          <img src="/images/home/service-local-seo.jpg" alt="Local SEO services helping Florida home care agencies rank on Google Maps" title="Local SEO for Florida home care agencies">
         </div>
         <div class="why-stat-float">
           <div class="why-stat-num">#1</div>
@@ -606,7 +606,7 @@ include '../includes/header.php';
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; No long-term contracts</div>
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&fit=crop" alt="Homecare agency growing with local SEO in Florida">
+        <img src="/images/home/cta-business-owner.jpg" alt="Florida home care agency owner growing their business with local SEO" title="Home care agency growth through local SEO">
         <div class="cta-image-badge">
           <div class="cta-image-badge-title"><i class="fa-solid fa-circle-dot" style="color:var(--teal-lt);margin-right:4px"></i>Free Audit Includes</div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Google Maps ranking analysis</div></div>

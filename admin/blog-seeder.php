@@ -8,7 +8,7 @@ hc_require_auth();
 
 // ─── POST 1 CONTENT ─────────────────────────────────────────────────────────
 $content1 = <<<'HTML'
-<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&auto=format&fit=crop&q=80" alt="Caregiver sitting with an elderly woman at home, building trust and rapport" style="width:100%;border-radius:12px;margin-bottom:8px">
+<img src="/images/blog/blog-google-reviews.jpg" alt="Caregiver sitting with an elderly woman at home, building trust and rapport" title="Caregiver building trust and rapport with a home care client" style="width:100%;border-radius:12px;margin-bottom:8px">
 <p style="font-size:13px;color:#9ca3af;margin-bottom:32px;text-align:center">Building genuine relationships is the foundation of every 5-star review.</p>
 
 <p>Ask any home care agency owner in Florida what keeps them up at night, and two problems surface almost every time: <strong>not enough new clients</strong> and <strong>not enough Google reviews</strong>. These two frustrations are more deeply connected than most people realize.</p>
@@ -44,7 +44,7 @@ $content1 = <<<'HTML'
   <li><strong>The 30-day milestone.</strong> A month in is a quiet celebration for most families. Many experience a wave of gratitude at this point that they haven't expressed to anyone. Give them somewhere to put it.</li>
 </ul>
 
-<img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=1200&auto=format&fit=crop&q=80" alt="Person on phone, leaving a Google review for a home care service" style="width:100%;border-radius:12px;margin:28px 0 8px">
+<img src="/images/blog/inline-review-phone.jpg" alt="Person on phone, leaving a Google review for a home care service" title="Leaving a Google review for a home care agency" style="width:100%;border-radius:12px;margin:28px 0 8px">
 <p style="font-size:13px;color:#9ca3af;margin-bottom:28px;text-align:center">The best review requests are short, personal, and sent at the right moment.</p>
 
 <h2 id="who-to-ask-and-how">Who to Ask — and the Exact Scripts to Use</h2>
@@ -117,7 +117,7 @@ HTML;
 
 // ─── POST 2 CONTENT ─────────────────────────────────────────────────────────
 $content2 = <<<'HTML'
-<img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&auto=format&fit=crop&q=80" alt="Person using Google Maps on their smartphone to find a local home care agency" style="width:100%;border-radius:12px;margin-bottom:8px">
+<img src="/images/blog/blog-gbp-checklist.jpg" alt="Person using Google Maps on their smartphone to find a local home care agency" title="Finding a local home care agency on Google Maps" style="width:100%;border-radius:12px;margin-bottom:8px">
 <p style="font-size:13px;color:#9ca3af;margin-bottom:32px;text-align:center">Your Google Business Profile is the first impression most families get of your agency — before they ever visit your website.</p>
 
 <p>If you are spending money on a website, on Facebook ads, on SEO — and your Google Business Profile is incomplete or poorly optimized — you are pouring resources into a leaking bucket. The GBP is where the decision happens. It's what appears when someone types "home care agency near me" into Google. It's what shows up on Google Maps when a discharge planner's patient is leaving the hospital today and their family needs help fast.</p>
@@ -149,7 +149,7 @@ $content2 = <<<'HTML'
   <li><strong>✅ Attributes are filled out completely.</strong> Attributes like "Identifies as veteran-owned," "Wheelchair accessible," "Online estimates," and "Languages spoken" all contribute to profile completeness and appear in search results. Don't leave them blank.</li>
 </ul>
 
-<img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&auto=format&fit=crop&q=80" alt="Home care agency owner working through an optimization checklist on a laptop" style="width:100%;border-radius:12px;margin:28px 0 8px">
+<img src="/images/blog/inline-optimization-checklist.jpg" alt="Home care agency owner working through an optimization checklist on a laptop" title="Home care agency Google Business Profile optimization checklist" style="width:100%;border-radius:12px;margin:28px 0 8px">
 <p style="font-size:13px;color:#9ca3af;margin-bottom:28px;text-align:center">A fully optimized GBP takes about two hours to build — and pays dividends for years.</p>
 
 <h2 id="photos-that-actually-help-your-ranking">Photos That Actually Help Your Ranking</h2>
@@ -218,7 +218,7 @@ HTML;
 
 // ─── POST 3 CONTENT ─────────────────────────────────────────────────────────
 $content3 = <<<'HTML'
-<img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&auto=format&fit=crop&q=80" alt="Abstract representation of AI search and digital recommendations for home care" style="width:100%;border-radius:12px;margin-bottom:8px">
+<img src="/images/blog/blog-ai-search-optimization.jpg" alt="Abstract representation of AI search and digital recommendations for home care" title="AI search optimization for home care agencies" style="width:100%;border-radius:12px;margin-bottom:8px">
 <p style="font-size:13px;color:#9ca3af;margin-bottom:32px;text-align:center">The families searching for home care are no longer just using Google — they're asking AI.</p>
 
 <p>Something is quietly reshaping how families find home care agencies — and most agencies haven't noticed it yet.</p>
@@ -257,7 +257,7 @@ $content3 = <<<'HTML'
   <li><strong>Wikipedia-style third-party mentions.</strong> Getting mentioned in a local news article, a hospital newsletter, a senior expo's attendee list, or a county aging services directory all increase your entity footprint. These citations confirm to AI that you exist and matter.</li>
 </ul>
 
-<img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&auto=format&fit=crop&q=80" alt="Home care agency owner building their AI search presence through content strategy" style="width:100%;border-radius:12px;margin:28px 0 8px">
+<img src="/images/blog/inline-ai-content-strategy.jpg" alt="Home care agency owner building their AI search presence through content strategy" title="Building AI search presence for a home care agency" style="width:100%;border-radius:12px;margin:28px 0 8px">
 <p style="font-size:13px;color:#9ca3af;margin-bottom:28px;text-align:center">The agencies building AI visibility today are the ones families will find tomorrow.</p>
 
 <h2 id="faq-content-that-ai-cites">FAQ Content That AI Engines Actually Cite</h2>
@@ -339,7 +339,7 @@ $posts = [
         'excerpt'  => 'Families read your Google reviews before they ever visit your website. This guide gives you the exact timing strategy, word-for-word scripts, and follow-up system that consistently produces 5-star reviews for Florida home care agencies — without feeling pushy.',
         'content'  => $content1,
         'author'   => 'Homecare Creators',
-        'featured' => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&auto=format&fit=crop&q=80',
+        'featured' => '/images/blog/blog-google-reviews.jpg',
         'focus_kw' => 'google reviews home care agency',
         'sec_kw'   => 'home care reviews, 5-star reviews home care, google reviews florida home care',
         'meta_t'   => 'Get More 5-Star Google Reviews for Your Home Care Agency',
@@ -351,7 +351,7 @@ $posts = [
         'excerpt'  => 'Your Google Business Profile is where families decide whether to call you — before they visit your website. This 30-point checklist covers every optimization, from categories and photos to Google Posts and Q&A, that separates ranked agencies from invisible ones.',
         'content'  => $content2,
         'author'   => 'Homecare Creators',
-        'featured' => 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&auto=format&fit=crop&q=80',
+        'featured' => '/images/blog/blog-gbp-checklist.jpg',
         'focus_kw' => 'google business profile home care agency',
         'sec_kw'   => 'home care google maps, GBP optimization home care, local SEO home care florida',
         'meta_t'   => 'Google Business Profile Checklist for Home Care Agencies 2026',
@@ -363,7 +363,7 @@ $posts = [
         'excerpt'  => 'Families are no longer just Googling home care — they\'re asking ChatGPT and Perplexity. AI search engines name specific agencies in their answers. This guide explains exactly how to become one of the agencies they recommend.',
         'content'  => $content3,
         'author'   => 'Homecare Creators',
-        'featured' => 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&auto=format&fit=crop&q=80',
+        'featured' => '/images/blog/blog-ai-search-optimization.jpg',
         'focus_kw' => 'home care agency AI search optimization',
         'sec_kw'   => 'ChatGPT home care, AI search home care agency, GEO home care, Perplexity home care',
         'meta_t'   => 'Get Your Home Care Agency Recommended by ChatGPT & Google AI',

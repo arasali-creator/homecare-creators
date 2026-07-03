@@ -239,7 +239,7 @@ $toc = $headings[1] ?? [];
       <?php foreach ($related as $r): ?>
       <a href="/blog/<?= htmlspecialchars($r['slug']) ?>" class="related-card">
         <?php if ($r['featured_image']): ?>
-        <img class="related-card-img" src="<?= htmlspecialchars($r['featured_image']) ?>" alt="<?= htmlspecialchars($r['title']) ?>" loading="lazy">
+        <img class="related-card-img" src="<?= htmlspecialchars($r['featured_image']) ?>" alt="<?= htmlspecialchars($r['title']) ?>" title="<?= htmlspecialchars($r['title']) ?>" loading="lazy">
         <?php else: ?>
         <div class="related-card-img" style="background:linear-gradient(135deg,var(--forest),var(--teal));display:flex;align-items:center;justify-content:center">
           <span style="font-family:'Instrument Serif',serif;color:rgba(255,255,255,.2);font-size:36px">HC</span>

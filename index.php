@@ -508,7 +508,8 @@ include 'includes/header.php';
   <div class="hero-right">
     <div class="hero-img-card tall" style="animation:scaleIn .9s .4s ease both">
       <img src="/images/home/hero-caregiver-elderly.jpg"
-        alt="Caregiver assisting elderly client at home">
+        alt="Professional caregiver assisting an elderly client at home for a Florida home care agency"
+        title="Home care agency caregiver assisting an elderly client">
       <div class="hero-img-overlay">
         <div class="hero-img-overlay-icon"><i class="fa-solid fa-heart-pulse"></i></div>
         <div>
@@ -519,7 +520,8 @@ include 'includes/header.php';
     </div>
     <div class="hero-img-card" style="animation:scaleIn .9s .55s ease both">
       <img src="/images/home/hero-nurse-senior.jpg"
-        alt="Nurse providing home care to senior">
+        alt="Home care nurse providing compassionate in-home senior care services"
+        title="Home care nurse caring for a senior client">
       <div class="hero-float-badge" style="top:14px;left:12px">
         <div class="hero-float-badge-num">+67</div>
         <div class="hero-float-badge-label">New Reviews</div>
@@ -527,7 +529,8 @@ include 'includes/header.php';
     </div>
     <div class="hero-img-card" style="animation:scaleIn .9s .7s ease both">
       <img src="/images/home/hero-caregiver-woman.jpg"
-        alt="Happy caregiver with elderly woman">
+        alt="Happy caregiver bonding with an elderly woman client, ranked #1 on Google"
+        title="Caregiver with elderly woman client — home care agency ranked #1 on Google">
       <div class="hero-img-overlay">
         <div class="hero-img-overlay-icon"><i class="fa-brands fa-google"></i></div>
         <div>
@@ -584,13 +587,13 @@ include 'includes/header.php';
   <div class="container">
     <p class="certs-label">Certified &amp; Trusted By</p>
     <div class="certs-row">
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-BBB-Certified.png" alt="BBB Certified" loading="lazy"><span>BBB Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-Google-my-business-profile.png" alt="Google Business Profile Verified" loading="lazy"><span>Google Business Profile</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-google-partner.jpg" alt="Google Partner" loading="lazy"><span>Google Partner</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" alt="HubSpot Partner" loading="lazy"><span>HubSpot Partner</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" alt="Meta Certified" loading="lazy"><span>Meta Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" alt="SEMrush Certified" loading="lazy"><span>SEMrush Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-NACH.webp" alt="NAHC Certified" loading="lazy"><span>NAHC Member</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-BBB-Certified.png" alt="Homecare Creators BBB accredited business certification badge" title="BBB Accredited Business" loading="lazy"><span>BBB Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-Google-my-business-profile.png" alt="Homecare Creators verified Google Business Profile badge" title="Verified Google Business Profile" loading="lazy"><span>Google Business Profile</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-google-partner.jpg" alt="Homecare Creators Google Partner certification badge" title="Google Partner Certified Agency" loading="lazy"><span>Google Partner</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" alt="Homecare Creators HubSpot certified partner badge" title="HubSpot Certified Partner" loading="lazy"><span>HubSpot Partner</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" alt="Homecare Creators Meta certified marketing partner badge" title="Meta Certified Marketing Partner" loading="lazy"><span>Meta Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" alt="Homecare Creators SEMrush certified SEO partner badge" title="SEMrush Certified Agency Partner" loading="lazy"><span>SEMrush Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-NACH.webp" alt="Homecare Creators National Association for Home Care and Hospice member badge" title="NAHC Member Agency" loading="lazy"><span>NAHC Member</span></div>
     </div>
   </div>
 </section>
@@ -603,7 +606,7 @@ include 'includes/header.php';
     <div class="why-inner">
       <div class="why-image-wrap" data-reveal>
         <div class="why-image-main">
-          <img src="/images/home/why-team-training.jpg" alt="Homecare team meeting and training">
+          <img src="/images/home/why-team-training.jpg" alt="Homecare Creators marketing team meeting to plan home care agency growth strategy" title="Homecare Creators team training and strategy meeting">
         </div>
         <div class="why-img-stat">
           <div class="why-img-stat-num">98%</div>
@@ -681,7 +684,8 @@ include 'includes/header.php';
       <div class="service-card" data-reveal style="transition-delay:.05s">
         <div class="service-card-img">
           <img src="/images/home/service-website-dev.jpg"
-            alt="Website development">
+            alt="Home care agency website design and development services"
+            title="Website design and development for home care agencies">
           <div class="service-card-img-overlay"></div>
           <div class="service-card-img-icon"><i class="fa-solid fa-laptop-code"></i></div>
           <div class="service-card-price-tag">from $960 + $63/mo</div>
@@ -704,7 +708,8 @@ include 'includes/header.php';
       <div class="service-card" data-reveal style="transition-delay:.1s">
         <div class="service-card-img">
           <img src="/images/home/service-local-seo.jpg"
-            alt="Local SEO for homecare">
+            alt="Local SEO services helping home care agencies rank on Google Maps"
+            title="Local SEO domination for home care agencies">
           <div class="service-card-img-overlay"></div>
           <div class="service-card-img-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
           <div class="service-card-price-tag">from $320/mo</div>
@@ -727,7 +732,8 @@ include 'includes/header.php';
       <div class="service-card" data-reveal style="transition-delay:.15s">
         <div class="service-card-img">
           <img src="/images/home/service-ai-search-seo.jpg"
-            alt="AI Search SEO">
+            alt="AI Search SEO (GEO) services getting home care agencies cited by ChatGPT and Google AI"
+            title="AI Search SEO for home care agencies">
           <div class="service-card-img-overlay"></div>
           <div class="service-card-img-icon"><i class="fa-solid fa-brain"></i></div>
           <div class="service-card-price-tag">from $512/mo</div>
@@ -752,7 +758,8 @@ include 'includes/header.php';
       <div class="service-card" data-reveal style="transition-delay:.2s">
         <div class="service-card-img">
           <img src="/images/home/service-brand-identity.jpg"
-            alt="Brand identity design">
+            alt="Brand identity design services for home care agencies"
+            title="Brand identity design for home care agencies">
           <div class="service-card-img-overlay"></div>
           <div class="service-card-img-icon"><i class="fa-solid fa-swatchbook"></i></div>
           <div class="service-card-price-tag">from $640 one-time</div>
@@ -774,7 +781,8 @@ include 'includes/header.php';
       <div class="service-card" data-reveal style="transition-delay:.25s">
         <div class="service-card-img">
           <img src="/images/home/service-social-media.jpg"
-            alt="Social media marketing">
+            alt="Social media and email marketing services for home care agencies"
+            title="Social and email marketing for home care agencies">
           <div class="service-card-img-overlay"></div>
           <div class="service-card-img-icon"><i class="fa-solid fa-share-nodes"></i></div>
           <div class="service-card-price-tag">from $320/mo</div>
@@ -984,7 +992,8 @@ include 'includes/header.php';
       </div>
       <div class="ai-seo-right">
         <img src="/images/home/ai-seo-tech.jpg"
-          alt="AI search technology">
+          alt="AI search technology helping home care agencies get cited by ChatGPT and Google AI Overviews"
+          title="AI search technology for home care agency visibility">
         <div class="ai-seo-platforms">
           <div class="ai-platform-pill"><i class="fa-brands fa-google"></i>Google AI Overviews</div>
           <div class="ai-platform-pill"><i class="fa-solid fa-robot"></i>ChatGPT Citations</div>
@@ -1079,7 +1088,8 @@ include 'includes/header.php';
       <div class="results-image-wrap" data-reveal>
         <div class="results-image">
           <img src="/images/home/results-growth.jpg"
-            alt="Homecare agency growth results">
+            alt="Home care agency growth results achieved with Homecare Creators marketing"
+            title="Home care agency growth results">
         </div>
         <div class="results-stat-card">
           <div class="results-stat-num">312%</div>
@@ -1450,7 +1460,8 @@ include 'includes/header.php';
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
         <img src="/images/home/cta-business-owner.jpg"
-          alt="Homecare business owner growing agency">
+          alt="Home care agency owner reviewing a free growth audit with Homecare Creators"
+          title="Home care agency owner growing their business">
         <div class="cta-image-badge">
           <div class="cta-image-badge-title"><i class="fa-solid fa-circle-dot"
               style="color:var(--teal-lt);margin-right:4px"></i>Audit Includes</div>

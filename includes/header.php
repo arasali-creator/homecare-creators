@@ -305,7 +305,7 @@ try {
 <nav id="mainNav">
   <a href="/" class="nav-logo" aria-label="Homecare Creators Home">
     <?php if ($_hc_logo_url): ?>
-    <img src="<?= htmlspecialchars($_hc_logo_url) ?>" alt="Homecare Creators" style="height:46px;width:auto;display:block">
+    <img src="<?= htmlspecialchars($_hc_logo_url) ?>" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" style="height:46px;width:auto;display:block">
     <?php else: ?>
     <svg height="46" viewBox="0 0 690 290" xmlns="http://www.w3.org/2000/svg">
       <line x1="42" y1="28" x2="42" y2="248" stroke="white" stroke-width="8" stroke-linecap="round"/>
