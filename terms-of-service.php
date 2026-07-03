@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title    = "Terms of Service | Homecare Creators";
 $page_desc     = "Terms of Service for Homecare Creators. Read our terms and conditions for using our marketing services.";
 $page_canonical = "https://homecarecreators.com/terms-of-service";

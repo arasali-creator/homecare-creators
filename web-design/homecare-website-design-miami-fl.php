@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Homecare Website Design in Miami, FL | Homecare Creators";
 $page_desc = "Homecare website design for Miami, FL home care agencies. Fast, SEO-ready sites built to rank on Google and bring in families across Miami-Dade.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design-miami-fl/";

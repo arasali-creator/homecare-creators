@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Homecare Website Design in Tampa, FL | Homecare Creators";
 $page_desc = "Homecare website design for Tampa, FL agencies. We build fast, SEO-ready sites for home care agencies that rank on Google and recruit caregivers.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design-tampa-fl/";

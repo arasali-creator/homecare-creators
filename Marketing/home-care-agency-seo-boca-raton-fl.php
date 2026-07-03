@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Home Care Agency SEO in Boca Raton, FL | Homecare Creators";
 $page_desc = "SEO for Boca Raton home care agencies. We help you rank #1 on Google, build a website that converts, and win more private-pay clients in Palm Beach County.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-boca-raton-fl/";

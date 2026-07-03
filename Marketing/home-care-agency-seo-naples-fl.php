@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Naples, FL Home Care Agency SEO | Homecare Creators";
 $page_desc = "SEO for home care agencies in Naples, FL. We help Collier County homecare businesses rank #1 on Google and turn local searches into private-pay clients.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-naples-fl/";

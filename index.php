@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title    = "Homecare Creators: Marketing for Home Care Agencies";
 $page_desc     = "The only marketing agency built exclusively for home care agencies in Florida - SEO, websites, and AI search optimization.";
 $page_canonical = "https://homecarecreators.com/";

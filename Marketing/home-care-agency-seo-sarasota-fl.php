@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Home Care Agency SEO in Sarasota, FL | Homecare Creators";
 $page_desc = "SEO and web design built for home care agencies in Sarasota, FL. We get you ranking #1 on Google and winning more private-pay clients across Sarasota County.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-sarasota-fl/";

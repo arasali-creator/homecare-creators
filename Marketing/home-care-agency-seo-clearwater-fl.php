@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Home Care Agency SEO in Clearwater, FL | Homecare Creators";
 $page_desc = "SEO and website design for home care agencies in Clearwater, FL. We help local homecare agencies rank on Google and win more private-pay clients.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-clearwater-fl/";

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Home Care Agency SEO in Orlando, FL | Homecare Creators";
 $page_desc = "Home care agency SEO in Orlando, FL. We get you ranked #1 on Google, build websites that convert, and bring in more private-pay clients in Orange County.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-orlando-fl/";

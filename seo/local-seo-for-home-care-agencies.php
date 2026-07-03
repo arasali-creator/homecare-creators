@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Local SEO for Home Care Agencies | Homecare Creators";
 $page_desc = "Local SEO built for home care agencies in Florida. Rank #1 on Google Maps, grow private-pay clients. Plans from $399/mo. No contracts, results in 60–90 days.";
 $page_canonical = "https://homecarecreators.com/local-seo-for-home-care-agencies/";

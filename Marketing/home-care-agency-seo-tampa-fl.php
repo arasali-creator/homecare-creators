@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Home Care Agency SEO in Tampa, FL | Homecare Creators";
 $page_desc = "SEO and website design for home care agencies in Tampa, FL. We help Tampa agencies rank on Google and turn Hillsborough County families into clients.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-tampa-fl/";

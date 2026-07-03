@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // ── SEO Override + Redirect System ──────────────────────────
 // Loads DB overrides if admin/config.php exists. Silently skips
 // if DB is unavailable (site works normally without it).

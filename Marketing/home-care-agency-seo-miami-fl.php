@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Home Care Agency SEO Miami, FL | Homecare Creators";
 $page_desc = "SEO for home care agencies in Miami, FL. We help you rank #1 on Google, build websites that convert, and grow private-pay clients in Miami-Dade.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-miami-fl/";

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Home Care Agency Website Design | Homecare Creators";
 $page_desc = "We build fast, mobile-first websites made only for home care agencies. They rank on Google, convert families into callers, and start at $699.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design/";

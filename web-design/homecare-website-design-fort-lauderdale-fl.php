@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Homecare Website Design in Fort Lauderdale, FL | Homecare Creators";
 $page_desc = "Homecare website design for Fort Lauderdale, FL agencies. Fast, SEO-optimized sites that rank on Google, win families, and grow your caregiver team.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design-fort-lauderdale-fl/";

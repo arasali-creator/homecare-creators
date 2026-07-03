@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Homecare Website Design in Jacksonville, FL | Homecare Creators";
 $page_desc = "Homecare website design for Jacksonville, FL agencies. We build fast sites that rank on Google, win family trust, and fill caregiver openings.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design-jacksonville-fl/";

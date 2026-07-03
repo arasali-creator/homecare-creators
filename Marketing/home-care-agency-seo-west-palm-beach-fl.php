@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Home Care Agency SEO in West Palm Beach, FL | Homecare Creators";
 $page_desc = "SEO for home care agencies in West Palm Beach, FL. We get you ranking on Google Maps and bring in more private-pay clients across Palm Beach County.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-west-palm-beach-fl/";

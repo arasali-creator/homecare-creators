@@ -1,4 +1,4 @@
-﻿<!-- FOOTER -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div>

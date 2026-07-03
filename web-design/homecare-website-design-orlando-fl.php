@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Homecare Website Design in Orlando, FL | Homecare Creators";
 $page_desc = "Homecare website design for Orlando, FL agencies, from a team that works only in home care. Fast sites that rank on Google and win Orange County families.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design-orlando-fl/";

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $page_title = "Homecare Website Design for Naples, FL Agencies | Homecare Creators";
 $page_desc = "Homecare website design for Naples, FL agencies. We build fast, SEO-ready sites that rank on Google and turn Collier County families into private-pay clients.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design-naples-fl/";
