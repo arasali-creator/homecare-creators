@@ -39,6 +39,20 @@ $page_css = <<<CSS
 .hero-float-badge-num{font-size:22px;font-weight:800;color:var(--gold-lt);line-height:1}
 .hero-float-badge-label{font-size:10px;color:rgba(255,255,255,.6)}
 
+/* ── CERTIFICATIONS ── */
+.certs{background:#fff;padding:52px 40px;border-bottom:1px solid var(--border)}
+.certs-label{text-align:center;font-family:'Syne',sans-serif;font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px}
+.certs-row{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap}
+.cert-item{display:flex;flex-direction:column;align-items:center;gap:10px;opacity:.85;transition:.3s}
+.cert-item:hover{opacity:1;transform:translateY(-3px)}
+.cert-item img{height:56px;width:auto;max-width:120px;object-fit:contain;filter:grayscale(15%)}
+.cert-item span{font-family:'Syne',sans-serif;font-size:10.5px;font-weight:600;color:var(--muted);text-align:center}
+@media(max-width:640px){
+  .certs{padding:36px 20px}
+  .certs-row{gap:28px}
+  .cert-item img{height:42px}
+}
+
 /* ── WHY US ── */
 .why{background:#fff}
 .why-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
@@ -576,6 +590,24 @@ include 'includes/header.php';
     <div class="ticker-item"><span class="ticker-dot"></span></div>
   </div>
 </div>
+
+<!-- ══════════════════════════
+   CERTIFICATIONS / TRUST BADGES
+══════════════════════════ -->
+<section class="certs">
+  <div class="container">
+    <p class="certs-label">Certified &amp; Trusted By</p>
+    <div class="certs-row">
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-BBB-Certified.png" alt="BBB Certified" loading="lazy"><span>BBB Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-Google-my-business-profile.png" alt="Google Business Profile Verified" loading="lazy"><span>Google Business Profile</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-google-partner.jpg" alt="Google Partner" loading="lazy"><span>Google Partner</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" alt="HubSpot Partner" loading="lazy"><span>HubSpot Partner</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" alt="Meta Certified" loading="lazy"><span>Meta Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" alt="SEMrush Certified" loading="lazy"><span>SEMrush Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-NACH.webp" alt="NAHC Certified" loading="lazy"><span>NAHC Member</span></div>
+    </div>
+  </div>
+</section>
 
 <!-- ══════════════════════════
    WHY US
