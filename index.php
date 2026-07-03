@@ -39,20 +39,6 @@ $page_css = <<<CSS
 .hero-float-badge-num{font-size:22px;font-weight:800;color:var(--gold-lt);line-height:1}
 .hero-float-badge-label{font-size:10px;color:rgba(255,255,255,.6)}
 
-/* ── CERTIFICATIONS ── */
-.certs{background:#fff;padding:52px 40px;border-bottom:1px solid var(--border)}
-.certs-label{text-align:center;font-family:'Syne',sans-serif;font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px}
-.certs-row{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap}
-.cert-item{display:flex;flex-direction:column;align-items:center;gap:10px;opacity:.85;transition:.3s}
-.cert-item:hover{opacity:1;transform:translateY(-3px)}
-.cert-item img{height:56px;width:auto;max-width:120px;object-fit:contain;filter:grayscale(15%)}
-.cert-item span{font-family:'Syne',sans-serif;font-size:10.5px;font-weight:600;color:var(--muted);text-align:center}
-@media(max-width:640px){
-  .certs{padding:36px 20px}
-  .certs-row{gap:28px}
-  .cert-item img{height:42px}
-}
-
 /* ── WHY US ── */
 .why{background:#fff}
 .why-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
@@ -521,7 +507,7 @@ include 'includes/header.php';
 
   <div class="hero-right">
     <div class="hero-img-card tall" style="animation:scaleIn .9s .4s ease both">
-      <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&q=80&fit=crop&crop=faces,center"
+      <img src="/images/home/hero-caregiver-elderly.jpg"
         alt="Caregiver assisting elderly client at home">
       <div class="hero-img-overlay">
         <div class="hero-img-overlay-icon"><i class="fa-solid fa-heart-pulse"></i></div>
@@ -532,7 +518,7 @@ include 'includes/header.php';
       </div>
     </div>
     <div class="hero-img-card" style="animation:scaleIn .9s .55s ease both">
-      <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=500&q=80&fit=crop&crop=faces"
+      <img src="/images/home/hero-nurse-senior.jpg"
         alt="Nurse providing home care to senior">
       <div class="hero-float-badge" style="top:14px;left:12px">
         <div class="hero-float-badge-num">+67</div>
@@ -540,7 +526,7 @@ include 'includes/header.php';
       </div>
     </div>
     <div class="hero-img-card" style="animation:scaleIn .9s .7s ease both">
-      <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&q=80&fit=crop&crop=faces"
+      <img src="/images/home/hero-caregiver-woman.jpg"
         alt="Happy caregiver with elderly woman">
       <div class="hero-img-overlay">
         <div class="hero-img-overlay-icon"><i class="fa-brands fa-google"></i></div>
@@ -617,7 +603,7 @@ include 'includes/header.php';
     <div class="why-inner">
       <div class="why-image-wrap" data-reveal>
         <div class="why-image-main">
-          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80&fit=crop" alt="Homecare team meeting and training">
+          <img src="/images/home/why-team-training.jpg" alt="Homecare team meeting and training">
         </div>
         <div class="why-img-stat">
           <div class="why-img-stat-num">98%</div>
@@ -694,7 +680,7 @@ include 'includes/header.php';
     <div class="services-grid">
       <div class="service-card" data-reveal style="transition-delay:.05s">
         <div class="service-card-img">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&fit=crop"
+          <img src="/images/home/service-website-dev.jpg"
             alt="Website development">
           <div class="service-card-img-overlay"></div>
           <div class="service-card-img-icon"><i class="fa-solid fa-laptop-code"></i></div>
@@ -717,7 +703,7 @@ include 'includes/header.php';
 
       <div class="service-card" data-reveal style="transition-delay:.1s">
         <div class="service-card-img">
-          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80&fit=crop"
+          <img src="/images/home/service-local-seo.jpg"
             alt="Local SEO for homecare">
           <div class="service-card-img-overlay"></div>
           <div class="service-card-img-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
@@ -740,7 +726,7 @@ include 'includes/header.php';
 
       <div class="service-card" data-reveal style="transition-delay:.15s">
         <div class="service-card-img">
-          <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&fit=crop"
+          <img src="/images/home/service-ai-search-seo.jpg"
             alt="AI Search SEO">
           <div class="service-card-img-overlay"></div>
           <div class="service-card-img-icon"><i class="fa-solid fa-brain"></i></div>
@@ -765,7 +751,7 @@ include 'includes/header.php';
     <div class="services-grid-row2">
       <div class="service-card" data-reveal style="transition-delay:.2s">
         <div class="service-card-img">
-          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80&fit=crop"
+          <img src="/images/home/service-brand-identity.jpg"
             alt="Brand identity design">
           <div class="service-card-img-overlay"></div>
           <div class="service-card-img-icon"><i class="fa-solid fa-swatchbook"></i></div>
@@ -787,7 +773,7 @@ include 'includes/header.php';
 
       <div class="service-card" data-reveal style="transition-delay:.25s">
         <div class="service-card-img">
-          <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&q=80&fit=crop"
+          <img src="/images/home/service-social-media.jpg"
             alt="Social media marketing">
           <div class="service-card-img-overlay"></div>
           <div class="service-card-img-icon"><i class="fa-solid fa-share-nodes"></i></div>
@@ -997,7 +983,7 @@ include 'includes/header.php';
         </div>
       </div>
       <div class="ai-seo-right">
-        <img src="https://images.unsplash.com/photo-1664575600796-ffa828c5cb6e?w=700&q=80&fit=crop"
+        <img src="/images/home/ai-seo-tech.jpg"
           alt="AI search technology">
         <div class="ai-seo-platforms">
           <div class="ai-platform-pill"><i class="fa-brands fa-google"></i>Google AI Overviews</div>
@@ -1092,7 +1078,7 @@ include 'includes/header.php';
     <div class="results-inner">
       <div class="results-image-wrap" data-reveal>
         <div class="results-image">
-          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=700&q=80&fit=crop"
+          <img src="/images/home/results-growth.jpg"
             alt="Homecare agency growth results">
         </div>
         <div class="results-stat-card">
@@ -1463,7 +1449,7 @@ include 'includes/header.php';
           obligation &nbsp;&middot;&nbsp; Results in 30 days guaranteed</div>
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&fit=crop"
+        <img src="/images/home/cta-business-owner.jpg"
           alt="Homecare business owner growing agency">
         <div class="cta-image-badge">
           <div class="cta-image-badge-title"><i class="fa-solid fa-circle-dot"

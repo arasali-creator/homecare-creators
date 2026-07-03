@@ -166,6 +166,20 @@ footer{background:var(--forest);padding:64px 48px 0}
 .footer-bottom-links a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none}
 .footer-bottom-links a:hover{color:rgba(255,255,255,.7)}
 
+/* CERTIFICATIONS / TRUST BADGES */
+.certs{background:#fff;padding:52px 40px;border-bottom:1px solid var(--border)}
+.certs-label{text-align:center;font-family:'Syne',sans-serif;font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px}
+.certs-row{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap}
+.cert-item{display:flex;flex-direction:column;align-items:center;gap:10px;opacity:.85;transition:.3s}
+.cert-item:hover{opacity:1;transform:translateY(-3px)}
+.cert-item img{height:56px;width:auto;max-width:120px;object-fit:contain;filter:grayscale(15%)}
+.cert-item span{font-family:'Syne',sans-serif;font-size:10.5px;font-weight:600;color:var(--muted);text-align:center}
+@media(max-width:640px){
+  .certs{padding:36px 20px}
+  .certs-row{gap:28px}
+  .cert-item img{height:42px}
+}
+
 /* BREADCRUMB */
 .hero-breadcrumb{font-family:'Syne',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,.4);margin-bottom:20px}
 .hero-breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none}

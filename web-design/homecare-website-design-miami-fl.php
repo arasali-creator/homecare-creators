@@ -175,6 +175,24 @@ include '../includes/header.php';
   </div>
 </section>
 
+<!-- ══════════════════════════
+   CERTIFICATIONS / TRUST BADGES
+══════════════════════════ -->
+<section class="certs">
+  <div class="container">
+    <p class="certs-label">Certified &amp; Trusted By</p>
+    <div class="certs-row">
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-BBB-Certified.png" alt="BBB Certified" loading="lazy"><span>BBB Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-Google-my-business-profile.png" alt="Google Business Profile Verified" loading="lazy"><span>Google Business Profile</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-google-partner.jpg" alt="Google Partner" loading="lazy"><span>Google Partner</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" alt="HubSpot Partner" loading="lazy"><span>HubSpot Partner</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" alt="Meta Certified" loading="lazy"><span>Meta Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" alt="SEMrush Certified" loading="lazy"><span>SEMrush Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-NACH.webp" alt="NAHC Certified" loading="lazy"><span>NAHC Member</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- TICKER -->
 <div class="ticker-wrap" aria-hidden="true">
   <div class="ticker-inner">
