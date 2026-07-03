@@ -1,9 +1,9 @@
 ﻿<?php
-$page_title    = "Homecare Creators — Market It. Manage It. Grow It.";
-$page_desc     = "The only marketing agency built exclusively for homecare agencies in Florida. Website design, local SEO, AI search optimization, and CareOS platform — all built for homecare.";
+$page_title    = "Homecare Creators: Market It. Manage It. Grow It.";
+$page_desc     = "The only marketing agency built exclusively for homecare agencies in Florida. Website design, local SEO, AI search optimization, plus the CareOS platform.";
 $page_canonical = "https://homecarecreators.com/";
-$og_title      = "Homecare Creators — Market It. Manage It. Grow It.";
-$og_desc       = "Market It. Manage It. Grow It. The only agency built 100% for homecare — website design, local SEO, AI search SEO, and the CareOS platform.";
+$og_title      = "Homecare Creators: Market It. Manage It. Grow It.";
+$og_desc       = "Market It. Manage It. Grow It. We're the only agency built 100% for homecare, covering website design, local SEO, AI search SEO, and the CareOS platform.";
 
 $page_css = <<<CSS
 /* ── HERO ── */
@@ -475,8 +475,9 @@ include 'includes/header.php';
     </div>
     <h1 class="hero-h1">Market It. Manage It.<br><em>Grow It.</em></h1>
     <div class="hero-tagline"><em>The Only Agency Built 100% for</em><br><em>Homecare.</em></div>
-    <p class="hero-desc">We build your website, dominate your local search, run your marketing, and power your
-      operations with AI — so you can focus on delivering care, not chasing clients.</p>
+    <p class="hero-desc">We build your website, take over your local search rankings, and run the marketing.
+      Then our AI tools handle a chunk of the day-to-day operations too. You focus on delivering care. We chase
+      the clients.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup('audit')"><i class="fa-solid fa-rocket"></i>Book Free Growth
         Audit</button>
@@ -624,39 +625,39 @@ include 'includes/header.php';
       <div data-reveal style="transition-delay:.15s">
         <p class="section-label">Why Homecare Creators</p>
         <h2 class="section-h2">The Only Agency Built <em>100% for </em>Homecare</h2>
-        <p class="section-sub">Generalist agencies don't understand homecare. We do — and that difference is worth
-          hundreds of thousands in growth every year.</p>
+        <p class="section-sub">Generalist agencies don't get homecare. We do. That gap alone is worth hundreds
+          of thousands in growth most years.</p>
         <div class="why-points">
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-crosshairs"></i></div>
             <div>
-              <div class="why-point-title">Laser-Focused Niche Authority</div>
-              <div class="why-point-desc">Every strategy, keyword, and page is built for homecare. Faster results,
-                zero wasted spend.</div>
+              <div class="why-point-title">We Only Do One Thing</div>
+              <div class="why-point-desc">Every strategy, keyword, and page we build is for a homecare agency,
+                nothing else. That focus means faster results and none of your budget wasted on trial and error.</div>
             </div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-brands fa-google"></i></div>
             <div>
-              <div class="why-point-title">AI Search SEO — Nobody Else Does This</div>
+              <div class="why-point-title">AI Search SEO, Before Your Competitors Even Know It Exists</div>
               <div class="why-point-desc">We get your agency cited by ChatGPT, Google AI Overviews, and Perplexity.
-                Your competitors haven't even heard of this.</div>
+                Most agencies in your city haven't heard of this yet.</div>
             </div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-layer-group"></i></div>
             <div>
-              <div class="why-point-title">Marketing + Software in One Partner</div>
-              <div class="why-point-desc">CareOS + agency services together creates a growth flywheel no competitor
-                can match.</div>
+              <div class="why-point-title">One Partner for Marketing and Software</div>
+              <div class="why-point-desc">Pair CareOS with our agency services and you get a growth loop your
+                competitors can't copy.</div>
             </div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-dollar-sign"></i></div>
             <div>
               <div class="why-point-title">Every New Client = $3,000–$8,000/Year</div>
-              <div class="why-point-desc">One new homecare client from our SEO often pays the entire retainer within
-                30 days.</div>
+              <div class="why-point-desc">Land one new client through our SEO and it often covers the entire
+                retainer within 30 days.</div>
             </div>
           </div>
         </div>
@@ -675,8 +676,8 @@ include 'includes/header.php';
         <p class="section-label">What We Do</p>
         <h2 class="section-h2">Everything Your Agency<br>Needs to <em>Dominate</em></h2>
       </div>
-      <p class="section-sub" data-reveal style="transition-delay:.1s">Five done-for-you service lines built
-        exclusively around what makes homecare agencies grow.</p>
+      <p class="section-sub" data-reveal style="transition-delay:.1s">Five done-for-you service lines, built around
+        what actually moves the needle for a homecare agency.</p>
     </div>
 
     <!-- Row 1: 3 cards -->
@@ -692,8 +693,8 @@ include 'includes/header.php';
         </div>
         <div class="service-card-body">
           <div class="service-card-title">Website Design & Development</div>
-          <div class="service-card-desc">Lightning-fast, mobile-first websites built to convert families and recruit
-            caregivers. Every page is a growth asset.</div>
+          <div class="service-card-desc">Fast, mobile-first sites that turn visitors into families and applicants
+            into caregivers. We don't build brochure sites. Every page has a job to do.</div>
           <ul class="service-card-features">
             <li><i class="fa-solid fa-check"></i>5–15 custom pages</li>
             <li><i class="fa-solid fa-check"></i>Local SEO optimised from day one</li>
@@ -716,8 +717,8 @@ include 'includes/header.php';
         </div>
         <div class="service-card-body">
           <div class="service-card-title">Local SEO Domination</div>
-          <div class="service-card-desc">Rank #1 on Google Maps and organic search in your city for "homecare near me"
-            and every keyword that matters.</div>
+          <div class="service-card-desc">We push you to #1 on Google Maps and organic search for "homecare near me"
+            in your city, plus the dozens of keywords underneath it that actually convert.</div>
           <ul class="service-card-features">
             <li><i class="fa-solid fa-check"></i>Google My Business management</li>
             <li><i class="fa-solid fa-check"></i>Citation building & NAP consistency</li>
@@ -740,8 +741,8 @@ include 'includes/header.php';
         </div>
         <div class="service-card-body">
           <div class="service-card-title">AI Search SEO (GEO)</div>
-          <div class="service-card-desc">Appear when families search on ChatGPT, Google AI Overviews, and Perplexity.
-            The next frontier — we're already there.</div>
+          <div class="service-card-desc">Families are already asking ChatGPT and Google AI which agency to call.
+            We make sure your name comes up. Most of your competition hasn't touched this yet.</div>
           <ul class="service-card-features">
             <li><i class="fa-solid fa-check"></i>Google AI Overviews optimisation</li>
             <li><i class="fa-solid fa-check"></i>FAQ schema (50+ Q&As)</li>
@@ -766,8 +767,8 @@ include 'includes/header.php';
         </div>
         <div class="service-card-body">
           <div class="service-card-title">Brand Identity Design</div>
-          <div class="service-card-desc">A professional brand that builds instant trust with families. Logo, colors,
-            typography — every touchpoint done for you.</div>
+          <div class="service-card-desc">Families trust a brand that looks put-together. We handle the logo,
+            colors, and typography so your agency looks like the established name, even on day one.</div>
           <ul class="service-card-features">
             <li><i class="fa-solid fa-check"></i>Custom logo (3 concepts)</li>
             <li><i class="fa-solid fa-check"></i>Full brand style guide</li>
@@ -789,8 +790,8 @@ include 'includes/header.php';
         </div>
         <div class="service-card-body">
           <div class="service-card-title">Social & Email Marketing</div>
-          <div class="service-card-desc">Stay top-of-mind with families, recruit caregivers, and grow referrals
-            through consistent professional content.</div>
+          <div class="service-card-desc">Consistent posting and email keep your agency top of mind with families,
+            help with caregiver recruiting, and quietly grow referrals in the background.</div>
           <ul class="service-card-features">
             <li><i class="fa-solid fa-check"></i>3–5 posts/week (Facebook, Instagram)</li>
             <li><i class="fa-solid fa-check"></i>Monthly email newsletter</li>
@@ -816,29 +817,29 @@ include 'includes/header.php';
         <div class="how-step-num">1<div class="how-step-icon"><i class="fa-solid fa-calendar"></i></div>
         </div>
         <div class="how-step-title">Book Free Audit</div>
-        <div class="how-step-desc">We analyse your digital presence — website, SEO, Google profile, competitors —
-          completely free.</div>
+        <div class="how-step-desc">We dig through your website, SEO, Google profile, and a couple of local
+          competitors. No cost, no catch.</div>
       </div>
       <div class="how-step">
         <div class="how-step-num">2<div class="how-step-icon"><i class="fa-solid fa-map"></i></div>
         </div>
         <div class="how-step-title">Custom Growth Plan</div>
-        <div class="how-step-desc">A bespoke 90-day roadmap showing exactly how to dominate your local market with
-          real ROI projections.</div>
+        <div class="how-step-desc">You get a 90-day roadmap built around your market, with real ROI numbers attached
+          to it, not vague promises.</div>
       </div>
       <div class="how-step">
         <div class="how-step-num">3<div class="how-step-icon"><i class="fa-solid fa-gears"></i></div>
         </div>
         <div class="how-step-title">We Execute for You</div>
-        <div class="how-step-desc">Your dedicated team handles everything. You stay focused on care while we grow the
-          business.</div>
+        <div class="how-step-desc">A dedicated team runs the whole plan day to day. You keep running care, we
+          run the growth side.</div>
       </div>
       <div class="how-step">
         <div class="how-step-num">4<div class="how-step-icon"><i class="fa-solid fa-chart-line"></i></div>
         </div>
         <div class="how-step-title">Watch Your Agency Grow</div>
-        <div class="how-step-desc">Rankings climb, leads increase, reviews multiply. Monthly strategy calls keep you
-          in the loop.</div>
+        <div class="how-step-desc">Rankings climb. Leads pick up. Reviews stack. And you'll hear about all of it on
+          a monthly strategy call, not just a report you never open.</div>
       </div>
     </div>
   </div>
@@ -856,9 +857,9 @@ include 'includes/header.php';
       <div class="careos-top-badge">
         <div class="careos-top-badge-dot"></div>Coming Q3 2026 — Join the Waitlist Now
       </div>
-      <h2 class="careos-headline">Meet <em>CareOS</em> —<br>The AI Brain for Your Agency</h2>
-      <p class="careos-subhead">The first AI-powered management platform built exclusively for homecare agencies.
-        Scheduling, billing, voice AI, family portals, and growth tools — all in one place.</p>
+      <h2 class="careos-headline">Meet <em>CareOS</em>:<br>The AI Brain for Your Agency</h2>
+      <p class="careos-subhead">It's the first AI-powered management platform built just for homecare agencies.
+        Scheduling, billing, voice AI, family portals, growth tools. One login, not six.</p>
       <p class="careos-tagline"><i class="fa-solid fa-circle-dot"
           style="margin-right:8px;color:var(--teal-lt)"></i>Early access members save 40% for life</p>
     </div>
@@ -876,56 +877,56 @@ include 'includes/header.php';
       <div class="careos-module">
         <div class="careos-module-icon"><i class="fa-solid fa-calendar-days"></i></div>
         <div class="careos-module-name">Smart Scheduling</div>
-        <div class="careos-module-desc">AI-powered shift matching, conflict detection, and caregiver preference
-          management — no more double bookings.</div><span class="module-badge badge-core">Core</span>
+        <div class="careos-module-desc">AI matches shifts to the right caregiver, flags conflicts before they
+          happen, and remembers everyone's preferences so double bookings stop being a thing.</div><span class="module-badge badge-core">Core</span>
       </div>
       <div class="careos-module">
         <div class="careos-module-icon"><i class="fa-solid fa-microphone"></i></div>
         <div class="careos-module-name">Voice Shift Journal</div>
-        <div class="careos-module-desc">Caregiver speaks 60 seconds → AI produces compliance logs, family updates &
-          incident flags in under 8 seconds.</div><span class="module-badge badge-ai">AI Feature</span>
+        <div class="careos-module-desc">A caregiver talks for 60 seconds and the AI turns it into compliance logs,
+          a family update, and incident flags in under 8 seconds flat.</div><span class="module-badge badge-ai">AI Feature</span>
       </div>
       <div class="careos-module">
         <div class="careos-module-icon"><i class="fa-solid fa-heart"></i></div>
         <div class="careos-module-name">Family Trust Portal</div>
-        <div class="careos-module-desc">Real-time shift updates, AI care summaries, and mood timelines keep families
-          informed and loyal.</div><span class="module-badge badge-new">Unique</span>
+        <div class="careos-module-desc">Families see shift updates as they happen, plus AI care summaries and mood
+          timelines. It's the kind of transparency that keeps them from shopping around.</div><span class="module-badge badge-new">Unique</span>
       </div>
       <div class="careos-module">
         <div class="careos-module-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
         <div class="careos-module-name">Billing & Payroll</div>
-        <div class="careos-module-desc">Private pay, Medicaid, and long-term care billing. Auto-invoicing, ERA
-          reconciliation, Stripe integration.</div><span class="module-badge badge-core">Core</span>
+        <div class="careos-module-desc">Handles private pay, Medicaid, and long-term care billing in one system.
+          Invoices go out automatically, ERA reconciliation runs itself, and it connects straight to Stripe.</div><span class="module-badge badge-core">Core</span>
       </div>
       <div class="careos-module">
         <div class="careos-module-icon"><i class="fa-solid fa-star"></i></div>
         <div class="careos-module-name">Auto Review Engine</div>
-        <div class="careos-module-desc">Fires review requests when satisfaction score is high. Negative reviews
-          intercepted before they publish.</div><span class="module-badge badge-ai">AI Feature</span>
+        <div class="careos-module-desc">Sends review requests the moment satisfaction is running high, and catches
+          negative feedback before it ever hits Google.</div><span class="module-badge badge-ai">AI Feature</span>
       </div>
       <div class="careos-module">
         <div class="careos-module-icon"><i class="fa-solid fa-brain"></i></div>
         <div class="careos-module-name">Predictive Intelligence</div>
-        <div class="careos-module-desc">Client churn risk, caregiver resignation alerts, upsell timing, and 90-day
-          revenue forecasts.</div><span class="module-badge badge-ai">AI Feature</span>
+        <div class="careos-module-desc">Flags which clients are at risk of leaving, warns you before a caregiver
+          quits, and forecasts revenue 90 days out.</div><span class="module-badge badge-ai">AI Feature</span>
       </div>
       <div class="careos-module">
         <div class="careos-module-icon"><i class="fa-solid fa-map-pin"></i></div>
         <div class="careos-module-name">EVV & Compliance</div>
-        <div class="careos-module-desc">GPS check-in/out, HHAeXchange sync, state EVV mandate tracker for all 50
-          states, missed visit alerts.</div><span class="module-badge badge-core">Core</span>
+        <div class="careos-module-desc">GPS check-in and check-out, HHAeXchange sync, and a mandate tracker that
+          covers all 50 states so you're never caught off guard by a missed visit.</div><span class="module-badge badge-core">Core</span>
       </div>
       <div class="careos-module">
         <div class="careos-module-icon"><i class="fa-solid fa-people-group"></i></div>
         <div class="careos-module-name">Caregiver Wellness</div>
-        <div class="careos-module-desc">Burnout detection via voice tone + shift patterns. Reduces $4,500–$8,000
-          caregiver replacement cost.</div><span class="module-badge badge-new">Industry First</span>
+        <div class="careos-module-desc">Picks up on burnout from voice tone and shift patterns before a caregiver
+          walks out, saving you the $4,500–$8,000 it typically costs to replace one.</div><span class="module-badge badge-new">Industry First</span>
       </div>
     </div>
     <div class="careos-cta-box" data-reveal style="transition-delay:.2s">
       <h3 class="careos-cta-title">Be First. Save 40% for Life.</h3>
-      <p class="careos-cta-desc">Join the CareOS waitlist today and lock in a 40% lifetime discount — never pay full
-        price.</p>
+      <p class="careos-cta-desc">Get on the CareOS waitlist now and you'll never pay full price. The 40% lifetime
+        discount locks in the day you sign up.</p>
       <div class="careos-cta-perks">
         <div class="careos-cta-perk"><i class="fa-solid fa-check-circle"></i>40% lifetime discount</div>
         <div class="careos-cta-perk"><i class="fa-solid fa-check-circle"></i>Free onboarding & migration</div>
@@ -953,39 +954,39 @@ include 'includes/header.php';
         <p class="section-label">The Unfair Advantage</p>
         <h2 class="section-h2" style="color:#fff;font-size:clamp(28px,3.2vw,44px)">Your Agency, Cited
           by<br><em>ChatGPT & Google AI</em></h2>
-        <p class="ai-seo-desc">Families are asking AI chatbots "what's the best homecare agency near me?" — we make
-          sure the answer is you.</p>
+        <p class="ai-seo-desc">Families are typing "what's the best homecare agency near me" into ChatGPT now, not
+          just Google. We make sure your name is the one it gives them.</p>
         <div class="ai-pillars">
           <div class="ai-pillar">
             <div class="ai-pillar-icon"><i class="fa-solid fa-robot"></i></div>
             <div>
               <div class="ai-pillar-title">ChatGPT & Perplexity Optimisation</div>
-              <div class="ai-pillar-sub">Structured content and entity signals that make AI models recommend your
-                agency.</div>
+              <div class="ai-pillar-sub">We structure your content and entity signals so AI models actually
+                recommend your agency by name.</div>
             </div>
           </div>
           <div class="ai-pillar">
             <div class="ai-pillar-icon"><i class="fa-brands fa-google"></i></div>
             <div>
               <div class="ai-pillar-title">Google AI Overviews Placement</div>
-              <div class="ai-pillar-sub">50+ FAQ schemas, E-E-A-T signals, and author pages that earn featured AI
-                positions.</div>
+              <div class="ai-pillar-sub">Over 50 FAQ schemas, E-E-A-T signals, and author pages built to earn a spot
+                in the featured AI answers.</div>
             </div>
           </div>
           <div class="ai-pillar">
             <div class="ai-pillar-icon"><i class="fa-solid fa-network-wired"></i></div>
             <div>
               <div class="ai-pillar-title">Knowledge Graph Entity Creation</div>
-              <div class="ai-pillar-sub">Your agency becomes a verified entity across Google's Knowledge Graph and AI
-                systems.</div>
+              <div class="ai-pillar-sub">Your agency gets verified as a real entity across Google's Knowledge Graph
+                and the AI systems that pull from it.</div>
             </div>
           </div>
           <div class="ai-pillar">
             <div class="ai-pillar-icon"><i class="fa-solid fa-chart-bar"></i></div>
             <div>
               <div class="ai-pillar-title">Monthly AI Citation Audit</div>
-              <div class="ai-pillar-sub">We track and improve where you appear in AI-generated answers every month.
-              </div>
+              <div class="ai-pillar-sub">Every month we check where you're showing up in AI answers and tighten
+                whatever's slipping.</div>
             </div>
           </div>
         </div>
@@ -1014,8 +1015,8 @@ include 'includes/header.php';
     <div class="bundles-header" data-reveal>
       <p class="section-label">Transparent Pricing</p>
       <h2 class="section-h2">Simple Bundle Pricing.<br>Everything <em>Included.</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center;">All plans include CareOS software access. No
-        hidden fees. Cancel anytime. <span class="savings-badge">20% OFF — Limited Time</span></p>
+      <p class="section-sub" style="margin:0 auto;text-align:center;">Every plan comes with CareOS software access
+        built in. No hidden fees, cancel whenever you want. <span class="savings-badge">20% OFF — Limited Time</span></p>
     </div>
     <div class="bundles-grid">
       <div class="bundle-card" data-reveal style="transition-delay:.05s">
@@ -1076,8 +1077,8 @@ include 'includes/header.php';
         <button class="bundle-cta bundle-cta-default" onclick="openPopup('dominate')">Contact Us</button>
       </div>
     </div>
-    <p class="bundles-note"><i class="fa-solid fa-shield-halved" style="color:var(--teal);margin-right:6px"></i>All
-      plans include a 30-day satisfaction guarantee. Cancel anytime. No long-term contracts required.</p>
+    <p class="bundles-note"><i class="fa-solid fa-shield-halved" style="color:var(--teal);margin-right:6px"></i>Every
+      plan comes with a 30-day satisfaction guarantee, no long-term contract attached.</p>
   </div>
 </section>
 
@@ -1099,8 +1100,8 @@ include 'includes/header.php';
       <div data-reveal style="transition-delay:.15s">
         <p class="section-label">Proven Results</p>
         <h2 class="section-h2">What Homecare Agencies<br><em>Achieve With Us</em></h2>
-        <p class="section-sub" style="margin-bottom:36px">Real numbers from real homecare agency owners — not
-          projections, not promises.</p>
+        <p class="section-sub" style="margin-bottom:36px">These numbers come from actual agency owners we work with.
+          Not projections we made up in a pitch deck.</p>
         <div class="results-grid-right">
           <div class="result-card">
             <div class="result-card-icon"><i class="fa-brands fa-google"></i></div>
@@ -1145,9 +1146,9 @@ include 'includes/header.php';
       <div class="slider-track" id="sliderTrack">
         <div class="review-card">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-quote">"Before Homecare Creators, we had 6 Google reviews and barely any website traffic.
-            Within 4 months we hit 52 reviews, ranked #1 in our city, and our inquiry calls tripled. Worth every
-            penny."</p>
+          <p class="review-quote">"We had 6 Google reviews before Homecare Creators and almost no website traffic
+            to speak of. Four months later we're at 52 reviews, ranked #1 in our city, and our inquiry calls have
+            tripled. Worth every penny."</p>
           <div class="review-author">
             <div class="review-avatar">SR</div>
             <div>
@@ -1158,9 +1159,9 @@ include 'includes/header.php';
         </div>
         <div class="review-card">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-quote">"I'd tried two other marketing agencies before. Neither understood homecare.
-            Homecare Creators knew exactly what we needed — their SEO strategy was completely different and it
-            actually worked."</p>
+          <p class="review-quote">"I'd tried two other marketing agencies before this one, and neither understood
+            homecare at all. Homecare Creators knew exactly what we needed. Their SEO strategy was nothing like
+            what we'd seen, and it worked."</p>
           <div class="review-author">
             <div class="review-avatar">MJ</div>
             <div>
@@ -1171,8 +1172,9 @@ include 'includes/header.php';
         </div>
         <div class="review-card">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-quote">"The AI Search SEO they do is unlike anything I've seen. We now show up when
-            families search on ChatGPT and Google AI. Our competitors have no idea this is even possible yet."</p>
+          <p class="review-quote">"Their AI Search SEO is unlike anything I've seen from a marketing agency. We
+            show up now when families search on ChatGPT and Google AI, and honestly, I don't think our competitors
+            even know this is possible yet."</p>
           <div class="review-author">
             <div class="review-avatar">LD</div>
             <div>
@@ -1183,8 +1185,8 @@ include 'includes/header.php';
         </div>
         <div class="review-card">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-quote">"We went from 0 to 28 private-pay clients in 7 months. Their website redesign and
-            local SEO combination is genuinely powerful. Monthly strategy calls keep everything on track."</p>
+          <p class="review-quote">"Zero to 28 private-pay clients in 7 months. The website redesign paired with
+            local SEO is genuinely a powerful combination, and the monthly strategy calls keep us honest."</p>
           <div class="review-author">
             <div class="review-avatar">TW</div>
             <div>
@@ -1195,8 +1197,8 @@ include 'includes/header.php';
         </div>
         <div class="review-card">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-quote">"The CareOS waitlist alone tells you this team thinks differently. They're building
-            the infrastructure for how homecare agencies will operate in the future."</p>
+          <p class="review-quote">"Just the fact that CareOS exists tells you this team thinks differently. They're
+            building what homecare operations will actually look like in a few years."</p>
           <div class="review-author">
             <div class="review-avatar">RB</div>
             <div>
@@ -1207,8 +1209,8 @@ include 'includes/header.php';
         </div>
         <div class="review-card">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-quote">"Three months in, a family told us they found us on ChatGPT. I was floored. These
-            guys are ahead of the curve and they're 100% focused on homecare."</p>
+          <p class="review-quote">"Three months in, a family told us they found us through ChatGPT. I was floored,
+            honestly. This team is ahead of the curve, and homecare is the only thing they do."</p>
           <div class="review-author">
             <div class="review-avatar">AC</div>
             <div>
@@ -1247,8 +1249,9 @@ include 'includes/header.php';
         </div>
         <div class="faq-a">
           <div class="faq-a-inner">
-            <p>Most clients see ranking improvements within 60–90 days. Google My Business results typically appear
-              within 30 days. Website leads usually increase within the first 90 days of launch.</p>
+            <p>Google My Business results usually show up first, often within 30 days. Broader ranking improvements
+              tend to follow in the 60–90 day range, and most clients see website leads pick up within that first
+              90-day window after launch.</p>
           </div>
         </div>
       </div>
@@ -1260,8 +1263,9 @@ include 'includes/header.php';
         </div>
         <div class="faq-a">
           <div class="faq-a-inner">
-            <p>Yes — companion care, personal care, skilled nursing, Medicaid waiver agencies, and private-pay
-              agencies across the US. Our strategies are tailored to your specific payer mix and service area.</p>
+            <p>Yes. Companion care, personal care, skilled nursing, Medicaid waiver, private-pay, it doesn't matter.
+              We build the strategy around your specific payer mix and service area, not a one-size-fits-all
+              template.</p>
           </div>
         </div>
       </div>
@@ -1273,9 +1277,9 @@ include 'includes/header.php';
         </div>
         <div class="faq-a">
           <div class="faq-a-inner">
-            <p>AI Search SEO (also called GEO) optimises your content to appear in AI-generated answers on ChatGPT,
-              Google AI Overviews, and Perplexity. Millions of families now use AI to find homecare — we make sure
-              they find you.</p>
+            <p>People also call it GEO. It's the process of shaping your content so it gets pulled into AI-generated
+              answers on ChatGPT, Google AI Overviews, and Perplexity. Millions of families are already using AI to
+              search for homecare, and this is how we make sure they land on your agency.</p>
           </div>
         </div>
       </div>
@@ -1287,8 +1291,9 @@ include 'includes/header.php';
         </div>
         <div class="faq-a">
           <div class="faq-a-inner">
-            <p>No long-term contracts required. All plans are month-to-month after the first 90 days. We keep clients
-              through results, not contracts. Annual commitments do come with additional discounts.</p>
+            <p>No. Every plan goes month-to-month after the first 90 days, because we'd rather keep you as a client
+              through results than a contract. If you want to commit annually, there are extra discounts for that
+              too.</p>
           </div>
         </div>
       </div>
@@ -1300,9 +1305,9 @@ include 'includes/header.php';
         </div>
         <div class="faq-a">
           <div class="faq-a-inner">
-            <p>CareOS is our AI-powered homecare agency management platform — covering scheduling, billing, EVV
-              compliance, voice AI journaling, family portals, and growth tools. It launches Q3 2026. Join the
-              waitlist to lock in 40% lifetime savings.</p>
+            <p>It's our AI-powered management platform for homecare agencies. Scheduling, billing, EVV compliance,
+              voice AI journaling, family portals, growth tools, all of it. CareOS launches in Q3 2026, and joining
+              the waitlist now locks in 40% off for life.</p>
           </div>
         </div>
       </div>
@@ -1314,9 +1319,9 @@ include 'includes/header.php';
         </div>
         <div class="faq-a">
           <div class="faq-a-inner">
-            <p>We are 100% homecare-only. We don't serve restaurants, dentists, or e-commerce. Every strategy,
-              keyword, and piece of content is purpose-built for homecare. Plus we're building the software platform
-              that runs the agencies we market.</p>
+            <p>We don't touch restaurants, dentists, or e-commerce. Homecare is the only thing we do, so every
+              strategy, keyword, and piece of content is built specifically for it. On top of that, we're the ones
+              building the software platform that runs the agencies we market for.</p>
           </div>
         </div>
       </div>
@@ -1328,9 +1333,9 @@ include 'includes/header.php';
         </div>
         <div class="faq-a">
           <div class="faq-a-inner">
-            <p>A full analysis of your website speed and SEO health, Google Maps and GMB profile audit, competitor
-              ranking comparison, review profile analysis, and a 90-day custom growth roadmap — all free, no strings
-              attached.</p>
+            <p>We look at your website speed and SEO health, audit your Google Maps and GMB profile, compare you
+              against local competitors, and go through your review profile. You walk away with a 90-day growth
+              roadmap. No strings attached, no cost.</p>
           </div>
         </div>
       </div>
@@ -1342,8 +1347,8 @@ include 'includes/header.php';
         </div>
         <div class="faq-a">
           <div class="faq-a-inner">
-            <p>We guarantee 30-day satisfaction on all plans. If you're not happy after 30 days, we'll refund your
-              first month — no questions asked. We stand behind our work because we know it delivers.</p>
+            <p>Every plan comes with a 30-day satisfaction guarantee. Not happy after the first month? We'll refund
+              it, no questions asked. We can offer that because we know the work holds up.</p>
           </div>
         </div>
       </div>
@@ -1361,8 +1366,8 @@ include 'includes/header.php';
       <div class="contact-info" data-reveal>
         <p class="section-label">Get in Touch</p>
         <h2 class="section-h2">Let's Grow Your<br><em>Agency Together</em></h2>
-        <p class="contact-desc">Have a question about our services, pricing, or CareOS? Fill in the form and our team
-          will get back to you within 24 hours.</p>
+        <p class="contact-desc">Got a question about our services, pricing, or CareOS? Fill out the form below and
+          someone from our team will get back to you within 24 hours.</p>
         <div class="contact-details">
           <div class="contact-detail">
             <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
@@ -1391,7 +1396,7 @@ include 'includes/header.php';
             <div class="contact-detail-icon"><i class="fa-solid fa-shield-halved"></i></div>
             <div>
               <div class="contact-detail-label">Free Audit</div>
-              <div class="contact-detail-value">30-min growth audit — no obligation</div>
+              <div class="contact-detail-value">30-min growth audit, no obligation</div>
             </div>
           </div>
         </div>
@@ -1449,8 +1454,8 @@ include 'includes/header.php';
       <div class="cta-content" data-reveal>
         <p class="section-label">Get Started Today</p>
         <h2 class="section-h2">Ready to Grow Your<br><em>Homecare Agency?</em></h2>
-        <p class="cta-desc">Book a free 30-minute growth audit. We'll analyse your digital presence and show you
-          exactly what to fix — no obligation, no sales pressure.</p>
+        <p class="cta-desc">Book a free 30-minute growth audit and we'll walk through your digital presence with
+          you, then show you exactly what needs fixing. No obligation, no sales pitch.</p>
         <div class="cta-actions">
           <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup('audit')"><i
               class="fa-solid fa-calendar-check"></i>Book Your Free Audit</button>

@@ -1,9 +1,9 @@
 ﻿<?php
 $page_title = "Homecare Website Design in Orlando, FL | Homecare Creators";
-$page_desc = "Professional homecare website design for Orlando, FL agencies. We build fast, SEO-optimized websites that rank on Google, convert families, and recruit caregivers across Orange County.";
+$page_desc = "Homecare website design for Orlando, FL agencies, from a team that works only in home care. Fast sites that rank on Google and win Orange County families.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design-orlando-fl/";
 $og_title = "Homecare Website Design Orlando FL | Homecare Creators";
-$og_desc = "Orlando homecare website design built exclusively for home care agencies. Rank #1 on Google, convert families into clients, recruit caregivers — starting from $699.";
+$og_desc = "Orlando homecare website design built exclusively for home care agencies. Rank on Google, convert families, and recruit caregivers, starting from $699.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
@@ -169,9 +169,9 @@ include '../includes/header.php';
   <div class="hero-blob2"></div>
   <div class="hero-content">
     <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/homecare-website-design/">Website Design</a> / <span>Orlando, FL</span></div>
-    <div class="hero-badge"><div class="hero-badge-pulse"></div>Homecare Website Design — Orlando, FL</div>
+    <div class="hero-badge"><div class="hero-badge-pulse"></div>Homecare Website Design, Orlando, FL</div>
     <h1 class="hero-h1">Homecare Website Design<br>in <em>Orlando, Florida</em></h1>
-    <p class="hero-desc">We build fast, mobile-first homecare websites for Orlando agencies that rank #1 on Google, convert families across Orange County into clients, and recruit caregivers 24/7 — starting from $699.</p>
+    <p class="hero-desc">We build homecare websites for Orlando agencies, nothing else. Fast, mobile-first sites that rank on Google, turn Orange County families into clients, and keep your careers page working around the clock. Plans start from $699.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Orlando Website Quote</button>
       <a href="/homecare-website-design/" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i>View All Packages</a>
@@ -230,30 +230,30 @@ include '../includes/header.php';
       <div class="body-text" data-reveal>
         <p class="section-label">The Orlando Market</p>
         <h2 class="section-h2">Why Orlando Homecare Agencies<br><em>Need a Specialist Website</em></h2>
-        <p>Orlando and Orange County are growing faster than almost any metro in the United States — and with that growth comes one of the fastest-expanding senior populations in Florida. Families in Winter Park, Kissimmee, Ocoee, and across Orange County are searching Google daily for homecare agencies they can trust.</p>
-        <p>Most Orlando homecare agencies rely on generic websites built by developers who don't understand homecare, AHCA licensing, or what Central Florida families actually need to see before they pick up the phone. That disconnect costs you leads every single day.</p>
-        <p>We build every page with Orlando's unique market in mind — Orange County neighborhood area pages, Orlando-specific keyword targeting, and trust-building content that converts families in Winter Park, Celebration, Windermere, and every affluent community you serve.</p>
+        <p>Orlando and Orange County are growing faster than almost any metro in the country. That growth is bringing one of the fastest-expanding senior populations in Florida with it. Families in Winter Park, Kissimmee, Ocoee, and elsewhere in Orange County are on Google right now, looking for a homecare agency they can trust.</p>
+        <p>Here's the problem we keep running into: most Orlando homecare agencies are stuck with generic websites built by developers who've never dealt with AHCA licensing, Medicaid waiver programs, or the questions Central Florida families actually want answered before they call. Every day that gap sits there, it's costing you leads.</p>
+        <p>In our work building websites exclusively for homecare agencies, we've learned that Orlando's market needs its own treatment. So that's what each page gets: Orange County neighborhood pages, keyword targeting built around how local families actually search, and trust content aimed at Winter Park, Celebration, Windermere, and whatever other communities you serve.</p>
         <div class="why-points" style="margin-top:24px">
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-language"></i></div>
-            <div><div class="why-point-title">Orange County Neighborhood Pages</div><div class="why-point-desc">Dedicated SEO pages for Winter Park, Kissimmee, Ocoee, Maitland, Windermere, and every Orlando area you serve — so your agency ranks in each community, not just the city.</div></div>
+            <div><div class="why-point-title">Orange County Neighborhood Pages</div><div class="why-point-desc">We build a dedicated SEO page for Winter Park, Kissimmee, Ocoee, Maitland, Windermere, and any other Orlando area you serve, so your agency shows up in each community search, not just the citywide one.</div></div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-            <div><div class="why-point-title">Orlando Family Trust Signals</div><div class="why-point-desc">AHCA license display, caregiver background check messaging, Google Reviews widget, and team photos — the trust signals Orlando families need before choosing a homecare agency.</div></div>
+            <div><div class="why-point-title">Orlando Family Trust Signals</div><div class="why-point-desc">Your AHCA license front and center, plain language about caregiver background checks, a live Google Reviews widget, and real team photos. These are the details Orlando families look for before they'll pick up the phone.</div></div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <div><div class="why-point-title">Caregiver Recruitment for Orlando</div><div class="why-point-desc">A fully optimized careers page ranking for 'caregiver jobs Orlando FL' — turning your website into a 24/7 recruitment engine across Orange County.</div></div>
+            <div><div class="why-point-title">Caregiver Recruitment for Orlando</div><div class="why-point-desc">A careers page built to rank for "caregiver jobs Orlando FL," so your website is out there recruiting across Orange County even while your team sleeps.</div></div>
           </div>
         </div>
       </div>
       <div data-reveal style="transition-delay:.15s">
         <div class="market-facts">
-          <div class="fact-card"><div class="fact-num">1.5M+</div><h4>Orlando Metro Population</h4><p>One of the fastest-growing metros in the US with rapid year-over-year senior population growth</p></div>
-          <div class="fact-card"><div class="fact-num">19%</div><h4>Residents 65+</h4><p>A rapidly growing senior demographic driven by retirement migration from the Northeast</p></div>
-          <div class="fact-card"><div class="fact-num">$5,800</div><h4>Avg Client Value/Year</h4><p>One new private-pay Orlando client is worth $3,000–$8,000 per year to your agency</p></div>
-          <div class="fact-card"><div class="fact-num">Growing</div><h4>Market Opportunity</h4><p>Orlando homecare demand is expanding year over year — early movers with strong SEO win the market</p></div>
+          <div class="fact-card"><div class="fact-num">1.5M+</div><h4>Orlando Metro Population</h4><p>This is one of the fastest-growing metros in the country, and its senior population is climbing right along with it.</p></div>
+          <div class="fact-card"><div class="fact-num">19%</div><h4>Residents 65+</h4><p>Retirement migration from the Northeast keeps pushing this number up, year after year.</p></div>
+          <div class="fact-card"><div class="fact-num">$5,800</div><h4>Avg Client Value/Year</h4><p>A single private-pay client in Orlando can be worth $3,000 to $8,000 annually to your agency.</p></div>
+          <div class="fact-card"><div class="fact-num">Growing</div><h4>Market Opportunity</h4><p>Demand for Orlando homecare keeps expanding. Agencies that get their SEO right early tend to hold the market lead.</p></div>
         </div>
       </div>
     </div>
@@ -266,13 +266,13 @@ include '../includes/header.php';
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">How It Works</p>
       <h2 class="section-h2" style="text-align:center">Orlando to <em>Live in 14 Days</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">A clear 4-step process — you provide basic agency info, we do everything else.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Four steps. You hand us basic agency info, we handle the rest.</p>
     </div>
     <div class="how-grid" data-reveal style="transition-delay:.1s">
-      <div class="how-step"><div class="how-num">1<div class="how-icon"><i class="fa-solid fa-comments"></i></div></div><div class="how-title">Discovery Call</div><div class="how-desc">30-minute call to learn your Orlando agency, the neighborhoods you serve, and your goals. This shapes every design decision.</div></div>
-      <div class="how-step"><div class="how-num">2<div class="how-icon"><i class="fa-solid fa-pen-ruler"></i></div></div><div class="how-title">Design &amp; Copy</div><div class="how-desc">We write all Orlando-specific content and design your full site. No writing required from you — just review and approve.</div></div>
-      <div class="how-step"><div class="how-num">3<div class="how-icon"><i class="fa-solid fa-eye"></i></div></div><div class="how-title">Review &amp; Refine</div><div class="how-desc">You review the complete site and request changes. Most Orlando clients need only one revision round before it's perfect.</div></div>
-      <div class="how-step"><div class="how-num">4<div class="how-icon"><i class="fa-solid fa-rocket"></i></div></div><div class="how-title">Launch &amp; Rank</div><div class="how-desc">We launch, submit to Google, and configure Analytics + Search Console. Your Orlando SEO starts the moment we hit publish.</div></div>
+      <div class="how-step"><div class="how-num">1<div class="how-icon"><i class="fa-solid fa-comments"></i></div></div><div class="how-title">Discovery Call</div><div class="how-desc">A 30-minute call where we learn about your Orlando agency: the neighborhoods you serve, your goals, what's not working on your current site. Everything from here starts with that call.</div></div>
+      <div class="how-step"><div class="how-num">2<div class="how-icon"><i class="fa-solid fa-pen-ruler"></i></div></div><div class="how-title">Design &amp; Copy</div><div class="how-desc">We write the Orlando-specific content and design the full site ourselves. You don't need to write a word, just review what we send back.</div></div>
+      <div class="how-step"><div class="how-num">3<div class="how-icon"><i class="fa-solid fa-eye"></i></div></div><div class="how-title">Review &amp; Refine</div><div class="how-desc">You look over the finished site and tell us what to change. In our experience, one revision round is usually enough for Orlando clients to sign off.</div></div>
+      <div class="how-step"><div class="how-num">4<div class="how-icon"><i class="fa-solid fa-rocket"></i></div></div><div class="how-title">Launch &amp; Rank</div><div class="how-desc">We publish, submit your site to Google, and get Analytics and Search Console configured. Your Orlando SEO clock starts the moment it's live.</div></div>
     </div>
   </div>
 </section>
@@ -283,7 +283,7 @@ include '../includes/header.php';
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">Packages &amp; Pricing</p>
       <h2 class="section-h2" style="text-align:center">Orlando Website Design <em>Packages</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">All packages include custom Orlando-specific design, SEO setup, and mobile optimization. No hidden fees.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Every package includes custom Orlando design, SEO setup, and mobile optimization built in. No hidden fees, no surprise invoices later.</p>
     </div>
     <div class="pkg-grid" data-reveal style="transition-delay:.1s">
       <div class="pkg-card">
@@ -348,24 +348,24 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Everything Included</p>
       <h2 class="section-h2">Built for Orlando.<br><em>Nothing Left Out.</em></h2>
-      <p class="section-sub">Every Orlando homecare website we build includes these non-negotiables — optimized specifically for Orange County families and search patterns.</p>
+      <p class="section-sub">Here's what goes into every Orlando homecare site we build. As a Google Partner and HubSpot certified agency that works only with homecare, we treat none of this as optional, and it's all tuned to how Orange County families actually search.</p>
     </div>
     <div class="inc-grid" data-reveal style="transition-delay:.1s">
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100% Mobile-First</h3><p>Over 70% of Orlando families search for homecare on their phone. Every pixel is designed for mobile first, then scaled up for desktop.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Orlando SEO Built In</h3><p>Orlando-specific keyword targeting, meta titles, descriptions, and content structure — your site ranks for "home care agency Orlando" searches from day one.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-bolt"></i></div><h3>Sub-2 Second Load Speed</h3><p>Optimized images, clean code, and fast hosting. Google rewards fast sites and Orlando families don't wait for slow ones.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Google Reviews Widget</h3><p>Your real Orlando Google reviews displayed live on your homepage — the #1 trust signal for families choosing between agencies.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Orlando Neighborhood Pages</h3><p>Dedicated SEO pages for each Orlando community you serve — ranked individually so you capture neighborhood-level searches across Orange County.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-users"></i></div><h3>Caregiver Recruitment Page</h3><p>A fully optimized careers page that ranks for "caregiver jobs Orlando FL" — turning your site into a 24/7 recruitment engine.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-code"></i></div><h3>Schema Markup</h3><p>LocalBusiness and FAQPage schema markup telling Google exactly who you are, where you operate in Orlando, and what services you offer.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Analytics &amp; Search Console</h3><p>Google Analytics 4 and Search Console connected before launch — track every Orlando visit, call, and inquiry from day one.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>SSL &amp; Hosting</h3><p>Secure HTTPS, 99.9% uptime hosting, and daily backups — included in your $79/mo plan so your Orlando site is always online.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100% Mobile-First</h3><p>Most Orlando families searching for homecare are doing it from a phone, so that's where we start designing. Desktop comes after, not before.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Orlando SEO Built In</h3><p>Keyword targeting, meta titles, descriptions, and content structure, all tuned for Orlando. We want your site ranking for "home care agency Orlando" from the day it goes live.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-bolt"></i></div><h3>Sub-2 Second Load Speed</h3><p>Clean code, optimized images, fast hosting. Google favors quick-loading sites, and honestly, so do Orlando families with a homecare decision to make right now.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Google Reviews Widget</h3><p>Your actual Orlando reviews, pulled live onto your homepage. It's still the trust signal families weigh most heavily when comparing agencies.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Orlando Neighborhood Pages</h3><p>Each Orlando community you serve gets its own page, ranked on its own, so neighborhood-level searches across Orange County don't slip past you.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-users"></i></div><h3>Caregiver Recruitment Page</h3><p>A careers page optimized to rank for "caregiver jobs Orlando FL," recruiting on your behalf even after your team has gone home for the day.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-code"></i></div><h3>Schema Markup</h3><p>We add LocalBusiness and FAQPage schema markup so Google understands exactly who you are, where in Orlando you operate, and what you offer.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Analytics &amp; Search Console</h3><p>We connect Google Analytics 4 and Search Console before launch. You'll be able to track every Orlando visit, call, and inquiry starting day one.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>SSL &amp; Hosting</h3><p>Secure HTTPS, 99.9% uptime hosting, and daily backups come with your $79/mo plan, so your Orlando site stays online without you thinking about it.</p></div>
     </div>
 
     <!-- INTERNAL LINK: Local SEO -->
     <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <div><i class="fa-solid fa-magnifying-glass-chart" style="font-size:28px;color:var(--teal)"></i></div>
-      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website needs visibility. Our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service ranks your new Orlando website at #1 on Google Maps — driving more leads from day one.</div></div>
+      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website still needs to be found. Our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service works to get your new Orlando site ranking on Google Maps, so leads start coming in sooner.</div></div>
       <a href="/seo/local-seo-for-home-care-agencies" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Packages</a>
     </div>
   </div>
@@ -377,17 +377,17 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Orlando Keyword Strategy</p>
       <h2 class="section-h2">Orlando Keywords We <em>Rank Your Site For</em></h2>
-      <p class="section-sub">Every Orlando homecare website we build is optimized for the exact search terms Orange County families type into Google when looking for care.</p>
+      <p class="section-sub">These are the actual terms Orange County families type into Google when they're looking for care, and every Orlando site we build gets optimized around them.</p>
     </div>
     <div class="kw-grid" data-reveal style="transition-delay:.1s">
       <div class="kw-card"><div><div class="kw-term">homecare website design Orlando FL</div><div class="kw-intent">Agency owners searching for your service</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">home care agency Orlando FL</div><div class="kw-intent">Families ready to hire — highest intent</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">home care agency Orlando FL</div><div class="kw-intent">Families ready to hire, highest intent</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">senior home care Orlando</div><div class="kw-intent">Family searching for elderly parent</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">homecare near me Orlando</div><div class="kw-intent">Local + near-me, highest conversion</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">caregiver jobs Orlando FL</div><div class="kw-intent">Caregiver recruitment — talent pipeline</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">caregiver jobs Orlando FL</div><div class="kw-intent">Caregiver recruitment, talent pipeline</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">home care Winter Park / Kissimmee</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-med">MED</span></div>
       <div class="kw-card"><div><div class="kw-term">in-home care for elderly Orlando</div><div class="kw-intent">Informational → decision stage buyer</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">24-hour home care Orlando</div><div class="kw-intent">High urgency — premium private-pay</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">24-hour home care Orlando</div><div class="kw-intent">High urgency, premium private-pay</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">best home care agency Orlando 2025</div><div class="kw-intent">AI search &amp; voice search query</div></div><span class="kw-badge kw-med">MED</span></div>
     </div>
   </div>
@@ -399,7 +399,7 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Orlando Service Coverage</p>
       <h2 class="section-h2">We Build Pages for Every<br><em>Orlando Neighborhood You Serve</em></h2>
-      <p class="section-sub">Your website gets a dedicated, SEO-optimized page for every Orlando community — so you rank in each one, not just the city overall.</p>
+      <p class="section-sub">Every Orlando community you serve gets its own SEO-optimized page. That way you're not just ranking for the city as a whole, you're ranking in each neighborhood too.</p>
     </div>
     <div class="areas-grid" data-reveal style="transition-delay:.1s">
       <div class="area-pill"><div class="area-dot"></div>Winter Park</div>
@@ -447,28 +447,28 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Orlando Homecare Website Design —<br><em>Your Questions Answered</em></h2>
+      <h2 class="section-h2">Orlando Homecare Website Design.<br><em>Your Questions Answered</em></h2>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Why do I need a specialist website for my Orlando homecare agency?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Orlando is a fast-growing and increasingly competitive homecare market. Generic websites don't rank for Orange County-specific homecare keywords or convert the families who visit them. A specialist site built for your exact market generates significantly more phone calls from families in Winter Park, Kissimmee, and across Central Florida.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Orlando's homecare market is growing fast, and it's getting more competitive every year. Generic websites tend not to rank for Orange County-specific homecare terms, and they don't convert the families who do land on them. In our work building homecare-only websites, we've found that a site built specifically for your market brings in noticeably more calls from families in Winter Park, Kissimmee, and across Central Florida.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Will my Orlando homecare website rank on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes — every Orlando page includes proper SEO for Orange County homecare keywords, schema markup, fast load speed, and mobile optimization. Most clients see Google Maps improvements within 60–90 days. Adding our Local SEO retainer ($400/mo) handles Orlando citation building, review management, and ongoing content.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Every Orlando page we build gets proper SEO for Orange County homecare keywords: schema markup, fast load speed, mobile optimization, the works. Most clients start seeing Google Maps movement within 60 to 90 days. If you want to push further, our Local SEO retainer ($400/mo) takes on Orlando citation building, review management, and ongoing content.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you build websites for agencies serving both Orlando and surrounding areas like Kissimmee or Sanford?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Absolutely. Many Orlando agencies also serve Osceola, Seminole, and Lake counties. We build service area pages for every city you cover — each individually optimized so you rank across all of Central Florida, not just the city of Orlando.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">We do. A lot of Orlando agencies we work with also cover Osceola, Seminole, and Lake counties. We build a service area page for every city you cover, each one optimized on its own, so you're not limited to ranking in Orlando alone.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to build my Orlando homecare website?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">The Starter package goes live in 10–14 days. Growth takes 14 days. Dominate takes up to 21 days. We write all your content — you just provide basic agency details and approve the design. Every day without a proper website is a day you're losing Orlando leads to competitors, so we move as fast as possible without cutting corners.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Starter goes live in 10 to 14 days. Growth takes 14. Dominate runs up to 21 days. We write all the content ourselves, so all you need to do is hand over basic agency details and sign off on the design. We move quickly because every day without a solid website is a day competitors are picking up leads that should've been yours, but we're not going to cut corners to shave off a few extra days.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I add Local SEO to my Orlando website package?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes — and we strongly recommend it. Our Orlando Local SEO retainer starts at $400/mo and handles Google Business Profile management, Orange County citation building, review velocity, and ongoing content. Most clients combine website design with Local SEO from day one for the fastest path to #1 in Orlando.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">You can, and honestly, we'd recommend it. Our Orlando Local SEO retainer starts at $400/mo and covers Google Business Profile management, Orange County citation building, review velocity, and ongoing content. Most clients pair website design with Local SEO right from the start since it's the quickest route to a top Orlando ranking.</div></div>
       </div>
     </div>
   </div>
@@ -481,7 +481,7 @@ include '../includes/header.php';
       <div data-reveal>
         <p class="section-label" style="color:var(--teal-lt)"><span style="background:var(--teal-lt);display:inline-block;width:24px;height:2px;border-radius:2px;margin-right:8px;vertical-align:middle"></span>Get Started Today</p>
         <h2 class="cta-h2">Ready for an Orlando Website That<br><em>Actually Gets You Clients?</em></h2>
-        <p class="cta-desc">Book a free 30-minute call. We'll audit your current Orlando digital presence and give you a clear, honest plan — no obligation, no pressure.</p>
+        <p class="cta-desc">Book a free 30-minute call. We'll take a look at your current Orlando digital presence and hand you a clear, honest plan. No obligation, no pressure to sign anything.</p>
         <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get My Orlando Website Quote</button>
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free quote &nbsp;·&nbsp; Live in 14 days &nbsp;·&nbsp; No hidden fees</div>
       </div>
@@ -492,7 +492,7 @@ include '../includes/header.php';
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Current website audit</div></div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Orlando competitor analysis</div></div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Custom package recommendation</div></div>
-          <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Fixed price — no surprises</div></div>
+          <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Fixed price, no surprises</div></div>
         </div>
       </div>
     </div>

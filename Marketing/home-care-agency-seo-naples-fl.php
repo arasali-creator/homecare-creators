@@ -1,9 +1,9 @@
 ﻿<?php
-$page_title = "Home Care Agency SEO in Naples, FL | Homecare Creators";
-$page_desc = "Expert SEO services for home care agencies in Naples, FL. We help Naples homecare agencies rank #1 on Google, build high-converting websites, and grow private-pay clients across Collier County, FL.";
+$page_title = "Naples, FL Home Care Agency SEO | Homecare Creators";
+$page_desc = "SEO for home care agencies in Naples, FL. We help Collier County homecare businesses rank #1 on Google and turn local searches into private-pay clients.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-naples-fl/";
-$og_title = "Home Care Agency SEO in Naples, FL | Homecare Creators";
-$og_desc = "Naples homecare agencies — get found on Google, dominate local search, and grow faster with the only agency built 100% for homecare.";
+$og_title = "Naples, FL Home Care Agency SEO | Homecare Creators";
+$og_desc = "Own local search in Naples. We build websites and SEO campaigns for homecare agencies, so private-pay families across Collier County find you first.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
@@ -148,7 +148,7 @@ include '../includes/header.php';
     <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/florida/">Florida</a> / <span>Naples</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Collier County, Florida</div>
     <h1 class="hero-h1">Home Care Agency<br>SEO in <em>Naples, FL</em></h1>
-    <p class="hero-desc">We help Naples homecare agencies rank #1 on Google, build high-converting websites, and grow private-pay clients across Collier County — so families find you first, every time.</p>
+    <p class="hero-desc">We help Naples homecare agencies show up first on Google. That means a website built to convert, and a steady stream of private-pay clients from across Collier County.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Free Naples SEO Audit</button>
       <a href="https://homecarecreators.com/#services" class="btn-secondary"><i class="fa-solid fa-play"></i>View Our Services</a>
@@ -196,7 +196,7 @@ include '../includes/header.php';
     <div class="ticker-dot"></div>
     <div class="ticker-item"><i class="fa-brands fa-google"></i>Google Maps #1 Rankings</div>
     <div class="ticker-dot"></div>
-    <div class="ticker-item"><i class="fa-solid fa-robot"></i>AI Search SEO — ChatGPT &amp; Perplexity</div>
+    <div class="ticker-item"><i class="fa-solid fa-robot"></i>AI Search SEO for ChatGPT &amp; Perplexity</div>
     <div class="ticker-dot"></div>
     <div class="ticker-item"><i class="fa-solid fa-location-dot"></i>Naples · Collier County</div>
     <div class="ticker-dot"></div>
@@ -208,7 +208,7 @@ include '../includes/header.php';
     <div class="ticker-dot"></div>
     <div class="ticker-item"><i class="fa-brands fa-google"></i>Google Maps #1 Rankings</div>
     <div class="ticker-dot"></div>
-    <div class="ticker-item"><i class="fa-solid fa-robot"></i>AI Search SEO — ChatGPT &amp; Perplexity</div>
+    <div class="ticker-item"><i class="fa-solid fa-robot"></i>AI Search SEO for ChatGPT &amp; Perplexity</div>
   </div>
 </div>
 
@@ -219,15 +219,15 @@ include '../includes/header.php';
       <div class="market-body" data-reveal>
         <p class="section-label">The Naples Market</p>
         <h2 class="section-h2">Why Naples Is One of Florida's <em>Fastest-Growing</em> Homecare Markets</h2>
-        <p>Tampa and Collier County are experiencing rapid population growth, with a booming senior community driven by retirement migration from the Northeast and Midwest. With over 1.5 million residents in the greater Naples Bay area and one of the highest concentrations of adults aged 65+ in Florida, demand for quality in-home care in Naples has never been stronger.</p>
-        <p>Families in Brandon, Riverview, Temple Terrace, and across Collier County are searching Google every single day for trusted homecare agencies. Without a strong local digital presence, your agency is invisible to every one of those searches — and your competitors are taking those clients instead.</p>
-        <p>Homecare Creators is the only marketing agency built exclusively for homecare businesses. We know the Naples market, the exact search terms families use, and how to get your agency to the top of Google Maps and organic results faster than any generalist agency can.</p>
+        <p>Collier County keeps growing, and a big share of that growth is retirees moving down from the Northeast and Midwest. The greater Naples area is now home to over 1.5 million residents, with one of the highest concentrations of adults 65+ anywhere in Florida. Demand for quality in-home care here has never been higher.</p>
+        <p>Families in Golden Gate, Marco Island, Bonita Springs, and every corner of Collier County are on Google right now looking for a homecare agency they can trust. If your digital presence isn't strong, you simply don't show up for those searches. Your competitors pick up those clients instead.</p>
+        <p>Homecare Creators only works with homecare businesses, nothing else. We know this Naples market cold, we know exactly what families type into Google, and we know how to get your agency to the top of Maps and organic results faster than a generalist agency ever will.</p>
       </div>
       <div class="market-facts" data-reveal style="transition-delay:.15s">
-        <div class="fact-card"><div class="fact-num">1.5M+</div><h4>Naples area Population</h4><p>One of Florida's largest metros with rapid year-over-year senior population growth</p></div>
-        <div class="fact-card"><div class="fact-num">20%</div><h4>Residents Aged 65+</h4><p>1 in 5 Collier County residents are seniors — your core target audience</p></div>
-        <div class="fact-card"><div class="fact-num">$5,900</div><h4>Avg Private-Pay Value</h4><p>One new private-pay client in Naples is worth $3,000–$8,000 per year to your agency</p></div>
-        <div class="fact-card"><div class="fact-num">High</div><h4>Market Competition</h4><p>Tampa is a top-5 homecare market in Florida — ranking here requires a true specialist</p></div>
+        <div class="fact-card"><div class="fact-num">1.5M+</div><h4>Naples area Population</h4><p>One of Florida's largest metro areas, and the senior population keeps climbing every year</p></div>
+        <div class="fact-card"><div class="fact-num">20%</div><h4>Residents Aged 65+</h4><p>1 in 5 Collier County residents is a senior. That's your core audience, right in your backyard</p></div>
+        <div class="fact-card"><div class="fact-num">$5,900</div><h4>Avg Private-Pay Value</h4><p>Land one new private-pay client in Naples and it's worth $3,000–$8,000 a year to your agency</p></div>
+        <div class="fact-card"><div class="fact-num">High</div><h4>Market Competition</h4><p>Naples is one of Florida's toughest homecare markets, which is exactly why ranking here takes a specialist</p></div>
       </div>
     </div>
   </div>
@@ -239,7 +239,7 @@ include '../includes/header.php';
     <div class="services-intro" data-reveal>
       <p class="section-label">Our Services in Naples</p>
       <h2 class="section-h2">Everything Your Naples Agency Needs<br>to <em>Dominate Local Search</em></h2>
-      <p class="section-sub">Done-for-you website design, local SEO, and AI search optimization exclusively for homecare agencies serving Naples and Collier County.</p>
+      <p class="section-sub">Website design, local SEO, and AI search optimization, done for you and built only for homecare agencies serving Naples and Collier County.</p>
     </div>
     <div class="services-grid">
       <div class="svc-card" data-reveal style="transition-delay:.05s">
@@ -250,10 +250,10 @@ include '../includes/header.php';
         </div>
         <div class="svc-card-body">
           <div class="svc-card-title">Naples Homecare Website Design</div>
-          <div class="svc-card-desc">A fast, mobile-first website built to convert Naples families into inquiries and recruit caregivers across Collier County. Every page is a local SEO asset.</div>
+          <div class="svc-card-desc">Your website needs to do two jobs at once: turn Naples families into inquiries, and help you recruit caregivers across Collier County. We build it fast and mobile-first, with every page pulling double duty as a local SEO asset.</div>
           <ul class="svc-card-features">
             <li><i class="fa-solid fa-check"></i>Custom design with your branding</li>
-            <li><i class="fa-solid fa-check"></i>Tampa-specific homepage copy and CTAs</li>
+            <li><i class="fa-solid fa-check"></i>Naples-specific homepage copy and CTAs</li>
             <li><i class="fa-solid fa-check"></i>Service area pages for Naples neighborhoods</li>
             <li><i class="fa-solid fa-check"></i>Caregiver careers and jobs page</li>
             <li><i class="fa-solid fa-check"></i>Google Reviews widget built in</li>
@@ -269,13 +269,13 @@ include '../includes/header.php';
         </div>
         <div class="svc-card-body">
           <div class="svc-card-title">Naples Local SEO Domination</div>
-          <div class="svc-card-desc">Rank #1 on Google Maps and organic search when families across Naples Bay search for home care. We manage every signal Google uses to rank local businesses.</div>
+          <div class="svc-card-desc">When families across Naples search for home care, we want your pin at the top of Google Maps and your listing at the top of organic results. We handle every ranking signal Google looks at for local businesses.</div>
           <ul class="svc-card-features">
             <li><i class="fa-solid fa-check"></i>Google Business Profile management</li>
             <li><i class="fa-solid fa-check"></i>Collier County citation building</li>
             <li><i class="fa-solid fa-check"></i>On-page SEO for all Naples service pages</li>
             <li><i class="fa-solid fa-check"></i>Review velocity management</li>
-            <li><i class="fa-solid fa-check"></i>Monthly ranking reports — 50–100 keywords</li>
+            <li><i class="fa-solid fa-check"></i>Monthly ranking reports covering 50–100 keywords</li>
             <li><i class="fa-solid fa-check"></i>Competitor gap analysis</li>
           </ul>
         </div>
@@ -288,7 +288,7 @@ include '../includes/header.php';
         </div>
         <div class="svc-card-body">
           <div class="svc-card-title">AI Search SEO for Naples Agencies</div>
-          <div class="svc-card-desc">Naples families are searching for homecare on ChatGPT, Google AI Overviews, and Perplexity. We make sure your agency is the one AI recommends.</div>
+          <div class="svc-card-desc">Naples families are asking ChatGPT, Google AI Overviews, and Perplexity for homecare recommendations now, not just Google. We make sure your agency is the name that comes up.</div>
           <ul class="svc-card-features">
             <li><i class="fa-solid fa-check"></i>Google AI Overviews optimization</li>
             <li><i class="fa-solid fa-check"></i>50+ FAQ schemas for Naples search intent</li>
@@ -309,21 +309,21 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Keyword Strategy</p>
       <h2 class="section-h2">The Exact Keywords We Target for<br><em>Naples Homecare Agencies</em></h2>
-      <p class="section-sub">These are the highest-value searches Naples families use when looking for homecare. We build your entire digital presence to rank for all of them.</p>
+      <p class="section-sub">These are the highest-value searches Naples families type in when they're looking for homecare, and we build your entire digital presence to rank for every one of them.</p>
     </div>
     <div class="kw-grid" data-reveal style="transition-delay:.1s">
-      <div class="kw-card"><div><div class="kw-term">home care agency Naples FL</div><div class="kw-intent">Commercial — ready to hire</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare near me Tampa</div><div class="kw-intent">Local + near-me, highest conversion</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">home care agency Naples FL</div><div class="kw-intent">Commercial intent, ready to hire</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">homecare near me Naples</div><div class="kw-intent">Local + near-me, highest conversion</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">senior home care Naples FL</div><div class="kw-intent">Family searching for elderly parent</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">in-home care for elderly Tampa</div><div class="kw-intent">Informational to decision stage</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">caregiver jobs Naples FL</div><div class="kw-intent">Recruitment — attract quality caregivers</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">in-home care for elderly Naples</div><div class="kw-intent">Informational to decision stage</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">caregiver jobs Naples FL</div><div class="kw-intent">Recruitment, attract quality caregivers</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">home health aide Collier County</div><div class="kw-intent">County-level, broader reach</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">companion care services Tampa</div><div class="kw-intent">Service-specific, non-medical care</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">personal care assistance Tampa</div><div class="kw-intent">ADL support, Medicaid waiver keyword</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare Brandon / Riverview / Temple Terrace</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">24-hour home care Tampa</div><div class="kw-intent">High urgency — premium private-pay client</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">companion care services Naples</div><div class="kw-intent">Service-specific, non-medical care</div></div><span class="kw-badge kw-med">MED</span></div>
+      <div class="kw-card"><div><div class="kw-term">personal care assistance Naples</div><div class="kw-intent">ADL support, Medicaid waiver keyword</div></div><span class="kw-badge kw-med">MED</span></div>
+      <div class="kw-card"><div><div class="kw-term">homecare Golden Gate / Marco Island / Bonita Springs</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">24-hour home care Naples</div><div class="kw-intent">High urgency, premium private-pay client</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">best home care agency Naples FL 2025</div><div class="kw-intent">AI search and voice search query</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">how to choose a home care agency Tampa</div><div class="kw-intent">Blog target — educational, trust builder</div></div><span class="kw-badge kw-med">MED</span></div>
+      <div class="kw-card"><div><div class="kw-term">how to choose a home care agency Naples</div><div class="kw-intent">Blog target, educational and trust-building</div></div><span class="kw-badge kw-med">MED</span></div>
     </div>
   </div>
 </section>
@@ -333,32 +333,22 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">Service Coverage</p>
-      <h2 class="section-h2">Tampa Neighborhoods We Help<br>Your Agency <em>Rank In</em></h2>
-      <p class="section-sub">We build dedicated landing pages and local SEO signals for every specific area you serve across Naples Bay — so you rank neighborhood by neighborhood.</p>
+      <h2 class="section-h2">Naples Neighborhoods We Help<br>Your Agency <em>Rank In</em></h2>
+      <p class="section-sub">We build dedicated landing pages and local SEO signals for every specific area you serve across Naples, so you rank neighborhood by neighborhood.</p>
     </div>
     <div class="areas-grid" data-reveal style="transition-delay:.1s">
-      <div class="area-pill"><div class="area-dot"></div>Brandon</div>
-      <div class="area-pill"><div class="area-dot"></div>Riverview</div>
-      <div class="area-pill"><div class="area-dot"></div>Temple Terrace</div>
-      <div class="area-pill"><div class="area-dot"></div>Carrollwood</div>
-      <div class="area-pill"><div class="area-dot"></div>Westchase</div>
-      <div class="area-pill"><div class="area-dot"></div>Valrico</div>
-      <div class="area-pill"><div class="area-dot"></div>Seffner</div>
-      <div class="area-pill"><div class="area-dot"></div>Lutz</div>
-      <div class="area-pill"><div class="area-dot"></div>Land O' Lakes</div>
-      <div class="area-pill"><div class="area-dot"></div>Plant City</div>
-      <div class="area-pill"><div class="area-dot"></div>South Tampa</div>
-      <div class="area-pill"><div class="area-dot"></div>Hyde Park</div>
-      <div class="area-pill"><div class="area-dot"></div>Ybor City</div>
-      <div class="area-pill"><div class="area-dot"></div>New Tampa</div>
-      <div class="area-pill"><div class="area-dot"></div>Seminole Heights</div>
-      <div class="area-pill"><div class="area-dot"></div>Gibsonton</div>
-      <div class="area-pill"><div class="area-dot"></div>Ruskin</div>
-      <div class="area-pill"><div class="area-dot"></div>Sun City Center</div>
-      <div class="area-pill"><div class="area-dot"></div>Wimauma</div>
-      <div class="area-pill"><div class="area-dot"></div>Fishhawk Ranch</div>
+      <div class="area-pill"><div class="area-dot"></div>Pelican Bay</div>
+      <div class="area-pill"><div class="area-dot"></div>Park Shore</div>
+      <div class="area-pill"><div class="area-dot"></div>Golden Gate</div>
+      <div class="area-pill"><div class="area-dot"></div>Marco Island</div>
+      <div class="area-pill"><div class="area-dot"></div>Bonita Springs</div>
+      <div class="area-pill"><div class="area-dot"></div>East Naples</div>
+      <div class="area-pill"><div class="area-dot"></div>North Naples</div>
+      <div class="area-pill"><div class="area-dot"></div>Vanderbilt Beach</div>
+      <div class="area-pill"><div class="area-dot"></div>Ave Maria</div>
+      <div class="area-pill"><div class="area-dot"></div>Immokalee</div>
     </div>
-    <div class="areas-note" data-reveal style="transition-delay:.2s"><i class="fa-solid fa-lightbulb" style="margin-right:8px;color:var(--gold)"></i>SEO Tip: Each neighborhood above should have its own dedicated sub-page (e.g. /home-care-brandon-fl/) linking back to this page — building a topical cluster Google rewards with higher rankings.</div>
+    <div class="areas-note" data-reveal style="transition-delay:.2s"><i class="fa-solid fa-lightbulb" style="margin-right:8px;color:var(--gold)"></i>SEO Tip: Each neighborhood above should have its own dedicated sub-page (e.g. /home-care-pelican-bay-fl/) that links back to this page. That's how you build the topical cluster Google rewards with higher rankings.</div>
   </div>
 </section>
 
@@ -368,15 +358,15 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label" style="color:var(--teal-lt)"><span style="background:var(--teal-lt);display:inline-block;width:24px;height:2px;border-radius:2px;margin-right:8px;vertical-align:middle"></span>Why Homecare Creators</p>
       <h2 class="section-h2" style="color:#fff">The Only Agency That Truly<br><em>Understands Naples Homecare</em></h2>
-      <p class="section-sub" style="color:rgba(255,255,255,.58)">Generalist agencies don't understand homecare, Florida's AHCA licensing, Medicaid waiver nuances, or the unique demographics driving Naples Bay's senior care demand. We do — because we're built exclusively for homecare.</p>
+      <p class="section-sub" style="color:rgba(255,255,255,.58)">Generalist agencies don't get homecare. They don't know AHCA licensing, Medicaid waiver nuances, or what's actually driving senior care demand in Naples. We do, because homecare is all we do.</p>
     </div>
     <div class="why-grid" data-reveal style="transition-delay:.1s">
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-bullseye"></i></div><h4>100% Homecare-Only</h4><p>Every keyword, page, and strategy is purpose-built for homecare agencies. We don't serve restaurants or dentists — your competitors can't match this level of specialization.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-map-location-dot"></i></div><h4>Naples Market Knowledge</h4><p>We understand Collier County's demographics — the retirement migration from the Northeast, strong private-pay demand in Westchase and South Tampa, and the competitive Medicaid landscape.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-robot"></i></div><h4>AI Search Optimization</h4><p>We're the only homecare agency optimizing for ChatGPT, Google AI Overviews, and Perplexity answers. Naples families already ask AI "what's the best homecare agency near me?" — we make sure they get your name.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-dollar-sign"></i></div><h4>ROI You Can Measure</h4><p>One new private-pay client in Naples is worth $3,000–$8,000 per year. Our SEO retainer often pays for itself within 30 days of the first new client enquiry.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-handshake"></i></div><h4>No Long-Term Contracts</h4><p>We keep clients through results, not contracts. All plans are month-to-month after the first 90 days. We're confident enough in what we deliver to let you walk away anytime.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-layer-group"></i></div><h4>Website + SEO + AI in One</h4><p>No juggling three vendors. We design your site, manage your Google Business Profile, and build AI search authority — all in one retainer with one strategy call per month.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-bullseye"></i></div><h4>100% Homecare-Only</h4><p>Every keyword, page, and strategy here is built for homecare, and nothing else. We don't take on restaurants or dental clinics, so your competitors flat-out can't match this level of specialization.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-map-location-dot"></i></div><h4>Naples Market Knowledge</h4><p>We know Collier County's demographics inside and out: the retirement wave from the Northeast, strong private-pay demand in Pelican Bay and Park Shore, and a Medicaid landscape that's tougher than most agencies expect.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-robot"></i></div><h4>AI Search Optimization</h4><p>We're the only homecare agency actively optimizing for ChatGPT, Google AI Overviews, and Perplexity. Naples families are already asking AI which agency is best near them, and we make sure your name is the answer.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-dollar-sign"></i></div><h4>ROI You Can Measure</h4><p>A single new private-pay client in Naples is worth $3,000–$8,000 a year. Most months, our retainer pays for itself the moment your first new inquiry rolls in.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-handshake"></i></div><h4>No Long-Term Contracts</h4><p>We keep clients with results, not paperwork. Every plan goes month-to-month after the first 90 days, because we're confident enough in the work to let you leave whenever you want.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-layer-group"></i></div><h4>Website + SEO + AI in One</h4><p>Stop juggling three different vendors. We design your site, manage your Google Business Profile, and build AI search authority under one retainer, with a single strategy call each month.</p></div>
     </div>
   </div>
 </section>
@@ -386,44 +376,44 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Home Care in Naples —<br><em>Questions Families Ask</em></h2>
-      <p class="section-sub">These FAQs target real search queries Naples families type into Google — adding this content to your website helps you rank in the "People Also Ask" boxes.</p>
+      <h2 class="section-h2">Home Care in Naples:<br><em>Questions Families Ask</em></h2>
+      <p class="section-sub">These FAQs target real search queries Naples families type into Google. Add this content to your site and you've got a real shot at ranking in the "People Also Ask" boxes.</p>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I find a trusted home care agency in Naples, FL?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Finding a trusted homecare agency in Naples starts with checking Google reviews, verifying state licensure through the Florida Agency for Health Care Administration (AHCA), and confirming that caregivers undergo thorough background checks. Look for agencies specializing in the level of care your loved one needs — companion care, personal care assistance, or skilled nursing. A reputable Naples homecare agency will offer a free in-home consultation and a written plan of care before services begin.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Start by checking Google reviews, then verify the agency's license through the Florida Agency for Health Care Administration (AHCA), and ask directly how they screen caregivers before hiring them. You'll also want an agency that matches the level of care needed, whether that's companion care, personal care assistance, or skilled nursing. A reputable Naples agency should offer a free in-home consultation and hand you a written plan of care before anyone starts work.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What does home care cost in Naples, Florida?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">The average cost of in-home care in Naples, FL ranges from $20–$30 per hour for non-medical companion and personal care services. Many Naples families use private pay, long-term care insurance, or Florida's Statewide Medicaid Managed Care Long-Term Care (SMMC LTC) program to help cover costs. A local licensed homecare agency can walk you through which options your loved one qualifies for during a free initial consultation.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Non-medical companion and personal care services in Naples typically run $20–$30 per hour. Some families pay out of pocket, others lean on long-term care insurance or Florida's Statewide Medicaid Managed Care Long-Term Care (SMMC LTC) program. A licensed local agency can sort out which of those options your loved one actually qualifies for, usually right at that first free consultation.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Does Collier County have Medicaid home care programs?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Florida's SMMC LTC program covers in-home personal care services for eligible seniors in Collier County. To qualify, seniors must generally be 65 or older, meet functional and financial eligibility requirements, and enroll through an approved managed care plan. Homecare agencies licensed with AHCA in the Naples area can help families understand the enrollment process and connect them with the appropriate managed care organization.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">It does. Florida's SMMC LTC program covers in-home personal care for eligible seniors in Collier County, generally seniors 65 and older who meet the functional and financial requirements and enroll through an approved managed care plan. AHCA-licensed agencies in the Naples area can walk you through enrollment and point you toward the right managed care organization.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What areas of Naples does your homecare service cover?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">We work with homecare agencies serving all of Collier County and the broader Naples Bay area, including Brandon, Riverview, Temple Terrace, Carrollwood, Westchase, South Tampa, New Tampa, Plant City, Lutz, Land O' Lakes, Sun City Center, Ruskin, and all surrounding communities. If you serve a specific neighborhood, we build dedicated local pages to help you rank there.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Pretty much all of Collier County and greater Naples: Pelican Bay, Park Shore, Golden Gate, Marco Island, Bonita Springs, East Naples, North Naples, Vanderbilt Beach, Ave Maria, Immokalee, and the surrounding communities too. If there's a specific neighborhood you focus on, we'll build a dedicated page for it so you can rank there directly.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to rank #1 on Google for homecare in Naples?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">For Naples homecare agencies starting from zero, most of our clients see meaningful Google Maps improvements within 60–90 days and strong organic rankings within 4–6 months. Naples is a competitive market, but our homecare-specific approach consistently delivers top-3 Google Maps positions within 5 months — faster than generalist agencies because every strategy is purpose-built for the homecare niche.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Most clients starting from zero see real movement on Google Maps within 60–90 days, and organic rankings tend to firm up over 4–6 months. Naples isn't an easy market. But because everything we build is specific to homecare, we typically land clients in the top 3 on Google Maps within 5 months, well ahead of what generalist agencies manage.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do Naples homecare agencies need a Florida state license?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. In Florida, agencies providing companion care and personal care services must be licensed by the Florida Agency for Health Care Administration (AHCA). The specific license type — Home Health Agency, Nurse Registry, or Companion/Homemaker — depends on the services you offer. Proper AHCA licensure is required before marketing your homecare services in Naples or anywhere in Florida.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">They do. Florida requires agencies offering companion care and personal care services to be licensed through the Agency for Health Care Administration (AHCA). Which license type you need, Home Health Agency, Nurse Registry, or Companion/Homemaker, depends on the services you actually provide. That AHCA license has to be in hand before you can legally market homecare services anywhere in Florida, Naples included.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can families in Naples find homecare agencies through ChatGPT or Google AI?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes — and this trend is growing fast. More Naples families are using AI tools like ChatGPT, Google AI Overviews, and Perplexity to find and vet local homecare agencies. Homecare Creators is the only marketing agency that specifically optimizes homecare websites to be cited and recommended by these AI systems — giving your Naples agency a significant advantage over competitors who only focus on traditional Google rankings.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely, and it's happening faster than most agency owners realize. More Naples families are turning to ChatGPT, Google AI Overviews, and Perplexity to find and vet local homecare providers. Homecare Creators is the only marketing agency specifically optimizing homecare sites to get cited by these AI systems, which puts you well ahead of competitors still focused only on traditional Google rankings.</div></div>
       </div>
 
     </div>
@@ -453,8 +443,8 @@ include '../includes/header.php';
     <div class="cta-inner">
       <div class="cta-content" data-reveal>
         <p class="section-label">Get Started Today</p>
-        <h2 class="section-h2">Ready to Dominate Tampa<br>Homecare <em>Search Results?</em></h2>
-        <p class="cta-desc">Book a free 30-minute audit. We'll analyze your current Naples digital presence, show you exactly what your competitors are doing, and deliver a 90-day roadmap to rank #1 — at no cost and no obligation.</p>
+        <h2 class="section-h2">Ready to Dominate Naples<br>Homecare <em>Search Results?</em></h2>
+        <p class="cta-desc">Book a free 30-minute audit and we'll dig into your current Naples digital presence, show you what your competitors are actually doing, and hand you a 90-day roadmap to rank #1. No cost, no obligation.</p>
         <div class="cta-actions">
           <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-calendar-check"></i>Get My Free Naples SEO Audit</button>
         </div>

@@ -1,9 +1,9 @@
 ﻿<?php
-$page_title = "Homecare Website Design | Professional Sites Built for Home Care Agencies";
-$page_desc = "Professional homecare website design built exclusively for home care agencies. Fast, SEO-optimized websites that rank on Google and convert families — starting from $699.";
+$page_title = "Home Care Agency Website Design | Homecare Creators";
+$page_desc = "We build fast, mobile-first websites made only for home care agencies. They rank on Google, convert families into callers, and start at $699.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design/";
-$og_title = "Homecare Website Design & Development | Homecare Creators";
-$og_desc = "The only web design agency built 100% for homecare. Fast, SEO-optimized websites that convert families into clients and rank #1 on Google — starting from $699.";
+$og_title = "Website Design for Home Care Agencies | Homecare Creators";
+$og_desc = "The only web design agency built 100% for home care. Sites load fast, rank #1 on Google, and turn visitors into new clients, starting at $699.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:100vh;background:var(--forest);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0}
@@ -221,7 +221,7 @@ include '../includes/header.php';
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Homecare Website Design &amp; Development</div>
     <h1 class="hero-h1">Websites That Win<br><em>Families &amp; Rank #1</em></h1>
     <div class="hero-tagline"><em>Built 100% for Homecare Agencies.</em><br><em>Not Templates. Not Shortcuts.</em></div>
-    <p class="hero-desc">We design and build fast, mobile-first homecare websites that convert families into clients, recruit caregivers, and rank at the top of Google — all from day one. No generalist agencies. No WordPress themes. Just homecare-specific excellence. Starting from $699.</p>
+    <p class="hero-desc">We design and build fast, mobile-first homecare websites. They turn visitors into phone calls, help you find caregivers, and start ranking on Google right away. No generalist agencies. No WordPress themes. Just websites built specifically for homecare, starting at $699.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get a Free Website Quote</button>
       <a href="#packages" class="btn-secondary"><i class="fa-solid fa-layer-group"></i>View Packages</a>
@@ -335,15 +335,15 @@ include '../includes/header.php';
         <p class="section-label">Why It Matters</p>
         <h2 class="section-h2">Your Website Is Your<br><em>#1 Growth Asset</em></h2>
         <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:16px">Most homecare agency websites were built by generalist developers who have never heard of AHCA licensing, Medicaid waiver programs, or the specific trust signals families need before they call. The result? A website that looks okay but generates almost no leads.</p>
-        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:24px">We build every page, every word, and every design decision specifically for homecare. Families in Miami, Tampa, Orlando, or anywhere in Florida land on your site and immediately feel that they found the right agency. That's the difference a specialist makes.</p>
+        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:24px">We build every page and every word specifically for homecare, right down to which trust signal shows up first for a daughter searching for help at 11pm. Families in Miami, Tampa, Orlando, or anywhere else in Florida land on your site and feel like they found the right agency immediately. That's what a specialist gets you that a generalist can't.</p>
         <div class="what-points">
           <div class="what-point">
             <div class="what-point-icon"><i class="fa-solid fa-bolt"></i></div>
-            <div><div class="what-point-title">Under 2-Second Load Speed Guaranteed</div><div class="what-point-desc">Slow sites lose families in under 3 seconds. We optimize every image, script, and element so your site is lightning fast — on mobile and desktop.</div></div>
+            <div><div class="what-point-title">Under 2-Second Load Speed Guaranteed</div><div class="what-point-desc">Slow sites lose families in under 3 seconds. We optimize every image, script, and element so your site loads fast on both mobile and desktop.</div></div>
           </div>
           <div class="what-point">
             <div class="what-point-icon"><i class="fa-brands fa-google"></i></div>
-            <div><div class="what-point-title">SEO-Optimized From the Ground Up</div><div class="what-point-desc">Every page is built with your target keywords, schema markup, and local SEO structure baked in — so you start ranking from day one, not month six.</div></div>
+            <div><div class="what-point-title">SEO-Optimized From the Ground Up</div><div class="what-point-desc">Every page ships with your target keywords, schema markup, and local SEO structure already baked in, so you're ranking from day one instead of month six.</div></div>
           </div>
           <div class="what-point">
             <div class="what-point-icon"><i class="fa-solid fa-heart-pulse"></i></div>
@@ -351,7 +351,7 @@ include '../includes/header.php';
           </div>
           <div class="what-point">
             <div class="what-point-icon"><i class="fa-solid fa-users"></i></div>
-            <div><div class="what-point-title">Caregiver Recruitment Built In</div><div class="what-point-desc">A dedicated caregiver careers page with job listings, application form, and keyword optimization for "caregiver jobs [city]" — your #1 hiring asset.</div></div>
+            <div><div class="what-point-title">Caregiver Recruitment Built In</div><div class="what-point-desc">A dedicated caregiver careers page with job listings, an application form, and keyword optimization for "caregiver jobs [city]." It quietly becomes your best hiring tool.</div></div>
           </div>
         </div>
       </div>
@@ -383,13 +383,13 @@ include '../includes/header.php';
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">How It Works</p>
       <h2 class="section-h2" style="text-align:center">From Zero to <em>Live in 14 Days</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">A clear, structured process built around your agency — no back-and-forth confusion, no delays.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">A clear, structured process built around your agency. No back-and-forth confusion, no delays.</p>
     </div>
     <div class="how-grid" data-reveal style="transition-delay:.1s">
       <div class="how-step">
         <div class="how-step-num">1<div class="how-step-icon"><i class="fa-solid fa-comments"></i></div></div>
         <div class="how-step-title">Discovery Call</div>
-        <div class="how-step-desc">We learn your agency, your city, your services, and your goals. This 30-minute call shapes every design and content decision that follows.</div>
+        <div class="how-step-desc">We get to know your agency: the city you serve, the services you offer, and what you're actually trying to accomplish. This 30-minute call shapes every design and content decision that follows.</div>
       </div>
       <div class="how-step">
         <div class="how-step-num">2<div class="how-step-icon"><i class="fa-solid fa-pen-ruler"></i></div></div>
@@ -416,7 +416,7 @@ include '../includes/header.php';
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">Packages &amp; Pricing</p>
       <h2 class="section-h2" style="text-align:center">Simple, Transparent <em>Website Pricing</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">Three packages to match where your agency is today. All include custom design, SEO setup, mobile optimization, and everything listed — no hidden fees.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Three packages to match where your agency is today. Each one includes custom design, SEO setup, and mobile optimization on top of everything listed below. No hidden fees.</p>
     </div>
     <div class="packages-grid" data-reveal style="transition-delay:.1s">
 
@@ -485,7 +485,7 @@ include '../includes/header.php';
     <!-- Internal link to Local SEO -->
     <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <i class="fa-solid fa-magnifying-glass-chart" style="font-size:28px;color:var(--teal)"></i>
-      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Rank Your New Website #1 on Google</div><p style="font-size:14px;color:var(--muted)">Pair your website with our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> — Google Maps rankings starting at $399/mo.</p></div>
+      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Rank Your New Website #1 on Google</div><p style="font-size:14px;color:var(--muted)">Pair your website with our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> plan for Google Maps rankings, starting at $399/mo.</p></div>
       <a href="/seo/local-seo-for-home-care-agencies" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Plans</a>
     </div>
 
@@ -498,18 +498,18 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Every Website Includes</p>
       <h2 class="section-h2">Everything Built In.<br><em>Nothing Left Out.</em></h2>
-      <p class="section-sub">Every homecare website we build includes these non-negotiables — because anything less is leaving leads and rankings on the table.</p>
+      <p class="section-sub">Every homecare website we build includes these non-negotiables. Anything less and you're leaving leads and rankings on the table.</p>
     </div>
     <div class="included-grid" data-reveal style="transition-delay:.1s">
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100% Mobile-First Design</h3><p>Over 70% of families searching for homecare do so on their phone. Every pixel is designed for mobile first, then scaled up — not the other way around.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>On-Page SEO Built In</h3><p>Proper H1/H2 structure, keyword-optimized meta titles and descriptions, image alt text, internal linking, and clean URL structure — all done for you.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-bolt"></i></div><h3>Sub-2 Second Load Speed</h3><p>Lazy-loaded images, minified code, efficient hosting, and no bloated plugins. Google rewards fast sites and families don't wait for slow ones.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Google Reviews Widget</h3><p>Your real Google reviews displayed live on your homepage — the single most powerful trust signal for families deciding between two agencies.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Service Area Pages</h3><p>Dedicated pages for each city and neighborhood you serve — each one optimized to rank for "[city] home care" searches in your target market.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-users"></i></div><h3>Caregiver Recruitment Page</h3><p>A fully optimized careers page that ranks for "caregiver jobs [city]" searches — turning your website into a 24/7 recruitment engine alongside a client generator.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-code"></i></div><h3>Schema Markup</h3><p>LocalBusiness, FAQPage, and Service schema markup implemented correctly — telling Google exactly what your agency does and where, boosting your chances of rich results.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Analytics &amp; Search Console</h3><p>Google Analytics 4 and Search Console connected and configured before launch — so you can track every visit, call, and form submission from day one.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>SSL Security &amp; Hosting</h3><p>Secure HTTPS certificate, reliable hosting with 99.9% uptime, and daily backups included in your $79/mo hosting plan — so your site never goes down.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100% Mobile-First Design</h3><p>Over 70% of families searching for homecare are doing it from a phone. We design for mobile first and scale up from there, not the other way around.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>On-Page SEO Built In</h3><p>Proper H1/H2 structure, keyword-optimized meta titles and descriptions, image alt text, internal linking, clean URLs. We handle all of it.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-bolt"></i></div><h3>Sub-2 Second Load Speed</h3><p>Lazy-loaded images, minified code, efficient hosting, no bloated plugins slowing things down. Google rewards fast sites, and families won't wait around for a slow one.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Google Reviews Widget</h3><p>Your real Google reviews, pulled live onto your homepage. It's the single strongest trust signal when a family is deciding between two agencies.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Service Area Pages</h3><p>A dedicated page for every city and neighborhood you serve, each one built to rank for searches like "[city] home care" in your market.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-users"></i></div><h3>Caregiver Recruitment Page</h3><p>A fully optimized careers page that ranks for "caregiver jobs [city]" searches, so your website is recruiting staff around the clock, not just generating client leads.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-code"></i></div><h3>Schema Markup</h3><p>LocalBusiness, FAQPage, and Service schema markup, implemented the right way. It tells Google exactly what your agency does and where, which improves your odds of showing up with rich results.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Analytics &amp; Search Console</h3><p>Google Analytics 4 and Search Console are connected and configured before launch, so you can see every visit, call, and form submission starting day one.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>SSL Security &amp; Hosting</h3><p>Secure HTTPS certificate, reliable hosting at 99.9% uptime, and daily backups, all part of your $79/mo hosting plan. Your site stays up.</p></div>
     </div>
   </div>
 </section>
@@ -570,43 +570,43 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Website Design —<br><em>Your Questions Answered</em></h2>
+      <h2 class="section-h2">Website Design,<br><em>Your Questions Answered</em></h2>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need to write any content or copy myself?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">No. We write all the copy for your website — homepage, about page, service pages, careers page, and everything in between. You provide basic information about your agency (services offered, areas covered, your story) and we turn it into professional, SEO-optimized content that ranks on Google and converts families who land on your site.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">No. We write all the copy for your website: homepage, about page, service pages, careers page, everything in between. You give us the basics on your agency (services, areas covered, your story) and we turn that into content that ranks on Google and actually gets families to pick up the phone.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to build my website?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">The Starter package goes live in 10–14 days from kickoff. The Growth package takes 14 days. The Dominate package takes up to 21 days. The only things that can slow this down are delays in getting basic agency information from you (logo, photos, service list). We move fast because every day without a proper website is a day you're losing leads to competitors.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">The Starter package goes live in 10–14 days from kickoff. Growth takes 14 days. Dominate takes up to 21 days. The only thing that can slow this down is a delay in getting basic agency info from you, like your logo, photos, or service list. We move fast because every day without a proper website is a day you're handing leads to your competitors.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Will my website rank on Google after it's built?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Your website is built with on-page SEO best practices from day one — proper keyword placement, meta tags, schema markup, clean URL structure, and fast load speeds. This gives you the best possible foundation. Most of our clients see Google Maps improvements within 60–90 days and organic search growth within 4–6 months. Adding our Local SEO retainer ($399/mo) accelerates this significantly, handling citation building, review management, and ongoing content.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Your website is built with on-page SEO best practices from day one: proper keyword placement, meta tags, schema markup, clean URL structure, fast load speeds. That gives you the best possible foundation to start from. Most clients see Google Maps improvements within 60–90 days and organic growth within 4–6 months. Our Local SEO retainer ($399/mo) speeds this up considerably, handling citation building, review management, and ongoing content.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What if I already have a website?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">We can rebuild your existing site or redesign it from scratch — whichever makes more sense. During our free audit, we assess your current site's speed, SEO health, mobile performance, and conversion rate. If it's worth saving, we improve it. If it's holding you back, we replace it. We handle the migration so your existing Google rankings and traffic are protected throughout the transition.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">We can rebuild your existing site or start over from scratch, whichever makes more sense for you. During our free audit, we check your current site's speed, SEO health, mobile performance, and conversion rate. If it's worth saving, we improve it. If it's holding you back, we replace it. Either way, we handle the migration so your existing Google rankings and traffic don't take a hit during the switch.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What is the $79/mo hosting fee for?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">The $79/mo hosting covers fast and reliable hosting with 99.9% uptime, SSL security certificate, daily backups, software updates, basic security monitoring, and access to our support team for minor edits (text changes, photo updates). It's an all-in maintenance package — you never need to worry about your site going down or getting hacked.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">The $79/mo hosting covers fast, reliable hosting at 99.9% uptime, an SSL certificate, daily backups, software updates, basic security monitoring, and access to our support team for minor edits like text changes or photo swaps. It's an all-in maintenance package, so you're not the one who has to worry about the site going down or getting hacked.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How much does a homecare website cost?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Our homecare website packages start at $699 one-time for the Starter (5 pages), $999 for the Growth package (10 pages + service area pages), and $1,699 for the Dominate package (15+ pages + full brand identity). All packages include a one-time design fee plus $79/mo hosting. There are no hidden fees — the price you see is the price you pay.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Our homecare website packages start at $699 one-time for the Starter (5 pages), $999 for Growth (10 pages plus service area pages), and $1,699 for Dominate (15+ pages plus full brand identity). Each package is a one-time design fee plus $79/mo hosting. No hidden fees. The price you see is the price you pay.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you build websites for homecare agencies outside Florida?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. While our primary focus is Florida homecare agencies — especially Miami, Tampa, Orlando, Jacksonville, Fort Lauderdale, and Naples — we work with homecare agencies across all four of our target states: Florida, Texas, California, and Pennsylvania. Our homecare-specific expertise applies in any US market.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Florida homecare agencies are our main focus, especially in Miami, Tampa, Orlando, Jacksonville, Fort Lauderdale, and Naples, but we also work with agencies across our other target states: Texas, California, and Pennsylvania. The homecare-specific expertise we bring applies no matter which US market you're in.</div></div>
       </div>
 
     </div>
@@ -620,7 +620,7 @@ include '../includes/header.php';
       <div class="cta-content" data-reveal>
         <p class="section-label">Get Started Today</p>
         <h2 class="section-h2">Ready for a Website That<br><em>Actually Grows Your Agency?</em></h2>
-        <p class="cta-desc">Book a free 30-minute call. We'll audit your current digital presence, show you exactly what's costing you leads, and give you a clear plan — no obligation, no sales pressure.</p>
+        <p class="cta-desc">Book a free 30-minute call. We'll audit your current digital presence, show you what's actually costing you leads, and hand you a clear plan. No obligation, no sales pressure.</p>
         <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get My Free Website Quote</button>
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free quote &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Live in 14 days guaranteed</div>
       </div>
@@ -631,7 +631,7 @@ include '../includes/header.php';
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Current website audit</div></div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Custom package recommendation</div></div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Competitor analysis</div></div>
-          <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Fixed price — no surprises</div></div>
+          <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Fixed price, no surprises</div></div>
         </div>
       </div>
     </div>

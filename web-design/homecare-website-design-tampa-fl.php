@@ -1,9 +1,9 @@
 ﻿<?php
 $page_title = "Homecare Website Design in Tampa, FL | Homecare Creators";
-$page_desc = "Professional homecare website design for Tampa, FL agencies. We build fast, SEO-optimized websites that rank on Google, convert families, and recruit caregivers across Hillsborough County.";
+$page_desc = "Homecare website design for Tampa, FL agencies. We build fast, SEO-ready sites for home care agencies that rank on Google and recruit caregivers.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design-tampa-fl/";
 $og_title = "Homecare Website Design Tampa FL | Homecare Creators";
-$og_desc = "Tampa homecare website design built exclusively for home care agencies. Rank #1 on Google, convert families into clients, recruit caregivers — starting from $699.";
+$og_desc = "Tampa homecare website design built only for home care agencies. Rank on Google, win more families, recruit caregivers. Plans start at $699.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
@@ -169,9 +169,9 @@ include '../includes/header.php';
   <div class="hero-blob2"></div>
   <div class="hero-content">
     <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/homecare-website-design/">Website Design</a> / <span>Tampa, FL</span></div>
-    <div class="hero-badge"><div class="hero-badge-pulse"></div>Homecare Website Design — Tampa, FL</div>
+    <div class="hero-badge"><div class="hero-badge-pulse"></div>Homecare Website Design, Tampa FL</div>
     <h1 class="hero-h1">Homecare Website Design<br>in <em>Tampa, Florida</em></h1>
-    <p class="hero-desc">We build fast, mobile-first homecare websites for Tampa agencies that rank #1 on Google, convert families across Hillsborough County into clients, and recruit caregivers 24/7 — starting from $699.</p>
+    <p class="hero-desc">We build fast, mobile-first websites for Tampa homecare agencies. Sites that rank on Google, turn Hillsborough County families into clients, and keep your careers page recruiting caregivers around the clock. Plans start at $699.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Tampa Website Quote</button>
       <a href="/homecare-website-design/" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i>View All Packages</a>
@@ -230,30 +230,30 @@ include '../includes/header.php';
       <div class="body-text" data-reveal>
         <p class="section-label">The Tampa Market</p>
         <h2 class="section-h2">Why Tampa Homecare Agencies<br><em>Need a Specialist Website</em></h2>
-        <p>Tampa and Hillsborough County are experiencing rapid population growth, with a booming senior community driven by retirement migration from the Northeast and Midwest. With over 1.5 million residents in the greater Tampa Bay area and one of the highest concentrations of adults 65+ in Florida, your website is the single most important growth tool your agency has.</p>
-        <p>Most Tampa homecare agencies are running generic websites built by developers who have never heard of AHCA licensing or what Tampa families actually need to see before they call. The result is a website that generates almost no leads even when families find it.</p>
-        <p>We build every page with Tampa's market in mind — Hillsborough County neighborhood pages, Tampa-specific keyword targeting, and trust content that converts families in Brandon, Riverview, Carrollwood, and every other community you serve.</p>
+        <p>Retirees keep moving to Hillsborough County from the Northeast and Midwest, and the senior population here is growing faster than almost anywhere else in Florida. Over 1.5 million people live in the greater Tampa Bay area now. For a homecare agency, that growth means your website isn't just a brochure. It's the tool that either brings in new clients every month or quietly loses them to a competitor with a better site.</p>
+        <p>As a Google Partner and BBB-accredited agency that works exclusively with home care companies, we've reviewed a lot of Tampa homecare websites over the years, and the same problem keeps showing up: they were built by a generalist developer who's never heard of an AHCA license, and has no idea what a Tampa family actually wants to see before they pick up the phone. Traffic shows up. Leads don't.</p>
+        <p>In our work building homecare-only websites, we've learned that Tampa families respond to specificity, not polish. So every site we build gets Hillsborough County neighborhood pages, keyword targeting tuned to how Tampa searches for care, and trust content written for families in Brandon, Riverview, Carrollwood and the rest of the communities you serve.</p>
         <div class="why-points" style="margin-top:24px">
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-language"></i></div>
-            <div><div class="why-point-title">Hillsborough County Neighborhood Pages</div><div class="why-point-desc">Dedicated, SEO-optimized pages for Brandon, Riverview, Carrollwood, Westchase, Temple Terrace, and every Tampa area you serve — so you rank in each neighborhood, not just the city.</div></div>
+            <div><div class="why-point-title">Hillsborough County Neighborhood Pages</div><div class="why-point-desc">We build a dedicated page for Brandon, Riverview, Carrollwood, Westchase, Temple Terrace and every other Tampa area you serve, so you show up neighborhood by neighborhood, not just for the city name.</div></div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-            <div><div class="why-point-title">Tampa Family Trust Signals</div><div class="why-point-desc">AHCA license display, caregiver screening messaging, Google Reviews widget, and team photos — the exact signals Tampa families need before choosing a homecare agency.</div></div>
+            <div><div class="why-point-title">Tampa Family Trust Signals</div><div class="why-point-desc">Your AHCA license front and center, plain language about how you screen caregivers, a live Google Reviews widget and real team photos. These are the details Tampa families check before they'll call a stranger about their parent.</div></div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <div><div class="why-point-title">Caregiver Recruitment for Tampa</div><div class="why-point-desc">A fully optimized careers page ranking for 'caregiver jobs Tampa FL' — turning your website into a 24/7 recruitment engine across Hillsborough County.</div></div>
+            <div><div class="why-point-title">Caregiver Recruitment for Tampa</div><div class="why-point-desc">Your careers page gets built to rank for "caregiver jobs Tampa FL," so it keeps working as a recruiting tool across Hillsborough County long after we hand it off.</div></div>
           </div>
         </div>
       </div>
       <div data-reveal style="transition-delay:.15s">
         <div class="market-facts">
-          <div class="fact-card"><div class="fact-num">1.5M+</div><h4>Tampa Bay Population</h4><p>One of Florida's largest metros with rapid year-over-year senior population growth</p></div>
-          <div class="fact-card"><div class="fact-num">20%</div><h4>Residents 65+</h4><p>1 in 5 Hillsborough County residents are seniors — your core target audience</p></div>
-          <div class="fact-card"><div class="fact-num">$5,900</div><h4>Avg Client Value/Year</h4><p>One new private-pay Tampa client is worth $3,000–$8,000 per year to your agency</p></div>
-          <div class="fact-card"><div class="fact-num">High</div><h4>Competition Level</h4><p>Tampa is a top-5 FL homecare market — specialist-built sites outrank everyone here</p></div>
+          <div class="fact-card"><div class="fact-num">1.5M+</div><h4>Tampa Bay Population</h4><p>One of Florida's largest metros, and the senior population here keeps growing year over year.</p></div>
+          <div class="fact-card"><div class="fact-num">20%</div><h4>Residents 65+</h4><p>1 in 5 Hillsborough County residents is a senior. That's your core audience, right in your service area.</p></div>
+          <div class="fact-card"><div class="fact-num">$5,900</div><h4>Avg Client Value/Year</h4><p>A single private-pay Tampa client is typically worth $3,000 to $8,000 a year to your agency.</p></div>
+          <div class="fact-card"><div class="fact-num">High</div><h4>Competition Level</h4><p>Tampa ranks among Florida's top 5 homecare markets. A specialist-built site is how you outrank the pack.</p></div>
         </div>
       </div>
     </div>
@@ -266,13 +266,13 @@ include '../includes/header.php';
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">How It Works</p>
       <h2 class="section-h2" style="text-align:center">Tampa to <em>Live in 14 Days</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">A clear 4-step process — you provide basic agency info, we do everything else.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Four steps. You give us the basics on your agency, we handle the rest.</p>
     </div>
     <div class="how-grid" data-reveal style="transition-delay:.1s">
-      <div class="how-step"><div class="how-num">1<div class="how-icon"><i class="fa-solid fa-comments"></i></div></div><div class="how-title">Discovery Call</div><div class="how-desc">30-minute call to learn your Tampa agency, the neighborhoods you serve, and your goals. This shapes every design decision.</div></div>
-      <div class="how-step"><div class="how-num">2<div class="how-icon"><i class="fa-solid fa-pen-ruler"></i></div></div><div class="how-title">Design &amp; Copy</div><div class="how-desc">We write all Tampa-specific content and design your full site. No writing required from you — just review and approve.</div></div>
-      <div class="how-step"><div class="how-num">3<div class="how-icon"><i class="fa-solid fa-eye"></i></div></div><div class="how-title">Review &amp; Refine</div><div class="how-desc">You review the complete site and request changes. Most Tampa clients need only one revision round before it's perfect.</div></div>
-      <div class="how-step"><div class="how-num">4<div class="how-icon"><i class="fa-solid fa-rocket"></i></div></div><div class="how-title">Launch &amp; Rank</div><div class="how-desc">We launch, submit to Google, and configure Analytics + Search Console. Your Tampa SEO starts the moment we hit publish.</div></div>
+      <div class="how-step"><div class="how-num">1<div class="how-icon"><i class="fa-solid fa-comments"></i></div></div><div class="how-title">Discovery Call</div><div class="how-desc">A 30-minute call where we learn about your Tampa agency: which neighborhoods you cover, what's worked so far, and what you actually want out of this site.</div></div>
+      <div class="how-step"><div class="how-num">2<div class="how-icon"><i class="fa-solid fa-pen-ruler"></i></div></div><div class="how-title">Design &amp; Copy</div><div class="how-desc">We write the Tampa-specific content and design the full site ourselves. You don't need to write a word. Just review it when it's ready.</div></div>
+      <div class="how-step"><div class="how-num">3<div class="how-icon"><i class="fa-solid fa-eye"></i></div></div><div class="how-title">Review &amp; Refine</div><div class="how-desc">You go through the finished site and tell us what to change. One revision round is usually all it takes for our Tampa clients.</div></div>
+      <div class="how-step"><div class="how-num">4<div class="how-icon"><i class="fa-solid fa-rocket"></i></div></div><div class="how-title">Launch &amp; Rank</div><div class="how-desc">We launch the site, submit it to Google, and set up Analytics and Search Console. Your Tampa SEO clock starts the day we publish.</div></div>
     </div>
   </div>
 </section>
@@ -283,7 +283,7 @@ include '../includes/header.php';
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">Packages &amp; Pricing</p>
       <h2 class="section-h2" style="text-align:center">Tampa Website Design <em>Packages</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">All packages include custom Tampa-specific design, SEO setup, and mobile optimization. No hidden fees.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Every package includes custom Tampa design, SEO setup, and mobile optimization, built by a team that works only with home care agencies. Nothing hidden in the fine print.</p>
     </div>
     <div class="pkg-grid" data-reveal style="transition-delay:.1s">
       <div class="pkg-card">
@@ -348,24 +348,24 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Everything Included</p>
       <h2 class="section-h2">Built for Tampa.<br><em>Nothing Left Out.</em></h2>
-      <p class="section-sub">Every Tampa homecare website we build includes these non-negotiables — optimized specifically for Hillsborough County families and search patterns.</p>
+      <p class="section-sub">These aren't add-ons. Every Tampa homecare website we build ships with all of this, tuned for how Hillsborough County families actually search and what they need to see.</p>
     </div>
     <div class="inc-grid" data-reveal style="transition-delay:.1s">
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100% Mobile-First</h3><p>Over 70% of Tampa families search for homecare on their phone. Every pixel is designed for mobile first, then scaled up for desktop.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Tampa SEO Built In</h3><p>Tampa-specific keyword targeting, meta titles, descriptions, and content structure — your site ranks for "home care agency Tampa" searches from day one.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-bolt"></i></div><h3>Sub-2 Second Load Speed</h3><p>Optimized images, clean code, and fast hosting. Google rewards fast sites and Tampa families don't wait for slow ones.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Google Reviews Widget</h3><p>Your real Tampa Google reviews displayed live on your homepage — the #1 trust signal for families choosing between agencies.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Tampa Neighborhood Pages</h3><p>Dedicated SEO pages for each Tampa community you serve — ranked individually so you capture neighborhood-level searches across Hillsborough County.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-users"></i></div><h3>Caregiver Recruitment Page</h3><p>A fully optimized careers page that ranks for "caregiver jobs Tampa FL" — turning your site into a 24/7 recruitment engine.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-code"></i></div><h3>Schema Markup</h3><p>LocalBusiness and FAQPage schema markup telling Google exactly who you are, where you operate in Tampa, and what services you offer.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Analytics &amp; Search Console</h3><p>Google Analytics 4 and Search Console connected before launch — track every Tampa visit, call, and inquiry from day one.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>SSL &amp; Hosting</h3><p>Secure HTTPS, 99.9% uptime hosting, and daily backups — included in your $79/mo plan so your Tampa site is always online.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100% Mobile-First</h3><p>Most Tampa families are on their phone when they start looking for care. We design for that screen first, since Google's mobile-first indexing rewards it too, then scale up to desktop.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Tampa SEO Built In</h3><p>Keyword targeting, meta titles, and content structure all built around Tampa search terms, so you're already positioned for "home care agency Tampa" the day the site goes live.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-bolt"></i></div><h3>Sub-2 Second Load Speed</h3><p>We optimize images, keep the code clean, and host on fast servers because page speed is part of Core Web Vitals, and slow-loading sites lose Tampa families before they even read a word.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Google Reviews Widget</h3><p>Your actual Tampa Google reviews, pulled live onto your homepage. It's the single trust signal that does the most work when a family is choosing between agencies.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Tampa Neighborhood Pages</h3><p>Each Tampa community you serve gets its own SEO page, ranked on its own, so neighborhood-level searches across Hillsborough County find you specifically.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-users"></i></div><h3>Caregiver Recruitment Page</h3><p>We build your careers page to rank for "caregiver jobs Tampa FL." It keeps recruiting for you around the clock, not just when you're actively hiring.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-code"></i></div><h3>Schema Markup</h3><p>LocalBusiness and FAQPage schema markup tell Google, in its own language, exactly who you are, where in Tampa you operate, and which services you provide.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Analytics &amp; Search Console</h3><p>Google Analytics 4 and Search Console get connected before we ever launch, so you can see every Tampa visit, call, and inquiry starting on day one.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>SSL &amp; Hosting</h3><p>HTTPS, 99.9% uptime hosting, and daily backups come standard in your $79/mo plan. Your Tampa site stays online, full stop.</p></div>
     </div>
 
     <!-- INTERNAL LINK: Local SEO -->
     <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <div><i class="fa-solid fa-magnifying-glass-chart" style="font-size:28px;color:var(--teal)"></i></div>
-      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website needs visibility. Our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service ranks your new Tampa website at #1 on Google Maps — driving more leads from day one.</div></div>
+      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website still needs to be found. Our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service pushes your new Tampa site toward the top of Google Maps, so it starts driving leads instead of just sitting there.</div></div>
       <a href="/seo/local-seo-for-home-care-agencies" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Packages</a>
     </div>
   </div>
@@ -377,17 +377,17 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Tampa Keyword Strategy</p>
       <h2 class="section-h2">Tampa Keywords We <em>Rank Your Site For</em></h2>
-      <p class="section-sub">Every Tampa homecare website we build is optimized for the exact search terms Hillsborough County families type into Google when looking for care.</p>
+      <p class="section-sub">These are the actual phrases Hillsborough County families type into Google when they're looking for care, and the terms we build your site around.</p>
     </div>
     <div class="kw-grid" data-reveal style="transition-delay:.1s">
       <div class="kw-card"><div><div class="kw-term">homecare website design Tampa FL</div><div class="kw-intent">Agency owners searching for your service</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">home care agency Tampa FL</div><div class="kw-intent">Families ready to hire — highest intent</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">home care agency Tampa FL</div><div class="kw-intent">Families ready to hire, highest intent</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">senior home care Tampa</div><div class="kw-intent">Family searching for elderly parent</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">homecare near me Tampa</div><div class="kw-intent">Local + near-me, highest conversion</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">caregiver jobs Tampa FL</div><div class="kw-intent">Caregiver recruitment — talent pipeline</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">caregiver jobs Tampa FL</div><div class="kw-intent">Builds your caregiver talent pipeline</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">home care Brandon / Riverview</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-med">MED</span></div>
       <div class="kw-card"><div><div class="kw-term">in-home care for elderly Tampa</div><div class="kw-intent">Informational → decision stage buyer</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">24-hour home care Tampa</div><div class="kw-intent">High urgency — premium private-pay</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">24-hour home care Tampa</div><div class="kw-intent">Urgent search, premium private-pay client</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">best home care agency Tampa 2025</div><div class="kw-intent">AI search &amp; voice search query</div></div><span class="kw-badge kw-med">MED</span></div>
     </div>
   </div>
@@ -399,7 +399,7 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Tampa Service Coverage</p>
       <h2 class="section-h2">We Build Pages for Every<br><em>Tampa Neighborhood You Serve</em></h2>
-      <p class="section-sub">Your website gets a dedicated, SEO-optimized page for every Tampa community — so you rank in each one, not just the city overall.</p>
+      <p class="section-sub">Each Tampa community you serve gets its own SEO-optimized page. That's how you rank neighborhood by neighborhood instead of hoping the city-wide page catches everyone.</p>
     </div>
     <div class="areas-grid" data-reveal style="transition-delay:.1s">
       <div class="area-pill"><div class="area-dot"></div>Brandon</div>
@@ -447,28 +447,28 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Tampa Homecare Website Design —<br><em>Your Questions Answered</em></h2>
+      <h2 class="section-h2">Tampa Homecare Website Design,<br><em>Your Questions Answered</em></h2>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Why do I need a specialist website for my Tampa homecare agency?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Tampa is one of Florida's most competitive homecare markets. A generic website won't rank for Tampa-specific homecare keywords or convert Tampa families who are comparing agencies. A specialist site built for your exact Hillsborough County market converts significantly more visitors into phone calls — which is the only metric that grows your agency.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Tampa is one of the most competitive homecare markets in Florida. A generic site just won't rank for Tampa-specific keywords, and it won't convince a Tampa family comparing three or four agencies at once. A site built specifically for your Hillsborough County market turns more of those visitors into phone calls, and phone calls are really the only number that matters.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Will my Tampa homecare website rank on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes — every Tampa page includes proper SEO for Hillsborough County homecare keywords, schema markup, fast load speed, and mobile optimization. Most clients see Google Maps improvements within 60–90 days. Adding our Local SEO retainer ($400/mo) handles Tampa citation building, review management, and ongoing content.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Every Tampa page we build includes proper SEO for Hillsborough County keywords, schema markup, fast load speed, and mobile optimization from the start. Most clients start seeing Google Maps movement within 60 to 90 days. If you want to speed that up, our Local SEO retainer ($400/mo) covers Tampa citation building, review management, and ongoing content.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you build websites for agencies serving both Tampa and surrounding areas?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Absolutely. Many Tampa agencies also serve Clearwater, St. Petersburg, and Pinellas County. We build service area pages for every city and county you cover — each individually optimized so you rank in both Tampa and the broader Tampa Bay region.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely, and it comes up a lot. Plenty of Tampa agencies also cover Clearwater, St. Petersburg, and Pinellas County. We build a separate service area page for each city and county you operate in, optimized on its own, so you're visible across Tampa and the wider Tampa Bay region.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to build my Tampa homecare website?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">The Starter package goes live in 10–14 days. Growth takes 14 days. Dominate takes up to 21 days. We write all your content — you just provide basic agency details and approve the design. Every day without a proper website is a day you're losing Tampa leads to competitors, so we move as fast as possible without cutting corners.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Starter goes live in 10 to 14 days. Growth takes 14. Dominate runs up to 21. We handle all the writing, so you just hand us the basic agency details and sign off on the design. We move fast because every day without a real website is a day competitors are picking up leads that should've been yours, but we don't cut corners to get there.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I add Local SEO to my Tampa website package?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes — and we recommend it. Our Tampa Local SEO retainer starts at $400/mo and handles Google Business Profile management, Hillsborough County citation building, review velocity, and ongoing Tampa content. Most clients combine website design with Local SEO from day one for the fastest path to #1 in Tampa.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, and honestly, we'd recommend it. Our Tampa Local SEO retainer starts at $400/mo and covers Google Business Profile management, Hillsborough County citation building, review velocity, and ongoing content. Most of our clients bundle website design with Local SEO right from day one because it's the fastest route we've seen to the top of Google in Tampa.</div></div>
       </div>
     </div>
   </div>
@@ -481,7 +481,7 @@ include '../includes/header.php';
       <div data-reveal>
         <p class="section-label" style="color:var(--teal-lt)"><span style="background:var(--teal-lt);display:inline-block;width:24px;height:2px;border-radius:2px;margin-right:8px;vertical-align:middle"></span>Get Started Today</p>
         <h2 class="cta-h2">Ready for a Tampa Website That<br><em>Actually Gets You Clients?</em></h2>
-        <p class="cta-desc">Book a free 30-minute call. We'll audit your current Tampa digital presence and give you a clear, honest plan — no obligation, no pressure.</p>
+        <p class="cta-desc">Book a free 30-minute call. We'll take a look at your current Tampa presence and hand you an honest plan for it, no obligation and no pressure to sign anything.</p>
         <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get My Tampa Website Quote</button>
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free quote &nbsp;·&nbsp; Live in 14 days &nbsp;·&nbsp; No hidden fees</div>
       </div>
@@ -492,7 +492,7 @@ include '../includes/header.php';
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Current website audit</div></div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Tampa competitor analysis</div></div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Custom package recommendation</div></div>
-          <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Fixed price — no surprises</div></div>
+          <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Fixed price, no surprises</div></div>
         </div>
       </div>
     </div>

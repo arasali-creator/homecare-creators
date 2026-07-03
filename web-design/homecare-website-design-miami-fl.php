@@ -1,9 +1,9 @@
 ﻿<?php
 $page_title = "Homecare Website Design in Miami, FL | Homecare Creators";
-$page_desc = "Professional homecare website design for Miami, FL agencies. We build fast, SEO-optimized websites that rank on Google, convert families, and recruit caregivers across Miami-Dade County.";
+$page_desc = "Homecare website design for Miami, FL home care agencies. Fast, SEO-ready sites built to rank on Google and bring in families across Miami-Dade.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design-miami-fl/";
 $og_title = "Homecare Website Design Miami FL | Homecare Creators";
-$og_desc = "Miami homecare website design built exclusively for home care agencies. Rank #1 on Google, convert families into clients, recruit caregivers — starting from $699.";
+$og_desc = "Miami homecare website design, built only for home care agencies. Rank on Google, turn visitors into clients, and recruit caregivers. Starts at $699.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
@@ -156,9 +156,9 @@ include '../includes/header.php';
   <div class="hero-blob2"></div>
   <div class="hero-content">
     <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/homecare-website-design/">Website Design</a> / <span>Miami, FL</span></div>
-    <div class="hero-badge"><div class="hero-badge-pulse"></div>Homecare Website Design — Miami, FL</div>
+    <div class="hero-badge"><div class="hero-badge-pulse"></div>Homecare Website Design, Miami FL</div>
     <h1 class="hero-h1">Homecare Website Design<br>in <em>Miami, Florida</em></h1>
-    <p class="hero-desc">We build fast, mobile-first homecare websites for Miami agencies that rank #1 on Google, convert families across Miami-Dade County into clients, and recruit caregivers 24/7 — starting from $699.</p>
+    <p class="hero-desc">We build fast, mobile-first websites for Miami home care agencies. Sites that rank #1 on Google, turn Miami-Dade families into clients, and keep the caregiver applications coming in around the clock. Packages start at $699.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Miami Website Quote</button>
       <a href="/homecare-website-design/" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i>View All Packages</a>
@@ -217,30 +217,30 @@ include '../includes/header.php';
       <div class="body-text" data-reveal>
         <p class="section-label">The Miami Market</p>
         <h2 class="section-h2">Why Miami Homecare Agencies<br><em>Need a Specialist Website</em></h2>
-        <p>Miami-Dade County is home to over 2.7 million residents and one of the highest concentrations of adults aged 65 and older in the entire United States. With a booming private-pay market, a large Spanish-speaking senior population, and dozens of homecare agencies competing for the same Google searches, your website isn't optional — it's your most important growth asset.</p>
-        <p>Most Miami homecare agencies are using generic WordPress themes built by developers who have never heard of AHCA licensing, Medicaid waiver programs, or the specific trust signals Miami families need before they pick up the phone. The result is a website that looks okay but converts almost no one.</p>
-        <p>We build every page with Miami's unique market in mind — bilingual SEO signals, Miami-Dade neighborhood service area pages, local schema markup, and content that speaks directly to the families searching for care in Coral Gables, Hialeah, Kendall, and every other community you serve.</p>
+        <p>Miami-Dade County has over 2.7 million residents, and it holds one of the highest concentrations of adults 65 and older anywhere in the country. Add a booming private-pay market, a large Spanish-speaking senior population, and dozens of homecare agencies chasing the same Google searches, and your website stops being a brochure. It becomes the thing that decides whether a family calls you or the agency listed above you.</p>
+        <p>In our work building websites for homecare agencies specifically, and nothing else, we keep running into the same pattern in Miami: agencies paying for a generic WordPress theme from a developer who's never dealt with AHCA licensing paperwork, has no idea what a Medicaid waiver program is, and doesn't know which trust signals actually move a Miami family to pick up the phone. The site looks fine in a screenshot. It just doesn't convert.</p>
+        <p>Because we only build for this industry, every page we ship for a Miami client gets bilingual SEO signals, neighborhood service-area pages for Miami-Dade, and local schema markup baked in from the start, not bolted on later. We write for the families actually searching for care in Coral Gables, Hialeah, Kendall, and whatever other community you cover.</p>
         <div class="why-points" style="margin-top:24px">
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-language"></i></div>
-            <div><div class="why-point-title">Bilingual SEO for Miami-Dade</div><div class="why-point-desc">Miami's large Spanish-speaking senior population searches in both English and Spanish. We optimize for both audiences — doubling your organic reach across Miami-Dade.</div></div>
+            <div><div class="why-point-title">Bilingual SEO for Miami-Dade</div><div class="why-point-desc">Miami's Spanish-speaking senior population searches in both languages, often in the same week. We build for both, which is how your organic reach across Miami-Dade actually doubles instead of just sounding like it should.</div></div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-            <div><div class="why-point-title">Miami Neighborhood Service Pages</div><div class="why-point-desc">Dedicated, SEO-optimized pages for Coral Gables, Hialeah, Miami Beach, Kendall, Brickell, and every area you serve — so you rank in each neighborhood, not just the city.</div></div>
+            <div><div class="why-point-title">Miami Neighborhood Service Pages</div><div class="why-point-desc">A dedicated, SEO-optimized page for Coral Gables. Another for Hialeah. Miami Beach, Kendall, Brickell, and every other area you serve gets its own page too, so you show up in each neighborhood's results, not just a citywide search.</div></div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <div><div class="why-point-title">Trust Signals Miami Families Need</div><div class="why-point-desc">AHCA license display, caregiver background check messaging, Google Reviews widget, and team photos — the specific signals Miami families look for before they call.</div></div>
+            <div><div class="why-point-title">Trust Signals Miami Families Need</div><div class="why-point-desc">We've noticed which details make a Miami family stop scrolling and call: AHCA license display, clear caregiver background check messaging, a live Google Reviews widget, real team photos. Small things, and they matter.</div></div>
           </div>
         </div>
       </div>
       <div data-reveal style="transition-delay:.15s">
         <div class="market-facts">
-          <div class="fact-card"><div class="fact-num">2.7M+</div><h4>Miami-Dade Population</h4><p>Largest county in Florida with one of the highest elderly concentrations in the US</p></div>
-          <div class="fact-card"><div class="fact-num">21%</div><h4>Residents 65+</h4><p>More than 1 in 5 Miami residents are seniors — your core target audience</p></div>
-          <div class="fact-card"><div class="fact-num">$6,200</div><h4>Avg Client Value/Year</h4><p>One new private-pay Miami client is worth $3,000–$8,000 per year to your agency</p></div>
-          <div class="fact-card"><div class="fact-num">Top 3</div><h4>Competition Level</h4><p>Miami is one of FL's 3 most competitive homecare markets — only specialists rank here</p></div>
+          <div class="fact-card"><div class="fact-num">2.7M+</div><h4>Miami-Dade Population</h4><p>Florida's largest county, and its elderly concentration is among the highest in the US</p></div>
+          <div class="fact-card"><div class="fact-num">21%</div><h4>Residents 65+</h4><p>More than 1 in 5 people here are seniors. That's your core audience, right in the county</p></div>
+          <div class="fact-card"><div class="fact-num">$6,200</div><h4>Avg Client Value/Year</h4><p>A single new private-pay client in Miami runs $3,000 to $8,000 a year for your agency</p></div>
+          <div class="fact-card"><div class="fact-num">Top 3</div><h4>Competition Level</h4><p>Miami sits among FL's 3 toughest homecare markets. Generic sites don't survive it long</p></div>
         </div>
       </div>
     </div>
@@ -253,13 +253,13 @@ include '../includes/header.php';
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">How It Works</p>
       <h2 class="section-h2" style="text-align:center">Miami to <em>Live in 14 Days</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">A clear 4-step process — you provide basic agency info, we do everything else.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Four steps. You give us the basics on your agency, we handle the rest.</p>
     </div>
     <div class="how-grid" data-reveal style="transition-delay:.1s">
-      <div class="how-step"><div class="how-num">1<div class="how-icon"><i class="fa-solid fa-comments"></i></div></div><div class="how-title">Discovery Call</div><div class="how-desc">30-minute call to learn your Miami agency, the neighborhoods you serve, and your goals. This shapes every design decision.</div></div>
-      <div class="how-step"><div class="how-num">2<div class="how-icon"><i class="fa-solid fa-pen-ruler"></i></div></div><div class="how-title">Design &amp; Copy</div><div class="how-desc">We write all Miami-specific content and design your full site. No writing required from you — just review and approve.</div></div>
-      <div class="how-step"><div class="how-num">3<div class="how-icon"><i class="fa-solid fa-eye"></i></div></div><div class="how-title">Review &amp; Refine</div><div class="how-desc">You review the complete site and request changes. Most Miami clients need only one revision round before it's perfect.</div></div>
-      <div class="how-step"><div class="how-num">4<div class="how-icon"><i class="fa-solid fa-rocket"></i></div></div><div class="how-title">Launch &amp; Rank</div><div class="how-desc">We launch, submit to Google, and configure Analytics + Search Console. Your Miami SEO starts the moment we hit publish.</div></div>
+      <div class="how-step"><div class="how-num">1<div class="how-icon"><i class="fa-solid fa-comments"></i></div></div><div class="how-title">Discovery Call</div><div class="how-desc">A 30-minute call where we learn your Miami agency, the neighborhoods you cover, and what you're actually trying to achieve. Everything downstream gets built around this.</div></div>
+      <div class="how-step"><div class="how-num">2<div class="how-icon"><i class="fa-solid fa-pen-ruler"></i></div></div><div class="how-title">Design &amp; Copy</div><div class="how-desc">We write the Miami-specific content and design the full site. You don't need to write anything. Just review it when it's ready and tell us what to change.</div></div>
+      <div class="how-step"><div class="how-num">3<div class="how-icon"><i class="fa-solid fa-eye"></i></div></div><div class="how-title">Review &amp; Refine</div><div class="how-desc">You go through the complete site and flag what needs adjusting. Most of our Miami clients need one revision round, sometimes two if the branding is more involved.</div></div>
+      <div class="how-step"><div class="how-num">4<div class="how-icon"><i class="fa-solid fa-rocket"></i></div></div><div class="how-title">Launch &amp; Rank</div><div class="how-desc">We push it live, submit it to Google, and get Analytics and Search Console wired up. Your Miami SEO clock starts the day we publish, not weeks later.</div></div>
     </div>
   </div>
 </section>
@@ -270,7 +270,7 @@ include '../includes/header.php';
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">Packages &amp; Pricing</p>
       <h2 class="section-h2" style="text-align:center">Miami Website Design <em>Packages</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">All packages include custom Miami-specific design, SEO setup, and mobile optimization. No hidden fees.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Every package includes custom Miami-specific design, SEO setup, and mobile optimization. No hidden fees, and the price you see is the price you pay.</p>
     </div>
     <div class="pkg-grid" data-reveal style="transition-delay:.1s">
       <div class="pkg-card">
@@ -335,24 +335,24 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Everything Included</p>
       <h2 class="section-h2">Built for Miami.<br><em>Nothing Left Out.</em></h2>
-      <p class="section-sub">Every Miami homecare website we build includes these non-negotiables — optimized specifically for Miami-Dade County families and search patterns.</p>
+      <p class="section-sub">These aren't add-ons. Every Miami homecare website we build ships with all of this, tuned for Miami-Dade County families and how they actually search.</p>
     </div>
     <div class="inc-grid" data-reveal style="transition-delay:.1s">
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100% Mobile-First</h3><p>Over 70% of Miami families search for homecare on their phone. Every pixel is designed for mobile first, then scaled up for desktop.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Miami SEO Built In</h3><p>Miami-specific keyword targeting, meta titles, descriptions, and content structure — your site ranks for "home care agency Miami" searches from day one.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-bolt"></i></div><h3>Sub-2 Second Load Speed</h3><p>Optimized images, clean code, and fast hosting. Google rewards fast sites and Miami families don't wait for slow ones.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Google Reviews Widget</h3><p>Your real Miami Google reviews displayed live on your homepage — the #1 trust signal for families choosing between agencies.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Miami Neighborhood Pages</h3><p>Dedicated SEO pages for each Miami community you serve — Coral Gables, Hialeah, Kendall, Brickell, and more.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-users"></i></div><h3>Caregiver Recruitment Page</h3><p>A fully optimized careers page that ranks for "caregiver jobs Miami FL" — turning your site into a 24/7 recruitment engine.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-code"></i></div><h3>Schema Markup</h3><p>LocalBusiness and FAQPage schema markup telling Google exactly who you are, where you operate in Miami, and what services you offer.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Analytics &amp; Search Console</h3><p>Google Analytics 4 and Search Console connected before launch — track every Miami visit, call, and inquiry from day one.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>SSL &amp; Hosting</h3><p>Secure HTTPS, 99.9% uptime hosting, and daily backups — included in your $79/mo plan so your Miami site is always online.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100% Mobile-First</h3><p>More than 70% of Miami families search for homecare from a phone, so we design for that screen first and scale up to desktop after, not the other way around.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Miami SEO Built In</h3><p>Keyword targeting, meta titles, descriptions, and content structure built around Miami search terms. Your site is set up to rank for "home care agency Miami" from launch day.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-bolt"></i></div><h3>Sub-2 Second Load Speed</h3><p>Optimized images, clean code, fast hosting. Google's Core Web Vitals reward speed, and a Miami family on 4G isn't going to wait around for a slow page.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Google Reviews Widget</h3><p>Your actual Miami Google reviews, live on the homepage. It's the trust signal we see move the needle most when families compare agencies.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Miami Neighborhood Pages</h3><p>A dedicated SEO page for each Miami community you serve. Coral Gables, Hialeah, Kendall, Brickell, wherever you operate.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-users"></i></div><h3>Caregiver Recruitment Page</h3><p>A careers page built to rank for "caregiver jobs Miami FL," so it's pulling in applicants around the clock instead of sitting idle.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-code"></i></div><h3>Schema Markup</h3><p>LocalBusiness and FAQPage schema markup tells Google, in language it parses natively, who you are, where in Miami you operate, and what services you offer.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Analytics &amp; Search Console</h3><p>Google Analytics 4 and Search Console are connected before launch, so every Miami visit, call, and inquiry gets tracked from day one, not month three.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>SSL &amp; Hosting</h3><p>Secure HTTPS, 99.9% uptime hosting, and daily backups. It's all part of your $79/mo plan, so your Miami site just stays online.</p></div>
     </div>
 
     <!-- LOCAL SEO INTERNAL LINK -->
     <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <div><i class="fa-solid fa-magnifying-glass-chart" style="font-size:28px;color:var(--teal)"></i></div>
-      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website needs visibility. Our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service ranks your new Miami website at #1 on Google Maps — driving more leads from day one.</div></div>
+      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website still needs to be found. Our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service works your new Miami site toward the #1 spot on Google Maps, so it starts pulling leads sooner.</div></div>
       <a href="/seo/local-seo-for-home-care-agencies" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Packages</a>
     </div>
   </div>
@@ -364,7 +364,7 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Miami Keyword Strategy</p>
       <h2 class="section-h2">Miami Keywords We <em>Rank Your Site For</em></h2>
-      <p class="section-sub">Every Miami homecare website we build is optimized for the exact search terms Miami-Dade families type into Google when looking for care.</p>
+      <p class="section-sub">These are the actual terms Miami-Dade families type into Google when they're looking for care, and the ones we build your site around.</p>
     </div>
     <div class="kw-grid" data-reveal style="transition-delay:.1s">
       <div class="kw-card"><div><div class="kw-term">homecare website design Miami FL</div><div class="kw-intent">Agency owners searching for your service</div></div><span class="kw-badge kw-high">HIGH</span></div>
@@ -386,7 +386,7 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Miami Service Coverage</p>
       <h2 class="section-h2">We Build Pages for Every<br><em>Miami Neighborhood You Serve</em></h2>
-      <p class="section-sub">Your website gets a dedicated, SEO-optimized page for every Miami community — so you rank in each one, not just the city overall.</p>
+      <p class="section-sub">Every Miami community you cover gets its own dedicated, SEO-optimized page. That's what gets you ranking neighborhood by neighborhood, not just for the city as a whole.</p>
     </div>
     <div class="areas-grid" data-reveal style="transition-delay:.1s">
       <div class="area-pill"><div class="area-dot"></div>Coral Gables</div>
@@ -434,28 +434,28 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Miami Homecare Website Design —<br><em>Your Questions Answered</em></h2>
+      <h2 class="section-h2">Miami Homecare Website Design:<br><em>Your Questions Answered</em></h2>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Why do I need a specialist website for my Miami homecare agency?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Miami is one of the most competitive homecare markets in Florida. Generic websites built by generalist developers don't know how to optimize for Miami-specific homecare keywords, Miami-Dade neighborhood pages, or the trust signals Miami families need. A specialist site built for your exact market converts dramatically more visitors into phone calls — which is the only metric that actually grows your agency.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Miami is one of the toughest homecare markets in Florida. A generalist web developer usually has no idea how to optimize for Miami homecare keywords, build out Miami-Dade neighborhood pages, or include the trust signals Miami families actually look for. We've seen the difference this makes firsthand: a site built specifically for this market and this city turns far more visitors into phone calls. That's the number that actually grows an agency.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Will my Miami homecare website rank on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes — every page we build includes proper on-page SEO for Miami homecare keywords, schema markup, fast load speed, and mobile optimization. This gives you the strongest possible foundation. Most clients see Google Maps improvements within 60–90 days. Adding our Local SEO retainer ($400/mo) accelerates this significantly, handling citation building, review management, and ongoing Miami-specific content.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Every page we build includes proper on-page SEO for Miami homecare keywords, schema markup, fast load speed, and mobile-first indexing readiness, so you're starting from solid ground. Most clients see their Google Maps position improve within 60–90 days. If you want it faster, our Local SEO retainer ($400/mo) handles citation building, review management, and ongoing Miami-specific content on top of the site itself.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you build bilingual websites for Miami agencies?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Miami's large Spanish-speaking community means bilingual SEO signals significantly expand your reach. We can build your website with Spanish-language content and keywords for the communities you serve — including Little Havana, Hialeah, Westchester, and other areas with high Spanish-speaking populations. This is included in the Growth and Dominate packages, and available as an add-on for the Starter package.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Miami's Spanish-speaking community is large enough that bilingual SEO signals genuinely expand your reach, not just in theory. We build Spanish-language content and keywords for the communities you serve, including Little Havana, Hialeah, Westchester, and other areas with a strong Spanish-speaking population. It comes standard in the Growth and Dominate packages, and it's available as an add-on if you're on Starter.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to build my Miami homecare website?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">The Starter package goes live in 10–14 days. Growth takes 14 days. Dominate takes up to 21 days. We write all your content — you just provide basic agency details and approve the design. Every day without a proper website is a day you're losing Miami leads to competitors, so we move as fast as possible without cutting corners.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">The Starter package goes live in 10–14 days. Growth takes 14. Dominate can run up to 21 days, mostly because of the custom branding work. We write all your content, so you just hand us the basic agency details and approve the design. Every day without a real website is a day competitors pick up Miami leads that should've been yours, so we move quickly without skipping steps.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I add Local SEO to my Miami website package?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Absolutely — and we strongly recommend it. Our Local SEO retainer starts at $400/mo and handles Google Business Profile management, Miami citation building, review velocity, and ongoing content updates. Most clients combine website design with Local SEO from day one for the fastest path to #1 on Google Maps in Miami. Ask us about bundle pricing when you book your free quote.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">You can, and honestly we'd recommend it. Our Local SEO retainer starts at $400/mo and covers Google Business Profile management, Miami citation building, review velocity, and ongoing content updates. Most of our clients bundle website design with Local SEO from the start; it's the fastest path we've seen to #1 on Google Maps in Miami. Ask about bundle pricing when you book your free quote.</div></div>
       </div>
     </div>
   </div>
@@ -468,7 +468,7 @@ include '../includes/header.php';
       <div data-reveal>
         <p class="section-label" style="color:var(--teal-lt)"><span style="background:var(--teal-lt);display:inline-block;width:24px;height:2px;border-radius:2px;margin-right:8px;vertical-align:middle"></span>Get Started Today</p>
         <h2 class="cta-h2">Ready for a Miami Website That<br><em>Actually Gets You Clients?</em></h2>
-        <p class="cta-desc">Book a free 30-minute call. We'll audit your current Miami digital presence and give you a clear, honest plan — no obligation, no pressure.</p>
+        <p class="cta-desc">Book a free 30-minute call. We'll look at your current Miami digital presence and give you a straight, honest plan. No obligation, and no pressure to sign anything on the call.</p>
         <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get My Miami Website Quote</button>
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free quote &nbsp;·&nbsp; Live in 14 days &nbsp;·&nbsp; No hidden fees</div>
       </div>
@@ -479,7 +479,7 @@ include '../includes/header.php';
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Current website audit</div></div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Miami competitor analysis</div></div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Custom package recommendation</div></div>
-          <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Fixed price — no surprises</div></div>
+          <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Fixed price, no surprises</div></div>
         </div>
       </div>
     </div>

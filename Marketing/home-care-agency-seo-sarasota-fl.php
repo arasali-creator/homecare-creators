@@ -1,9 +1,9 @@
 ﻿<?php
 $page_title = "Home Care Agency SEO in Sarasota, FL | Homecare Creators";
-$page_desc = "Expert SEO services for home care agencies in Sarasota, FL. We help Sarasota homecare agencies rank #1 on Google, build high-converting websites, and grow private-pay clients across Sarasota County, FL.";
+$page_desc = "SEO and web design built for home care agencies in Sarasota, FL. We get you ranking #1 on Google and winning more private-pay clients across Sarasota County.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-sarasota-fl/";
 $og_title = "Home Care Agency SEO in Sarasota, FL | Homecare Creators";
-$og_desc = "Sarasota homecare agencies — get found on Google, dominate local search, and grow faster with the only agency built 100% for homecare.";
+$og_desc = "Sarasota homecare agencies: get found on Google, own local search, and grow faster with the only marketing agency built just for homecare.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
@@ -148,7 +148,7 @@ include '../includes/header.php';
     <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/florida/">Florida</a> / <span>Sarasota</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Sarasota County, Florida</div>
     <h1 class="hero-h1">Home Care Agency<br>SEO in <em>Sarasota, FL</em></h1>
-    <p class="hero-desc">We help Sarasota homecare agencies rank #1 on Google, build high-converting websites, and grow private-pay clients across Sarasota County — so families find you first, every time.</p>
+    <p class="hero-desc">We help Sarasota homecare agencies rank #1 on Google. New websites, better local rankings, more private-pay clients across Sarasota County. Families find you first, not your competitor down the street.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Free Sarasota SEO Audit</button>
       <a href="https://homecarecreators.com/#services" class="btn-secondary"><i class="fa-solid fa-play"></i>View Our Services</a>
@@ -219,15 +219,15 @@ include '../includes/header.php';
       <div class="market-body" data-reveal>
         <p class="section-label">The Sarasota Market</p>
         <h2 class="section-h2">Why Sarasota Is One of Florida's <em>Fastest-Growing</em> Homecare Markets</h2>
-        <p>Tampa and Sarasota County are experiencing rapid population growth, with a booming senior community driven by retirement migration from the Northeast and Midwest. With over 1.5 million residents in the greater Sarasota Bay area and one of the highest concentrations of adults aged 65+ in Florida, demand for quality in-home care in Sarasota has never been stronger.</p>
-        <p>Families in Brandon, Riverview, Temple Terrace, and across Sarasota County are searching Google every single day for trusted homecare agencies. Without a strong local digital presence, your agency is invisible to every one of those searches — and your competitors are taking those clients instead.</p>
-        <p>Homecare Creators is the only marketing agency built exclusively for homecare businesses. We know the Sarasota market, the exact search terms families use, and how to get your agency to the top of Google Maps and organic results faster than any generalist agency can.</p>
+        <p>Sarasota and Sarasota County keep growing, and a big chunk of that growth is retirees moving down from the Northeast and Midwest. The greater Sarasota area now has over 1.5 million residents, and it holds one of the highest concentrations of adults 65+ anywhere in Florida. Demand for quality in-home care here isn't slowing down.</p>
+        <p>Every day, families in Venice, Longboat Key, Osprey and the rest of Sarasota County are typing "home care near me" into Google. If your agency doesn't show up when they search, you're not in the running. Simple as that. Those clients go to whoever Google puts in front of them, and right now that might not be you.</p>
+        <p>We built Homecare Creators to do one thing: market homecare agencies. Nothing else. That focus is why we know which search terms Sarasota families actually type, how the local map pack works, and what it takes to outrank a generalist agency that's splitting attention across ten different industries.</p>
       </div>
       <div class="market-facts" data-reveal style="transition-delay:.15s">
-        <div class="fact-card"><div class="fact-num">1.5M+</div><h4>Sarasota area Population</h4><p>One of Florida's largest metros with rapid year-over-year senior population growth</p></div>
-        <div class="fact-card"><div class="fact-num">20%</div><h4>Residents Aged 65+</h4><p>1 in 5 Sarasota County residents are seniors — your core target audience</p></div>
-        <div class="fact-card"><div class="fact-num">$5,900</div><h4>Avg Private-Pay Value</h4><p>One new private-pay client in Sarasota is worth $3,000–$8,000 per year to your agency</p></div>
-        <div class="fact-card"><div class="fact-num">High</div><h4>Market Competition</h4><p>Tampa is a top-5 homecare market in Florida — ranking here requires a true specialist</p></div>
+        <div class="fact-card"><div class="fact-num">1.5M+</div><h4>Sarasota area Population</h4><p>One of Florida's largest metros, and the senior population keeps climbing year over year</p></div>
+        <div class="fact-card"><div class="fact-num">20%</div><h4>Residents Aged 65+</h4><p>1 in 5 people in Sarasota County are seniors. That's your core audience, right there</p></div>
+        <div class="fact-card"><div class="fact-num">$5,900</div><h4>Avg Private-Pay Value</h4><p>A single new private-pay client in Sarasota can be worth $3,000–$8,000 a year to your agency</p></div>
+        <div class="fact-card"><div class="fact-num">High</div><h4>Market Competition</h4><p>It's a crowded homecare market in Florida. Ranking here takes a specialist, not a generalist</p></div>
       </div>
     </div>
   </div>
@@ -239,7 +239,7 @@ include '../includes/header.php';
     <div class="services-intro" data-reveal>
       <p class="section-label">Our Services in Sarasota</p>
       <h2 class="section-h2">Everything Your Sarasota Agency Needs<br>to <em>Dominate Local Search</em></h2>
-      <p class="section-sub">Done-for-you website design, local SEO, and AI search optimization exclusively for homecare agencies serving Sarasota and Sarasota County.</p>
+      <p class="section-sub">Website design, local SEO, and AI search optimization, done for you, built only for homecare agencies serving Sarasota and Sarasota County.</p>
     </div>
     <div class="services-grid">
       <div class="svc-card" data-reveal style="transition-delay:.05s">
@@ -250,10 +250,10 @@ include '../includes/header.php';
         </div>
         <div class="svc-card-body">
           <div class="svc-card-title">Sarasota Homecare Website Design</div>
-          <div class="svc-card-desc">A fast, mobile-first website built to convert Sarasota families into inquiries and recruit caregivers across Sarasota County. Every page is a local SEO asset.</div>
+          <div class="svc-card-desc">A fast, mobile-first site that turns Sarasota families into inquiries and helps you recruit caregivers across the county. Every single page pulls double duty as a local SEO asset.</div>
           <ul class="svc-card-features">
             <li><i class="fa-solid fa-check"></i>Custom design with your branding</li>
-            <li><i class="fa-solid fa-check"></i>Tampa-specific homepage copy and CTAs</li>
+            <li><i class="fa-solid fa-check"></i>Sarasota-specific homepage copy and CTAs</li>
             <li><i class="fa-solid fa-check"></i>Service area pages for Sarasota neighborhoods</li>
             <li><i class="fa-solid fa-check"></i>Caregiver careers and jobs page</li>
             <li><i class="fa-solid fa-check"></i>Google Reviews widget built in</li>
@@ -269,7 +269,7 @@ include '../includes/header.php';
         </div>
         <div class="svc-card-body">
           <div class="svc-card-title">Sarasota Local SEO Domination</div>
-          <div class="svc-card-desc">Rank #1 on Google Maps and organic search when families across Sarasota Bay search for home care. We manage every signal Google uses to rank local businesses.</div>
+          <div class="svc-card-desc">When families across Sarasota search for home care, you show up first, on the map and in organic results. We handle every signal Google weighs when ranking local businesses.</div>
           <ul class="svc-card-features">
             <li><i class="fa-solid fa-check"></i>Google Business Profile management</li>
             <li><i class="fa-solid fa-check"></i>Sarasota County citation building</li>
@@ -313,17 +313,17 @@ include '../includes/header.php';
     </div>
     <div class="kw-grid" data-reveal style="transition-delay:.1s">
       <div class="kw-card"><div><div class="kw-term">home care agency Sarasota FL</div><div class="kw-intent">Commercial — ready to hire</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare near me Tampa</div><div class="kw-intent">Local + near-me, highest conversion</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">homecare near me Sarasota</div><div class="kw-intent">Local + near-me, highest conversion</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">senior home care Sarasota FL</div><div class="kw-intent">Family searching for elderly parent</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">in-home care for elderly Tampa</div><div class="kw-intent">Informational to decision stage</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">in-home care for elderly Sarasota</div><div class="kw-intent">Informational to decision stage</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">caregiver jobs Sarasota FL</div><div class="kw-intent">Recruitment — attract quality caregivers</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">home health aide Sarasota County</div><div class="kw-intent">County-level, broader reach</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">companion care services Tampa</div><div class="kw-intent">Service-specific, non-medical care</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">personal care assistance Tampa</div><div class="kw-intent">ADL support, Medicaid waiver keyword</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare Brandon / Riverview / Temple Terrace</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">24-hour home care Tampa</div><div class="kw-intent">High urgency — premium private-pay client</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">companion care services Sarasota</div><div class="kw-intent">Service-specific, non-medical care</div></div><span class="kw-badge kw-med">MED</span></div>
+      <div class="kw-card"><div><div class="kw-term">personal care assistance Sarasota</div><div class="kw-intent">ADL support, Medicaid waiver keyword</div></div><span class="kw-badge kw-med">MED</span></div>
+      <div class="kw-card"><div><div class="kw-term">homecare Venice / Longboat Key / Osprey</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">24-hour home care Sarasota</div><div class="kw-intent">High urgency — premium private-pay client</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">best home care agency Sarasota FL 2025</div><div class="kw-intent">AI search and voice search query</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">how to choose a home care agency Tampa</div><div class="kw-intent">Blog target — educational, trust builder</div></div><span class="kw-badge kw-med">MED</span></div>
+      <div class="kw-card"><div><div class="kw-term">how to choose a home care agency Sarasota</div><div class="kw-intent">Blog target — educational, trust builder</div></div><span class="kw-badge kw-med">MED</span></div>
     </div>
   </div>
 </section>
@@ -333,32 +333,21 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">Service Coverage</p>
-      <h2 class="section-h2">Tampa Neighborhoods We Help<br>Your Agency <em>Rank In</em></h2>
-      <p class="section-sub">We build dedicated landing pages and local SEO signals for every specific area you serve across Sarasota Bay — so you rank neighborhood by neighborhood.</p>
+      <h2 class="section-h2">Sarasota Neighborhoods We Help<br>Your Agency <em>Rank In</em></h2>
+      <p class="section-sub">We build dedicated landing pages and local SEO signals for every specific area you serve across Sarasota, so you rank neighborhood by neighborhood.</p>
     </div>
     <div class="areas-grid" data-reveal style="transition-delay:.1s">
-      <div class="area-pill"><div class="area-dot"></div>Brandon</div>
-      <div class="area-pill"><div class="area-dot"></div>Riverview</div>
-      <div class="area-pill"><div class="area-dot"></div>Temple Terrace</div>
-      <div class="area-pill"><div class="area-dot"></div>Carrollwood</div>
-      <div class="area-pill"><div class="area-dot"></div>Westchase</div>
-      <div class="area-pill"><div class="area-dot"></div>Valrico</div>
-      <div class="area-pill"><div class="area-dot"></div>Seffner</div>
-      <div class="area-pill"><div class="area-dot"></div>Lutz</div>
-      <div class="area-pill"><div class="area-dot"></div>Land O' Lakes</div>
-      <div class="area-pill"><div class="area-dot"></div>Plant City</div>
-      <div class="area-pill"><div class="area-dot"></div>South Tampa</div>
-      <div class="area-pill"><div class="area-dot"></div>Hyde Park</div>
-      <div class="area-pill"><div class="area-dot"></div>Ybor City</div>
-      <div class="area-pill"><div class="area-dot"></div>New Tampa</div>
-      <div class="area-pill"><div class="area-dot"></div>Seminole Heights</div>
-      <div class="area-pill"><div class="area-dot"></div>Gibsonton</div>
-      <div class="area-pill"><div class="area-dot"></div>Ruskin</div>
-      <div class="area-pill"><div class="area-dot"></div>Sun City Center</div>
-      <div class="area-pill"><div class="area-dot"></div>Wimauma</div>
-      <div class="area-pill"><div class="area-dot"></div>Fishhawk Ranch</div>
+      <div class="area-pill"><div class="area-dot"></div>Siesta Key</div>
+      <div class="area-pill"><div class="area-dot"></div>Lakewood Ranch</div>
+      <div class="area-pill"><div class="area-dot"></div>Venice</div>
+      <div class="area-pill"><div class="area-dot"></div>Longboat Key</div>
+      <div class="area-pill"><div class="area-dot"></div>Osprey</div>
+      <div class="area-pill"><div class="area-dot"></div>Nokomis</div>
+      <div class="area-pill"><div class="area-dot"></div>North Port</div>
+      <div class="area-pill"><div class="area-dot"></div>Palmer Ranch</div>
+      <div class="area-pill"><div class="area-dot"></div>Bradenton</div>
     </div>
-    <div class="areas-note" data-reveal style="transition-delay:.2s"><i class="fa-solid fa-lightbulb" style="margin-right:8px;color:var(--gold)"></i>SEO Tip: Each neighborhood above should have its own dedicated sub-page (e.g. /home-care-brandon-fl/) linking back to this page — building a topical cluster Google rewards with higher rankings.</div>
+    <div class="areas-note" data-reveal style="transition-delay:.2s"><i class="fa-solid fa-lightbulb" style="margin-right:8px;color:var(--gold)"></i>SEO Tip: Each neighborhood above should have its own dedicated sub-page (e.g. /home-care-siesta-key-fl/) linking back to this page. That's how you build the topical cluster Google rewards with higher rankings.</div>
   </div>
 </section>
 
@@ -368,15 +357,15 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label" style="color:var(--teal-lt)"><span style="background:var(--teal-lt);display:inline-block;width:24px;height:2px;border-radius:2px;margin-right:8px;vertical-align:middle"></span>Why Homecare Creators</p>
       <h2 class="section-h2" style="color:#fff">The Only Agency That Truly<br><em>Understands Sarasota Homecare</em></h2>
-      <p class="section-sub" style="color:rgba(255,255,255,.58)">Generalist agencies don't understand homecare, Florida's AHCA licensing, Medicaid waiver nuances, or the unique demographics driving Sarasota Bay's senior care demand. We do — because we're built exclusively for homecare.</p>
+      <p class="section-sub" style="color:rgba(255,255,255,.58)">Most marketing shops don't know the first thing about AHCA licensing or Medicaid waiver rules, and they've never had to think about who's actually moving to Sarasota and why. We built this agency around homecare only, so that knowledge is just part of how we work.</p>
     </div>
     <div class="why-grid" data-reveal style="transition-delay:.1s">
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-bullseye"></i></div><h4>100% Homecare-Only</h4><p>Every keyword, page, and strategy is purpose-built for homecare agencies. We don't serve restaurants or dentists — your competitors can't match this level of specialization.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-map-location-dot"></i></div><h4>Sarasota Market Knowledge</h4><p>We understand Sarasota County's demographics — the retirement migration from the Northeast, strong private-pay demand in Westchase and South Tampa, and the competitive Medicaid landscape.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-robot"></i></div><h4>AI Search Optimization</h4><p>We're the only homecare agency optimizing for ChatGPT, Google AI Overviews, and Perplexity answers. Sarasota families already ask AI "what's the best homecare agency near me?" — we make sure they get your name.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-dollar-sign"></i></div><h4>ROI You Can Measure</h4><p>One new private-pay client in Sarasota is worth $3,000–$8,000 per year. Our SEO retainer often pays for itself within 30 days of the first new client enquiry.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-handshake"></i></div><h4>No Long-Term Contracts</h4><p>We keep clients through results, not contracts. All plans are month-to-month after the first 90 days. We're confident enough in what we deliver to let you walk away anytime.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-layer-group"></i></div><h4>Website + SEO + AI in One</h4><p>No juggling three vendors. We design your site, manage your Google Business Profile, and build AI search authority — all in one retainer with one strategy call per month.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-bullseye"></i></div><h4>100% Homecare-Only</h4><p>We don't take on restaurants, dentists, or plumbers. Every keyword, page, and strategy we build is aimed squarely at homecare agencies, and that focus is hard for a generalist shop to fake.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-map-location-dot"></i></div><h4>Sarasota Market Knowledge</h4><p>We've paid attention to Sarasota County's demographics for a while now. The retirement migration from the Northeast, the strong private-pay demand around Siesta Key and Lakewood Ranch, the crowded Medicaid landscape. It shapes how we build your strategy.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-robot"></i></div><h4>AI Search Optimization</h4><p>Sarasota families are already asking ChatGPT and Google's AI Overviews which homecare agency to call. Nobody else in this space is optimizing for those answers the way we are, and that means your name shows up instead of a competitor's.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-dollar-sign"></i></div><h4>ROI You Can Measure</h4><p>A single new private-pay client in Sarasota is worth $3,000–$8,000 a year. Land just one from the first month, and the retainer's basically paid for itself.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-handshake"></i></div><h4>No Long-Term Contracts</h4><p>After the first 90 days, everything runs month-to-month. We'd rather earn your business every month with results than lock you into a contract you can't get out of.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-layer-group"></i></div><h4>Website + SEO + AI in One</h4><p>You won't need three separate vendors for this. We handle your site, your Google Business Profile, and your AI search presence under one retainer, with a single strategy call each month to keep it all moving.</p></div>
     </div>
   </div>
 </section>
@@ -386,44 +375,44 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Home Care in Sarasota —<br><em>Questions Families Ask</em></h2>
-      <p class="section-sub">These FAQs target real search queries Sarasota families type into Google — adding this content to your website helps you rank in the "People Also Ask" boxes.</p>
+      <h2 class="section-h2">Home Care in Sarasota:<br><em>Questions Families Ask</em></h2>
+      <p class="section-sub">These are questions Sarasota families genuinely type into Google. Put answers like these on your own site and you've got a real shot at showing up in the "People Also Ask" boxes.</p>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I find a trusted home care agency in Sarasota, FL?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Finding a trusted homecare agency in Sarasota starts with checking Google reviews, verifying state licensure through the Florida Agency for Health Care Administration (AHCA), and confirming that caregivers undergo thorough background checks. Look for agencies specializing in the level of care your loved one needs — companion care, personal care assistance, or skilled nursing. A reputable Sarasota homecare agency will offer a free in-home consultation and a written plan of care before services begin.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Start by checking Google reviews and verifying the agency's license through the Florida Agency for Health Care Administration (AHCA). Ask how thoroughly they background-check caregivers, too. It also helps to find an agency that specializes in the level of care your loved one actually needs, whether that's companion care, personal care assistance, or skilled nursing. A reputable Sarasota agency will offer a free in-home consultation and hand you a written plan of care before anything starts.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What does home care cost in Sarasota, Florida?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">The average cost of in-home care in Sarasota, FL ranges from $20–$30 per hour for non-medical companion and personal care services. Many Sarasota families use private pay, long-term care insurance, or Florida's Statewide Medicaid Managed Care Long-Term Care (SMMC LTC) program to help cover costs. A local licensed homecare agency can walk you through which options your loved one qualifies for during a free initial consultation.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">In-home care in Sarasota typically runs $20–$30 per hour for non-medical companion and personal care services. Some families pay privately, others lean on long-term care insurance, and many turn to Florida's Statewide Medicaid Managed Care Long-Term Care (SMMC LTC) program to help offset the cost. A licensed local agency can usually tell you what your loved one qualifies for in a single consultation.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Does Sarasota County have Medicaid home care programs?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Florida's SMMC LTC program covers in-home personal care services for eligible seniors in Sarasota County. To qualify, seniors must generally be 65 or older, meet functional and financial eligibility requirements, and enroll through an approved managed care plan. Homecare agencies licensed with AHCA in the Sarasota area can help families understand the enrollment process and connect them with the appropriate managed care organization.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, it does. Florida's SMMC LTC program covers in-home personal care for eligible seniors throughout Sarasota County. Generally you need to be 65 or older and meet both functional and financial eligibility rules, then enroll through an approved managed care plan. AHCA-licensed homecare agencies in the area can walk you through the enrollment process and point you to the right managed care organization.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What areas of Sarasota does your homecare service cover?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">We work with homecare agencies serving all of Sarasota County and the broader Sarasota Bay area, including Brandon, Riverview, Temple Terrace, Carrollwood, Westchase, South Tampa, New Tampa, Plant City, Lutz, Land O' Lakes, Sun City Center, Ruskin, and all surrounding communities. If you serve a specific neighborhood, we build dedicated local pages to help you rank there.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">We work with agencies covering all of Sarasota County, including Siesta Key, Lakewood Ranch, Venice, Longboat Key, Osprey, Nokomis, North Port, Palmer Ranch, Bradenton, and the communities around them. Got a specific neighborhood you want to dominate? We'll build a dedicated page just for that.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to rank #1 on Google for homecare in Sarasota?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">For Sarasota homecare agencies starting from zero, most of our clients see meaningful Google Maps improvements within 60–90 days and strong organic rankings within 4–6 months. Sarasota is a competitive market, but our homecare-specific approach consistently delivers top-3 Google Maps positions within 5 months — faster than generalist agencies because every strategy is purpose-built for the homecare niche.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">If you're starting from zero, expect to see real movement on Google Maps within 60–90 days, with organic rankings picking up meaningfully by month 4–6. Sarasota isn't an easy market to crack, but our clients typically land in the top 3 on Google Maps by 5 months. That's quicker than what a generalist agency can pull off, simply because we're not splitting our attention across a dozen industries.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do Sarasota homecare agencies need a Florida state license?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. In Florida, agencies providing companion care and personal care services must be licensed by the Florida Agency for Health Care Administration (AHCA). The specific license type — Home Health Agency, Nurse Registry, or Companion/Homemaker — depends on the services you offer. Proper AHCA licensure is required before marketing your homecare services in Sarasota or anywhere in Florida.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, they do. Any Florida agency offering companion care or personal care services needs to be licensed through AHCA. Which license you need, Home Health Agency, Nurse Registry, or Companion/Homemaker, comes down to what services you're actually providing. Get that licensure sorted before you start marketing anywhere in Sarasota or the rest of Florida.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can families in Sarasota find homecare agencies through ChatGPT or Google AI?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes — and this trend is growing fast. More Sarasota families are using AI tools like ChatGPT, Google AI Overviews, and Perplexity to find and vet local homecare agencies. Homecare Creators is the only marketing agency that specifically optimizes homecare websites to be cited and recommended by these AI systems — giving your Sarasota agency a significant advantage over competitors who only focus on traditional Google rankings.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely, and it's happening more every month. Sarasota families are turning to ChatGPT, Google AI Overviews, and Perplexity to find and vet local homecare agencies before they ever pick up the phone. Homecare Creators is the only marketing agency built specifically to get homecare websites cited and recommended by those AI systems, which puts your agency ahead of competitors still chasing traditional Google rankings alone.</div></div>
       </div>
 
     </div>
@@ -453,8 +442,8 @@ include '../includes/header.php';
     <div class="cta-inner">
       <div class="cta-content" data-reveal>
         <p class="section-label">Get Started Today</p>
-        <h2 class="section-h2">Ready to Dominate Tampa<br>Homecare <em>Search Results?</em></h2>
-        <p class="cta-desc">Book a free 30-minute audit. We'll analyze your current Sarasota digital presence, show you exactly what your competitors are doing, and deliver a 90-day roadmap to rank #1 — at no cost and no obligation.</p>
+        <h2 class="section-h2">Ready to Dominate Sarasota<br>Homecare <em>Search Results?</em></h2>
+        <p class="cta-desc">Book a free 30-minute audit and we'll dig into your current Sarasota digital presence, show you what your competitors are actually doing, and hand you a 90-day roadmap to rank #1. No cost, no obligation.</p>
         <div class="cta-actions">
           <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-calendar-check"></i>Get My Free Sarasota SEO Audit</button>
         </div>

@@ -1,9 +1,9 @@
 ﻿<?php
 $page_title = "Homecare Website Design in Jacksonville, FL | Homecare Creators";
-$page_desc = "Professional homecare website design for Jacksonville, FL agencies. We build fast, SEO-optimized websites that rank on Google, convert families, and recruit caregivers across Duval County.";
+$page_desc = "Homecare website design for Jacksonville, FL agencies. We build fast sites that rank on Google, win family trust, and fill caregiver openings.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design-jacksonville-fl/";
 $og_title = "Homecare Website Design Jacksonville FL | Homecare Creators";
-$og_desc = "Jacksonville homecare website design built exclusively for home care agencies. Rank #1 on Google, convert families into clients, recruit caregivers — starting from $699.";
+$og_desc = "Jacksonville, FL homecare website design from a team that works only with home care agencies. Rank on Google and recruit caregivers, from $699.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
@@ -183,9 +183,9 @@ include '../includes/header.php';
   <div class="hero-blob2"></div>
   <div class="hero-content">
     <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/homecare-website-design/">Website Design</a> / <span>Jacksonville, FL</span></div>
-    <div class="hero-badge"><div class="hero-badge-pulse"></div>Homecare Website Design — Jacksonville, FL</div>
+    <div class="hero-badge"><div class="hero-badge-pulse"></div>Homecare Website Design for Jacksonville, FL</div>
     <h1 class="hero-h1">Homecare Website Design<br>in <em>Jacksonville, Florida</em></h1>
-    <p class="hero-desc">We build fast, mobile-first homecare websites for Jacksonville agencies that rank #1 on Google, convert families across Duval County into clients, and recruit caregivers 24/7 — starting from $699.</p>
+    <p class="hero-desc">We build homecare websites for Jacksonville agencies, and only homecare websites. Mobile-first sites that rank on Google, earn trust with Duval County families, and keep caregiver applications coming in. Packages start at $699.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Jacksonville Website Quote</button>
       <a href="/homecare-website-design/" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i>View All Packages</a>
@@ -244,30 +244,30 @@ include '../includes/header.php';
       <div class="body-text" data-reveal>
         <p class="section-label">The Jacksonville Market</p>
         <h2 class="section-h2">Why Jacksonville Homecare Agencies<br><em>Need a Specialist Website</em></h2>
-        <p>Jacksonville is Florida's largest city by area and one of the fastest-growing metros in the Southeast. With nearly 1 million residents in Duval County and a growing senior population driven by retirement migration from northern states, demand for quality homecare in Jacksonville has never been higher.</p>
-        <p>Jacksonville is also one of Florida's least digitally saturated homecare markets — meaning agencies that invest in a specialist website now have a genuine first-mover advantage over competitors still running outdated or generic sites.</p>
-        <p>We build every page with Jacksonville's unique market in mind — Duval County neighborhood pages, Jacksonville-specific keyword targeting, and content that converts families in Mandarin, Southside, Ponte Vedra Beach, and St. Johns County.</p>
+        <p>Jacksonville is Florida's largest city by area, and it's growing fast. Duval County is closing in on 1 million residents, and a good chunk of that growth is retirees moving down from the Northeast and Midwest. More seniors settling in means more families searching for homecare, often on short notice.</p>
+        <p>Here's what we've noticed working with agencies in this market: Jacksonville homecare sites, as a group, are behind. A lot of them are still running templated designs from five or six years ago. That's not a knock on the agencies, it's just an opening. Show up with a site built specifically for this market and you're not fighting a crowded field the way you would in Miami or Orlando.</p>
+        <p>So that's how we build every page. Duval County neighborhood pages, Jacksonville keyword targeting, and copy written for the families actually searching in Mandarin, Southside, Ponte Vedra Beach, and St. Johns County, not generic homecare boilerplate swapped in with a city name.</p>
         <div class="why-points" style="margin-top:24px">
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-language"></i></div>
-            <div><div class="why-point-title">Duval County Neighborhood Pages</div><div class="why-point-desc">Dedicated SEO pages for Mandarin, Arlington, Southside, Riverside, Jacksonville Beach, Ponte Vedra, and every area you serve — ranking your agency neighborhood by neighborhood.</div></div>
+            <div><div class="why-point-title">Duval County Neighborhood Pages</div><div class="why-point-desc">We build a dedicated SEO page for Mandarin, Arlington, Southside, Riverside, Jacksonville Beach, Ponte Vedra, and anywhere else you serve, so you rank neighborhood by neighborhood instead of getting buried under the citywide search.</div></div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-            <div><div class="why-point-title">Jacksonville Family Trust Signals</div><div class="why-point-desc">AHCA license display, caregiver screening content, Google Reviews widget, and team photos — the exact signals Jacksonville families need before choosing a homecare agency.</div></div>
+            <div><div class="why-point-title">Jacksonville Family Trust Signals</div><div class="why-point-desc">AHCA license display, caregiver screening content, a live Google Reviews widget, real team photos. These are the things a Jacksonville family checks before they'll pick up the phone and call an agency.</div></div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <div><div class="why-point-title">Caregiver Recruitment for Jacksonville</div><div class="why-point-desc">A fully optimized careers page ranking for 'caregiver jobs Jacksonville FL' — turning your website into a recruitment engine that works 24/7 across Duval County.</div></div>
+            <div><div class="why-point-title">Caregiver Recruitment for Jacksonville</div><div class="why-point-desc">A careers page built to rank for "caregiver jobs Jacksonville FL," so it's pulling in applicants around the clock instead of sitting quiet on your site.</div></div>
           </div>
         </div>
       </div>
       <div data-reveal style="transition-delay:.15s">
         <div class="market-facts">
-          <div class="fact-card"><div class="fact-num">970K+</div><h4>Duval County Population</h4><p>Florida's largest city with a rapidly growing senior community from Northeast migration</p></div>
-          <div class="fact-card"><div class="fact-num">18%</div><h4>Residents 65+</h4><p>A growing senior demographic with strong private-pay demand in Ponte Vedra and St. Johns</p></div>
-          <div class="fact-card"><div class="fact-num">$5,700</div><h4>Avg Client Value/Year</h4><p>One new private-pay Jacksonville client is worth $3,000–$8,000 per year to your agency</p></div>
-          <div class="fact-card"><div class="fact-num">Low</div><h4>Digital Competition</h4><p>Jacksonville is underserved digitally — the first agency to rank here dominates the market</p></div>
+          <div class="fact-card"><div class="fact-num">970K+</div><h4>Duval County Population</h4><p>Florida's largest city by area, and still filling in with retirees moving down from up north</p></div>
+          <div class="fact-card"><div class="fact-num">18%</div><h4>Residents 65+</h4><p>That share keeps climbing, especially in Ponte Vedra and St. Johns where private-pay demand runs strong</p></div>
+          <div class="fact-card"><div class="fact-num">$5,700</div><h4>Avg Client Value/Year</h4><p>A single private-pay client here can be worth $3,000 to $8,000 a year to your agency</p></div>
+          <div class="fact-card"><div class="fact-num">Low</div><h4>Digital Competition</h4><p>Most Jacksonville agencies are still under-invested online, which is exactly why this is a good time to fix that</p></div>
         </div>
       </div>
     </div>
@@ -280,13 +280,13 @@ include '../includes/header.php';
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">How It Works</p>
       <h2 class="section-h2" style="text-align:center">Jacksonville to <em>Live in 14 Days</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">A clear 4-step process — you provide basic agency info, we do everything else.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Four steps. You hand us the basics about your agency, we handle the rest.</p>
     </div>
     <div class="how-grid" data-reveal style="transition-delay:.1s">
-      <div class="how-step"><div class="how-num">1<div class="how-icon"><i class="fa-solid fa-comments"></i></div></div><div class="how-title">Discovery Call</div><div class="how-desc">30-minute call to learn your Jacksonville agency, the neighborhoods you serve, and your goals. This shapes every design decision.</div></div>
-      <div class="how-step"><div class="how-num">2<div class="how-icon"><i class="fa-solid fa-pen-ruler"></i></div></div><div class="how-title">Design &amp; Copy</div><div class="how-desc">We write all Jacksonville-specific content and design your full site. No writing required from you — just review and approve.</div></div>
-      <div class="how-step"><div class="how-num">3<div class="how-icon"><i class="fa-solid fa-eye"></i></div></div><div class="how-title">Review &amp; Refine</div><div class="how-desc">You review the complete site and request changes. Most Jacksonville clients need only one revision round before it's perfect.</div></div>
-      <div class="how-step"><div class="how-num">4<div class="how-icon"><i class="fa-solid fa-rocket"></i></div></div><div class="how-title">Launch &amp; Rank</div><div class="how-desc">We launch, submit to Google, and configure Analytics + Search Console. Your Jacksonville SEO starts the moment we hit publish.</div></div>
+      <div class="how-step"><div class="how-num">1<div class="how-icon"><i class="fa-solid fa-comments"></i></div></div><div class="how-title">Discovery Call</div><div class="how-desc">A 30-minute call where we ask about your Jacksonville agency, which neighborhoods you cover, and what you actually want the site to do. Everything else gets built around your answers.</div></div>
+      <div class="how-step"><div class="how-num">2<div class="how-icon"><i class="fa-solid fa-pen-ruler"></i></div></div><div class="how-title">Design &amp; Copy</div><div class="how-desc">We write the Jacksonville-specific content and design the full site ourselves. You don't need to write a word. Just look it over when it's ready.</div></div>
+      <div class="how-step"><div class="how-num">3<div class="how-icon"><i class="fa-solid fa-eye"></i></div></div><div class="how-title">Review &amp; Refine</div><div class="how-desc">You go through the finished site and flag whatever you want changed. Most Jacksonville clients only need one round of revisions.</div></div>
+      <div class="how-step"><div class="how-num">4<div class="how-icon"><i class="fa-solid fa-rocket"></i></div></div><div class="how-title">Launch &amp; Rank</div><div class="how-desc">We publish, submit the site to Google, and wire up Analytics and Search Console. Your Jacksonville SEO clock starts the day we hit publish.</div></div>
     </div>
   </div>
 </section>
@@ -297,7 +297,7 @@ include '../includes/header.php';
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">Packages &amp; Pricing</p>
       <h2 class="section-h2" style="text-align:center">Jacksonville Website Design <em>Packages</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">All packages include custom Jacksonville-specific design, SEO setup, and mobile optimization. No hidden fees.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Every tier gets custom Jacksonville design, SEO setup, and mobile optimization built in. What you see below is what you pay.</p>
     </div>
     <div class="pkg-grid" data-reveal style="transition-delay:.1s">
       <div class="pkg-card">
@@ -362,24 +362,24 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Everything Included</p>
       <h2 class="section-h2">Built for Jacksonville.<br><em>Nothing Left Out.</em></h2>
-      <p class="section-sub">Every Jacksonville homecare website we build includes these non-negotiables — optimized specifically for Duval County families and search patterns.</p>
+      <p class="section-sub">These aren't add-ons. Every Jacksonville homecare site we build ships with all of this, tuned to how Duval County families actually search.</p>
     </div>
     <div class="inc-grid" data-reveal style="transition-delay:.1s">
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100% Mobile-First</h3><p>Over 70% of Jacksonville families search for homecare on their phone. Every pixel is designed for mobile first, then scaled up for desktop.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Jacksonville SEO Built In</h3><p>Jacksonville-specific keyword targeting, meta titles, descriptions, and content structure — your site ranks for "home care agency Jacksonville" searches from day one.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-bolt"></i></div><h3>Sub-2 Second Load Speed</h3><p>Optimized images, clean code, and fast hosting. Google rewards fast sites and Jacksonville families don't wait for slow ones.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Google Reviews Widget</h3><p>Your real Jacksonville Google reviews displayed live on your homepage — the #1 trust signal for families choosing between agencies.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Jacksonville Neighborhood Pages</h3><p>Dedicated SEO pages for each Jacksonville community you serve — ranked individually so you capture neighborhood-level searches across Duval County.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-users"></i></div><h3>Caregiver Recruitment Page</h3><p>A fully optimized careers page that ranks for "caregiver jobs Jacksonville FL" — turning your site into a 24/7 recruitment engine.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-code"></i></div><h3>Schema Markup</h3><p>LocalBusiness and FAQPage schema markup telling Google exactly who you are, where you operate in Jacksonville, and what services you offer.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Analytics &amp; Search Console</h3><p>Google Analytics 4 and Search Console connected before launch — track every Jacksonville visit, call, and inquiry from day one.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>SSL &amp; Hosting</h3><p>Secure HTTPS, 99.9% uptime hosting, and daily backups — included in your $79/mo plan so your Jacksonville site is always online.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100% Mobile-First</h3><p>Over 70% of Jacksonville families search for homecare from a phone, not a laptop. We design for that screen first, since Google's mobile-first indexing judges your site the same way.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Jacksonville SEO Built In</h3><p>Keyword targeting, meta titles, descriptions, and content structure all built around Jacksonville from the start, so your site is already positioned for "home care agency Jacksonville" searches at launch.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-bolt"></i></div><h3>Sub-2 Second Load Speed</h3><p>Compressed images, clean code, fast hosting. Page speed is a Core Web Vitals factor Google uses directly in ranking, and it's one of the first things Jacksonville families notice too.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Google Reviews Widget</h3><p>We pull your real Jacksonville reviews onto the homepage, live. In our experience it's the single fastest way to earn a family's trust before they've even picked up the phone.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Jacksonville Neighborhood Pages</h3><p>Each Jacksonville community you serve gets its own page, ranked on its own, instead of one citywide page trying to cover all of Duval County at once.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-users"></i></div><h3>Caregiver Recruitment Page</h3><p>A careers page built to rank for "caregiver jobs Jacksonville FL," bringing in applicants while you sleep.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-code"></i></div><h3>Schema Markup</h3><p>We add LocalBusiness and FAQPage schema markup so Google can read, in structured data, exactly who you are, where in Jacksonville you operate, and what you offer.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Analytics &amp; Search Console</h3><p>Google Analytics 4 and Search Console get connected before launch, not after, so you can see every Jacksonville visit, call, and inquiry from the first day live.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>SSL &amp; Hosting</h3><p>HTTPS, 99.9% uptime hosting, and daily backups. It's all part of the $79/mo plan, so your Jacksonville site just stays up.</p></div>
     </div>
 
     <!-- INTERNAL LINK: Local SEO -->
     <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <div><i class="fa-solid fa-magnifying-glass-chart" style="font-size:28px;color:var(--teal)"></i></div>
-      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website needs visibility. Our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service ranks your new Jacksonville website at #1 on Google Maps — driving more leads from day one.</div></div>
+      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website still needs to be found. Our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service is built to push your new Jacksonville site toward the #1 spot on Google Maps, so the leads start earlier.</div></div>
       <a href="/seo/local-seo-for-home-care-agencies" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Packages</a>
     </div>
   </div>
@@ -391,7 +391,7 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Jacksonville Keyword Strategy</p>
       <h2 class="section-h2">Jacksonville Keywords We <em>Rank Your Site For</em></h2>
-      <p class="section-sub">Every Jacksonville homecare website we build is optimized for the exact search terms Duval County families type into Google when looking for care.</p>
+      <p class="section-sub">These are the actual phrases Duval County families type into Google when they're looking for care, and we build every Jacksonville site to target them directly.</p>
     </div>
     <div class="kw-grid" data-reveal style="transition-delay:.1s">
       <div class="kw-card"><div><div class="kw-term">homecare website design Jacksonville FL</div><div class="kw-intent">Agency owners searching for your service</div></div><span class="kw-badge kw-high">HIGH</span></div>
@@ -413,7 +413,7 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Jacksonville Service Coverage</p>
       <h2 class="section-h2">We Build Pages for Every<br><em>Jacksonville Neighborhood You Serve</em></h2>
-      <p class="section-sub">Your website gets a dedicated, SEO-optimized page for every Jacksonville community — so you rank in each one, not just the city overall.</p>
+      <p class="section-sub">Every Jacksonville community you cover gets its own dedicated, SEO-built page. That way you rank neighborhood by neighborhood, not just for the city as a whole.</p>
     </div>
     <div class="areas-grid" data-reveal style="transition-delay:.1s">
       <div class="area-pill"><div class="area-dot"></div>Mandarin</div>
@@ -461,28 +461,28 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Jacksonville Homecare Website Design —<br><em>Your Questions Answered</em></h2>
+      <h2 class="section-h2">Jacksonville Homecare Website Design:<br><em>Your Questions Answered</em></h2>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Why do I need a specialist website for my Jacksonville homecare agency?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Jacksonville is growing fast and homecare competition is increasing. Generic websites don't rank for Duval County-specific homecare keywords or convert the families who visit them. Jacksonville is also one of Florida's least digitally saturated homecare markets — the first agencies to rank here with specialist sites will own the market for years.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Jacksonville is growing fast, and homecare competition is catching up with it. A generic site built by a general web designer usually doesn't target Duval County keywords at all, and it rarely converts the families who land on it. We've also found Jacksonville is one of Florida's less digitally saturated homecare markets right now. Agencies that build a specialist site early tend to hold that ranking position for years, simply because fewer competitors are fighting for it.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Will my Jacksonville homecare website rank on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes — every Jacksonville page includes proper SEO for Duval County homecare keywords, schema markup, fast load speed, and mobile optimization. Jacksonville's lower digital competition means you can often reach top Google Maps positions faster here than in Miami or Tampa — making it an especially valuable investment right now.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">It should, yes. Every Jacksonville page we build gets proper SEO for Duval County homecare keywords, schema markup, fast load speed, and mobile optimization from the start. Because competition here is lighter than in Miami or Tampa, we've generally seen Jacksonville agencies reach top Google Maps positions quicker than agencies in those bigger metros, which makes the timing especially good right now.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you build websites for agencies serving both Jacksonville and surrounding areas like St. Johns County?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Absolutely. Many Jacksonville agencies also serve St. Johns, Clay, Nassau, and Baker counties. We build service area pages for every city and county you cover — each individually optimized so you rank across all of Northeast Florida.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">We do. A lot of the Jacksonville agencies we work with also cover St. Johns, Clay, Nassau, and Baker counties, and we build a separate service area page for each one you serve. Every page gets its own optimization, so you're ranking across Northeast Florida instead of just the Jacksonville city limits.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to build my Jacksonville homecare website?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">The Starter package goes live in 10–14 days. Growth takes 14 days. Dominate takes up to 21 days. We write all your content — you just provide basic agency details and approve the design. Every day without a proper website is a day you're losing Jacksonville leads to competitors, so we move as fast as possible without cutting corners.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Starter goes live in 10 to 14 days. Growth takes 14. Dominate runs up to 21 days since there's more built into it. We handle the writing, so all you're doing is sending over your agency details and approving the design when it's ready. We move quickly because every day without a proper site is a day of Jacksonville leads going somewhere else, but we won't cut a corner just to hit a date.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I add Local SEO to my Jacksonville website package?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes — and Jacksonville's lower competition makes Local SEO even more cost-effective here than in Miami or Tampa. Our Jacksonville Local SEO retainer starts at $400/mo. Most clients combine website design with Local SEO from day one for the fastest path to #1 on Google Maps in Jacksonville.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">You can. Lower competition in Jacksonville tends to make Local SEO go further here than it would in Miami or Tampa. Our Jacksonville Local SEO retainer starts at $400/mo, and most of our clients add it on from day one since pairing it with the website build is the fastest route to #1 on Google Maps in Jacksonville.</div></div>
       </div>
     </div>
   </div>
@@ -495,7 +495,7 @@ include '../includes/header.php';
       <div data-reveal>
         <p class="section-label" style="color:var(--teal-lt)"><span style="background:var(--teal-lt);display:inline-block;width:24px;height:2px;border-radius:2px;margin-right:8px;vertical-align:middle"></span>Get Started Today</p>
         <h2 class="cta-h2">Ready for a Jacksonville Website That<br><em>Actually Gets You Clients?</em></h2>
-        <p class="cta-desc">Book a free 30-minute call. We'll audit your current Jacksonville digital presence and give you a clear, honest plan — no obligation, no pressure.</p>
+        <p class="cta-desc">Book a free 30-minute call. We'll look at your current Jacksonville digital presence and walk you through a clear plan. No obligation, no pressure, no sales script.</p>
         <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get My Jacksonville Website Quote</button>
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free quote &nbsp;·&nbsp; Live in 14 days &nbsp;·&nbsp; No hidden fees</div>
       </div>
@@ -506,7 +506,7 @@ include '../includes/header.php';
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Current website audit</div></div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Jacksonville competitor analysis</div></div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Custom package recommendation</div></div>
-          <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Fixed price — no surprises</div></div>
+          <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Fixed price, no surprises</div></div>
         </div>
       </div>
     </div>

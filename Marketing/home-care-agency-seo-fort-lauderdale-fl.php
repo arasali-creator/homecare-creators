@@ -1,9 +1,9 @@
 ﻿<?php
-$page_title = "Home Care Agency SEO in Fort Lauderdale, FL | Homecare Creators";
-$page_desc = "Expert SEO services for home care agencies in Fort Lauderdale, FL. We help Fort Lauderdale homecare agencies rank #1 on Google, build high-converting websites, and grow private-pay clients across Broward County, FL.";
+$page_title = "Fort Lauderdale Home Care Agency SEO & Web Design | Homecare Creators";
+$page_desc = "We build websites and run SEO for home care agencies in Fort Lauderdale, FL, helping you rank on Google Maps and land private-pay clients across Broward County.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-fort-lauderdale-fl/";
-$og_title = "Home Care Agency SEO in Fort Lauderdale, FL | Homecare Creators";
-$og_desc = "Fort Lauderdale homecare agencies — get found on Google, dominate local search, and grow faster with the only agency built 100% for homecare.";
+$og_title = "Fort Lauderdale Home Care Agency SEO & Web Design | Homecare Creators";
+$og_desc = "Running a home care agency in Fort Lauderdale? We get you found on Google, ranked above competitors, and booked with private-pay families in Broward County.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
@@ -148,7 +148,7 @@ include '../includes/header.php';
     <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/florida/">Florida</a> / <span>Fort Lauderdale</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Broward County, Florida</div>
     <h1 class="hero-h1">Home Care Agency<br>SEO in <em>Fort Lauderdale, FL</em></h1>
-    <p class="hero-desc">We help Fort Lauderdale homecare agencies rank #1 on Google, build high-converting websites, and grow private-pay clients across Broward County — so families find you first, every time.</p>
+    <p class="hero-desc">We help Fort Lauderdale home care agencies climb to the top of Google, build websites that actually convert, and bring in more private-pay families across Broward County. When someone searches for care here, we want your name to come up first.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Free Fort Lauderdale SEO Audit</button>
       <a href="https://homecarecreators.com/#services" class="btn-secondary"><i class="fa-solid fa-play"></i>View Our Services</a>
@@ -219,15 +219,15 @@ include '../includes/header.php';
       <div class="market-body" data-reveal>
         <p class="section-label">The Fort Lauderdale Market</p>
         <h2 class="section-h2">Why Fort Lauderdale Is One of Florida's <em>Fastest-Growing</em> Homecare Markets</h2>
-        <p>Tampa and Broward County are experiencing rapid population growth, with a booming senior community driven by retirement migration from the Northeast and Midwest. With over 1.5 million residents in the greater Fort Lauderdale Bay area and one of the highest concentrations of adults aged 65+ in Florida, demand for quality in-home care in Fort Lauderdale has never been stronger.</p>
-        <p>Families in Brandon, Riverview, Temple Terrace, and across Broward County are searching Google every single day for trusted homecare agencies. Without a strong local digital presence, your agency is invisible to every one of those searches — and your competitors are taking those clients instead.</p>
-        <p>Homecare Creators is the only marketing agency built exclusively for homecare businesses. We know the Fort Lauderdale market, the exact search terms families use, and how to get your agency to the top of Google Maps and organic results faster than any generalist agency can.</p>
+        <p>Fort Lauderdale and Broward County keep growing, and a lot of that growth is retirees moving down from the Northeast and Midwest. The greater Fort Lauderdale area now tops 1.5 million residents, with one of the highest concentrations of adults 65 and older anywhere in Florida. Demand for quality in-home care here just keeps climbing.</p>
+        <p>Families in Wilton Manors, Oakland Park, Plantation, and all over Broward County are on Google right now searching for a trusted homecare agency. If your digital presence isn't strong, you don't show up. Simple as that, and while you're invisible, a competitor is picking up that client instead.</p>
+        <p>Homecare Creators only works with homecare businesses, nothing else. We know this Fort Lauderdale market, we know what search terms families actually type in, and we know how to get you to the top of Google Maps faster than a generalist agency ever could.</p>
       </div>
       <div class="market-facts" data-reveal style="transition-delay:.15s">
-        <div class="fact-card"><div class="fact-num">1.5M+</div><h4>Fort Lauderdale area Population</h4><p>One of Florida's largest metros with rapid year-over-year senior population growth</p></div>
-        <div class="fact-card"><div class="fact-num">20%</div><h4>Residents Aged 65+</h4><p>1 in 5 Broward County residents are seniors — your core target audience</p></div>
-        <div class="fact-card"><div class="fact-num">$5,900</div><h4>Avg Private-Pay Value</h4><p>One new private-pay client in Fort Lauderdale is worth $3,000–$8,000 per year to your agency</p></div>
-        <div class="fact-card"><div class="fact-num">High</div><h4>Market Competition</h4><p>Tampa is a top-5 homecare market in Florida — ranking here requires a true specialist</p></div>
+        <div class="fact-card"><div class="fact-num">1.5M+</div><h4>Fort Lauderdale area Population</h4><p>One of Florida's biggest metros, and its senior population keeps climbing every year</p></div>
+        <div class="fact-card"><div class="fact-num">20%</div><h4>Residents Aged 65+</h4><p>1 in 5 Broward County residents are seniors. That's your core audience right there.</p></div>
+        <div class="fact-card"><div class="fact-num">$5,900</div><h4>Avg Private-Pay Value</h4><p>Land one new private-pay client here and you're looking at $3,000–$8,000 in annual value</p></div>
+        <div class="fact-card"><div class="fact-num">High</div><h4>Market Competition</h4><p>Fort Lauderdale is a tough homecare market in Florida, which is exactly why ranking here takes a specialist</p></div>
       </div>
     </div>
   </div>
@@ -239,7 +239,7 @@ include '../includes/header.php';
     <div class="services-intro" data-reveal>
       <p class="section-label">Our Services in Fort Lauderdale</p>
       <h2 class="section-h2">Everything Your Fort Lauderdale Agency Needs<br>to <em>Dominate Local Search</em></h2>
-      <p class="section-sub">Done-for-you website design, local SEO, and AI search optimization exclusively for homecare agencies serving Fort Lauderdale and Broward County.</p>
+      <p class="section-sub">Website design, local SEO, and AI search optimization, done for you and built exclusively for homecare agencies serving Fort Lauderdale and Broward County.</p>
     </div>
     <div class="services-grid">
       <div class="svc-card" data-reveal style="transition-delay:.05s">
@@ -250,10 +250,10 @@ include '../includes/header.php';
         </div>
         <div class="svc-card-body">
           <div class="svc-card-title">Fort Lauderdale Homecare Website Design</div>
-          <div class="svc-card-desc">A fast, mobile-first website built to convert Fort Lauderdale families into inquiries and recruit caregivers across Broward County. Every page is a local SEO asset.</div>
+          <div class="svc-card-desc">A fast, mobile-first website that turns Fort Lauderdale families into inquiries and helps you recruit caregivers across Broward County too. Every single page doubles as a local SEO asset.</div>
           <ul class="svc-card-features">
             <li><i class="fa-solid fa-check"></i>Custom design with your branding</li>
-            <li><i class="fa-solid fa-check"></i>Tampa-specific homepage copy and CTAs</li>
+            <li><i class="fa-solid fa-check"></i>Fort Lauderdale-specific homepage copy and CTAs</li>
             <li><i class="fa-solid fa-check"></i>Service area pages for Fort Lauderdale neighborhoods</li>
             <li><i class="fa-solid fa-check"></i>Caregiver careers and jobs page</li>
             <li><i class="fa-solid fa-check"></i>Google Reviews widget built in</li>
@@ -269,7 +269,7 @@ include '../includes/header.php';
         </div>
         <div class="svc-card-body">
           <div class="svc-card-title">Fort Lauderdale Local SEO Domination</div>
-          <div class="svc-card-desc">Rank #1 on Google Maps and organic search when families across Fort Lauderdale Bay search for home care. We manage every signal Google uses to rank local businesses.</div>
+          <div class="svc-card-desc">When families across Fort Lauderdale search for home care, we want you sitting at #1 on Google Maps and in organic results. We handle every signal Google factors into local rankings.</div>
           <ul class="svc-card-features">
             <li><i class="fa-solid fa-check"></i>Google Business Profile management</li>
             <li><i class="fa-solid fa-check"></i>Broward County citation building</li>
@@ -288,7 +288,7 @@ include '../includes/header.php';
         </div>
         <div class="svc-card-body">
           <div class="svc-card-title">AI Search SEO for Fort Lauderdale Agencies</div>
-          <div class="svc-card-desc">Fort Lauderdale families are searching for homecare on ChatGPT, Google AI Overviews, and Perplexity. We make sure your agency is the one AI recommends.</div>
+          <div class="svc-card-desc">Fort Lauderdale families are already asking ChatGPT, Google AI Overviews, and Perplexity for homecare recommendations. We make sure it's your agency's name that comes back.</div>
           <ul class="svc-card-features">
             <li><i class="fa-solid fa-check"></i>Google AI Overviews optimization</li>
             <li><i class="fa-solid fa-check"></i>50+ FAQ schemas for Fort Lauderdale search intent</li>
@@ -309,21 +309,21 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Keyword Strategy</p>
       <h2 class="section-h2">The Exact Keywords We Target for<br><em>Fort Lauderdale Homecare Agencies</em></h2>
-      <p class="section-sub">These are the highest-value searches Fort Lauderdale families use when looking for homecare. We build your entire digital presence to rank for all of them.</p>
+      <p class="section-sub">These are the searches that matter most, the ones Fort Lauderdale families actually type in when they're looking for homecare. We build your whole digital presence around ranking for them.</p>
     </div>
     <div class="kw-grid" data-reveal style="transition-delay:.1s">
       <div class="kw-card"><div><div class="kw-term">home care agency Fort Lauderdale FL</div><div class="kw-intent">Commercial — ready to hire</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare near me Tampa</div><div class="kw-intent">Local + near-me, highest conversion</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">homecare near me Fort Lauderdale</div><div class="kw-intent">Local + near-me, highest conversion</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">senior home care Fort Lauderdale FL</div><div class="kw-intent">Family searching for elderly parent</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">in-home care for elderly Tampa</div><div class="kw-intent">Informational to decision stage</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">in-home care for elderly Fort Lauderdale</div><div class="kw-intent">Informational to decision stage</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">caregiver jobs Fort Lauderdale FL</div><div class="kw-intent">Recruitment — attract quality caregivers</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">home health aide Broward County</div><div class="kw-intent">County-level, broader reach</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">companion care services Tampa</div><div class="kw-intent">Service-specific, non-medical care</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">personal care assistance Tampa</div><div class="kw-intent">ADL support, Medicaid waiver keyword</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare Brandon / Riverview / Temple Terrace</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">24-hour home care Tampa</div><div class="kw-intent">High urgency — premium private-pay client</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">companion care services Fort Lauderdale</div><div class="kw-intent">Service-specific, non-medical care</div></div><span class="kw-badge kw-med">MED</span></div>
+      <div class="kw-card"><div><div class="kw-term">personal care assistance Fort Lauderdale</div><div class="kw-intent">ADL support, Medicaid waiver keyword</div></div><span class="kw-badge kw-med">MED</span></div>
+      <div class="kw-card"><div><div class="kw-term">homecare Wilton Manors / Oakland Park / Plantation</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">24-hour home care Fort Lauderdale</div><div class="kw-intent">High urgency — premium private-pay client</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">best home care agency Fort Lauderdale FL 2025</div><div class="kw-intent">AI search and voice search query</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">how to choose a home care agency Tampa</div><div class="kw-intent">Blog target — educational, trust builder</div></div><span class="kw-badge kw-med">MED</span></div>
+      <div class="kw-card"><div><div class="kw-term">how to choose a home care agency Fort Lauderdale</div><div class="kw-intent">Blog target — educational, trust builder</div></div><span class="kw-badge kw-med">MED</span></div>
     </div>
   </div>
 </section>
@@ -333,32 +333,24 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">Service Coverage</p>
-      <h2 class="section-h2">Tampa Neighborhoods We Help<br>Your Agency <em>Rank In</em></h2>
-      <p class="section-sub">We build dedicated landing pages and local SEO signals for every specific area you serve across Fort Lauderdale Bay — so you rank neighborhood by neighborhood.</p>
+      <h2 class="section-h2">Fort Lauderdale Neighborhoods We Help<br>Your Agency <em>Rank In</em></h2>
+      <p class="section-sub">We build dedicated landing pages and local SEO signals for every area you serve across Fort Lauderdale, so you rank neighborhood by neighborhood.</p>
     </div>
     <div class="areas-grid" data-reveal style="transition-delay:.1s">
-      <div class="area-pill"><div class="area-dot"></div>Brandon</div>
-      <div class="area-pill"><div class="area-dot"></div>Riverview</div>
-      <div class="area-pill"><div class="area-dot"></div>Temple Terrace</div>
-      <div class="area-pill"><div class="area-dot"></div>Carrollwood</div>
-      <div class="area-pill"><div class="area-dot"></div>Westchase</div>
-      <div class="area-pill"><div class="area-dot"></div>Valrico</div>
-      <div class="area-pill"><div class="area-dot"></div>Seffner</div>
-      <div class="area-pill"><div class="area-dot"></div>Lutz</div>
-      <div class="area-pill"><div class="area-dot"></div>Land O' Lakes</div>
-      <div class="area-pill"><div class="area-dot"></div>Plant City</div>
-      <div class="area-pill"><div class="area-dot"></div>South Tampa</div>
-      <div class="area-pill"><div class="area-dot"></div>Hyde Park</div>
-      <div class="area-pill"><div class="area-dot"></div>Ybor City</div>
-      <div class="area-pill"><div class="area-dot"></div>New Tampa</div>
-      <div class="area-pill"><div class="area-dot"></div>Seminole Heights</div>
-      <div class="area-pill"><div class="area-dot"></div>Gibsonton</div>
-      <div class="area-pill"><div class="area-dot"></div>Ruskin</div>
-      <div class="area-pill"><div class="area-dot"></div>Sun City Center</div>
-      <div class="area-pill"><div class="area-dot"></div>Wimauma</div>
-      <div class="area-pill"><div class="area-dot"></div>Fishhawk Ranch</div>
+      <div class="area-pill"><div class="area-dot"></div>Las Olas</div>
+      <div class="area-pill"><div class="area-dot"></div>Coral Ridge</div>
+      <div class="area-pill"><div class="area-dot"></div>Wilton Manors</div>
+      <div class="area-pill"><div class="area-dot"></div>Oakland Park</div>
+      <div class="area-pill"><div class="area-dot"></div>Plantation</div>
+      <div class="area-pill"><div class="area-dot"></div>Davie</div>
+      <div class="area-pill"><div class="area-dot"></div>Pompano Beach</div>
+      <div class="area-pill"><div class="area-dot"></div>Hollywood</div>
+      <div class="area-pill"><div class="area-dot"></div>Sunrise</div>
+      <div class="area-pill"><div class="area-dot"></div>Coral Springs</div>
+      <div class="area-pill"><div class="area-dot"></div>Weston</div>
+      <div class="area-pill"><div class="area-dot"></div>Lauderdale-by-the-Sea</div>
     </div>
-    <div class="areas-note" data-reveal style="transition-delay:.2s"><i class="fa-solid fa-lightbulb" style="margin-right:8px;color:var(--gold)"></i>SEO Tip: Each neighborhood above should have its own dedicated sub-page (e.g. /home-care-brandon-fl/) linking back to this page — building a topical cluster Google rewards with higher rankings.</div>
+    <div class="areas-note" data-reveal style="transition-delay:.2s"><i class="fa-solid fa-lightbulb" style="margin-right:8px;color:var(--gold)"></i>SEO Tip: Each neighborhood above should get its own dedicated sub-page (e.g. /home-care-las-olas-fl/) linking back here. That's how you build the topical cluster Google rewards with higher rankings.</div>
   </div>
 </section>
 
@@ -368,15 +360,15 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label" style="color:var(--teal-lt)"><span style="background:var(--teal-lt);display:inline-block;width:24px;height:2px;border-radius:2px;margin-right:8px;vertical-align:middle"></span>Why Homecare Creators</p>
       <h2 class="section-h2" style="color:#fff">The Only Agency That Truly<br><em>Understands Fort Lauderdale Homecare</em></h2>
-      <p class="section-sub" style="color:rgba(255,255,255,.58)">Generalist agencies don't understand homecare, Florida's AHCA licensing, Medicaid waiver nuances, or the unique demographics driving Fort Lauderdale Bay's senior care demand. We do — because we're built exclusively for homecare.</p>
+      <p class="section-sub" style="color:rgba(255,255,255,.58)">Generalist agencies don't get homecare. They don't know AHCA licensing, they don't know the Medicaid waiver nuances, and they definitely don't understand what's driving senior care demand in Fort Lauderdale. We do. It's the only thing we do.</p>
     </div>
     <div class="why-grid" data-reveal style="transition-delay:.1s">
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-bullseye"></i></div><h4>100% Homecare-Only</h4><p>Every keyword, page, and strategy is purpose-built for homecare agencies. We don't serve restaurants or dentists — your competitors can't match this level of specialization.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-map-location-dot"></i></div><h4>Fort Lauderdale Market Knowledge</h4><p>We understand Broward County's demographics — the retirement migration from the Northeast, strong private-pay demand in Westchase and South Tampa, and the competitive Medicaid landscape.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-robot"></i></div><h4>AI Search Optimization</h4><p>We're the only homecare agency optimizing for ChatGPT, Google AI Overviews, and Perplexity answers. Fort Lauderdale families already ask AI "what's the best homecare agency near me?" — we make sure they get your name.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-dollar-sign"></i></div><h4>ROI You Can Measure</h4><p>One new private-pay client in Fort Lauderdale is worth $3,000–$8,000 per year. Our SEO retainer often pays for itself within 30 days of the first new client enquiry.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-handshake"></i></div><h4>No Long-Term Contracts</h4><p>We keep clients through results, not contracts. All plans are month-to-month after the first 90 days. We're confident enough in what we deliver to let you walk away anytime.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-layer-group"></i></div><h4>Website + SEO + AI in One</h4><p>No juggling three vendors. We design your site, manage your Google Business Profile, and build AI search authority — all in one retainer with one strategy call per month.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-bullseye"></i></div><h4>100% Homecare-Only</h4><p>We only work with homecare agencies. Every keyword, every page, every strategy is built around that one niche. Restaurants and dentists can find another agency; your competitors can't match this kind of focus.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-map-location-dot"></i></div><h4>Fort Lauderdale Market Knowledge</h4><p>We know Broward County's demographics inside and out: the retirement migration from up north, the strong private-pay demand around Las Olas and Coral Ridge, and how competitive the Medicaid landscape has gotten.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-robot"></i></div><h4>AI Search Optimization</h4><p>Fort Lauderdale families are already typing "what's the best homecare agency near me?" into ChatGPT. We're the only ones in this space optimizing for how ChatGPT, Google AI Overviews, and Perplexity actually answer that question, so it's your name that comes up.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-dollar-sign"></i></div><h4>ROI You Can Measure</h4><p>A single new private-pay client here is worth $3,000–$8,000 a year. Most of the time, our SEO retainer pays for itself within 30 days of that first inquiry landing in your inbox.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-handshake"></i></div><h4>No Long-Term Contracts</h4><p>Results keep our clients around, not contracts. Every plan goes month-to-month after the first 90 days, and honestly, we're fine with that. If we're not delivering, you should be able to leave.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-layer-group"></i></div><h4>Website + SEO + AI in One</h4><p>You won't need three vendors for this. We design the site, manage your Google Business Profile, and build your AI search authority under one retainer, with one strategy call a month.</p></div>
     </div>
   </div>
 </section>
@@ -386,44 +378,44 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Home Care in Fort Lauderdale —<br><em>Questions Families Ask</em></h2>
-      <p class="section-sub">These FAQs target real search queries Fort Lauderdale families type into Google — adding this content to your website helps you rank in the "People Also Ask" boxes.</p>
+      <h2 class="section-h2">Home Care in Fort Lauderdale:<br><em>Questions Families Ask</em></h2>
+      <p class="section-sub">These are real search queries Fort Lauderdale families type into Google. Add content like this to your own site and you'll start showing up in the "People Also Ask" boxes.</p>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I find a trusted home care agency in Fort Lauderdale, FL?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Finding a trusted homecare agency in Fort Lauderdale starts with checking Google reviews, verifying state licensure through the Florida Agency for Health Care Administration (AHCA), and confirming that caregivers undergo thorough background checks. Look for agencies specializing in the level of care your loved one needs — companion care, personal care assistance, or skilled nursing. A reputable Fort Lauderdale homecare agency will offer a free in-home consultation and a written plan of care before services begin.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Start by checking Google reviews, then verify the agency's licensure through the Florida Agency for Health Care Administration (AHCA). Make sure caregivers go through real background checks, not just a quick form. You'll also want an agency that specializes in the specific level of care your loved one needs, whether that's companion care, personal care assistance, or skilled nursing. A reputable Fort Lauderdale agency will offer a free in-home consultation and hand you a written plan of care before anything starts.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What does home care cost in Fort Lauderdale, Florida?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">The average cost of in-home care in Fort Lauderdale, FL ranges from $20–$30 per hour for non-medical companion and personal care services. Many Fort Lauderdale families use private pay, long-term care insurance, or Florida's Statewide Medicaid Managed Care Long-Term Care (SMMC LTC) program to help cover costs. A local licensed homecare agency can walk you through which options your loved one qualifies for during a free initial consultation.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">In-home care in Fort Lauderdale typically runs $20–$30 per hour for non-medical companion and personal care services. Some families pay out of pocket, others use long-term care insurance, and plenty qualify for Florida's Statewide Medicaid Managed Care Long-Term Care (SMMC LTC) program. A licensed local agency should be able to sort out which of those options actually applies to your situation during a free consultation.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Does Broward County have Medicaid home care programs?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Florida's SMMC LTC program covers in-home personal care services for eligible seniors in Broward County. To qualify, seniors must generally be 65 or older, meet functional and financial eligibility requirements, and enroll through an approved managed care plan. Homecare agencies licensed with AHCA in the Fort Lauderdale area can help families understand the enrollment process and connect them with the appropriate managed care organization.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, it does. Florida's SMMC LTC program covers in-home personal care for eligible seniors throughout Broward County. Generally you need to be 65 or older and meet both functional and financial eligibility rules, then enroll through an approved managed care plan. AHCA-licensed agencies in the Fort Lauderdale area deal with this enrollment process regularly and can point families toward the right managed care organization.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What areas of Fort Lauderdale does your homecare service cover?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">We work with homecare agencies serving all of Broward County and the broader Fort Lauderdale Bay area, including Brandon, Riverview, Temple Terrace, Carrollwood, Westchase, South Tampa, New Tampa, Plant City, Lutz, Land O' Lakes, Sun City Center, Ruskin, and all surrounding communities. If you serve a specific neighborhood, we build dedicated local pages to help you rank there.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">We work with agencies across all of Broward County and greater Fort Lauderdale, from Las Olas, Coral Ridge, Wilton Manors, Oakland Park, and Plantation out to Davie, Pompano Beach, Hollywood, Sunrise, Coral Springs, Weston, and Lauderdale-by-the-Sea, plus everywhere in between. Serve a specific neighborhood we haven't mentioned? We'll build a dedicated page for it.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to rank #1 on Google for homecare in Fort Lauderdale?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">For Fort Lauderdale homecare agencies starting from zero, most of our clients see meaningful Google Maps improvements within 60–90 days and strong organic rankings within 4–6 months. Fort Lauderdale is a competitive market, but our homecare-specific approach consistently delivers top-3 Google Maps positions within 5 months — faster than generalist agencies because every strategy is purpose-built for the homecare niche.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">If you're starting from zero, expect meaningful Google Maps movement within 60–90 days, with strong organic rankings following around 4–6 months. Fort Lauderdale is a tough market to crack, but agencies we work with land in the top 3 on Google Maps within about 5 months on average. That's faster than what a generalist agency can typically deliver, mostly because everything we build is already tailored to homecare.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do Fort Lauderdale homecare agencies need a Florida state license?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. In Florida, agencies providing companion care and personal care services must be licensed by the Florida Agency for Health Care Administration (AHCA). The specific license type — Home Health Agency, Nurse Registry, or Companion/Homemaker — depends on the services you offer. Proper AHCA licensure is required before marketing your homecare services in Fort Lauderdale or anywhere in Florida.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Any Florida agency offering companion care or personal care services needs to be licensed through AHCA, the Agency for Health Care Administration. Which license you need, Home Health Agency, Nurse Registry, or Companion/Homemaker, depends on what services you're actually providing. You'll want that licensure squared away before you start marketing anywhere in Fort Lauderdale or the rest of Florida.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can families in Fort Lauderdale find homecare agencies through ChatGPT or Google AI?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes — and this trend is growing fast. More Fort Lauderdale families are using AI tools like ChatGPT, Google AI Overviews, and Perplexity to find and vet local homecare agencies. Homecare Creators is the only marketing agency that specifically optimizes homecare websites to be cited and recommended by these AI systems — giving your Fort Lauderdale agency a significant advantage over competitors who only focus on traditional Google rankings.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, and it's happening more every month. Fort Lauderdale families are increasingly turning to ChatGPT, Google AI Overviews, and Perplexity to find and vet local homecare agencies before they ever call. We're the only agency specifically optimizing homecare sites to get cited by these AI tools, which puts you well ahead of competitors still focused only on traditional Google rankings.</div></div>
       </div>
 
     </div>
@@ -453,8 +445,8 @@ include '../includes/header.php';
     <div class="cta-inner">
       <div class="cta-content" data-reveal>
         <p class="section-label">Get Started Today</p>
-        <h2 class="section-h2">Ready to Dominate Tampa<br>Homecare <em>Search Results?</em></h2>
-        <p class="cta-desc">Book a free 30-minute audit. We'll analyze your current Fort Lauderdale digital presence, show you exactly what your competitors are doing, and deliver a 90-day roadmap to rank #1 — at no cost and no obligation.</p>
+        <h2 class="section-h2">Ready to Dominate Fort Lauderdale<br>Homecare <em>Search Results?</em></h2>
+        <p class="cta-desc">Book a free 30-minute audit and we'll dig into your current Fort Lauderdale digital presence. You'll see exactly what your competitors are doing, plus a 90-day roadmap to get you ranked #1. No cost, no obligation.</p>
         <div class="cta-actions">
           <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-calendar-check"></i>Get My Free Fort Lauderdale SEO Audit</button>
         </div>

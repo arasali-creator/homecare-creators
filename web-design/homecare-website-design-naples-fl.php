@@ -1,9 +1,9 @@
 ﻿<?php
-$page_title = "Homecare Website Design in Naples, FL | Homecare Creators";
-$page_desc = "Professional homecare website design for Naples, FL agencies. We build fast, SEO-optimized websites that rank on Google, convert families, and recruit caregivers across Collier County.";
+$page_title = "Homecare Website Design for Naples, FL Agencies | Homecare Creators";
+$page_desc = "Homecare website design for Naples, FL agencies. We build fast, SEO-ready sites that rank on Google and turn Collier County families into private-pay clients.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design-naples-fl/";
 $og_title = "Homecare Website Design Naples FL | Homecare Creators";
-$og_desc = "Naples homecare website design built exclusively for home care agencies. Rank #1 on Google, convert families into clients, recruit caregivers — starting from $699.";
+$og_desc = "Naples homecare website design built for home care agencies only. Rank higher on Google, turn families into private-pay clients, starting from $699.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
@@ -164,9 +164,9 @@ include '../includes/header.php';
   <div class="hero-blob2"></div>
   <div class="hero-content">
     <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/homecare-website-design/">Website Design</a> / <span>Naples, FL</span></div>
-    <div class="hero-badge"><div class="hero-badge-pulse"></div>Homecare Website Design — Naples, FL</div>
-    <h1 class="hero-h1">Homecare Website Design<br>in <em>Naples, Florida</em></h1>
-    <p class="hero-desc">We build fast, mobile-first homecare websites for Naples agencies that rank #1 on Google, convert affluent Collier County families into premium private-pay clients, and recruit caregivers 24/7 — starting from $699.</p>
+    <div class="hero-badge"><div class="hero-badge-pulse"></div>Homecare Website Design for Naples, FL</div>
+    <h1 class="hero-h1">Homecare Website Design<br>for <em>Naples, Florida</em> Agencies</h1>
+    <p class="hero-desc">In our work building homecare-only websites, we've learned what it takes to rank a Naples agency on Google and win over Collier County's private-pay families. Every site we build is mobile-first, loads fast, and keeps your careers page working around the clock. Packages start at $699.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Naples Website Quote</button>
       <a href="/homecare-website-design/" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i>View All Packages</a>
@@ -225,30 +225,30 @@ include '../includes/header.php';
       <div class="body-text" data-reveal>
         <p class="section-label">The Naples Market</p>
         <h2 class="section-h2">Why Naples Homecare Agencies<br><em>Need a Specialist Website</em></h2>
-        <p>Naples and Collier County represent one of the wealthiest and most senior-dense homecare markets in the entire United States. With a median age among the highest of any metro in Florida and a large concentration of affluent retirees, Naples is arguably the single best private-pay homecare market in the state.</p>
-        <p>Naples families searching for homecare expect a premium experience from the very first touchpoint — and that first touchpoint is almost always your website. A generic or outdated site sends the wrong message and costs you high-value private-pay clients immediately.</p>
-        <p>We build every Naples homecare website to match the premium expectations of Collier County families — polished design, clear AHCA credentials, and content optimized for the specific communities of Marco Island, Bonita Springs, Estero, and the affluent North Naples communities.</p>
+        <p>Collier County is one of the wealthiest, most senior-dense homecare markets in the country. The median age here runs higher than almost any other Florida metro, and affluent retirees make up a huge share of the population. Naples is, honestly, the best private-pay homecare market in the state.</p>
+        <p>Naples families expect a premium experience from the first click. That first touchpoint is almost always your website, not a brochure or a business card. A generic or outdated site sends the wrong signal, and it costs you high-value private-pay clients before they ever pick up the phone.</p>
+        <p>We build every Naples site to match what Collier County families already expect: polished design, AHCA credentials displayed clearly, and content written for the specific pockets you serve, from Marco Island and Bonita Springs to Estero and the affluent North Naples corridor.</p>
         <div class="why-points" style="margin-top:24px">
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-language"></i></div>
-            <div><div class="why-point-title">Collier County Neighborhood Pages</div><div class="why-point-desc">Dedicated SEO pages for Marco Island, Bonita Springs, Estero, North Naples, East Naples, Golden Gate, and every Collier County community you serve.</div></div>
+            <div><div class="why-point-title">Collier County Neighborhood Pages</div><div class="why-point-desc">We build a dedicated, SEO-optimized page for Marco Island, Bonita Springs, Estero, North Naples, East Naples, Golden Gate, and every other Collier County community on your service list.</div></div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-            <div><div class="why-point-title">Premium Trust Signals for Naples Families</div><div class="why-point-desc">AHCA license display, premium caregiver vetting content, Google Reviews widget, and professional team photos — matching the high expectations of Naples' affluent senior population.</div></div>
+            <div><div class="why-point-title">Premium Trust Signals for Naples Families</div><div class="why-point-desc">Naples' senior population is affluent, and it shows in what they expect from a website. So we put your AHCA license front and center, write real caregiver-vetting content, add a live Google Reviews widget, and use actual team photos instead of stock images.</div></div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <div><div class="why-point-title">Caregiver Recruitment for Naples</div><div class="why-point-desc">A fully optimized careers page ranking for 'caregiver jobs Naples FL' — turning your website into a round-the-clock recruitment engine across Collier County.</div></div>
+            <div><div class="why-point-title">Caregiver Recruitment for Naples</div><div class="why-point-desc">Your careers page gets built to rank for "caregiver jobs Naples FL," so it keeps pulling in applicants across Collier County long after launch, not just during a hiring push.</div></div>
           </div>
         </div>
       </div>
       <div data-reveal style="transition-delay:.15s">
         <div class="market-facts">
-          <div class="fact-card"><div class="fact-num">375K+</div><h4>Collier County Population</h4><p>With one of the highest median ages in Florida — almost entirely driven by affluent retirees</p></div>
-          <div class="fact-card"><div class="fact-num">32%</div><h4>Residents 65+</h4><p>Nearly 1 in 3 Naples residents are seniors — the highest senior concentration in FL</p></div>
-          <div class="fact-card"><div class="fact-num">$8,200</div><h4>Avg Client Value/Year</h4><p>Naples private-pay clients command the highest rates in Florida — often $5,000–$12,000/yr</p></div>
-          <div class="fact-card"><div class="fact-num">Premium</div><h4>Private-Pay Market</h4><p>Naples has the highest concentration of private-pay homecare clients in the entire state</p></div>
+          <div class="fact-card"><div class="fact-num">375K+</div><h4>Collier County Population</h4><p>One of the highest median ages in Florida, driven almost entirely by affluent retirees.</p></div>
+          <div class="fact-card"><div class="fact-num">32%</div><h4>Residents 65+</h4><p>Nearly 1 in 3 Naples residents are seniors, the highest concentration found anywhere in the state.</p></div>
+          <div class="fact-card"><div class="fact-num">$8,200</div><h4>Avg Client Value/Year</h4><p>Naples private-pay clients command Florida's highest rates, often $5,000–$12,000 a year.</p></div>
+          <div class="fact-card"><div class="fact-num">Premium</div><h4>Private-Pay Market</h4><p>No other Florida market has a higher concentration of private-pay homecare clients.</p></div>
         </div>
       </div>
     </div>
@@ -261,13 +261,13 @@ include '../includes/header.php';
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">How It Works</p>
       <h2 class="section-h2" style="text-align:center">Naples to <em>Live in 14 Days</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">A clear 4-step process — you provide basic agency info, we do everything else.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">A straightforward 4-step process. You hand us the basics on your agency, and we handle the rest.</p>
     </div>
     <div class="how-grid" data-reveal style="transition-delay:.1s">
-      <div class="how-step"><div class="how-num">1<div class="how-icon"><i class="fa-solid fa-comments"></i></div></div><div class="how-title">Discovery Call</div><div class="how-desc">30-minute call to learn your Naples agency, the neighborhoods you serve, and your goals. This shapes every design decision.</div></div>
-      <div class="how-step"><div class="how-num">2<div class="how-icon"><i class="fa-solid fa-pen-ruler"></i></div></div><div class="how-title">Design &amp; Copy</div><div class="how-desc">We write all Naples-specific content and design your full site. No writing required from you — just review and approve.</div></div>
-      <div class="how-step"><div class="how-num">3<div class="how-icon"><i class="fa-solid fa-eye"></i></div></div><div class="how-title">Review &amp; Refine</div><div class="how-desc">You review the complete site and request changes. Most Naples clients need only one revision round before it's perfect.</div></div>
-      <div class="how-step"><div class="how-num">4<div class="how-icon"><i class="fa-solid fa-rocket"></i></div></div><div class="how-title">Launch &amp; Rank</div><div class="how-desc">We launch, submit to Google, and configure Analytics + Search Console. Your Naples SEO starts the moment we hit publish.</div></div>
+      <div class="how-step"><div class="how-num">1<div class="how-icon"><i class="fa-solid fa-comments"></i></div></div><div class="how-title">Discovery Call</div><div class="how-desc">A 30-minute call to learn about your Naples agency, the neighborhoods you cover, and where you want to grow. Everything we build follows from this conversation.</div></div>
+      <div class="how-step"><div class="how-num">2<div class="how-icon"><i class="fa-solid fa-pen-ruler"></i></div></div><div class="how-title">Design &amp; Copy</div><div class="how-desc">We write all the Naples-specific content and design your full site ourselves. You don't have to write a word, just review what we send and tell us what to change.</div></div>
+      <div class="how-step"><div class="how-num">3<div class="how-icon"><i class="fa-solid fa-eye"></i></div></div><div class="how-title">Review &amp; Refine</div><div class="how-desc">You look over the complete site and flag anything you want adjusted. Most Naples clients only need one round of revisions before it's ready.</div></div>
+      <div class="how-step"><div class="how-num">4<div class="how-icon"><i class="fa-solid fa-rocket"></i></div></div><div class="how-title">Launch &amp; Rank</div><div class="how-desc">We launch, submit the site to Google, and set up Analytics plus Search Console. Your Naples SEO clock starts the day we hit publish.</div></div>
     </div>
   </div>
 </section>
@@ -278,7 +278,7 @@ include '../includes/header.php';
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">Packages &amp; Pricing</p>
       <h2 class="section-h2" style="text-align:center">Naples Website Design <em>Packages</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">All packages include custom Naples-specific design, SEO setup, and mobile optimization. No hidden fees.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Custom Naples-specific design and SEO setup come standard on every package, and mobile optimization is never an add-on. No hidden fees.</p>
     </div>
     <div class="pkg-grid" data-reveal style="transition-delay:.1s">
       <div class="pkg-card">
@@ -343,24 +343,24 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Everything Included</p>
       <h2 class="section-h2">Built for Naples.<br><em>Nothing Left Out.</em></h2>
-      <p class="section-sub">Every Naples homecare website we build includes these non-negotiables — optimized specifically for Collier County families and search patterns.</p>
+      <p class="section-sub">These aren't add-ons. Every Naples homecare website we build includes them, tuned specifically to Collier County families and how they search. It's part of why we're a Google Partner and BBB-accredited agency that works exclusively with home care companies.</p>
     </div>
     <div class="inc-grid" data-reveal style="transition-delay:.1s">
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100% Mobile-First</h3><p>Over 70% of Naples families search for homecare on their phone. Every pixel is designed for mobile first, then scaled up for desktop.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Naples SEO Built In</h3><p>Naples-specific keyword targeting, meta titles, descriptions, and content structure — your site ranks for "home care agency Naples" searches from day one.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-bolt"></i></div><h3>Sub-2 Second Load Speed</h3><p>Optimized images, clean code, and fast hosting. Google rewards fast sites and Naples families don't wait for slow ones.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Google Reviews Widget</h3><p>Your real Naples Google reviews displayed live on your homepage — the #1 trust signal for families choosing between agencies.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Naples Neighborhood Pages</h3><p>Dedicated SEO pages for each Naples community you serve — ranked individually so you capture neighborhood-level searches across Collier County.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-users"></i></div><h3>Caregiver Recruitment Page</h3><p>A fully optimized careers page that ranks for "caregiver jobs Naples FL" — turning your site into a 24/7 recruitment engine.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-code"></i></div><h3>Schema Markup</h3><p>LocalBusiness and FAQPage schema markup telling Google exactly who you are, where you operate in Naples, and what services you offer.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Analytics &amp; Search Console</h3><p>Google Analytics 4 and Search Console connected before launch — track every Naples visit, call, and inquiry from day one.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>SSL &amp; Hosting</h3><p>Secure HTTPS, 99.9% uptime hosting, and daily backups — included in your $79/mo plan so your Naples site is always online.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100% Mobile-First</h3><p>More than 70% of Naples families start their search on a phone, not a laptop. We design for that screen first and scale up to desktop after, not the other way around.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Naples SEO Built In</h3><p>Keyword targeting, meta titles, descriptions, and page structure are all built around Naples search terms from the start, so you're positioned for "home care agency Naples" the day you launch.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-bolt"></i></div><h3>Sub-2 Second Load Speed</h3><p>We optimize every image, keep the code lean, and host on fast servers. Google rewards speed. Naples families won't wait around for a page that lags.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Google Reviews Widget</h3><p>Your actual Naples Google reviews show up live on your homepage. It's the trust signal families check first when they're comparing agencies.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Naples Neighborhood Pages</h3><p>Each Naples community you serve gets its own SEO page, ranked on its own, so you show up for neighborhood-level searches across Collier County, not just city-wide ones.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-users"></i></div><h3>Caregiver Recruitment Page</h3><p>Your careers page is built to rank for "caregiver jobs Naples FL," turning the site into a recruiting tool that keeps working while you're off the clock.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-code"></i></div><h3>Schema Markup</h3><p>We add LocalBusiness and FAQPage schema markup so Google knows exactly who you are, where you operate in Naples, and what services you offer.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Analytics &amp; Search Console</h3><p>Google Analytics 4 and Search Console get connected before we ever hit launch, so you can track every Naples visit, call, and inquiry starting day one.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>SSL &amp; Hosting</h3><p>Secure HTTPS, 99.9% uptime hosting, and daily backups all come with your $79/mo plan, so your Naples site stays online when it matters most.</p></div>
     </div>
 
     <!-- INTERNAL LINK: Local SEO -->
     <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <div><i class="fa-solid fa-magnifying-glass-chart" style="font-size:28px;color:var(--teal)"></i></div>
-      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website needs visibility. Our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service ranks your new Naples website at #1 on Google Maps — driving more leads from day one.</div></div>
+      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website still needs visibility to matter. Our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service pushes your new Naples website toward the top of Google Maps, driving more leads from the start.</div></div>
       <a href="/seo/local-seo-for-home-care-agencies" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Packages</a>
     </div>
   </div>
@@ -372,17 +372,17 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Naples Keyword Strategy</p>
       <h2 class="section-h2">Naples Keywords We <em>Rank Your Site For</em></h2>
-      <p class="section-sub">Every Naples homecare website we build is optimized for the exact search terms Collier County families type into Google when looking for care.</p>
+      <p class="section-sub">We optimize every Naples homecare website for the actual terms Collier County families type into Google when they're looking for care.</p>
     </div>
     <div class="kw-grid" data-reveal style="transition-delay:.1s">
       <div class="kw-card"><div><div class="kw-term">homecare website design Naples FL</div><div class="kw-intent">Agency owners searching for your service</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">home care agency Naples FL</div><div class="kw-intent">Families ready to hire — highest intent</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">home care agency Naples FL</div><div class="kw-intent">Families ready to hire, highest intent</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">senior home care Naples Florida</div><div class="kw-intent">Family searching for elderly parent</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">homecare near me Naples FL</div><div class="kw-intent">Local + near-me, highest conversion</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">caregiver jobs Naples FL</div><div class="kw-intent">Caregiver recruitment — talent pipeline</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">caregiver jobs Naples FL</div><div class="kw-intent">Caregiver recruitment, talent pipeline</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">home care Marco Island / Bonita Springs</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-med">MED</span></div>
       <div class="kw-card"><div><div class="kw-term">in-home care for elderly Collier County</div><div class="kw-intent">Informational → decision stage buyer</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">private pay home care Naples FL</div><div class="kw-intent">High urgency — premium private-pay</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">private pay home care Naples FL</div><div class="kw-intent">High urgency, premium private-pay</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">best home care agency Naples 2025</div><div class="kw-intent">AI search &amp; voice search query</div></div><span class="kw-badge kw-med">MED</span></div>
     </div>
   </div>
@@ -394,7 +394,7 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Naples Service Coverage</p>
       <h2 class="section-h2">We Build Pages for Every<br><em>Naples Neighborhood You Serve</em></h2>
-      <p class="section-sub">Your website gets a dedicated, SEO-optimized page for every Naples community — so you rank in each one, not just the city overall.</p>
+      <p class="section-sub">Your website gets a dedicated, SEO-optimized page for every Naples community you cover, so you rank in each neighborhood, not just the city as a whole.</p>
     </div>
     <div class="areas-grid" data-reveal style="transition-delay:.1s">
       <div class="area-pill"><div class="area-dot"></div>Marco Island</div>
@@ -442,28 +442,28 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Naples Homecare Website Design —<br><em>Your Questions Answered</em></h2>
+      <h2 class="section-h2">Naples Homecare Website Design:<br><em>Your Questions Answered</em></h2>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Why do I need a specialist website for my Naples homecare agency?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Naples is the highest private-pay homecare market in Florida. Collier County families have extremely high expectations — and your website is their first impression. A generic site loses these premium clients immediately to agencies with polished, professional sites. A specialist Naples homecare website built by us converts high-value visitors into premium clients who stay for months or years.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Naples is the highest private-pay homecare market in Florida, and Collier County families have high expectations right out of the gate. Your website is their first impression, so a generic site loses those premium clients fast, often to a competitor with a more polished site. We only build websites for home care agencies, nothing else, and that focus is exactly why our Naples sites convert high-value visitors into clients who stick around for months or years.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Will my Naples homecare website rank on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes — and Naples is actually less digitally competitive than Miami or Fort Lauderdale, meaning you can reach top Google positions faster. Every Naples page includes proper on-page SEO for Collier County keywords, schema markup, fast load speed, and mobile optimization. Most clients see strong ranking improvements within 60–90 days.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Naples is actually less digitally competitive than Miami or Fort Lauderdale, so you can often reach top Google positions faster here. Every page we build includes on-page SEO for Collier County keywords, schema markup, a fast load time, and mobile optimization. Most clients see real ranking movement within 60 to 90 days.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you build websites for agencies serving both Naples and Fort Myers or Bonita Springs?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Absolutely. Many Naples agencies also serve Lee County (Fort Myers, Cape Coral, Bonita Springs, Estero). We build service area pages for every city and county you cover — each individually optimized so you rank across all of Southwest Florida.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely, and it's common. Plenty of Naples agencies also serve Lee County: Fort Myers, Cape Coral, Bonita Springs, Estero. We build a service area page for every city and county you cover, each one optimized on its own, so you rank across Southwest Florida instead of just one metro.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to build my Naples homecare website?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">The Starter package goes live in 10–14 days. Growth takes 14 days. Dominate takes up to 21 days. We write all your content — you just provide basic agency details and approve the design. Every day without a proper website is a day you're losing Naples leads to competitors, so we move as fast as possible without cutting corners.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Starter goes live in 10 to 14 days, Growth in 14 days, and Dominate takes up to 21 days. We handle all the writing ourselves, you just hand over the basic agency details and sign off on the design. Every day you go without a real website is a day competitors are picking up Naples leads that should've been yours, so we move quickly without skipping steps.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I add Local SEO to my Naples website package?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes — and the ROI in Naples is exceptional. Our Naples Local SEO retainer starts at $400/mo. Given that a single new Naples private-pay client can generate $5,000–$12,000 per year, our entire SEO retainer often pays for itself within the first month of a new client. Ask us about bundle pricing when you book your quote.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, and the return tends to be strong in a market like Naples. Our Local SEO retainer here starts at $400/mo. A single new private-pay client can bring in $5,000–$12,000 a year, so landing even one client from that SEO work often covers the retainer for months. Ask about bundle pricing when you book your quote.</div></div>
       </div>
     </div>
   </div>
@@ -476,7 +476,7 @@ include '../includes/header.php';
       <div data-reveal>
         <p class="section-label" style="color:var(--teal-lt)"><span style="background:var(--teal-lt);display:inline-block;width:24px;height:2px;border-radius:2px;margin-right:8px;vertical-align:middle"></span>Get Started Today</p>
         <h2 class="cta-h2">Ready for a Naples Website That<br><em>Wins Premium Private-Pay Clients?</em></h2>
-        <p class="cta-desc">Book a free 30-minute call. We'll audit your current Naples digital presence and give you a clear, honest plan — no obligation, no pressure.</p>
+        <p class="cta-desc">Book a free 30-minute call. We'll take a look at your current Naples digital presence and hand you a clear, honest plan. No obligation, no pressure.</p>
         <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get My Naples Website Quote</button>
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free quote &nbsp;·&nbsp; Live in 14 days &nbsp;·&nbsp; No hidden fees</div>
       </div>
@@ -487,7 +487,7 @@ include '../includes/header.php';
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Current website audit</div></div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Naples competitor analysis</div></div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Custom package recommendation</div></div>
-          <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Fixed price — no surprises</div></div>
+          <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Fixed price, no surprises</div></div>
         </div>
       </div>
     </div>

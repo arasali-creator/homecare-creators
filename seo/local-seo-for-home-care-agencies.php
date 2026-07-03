@@ -1,9 +1,9 @@
 ﻿<?php
 $page_title = "Local SEO for Home Care Agencies | Homecare Creators";
-$page_desc = "Local SEO built exclusively for home care agencies. Rank #1 on Google Maps, dominate local search in Florida, and grow private-pay clients. Packages from $399/mo. No contracts. Results in 60–90 days.";
+$page_desc = "Local SEO built for home care agencies in Florida. Rank #1 on Google Maps, grow private-pay clients. Plans from $399/mo. No contracts, results in 60–90 days.";
 $page_canonical = "https://homecarecreators.com/local-seo-for-home-care-agencies/";
 $og_title = "Local SEO for Home Care Agencies | Homecare Creators";
-$og_desc = "The only local SEO agency built 100% for homecare. Rank #1 on Google Maps in Florida, grow private-pay clients, and beat every competitor in your city. Plans from $399/mo.";
+$og_desc = "We're the only local SEO agency built 100% for home care. Get to #1 on Google Maps in Florida and grow private-pay clients. Plans start at $399/mo.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:100vh;background:var(--forest);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0}
@@ -192,7 +192,7 @@ include '../includes/header.php';
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Local SEO for Home Care Agencies</div>
     <h1 class="hero-h1">Rank #1. Get Found.<br><em>Grow Faster.</em></h1>
     <div class="hero-tagline"><em>The Only Local SEO Agency</em><br><em>Built 100% for Homecare.</em></div>
-    <p class="hero-desc">We get your homecare agency to the top of Google Maps and organic search in your city — so families searching for care find you first, not your competitors. Specialized homecare SEO. Real results in 60–90 days.</p>
+    <p class="hero-desc">We get your home care agency to the top of Google Maps and organic search in your city. Families searching for care find you first, not the agency down the street. Built for home care. Real results in 60–90 days.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-magnifying-glass-chart"></i>Book Free SEO Audit</button>
       <a href="#packages" class="btn-secondary"><i class="fa-solid fa-layer-group"></i>View Packages</a>
@@ -287,7 +287,7 @@ include '../includes/header.php';
     <div class="ticker-dot"></div>
     <div class="ticker-item"><i class="fa-solid fa-magnifying-glass"></i>50–100 Keywords Tracked</div>
     <div class="ticker-dot"></div>
-    <div class="ticker-item"><i class="fa-solid fa-robot"></i>AI Search SEO — ChatGPT &amp; Perplexity</div>
+    <div class="ticker-item"><i class="fa-solid fa-robot"></i>AI Search SEO for ChatGPT &amp; Perplexity</div>
     <div class="ticker-dot"></div>
     <div class="ticker-item"><i class="fa-solid fa-chart-line"></i>Monthly Ranking Reports</div>
     <div class="ticker-dot"></div>
@@ -299,7 +299,7 @@ include '../includes/header.php';
     <div class="ticker-dot"></div>
     <div class="ticker-item"><i class="fa-solid fa-magnifying-glass"></i>50–100 Keywords Tracked</div>
     <div class="ticker-dot"></div>
-    <div class="ticker-item"><i class="fa-solid fa-robot"></i>AI Search SEO — ChatGPT &amp; Perplexity</div>
+    <div class="ticker-item"><i class="fa-solid fa-robot"></i>AI Search SEO for ChatGPT &amp; Perplexity</div>
   </div>
 </div>
 
@@ -310,25 +310,25 @@ include '../includes/header.php';
       <div data-reveal>
         <p class="section-label">Why Local SEO Matters</p>
         <h2 class="section-h2">Families Don't Scroll Past<br><em>the First Three Results</em></h2>
-        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:16px">When a family in Miami types "home care agency near me" into Google, the top three results in the Google Maps Local Pack get over 75% of all the clicks. If your agency isn't in those three spots, you're effectively invisible to that family — and they'll call your competitor instead.</p>
-        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:16px">Local SEO is the process of optimizing every signal Google uses to decide which three homecare agencies to show in that Local Pack — your Google Business Profile, your reviews, your website, your citations across the web, and the content on your pages.</p>
-        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:24px">Homecare Creators manages all of it exclusively for homecare agencies. No other industry. No learning curve. Just the deep homecare-specific SEO knowledge that gets your Florida agency to position #1 faster than any generalist can.</p>
+        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:16px">When a family in Miami types "home care agency near me" into Google, the top three results in the Google Maps Local Pack grab over 75% of all the clicks. Miss those three spots and you're basically invisible. That family calls your competitor instead, not you.</p>
+        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:16px">Local SEO is the work of shaping every signal Google uses to pick which three home care agencies land in that Local Pack. That means your Google Business Profile, your reviews, your website, citations scattered across the web, and the actual content on your pages.</p>
+        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:24px">We manage all of it, and we only work with home care agencies. No other industry, no learning curve to climb on your dime. Just the kind of homecare-specific SEO knowledge that gets a Florida agency to position #1 faster than a generalist ever could.</p>
         <div class="why-points">
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-brands fa-google"></i></div>
-            <div><div class="why-point-title">Google Business Profile Management</div><div class="why-point-desc">Your GBP is your single most powerful local ranking asset. We fully optimize it, post weekly updates, respond to reviews, and monitor it daily so Google always sees an active, trustworthy business.</div></div>
+            <div><div class="why-point-title">Google Business Profile Management</div><div class="why-point-desc">Your GBP is the single most powerful local ranking asset you have. We optimize it fully, post updates every week, respond to reviews, and check it daily. Google needs to see an active, trustworthy business, and that's what we give it.</div></div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-star"></i></div>
-            <div><div class="why-point-title">Review Velocity Strategy</div><div class="why-point-desc">67+ new 5-star Google reviews in 90 days — using our proven review request system built around homecare workflows. Reviews are a top-3 Google Maps ranking factor, and we systematically generate them.</div></div>
+            <div><div class="why-point-title">Review Velocity Strategy</div><div class="why-point-desc">67+ new 5-star Google reviews in 90 days, generated through a review request system we built specifically around home care workflows. Reviews sit among the top 3 Google Maps ranking factors. We don't leave that to chance.</div></div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-            <div><div class="why-point-title">Citation Building — 40+ Per Month</div><div class="why-point-desc">We submit your agency to 40+ high-authority directories every month — healthcare-specific platforms like Caring.com and HomeCare.com, plus general directories, and local Florida business listings.</div></div>
+            <div><div class="why-point-title">40+ Citations Built Every Month</div><div class="why-point-desc">Every month we submit your agency to 40+ high-authority directories. Think healthcare platforms like Caring.com and HomeCare.com, general business directories, and local Florida listings too.</div></div>
           </div>
           <div class="why-point">
             <div class="why-point-icon"><i class="fa-solid fa-robot"></i></div>
-            <div><div class="why-point-title">AI Search SEO (GEO)</div><div class="why-point-desc">Families now search on ChatGPT, Google AI Overviews, and Perplexity. We're the only homecare SEO agency optimizing for AI-generated answers — your competitors haven't even heard of this yet.</div></div>
+            <div><div class="why-point-title">AI Search SEO (GEO)</div><div class="why-point-desc">Families search on ChatGPT, Google AI Overviews, and Perplexity now too, not just Google. We're the only home care SEO agency optimizing for those AI-generated answers. Most of your competitors haven't even heard the term GEO yet.</div></div>
           </div>
         </div>
       </div>
@@ -360,18 +360,18 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">What's Included Every Month</p>
       <h2 class="section-h2">Every Signal Google Uses.<br><em>All Managed for You.</em></h2>
-      <p class="section-sub">Our local SEO retainer covers every ranking factor Google uses to decide which homecare agencies appear at the top — nothing outsourced, nothing skipped.</p>
+      <p class="section-sub">Our local SEO retainer covers every ranking factor Google uses to decide which home care agencies show up at the top. Nothing outsourced, nothing skipped.</p>
     </div>
     <div class="included-grid" data-reveal style="transition-delay:.1s">
-      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Google Business Profile Management</h3><p>Full GBP optimization plus weekly posts, photo uploads, Q&amp;A management, and review responses — keeping your profile active and authoritative in Google's eyes every single week.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Review Velocity Management</h3><p>Our proven 3-touch review request system generates a consistent flow of 5-star Google reviews from your real clients — the single highest-impact ranking and conversion factor for homecare agencies.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>40+ Citation Submissions/mo</h3><p>We submit your NAP (name, address, phone) to 40+ high-quality directories monthly — including healthcare-specific platforms, Florida business directories, and general authority sites like Yelp and BBB.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-file-code"></i></div><h3>On-Page SEO Updates</h3><p>Monthly updates to your website pages — refreshing keyword targets, updating meta descriptions, improving internal linking, and adding location-specific content that keeps your pages ranking and climbing.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-bar"></i></div><h3>Monthly Ranking Reports</h3><p>A clear, easy-to-read report every month showing exactly where you rank for your 50–100 target keywords, your Google Maps position, traffic trends, and what we're working on next.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>NAP Consistency Audit</h3><p>We scan the web for incorrect or duplicate listings of your agency's name, address, and phone number — and fix every inconsistency, because NAP mismatches silently hurt your Google Maps rankings.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-users-viewfinder"></i></div><h3>Competitor Gap Analysis</h3><p>Every quarter we benchmark your rankings against your top 3–5 local competitors and identify exactly what they're doing that you aren't — then close those gaps faster than they can respond.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-robot"></i></div><h3>AI Search Optimization (GEO)</h3><p>We optimize your website and content to appear in ChatGPT answers, Google AI Overviews, and Perplexity results when families ask "what's the best homecare agency in [city]?" — a first-mover advantage your competitors don't have.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-phone"></i></div><h3>Monthly Strategy Call</h3><p>A 30-minute call every month with your dedicated strategist to review results, discuss opportunities, and plan the next 30 days. You always know exactly what we're doing and why.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Google Business Profile Management</h3><p>Full GBP optimization, plus weekly posts, photo uploads, Q&amp;A management, and review responses. Your profile stays active and authoritative in Google's eyes, every single week.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Review Velocity Management</h3><p>Our 3-touch review request system keeps a steady flow of 5-star Google reviews coming in from your real clients. For home care agencies, this is the single highest-impact ranking and conversion factor there is.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>40+ Citation Submissions/mo</h3><p>We submit your NAP (name, address, phone) to 40+ high-quality directories every month: healthcare-specific platforms, Florida business directories, and general authority sites like Yelp and BBB.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-file-code"></i></div><h3>On-Page SEO Updates</h3><p>We update your website pages monthly. That's refreshed keyword targets, new meta descriptions, better internal linking, and location-specific content added so your pages keep climbing instead of stalling.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-bar"></i></div><h3>Monthly Ranking Reports</h3><p>Every month you get a clear report showing where you rank for your 50–100 target keywords, your Google Maps position, traffic trends, and what we're tackling next.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>NAP Consistency Audit</h3><p>We scan the web for incorrect or duplicate listings of your name, address, and phone number, then fix every inconsistency we find. NAP mismatches hurt your Google Maps rankings quietly, without you ever noticing.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-users-viewfinder"></i></div><h3>Competitor Gap Analysis</h3><p>Every quarter, we benchmark you against your top 3–5 local competitors and pinpoint what they're doing that you aren't. Then we close the gap faster than they can react.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-robot"></i></div><h3>AI Search Optimization (GEO)</h3><p>We optimize your site and content so it shows up in ChatGPT answers, Google AI Overviews, and Perplexity results when someone asks "what's the best home care agency in [city]?" Right now, almost none of your competitors are doing this.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-phone"></i></div><h3>Monthly Strategy Call</h3><p>Once a month, you get 30 minutes with your dedicated strategist to go over results, talk through opportunities, and plan the next 30 days. You'll always know exactly what we're doing and why.</p></div>
     </div>
   </div>
 </section>
@@ -382,28 +382,28 @@ include '../includes/header.php';
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">How It Works</p>
       <h2 class="section-h2" style="text-align:center">From Audit to <em>#1 in 5 Months</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">A proven 4-phase process that consistently delivers top Google Maps positions for Florida homecare agencies.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">A 4-phase process that's delivered top Google Maps positions for Florida home care agencies again and again.</p>
     </div>
     <div class="how-grid" data-reveal style="transition-delay:.1s">
       <div class="how-step">
         <div class="how-step-num">1<div class="how-step-icon"><i class="fa-solid fa-magnifying-glass"></i></div></div>
         <div class="how-step-title">Deep Audit</div>
-        <div class="how-step-desc">We audit your Google Business Profile, current rankings, website SEO health, citation accuracy, review profile, and every competitor in your city. This becomes your growth roadmap.</div>
+        <div class="how-step-desc">We dig into your Google Business Profile, current rankings, website SEO health, citation accuracy, review profile, and every competitor in your city. That audit becomes your roadmap.</div>
       </div>
       <div class="how-step">
         <div class="how-step-num">2<div class="how-step-icon"><i class="fa-solid fa-wrench"></i></div></div>
         <div class="how-step-title">Foundation Fix</div>
-        <div class="how-step-desc">Month 1 we fix everything broken — GBP optimization, NAP consistency, on-page SEO, schema markup, and citation cleanup. This is what moves the needle fastest.</div>
+        <div class="how-step-desc">Month 1 is about fixing what's broken: GBP optimization, NAP consistency, on-page SEO, schema markup, citation cleanup. Nothing moves the needle faster than this.</div>
       </div>
       <div class="how-step">
         <div class="how-step-num">3<div class="how-step-icon"><i class="fa-solid fa-rocket"></i></div></div>
         <div class="how-step-title">Authority Build</div>
-        <div class="how-step-desc">Months 2–4 we build your authority — citations, reviews, content, backlinks, and AI search optimization. Rankings climb consistently as Google recognizes your agency as the area's most trusted provider.</div>
+        <div class="how-step-desc">From month 2 through 4, we build authority: citations, reviews, content, backlinks, AI search optimization. Rankings climb steadily as Google starts to recognize your agency as the most trusted provider in the area.</div>
       </div>
       <div class="how-step">
         <div class="how-step-num">4<div class="how-step-icon"><i class="fa-solid fa-trophy"></i></div></div>
         <div class="how-step-title">Dominate &amp; Hold</div>
-        <div class="how-step-desc">Month 5+ you're at #1. We maintain your position, expand to new cities and neighborhoods, and ensure no competitor can displace you from the top spot.</div>
+        <div class="how-step-desc">By month 5 you're sitting at #1. From there we hold your position, push into new cities and neighborhoods, and make sure no competitor can knock you off the top spot.</div>
       </div>
     </div>
   </div>
@@ -415,7 +415,7 @@ include '../includes/header.php';
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">Packages &amp; Pricing</p>
       <h2 class="section-h2" style="text-align:center">Simple Monthly SEO <em>Packages</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">Month-to-month after 90 days. No long-term contracts. Choose the package that matches your current market and goals.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Month-to-month after 90 days, no long-term contracts. Pick the package that fits your market and where you want to go.</p>
     </div>
     <div class="packages-grid" data-reveal style="transition-delay:.1s">
 
@@ -493,21 +493,21 @@ include '../includes/header.php';
     <div class="kw-intro" data-reveal>
       <p class="section-label">Keyword Strategy</p>
       <h2 class="section-h2">The Florida Homecare Keywords<br><em>We Rank You For</em></h2>
-      <p class="section-sub">We don't guess at keywords. Every term we target is researched for search volume, buying intent, and local competition — then mapped to the right page on your website.</p>
+      <p class="section-sub">We don't guess at keywords. Every term we target gets researched for search volume, buying intent, and local competition, then mapped to the right page on your site.</p>
     </div>
     <div class="kw-grid" data-reveal style="transition-delay:.1s">
-      <div class="kw-card"><div><div class="kw-term">home care agency [city] FL</div><div class="kw-intent">Highest commercial intent — ready to hire</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare near me [city]</div><div class="kw-intent">Local + near-me — highest conversion rate</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">home care agency [city] FL</div><div class="kw-intent">Highest commercial intent, ready to hire</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">homecare near me [city]</div><div class="kw-intent">Local + near-me, highest conversion rate</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">senior home care [city] Florida</div><div class="kw-intent">Family searching for an elderly parent</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">in-home care for elderly [city]</div><div class="kw-intent">Informational → decision stage buyer</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">24-hour home care [city]</div><div class="kw-intent">High urgency — premium private-pay client</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">caregiver jobs [city] FL</div><div class="kw-intent">Recruitment — attract quality caregivers</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">home health aide [county] FL</div><div class="kw-intent">County-level — broader service area reach</div></div><span class="kw-badge kw-med">MED</span></div>
+      <div class="kw-card"><div><div class="kw-term">24-hour home care [city]</div><div class="kw-intent">High urgency, premium private-pay client</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">caregiver jobs [city] FL</div><div class="kw-intent">Recruitment, attract quality caregivers</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">home health aide [county] FL</div><div class="kw-intent">County-level, broader service area reach</div></div><span class="kw-badge kw-med">MED</span></div>
       <div class="kw-card"><div><div class="kw-term">companion care services [city]</div><div class="kw-intent">Service-specific, non-medical care</div></div><span class="kw-badge kw-med">MED</span></div>
       <div class="kw-card"><div><div class="kw-term">personal care assistance [city]</div><div class="kw-intent">ADL support, Medicaid waiver keyword</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare [neighborhood] FL</div><div class="kw-intent">Hyper-local — lower competition, high intent</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">homecare [neighborhood] FL</div><div class="kw-intent">Hyper-local, lower competition, high intent</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">best home care agency [city] 2025</div><div class="kw-intent">AI search &amp; voice search query</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">how to choose a home care agency [city]</div><div class="kw-intent">Blog + FAQ — educational, trust builder</div></div><span class="kw-badge kw-med">MED</span></div>
+      <div class="kw-card"><div><div class="kw-term">how to choose a home care agency [city]</div><div class="kw-intent">Blog + FAQ, educational trust builder</div></div><span class="kw-badge kw-med">MED</span></div>
     </div>
   </div>
 </section>
@@ -534,7 +534,7 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Florida Markets We Serve</p>
       <h2 class="section-h2">Local SEO for Homecare Agencies<br><em>Across Florida</em></h2>
-      <p class="section-sub">We specialize in Florida's most competitive homecare markets — with city-specific keyword strategies, local knowledge, and proven results in each metro.</p>
+      <p class="section-sub">We specialize in Florida's most competitive home care markets. City-specific keyword strategies, real local knowledge, and results we can point to in each metro.</p>
     </div>
     <div class="cities-grid" data-reveal style="transition-delay:.1s">
       <a href="/home-care-miami-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Miami</div><div class="city-county">Miami-Dade County</div></div></a>
@@ -556,38 +556,38 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Local SEO for Homecare —<br><em>Your Questions Answered</em></h2>
+      <h2 class="section-h2">Local SEO for Homecare<br><em>Your Questions Answered</em></h2>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long before I see results from homecare SEO?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Most of our Florida homecare clients see meaningful Google Maps improvements within 60–90 days of starting. Organic search rankings typically follow within 4–6 months. The exact timeline depends on your current starting point, the competitiveness of your city, and how consistently we can execute the strategy. Miami and Fort Lauderdale are more competitive than Naples or Sarasota — but we've ranked agencies in all of them. Month 1 results are always visible because we track 50–100 keywords from day one.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Most of our Florida clients see real Google Maps movement within 60–90 days. Organic rankings usually follow around the 4 to 6 month mark. Your timeline depends on where you're starting from, how competitive your city is, and how consistently we can execute. Miami and Fort Lauderdale are tougher markets than Naples or Sarasota, but we've ranked agencies in both types of cities. And you'll see something by month 1 regardless, since we track 50–100 keywords from day one.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What makes homecare SEO different from general SEO?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Homecare agencies have a very specific keyword universe — terms like "personal care assistance," "companion care," "Medicaid waiver homecare," and "AHCA licensed home health agency" that a generalist agency wouldn't know to target. The trust signals families look for (caregiver background checks, state licensing, Google reviews) are different from other industries. The directories that matter for homecare citations (Caring.com, HomeCare.com, A Place for Mom) are industry-specific. Everything about homecare SEO is different — which is exactly why working with a homecare-only specialist produces dramatically better results.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Home care has its own keyword universe. Terms like "personal care assistance," "companion care," "Medicaid waiver homecare," and "AHCA licensed home health agency" aren't things a generalist agency would even think to target. Families look for different trust signals too: caregiver background checks, state licensing, Google reviews, none of which matter much to a plumber or a dentist. Even the directories that count for citations are industry-specific, like Caring.com, HomeCare.com, and A Place for Mom. Basically nothing about it overlaps with general SEO, and that's why a home care-only specialist gets you further.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need a website to start local SEO?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">You need at minimum a basic website — even a simple 3-page site gives Google something to evaluate. Without any website, local SEO is significantly limited. We offer <a href="/seo/homecare-website-design" style="color:var(--teal);font-weight:600">website design as a separate service starting at $699</a>, and many clients combine our website design and local SEO services for maximum results. If you already have a website, we'll audit it during our free review and let you know if any improvements are needed to support the SEO work.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">You need at least a basic website. Even a simple 3-page site gives Google something to evaluate. Skip the website entirely and local SEO can only take you so far. We build websites too, and <a href="/seo/homecare-website-design" style="color:var(--teal);font-weight:600">that's a separate service starting at $699</a> — quite a few clients bundle it with local SEO for better results overall. Already have a site? We'll audit it during your free review and flag anything that needs work to support the SEO.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Is there a long-term contract?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">No long-term contracts. All plans are month-to-month after the first 90 days. We ask for 90 days upfront because SEO requires a minimum runway to produce measurable results — anyone promising results in 30 days is not being honest with you. After those 90 days, you can cancel with 30 days notice. We keep clients through results, not contracts — and our retention rate reflects that.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">No long-term contracts. Every plan goes month-to-month after the first 90 days. We ask for that initial 90-day runway because SEO just needs time to produce measurable results. Anyone telling you 30 days is enough isn't being straight with you. After that, a 30-day notice cancels anytime. We keep clients because of results, not paperwork, and our retention rate backs that up.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can you help me get more Google reviews?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes — review management is one of our core services and one of the highest-impact things we do. We set up a systematic review request process built around homecare workflows — using email, SMS, and QR codes at the right moments in the client journey. Most of our Florida agencies generate 15–25 new 5-star Google reviews per month using this system. Reviews are a top-3 Google Maps ranking factor, so this alone can move your rankings significantly within 60–90 days.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. It's one of our core services and honestly one of the highest-impact things we do. We build a review request process around your actual home care workflows, hitting clients and families at the right moments through email, SMS, and QR codes. Most of our Florida agencies pull in 15–25 new 5-star Google reviews a month once this is running. Since reviews rank among the top 3 Google Maps factors, that alone can shift your position noticeably within 60–90 days.</div></div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What is AI Search SEO and why does it matter for homecare?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">AI Search SEO (also called GEO — Generative Engine Optimization) is the practice of optimizing your content to appear in AI-generated answers on ChatGPT, Google AI Overviews, and Perplexity. In 2026, a growing number of families researching homecare ask AI tools "what's the best home care agency in Miami?" or "how do I find a caregiver for my mom in Tampa?" — and AI systems recommend specific agencies. We make sure your agency is the one they recommend. Your competitors almost certainly haven't optimized for this yet, giving you a significant first-mover advantage.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">AI Search SEO, sometimes called GEO for Generative Engine Optimization, means optimizing your content so it surfaces in AI-generated answers on ChatGPT, Google AI Overviews, and Perplexity. More families are asking these tools questions like "what's the best home care agency in Miami?" or "how do I find a caregiver for my mom in Tampa?" in 2026, and the AI names specific agencies in response. We work to make sure yours is one of them. Odds are good your competitors haven't touched this yet, which means an easy first-mover advantage for you.</div></div>
       </div>
 
     </div>
@@ -601,7 +601,7 @@ include '../includes/header.php';
       <div class="cta-content" data-reveal>
         <p class="section-label">Get Started Today</p>
         <h2 class="section-h2">Ready to Rank #1 in<br><em>Your Florida City?</em></h2>
-        <p class="cta-desc">Book a free 30-minute SEO audit. We'll analyze your current Google Maps ranking, show you exactly what your top competitors are doing, and give you a 90-day roadmap to reach #1 — completely free, no obligation.</p>
+        <p class="cta-desc">Book a free 30-minute SEO audit. We'll look at your current Google Maps ranking, show you what your top competitors are actually doing, and hand you a 90-day roadmap to #1. No cost, no obligation.</p>
         <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-magnifying-glass-chart"></i>Book My Free SEO Audit</button>
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; No long-term contracts</div>
       </div>
