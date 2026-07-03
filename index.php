@@ -1,9 +1,9 @@
 ﻿<?php
-$page_title    = "Homecare Creators: Market It. Manage It. Grow It.";
-$page_desc     = "The only marketing agency built exclusively for homecare agencies in Florida. Website design, local SEO, AI search optimization, plus the CareOS platform.";
+$page_title    = "Homecare Creators: Marketing for Home Care Agencies";
+$page_desc     = "The only marketing agency built exclusively for home care agencies in Florida - SEO, websites, and AI search optimization.";
 $page_canonical = "https://homecarecreators.com/";
-$og_title      = "Homecare Creators: Market It. Manage It. Grow It.";
-$og_desc       = "Market It. Manage It. Grow It. We're the only agency built 100% for homecare, covering website design, local SEO, AI search SEO, and the CareOS platform.";
+$og_title      = "Homecare Creators: Marketing for Home Care Agencies";
+$og_desc       = "The only agency built 100% for homecare - website design, local SEO, AI search SEO, and the CareOS platform.";
 
 $page_css = <<<CSS
 /* ── HERO ── */

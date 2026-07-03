@@ -57,7 +57,9 @@ try {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= htmlspecialchars($page_title ?? 'Homecare Creators — Market It. Manage It. Grow It.') ?></title>
 <meta name="description" content="<?= htmlspecialchars($page_desc ?? 'Homecare Creators is the only marketing agency built exclusively for home care agencies in Florida. Website design, local SEO, and AI search optimization.') ?>">
-<?php if (!empty($page_canonical)): ?><link rel="canonical" href="<?= htmlspecialchars($page_canonical) ?>"><?php endif; ?>
+<?php if (!empty($page_canonical)): ?><link rel="canonical" href="<?= htmlspecialchars($page_canonical) ?>">
+<link rel="alternate" hreflang="en-us" href="<?= htmlspecialchars($page_canonical) ?>">
+<link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($page_canonical) ?>"><?php endif; ?>
 <?php if (!empty($og_title)): ?><meta property="og:title" content="<?= htmlspecialchars($og_title) ?>"><?php endif; ?>
 <?php if (!empty($og_desc)): ?><meta property="og:description" content="<?= htmlspecialchars($og_desc) ?>"><?php endif; ?>
 <?php if (!empty($page_canonical)): ?><meta property="og:url" content="<?= htmlspecialchars($page_canonical) ?>"><?php endif; ?>
@@ -66,8 +68,14 @@ try {
 <link rel="icon" type="image/svg+xml" href="/images/home/favicon.svg?v=3">
 <link rel="apple-touch-icon" href="/images/home/favicon-180.png?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</noscript>
 <style>
 /* ── SHARED BASE STYLES ── */
 :root{--forest:#0a2e1e;--forest-md:#0f3d28;--forest-lt:#1a5c3a;--teal:#1d9e75;--teal-lt:#2ec68f;--mint:#9fe1cb;--cream:#f5f2ec;--warm:#fffdf8;--gold:#c9a84c;--gold-lt:#e8c96a;--text:#1a1a14;--muted:#6b7b6e;--border:rgba(26,92,58,0.15);--r:14px;--r-lg:24px}
@@ -205,7 +213,8 @@ footer{background:var(--forest);padding:64px 48px 0}
 @media(max-width:640px){
   nav{padding:0 20px}
   .nav-links{display:none}
-  .nav-hamburger{display:block}
+  .nav-links a{display:block;padding:14px 16px;font-size:15px}
+  .nav-hamburger{display:block;min-width:44px;min-height:44px}
   section{padding:64px 24px}
   .footer-inner{grid-template-columns:1fr}
 }
