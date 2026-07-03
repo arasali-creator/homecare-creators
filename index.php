@@ -62,26 +62,20 @@ $page_css = <<<CSS
 .why-point-desc{font-size:13.5px;line-height:1.6;color:var(--muted)}
 
 /* ── SERVICES ── */
-.services{background:var(--cream)}
-.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:24px;flex-wrap:wrap}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.services-grid-row2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:22px;max-width:calc(66.666% + 11px);margin-left:auto;margin-right:auto}
-.service-card{background:#fff;border:1px solid var(--border);border-radius:22px;overflow:hidden;position:relative;transition:.4s cubic-bezier(.34,1.56,.64,1)}
-.service-card-img{height:200px;overflow:hidden;position:relative}
-.service-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
-.service-card:hover .service-card-img img{transform:scale(1.06)}
-.service-card-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,46,30,.25) 0%,rgba(10,46,30,.7) 100%)}
-.service-card-img-icon{position:absolute;bottom:16px;left:18px;width:46px;height:46px;border-radius:13px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 16px rgba(0,0,0,.25)}
-.service-card-price-tag{position:absolute;top:14px;right:14px;background:rgba(10,46,30,.85);backdrop-filter:blur(8px);border:1px solid rgba(29,158,117,.3);padding:5px 12px;border-radius:100px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--mint)}
-.service-card-body{padding:24px}
-.service-card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;color:var(--forest);margin-bottom:8px}
-.service-card-desc{font-size:13.5px;line-height:1.65;color:var(--muted);margin-bottom:18px}
-.service-card-features{list-style:none;display:flex;flex-direction:column;gap:7px}
-.service-card-features li{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted)}
-.service-card-features li i{color:var(--teal);font-size:11px;flex-shrink:0}
-.service-card:hover{transform:translateY(-8px);box-shadow:0 24px 64px rgba(10,46,30,.14);border-color:rgba(29,158,117,.25)}
-.service-card-link{display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700;color:var(--teal);text-decoration:none;transition:.2s}
-.service-card-link:hover{color:var(--forest);gap:10px}
+.services-header{text-align:center;max-width:720px;margin:0 auto 24px}
+.svc-detail{padding:80px 40px}
+.svc-detail-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.svc-detail-icon{width:52px;height:52px;border-radius:14px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:22px}
+.svc-detail-grid p{font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:16px}
+.svc-detail-closer{font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;line-height:1.5;color:var(--forest);border-left:3px solid var(--teal);padding-left:18px;margin-top:24px}
+.svc-detail-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:32px;box-shadow:0 16px 48px rgba(10,46,30,.06)}
+.svc-detail-card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:18px}
+.svc-detail-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.svc-detail-list li{display:flex;align-items:center;gap:12px;font-size:14.5px;color:var(--forest);font-weight:600}
+.svc-detail-list li i{width:26px;height:26px;border-radius:8px;background:rgba(29,158,117,.12);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+.svc-detail-link{display:inline-flex;align-items:center;gap:7px;font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700;color:var(--teal);text-decoration:none;transition:.2s;border-top:1px solid var(--border);padding-top:20px}
+.svc-detail-link:hover{color:var(--forest);gap:10px}
+@media(max-width:1024px){.svc-detail-grid{grid-template-columns:1fr;gap:32px}}
 
 /* ── HOW IT WORKS ── */
 .how{background:#fff}
@@ -306,14 +300,11 @@ $page_css = <<<CSS
   .bundle-card.featured{transform:none}
   .how-grid{grid-template-columns:1fr 1fr}
   .ai-seo-right{min-height:300px}
-  .services-grid{grid-template-columns:1fr 1fr}
-  .services-grid-row2{max-width:100%;grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
   .hero-left{padding:110px 24px 60px}
   section{padding:72px 24px}
-  .services-grid{grid-template-columns:1fr}
-  .services-grid-row2{grid-template-columns:1fr;max-width:100%}
+  .svc-detail{padding:64px 24px}
   .results-grid-right{grid-template-columns:1fr}
   .bundles-grid{grid-template-columns:1fr}
   .how-grid{grid-template-columns:1fr}
@@ -667,139 +658,162 @@ include 'includes/header.php';
 </section>
 
 <!-- ══════════════════════════
-   SERVICES — 3 + 2 centered
+   SERVICES — detailed 2-column breakdown
 ══════════════════════════ -->
-<section class="services" id="services">
+<section class="services" id="services" style="background:#fff;padding-bottom:0">
   <div class="container">
     <div class="services-header">
       <div data-reveal>
-        <p class="section-label">What We Do</p>
+        <p class="section-label" style="justify-content:center">What We Do</p>
         <h2 class="section-h2">Everything Your Agency<br>Needs to <em>Dominate</em></h2>
       </div>
-      <p class="section-sub" data-reveal style="transition-delay:.1s">Five done-for-you service lines, built around
+      <p class="section-sub" data-reveal style="transition-delay:.1s;margin:0 auto">Five done-for-you service lines, built around
         what actually moves the needle for a homecare agency.</p>
     </div>
+  </div>
+</section>
 
-    <!-- Row 1: 3 cards -->
-    <div class="services-grid">
-      <div class="service-card" data-reveal style="transition-delay:.05s">
-        <div class="service-card-img">
-          <img src="/images/home/service-website-dev.jpg"
-            alt="Home care agency website design and development services"
-            title="Website design and development for home care agencies">
-          <div class="service-card-img-overlay"></div>
-          <div class="service-card-img-icon"><i class="fa-solid fa-laptop-code"></i></div>
-          <div class="service-card-price-tag">from $960 + $63/mo</div>
-        </div>
-        <div class="service-card-body">
-          <div class="service-card-title">Website Design & Development</div>
-          <div class="service-card-desc">Fast, mobile-first sites that turn visitors into families and applicants
-            into caregivers. We don't build brochure sites. Every page has a job to do.</div>
-          <ul class="service-card-features">
-            <li><i class="fa-solid fa-check"></i>5–15 custom pages</li>
-            <li><i class="fa-solid fa-check"></i>Local SEO optimised from day one</li>
-            <li><i class="fa-solid fa-check"></i>Google Reviews widget built-in</li>
-            <li><i class="fa-solid fa-check"></i>Caregiver careers + job board page</li>
-            <li><i class="fa-solid fa-check"></i>Under 2s load speed guaranteed</li>
-          </ul>
-          <a href="/seo/homecare-website-design" class="service-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
+<!-- SERVICE: Home Care SEO -->
+<section class="svc-detail" style="background:var(--cream)">
+  <div class="container">
+    <div class="svc-detail-grid">
+      <div data-reveal>
+        <div class="svc-detail-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+        <p class="section-label">Home Care SEO</p>
+        <h2 class="section-h2">Get Found by Families<br>When They Need <em>Care Most</em></h2>
+        <p>When someone starts looking for home care, they usually don't ask around first. They search online.</p>
+        <p>They compare agencies, read reviews, visit websites, and often make a shortlist before they ever pick up the phone.</p>
+        <p>If your agency isn't showing up in those searches, you're missing opportunities every single day.</p>
+        <p>At Homecare Creators, we specialize in SEO built specifically for home care agencies. We don't chase vanity rankings or traffic that never converts. Our focus is helping your agency appear where it matters most, when families are actively searching for care in your community.</p>
+        <p>From improving your local visibility to creating helpful content that answers real questions, every strategy is designed to help more families discover your agency and feel confident choosing you.</p>
+        <p class="svc-detail-closer">The goal isn't just better rankings. It's more inquiries from families who are ready to find care.</p>
       </div>
-
-      <div class="service-card" data-reveal style="transition-delay:.1s">
-        <div class="service-card-img">
-          <img src="/images/home/service-local-seo.jpg"
-            alt="Local SEO services helping home care agencies rank on Google Maps"
-            title="Local SEO domination for home care agencies">
-          <div class="service-card-img-overlay"></div>
-          <div class="service-card-img-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-          <div class="service-card-price-tag">from $320/mo</div>
-        </div>
-        <div class="service-card-body">
-          <div class="service-card-title">Local SEO Domination</div>
-          <div class="service-card-desc">We push you to #1 on Google Maps and organic search for "homecare near me"
-            in your city, plus the dozens of keywords underneath it that actually convert.</div>
-          <ul class="service-card-features">
-            <li><i class="fa-solid fa-check"></i>Google My Business management</li>
-            <li><i class="fa-solid fa-check"></i>Citation building & NAP consistency</li>
-            <li><i class="fa-solid fa-check"></i>Service area page creation</li>
-            <li><i class="fa-solid fa-check"></i>Monthly ranking reports</li>
-            <li><i class="fa-solid fa-check"></i>Review velocity management</li>
-          </ul>
-          <a href="/seo/local-seo-for-home-care-agencies" class="service-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-      </div>
-
-      <div class="service-card" data-reveal style="transition-delay:.15s">
-        <div class="service-card-img">
-          <img src="/images/home/service-ai-search-seo.jpg"
-            alt="AI Search SEO (GEO) services getting home care agencies cited by ChatGPT and Google AI"
-            title="AI Search SEO for home care agencies">
-          <div class="service-card-img-overlay"></div>
-          <div class="service-card-img-icon"><i class="fa-solid fa-brain"></i></div>
-          <div class="service-card-price-tag">from $512/mo</div>
-        </div>
-        <div class="service-card-body">
-          <div class="service-card-title">AI Search SEO (GEO)</div>
-          <div class="service-card-desc">Families are already asking ChatGPT and Google AI which agency to call.
-            We make sure your name comes up. Most of your competition hasn't touched this yet.</div>
-          <ul class="service-card-features">
-            <li><i class="fa-solid fa-check"></i>Google AI Overviews optimisation</li>
-            <li><i class="fa-solid fa-check"></i>FAQ schema (50+ Q&As)</li>
-            <li><i class="fa-solid fa-check"></i>E-E-A-T signal building</li>
-            <li><i class="fa-solid fa-check"></i>ChatGPT citation tracking</li>
-            <li><i class="fa-solid fa-check"></i>Knowledge Graph entity creation</li>
-          </ul>
-        </div>
+      <div class="svc-detail-card" data-reveal style="transition-delay:.15s">
+        <div class="svc-detail-card-title">What We Help With</div>
+        <ul class="svc-detail-list">
+          <li><i class="fa-solid fa-check"></i>Local SEO for your service areas</li>
+          <li><i class="fa-solid fa-check"></i>Google Business Profile optimization</li>
+          <li><i class="fa-solid fa-check"></i>Technical SEO improvements</li>
+          <li><i class="fa-solid fa-check"></i>Content that answers families' questions</li>
+          <li><i class="fa-solid fa-check"></i>Service & location pages</li>
+          <li><i class="fa-solid fa-check"></i>Monthly performance reporting</li>
+        </ul>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Row 2: last 2 cards CENTERED -->
-    <div class="services-grid-row2">
-      <div class="service-card" data-reveal style="transition-delay:.2s">
-        <div class="service-card-img">
-          <img src="/images/home/service-brand-identity.jpg"
-            alt="Brand identity design services for home care agencies"
-            title="Brand identity design for home care agencies">
-          <div class="service-card-img-overlay"></div>
-          <div class="service-card-img-icon"><i class="fa-solid fa-swatchbook"></i></div>
-          <div class="service-card-price-tag">from $640 one-time</div>
-        </div>
-        <div class="service-card-body">
-          <div class="service-card-title">Brand Identity Design</div>
-          <div class="service-card-desc">Families trust a brand that looks put-together. We handle the logo,
-            colors, and typography so your agency looks like the established name, even on day one.</div>
-          <ul class="service-card-features">
-            <li><i class="fa-solid fa-check"></i>Custom logo (3 concepts)</li>
-            <li><i class="fa-solid fa-check"></i>Full brand style guide</li>
-            <li><i class="fa-solid fa-check"></i>Business card & stationery</li>
-            <li><i class="fa-solid fa-check"></i>Social media templates</li>
-            <li><i class="fa-solid fa-check"></i>Vehicle / uniform branding</li>
-          </ul>
-        </div>
+<!-- SERVICE: Home Care Website Design -->
+<section class="svc-detail" style="background:#fff">
+  <div class="container">
+    <div class="svc-detail-grid">
+      <div data-reveal>
+        <div class="svc-detail-icon"><i class="fa-solid fa-laptop-code"></i></div>
+        <p class="section-label">Home Care Website Design</p>
+        <h2 class="section-h2">A Website That Builds Trust<br><em>Before the First Call</em></h2>
+        <p>Families don't choose a home care provider because of fancy animations or trendy designs.</p>
+        <p>They choose the agency that feels trustworthy, professional, and easy to contact. Your website should reassure families that they've found the right place.</p>
+        <p>We create websites designed specifically for home care agencies: sites that clearly explain your services, answer common questions, showcase your experience, and guide visitors toward taking the next step.</p>
+        <p>Every page is built to make it easy for someone to say, "This is the agency I want to call."</p>
+        <p class="svc-detail-closer">A great website doesn't just look professional. It helps families feel confident reaching out.</p>
       </div>
+      <div class="svc-detail-card" data-reveal style="transition-delay:.15s">
+        <div class="svc-detail-card-title">Every Website Includes</div>
+        <ul class="svc-detail-list">
+          <li><i class="fa-solid fa-check"></i>Custom design tailored to your agency</li>
+          <li><i class="fa-solid fa-check"></i>Mobile-friendly experience</li>
+          <li><i class="fa-solid fa-check"></i>Fast loading speeds</li>
+          <li><i class="fa-solid fa-check"></i>Clear calls-to-action</li>
+          <li><i class="fa-solid fa-check"></i>SEO-ready structure</li>
+          <li><i class="fa-solid fa-check"></i>Easy-to-manage content</li>
+        </ul>
+        <a href="/seo/homecare-website-design" class="svc-detail-link">See Website Packages <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="service-card" data-reveal style="transition-delay:.25s">
-        <div class="service-card-img">
-          <img src="/images/home/service-social-media.jpg"
-            alt="Social media and email marketing services for home care agencies"
-            title="Social and email marketing for home care agencies">
-          <div class="service-card-img-overlay"></div>
-          <div class="service-card-img-icon"><i class="fa-solid fa-share-nodes"></i></div>
-          <div class="service-card-price-tag">from $320/mo</div>
-        </div>
-        <div class="service-card-body">
-          <div class="service-card-title">Social & Email Marketing</div>
-          <div class="service-card-desc">Consistent posting and email keep your agency top of mind with families,
-            help with caregiver recruiting, and quietly grow referrals in the background.</div>
-          <ul class="service-card-features">
-            <li><i class="fa-solid fa-check"></i>3–5 posts/week (Facebook, Instagram)</li>
-            <li><i class="fa-solid fa-check"></i>Monthly email newsletter</li>
-            <li><i class="fa-solid fa-check"></i>Caregiver recruitment campaigns</li>
-            <li><i class="fa-solid fa-check"></i>Review + referral activation</li>
-            <li><i class="fa-solid fa-check"></i>Monthly performance report</li>
-          </ul>
-        </div>
+<!-- SERVICE: Local SEO -->
+<section class="svc-detail" style="background:var(--cream)">
+  <div class="container">
+    <div class="svc-detail-grid">
+      <div data-reveal>
+        <div class="svc-detail-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+        <p class="section-label">Local SEO</p>
+        <h2 class="section-h2">Help Families Find Your<br>Agency <em>In Their Community</em></h2>
+        <p>Most families aren't searching for home care across the country. They're looking for trusted providers close to home. That's why local visibility matters.</p>
+        <p>We help your agency appear in Google Maps and local search results when families search for services in your city or surrounding areas.</p>
+        <p>Whether you serve one community or multiple counties across Florida, we build a local SEO strategy that helps your agency become more visible where it matters most.</p>
+        <p class="svc-detail-closer">When someone searches for home care nearby, your agency should be one of the first names they see.</p>
+      </div>
+      <div class="svc-detail-card" data-reveal style="transition-delay:.15s">
+        <div class="svc-detail-card-title">Local SEO Services</div>
+        <ul class="svc-detail-list">
+          <li><i class="fa-solid fa-check"></i>Google Business Profile optimization</li>
+          <li><i class="fa-solid fa-check"></i>Service area optimization</li>
+          <li><i class="fa-solid fa-check"></i>Citation management</li>
+          <li><i class="fa-solid fa-check"></i>Review strategy</li>
+          <li><i class="fa-solid fa-check"></i>Local landing pages</li>
+          <li><i class="fa-solid fa-check"></i>Google Maps optimization</li>
+        </ul>
+        <a href="/seo/local-seo-for-home-care-agencies" class="svc-detail-link">See Local SEO Packages <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE: AI Search Optimization (GEO) -->
+<section class="svc-detail" style="background:#fff">
+  <div class="container">
+    <div class="svc-detail-grid">
+      <div data-reveal>
+        <div class="svc-detail-icon"><i class="fa-solid fa-brain"></i></div>
+        <p class="section-label">AI Search Optimization (GEO)</p>
+        <h2 class="section-h2">Be Visible in the<br><em>Future of Search</em></h2>
+        <p>The way people search is changing. Families are starting to ask ChatGPT, Google AI, Gemini, and other AI-powered tools for recommendations instead of only using traditional Google searches.</p>
+        <p>That means your website needs to be prepared for more than just search engines.</p>
+        <p>We help home care agencies create content and structure their websites in ways that make them easier for AI-powered search platforms to understand, trust, and recommend.</p>
+        <p>While no one can guarantee AI recommendations, preparing your website today puts your agency in a much stronger position as search continues to evolve.</p>
+        <p class="svc-detail-closer">It's about preparing your agency for where search is going, not just where it is today.</p>
+      </div>
+      <div class="svc-detail-card" data-reveal style="transition-delay:.15s">
+        <div class="svc-detail-card-title">Our GEO Strategy Includes</div>
+        <ul class="svc-detail-list">
+          <li><i class="fa-solid fa-check"></i>AI-friendly website structure</li>
+          <li><i class="fa-solid fa-check"></i>Schema markup</li>
+          <li><i class="fa-solid fa-check"></i>Entity optimization</li>
+          <li><i class="fa-solid fa-check"></i>Topical authority development</li>
+          <li><i class="fa-solid fa-check"></i>Helpful, people-first content</li>
+          <li><i class="fa-solid fa-check"></i>Future-ready SEO strategy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE: AI & Automation -->
+<section class="svc-detail" style="background:var(--cream)">
+  <div class="container">
+    <div class="svc-detail-grid">
+      <div data-reveal>
+        <div class="svc-detail-icon"><i class="fa-solid fa-gears"></i></div>
+        <p class="section-label">AI & Automation</p>
+        <h2 class="section-h2">Spend Less Time Chasing Leads,<br><em>More Time Giving Care</em></h2>
+        <p>Running a home care agency comes with enough moving parts already. Answering inquiries, following up with families, scheduling consultations, and keeping everything organized can quickly become overwhelming.</p>
+        <p>We help automate the repetitive work so your team can focus on delivering exceptional care.</p>
+        <p>From AI chat assistants that answer questions after hours to automated follow-ups that ensure no inquiry is forgotten, we build systems that help your agency respond faster and stay connected with every potential client.</p>
+        <p class="svc-detail-closer">Technology should support your team, not replace the personal care that makes your agency unique.</p>
+      </div>
+      <div class="svc-detail-card" data-reveal style="transition-delay:.15s">
+        <div class="svc-detail-card-title">What We Can Automate</div>
+        <ul class="svc-detail-list">
+          <li><i class="fa-solid fa-check"></i>AI website chat assistants</li>
+          <li><i class="fa-solid fa-check"></i>Lead follow-up workflows</li>
+          <li><i class="fa-solid fa-check"></i>Appointment scheduling</li>
+          <li><i class="fa-solid fa-check"></i>CRM integrations</li>
+          <li><i class="fa-solid fa-check"></i>Email & SMS automation</li>
+          <li><i class="fa-solid fa-check"></i>Internal business workflows</li>
+        </ul>
       </div>
     </div>
   </div>
