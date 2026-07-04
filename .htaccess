@@ -6,12 +6,6 @@ ServerSignature Off
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteRule ^includes/ - [F,L]
-
-    # Page Builder — clean URLs for pages created in Admin > Pages
-    # e.g. /about/ -> page.php?slug=about (only when no real file/folder matches)
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^([a-z0-9-]+)/?$ page.php?slug=$1 [L,QSA]
 </IfModule>
 
 # Security headers
