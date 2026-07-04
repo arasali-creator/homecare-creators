@@ -35,6 +35,11 @@ function is_active(string ...$paths): bool {
       <a href="/admin/blog/" class="nav-item <?= (str_contains($cur,'/admin/blog/edit') || $cur==='/admin/blog/' || $cur==='/admin/blog/index.php') ? 'active' : '' ?>">All Posts</a>
       <a href="/admin/blog/categories.php" class="nav-item <?= str_contains($cur,'categories') ? 'active' : '' ?>">Categories</a>
     </div>
+
+    <a href="/admin/pages/" class="nav-item <?= is_active('/admin/pages') ? 'active' : '' ?>">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+      Pages
+    </a>
   </div>
 
   <div class="nav-group">
