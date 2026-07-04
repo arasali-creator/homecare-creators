@@ -435,7 +435,7 @@ include '../includes/header.php';
     <p class="section-label" style="justify-content:center">Our Services</p>
     <h2 class="section-h2" style="text-align:center">Grow Your Tampa Homecare Agency</h2>
     <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:32px">
-      <a href="/seo/homecare-website-design" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+      <a href="/web-design/homecare-website-design/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
         <i class="fa-solid fa-laptop-code" style="font-size:20px;color:var(--teal)"></i>
         <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Homecare Website Design</div><div style="font-size:12px;color:var(--muted)">Professional, SEO-optimized websites</div></div>
       </a>

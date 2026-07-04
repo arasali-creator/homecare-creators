@@ -19,7 +19,7 @@
       <div class="footer-col-title">Services</div>
       <ul class="footer-links">
         <li><a href="/seo/home-care-seo/">Home Care SEO</a></li>
-        <li><a href="/seo/homecare-website-design">Website Design</a></li>
+        <li><a href="/web-design/homecare-website-design/">Website Design</a></li>
         <li><a href="/seo/local-seo-for-home-care-agencies">Local SEO</a></li>
         <li><a href="/#services">AI Search SEO</a></li>
         <li><a href="/#bundles">Pricing &amp; Packages</a></li>

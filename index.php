@@ -717,7 +717,7 @@ include 'includes/header.php';
             <li><i class="fa-solid fa-check"></i>Conversion-focused pages</li>
             <li><i class="fa-solid fa-check"></i>Easy content management</li>
           </ul>
-          <a href="/seo/homecare-website-design" class="svc-grid-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/web-design/homecare-website-design/" class="svc-grid-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 

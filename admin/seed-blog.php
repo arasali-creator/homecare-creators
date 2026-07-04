@@ -215,7 +215,7 @@ $post3_content = <<<'HTML'
 
 <h2 id="roi-of-good-website">The ROI of Getting Your Website Right</h2>
 <p>A home care website that converts is not an expense — it's the highest-return asset in your marketing portfolio. Consider: if your average client is worth $3,500/month and stays with you for 18 months, a single converted lead is worth $63,000 in lifetime revenue. If a better website converts even 2 additional families per month, that's $126,000 in additional monthly pipeline.</p>
-<p>At <a href="/homecare-website-design/">Homecare Creators</a>, we design websites built exclusively for home care agencies — with all 11 of these elements built in from day one, plus local SEO architecture that helps you rank in every city you serve. If your current website isn't generating consistent inquiries, it's costing you clients every day it stays the way it is.</p>
+<p>At <a href="/web-design/homecare-website-design/">Homecare Creators</a>, we design websites built exclusively for home care agencies — with all 11 of these elements built in from day one, plus local SEO architecture that helps you rank in every city you serve. If your current website isn't generating consistent inquiries, it's costing you clients every day it stays the way it is.</p>
 HTML;
 
 // ── BLOG POST 4 ───────────────────────────────────────────────────────────────

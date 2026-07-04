@@ -68,7 +68,7 @@ hc_topbar('FAQ Bank', '<a href="/admin/">Admin</a> › AI / GEO Panel › FAQ Ba
     </div>
     <div class="form-group">
       <label>Deploy to pages <span>(comma-separated paths)</span></label>
-      <input type="text" name="pages" value="<?= h($edit['pages'] ?? '') ?>" placeholder="/seo/local-seo-for-home-care-agencies, /seo/homecare-website-design">
+      <input type="text" name="pages" value="<?= h($edit['pages'] ?? '') ?>" placeholder="/seo/local-seo-for-home-care-agencies, /web-design/homecare-website-design/">
       <div class="form-hint">Which pages this FAQ is deployed on (for your reference — schema is managed per-page in the Schema manager).</div>
     </div>
     <div style="display:flex;gap:10px">

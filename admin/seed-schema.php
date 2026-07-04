@@ -150,7 +150,7 @@ if ($run) {
     // ════════════════════════════════════════════════════════════
     //  WEBSITE DESIGN SERVICE PAGE
     // ════════════════════════════════════════════════════════════
-    $p = '/homecare-website-design/';
+    $p = '/web-design/homecare-website-design/';
     add_schema($p, 'Service', [
         'name'        => 'Homecare Agency Website Design',
         'description' => 'Custom website design and development for home care agencies in Florida. We build fast, mobile-first, SEO-optimized websites that establish trust with families, convert visitors into inquiries, and rank on Google — engineered specifically for homecare agency owners who need results, not templates.',
@@ -259,7 +259,7 @@ if ($run) {
         $log[] = "✓ {$path} → FAQPage (4 questions)";
 
         add_schema($path, 'BreadcrumbList', bc([
-            ['Home', SITE.'/'], ['Website Design', SITE.'/homecare-website-design/'], ["{$c} Homecare Website Design", $url]
+            ['Home', SITE.'/'], ['Website Design', SITE.'/web-design/homecare-website-design/'], ["{$c} Homecare Website Design", $url]
         ]));
         $log[] = "✓ {$path} → BreadcrumbList";
     }

@@ -523,7 +523,7 @@ echo '<script type="application/ld+json">' . json_encode([
         <p>Build a long-term marketing strategy that combines SEO, content, local marketing, and lead generation to help your agency grow consistently.</p>
         <span class="related-link">Explore Home Care Marketing <i class="fa-solid fa-arrow-right"></i></span>
       </a>
-      <a href="/seo/homecare-website-design" class="related-card">
+      <a href="/web-design/homecare-website-design/" class="related-card">
         <div class="related-icon"><i class="fa-solid fa-laptop-code"></i></div>
         <h3>Home Care Website Design</h3>
         <p>Create a website that builds trust, loads quickly, and turns visitors into inquiries.</p>

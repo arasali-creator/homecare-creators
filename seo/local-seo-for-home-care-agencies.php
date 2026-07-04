@@ -481,7 +481,7 @@ include '../includes/header.php';
     </div>
 
     <div style="text-align:center;margin-top:32px">
-      <p style="font-size:14px;color:var(--muted);margin-bottom:16px">Need a website first? <a href="/seo/homecare-website-design" style="color:var(--teal);font-weight:600">See our Homecare Website Design packages starting at $699</a></p>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:16px">Need a website first? <a href="/web-design/homecare-website-design/" style="color:var(--teal);font-weight:600">See our Homecare Website Design packages starting at $699</a></p>
     </div>
 
   </div>
@@ -572,7 +572,7 @@ include '../includes/header.php';
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need a website to start local SEO?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">You need at least a basic website. Even a simple 3-page site gives Google something to evaluate. Skip the website entirely and local SEO can only take you so far. We build websites too, and <a href="/seo/homecare-website-design" style="color:var(--teal);font-weight:600">that's a separate service starting at $699</a> — quite a few clients bundle it with local SEO for better results overall. Already have a site? We'll audit it during your free review and flag anything that needs work to support the SEO.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">You need at least a basic website. Even a simple 3-page site gives Google something to evaluate. Skip the website entirely and local SEO can only take you so far. We build websites too, and <a href="/web-design/homecare-website-design/" style="color:var(--teal);font-weight:600">that's a separate service starting at $699</a> — quite a few clients bundle it with local SEO for better results overall. Already have a site? We'll audit it during your free review and flag anything that needs work to support the SEO.</div></div>
       </div>
 
       <div class="faq-item">
