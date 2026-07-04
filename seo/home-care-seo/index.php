@@ -85,6 +85,27 @@ $page_css = <<<CSS
 .authority-links{margin-top:20px;font-size:13px;color:var(--muted)}
 .authority-links a{color:var(--teal);font-weight:600;text-decoration:none}
 .authority-links a:hover{text-decoration:underline}
+.why-body a{color:var(--teal);font-weight:600;text-decoration:none}
+.why-body a:hover{text-decoration:underline}
+
+/* DEFINITION BOX */
+.definition-section{background:var(--cream);padding:48px 40px}
+.definition-box{max-width:900px;margin:0 auto;display:flex;gap:24px;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:32px 36px}
+.definition-icon{width:52px;height:52px;border-radius:14px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.definition-title{font-family:'Syne',sans-serif;font-weight:700;font-size:19px;color:var(--forest);margin-bottom:8px}
+.definition-text{font-size:15.5px;line-height:1.75;color:var(--muted)}
+
+/* GEO SECTION */
+.geo-section{background:var(--forest);position:relative;overflow:hidden}
+.geo-inner{max-width:820px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.geo-inner .section-label{justify-content:center;color:var(--teal-lt)}
+.geo-inner .section-label::before{background:var(--teal-lt)}
+.geo-inner .section-h2{color:#fff;text-align:center}
+.geo-text{font-size:16px;line-height:1.8;color:rgba(255,255,255,.65);margin-top:16px}
+.geo-text a{color:var(--teal-lt);font-weight:600;text-decoration:none}
+.geo-text a:hover{text-decoration:underline}
+.geo-chips{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.geo-chip{display:flex;align-items:center;gap:8px;background:rgba(46,198,143,.1);border:1px solid rgba(46,198,143,.25);border-radius:100px;padding:9px 18px;font-family:'Syne',sans-serif;font-size:12.5px;font-weight:600;color:var(--teal-lt)}
 
 /* INCLUDED GRID */
 .included-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
@@ -202,7 +223,7 @@ echo '<script type="application/ld+json">' . json_encode([
   <div class="hero-left">
     <div class="hero-breadcrumb"><a href="/">Home</a> / <a href="/#services">Services</a> / <span>Home Care SEO</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Home Care SEO Services</div>
-    <h1 class="hero-h1">Get Found by the Families<br><em>Who Need You Most</em></h1>
+    <h1 class="hero-h1">Home Care SEO Services That<br><em>Help Families Find Your Agency</em></h1>
     <div class="hero-tagline"><em>SEO Strategies Built</em><br><em>for the Home Care Industry</em></div>
     <p class="hero-desc">Before a family ever picks up the phone, they search Google. We help home care agencies improve their online visibility with SEO built specifically for senior care, so more of those searches turn into real conversations.</p>
     <div class="hero-actions">
@@ -299,6 +320,19 @@ echo '<script type="application/ld+json">' . json_encode([
   </div>
 </div>
 
+<!-- DEFINITION -->
+<section class="definition-section">
+  <div class="container">
+    <div class="definition-box" data-reveal>
+      <div class="definition-icon"><i class="fa-solid fa-circle-question"></i></div>
+      <div>
+        <h2 class="definition-title">What Is Home Care SEO?</h2>
+        <p class="definition-text">Home Care SEO is the process of improving your agency's visibility in Google Search, Google Maps, and AI-powered search results so families looking for in-home care can find your services more easily.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- WHY SEO MATTERS -->
 <section class="why-section">
   <div class="container">
@@ -317,9 +351,14 @@ echo '<script type="application/ld+json">' . json_encode([
         <div class="why-img">
           <img src="/images/seo/home-care-seo-services.jpg" alt="Home Care SEO services helping agencies rank higher on Google" title="Home Care SEO services">
         </div>
-        <div class="why-stat-float">
-          <div class="why-stat-num">75%</div>
-          <div class="why-stat-label">Of clicks go to the top 3 results</div>
+        <div class="why-badge-float" style="top:auto;left:auto;bottom:-20px;right:-20px;min-width:230px">
+          <div class="why-badge-row">
+            <div class="why-badge-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div>
+              <div class="why-badge-text">Families Research Multiple Agencies</div>
+              <div class="why-badge-sub">Before they ever pick up the phone</div>
+            </div>
+          </div>
         </div>
         <div class="why-badge-float">
           <div class="why-badge-row">
@@ -354,8 +393,23 @@ echo '<script type="application/ld+json">' . json_encode([
         <div class="why-body">
           <p>Every industry has its own challenges. Home care is different because people aren't simply comparing prices — they're looking for compassion, professionalism, and confidence. That's why successful home care SEO is about much more than keywords.</p>
           <p>It requires understanding how families search, what information they need, and what builds trust before they ever contact your agency. We create SEO strategies that balance technical optimization with helpful, informative content designed for real people. Because better rankings mean very little if your website doesn't give families a reason to choose you.</p>
+          <p>Home Care SEO works even better when combined with our <a href="/web-design/homecare-website-design/">Website Design</a> service — a site built to convert the traffic your SEO strategy brings in.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTIMIZED FOR AI SEARCH -->
+<section class="geo-section">
+  <div class="container geo-inner" data-reveal>
+    <p class="section-label">Beyond Google</p>
+    <h2 class="section-h2">Optimized for AI Search,<br><em>Not Just Google</em></h2>
+    <p class="geo-text">Families are increasingly asking ChatGPT, Google AI, and other AI tools for recommendations before ever visiting traditional search results. Our <a href="/#services">AI Search Optimization</a> service helps your website become easier for both search engines and AI systems to understand by improving content quality, structured data, topical authority, and entity relationships.</p>
+    <div class="geo-chips">
+      <div class="geo-chip"><i class="fa-solid fa-comment-dots"></i>ChatGPT</div>
+      <div class="geo-chip"><i class="fa-solid fa-sparkles"></i>Google AI Overviews</div>
+      <div class="geo-chip"><i class="fa-solid fa-magnifying-glass"></i>Perplexity</div>
     </div>
   </div>
 </section>
@@ -370,7 +424,7 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
     <div class="included-grid" data-reveal style="transition-delay:.1s">
       <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-compass"></i></div><h3>SEO Strategy Built Around Your Agency</h3><p>We build a custom SEO strategy based on your service areas, competition, and business objectives instead of using a one-size-fits-all approach.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Local SEO</h3><p>Most home care searches happen locally. Whether someone searches "home care near me" or a specific city, we help improve your local visibility so families can find you when they're ready to take the next step.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Local SEO</h3><p>Most home care searches happen locally. Whether someone searches "home care near me" or a specific city, we help improve your local visibility so families can find you when they're ready to take the next step. See our dedicated <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO service</a> for the full breakdown.</p></div>
       <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Google Business Profile Optimization</h3><p>Your Google Business Profile is often the first thing potential clients see. We optimize every part of it, from business information to categories and ongoing improvements, to help increase visibility in Google Maps.</p></div>
       <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-pen-nib"></i></div><h3>Content That Builds Trust</h3><p>Families have questions before making a decision. We create content that answers those questions clearly, helping your website become a trusted resource while improving your search visibility at the same time.</p></div>
       <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-gauge-high"></i></div><h3>Technical SEO</h3><p>Behind every successful website is a strong technical foundation. We improve site speed, structure, internal linking, crawlability, and mobile performance so search engines understand your site better.</p></div>
