@@ -63,19 +63,22 @@ $page_css = <<<CSS
 
 /* ── SERVICES ── */
 .services-header{text-align:center;max-width:720px;margin:0 auto 24px}
-.svc-detail{padding:80px 40px}
-.svc-detail-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
-.svc-detail-icon{width:52px;height:52px;border-radius:14px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:22px}
-.svc-detail-grid p{font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:16px}
-.svc-detail-closer{font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;line-height:1.5;color:var(--forest);border-left:3px solid var(--teal);padding-left:18px;margin-top:24px}
-.svc-detail-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:32px;box-shadow:0 16px 48px rgba(10,46,30,.06)}
+.svc-detail{padding:72px 40px}
+.svc-detail-header{max-width:640px;margin:0 auto 40px;text-align:center}
+.svc-detail-icon{width:52px;height:52px;border-radius:14px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 18px}
+.svc-detail-header .section-label{justify-content:center}
+.svc-detail-cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.svc-detail-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:36px;box-shadow:0 16px 48px rgba(10,46,30,.06)}
+.svc-detail-card p{font-size:15.5px;line-height:1.8;color:var(--muted);margin-bottom:14px}
+.svc-detail-card p:last-of-type{margin-bottom:0}
+.svc-detail-closer{font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;line-height:1.5;color:var(--forest);border-left:3px solid var(--teal);padding-left:16px;margin-top:20px!important}
 .svc-detail-card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:18px}
-.svc-detail-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.svc-detail-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:0}
 .svc-detail-list li{display:flex;align-items:center;gap:12px;font-size:14.5px;color:var(--forest);font-weight:600}
 .svc-detail-list li i{width:26px;height:26px;border-radius:8px;background:rgba(29,158,117,.12);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
-.svc-detail-link{display:inline-flex;align-items:center;gap:7px;font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700;color:var(--teal);text-decoration:none;transition:.2s;border-top:1px solid var(--border);padding-top:20px}
+.svc-detail-link{display:inline-flex;align-items:center;gap:7px;font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700;color:var(--teal);text-decoration:none;transition:.2s;margin-top:24px;border-top:1px solid var(--border);padding-top:20px}
 .svc-detail-link:hover{color:var(--forest);gap:10px}
-@media(max-width:1024px){.svc-detail-grid{grid-template-columns:1fr;gap:32px}}
+@media(max-width:900px){.svc-detail-cards{grid-template-columns:1fr}}
 
 /* ── HOW IT WORKS ── */
 .how{background:#fff}
@@ -676,11 +679,13 @@ include 'includes/header.php';
 <!-- SERVICE: Home Care SEO -->
 <section class="svc-detail" style="background:var(--cream)">
   <div class="container">
-    <div class="svc-detail-grid">
-      <div data-reveal>
-        <div class="svc-detail-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-        <p class="section-label">Home Care SEO</p>
-        <h2 class="section-h2">Get Found by Families<br>When They Need <em>Care Most</em></h2>
+    <div class="svc-detail-header" data-reveal>
+      <div class="svc-detail-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+      <p class="section-label">Home Care SEO</p>
+      <h2 class="section-h2">Get Found by Families<br>When They Need <em>Care Most</em></h2>
+    </div>
+    <div class="svc-detail-cards">
+      <div class="svc-detail-card" data-reveal>
         <p>When someone starts looking for home care, they usually don't ask around first. They search online.</p>
         <p>They compare agencies, read reviews, visit websites, and often make a shortlist before they ever pick up the phone.</p>
         <p>If your agency isn't showing up in those searches, you're missing opportunities every single day.</p>
@@ -706,11 +711,13 @@ include 'includes/header.php';
 <!-- SERVICE: Home Care Website Design -->
 <section class="svc-detail" style="background:#fff">
   <div class="container">
-    <div class="svc-detail-grid">
-      <div data-reveal>
-        <div class="svc-detail-icon"><i class="fa-solid fa-laptop-code"></i></div>
-        <p class="section-label">Home Care Website Design</p>
-        <h2 class="section-h2">A Website That Builds Trust<br><em>Before the First Call</em></h2>
+    <div class="svc-detail-header" data-reveal>
+      <div class="svc-detail-icon"><i class="fa-solid fa-laptop-code"></i></div>
+      <p class="section-label">Home Care Website Design</p>
+      <h2 class="section-h2">A Website That Builds Trust<br><em>Before the First Call</em></h2>
+    </div>
+    <div class="svc-detail-cards">
+      <div class="svc-detail-card" data-reveal>
         <p>Families don't choose a home care provider because of fancy animations or trendy designs.</p>
         <p>They choose the agency that feels trustworthy, professional, and easy to contact. Your website should reassure families that they've found the right place.</p>
         <p>We create websites designed specifically for home care agencies: sites that clearly explain your services, answer common questions, showcase your experience, and guide visitors toward taking the next step.</p>
@@ -736,11 +743,13 @@ include 'includes/header.php';
 <!-- SERVICE: Local SEO -->
 <section class="svc-detail" style="background:var(--cream)">
   <div class="container">
-    <div class="svc-detail-grid">
-      <div data-reveal>
-        <div class="svc-detail-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-        <p class="section-label">Local SEO</p>
-        <h2 class="section-h2">Help Families Find Your<br>Agency <em>In Their Community</em></h2>
+    <div class="svc-detail-header" data-reveal>
+      <div class="svc-detail-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+      <p class="section-label">Local SEO</p>
+      <h2 class="section-h2">Help Families Find Your<br>Agency <em>In Their Community</em></h2>
+    </div>
+    <div class="svc-detail-cards">
+      <div class="svc-detail-card" data-reveal>
         <p>Most families aren't searching for home care across the country. They're looking for trusted providers close to home. That's why local visibility matters.</p>
         <p>We help your agency appear in Google Maps and local search results when families search for services in your city or surrounding areas.</p>
         <p>Whether you serve one community or multiple counties across Florida, we build a local SEO strategy that helps your agency become more visible where it matters most.</p>
@@ -765,11 +774,13 @@ include 'includes/header.php';
 <!-- SERVICE: AI Search Optimization (GEO) -->
 <section class="svc-detail" style="background:#fff">
   <div class="container">
-    <div class="svc-detail-grid">
-      <div data-reveal>
-        <div class="svc-detail-icon"><i class="fa-solid fa-brain"></i></div>
-        <p class="section-label">AI Search Optimization (GEO)</p>
-        <h2 class="section-h2">Be Visible in the<br><em>Future of Search</em></h2>
+    <div class="svc-detail-header" data-reveal>
+      <div class="svc-detail-icon"><i class="fa-solid fa-brain"></i></div>
+      <p class="section-label">AI Search Optimization (GEO)</p>
+      <h2 class="section-h2">Be Visible in the<br><em>Future of Search</em></h2>
+    </div>
+    <div class="svc-detail-cards">
+      <div class="svc-detail-card" data-reveal>
         <p>The way people search is changing. Families are starting to ask ChatGPT, Google AI, Gemini, and other AI-powered tools for recommendations instead of only using traditional Google searches.</p>
         <p>That means your website needs to be prepared for more than just search engines.</p>
         <p>We help home care agencies create content and structure their websites in ways that make them easier for AI-powered search platforms to understand, trust, and recommend.</p>
@@ -794,11 +805,13 @@ include 'includes/header.php';
 <!-- SERVICE: AI & Automation -->
 <section class="svc-detail" style="background:var(--cream)">
   <div class="container">
-    <div class="svc-detail-grid">
-      <div data-reveal>
-        <div class="svc-detail-icon"><i class="fa-solid fa-gears"></i></div>
-        <p class="section-label">AI & Automation</p>
-        <h2 class="section-h2">Spend Less Time Chasing Leads,<br><em>More Time Giving Care</em></h2>
+    <div class="svc-detail-header" data-reveal>
+      <div class="svc-detail-icon"><i class="fa-solid fa-gears"></i></div>
+      <p class="section-label">AI & Automation</p>
+      <h2 class="section-h2">Spend Less Time Chasing Leads,<br><em>More Time Giving Care</em></h2>
+    </div>
+    <div class="svc-detail-cards">
+      <div class="svc-detail-card" data-reveal>
         <p>Running a home care agency comes with enough moving parts already. Answering inquiries, following up with families, scheduling consultations, and keeping everything organized can quickly become overwhelming.</p>
         <p>We help automate the repetitive work so your team can focus on delivering exceptional care.</p>
         <p>From AI chat assistants that answer questions after hours to automated follow-ups that ensure no inquiry is forgotten, we build systems that help your agency respond faster and stay connected with every potential client.</p>
