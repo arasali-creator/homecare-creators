@@ -1,7 +1,7 @@
 <?php
 $page_title = "Home Care SEO Services That Help Agencies Grow | HomeCareCreators";
 $page_desc = "Improve your online visibility with Home Care SEO services designed for home care agencies. Attract more families, rank higher on Google, and generate qualified leads with SEO strategies built for the senior care industry.";
-$page_canonical = "https://homecarecreators.com/home-care-seo/";
+$page_canonical = "https://homecarecreators.com/seo/home-care-seo/";
 $og_title = "Home Care SEO Services | HomeCareCreators";
 $og_desc = "Help more families find your home care agency with SEO strategies designed specifically for the home care industry.";
 $page_css = <<<CSS
@@ -163,7 +163,7 @@ $page_css = <<<CSS
 @media(max-width:1024px){.hero{grid-template-columns:1fr;min-height:auto}.hero-right{display:none}.hero-left{padding:140px 48px 80px}.included-grid,.related-grid{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:1fr;gap:48px}.why-grid.rev .why-visual,.why-grid.rev .why-copy{order:initial}.process-grid{grid-template-columns:repeat(3,1fr)}.process-grid::before{display:none}.cta-inner{grid-template-columns:1fr}.cta-image{display:none}.outcomes-grid{grid-template-columns:1fr}}
 @media(max-width:640px){section{padding:64px 20px}.included-grid,.related-grid,.outcomes-grid{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr 1fr}}
 CSS;
-include '../includes/header.php';
+include '../../includes/header.php';
 
 // ── Structured data: BreadcrumbList, Service, FAQPage ──────────
 $_bc = [
@@ -570,4 +570,4 @@ echo '<script type="application/ld+json">' . json_encode([
   </div>
 </section>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../../includes/footer.php'; ?>
