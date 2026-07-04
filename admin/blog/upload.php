@@ -65,14 +65,22 @@ if ($file['size'] > 5 * 1024 * 1024) {
 
 $subdir     = date('Y/m');
 $upload_dir = SITE_ROOT . '/images/blog/' . $subdir . '/';
-if (!is_dir($upload_dir)) mkdir($upload_dir, 0755, true);
+if (!is_dir($upload_dir) && !@mkdir($upload_dir, 0755, true) && !is_dir($upload_dir)) {
+    echo json_encode(['success' => false, 'error' => 'Could not create folder /images/blog/' . $subdir . '/ — the web server user does not have write permission on /images/blog/. Run on the server: chmod -R 755 images/blog && chown -R $(whoami):$(whoami) images/blog']);
+    exit;
+}
+if (!is_writable($upload_dir)) {
+    echo json_encode(['success' => false, 'error' => 'Folder /images/blog/' . $subdir . '/ exists but is not writable by the web server. Run on the server: chmod -R 755 images/blog']);
+    exit;
+}
 
 $ext      = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 $filename = uniqid('img_', true) . '.' . $ext;
 $dest     = $upload_dir . $filename;
 
 if (!move_uploaded_file($file['tmp_name'], $dest)) {
-    echo json_encode(['success' => false, 'error' => 'Could not save file. Check folder permissions on /images/blog/.']);
+    $err = error_get_last();
+    echo json_encode(['success' => false, 'error' => 'Could not save file: ' . ($err['message'] ?? 'unknown error') . '. Check that /images/blog/ is owned by the web server user.']);
     exit;
 }
 

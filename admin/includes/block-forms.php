@@ -73,6 +73,12 @@ function hc_render_repeater_row(array $subFields, array $item): string {
         $subType = $subField['type'] ?? 'text';
         if ($subType === 'textarea') {
             $inner .= '<div class="pb-subfield"><label>' . $subLabel . '</label><textarea data-subfield="' . h($subKey) . '" rows="2">' . $val . '</textarea></div>';
+        } elseif ($subType === 'image') {
+            $inner .= '<div class="pb-subfield"><label>' . $subLabel . '</label><div class="pb-image-field">'
+                . '<img src="' . $val . '" class="pb-image-preview" style="' . ($val === '' ? 'display:none' : '') . '">'
+                . '<input type="text" data-subfield="' . h($subKey) . '" value="' . $val . '" placeholder="No image selected" readonly>'
+                . '<button type="button" class="btn btn-secondary btn-sm" onclick="pbOpenMedia(this)">Choose Image</button>'
+                . '</div></div>';
         } else {
             $inner .= '<div class="pb-subfield"><label>' . $subLabel . '</label><input type="text" data-subfield="' . h($subKey) . '" value="' . $val . '"></div>';
         }
@@ -88,5 +94,34 @@ function hc_render_block_form(int $blockId, string $type, array $data): string {
     foreach ($fields as $fieldKey => $field) {
         $out .= hc_render_field($fieldKey, $field, $data[$fieldKey] ?? null);
     }
+    $out .= hc_render_style_section($data);
     return $out;
+}
+
+/** Universal per-block appearance controls (background, text color, padding, alignment). */
+function hc_render_style_section(array $data): string {
+    $bg      = h($data['_style_bg'] ?? '');
+    $color   = h($data['_style_color'] ?? '');
+    $padding = h($data['_style_padding'] ?? 'normal');
+    $align   = h($data['_style_align'] ?? 'left');
+
+    $paddingOpts = ['normal' => 'Default', 'compact' => 'Compact', 'spacious' => 'Spacious'];
+    $paddingHtml = '';
+    foreach ($paddingOpts as $val => $label) {
+        $paddingHtml .= '<option value="' . $val . '"' . ($padding === $val ? ' selected' : '') . '>' . $label . '</option>';
+    }
+    $alignOpts = ['left' => 'Left', 'center' => 'Center', 'right' => 'Right'];
+    $alignHtml = '';
+    foreach ($alignOpts as $val => $label) {
+        $alignHtml .= '<option value="' . $val . '"' . ($align === $val ? ' selected' : '') . '>' . $label . '</option>';
+    }
+
+    return '<div class="pb-style-section">'
+        . '<div class="pb-style-toggle" onclick="this.parentElement.classList.toggle(\'open\')"><i class="fa-solid fa-palette"></i> Style</div>'
+        . '<div class="pb-style-body">'
+        . '<div class="pb-field"><label>Background Color</label><input type="text" data-field="_style_bg" value="' . $bg . '" placeholder="#ffffff or transparent"></div>'
+        . '<div class="pb-field"><label>Text Color</label><input type="text" data-field="_style_color" value="' . $color . '" placeholder="#111111"></div>'
+        . '<div class="pb-field"><label>Padding</label><select data-field="_style_padding">' . $paddingHtml . '</select></div>'
+        . '<div class="pb-field"><label>Text Align</label><select data-field="_style_align">' . $alignHtml . '</select></div>'
+        . '</div></div>';
 }

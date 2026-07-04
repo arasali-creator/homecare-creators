@@ -126,6 +126,11 @@ hc_head($page ? 'Edit: ' . $page['title'] : 'New Page');
 .pb-block-type-btn:hover{border-color:var(--teal);color:var(--teal);background:rgba(29,158,117,.05)}
 .pb-block-type-btn i{font-size:16px;color:var(--teal)}
 
+.pb-style-section{margin-top:10px;padding-top:12px;border-top:1px dashed var(--border)}
+.pb-style-toggle{cursor:pointer;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:10px}
+.pb-style-body{display:none}
+.pb-style-section.open .pb-style-body{display:block}
+
 .pb-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center}
 .pb-modal-overlay.open{display:flex}
 .pb-modal{background:#fff;border-radius:12px;width:100%;max-width:640px;max-height:80vh;display:flex;flex-direction:column;overflow:hidden}
@@ -319,7 +324,7 @@ function pbToggleForm(btn) {
 function pbCollectBlockData(item) {
   var data = {};
   var form = item.querySelector('.pb-block-form');
-  form.querySelectorAll(':scope > .pb-field').forEach(function(fieldDiv) {
+  form.querySelectorAll('.pb-field').forEach(function(fieldDiv) {
     if (fieldDiv.classList.contains('pb-repeater')) {
       var key = fieldDiv.dataset.field;
       var items = [];
@@ -418,7 +423,7 @@ function pbRemoveRepeaterItem(btn) {
 var pbMediaTarget = null;
 
 function pbOpenMedia(btn) {
-  pbMediaTarget = btn.parentElement.querySelector('[data-field]');
+  pbMediaTarget = btn.parentElement.querySelector('[data-field], [data-subfield]');
   document.getElementById('pbMediaModal').classList.add('open');
   pbLoadMediaLibrary();
 }
