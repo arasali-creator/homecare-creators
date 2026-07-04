@@ -315,7 +315,7 @@ echo '<script type="application/ld+json">' . json_encode([
       </div>
       <div class="why-visual" data-reveal style="transition-delay:.15s">
         <div class="why-img">
-          <img src="/images/home/service-local-seo.jpg" alt="Home Care SEO services helping agencies rank higher on Google" title="Home Care SEO services">
+          <img src="/images/seo/home-care-seo-services.jpg" alt="Home Care SEO services helping agencies rank higher on Google" title="Home Care SEO services">
         </div>
         <div class="why-stat-float">
           <div class="why-stat-num">75%</div>
@@ -341,7 +341,7 @@ echo '<script type="application/ld+json">' . json_encode([
     <div class="why-grid rev">
       <div class="why-visual" data-reveal>
         <div class="why-img">
-          <img src="/images/home/why-team-training.jpg" alt="SEO strategy for home care agencies built around trust and compassion" title="SEO strategy for home care agencies">
+          <img src="/images/seo/home-care-seo-process.jpg" alt="SEO strategy for home care agencies" title="SEO strategy for home care agencies">
         </div>
         <div class="why-stat-float">
           <div class="why-stat-num">100%</div>
