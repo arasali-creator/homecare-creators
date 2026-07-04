@@ -468,13 +468,10 @@ include 'includes/header.php';
   <div class="hero-blob2"></div>
   <div class="hero-left">
     <div class="hero-badge">
-      <div class="hero-badge-pulse"></div>The #1 Agency Exclusively for Homecare
+      <div class="hero-badge-pulse"></div>The #1 Marketing Agency Exclusively for Homecare
     </div>
     <h1 class="hero-h1">Florida Home Care <br><em>Marketing Agency</em></h1>
-    <div class="hero-tagline"><em>Helping Home Care Agencies Across Florida</em><br><em>Get More Private-Pay Clients Through SEO, Website Design & Local Marketing.</em></div>
-    <p class="hero-desc">We build your website, take over your local search rankings, and run the marketing.
-      Then our AI tools handle a chunk of the day-to-day operations too. You focus on delivering care. We chase
-      the clients.</p>
+    <p class="hero-desc">Grow your home care agency with marketing built for your industry. We help agencies across Florida attract more qualified leads through SEO, high-converting websites, local SEO, and AI-powered marketing.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup('audit')"><i class="fa-solid fa-rocket"></i>Book Free Growth
         Audit</button>
