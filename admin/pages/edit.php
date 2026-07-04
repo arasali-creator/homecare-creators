@@ -73,11 +73,32 @@ hc_head($page ? 'Edit: ' . $page['title'] : 'New Page');
 ?>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
 <style>
+.pb-page-content{padding:0 !important;display:flex;flex-direction:column;height:calc(100vh - 54px)}
+.pb-builder{display:flex;flex:1;min-height:0}
+
+.pb-left-panel{width:400px;flex-shrink:0;border-right:1px solid var(--border);background:#fff;overflow-y:auto;padding:18px}
+.pb-preview-pane{flex:1;display:flex;flex-direction:column;background:#e5e7eb;min-width:0}
+.pb-preview-toolbar{padding:10px 16px;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0}
+.pb-preview-toolbar .spacer{flex:1}
+.pb-preview-frame-wrap{flex:1;overflow:auto;display:flex;justify-content:center;padding:20px}
+#pbPreviewFrame{width:100%;height:100%;border:0;background:#fff;box-shadow:0 4px 24px rgba(0,0,0,.08);max-width:1400px}
+.pb-preview-frame-wrap.pb-viewport-tablet #pbPreviewFrame{max-width:768px}
+.pb-preview-frame-wrap.pb-viewport-mobile #pbPreviewFrame{max-width:390px}
+.pb-viewport-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:6px 9px;cursor:pointer;color:var(--muted)}
+.pb-viewport-btn.active{color:var(--teal);border-color:var(--teal);background:rgba(29,158,117,.08)}
+
+.pb-settings-toggle{display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:700;font-size:13px;color:var(--text);padding:4px 0 12px}
+.pb-settings-toggle i{transition:.2s;font-size:11px;color:var(--muted)}
+.pb-settings-toggle.open i{transform:rotate(180deg)}
+.pb-settings-body{display:none;margin-bottom:14px}
+.pb-settings-body.open{display:block}
+
 .pb-field{margin-bottom:14px}
 .pb-field > label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:4px}
 .pb-field input[type=text],.pb-field textarea,.pb-field select{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;background:#fff}
 .pb-block-item{border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;background:#fff;overflow:hidden}
 .pb-block-item.pb-ghost{opacity:.4}
+.pb-block-item.pb-active-preview{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal)}
 .pb-block-header{display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fafafa}
 .pb-drag-handle{cursor:grab;color:var(--muted);font-size:14px}
 .pb-block-icon{color:var(--teal);font-size:14px;width:20px;text-align:center}
@@ -100,11 +121,11 @@ hc_head($page ? 'Edit: ' . $page['title'] : 'New Page');
 .pb-image-preview{width:44px;height:44px;object-fit:cover;border-radius:6px;border:1px solid var(--border)}
 .pb-add-block{margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
 .pb-add-block-label{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
-.pb-add-block-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
-.pb-block-type-btn{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 10px;border:1.5px dashed var(--border);border-radius:8px;background:#fff;cursor:pointer;font-size:11.5px;color:var(--text);text-align:center}
+.pb-add-block-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:10px}
+.pb-block-type-btn{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;border:1.5px dashed var(--border);border-radius:8px;background:#fff;cursor:pointer;font-size:11px;color:var(--text);text-align:center}
 .pb-block-type-btn:hover{border-color:var(--teal);color:var(--teal);background:rgba(29,158,117,.05)}
-.pb-block-type-btn i{font-size:18px;color:var(--teal)}
-.pb-settings-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pb-block-type-btn i{font-size:16px;color:var(--teal)}
+
 .pb-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center}
 .pb-modal-overlay.open{display:flex}
 .pb-modal{background:#fff;border-radius:12px;width:100%;max-width:640px;max-height:80vh;display:flex;flex-direction:column;overflow:hidden}
@@ -118,15 +139,16 @@ hc_head($page ? 'Edit: ' . $page['title'] : 'New Page');
 .pb-media-item img{width:100%;height:100%;object-fit:cover;display:block}
 .pb-media-item:hover{border-color:var(--teal)}
 #pbMediaUpload{padding:20px}
+
+.pb-addbar-overlay{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:900}
 </style>
 <?php
 hc_topbar($page ? 'Edit Page' : 'New Page', '<a href="/admin/">Admin</a> &rsaquo; <a href="/admin/pages/">Pages</a> &rsaquo; ' . ($page ? h($page['title']) : 'New'));
 ?>
-<div class="page-content">
-<?= hc_show_flash() ?>
-
+<div class="page-content<?= $page ? ' pb-page-content' : '' ?>">
 <?php if (!$page): ?>
 
+<?= hc_show_flash() ?>
 <div class="card" style="max-width:520px">
   <h3 style="margin-bottom:16px">Create a New Page</h3>
   <form method="POST">
@@ -146,68 +168,87 @@ function pbSyncSlug() {
 
 <?php else: ?>
 
-<div class="card">
-  <form method="POST" class="pb-settings-form">
-    <div class="pb-field"><label>Page Title</label><input type="text" name="title" value="<?= h($page['title']) ?>"></div>
-    <div class="pb-field"><label>URL Slug</label><input type="text" name="slug" value="<?= h($page['slug']) ?>"></div>
-    <div class="pb-field"><label>Meta Title</label><input type="text" name="meta_title" value="<?= h($page['meta_title']) ?>"></div>
-    <div class="pb-field"><label>Meta Description</label><input type="text" name="meta_desc" value="<?= h($page['meta_desc']) ?>"></div>
-    <div class="pb-field">
-      <label>Status</label>
-      <select name="status">
-        <option value="draft" <?= $page['status'] === 'draft' ? 'selected' : '' ?>>Draft</option>
-        <option value="published" <?= $page['status'] === 'published' ? 'selected' : '' ?>>Published</option>
-      </select>
-    </div>
-    <div style="align-self:end;display:flex;gap:10px;margin-bottom:14px">
-      <button type="submit" name="save_settings" value="1" class="btn btn-primary">Save Settings</button>
-      <a href="/page.php?slug=<?= urlencode($page['slug']) ?>&preview=1" target="_blank" class="btn btn-secondary">Preview</a>
-      <?php if ($page['status'] === 'published'): ?>
-      <a href="/<?= h($page['slug']) ?>/" target="_blank" class="btn btn-secondary">View Live</a>
-      <?php endif ?>
-    </div>
-  </form>
-</div>
+<div class="pb-builder">
+  <div class="pb-left-panel">
+    <?= hc_show_flash() ?>
 
-<div class="card">
-  <h3 style="margin-bottom:16px">Content Blocks</h3>
-  <div id="pbBlockList" data-page-id="<?= (int)$page['id'] ?>">
-    <?php foreach ($blocks as $b):
-        $data = json_decode($b['block_data'], true);
-        if (!is_array($data)) $data = [];
-        $type = $b['block_type'];
-        $meta = $registry[$type] ?? ['label' => $type, 'icon' => 'fa-solid fa-cube'];
-        $summaryRaw = $data['headline'] ?? $data['eyebrow'] ?? '';
-    ?>
-    <div class="pb-block-item" data-block-id="<?= (int)$b['id'] ?>" data-block-type="<?= h($type) ?>">
-      <div class="pb-block-header">
-        <span class="pb-drag-handle"><i class="fa-solid fa-grip-vertical"></i></span>
-        <span class="pb-block-icon"><i class="<?= h($meta['icon']) ?>"></i></span>
-        <span class="pb-block-label"><?= h($meta['label']) ?></span>
-        <span class="pb-block-summary"><?= h(mb_strimwidth($summaryRaw, 0, 60, '…')) ?></span>
-        <span class="pb-block-actions">
-          <button type="button" onclick="pbToggleForm(this)"><i class="fa-solid fa-pen"></i> Edit</button>
-          <button type="button" onclick="pbDeleteBlock(this)" class="danger"><i class="fa-solid fa-trash"></i></button>
-        </span>
-      </div>
-      <div class="pb-block-form-wrap" style="display:none">
-        <div class="pb-block-form"><?= hc_render_block_form((int)$b['id'], $type, $data) ?></div>
-        <button type="button" class="btn btn-primary btn-sm" onclick="pbSaveBlock(this)">Save Block</button>
-        <span class="pb-save-status"></span>
-      </div>
+    <div class="pb-settings-toggle" onclick="pbToggleSettings(this)">
+      <i class="fa-solid fa-chevron-down"></i> Page Settings — <?= h($page['title']) ?>
     </div>
-    <?php endforeach ?>
-  </div>
-  <?php if (!$blocks): ?><p style="color:var(--muted);font-size:13px;padding:10px 0 0">No blocks yet — add one below to get started.</p><?php endif ?>
+    <div class="pb-settings-body">
+      <form method="POST" class="pb-settings-form">
+        <div class="pb-field"><label>Page Title</label><input type="text" name="title" value="<?= h($page['title']) ?>"></div>
+        <div class="pb-field"><label>URL Slug</label><input type="text" name="slug" value="<?= h($page['slug']) ?>"></div>
+        <div class="pb-field"><label>Meta Title</label><input type="text" name="meta_title" value="<?= h($page['meta_title']) ?>"></div>
+        <div class="pb-field"><label>Meta Description</label><input type="text" name="meta_desc" value="<?= h($page['meta_desc']) ?>"></div>
+        <div class="pb-field">
+          <label>Status</label>
+          <select name="status">
+            <option value="draft" <?= $page['status'] === 'draft' ? 'selected' : '' ?>>Draft</option>
+            <option value="published" <?= $page['status'] === 'published' ? 'selected' : '' ?>>Published</option>
+          </select>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button type="submit" name="save_settings" value="1" class="btn btn-primary btn-sm">Save Settings</button>
+          <?php if ($page['status'] === 'published'): ?>
+          <a href="/<?= h($page['slug']) ?>/" target="_blank" class="btn btn-secondary btn-sm">View Live</a>
+          <?php endif ?>
+        </div>
+      </form>
+    </div>
 
-  <div class="pb-add-block">
-    <div class="pb-add-block-label">Add a Block</div>
-    <div class="pb-add-block-grid">
-      <?php foreach ($registry as $type => $meta): ?>
-      <button type="button" class="pb-block-type-btn" onclick="pbAddBlock('<?= h($type) ?>')">
-        <i class="<?= h($meta['icon']) ?>"></i><span><?= h($meta['label']) ?></span>
-      </button>
+    <div id="pbBlockList" data-page-id="<?= (int)$page['id'] ?>">
+      <?php foreach ($blocks as $b):
+          $data = json_decode($b['block_data'], true);
+          if (!is_array($data)) $data = [];
+          $type = $b['block_type'];
+          $meta = $registry[$type] ?? ['label' => $type, 'icon' => 'fa-solid fa-cube'];
+          $summaryRaw = $data['headline'] ?? $data['eyebrow'] ?? '';
+      ?>
+      <div class="pb-block-item" data-block-id="<?= (int)$b['id'] ?>" data-block-type="<?= h($type) ?>">
+        <div class="pb-block-header">
+          <span class="pb-drag-handle"><i class="fa-solid fa-grip-vertical"></i></span>
+          <span class="pb-block-icon"><i class="<?= h($meta['icon']) ?>"></i></span>
+          <span class="pb-block-label"><?= h($meta['label']) ?></span>
+          <span class="pb-block-summary"><?= h(mb_strimwidth($summaryRaw, 0, 40, '…')) ?></span>
+          <span class="pb-block-actions">
+            <button type="button" onclick="pbToggleForm(this)"><i class="fa-solid fa-pen"></i></button>
+            <button type="button" onclick="pbDeleteBlock(this)" class="danger"><i class="fa-solid fa-trash"></i></button>
+          </span>
+        </div>
+        <div class="pb-block-form-wrap" style="display:none">
+          <div class="pb-block-form"><?= hc_render_block_form((int)$b['id'], $type, $data) ?></div>
+          <button type="button" class="btn btn-primary btn-sm" onclick="pbSaveBlock(this)">Save &amp; Update Preview</button>
+          <span class="pb-save-status"></span>
+        </div>
+      </div>
       <?php endforeach ?>
+    </div>
+    <?php if (!$blocks): ?><p style="color:var(--muted);font-size:13px;padding:10px 0 0">No blocks yet — add one below to get started.</p><?php endif ?>
+
+    <div class="pb-add-block">
+      <div class="pb-add-block-label">Add a Block</div>
+      <div class="pb-add-block-grid">
+        <?php foreach ($registry as $type => $meta): ?>
+        <button type="button" class="pb-block-type-btn" onclick="pbAddBlock('<?= h($type) ?>')">
+          <i class="<?= h($meta['icon']) ?>"></i><span><?= h($meta['label']) ?></span>
+        </button>
+        <?php endforeach ?>
+      </div>
+    </div>
+  </div>
+
+  <div class="pb-preview-pane">
+    <div class="pb-preview-toolbar">
+      <strong style="font-size:12.5px"><i class="fa-solid fa-eye"></i> Live Preview</strong>
+      <span class="spacer"></span>
+      <button type="button" class="pb-viewport-btn active" onclick="pbSetViewport('desktop', this)" title="Desktop"><i class="fa-solid fa-desktop"></i></button>
+      <button type="button" class="pb-viewport-btn" onclick="pbSetViewport('tablet', this)" title="Tablet"><i class="fa-solid fa-tablet-screen-button"></i></button>
+      <button type="button" class="pb-viewport-btn" onclick="pbSetViewport('mobile', this)" title="Mobile"><i class="fa-solid fa-mobile-screen-button"></i></button>
+      <button type="button" class="pb-viewport-btn" onclick="pbRefreshPreview()" title="Refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
+    </div>
+    <div class="pb-preview-frame-wrap" id="pbPreviewWrap">
+      <iframe id="pbPreviewFrame" src="/page.php?slug=<?= urlencode($page['slug']) ?>&preview=1"></iframe>
     </div>
   </div>
 </div>
@@ -242,13 +283,32 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+function pbToggleSettings(el) {
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+
+function pbRefreshPreview() {
+  var frame = document.getElementById('pbPreviewFrame');
+  frame.src = frame.src;
+}
+
+function pbSetViewport(mode, btn) {
+  document.querySelectorAll('.pb-viewport-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  var wrap = document.getElementById('pbPreviewWrap');
+  wrap.classList.remove('pb-viewport-tablet', 'pb-viewport-mobile');
+  if (mode === 'tablet') wrap.classList.add('pb-viewport-tablet');
+  if (mode === 'mobile') wrap.classList.add('pb-viewport-mobile');
+}
+
 function pbSaveOrder() {
   var ids = Array.from(document.querySelectorAll('#pbBlockList .pb-block-item')).map(function(el) { return el.dataset.blockId; });
   fetch('/admin/pages/ajax.php', {
     method: 'POST',
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     body: 'action=reorder&order=' + encodeURIComponent(JSON.stringify(ids))
-  });
+  }).then(function() { pbRefreshPreview(); });
 }
 
 function pbToggleForm(btn) {
@@ -290,7 +350,8 @@ function pbSaveBlock(btn) {
     status.textContent = res.success ? 'Saved ✓' : (res.error || 'Error saving');
     if (res.success) {
       var summary = data.headline || data.eyebrow || '';
-      item.querySelector('.pb-block-summary').textContent = summary.length > 60 ? summary.slice(0, 60) + '…' : summary;
+      item.querySelector('.pb-block-summary').textContent = summary.length > 40 ? summary.slice(0, 40) + '…' : summary;
+      pbRefreshPreview();
     }
     setTimeout(function() { status.textContent = ''; }, 2500);
   }).catch(function() { status.textContent = 'Error saving'; });
@@ -304,7 +365,7 @@ function pbDeleteBlock(btn) {
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     body: 'action=delete_block&block_id=' + item.dataset.blockId
   }).then(function(r) { return r.json(); }).then(function(res) {
-    if (res.success) item.remove();
+    if (res.success) { item.remove(); pbRefreshPreview(); }
   });
 }
 
@@ -327,17 +388,18 @@ function pbAddBlock(type) {
         '<span class="pb-block-label">' + res.label + '</span>' +
         '<span class="pb-block-summary"></span>' +
         '<span class="pb-block-actions">' +
-          '<button type="button" onclick="pbToggleForm(this)"><i class="fa-solid fa-pen"></i> Edit</button>' +
+          '<button type="button" onclick="pbToggleForm(this)"><i class="fa-solid fa-pen"></i></button>' +
           '<button type="button" onclick="pbDeleteBlock(this)" class="danger"><i class="fa-solid fa-trash"></i></button>' +
         '</span>' +
       '</div>' +
       '<div class="pb-block-form-wrap" style="display:block">' +
         '<div class="pb-block-form">' + res.form + '</div>' +
-        '<button type="button" class="btn btn-primary btn-sm" onclick="pbSaveBlock(this)">Save Block</button>' +
+        '<button type="button" class="btn btn-primary btn-sm" onclick="pbSaveBlock(this)">Save &amp; Update Preview</button>' +
         '<span class="pb-save-status"></span>' +
       '</div>';
     list.appendChild(div);
     div.scrollIntoView({behavior: 'smooth', block: 'center'});
+    pbRefreshPreview();
   });
 }
 
