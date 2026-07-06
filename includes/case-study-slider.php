@@ -15,13 +15,13 @@ $csm_studies = require __DIR__ . '/case-studies-data.php';
 .csm-card:hover{box-shadow:0 14px 40px rgba(10,46,30,.1);transform:translateY(-3px)}
 .csm-card img{width:100%;display:block;border-bottom:1px solid var(--border)}
 .csm-card-body{padding:20px 22px 24px}
-.csm-card-badge{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
-.csm-card-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--forest);margin-bottom:14px}
+.csm-card-badge{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.csm-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--forest);margin-bottom:14px}
 .csm-card-title span{color:var(--muted);font-weight:500}
 .csm-stats-row{display:flex;gap:10px}
 .csm-stat{flex:1;background:var(--warm);border:1px solid var(--border);border-radius:10px;padding:10px 6px;text-align:center}
-.csm-stat-num{font-family:'Instrument Serif',serif;font-size:19px;color:var(--teal);line-height:1}
-.csm-stat-label{font-size:9px;color:var(--muted);font-family:'Syne',sans-serif;font-weight:600;margin-top:3px}
+.csm-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;color:var(--teal);line-height:1}
+.csm-stat-label{font-size:9px;color:var(--muted);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-top:3px}
 .csm-controls{display:flex;justify-content:center;gap:12px;margin-top:32px;align-items:center}
 .csm-btn{width:40px;height:40px;border-radius:50%;background:var(--forest);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:.25s}
 .csm-btn:hover{background:var(--teal)}

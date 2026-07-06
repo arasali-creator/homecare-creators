@@ -11,37 +11,37 @@ $page_css = <<<CSS
 .hero-blob1{position:absolute;width:700px;height:700px;top:-200px;right:-150px;background:radial-gradient(circle,rgba(29,158,117,.16) 0%,transparent 65%);animation:float 10s ease-in-out infinite}
 .hero-blob2{position:absolute;width:500px;height:500px;bottom:-150px;left:-100px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 65%);animation:float 13s ease-in-out infinite reverse}
 .hero-content{position:relative;z-index:2;max-width:780px}
-.hero-breadcrumb{font-family:'Syne',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,.4);margin-bottom:20px}
+.hero-breadcrumb{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,.4);margin-bottom:20px}
 .hero-breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none}
 .hero-breadcrumb span{color:var(--teal-lt)}
-.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Syne',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;width:fit-content;animation:fadeIn .6s ease both}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;width:fit-content;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
-.hero-h1{font-family:'Instrument Serif',serif;font-size:clamp(38px,5vw,64px);line-height:1.06;color:#fff;margin-bottom:22px;animation:fadeUp .8s .1s ease both}
+.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(38px,5vw,64px);line-height:1.06;color:#fff;margin-bottom:22px;animation:fadeUp .8s .1s ease both}
 .hero-h1 em{font-style:italic;color:var(--teal-lt)}
-.hero-desc{font-size:17px;line-height:1.78;color:rgba(255,255,255,.65);max-width:560px;margin-bottom:40px;animation:fadeUp .8s .25s ease both}
+.hero-desc{font-size:19px;line-height:1.78;color:rgba(255,255,255,.65);max-width:560px;margin-bottom:40px;animation:fadeUp .8s .25s ease both}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .38s ease both;margin-bottom:52px}
 .hero-proof{display:flex;gap:32px;flex-wrap:wrap;animation:fadeUp .8s .5s ease both}
 .hero-proof-item{display:flex;flex-direction:column;gap:2px}
-.hero-proof-num{font-family:'Instrument Serif',serif;font-size:34px;color:var(--teal-lt);line-height:1}
-.hero-proof-label{font-family:'Syne',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.42)}
+.hero-proof-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:34px;color:var(--teal-lt);line-height:1}
+.hero-proof-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.42)}
 .hero-proof-divider{width:1px;background:rgba(255,255,255,.1);align-self:stretch}
 
 /* TICKER */
 .ticker-wrap{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:14px 0}
 .ticker-inner{display:flex;width:max-content;animation:ticker 32s linear infinite}
-.ticker-item{display:flex;align-items:center;gap:10px;padding:0 38px;font-family:'Syne',sans-serif;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;white-space:nowrap}
+.ticker-item{display:flex;align-items:center;gap:10px;padding:0 38px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;white-space:nowrap}
 .ticker-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0}
 .ticker-item i{color:var(--teal);font-size:13px}
 
 /* MARKET SECTION */
 .market-section{background:#fff}
 .market-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
-.market-body p{font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:16px}
+.market-body p{font-size:18px;line-height:1.8;color:var(--muted);margin-bottom:16px}
 .market-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
 .fact-card{background:var(--warm);border:1px solid var(--border);border-radius:var(--r);padding:22px;border-left:4px solid var(--teal)}
-.fact-num{font-family:'Instrument Serif',serif;font-size:32px;color:var(--teal);line-height:1;margin-bottom:6px}
-.fact-card h4{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--forest);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
-.fact-card p{font-size:13px;color:var(--muted);line-height:1.6}
+.fact-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;color:var(--teal);line-height:1;margin-bottom:6px}
+.fact-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:var(--forest);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.fact-card p{font-size:15px;color:var(--muted);line-height:1.6}
 
 /* SERVICES */
 .services-section{background:var(--cream)}
@@ -55,8 +55,8 @@ $page_css = <<<CSS
 .svc-card-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(10,46,30,.7))}
 .svc-card-img-icon{position:absolute;top:14px;left:14px;width:36px;height:36px;background:var(--teal);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px}
 .svc-card-body{padding:24px}
-.svc-card-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--forest);margin-bottom:10px}
-.svc-card-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.svc-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;color:var(--forest);margin-bottom:10px}
+.svc-card-desc{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:16px}
 .svc-card-features{list-style:none;display:flex;flex-direction:column;gap:7px}
 .svc-card-features li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text)}
 .svc-card-features li i{color:var(--teal);font-size:12px;margin-top:2px;flex-shrink:0}
@@ -67,18 +67,18 @@ $page_css = <<<CSS
 .kw-card{background:var(--warm);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:border-color .2s}
 .kw-card:hover{border-color:var(--teal)}
 .kw-term{font-size:14px;font-weight:500;color:var(--forest)}
-.kw-intent{font-size:11px;color:var(--muted);margin-top:3px}
-.kw-badge{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap}
+.kw-intent{font-size:13px;color:var(--muted);margin-top:3px}
+.kw-badge{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap}
 .kw-high{background:rgba(29,158,117,.1);color:var(--forest-lt)}
 .kw-med{background:rgba(201,168,76,.12);color:#7a5f18}
 
 /* AREAS */
 .areas-section{background:var(--cream)}
 .areas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:32px}
-.area-pill{background:#fff;border:1px solid var(--border);border-radius:9px;padding:11px 14px;font-family:'Syne',sans-serif;font-size:13px;font-weight:600;color:var(--forest);display:flex;align-items:center;gap:8px;transition:all .2s}
+.area-pill{background:#fff;border:1px solid var(--border);border-radius:9px;padding:11px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;color:var(--forest);display:flex;align-items:center;gap:8px;transition:all .2s}
 .area-pill:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-1px)}
 .area-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0}
-.areas-note{margin-top:24px;background:rgba(201,168,76,.08);border:1px dashed rgba(201,168,76,.35);border-radius:var(--r);padding:14px 20px;font-size:13px;color:#7a5f18;font-family:'Syne',sans-serif;font-weight:600}
+.areas-note{margin-top:24px;background:rgba(201,168,76,.08);border:1px dashed rgba(201,168,76,.35);border-radius:var(--r);padding:14px 20px;font-size:13px;color:#7a5f18;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600}
 
 /* WHY */
 .why-section{background:var(--forest)}
@@ -86,20 +86,20 @@ $page_css = <<<CSS
 .why-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:var(--r-lg);padding:28px;transition:background .2s}
 .why-card:hover{background:rgba(255,255,255,.09)}
 .why-card-icon{width:42px;height:42px;background:rgba(29,158,117,.18);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--teal-lt);font-size:17px;margin-bottom:16px}
-.why-card h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:10px}
-.why-card p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.75}
+.why-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:10px}
+.why-card p{font-size:15px;color:rgba(255,255,255,.6);line-height:1.75}
 
 /* FAQ */
 .faq-section{background:#fff}
 .faq-list{margin-top:40px;display:flex;flex-direction:column;gap:12px}
 .faq-item{border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--warm)}
 .faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;cursor:pointer;user-select:none}
-.faq-q-text{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--forest)}
+.faq-q-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--forest)}
 .faq-q-icon{width:28px;height:28px;border-radius:50%;background:rgba(29,158,117,.1);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:12px;flex-shrink:0;transition:transform .25s,background .2s}
 .faq-item.open .faq-q-icon{transform:rotate(45deg);background:var(--teal);color:#fff}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
 .faq-item.open .faq-a{max-height:400px}
-.faq-a-inner{padding:0 24px 20px;font-size:14px;color:var(--muted);line-height:1.8}
+.faq-a-inner{padding:0 24px 20px;font-size:16px;color:var(--muted);line-height:1.8}
 
 /* CTA */
 .cta-section{background:linear-gradient(135deg,var(--forest) 0%,var(--forest-lt) 100%);padding:96px 40px}
@@ -107,18 +107,18 @@ $page_css = <<<CSS
 .cta-content .section-label{color:var(--teal-lt)}
 .cta-content .section-label::before{background:var(--teal-lt)}
 .cta-content .section-h2{color:#fff}
-.cta-desc{font-size:16px;color:rgba(255,255,255,.68);line-height:1.78;margin-bottom:32px}
+.cta-desc{font-size:18px;color:rgba(255,255,255,.68);line-height:1.78;margin-bottom:32px}
 .cta-actions{margin-bottom:20px}
-.cta-guarantee{font-family:'Syne',sans-serif;font-size:12px;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:8px}
+.cta-guarantee{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:8px}
 .cta-guarantee i{color:var(--teal-lt)}
 .cta-image{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.3)}
 .cta-image img{width:100%;height:380px;object-fit:cover;display:block}
 .cta-image-badge{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(10,46,30,.88);backdrop-filter:blur(12px);border:1px solid rgba(46,198,143,.22);border-radius:12px;padding:16px 18px}
-.cta-image-badge-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:10px}
+.cta-image-badge-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:10px}
 .cta-badge-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
 .cta-badge-row:last-child{margin-bottom:0}
 .cta-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--teal-lt);flex-shrink:0}
-.cta-badge-text{font-family:'Syne',sans-serif;font-size:12px;color:rgba(255,255,255,.65)}
+.cta-badge-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(255,255,255,.65)}
 
 /* RESPONSIVE */
 @media(max-width:900px){

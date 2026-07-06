@@ -8,13 +8,13 @@ $og_desc       = "Privacy Policy for Homecare Creators, the only marketing agenc
 $page_css = <<<CSS
 .legal-hero{background:var(--forest);padding:140px 48px 80px;text-align:center;position:relative;overflow:hidden}
 .legal-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px}
-.legal-hero h1{font-family:'Instrument Serif',serif;font-size:clamp(36px,5vw,56px);color:#fff;position:relative;z-index:1;margin-bottom:12px}
-.legal-hero p{font-size:15px;color:rgba(255,255,255,.5);position:relative;z-index:1;font-family:'Syne',sans-serif}
+.legal-hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(36px,5vw,56px);color:#fff;position:relative;z-index:1;margin-bottom:12px}
+.legal-hero p{font-size:17px;color:rgba(255,255,255,.5);position:relative;z-index:1;font-family:'Plus Jakarta Sans',sans-serif}
 .legal-body{max-width:820px;margin:0 auto;padding:80px 48px}
-.legal-body h2{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--forest);margin:40px 0 12px;text-transform:uppercase;letter-spacing:1px;padding-bottom:8px;border-bottom:2px solid var(--border)}
-.legal-body p{font-size:15px;line-height:1.85;color:var(--muted);margin-bottom:14px}
+.legal-body h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--forest);margin:40px 0 12px;text-transform:uppercase;letter-spacing:1px;padding-bottom:8px;border-bottom:2px solid var(--border)}
+.legal-body p{font-size:17px;line-height:1.85;color:var(--muted);margin-bottom:14px}
 .legal-body ul{margin:0 0 16px 20px;display:flex;flex-direction:column;gap:8px}
-.legal-body ul li{font-size:15px;line-height:1.75;color:var(--muted)}
+.legal-body ul li{font-size:17px;line-height:1.75;color:var(--muted)}
 .legal-body a{color:var(--teal);text-decoration:none}
 .legal-body a:hover{text-decoration:underline}
 .legal-body strong{color:var(--forest)}
