@@ -35,7 +35,9 @@ $page_css = <<<CSS
 .ticker-item i{color:var(--teal);font-size:13px}
 
 /* TWO COL */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.two-col{display:flex;flex-direction:column;gap:40px}
+.body-text{text-align:center;max-width:760px;margin:0 auto}
+.body-text .section-label{justify-content:center}
 .two-col-center{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .body-text p{font-size:18px;line-height:1.82;color:var(--muted);margin-bottom:16px}
 
@@ -46,13 +48,6 @@ $page_css = <<<CSS
 .fact-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:var(--forest);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
 .fact-card p{font-size:14.5px;color:var(--muted);line-height:1.6}
 
-/* WHY POINTS */
-.why-points{display:flex;flex-direction:column;gap:13px;margin-top:28px}
-.why-point{display:flex;gap:16px;align-items:flex-start;padding:18px;border-radius:16px;border:1px solid var(--border);background:var(--warm);transition:.3s}
-.why-point:hover{border-color:rgba(29,158,117,.3);box-shadow:0 8px 32px rgba(10,46,30,.08);transform:translateX(4px)}
-.why-point-icon{width:44px;height:44px;border-radius:12px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.why-point-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--forest);margin-bottom:4px}
-.why-point-desc{font-size:15px;line-height:1.65;color:var(--muted)}
 
 /* VISUAL FLOAT */
 .visual-wrap{position:relative}
@@ -247,20 +242,6 @@ include '../includes/header.php';
         <p>Jacksonville is Florida's largest city by area, and it's growing fast. Duval County is closing in on 1 million residents, and a good chunk of that growth is retirees moving down from the Northeast and Midwest. More seniors settling in means more families searching for homecare, often on short notice.</p>
         <p>Here's what we've noticed working with agencies in this market: Jacksonville homecare sites, as a group, are behind. A lot of them are still running templated designs from five or six years ago. That's not a knock on the agencies, it's just an opening. Show up with a site built specifically for this market and you're not fighting a crowded field the way you would in Miami or Orlando.</p>
         <p>So that's how we build every page. Duval County neighborhood pages, Jacksonville keyword targeting, and copy written for the families actually searching in Mandarin, Southside, Ponte Vedra Beach, and St. Johns County, not generic homecare boilerplate swapped in with a city name.</p>
-        <div class="why-points" style="margin-top:24px">
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-language"></i></div>
-            <div><div class="why-point-title">Duval County Neighborhood Pages</div><div class="why-point-desc">We build a dedicated SEO page for Mandarin, Arlington, Southside, Riverside, Jacksonville Beach, Ponte Vedra, and anywhere else you serve, so you rank neighborhood by neighborhood instead of getting buried under the citywide search.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-            <div><div class="why-point-title">Jacksonville Family Trust Signals</div><div class="why-point-desc">AHCA license display, caregiver screening content, a live Google Reviews widget, real team photos. These are the things a Jacksonville family checks before they'll pick up the phone and call an agency.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <div><div class="why-point-title">Caregiver Recruitment for Jacksonville</div><div class="why-point-desc">A careers page built to rank for "caregiver jobs Jacksonville FL," so it's pulling in applicants around the clock instead of sitting quiet on your site.</div></div>
-          </div>
-        </div>
       </div>
       <div data-reveal style="transition-delay:.15s">
         <div class="market-facts">

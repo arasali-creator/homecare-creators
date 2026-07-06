@@ -36,7 +36,9 @@ $page_css = <<<CSS
 
 /* MARKET FACTS */
 /* TWO COL */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.two-col{display:flex;flex-direction:column;gap:40px}
+.body-text{text-align:center;max-width:760px;margin:0 auto}
+.body-text .section-label{justify-content:center}
 .two-col-center{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .body-text p{font-size:18px;line-height:1.82;color:var(--muted);margin-bottom:16px}
 
@@ -47,13 +49,6 @@ $page_css = <<<CSS
 .fact-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:var(--forest);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
 .fact-card p{font-size:14.5px;color:var(--muted);line-height:1.6}
 
-/* WHY POINTS */
-.why-points{display:flex;flex-direction:column;gap:13px;margin-top:28px}
-.why-point{display:flex;gap:16px;align-items:flex-start;padding:18px;border-radius:16px;border:1px solid var(--border);background:var(--warm);transition:.3s}
-.why-point:hover{border-color:rgba(29,158,117,.3);box-shadow:0 8px 32px rgba(10,46,30,.08);transform:translateX(4px)}
-.why-point-icon{width:44px;height:44px;border-radius:12px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.why-point-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--forest);margin-bottom:4px}
-.why-point-desc{font-size:15px;line-height:1.65;color:var(--muted)}
 
 /* HOW IT WORKS */
 .how-section{background:#fff}
@@ -234,20 +229,6 @@ include '../includes/header.php';
         <p>Fort Lauderdale and Broward County sit at the heart of South Florida's senior care market. With over 1.9 million residents, and a county that consistently ranks among Florida's top 3 for adults 65 and older, the demand for homecare here is real. So is the competition.</p>
         <p>Families in Pompano Beach, Hollywood, Coral Springs, Deerfield Beach, and dozens of other Broward communities search Google every day for a homecare agency they can trust. If your site isn't built to show up for those searches, you're simply not in the running.</p>
         <p>In our work building websites for homecare agencies specifically, we've noticed something: generic templates rarely rank in a market this dense. That's why every Fort Lauderdale page we build includes Broward County neighborhood pages, city-specific keyword targeting, and content written for the families actually searching here, not a generic county profile.</p>
-        <div class="why-points" style="margin-top:24px">
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-language"></i></div>
-            <div><div class="why-point-title">Broward County Neighborhood Pages</div><div class="why-point-desc">We build dedicated SEO pages for Pompano Beach, Hollywood, Coral Springs, Plantation, Weston, Deerfield Beach, and whichever other Broward communities you serve.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-            <div><div class="why-point-title">South Florida Family Trust Signals</div><div class="why-point-desc">AHCA license display, caregiver background check messaging, a live Google Reviews widget, team photos. These are the signals Broward County families actually look for before they pick up the phone.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <div><div class="why-point-title">Caregiver Recruitment for Broward County</div><div class="why-point-desc">A careers page optimized to rank for 'caregiver jobs Fort Lauderdale FL,' built to work as a recruitment engine across Broward, day and night.</div></div>
-          </div>
-        </div>
       </div>
       <div data-reveal style="transition-delay:.15s">
         <div class="market-facts">

@@ -35,7 +35,9 @@ $page_css = <<<CSS
 .ticker-item i{color:var(--teal);font-size:13px}
 
 /* TWO COL */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.two-col{display:flex;flex-direction:column;gap:40px}
+.body-text{text-align:center;max-width:760px;margin:0 auto}
+.body-text .section-label{justify-content:center}
 .two-col-center{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .body-text p{font-size:18px;line-height:1.82;color:var(--muted);margin-bottom:16px}
 
@@ -46,13 +48,6 @@ $page_css = <<<CSS
 .fact-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:var(--forest);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
 .fact-card p{font-size:14.5px;color:var(--muted);line-height:1.6}
 
-/* WHY POINTS */
-.why-points{display:flex;flex-direction:column;gap:13px;margin-top:28px}
-.why-point{display:flex;gap:16px;align-items:flex-start;padding:18px;border-radius:16px;border:1px solid var(--border);background:var(--warm);transition:.3s}
-.why-point:hover{border-color:rgba(29,158,117,.3);box-shadow:0 8px 32px rgba(10,46,30,.08);transform:translateX(4px)}
-.why-point-icon{width:44px;height:44px;border-radius:12px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.why-point-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--forest);margin-bottom:4px}
-.why-point-desc{font-size:15px;line-height:1.65;color:var(--muted)}
 
 /* HOW IT WORKS */
 .how-section{background:#fff}
@@ -233,20 +228,6 @@ include '../includes/header.php';
         <p>Collier County is one of the wealthiest, most senior-dense homecare markets in the country. The median age here runs higher than almost any other Florida metro, and affluent retirees make up a huge share of the population. Naples is, honestly, the best private-pay homecare market in the state.</p>
         <p>Naples families expect a premium experience from the first click. That first touchpoint is almost always your website, not a brochure or a business card. A generic or outdated site sends the wrong signal, and it costs you high-value private-pay clients before they ever pick up the phone.</p>
         <p>We build every Naples site to match what Collier County families already expect: polished design, AHCA credentials displayed clearly, and content written for the specific pockets you serve, from Marco Island and Bonita Springs to Estero and the affluent North Naples corridor.</p>
-        <div class="why-points" style="margin-top:24px">
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-language"></i></div>
-            <div><div class="why-point-title">Collier County Neighborhood Pages</div><div class="why-point-desc">We build a dedicated, SEO-optimized page for Marco Island, Bonita Springs, Estero, North Naples, East Naples, Golden Gate, and every other Collier County community on your service list.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-            <div><div class="why-point-title">Premium Trust Signals for Naples Families</div><div class="why-point-desc">Naples' senior population is affluent, and it shows in what they expect from a website. So we put your AHCA license front and center, write real caregiver-vetting content, add a live Google Reviews widget, and use actual team photos instead of stock images.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <div><div class="why-point-title">Caregiver Recruitment for Naples</div><div class="why-point-desc">Your careers page gets built to rank for "caregiver jobs Naples FL," so it keeps pulling in applicants across Collier County long after launch, not just during a hiring push.</div></div>
-          </div>
-        </div>
       </div>
       <div data-reveal style="transition-delay:.15s">
         <div class="market-facts">

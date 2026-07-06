@@ -36,7 +36,9 @@ $page_css = <<<CSS
 
 /* MARKET FACTS */
 /* TWO COL */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.two-col{display:flex;flex-direction:column;gap:40px}
+.body-text{text-align:center;max-width:760px;margin:0 auto}
+.body-text .section-label{justify-content:center}
 .two-col-center{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .body-text p{font-size:18px;line-height:1.82;color:var(--muted);margin-bottom:16px}
 
@@ -47,13 +49,6 @@ $page_css = <<<CSS
 .fact-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:var(--forest);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
 .fact-card p{font-size:14.5px;color:var(--muted);line-height:1.6}
 
-/* WHY POINTS */
-.why-points{display:flex;flex-direction:column;gap:13px;margin-top:28px}
-.why-point{display:flex;gap:16px;align-items:flex-start;padding:18px;border-radius:16px;border:1px solid var(--border);background:var(--warm);transition:.3s}
-.why-point:hover{border-color:rgba(29,158,117,.3);box-shadow:0 8px 32px rgba(10,46,30,.08);transform:translateX(4px)}
-.why-point-icon{width:44px;height:44px;border-radius:12px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.why-point-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--forest);margin-bottom:4px}
-.why-point-desc{font-size:15px;line-height:1.65;color:var(--muted)}
 
 /* HOW IT WORKS */
 .how-section{background:#fff}
@@ -234,20 +229,6 @@ include '../includes/header.php';
         <p>Miami-Dade County has over 2.7 million residents, and it holds one of the highest concentrations of adults 65 and older anywhere in the country. Add a booming private-pay market, a large Spanish-speaking senior population, and dozens of homecare agencies chasing the same Google searches, and your website stops being a brochure. It becomes the thing that decides whether a family calls you or the agency listed above you.</p>
         <p>In our work building websites for homecare agencies specifically, and nothing else, we keep running into the same pattern in Miami: agencies paying for a generic WordPress theme from a developer who's never dealt with AHCA licensing paperwork, has no idea what a Medicaid waiver program is, and doesn't know which trust signals actually move a Miami family to pick up the phone. The site looks fine in a screenshot. It just doesn't convert.</p>
         <p>Because we only build for this industry, every page we ship for a Miami client gets bilingual SEO signals, neighborhood service-area pages for Miami-Dade, and local schema markup baked in from the start, not bolted on later. We write for the families actually searching for care in Coral Gables, Hialeah, Kendall, and whatever other community you cover.</p>
-        <div class="why-points" style="margin-top:24px">
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-language"></i></div>
-            <div><div class="why-point-title">Bilingual SEO for Miami-Dade</div><div class="why-point-desc">Miami's Spanish-speaking senior population searches in both languages, often in the same week. We build for both, which is how your organic reach across Miami-Dade actually doubles instead of just sounding like it should.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-            <div><div class="why-point-title">Miami Neighborhood Service Pages</div><div class="why-point-desc">A dedicated, SEO-optimized page for Coral Gables. Another for Hialeah. Miami Beach, Kendall, Brickell, and every other area you serve gets its own page too, so you show up in each neighborhood's results, not just a citywide search.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <div><div class="why-point-title">Trust Signals Miami Families Need</div><div class="why-point-desc">We've noticed which details make a Miami family stop scrolling and call: AHCA license display, clear caregiver background check messaging, a live Google Reviews widget, real team photos. Small things, and they matter.</div></div>
-          </div>
-        </div>
       </div>
       <div data-reveal style="transition-delay:.15s">
         <div class="market-facts">

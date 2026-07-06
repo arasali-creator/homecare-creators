@@ -35,7 +35,9 @@ $page_css = <<<CSS
 .ticker-item i{color:var(--teal);font-size:13px}
 
 /* TWO COL */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.two-col{display:flex;flex-direction:column;gap:40px}
+.body-text{text-align:center;max-width:760px;margin:0 auto}
+.body-text .section-label{justify-content:center}
 .two-col-center{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .body-text p{font-size:18px;line-height:1.82;color:var(--muted);margin-bottom:16px}
 
@@ -46,13 +48,6 @@ $page_css = <<<CSS
 .fact-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:var(--forest);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
 .fact-card p{font-size:14.5px;color:var(--muted);line-height:1.6}
 
-/* WHY POINTS */
-.why-points{display:flex;flex-direction:column;gap:13px;margin-top:28px}
-.why-point{display:flex;gap:16px;align-items:flex-start;padding:18px;border-radius:16px;border:1px solid var(--border);background:var(--warm);transition:.3s}
-.why-point:hover{border-color:rgba(29,158,117,.3);box-shadow:0 8px 32px rgba(10,46,30,.08);transform:translateX(4px)}
-.why-point-icon{width:44px;height:44px;border-radius:12px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.why-point-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--forest);margin-bottom:4px}
-.why-point-desc{font-size:15px;line-height:1.65;color:var(--muted)}
 
 /* HOW IT WORKS */
 .how-section{background:#fff}
@@ -233,20 +228,6 @@ include '../includes/header.php';
         <p>Retirees keep moving to Hillsborough County from the Northeast and Midwest, and the senior population here is growing faster than almost anywhere else in Florida. Over 1.5 million people live in the greater Tampa Bay area now. For a homecare agency, that growth means your website isn't just a brochure. It's the tool that either brings in new clients every month or quietly loses them to a competitor with a better site.</p>
         <p>As a Google Partner and BBB-accredited agency that works exclusively with home care companies, we've reviewed a lot of Tampa homecare websites over the years, and the same problem keeps showing up: they were built by a generalist developer who's never heard of an AHCA license, and has no idea what a Tampa family actually wants to see before they pick up the phone. Traffic shows up. Leads don't.</p>
         <p>In our work building homecare-only websites, we've learned that Tampa families respond to specificity, not polish. So every site we build gets Hillsborough County neighborhood pages, keyword targeting tuned to how Tampa searches for care, and trust content written for families in Brandon, Riverview, Carrollwood and the rest of the communities you serve.</p>
-        <div class="why-points" style="margin-top:24px">
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-language"></i></div>
-            <div><div class="why-point-title">Hillsborough County Neighborhood Pages</div><div class="why-point-desc">We build a dedicated page for Brandon, Riverview, Carrollwood, Westchase, Temple Terrace and every other Tampa area you serve, so you show up neighborhood by neighborhood, not just for the city name.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-            <div><div class="why-point-title">Tampa Family Trust Signals</div><div class="why-point-desc">Your AHCA license front and center, plain language about how you screen caregivers, a live Google Reviews widget and real team photos. These are the details Tampa families check before they'll call a stranger about their parent.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <div><div class="why-point-title">Caregiver Recruitment for Tampa</div><div class="why-point-desc">Your careers page gets built to rank for "caregiver jobs Tampa FL," so it keeps working as a recruiting tool across Hillsborough County long after we hand it off.</div></div>
-          </div>
-        </div>
       </div>
       <div data-reveal style="transition-delay:.15s">
         <div class="market-facts">

@@ -35,7 +35,9 @@ $page_css = <<<CSS
 .ticker-item i{color:var(--teal);font-size:13px}
 
 /* TWO COL */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.two-col{display:flex;flex-direction:column;gap:40px}
+.body-text{text-align:center;max-width:760px;margin:0 auto}
+.body-text .section-label{justify-content:center}
 .two-col-center{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .body-text p{font-size:18px;line-height:1.82;color:var(--muted);margin-bottom:16px}
 
@@ -46,13 +48,6 @@ $page_css = <<<CSS
 .fact-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:var(--forest);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
 .fact-card p{font-size:14.5px;color:var(--muted);line-height:1.6}
 
-/* WHY POINTS */
-.why-points{display:flex;flex-direction:column;gap:13px;margin-top:28px}
-.why-point{display:flex;gap:16px;align-items:flex-start;padding:18px;border-radius:16px;border:1px solid var(--border);background:var(--warm);transition:.3s}
-.why-point:hover{border-color:rgba(29,158,117,.3);box-shadow:0 8px 32px rgba(10,46,30,.08);transform:translateX(4px)}
-.why-point-icon{width:44px;height:44px;border-radius:12px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.why-point-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--forest);margin-bottom:4px}
-.why-point-desc{font-size:15px;line-height:1.65;color:var(--muted)}
 
 /* HOW IT WORKS */
 .how-section{background:#fff}
@@ -233,20 +228,6 @@ include '../includes/header.php';
         <p>Orlando and Orange County are growing faster than almost any metro in the country. That growth is bringing one of the fastest-expanding senior populations in Florida with it. Families in Winter Park, Kissimmee, Ocoee, and elsewhere in Orange County are on Google right now, looking for a homecare agency they can trust.</p>
         <p>Here's the problem we keep running into: most Orlando homecare agencies are stuck with generic websites built by developers who've never dealt with AHCA licensing, Medicaid waiver programs, or the questions Central Florida families actually want answered before they call. Every day that gap sits there, it's costing you leads.</p>
         <p>In our work building websites exclusively for homecare agencies, we've learned that Orlando's market needs its own treatment. So that's what each page gets: Orange County neighborhood pages, keyword targeting built around how local families actually search, and trust content aimed at Winter Park, Celebration, Windermere, and whatever other communities you serve.</p>
-        <div class="why-points" style="margin-top:24px">
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-language"></i></div>
-            <div><div class="why-point-title">Orange County Neighborhood Pages</div><div class="why-point-desc">We build a dedicated SEO page for Winter Park, Kissimmee, Ocoee, Maitland, Windermere, and any other Orlando area you serve, so your agency shows up in each community search, not just the citywide one.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-            <div><div class="why-point-title">Orlando Family Trust Signals</div><div class="why-point-desc">Your AHCA license front and center, plain language about caregiver background checks, a live Google Reviews widget, and real team photos. These are the details Orlando families look for before they'll pick up the phone.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <div><div class="why-point-title">Caregiver Recruitment for Orlando</div><div class="why-point-desc">A careers page built to rank for "caregiver jobs Orlando FL," so your website is out there recruiting across Orange County even while your team sleeps.</div></div>
-          </div>
-        </div>
       </div>
       <div data-reveal style="transition-delay:.15s">
         <div class="market-facts">
