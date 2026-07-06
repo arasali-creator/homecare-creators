@@ -316,7 +316,7 @@ include '../includes/header.php';
       </div>
       <div class="why-visual" data-reveal style="transition-delay:.15s">
         <div class="why-img">
-          <img src="/images/home/service-local-seo.jpg" alt="Local SEO services helping Florida home care agencies rank on Google Maps" title="Local SEO for Florida home care agencies">
+          <img src="/images/seo/local-seo-visibility.jpg" alt="Senior couple finding a home care agency through Google, Facebook, and LinkedIn local search" title="Local SEO for Florida home care agencies">
         </div>
         <div class="why-stat-float">
           <div class="why-stat-num">#1</div>

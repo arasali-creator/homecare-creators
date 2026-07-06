@@ -485,7 +485,7 @@ echo '<script type="application/ld+json">' . json_encode([
       </div>
       <div class="why-visual" data-reveal style="transition-delay:.15s">
         <div class="why-img">
-          <img src="/images/home/ai-seo-tech.jpg" alt="Home Care SEO process for Florida home care agencies" title="Home Care SEO process">
+          <img src="/images/seo/local-seo-visibility.jpg" alt="Senior couple finding a home care agency through Google, Facebook, and LinkedIn search" title="Home Care SEO visibility across search and social">
         </div>
         <div class="why-badge-float">
           <div class="why-badge-row">
