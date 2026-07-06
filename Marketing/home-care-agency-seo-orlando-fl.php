@@ -35,9 +35,11 @@ $page_css = <<<CSS
 
 /* MARKET SECTION */
 .market-section{background:#fff}
-.market-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.market-inner{display:flex;flex-direction:column;gap:40px}
+.market-body{text-align:center;max-width:760px;margin:0 auto}
+.market-body .section-label{justify-content:center}
 .market-body p{font-size:18px;line-height:1.8;color:var(--muted);margin-bottom:16px}
-.market-facts{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.market-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
 .fact-text h4{margin:0 0 4px}
 .fact-text p{margin:0}
 .fact-card{background:var(--warm);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;border-left:4px solid var(--teal);display:flex;align-items:center;gap:20px}
@@ -133,6 +135,7 @@ $page_css = <<<CSS
   .hero{padding:100px 24px 60px}
   .cta-image{display:none}
   .fact-card{flex-direction:column;align-items:flex-start;gap:6px}
+  .market-facts{grid-template-columns:1fr}
 }
 CSS;
 include '../includes/header.php';

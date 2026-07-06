@@ -35,7 +35,9 @@ $page_css = <<<CSS
 
 /* MARKET SECTION */
 .market-section{background:#fff}
-.market-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.market-inner{display:flex;flex-direction:column;gap:40px}
+.market-body{text-align:center;max-width:760px;margin:0 auto}
+.market-body .section-label{justify-content:center}
 .market-body p{font-size:18px;line-height:1.8;color:var(--muted);margin-bottom:16px}
 .market-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
 .fact-card{background:var(--warm);border:1px solid var(--border);border-radius:var(--r);padding:22px;border-left:4px solid var(--teal)}

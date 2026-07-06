@@ -60,7 +60,7 @@ $page_css = <<<CSS
 /* WHY VISUAL */
 .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .why-body p{font-size:18px;line-height:1.8;color:var(--muted);margin-bottom:16px}
-.why-points{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.why-points{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
 .why-point{display:flex;gap:16px;align-items:flex-start;padding:18px;border-radius:16px;border:1px solid var(--border);background:var(--warm);transition:.3s}
 .why-point:hover{border-color:rgba(29,158,117,.3);box-shadow:0 8px 32px rgba(10,46,30,.08);transform:translateX(4px)}
 .why-point-icon{width:44px;height:44px;border-radius:12px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
@@ -178,7 +178,7 @@ $page_css = <<<CSS
 
 /* RESPONSIVE */
 @media(max-width:1024px){.hero{grid-template-columns:1fr;min-height:auto}.hero-right{display:none}.hero-left{padding:140px 48px 80px}.packages-grid,.included-grid{grid-template-columns:1fr 1fr}.results-grid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:1fr;gap:48px}.how-grid{grid-template-columns:repeat(2,1fr)}.cta-inner{grid-template-columns:1fr}.cta-image{display:none}.kw-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){section{padding:64px 20px}.packages-grid,.included-grid,.results-grid,.kw-grid{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr}}
+@media(max-width:640px){section{padding:64px 20px}.packages-grid,.included-grid,.results-grid,.kw-grid,.why-points{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr}}
 CSS;
 include '../includes/header.php';
 ?>
