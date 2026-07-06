@@ -371,6 +371,8 @@ include '../includes/header.php';
   </div>
 </section>
 
+<?php include '../includes/case-study-slider.php'; ?>
+
 <!-- FAQ -->
 <section class="faq-section">
   <div class="container">
