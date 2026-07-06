@@ -30,26 +30,25 @@ $page_css = <<<CSS
 .privacy-title{font-family:'Syne',sans-serif;font-weight:700;font-size:15.5px;color:var(--forest);margin-bottom:6px}
 .privacy-text{font-size:13.5px;line-height:1.7;color:var(--muted)}
 
-/* CASE STUDY ROWS */
+/* CASE STUDY CARDS */
 .cs-section{background:#fff}
-.cs-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:56px 0;border-bottom:1px solid var(--border)}
-.cs-row:last-child{border-bottom:none}
-.cs-row.rev .cs-media{order:2}
-.cs-row.rev .cs-body{order:1}
-.cs-media{position:relative}
-.cs-media img{width:100%;border-radius:var(--r-lg);box-shadow:0 20px 60px rgba(10,46,30,.14);border:1px solid var(--border);display:block}
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:44px}
+.cs-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:.3s}
+.cs-card:hover{box-shadow:0 20px 56px rgba(10,46,30,.12);transform:translateY(-4px)}
+.cs-media img{width:100%;display:block;border-bottom:1px solid var(--border)}
+.cs-card-body{padding:28px 28px 32px}
 .cs-badge{display:inline-flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);background:rgba(29,158,117,.1);padding:6px 14px;border-radius:100px;margin-bottom:16px}
-.cs-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--forest);margin-bottom:18px}
+.cs-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--forest);margin-bottom:18px}
 .cs-title span{color:var(--muted);font-weight:500}
 .cs-label{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;margin-top:20px}
 .cs-label:first-of-type{margin-top:0}
-.cs-challenge{font-size:14.5px;line-height:1.75;color:var(--muted)}
+.cs-challenge{font-size:14px;line-height:1.75;color:var(--muted)}
 .cs-chip-row{display:flex;flex-wrap:wrap;gap:8px}
-.cs-chip{font-family:'Syne',sans-serif;font-size:12px;font-weight:600;color:var(--forest);background:var(--warm);border:1px solid var(--border);padding:6px 13px;border-radius:100px}
-.cs-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
-.cs-stat{background:var(--warm);border:1px solid var(--border);border-radius:12px;padding:14px 12px;text-align:center}
-.cs-stat-num{font-family:'Instrument Serif',serif;font-size:26px;color:var(--teal);line-height:1}
-.cs-stat-label{font-size:10.5px;color:var(--muted);font-family:'Syne',sans-serif;font-weight:600;margin-top:4px}
+.cs-chip{font-family:'Syne',sans-serif;font-size:11.5px;font-weight:600;color:var(--forest);background:var(--warm);border:1px solid var(--border);padding:6px 13px;border-radius:100px}
+.cs-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.cs-stat{background:var(--warm);border:1px solid var(--border);border-radius:12px;padding:12px 8px;text-align:center}
+.cs-stat-num{font-family:'Instrument Serif',serif;font-size:22px;color:var(--teal);line-height:1}
+.cs-stat-label{font-size:10px;color:var(--muted);font-family:'Syne',sans-serif;font-weight:600;margin-top:4px}
 
 /* MEANING / WHY SECTIONS */
 .meaning-section{background:var(--cream)}
@@ -88,7 +87,8 @@ $page_css = <<<CSS
 .cta-desc{font-size:15.5px;color:rgba(255,255,255,.68);line-height:1.78;margin:16px 0 32px}
 
 /* RESPONSIVE */
-@media(max-width:1024px){.cs-row{grid-template-columns:1fr;gap:28px}.cs-row.rev .cs-media,.cs-row.rev .cs-body{order:initial}.why-grid{grid-template-columns:1fr;gap:40px}.svc-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.cs-grid{grid-template-columns:1fr}}
+@media(max-width:1024px){.why-grid{grid-template-columns:1fr;gap:40px}.svc-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:640px){section{padding:56px 20px}.cs-stats{grid-template-columns:1fr 1fr}.svc-grid{grid-template-columns:1fr 1fr}.privacy-box{flex-direction:column}}
 CSS;
 include '../includes/header.php';
@@ -226,29 +226,31 @@ echo '<script type="application/ld+json">' . json_encode([
       <h2 class="section-h2" style="text-align:center">Whether the Goal Is Leads,<br><em>Visibility, or Growth</em></h2>
       <p class="section-sub" style="margin:0 auto;text-align:center">Our approach is always built around measurable business growth — not vanity metrics.</p>
     </div>
-    <?php foreach ($case_studies as $i => $c): ?>
-    <div class="cs-row<?= $i % 2 === 1 ? ' rev' : '' ?>" data-reveal>
-      <div class="cs-media">
-        <img src="/images/case-studies/<?= htmlspecialchars($c['img']) ?>" alt="<?= htmlspecialchars($c['name'].' lead generation dashboard showing '.$c['stats'][0][0].' '.$c['stats'][0][1]) ?>" title="<?= htmlspecialchars($c['name'].' campaign results') ?>" loading="lazy">
-      </div>
-      <div class="cs-body">
-        <div class="cs-badge">Case Study <?= htmlspecialchars($c['num']) ?></div>
-        <h3 class="cs-title"><?= htmlspecialchars($c['name']) ?><?= $c['region'] ? ' <span>| '.htmlspecialchars($c['region']).'</span>' : '' ?></h3>
-        <div class="cs-label">The Challenge</div>
-        <p class="cs-challenge"><?= htmlspecialchars($c['challenge']) ?></p>
-        <div class="cs-label">Our Strategy</div>
-        <div class="cs-chip-row">
-          <?php foreach ($c['strategy'] as $s): ?><span class="cs-chip"><?= htmlspecialchars($s) ?></span><?php endforeach; ?>
+    <div class="cs-grid">
+      <?php foreach ($case_studies as $c): ?>
+      <div class="cs-card" data-reveal>
+        <div class="cs-media">
+          <img src="/images/case-studies/<?= htmlspecialchars($c['img']) ?>" alt="<?= htmlspecialchars($c['name'].' lead generation dashboard showing '.$c['stats'][0][0].' '.$c['stats'][0][1]) ?>" title="<?= htmlspecialchars($c['name'].' campaign results') ?>" loading="lazy">
         </div>
-        <div class="cs-label">Campaign Results</div>
-        <div class="cs-stats">
-          <?php foreach ($c['stats'] as $s): ?>
-          <div class="cs-stat"><div class="cs-stat-num"><?= htmlspecialchars($s[0]) ?></div><div class="cs-stat-label"><?= htmlspecialchars($s[1]) ?></div></div>
-          <?php endforeach; ?>
+        <div class="cs-card-body">
+          <div class="cs-badge">Case Study <?= htmlspecialchars($c['num']) ?></div>
+          <h3 class="cs-title"><?= htmlspecialchars($c['name']) ?><?= $c['region'] ? ' <span>| '.htmlspecialchars($c['region']).'</span>' : '' ?></h3>
+          <div class="cs-label">The Challenge</div>
+          <p class="cs-challenge"><?= htmlspecialchars($c['challenge']) ?></p>
+          <div class="cs-label">Our Strategy</div>
+          <div class="cs-chip-row">
+            <?php foreach ($c['strategy'] as $s): ?><span class="cs-chip"><?= htmlspecialchars($s) ?></span><?php endforeach; ?>
+          </div>
+          <div class="cs-label">Campaign Results</div>
+          <div class="cs-stats">
+            <?php foreach ($c['stats'] as $s): ?>
+            <div class="cs-stat"><div class="cs-stat-num"><?= htmlspecialchars($s[0]) ?></div><div class="cs-stat-label"><?= htmlspecialchars($s[1]) ?></div></div>
+            <?php endforeach; ?>
+          </div>
         </div>
       </div>
+      <?php endforeach; ?>
     </div>
-    <?php endforeach; ?>
   </div>
 </section>
 
