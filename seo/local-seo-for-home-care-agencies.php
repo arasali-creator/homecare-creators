@@ -60,7 +60,7 @@ $page_css = <<<CSS
 /* WHY VISUAL */
 .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .why-body p{font-size:18px;line-height:1.8;color:var(--muted);margin-bottom:16px}
-.why-points{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.why-points{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:56px}
 .why-point{display:flex;gap:16px;align-items:flex-start;padding:18px;border-radius:16px;border:1px solid var(--border);background:var(--warm);transition:.3s}
 .why-point:hover{border-color:rgba(29,158,117,.3);box-shadow:0 8px 32px rgba(10,46,30,.08);transform:translateX(4px)}
 .why-point-icon{width:44px;height:44px;border-radius:12px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
@@ -313,24 +313,6 @@ include '../includes/header.php';
         <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:16px">When a family in Miami types "home care agency near me" into Google, the top three results in the Google Maps Local Pack grab over 75% of all the clicks. Miss those three spots and you're basically invisible. That family calls your competitor instead, not you.</p>
         <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:16px">Local SEO is the work of shaping every signal Google uses to pick which three home care agencies land in that Local Pack. That means your Google Business Profile, your reviews, your website, citations scattered across the web, and the actual content on your pages.</p>
         <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:24px">We manage all of it, and we only work with home care agencies. No other industry, no learning curve to climb on your dime. Just the kind of homecare-specific SEO knowledge that gets a Florida agency to position #1 faster than a generalist ever could.</p>
-        <div class="why-points">
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-brands fa-google"></i></div>
-            <div><div class="why-point-title">Google Business Profile Management</div><div class="why-point-desc">Your GBP is the single most powerful local ranking asset you have. We optimize it fully, post updates every week, respond to reviews, and check it daily. Google needs to see an active, trustworthy business, and that's what we give it.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-star"></i></div>
-            <div><div class="why-point-title">Review Velocity Strategy</div><div class="why-point-desc">67+ new 5-star Google reviews in 90 days, generated through a review request system we built specifically around home care workflows. Reviews sit among the top 3 Google Maps ranking factors. We don't leave that to chance.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-            <div><div class="why-point-title">40+ Citations Built Every Month</div><div class="why-point-desc">Every month we submit your agency to 40+ high-authority directories. Think healthcare platforms like Caring.com and HomeCare.com, general business directories, and local Florida listings too.</div></div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-robot"></i></div>
-            <div><div class="why-point-title">AI Search SEO (GEO)</div><div class="why-point-desc">Families search on ChatGPT, Google AI Overviews, and Perplexity now too, not just Google. We're the only home care SEO agency optimizing for those AI-generated answers. Most of your competitors haven't even heard the term GEO yet.</div></div>
-          </div>
-        </div>
       </div>
       <div class="why-visual" data-reveal style="transition-delay:.15s">
         <div class="why-img">
@@ -349,6 +331,24 @@ include '../includes/header.php';
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="why-points" data-reveal style="transition-delay:.2s">
+      <div class="why-point">
+        <div class="why-point-icon"><i class="fa-brands fa-google"></i></div>
+        <div><div class="why-point-title">Google Business Profile Management</div><div class="why-point-desc">Your GBP is the single most powerful local ranking asset you have. We optimize it fully, post updates every week, respond to reviews, and check it daily. Google needs to see an active, trustworthy business, and that's what we give it.</div></div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-icon"><i class="fa-solid fa-star"></i></div>
+        <div><div class="why-point-title">Review Velocity Strategy</div><div class="why-point-desc">67+ new 5-star Google reviews in 90 days, generated through a review request system we built specifically around home care workflows. Reviews sit among the top 3 Google Maps ranking factors. We don't leave that to chance.</div></div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+        <div><div class="why-point-title">40+ Citations Built Every Month</div><div class="why-point-desc">Every month we submit your agency to 40+ high-authority directories. Think healthcare platforms like Caring.com and HomeCare.com, general business directories, and local Florida listings too.</div></div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-icon"><i class="fa-solid fa-robot"></i></div>
+        <div><div class="why-point-title">AI Search SEO (GEO)</div><div class="why-point-desc">Families search on ChatGPT, Google AI Overviews, and Perplexity now too, not just Google. We're the only home care SEO agency optimizing for those AI-generated answers. Most of your competitors haven't even heard the term GEO yet.</div></div>
       </div>
     </div>
   </div>

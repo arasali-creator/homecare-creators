@@ -34,6 +34,11 @@ $page_css = <<<CSS
 .ticker-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0}
 .ticker-item i{color:var(--teal);font-size:13px}
 
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.two-col-center{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.body-text p{font-size:18px;line-height:1.82;color:var(--muted);margin-bottom:16px}
+
 /* MARKET FACTS */
 .market-facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
 .fact-card{background:var(--warm);border:1px solid var(--border);border-radius:var(--r);padding:22px;border-left:4px solid var(--teal)}
@@ -151,7 +156,7 @@ $page_css = <<<CSS
 .cta-badge-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:rgba(255,255,255,.65)}
 
 /* RESPONSIVE */
-@media(max-width:960px){.cta-inner{grid-template-columns:1fr;gap:40px}.inc-grid,.pkg-grid{grid-template-columns:1fr 1fr}.results-grid{grid-template-columns:repeat(2,1fr)}.how-grid{grid-template-columns:repeat(2,1fr)}.cta-img-wrap{display:none}.hero{padding:110px 40px 60px}}
+@media(max-width:960px){.two-col,.two-col-center,.cta-inner{grid-template-columns:1fr;gap:40px}.inc-grid,.pkg-grid{grid-template-columns:1fr 1fr}.results-grid{grid-template-columns:repeat(2,1fr)}.how-grid{grid-template-columns:repeat(2,1fr)}.cta-img-wrap{display:none}.hero{padding:110px 40px 60px}}
 @media(max-width:640px){section{padding:60px 20px}.inc-grid,.pkg-grid,.results-grid{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr}.hero{padding:100px 20px 60px}.market-facts{grid-template-columns:1fr}}
 CSS;
 include '../includes/header.php';
