@@ -63,6 +63,7 @@ try {
 <?php if (!empty($og_title)): ?><meta property="og:title" content="<?= htmlspecialchars($og_title) ?>"><?php endif; ?>
 <?php if (!empty($og_desc)): ?><meta property="og:description" content="<?= htmlspecialchars($og_desc) ?>"><?php endif; ?>
 <?php if (!empty($page_canonical)): ?><meta property="og:url" content="<?= htmlspecialchars($page_canonical) ?>"><?php endif; ?>
+<?php if (!empty($og_image)): ?><meta property="og:image" content="<?= htmlspecialchars($og_image) ?>"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="<?= htmlspecialchars($og_image) ?>"><?php endif; ?>
 <meta property="og:type" content="website">
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/images/home/favicon.svg?v=3">
@@ -327,7 +328,7 @@ try {
     <li><a href="/seo/local-seo-for-home-care-agencies">Local SEO</a></li>
     <li><a href="/blog">Blog</a></li>
     <li><a href="/#bundles">Pricing</a></li>
-    <li><a href="/#reviews">Results</a></li>
+    <li><a href="/case-studies/">Results</a></li>
     <li><a href="#" class="nav-cta" onclick="openPopup();return false;"><i class="fa-solid fa-calendar-check" style="font-size:12px"></i> Free Audit</a></li>
   </ul>
   <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
