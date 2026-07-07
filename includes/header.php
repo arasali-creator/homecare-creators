@@ -96,6 +96,8 @@ p{font-size:18px}
 @keyframes scaleIn{from{opacity:0;transform:scale(0.92)}to{opacity:1;transform:scale(1)}}
 [data-reveal]{opacity:0;transform:translateY(32px);transition:opacity .75s ease,transform .75s ease}
 [data-reveal].visible{opacity:1;transform:translateY(0)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.hp-field{position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,36,22,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(46,198,143,.12);transition:all .3s}
@@ -164,7 +166,7 @@ section{padding:96px 40px}
 footer{background:var(--forest);padding:64px 48px 0}
 .footer-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
 .footer-logo svg{height:48px;width:auto}
-.footer-tagline{font-size:15px;color:rgba(255,255,255,.45);margin-top:14px;margin-bottom:20px;line-height:1.6;max-width:220px}
+.footer-tagline{font-size:15px;color:rgba(255,255,255,.65);margin-top:14px;margin-bottom:20px;line-height:1.6;max-width:220px}
 .footer-socials{display:flex;gap:10px}
 .footer-social{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:14px;text-decoration:none;transition:.2s}
 .footer-social:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
@@ -269,16 +271,18 @@ try {
     <button class="popup-close" id="popupCloseBtn" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
     <div id="popupFormEl">
       <h2 class="popup-title" id="popupTitleEl">Book Your Free Audit</h2>
-      <div class="popup-form-group" style="margin-top:20px"><input type="text" class="form-input" id="pName" placeholder="Full Name *" autocomplete="name"></div>
+      <div class="hp-field" aria-hidden="true"><label for="pWebsite">Website</label><input type="text" id="pWebsite" name="pWebsite" tabindex="-1" autocomplete="off"></div>
+      <div class="popup-form-group" style="margin-top:20px"><label class="sr-only" for="pName">Full Name</label><input type="text" class="form-input" id="pName" placeholder="Full Name *" autocomplete="name"></div>
       <div class="popup-form-row">
-        <div class="popup-form-group" style="margin-bottom:0"><input type="email" class="form-input" id="pEmail" placeholder="Email *"></div>
-        <div class="popup-form-group" style="margin-bottom:0"><input type="tel" class="form-input" id="pPhone" placeholder="Phone *" maxlength="15"></div>
+        <div class="popup-form-group" style="margin-bottom:0"><label class="sr-only" for="pEmail">Email</label><input type="email" class="form-input" id="pEmail" placeholder="Email *" autocomplete="email"></div>
+        <div class="popup-form-group" style="margin-bottom:0"><label class="sr-only" for="pPhone">Phone</label><input type="tel" class="form-input" id="pPhone" placeholder="Phone *" maxlength="15" autocomplete="tel"></div>
       </div>
       <div class="popup-form-row" style="margin-top:12px">
-        <div class="popup-form-group" style="margin-bottom:0"><input type="text" class="form-input" id="pAgency" placeholder="Agency Name"></div>
-        <div class="popup-form-group" style="margin-bottom:0"><input type="text" class="form-input" id="pCity" placeholder="City You Serve"></div>
+        <div class="popup-form-group" style="margin-bottom:0"><label class="sr-only" for="pAgency">Agency Name</label><input type="text" class="form-input" id="pAgency" placeholder="Agency Name" autocomplete="organization"></div>
+        <div class="popup-form-group" style="margin-bottom:0"><label class="sr-only" for="pCity">City You Serve</label><input type="text" class="form-input" id="pCity" placeholder="City You Serve"></div>
       </div>
       <div class="popup-form-group" style="margin-top:12px">
+        <label class="sr-only" for="pService">What Do You Need Most?</label>
         <select class="form-select" id="pService">
           <option value="">What Do You Need Most?</option>
           <option>Website Design &amp; Development</option>
@@ -289,12 +293,13 @@ try {
           <option>CareOS Waitlist</option>
         </select>
       </div>
-      <div class="popup-form-group"><textarea class="form-textarea" id="pMsg" placeholder="Message (optional) — tell us about your agency..." style="min-height:80px"></textarea></div>
+      <div class="popup-form-group"><label class="sr-only" for="pMsg">Message</label><textarea class="form-textarea" id="pMsg" placeholder="Message (optional) — tell us about your agency..." style="min-height:80px"></textarea></div>
       <!-- Math CAPTCHA -->
       <div style="margin-bottom:12px">
         <div class="captcha-row">
           <div class="captcha-question" id="captchaQuestion"></div>
           <span style="font-size:18px;color:var(--muted)">=</span>
+          <label class="sr-only" for="pCaptcha">Answer</label>
           <input type="number" class="form-input captcha-input" id="pCaptcha" placeholder="?" min="0" max="99" autocomplete="off">
         </div>
       </div>
@@ -320,7 +325,7 @@ try {
     <?php if ($_hc_logo_url): ?>
     <img src="<?= htmlspecialchars($_hc_logo_url) ?>" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" style="height:46px;width:auto;display:block">
     <?php else: ?>
-    <img src="/images/home/homecarecreators-logo.png" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" style="height:46px;width:auto;display:block">
+    <img src="/images/home/homecarecreators-logo.png" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" width="160" height="46" style="height:46px;width:auto;display:block">
     <?php endif ?>
   </a>
   <ul class="nav-links">
@@ -332,5 +337,5 @@ try {
     <li><a href="/case-studies/">Case Studies</a></li>
     <li><a href="#" class="nav-cta" onclick="openPopup();return false;"><i class="fa-solid fa-calendar-check" style="font-size:12px"></i> Free Audit</a></li>
   </ul>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
 </nav>

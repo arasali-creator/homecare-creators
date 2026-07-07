@@ -14,6 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $raw  = file_get_contents('php://input');
 $data = json_decode($raw, true) ?: $_POST;
 
+// Honeypot — real visitors never fill this field. Pretend success, do nothing.
+if (!empty(trim($data['website'] ?? ''))) {
+    echo json_encode(['success' => true]);
+    exit;
+}
+
 $name    = strip_tags(trim($data['name']    ?? ''));
 $email   = filter_var(trim($data['email']   ?? ''), FILTER_SANITIZE_EMAIL);
 $phone   = strip_tags(trim($data['phone']   ?? ''));

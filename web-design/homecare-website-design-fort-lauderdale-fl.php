@@ -4,6 +4,7 @@ $page_desc = "Homecare website design for Fort Lauderdale, FL agencies. Fast, SE
 $page_canonical = "https://homecarecreators.com/homecare-website-design-fort-lauderdale-fl/";
 $og_title = "Homecare Website Design Fort Lauderdale FL | Homecare Creators";
 $og_desc = "Fort Lauderdale homecare website design built only for home care agencies. We target #1 Google rankings, more calls, steady caregiver recruiting. From $699.";
+$og_image = "https://homecarecreators.com/images/home/service-website-dev.jpg";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
@@ -11,10 +12,6 @@ $page_css = <<<CSS
 .hero-blob1{position:absolute;width:700px;height:700px;top:-200px;right:-150px;background:radial-gradient(circle,rgba(29,158,117,.16) 0%,transparent 65%);animation:float 10s ease-in-out infinite}
 .hero-blob2{position:absolute;width:500px;height:500px;bottom:-150px;left:-100px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 65%);animation:float 13s ease-in-out infinite reverse}
 .hero-content{position:relative;z-index:2;max-width:820px}
-.hero-breadcrumb{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,.4);margin-bottom:20px}
-.hero-breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none}
-.hero-breadcrumb a:hover{color:rgba(255,255,255,.7)}
-.hero-breadcrumb span{color:var(--teal-lt)}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;width:fit-content;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite;flex-shrink:0}
 .hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(36px,5vw,64px);line-height:1.06;color:#fff;margin-bottom:22px;animation:fadeUp .8s .1s ease both}
@@ -24,15 +21,10 @@ $page_css = <<<CSS
 .hero-proof{display:flex;gap:32px;flex-wrap:wrap;animation:fadeUp .8s .5s ease both}
 .hero-proof-item{display:flex;flex-direction:column;gap:2px}
 .hero-proof-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:34px;color:var(--teal-lt);line-height:1}
-.hero-proof-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.42)}
+.hero-proof-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.65)}
 .hero-proof-divider{width:1px;background:rgba(255,255,255,.1);align-self:stretch}
 
 /* TICKER */
-.ticker-wrap{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:14px 0}
-.ticker-inner{display:flex;width:max-content;animation:ticker 32s linear infinite}
-.ticker-item{display:flex;align-items:center;gap:10px;padding:0 38px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;white-space:nowrap}
-.ticker-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0}
-.ticker-item i{color:var(--teal);font-size:13px}
 
 /* MARKET FACTS */
 /* TWO COL */
@@ -191,13 +183,13 @@ include '../includes/header.php';
   <div class="container">
     <p class="certs-label">Certified &amp; Trusted By</p>
     <div class="certs-row">
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-BBB-Certified.png" alt="Homecare Creators BBB accredited business certification badge" title="BBB Accredited Business" loading="lazy"><span>BBB Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-Google-my-business-profile.png" alt="Homecare Creators verified Google Business Profile badge" title="Verified Google Business Profile" loading="lazy"><span>Google Business Profile</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-google-partner.jpg" alt="Homecare Creators Google Partner certification badge" title="Google Partner Certified Agency" loading="lazy"><span>Google Partner</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" alt="Homecare Creators HubSpot certified partner badge" title="HubSpot Certified Partner" loading="lazy"><span>HubSpot Partner</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" alt="Homecare Creators Meta certified marketing partner badge" title="Meta Certified Marketing Partner" loading="lazy"><span>Meta Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" alt="Homecare Creators SEMrush certified SEO partner badge" title="SEMrush Certified Agency Partner" loading="lazy"><span>SEMrush Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-NACH.webp" alt="Homecare Creators National Association for Home Care and Hospice member badge" title="NAHC Member Agency" loading="lazy"><span>NAHC Member</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-BBB-Certified.png" width="600" height="257" alt="Homecare Creators BBB accredited business certification badge" title="BBB Accredited Business" loading="lazy"><span>BBB Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-Google-my-business-profile.png" width="1024" height="1024" alt="Homecare Creators verified Google Business Profile badge" title="Verified Google Business Profile" loading="lazy"><span>Google Business Profile</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-google-partner.jpg" width="399" height="395" alt="Homecare Creators Google Partner certification badge" title="Google Partner Certified Agency" loading="lazy"><span>Google Partner</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" width="600" height="400" alt="Homecare Creators HubSpot certified partner badge" title="HubSpot Certified Partner" loading="lazy"><span>HubSpot Partner</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" width="783" height="391" alt="Homecare Creators Meta certified marketing partner badge" title="Meta Certified Marketing Partner" loading="lazy"><span>Meta Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" width="283" height="283" alt="Homecare Creators SEMrush certified SEO partner badge" title="SEMrush Certified Agency Partner" loading="lazy"><span>SEMrush Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-NACH.webp" width="660" height="153" alt="Homecare Creators National Association for Home Care and Hospice member badge" title="NAHC Member Agency" loading="lazy"><span>NAHC Member</span></div>
     </div>
   </div>
 </section>
@@ -433,24 +425,24 @@ include '../includes/header.php';
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Why do I need a specialist website for my Fort Lauderdale homecare agency?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Broward County is one of Florida's toughest homecare markets to compete in. Generic websites rarely rank for Fort Lauderdale-specific keywords, and they don't convert Broward families either. In our experience, a site built specifically for this market, with the right neighborhood pages and local language, is what turns a visitor from Pompano Beach or Hollywood into an actual phone call.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1"><span class="faq-q-text">Why do I need a specialist website for my Fort Lauderdale homecare agency?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1"><div class="faq-a-inner">Broward County is one of Florida's toughest homecare markets to compete in. Generic websites rarely rank for Fort Lauderdale-specific keywords, and they don't convert Broward families either. In our experience, a site built specifically for this market, with the right neighborhood pages and local language, is what turns a visitor from Pompano Beach or Hollywood into an actual phone call.</div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Will my Fort Lauderdale homecare website rank on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Every Fort Lauderdale page we build includes proper SEO for Broward County homecare keywords, schema markup, fast load speed, and mobile-first design that lines up with Google's mobile-first indexing. Most clients start seeing Google Maps movement within 60–90 days, and pairing the site with our Local SEO retainer speeds that up considerably.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2"><span class="faq-q-text">Will my Fort Lauderdale homecare website rank on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2"><div class="faq-a-inner">Yes. Every Fort Lauderdale page we build includes proper SEO for Broward County homecare keywords, schema markup, fast load speed, and mobile-first design that lines up with Google's mobile-first indexing. Most clients start seeing Google Maps movement within 60–90 days, and pairing the site with our Local SEO retainer speeds that up considerably.</div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you build websites for agencies serving both Broward and neighboring counties?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Absolutely. Plenty of Fort Lauderdale agencies also cover Miami-Dade and Palm Beach counties. We'll build a service area page for every city and county you work in, each one optimized on its own so you can rank across South Florida, not just in Broward.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3"><span class="faq-q-text">Do you build websites for agencies serving both Broward and neighboring counties?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3"><div class="faq-a-inner">Absolutely. Plenty of Fort Lauderdale agencies also cover Miami-Dade and Palm Beach counties. We'll build a service area page for every city and county you work in, each one optimized on its own so you can rank across South Florida, not just in Broward.</div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to build my Fort Lauderdale homecare website?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Starter goes live in 10–14 days. Growth takes 14. Dominate can take up to 21. We handle all the content, so you just need to hand over your agency details and sign off on the design. Every day without a real website is a day competitors are picking up leads that should be yours, which is why we move quickly without skipping steps.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4"><span class="faq-q-text">How long does it take to build my Fort Lauderdale homecare website?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4"><div class="faq-a-inner">Starter goes live in 10–14 days. Growth takes 14. Dominate can take up to 21. We handle all the content, so you just need to hand over your agency details and sign off on the design. Every day without a real website is a day competitors are picking up leads that should be yours, which is why we move quickly without skipping steps.</div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I add Local SEO to my Fort Lauderdale website package?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes, and honestly, we recommend pairing website design with our Local SEO retainer ($400/mo) right from the start. It covers Broward County citation building, Google Business Profile management, review growth, and ongoing Fort Lauderdale content, which together give you the fastest realistic path to #1.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5"><span class="faq-q-text">Can I add Local SEO to my Fort Lauderdale website package?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner">Yes, and honestly, we recommend pairing website design with our Local SEO retainer ($400/mo) right from the start. It covers Broward County citation building, Google Business Profile management, review growth, and ongoing Fort Lauderdale content, which together give you the fastest realistic path to #1.</div></div>
       </div>
     </div>
   </div>
@@ -468,7 +460,7 @@ include '../includes/header.php';
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free quote &nbsp;·&nbsp; Live in 14 days &nbsp;·&nbsp; No hidden fees</div>
       </div>
       <div class="cta-img-wrap" data-reveal style="transition-delay:.15s">
-        <img src="/images/home/service-website-dev.jpg" alt="Fort Lauderdale home care agency website design results — fast, mobile-first site built by Homecare Creators" title="Fort Lauderdale home care agency website design results">
+        <img src="/images/home/service-website-dev.jpg" width="600" height="427" alt="Fort Lauderdale home care agency website design results — fast, mobile-first site built by Homecare Creators" title="Fort Lauderdale home care agency website design results">
         <div class="cta-img-badge">
           <div class="cta-img-badge-title"><i class="fa-solid fa-circle-dot" style="color:var(--teal-lt);margin-right:4px"></i>Your Quote Includes</div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Current website audit</div></div>

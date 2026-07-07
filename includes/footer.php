@@ -6,7 +6,7 @@
         <?php if (!empty($_hc_logo_url)): ?>
         <img src="<?= htmlspecialchars($_hc_logo_url) ?>" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" style="height:48px;width:auto;display:block">
         <?php else: ?>
-        <img src="/images/home/homecarecreators-logo.png" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" style="height:48px;width:auto;display:block">
+        <img src="/images/home/homecarecreators-logo.png" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" width="167" height="48" style="height:48px;width:auto;display:block">
         <?php endif ?>
       </div>
       <p class="footer-tagline">Market It. Manage It. Grow It — Built Exclusively for Homecare.</p>
@@ -56,7 +56,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Homecare Creators &middot; <a href="mailto:info@homecarecreators.com" style="color:inherit">info@homecarecreators.com</a> &middot; All rights reserved.</div>
+    <div class="footer-copy">© 2026 Homecare Creators &middot; Lady Lake, FL 32159, United States &middot; <a href="mailto:info@homecarecreators.com" style="color:inherit">info@homecarecreators.com</a> &middot; All rights reserved.</div>
     <div class="footer-bottom-links"><a href="/privacy-policy">Privacy Policy</a><a href="/terms-of-service">Terms of Service</a></div>
   </div>
 </footer>
@@ -84,9 +84,22 @@ document.querySelectorAll('[data-reveal]').forEach(function(el) { revealObs.obse
 function toggleFaq(q) {
   var item = q.closest('.faq-item');
   var isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(function(i) { i.classList.remove('open'); });
-  if (!isOpen) item.classList.add('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i) {
+    i.classList.remove('open');
+    var btn = i.querySelector('.faq-q');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    q.setAttribute('aria-expanded', 'true');
+  }
 }
+document.addEventListener('keydown', function(e) {
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('faq-q')) {
+    e.preventDefault();
+    toggleFaq(e.target);
+  }
+});
 
 // ── CAPTCHA ──────────────────────────────────────────────────
 var _captchaA = 0, _captchaB = 0;
@@ -132,6 +145,14 @@ document.getElementById('popupSubmitBtn').addEventListener('click', function() {
   var phone   = (document.getElementById('pPhone').value || '').trim();
   var captcha = parseInt(document.getElementById('pCaptcha').value, 10);
   var consent = document.getElementById('pConsent').checked;
+  var honeypot = (document.getElementById('pWebsite').value || '').trim();
+
+  // Honeypot: real users never fill this field. Pretend success and stop.
+  if (honeypot) {
+    document.getElementById('popupFormEl').style.display = 'none';
+    document.getElementById('popupSuccessEl').style.display = 'block';
+    return;
+  }
 
   // Validation
   if (!name)  { markError('pName',  'Please enter your full name.'); return; }
@@ -165,7 +186,8 @@ document.getElementById('popupSubmitBtn').addEventListener('click', function() {
       city:    document.getElementById('pCity').value,
       service: document.getElementById('pService').value,
       message: document.getElementById('pMsg').value,
-      source:  window.location.pathname
+      source:  window.location.pathname,
+      website: honeypot
     })
   })
   .then(function(r) { return r.json(); })
@@ -197,16 +219,19 @@ function markError(id, msg) {
   if (existing) existing.remove();
   var err = document.createElement('div');
   err.className = 'field-error-msg';
+  err.setAttribute('role', 'alert');
+  err.setAttribute('aria-live', 'assertive');
   err.style.cssText = 'font-size:11px;color:#e53e3e;margin-top:4px;font-family:Arial,sans-serif';
   err.textContent = msg;
   el.parentNode.appendChild(err);
-  setTimeout(function(){ if (err.parentNode) err.remove(); }, 3000);
+  setTimeout(function(){ if (err.parentNode) err.remove(); }, 6000);
 }
 
 // Mobile hamburger nav
 document.getElementById('navHamburger').addEventListener('click', function() {
   var links = document.querySelector('.nav-links');
-  if (links.style.display === 'flex') {
+  var isOpen = links.style.display === 'flex';
+  if (isOpen) {
     links.style.display = '';
     links.style.flexDirection = '';
     links.style.position = '';
@@ -220,6 +245,21 @@ document.getElementById('navHamburger').addEventListener('click', function() {
     links.style.background = 'rgba(8,36,22,.98)';
     links.style.padding = '20px';
     links.style.gap = '4px';
+  }
+  this.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+  this.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var links = document.querySelector('.nav-links');
+    var hamburger = document.getElementById('navHamburger');
+    if (links.style.display === 'flex') {
+      links.style.display = '';
+      links.style.flexDirection = '';
+      links.style.position = '';
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open menu');
+    }
   }
 });
 </script>
