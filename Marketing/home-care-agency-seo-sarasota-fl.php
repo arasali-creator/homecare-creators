@@ -1,8 +1,12 @@
 <?php
-$page_title = "Home Care Agency SEO in Sarasota, FL | Homecare Creators";
-$page_desc = "SEO and web design built for home care agencies in Sarasota, FL. We get you ranking #1 on Google and winning more private-pay clients across Sarasota County.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-sarasota-fl/";
-$og_title = "Home Care Agency SEO in Sarasota, FL | Homecare Creators";
+if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
+    header('Location: ' . $page_canonical, true, 301);
+    exit;
+}
+$page_title = "Sarasota County Home Care Agency SEO | Homecare Creators";
+$page_desc = "SEO and web design built for home care agencies in Sarasota, FL. We get you ranking #1 on Google and winning more private-pay clients across Sarasota County.";
+$og_title = "Sarasota County Home Care Agency SEO | Homecare Creators";
 $og_desc = "Sarasota homecare agencies: get found on Google, own local search, and grow faster with the only marketing agency built just for homecare.";
 $page_css = <<<CSS
 /* HERO */
@@ -149,7 +153,7 @@ include '../includes/header.php';
   <div class="hero-content">
     <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/florida/">Florida</a> / <span>Sarasota</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Sarasota County, Florida</div>
-    <h1 class="hero-h1">Home Care Agency<br>SEO in <em>Sarasota, FL</em></h1>
+    <h1 class="hero-h1">Home Care Agency SEO<br>for <em>Sarasota County</em></h1>
     <p class="hero-desc">We help Sarasota homecare agencies rank #1 on Google. New websites, better local rankings, more private-pay clients across Sarasota County. Families find you first, not your competitor down the street.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Free Sarasota SEO Audit</button>
@@ -436,6 +440,10 @@ include '../includes/header.php';
       <a href="/seo/local-seo-for-home-care-agencies" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
         <i class="fa-solid fa-magnifying-glass-chart" style="font-size:20px;color:var(--teal)"></i>
         <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Local SEO for Homecare</div><div style="font-size:12px;color:var(--muted)">Rank #1 on Google Maps in Sarasota</div></div>
+      </a>
+      <a href="/seo/home-care-seo/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+        <i class="fa-solid fa-bullhorn" style="font-size:20px;color:var(--teal)"></i>
+        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Home Care Agency Marketing</div><div style="font-size:12px;color:var(--muted)">Full-service SEO built for home care</div></div>
       </a>
     </div>
   </div>

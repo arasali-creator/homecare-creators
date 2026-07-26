@@ -1,8 +1,12 @@
 <?php
-$page_title = "Homecare Website Design in Fort Lauderdale, FL | Homecare Creators";
-$page_desc = "Homecare website design for Fort Lauderdale, FL agencies. Fast, SEO-optimized sites that rank on Google, win families, and grow your caregiver team.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design-fort-lauderdale-fl/";
-$og_title = "Homecare Website Design Fort Lauderdale FL | Homecare Creators";
+if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
+    header('Location: ' . $page_canonical, true, 301);
+    exit;
+}
+$page_title = "Website Design for Fort Lauderdale Home Care Agencies | Homecare Creators";
+$page_desc = "Homecare website design for Fort Lauderdale, FL agencies. Fast, SEO-optimized sites that rank on Google, win families, and grow your caregiver team.";
+$og_title = "Website Design for Fort Lauderdale Home Care Agencies | Homecare Creators";
 $og_desc = "Fort Lauderdale homecare website design built only for home care agencies. We target #1 Google rankings, more calls, steady caregiver recruiting. From $699.";
 $og_image = "https://homecarecreators.com/images/home/service-website-dev.jpg";
 $page_css = <<<CSS
@@ -158,7 +162,7 @@ include '../includes/header.php';
   <div class="hero-content">
     <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/homecare-website-design/">Website Design</a> / <span>Fort Lauderdale, FL</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Homecare Website Design for Fort Lauderdale, FL</div>
-    <h1 class="hero-h1">Homecare Website Design in<br><em>Fort Lauderdale, Florida</em></h1>
+    <h1 class="hero-h1">Websites Built for<br><em>Fort Lauderdale</em> Home Care</h1>
     <p class="hero-desc">We build fast, mobile-first websites for Fort Lauderdale home care agencies. The goal is simple: rank on Google, turn Broward County families into paying clients, and keep your caregiver pipeline full around the clock. Packages start at $699.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Fort Lauderdale Website Quote</button>
@@ -339,8 +343,14 @@ include '../includes/header.php';
     <!-- LOCAL SEO INTERNAL LINK -->
     <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <div><i class="fa-solid fa-magnifying-glass-chart" style="font-size:28px;color:var(--teal)"></i></div>
-      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website still needs visibility. Our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service works to rank your new Fort Lauderdale website at #1 on Google Maps, driving more leads from day one.</div></div>
-      <a href="/seo/local-seo-for-home-care-agencies" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Packages</a>
+      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website still needs visibility. Our <a href="/home-care-agency-seo-fort-lauderdale-fl/" style="color:var(--teal);font-weight:600">Fort Lauderdale Home Care Agency SEO</a> service works to rank your new website at #1 on Google Maps, driving more leads from day one.</div></div>
+      <a href="/home-care-agency-seo-fort-lauderdale-fl/" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Packages</a>
+    </div>
+
+    <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:16px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+      <div><i class="fa-solid fa-laptop-code" style="font-size:28px;color:var(--teal)"></i></div>
+      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">See Every Homecare Website Design Plan</div><div style="font-size:14px;color:var(--muted)">Explore the full <a href="/web-design/homecare-website-design/" style="color:var(--teal);font-weight:600">Homecare Website Design</a> service, pricing, and everything included, beyond what's built for Fort Lauderdale alone.</div></div>
+      <a href="/web-design/homecare-website-design/" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View All Plans</a>
     </div>
   </div>
 </section>

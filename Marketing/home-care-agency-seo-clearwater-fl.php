@@ -1,8 +1,12 @@
 <?php
-$page_title = "Home Care Agency SEO in Clearwater, FL | Homecare Creators";
-$page_desc = "SEO and website design for home care agencies in Clearwater, FL. We help local homecare agencies rank on Google and win more private-pay clients.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-clearwater-fl/";
-$og_title = "Home Care Agency SEO in Clearwater, FL | Homecare Creators";
+if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
+    header('Location: ' . $page_canonical, true, 301);
+    exit;
+}
+$page_title = "Clearwater Home Care SEO for Pinellas County | Homecare Creators";
+$page_desc = "SEO for home care agencies in Clearwater, FL. We help Pinellas County agencies rank #1 on Google Maps and turn local searches into private-pay clients.";
+$og_title = "Clearwater Home Care SEO for Pinellas County | Homecare Creators";
 $og_desc = "Running a homecare agency in Clearwater? We'll get you ranking on Google, showing up on Maps, and winning more private-pay clients across Pinellas County.";
 $page_css = <<<CSS
 /* HERO */
@@ -146,7 +150,7 @@ include '../includes/header.php';
   <div class="hero-content">
     <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/florida/">Florida</a> / <span>Clearwater</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Pinellas County, Florida</div>
-    <h1 class="hero-h1">Home Care Agency<br>SEO in <em>Clearwater, FL</em></h1>
+    <h1 class="hero-h1">Clearwater Home Care<br>Agency <em>SEO & Marketing</em></h1>
     <p class="hero-desc">We build websites and run SEO for Clearwater homecare agencies. Rank #1 on Google, get a site that actually converts, and put your agency in front of Pinellas County families before your competitors ever show up.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Free Clearwater SEO Audit</button>
@@ -436,6 +440,10 @@ include '../includes/header.php';
       <a href="/seo/local-seo-for-home-care-agencies" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
         <i class="fa-solid fa-magnifying-glass-chart" style="font-size:20px;color:var(--teal)"></i>
         <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Local SEO for Homecare</div><div style="font-size:12px;color:var(--muted)">Rank #1 on Google Maps in Clearwater</div></div>
+      </a>
+      <a href="/seo/home-care-seo/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+        <i class="fa-solid fa-bullhorn" style="font-size:20px;color:var(--teal)"></i>
+        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Home Care Agency Marketing</div><div style="font-size:12px;color:var(--muted)">Full-service SEO built for home care</div></div>
       </a>
     </div>
   </div>

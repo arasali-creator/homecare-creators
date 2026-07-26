@@ -1,8 +1,12 @@
 <?php
-$page_title = "Homecare Website Design in Tampa, FL | Homecare Creators";
-$page_desc = "Homecare website design for Tampa, FL agencies. We build fast, SEO-ready sites for home care agencies that rank on Google and recruit caregivers.";
 $page_canonical = "https://homecarecreators.com/homecare-website-design-tampa-fl/";
-$og_title = "Homecare Website Design Tampa FL | Homecare Creators";
+if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
+    header('Location: ' . $page_canonical, true, 301);
+    exit;
+}
+$page_title = "Tampa Bay Homecare Website Design & Marketing | Homecare Creators";
+$page_desc = "Homecare website design for Tampa, FL agencies. We build fast, SEO-ready sites for home care agencies that rank on Google and recruit caregivers.";
+$og_title = "Tampa Bay Homecare Website Design & Marketing | Homecare Creators";
 $og_desc = "Tampa homecare website design built only for home care agencies. Rank on Google, win more families, recruit caregivers. Plans start at $699.";
 $og_image = "https://homecarecreators.com/images/home/service-website-dev.jpg";
 $page_css = <<<CSS
@@ -157,7 +161,7 @@ include '../includes/header.php';
   <div class="hero-content">
     <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/homecare-website-design/">Website Design</a> / <span>Tampa, FL</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Homecare Website Design, Tampa FL</div>
-    <h1 class="hero-h1">Homecare Website Design<br>in <em>Tampa, Florida</em></h1>
+    <h1 class="hero-h1">Tampa Bay Home Care<br>Websites, <em>Built to Convert</em></h1>
     <p class="hero-desc">We build fast, mobile-first websites for Tampa homecare agencies. Sites that rank on Google, turn Hillsborough County families into clients, and keep your careers page recruiting caregivers around the clock. Plans start at $699.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Tampa Website Quote</button>
@@ -338,8 +342,14 @@ include '../includes/header.php';
     <!-- INTERNAL LINK: Local SEO -->
     <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <div><i class="fa-solid fa-magnifying-glass-chart" style="font-size:28px;color:var(--teal)"></i></div>
-      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website still needs to be found. Our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service pushes your new Tampa site toward the top of Google Maps, so it starts driving leads instead of just sitting there.</div></div>
-      <a href="/seo/local-seo-for-home-care-agencies" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Packages</a>
+      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website still needs to be found. Our <a href="/home-care-agency-seo-tampa-fl/" style="color:var(--teal);font-weight:600">Tampa Home Care Agency SEO</a> service pushes your new site toward the top of Google Maps, so it starts driving leads instead of just sitting there.</div></div>
+      <a href="/home-care-agency-seo-tampa-fl/" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Packages</a>
+    </div>
+
+    <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:16px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+      <div><i class="fa-solid fa-laptop-code" style="font-size:28px;color:var(--teal)"></i></div>
+      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">See Every Homecare Website Design Plan</div><div style="font-size:14px;color:var(--muted)">Explore the full <a href="/web-design/homecare-website-design/" style="color:var(--teal);font-weight:600">Homecare Website Design</a> service, pricing, and everything included, beyond what's built for Tampa alone.</div></div>
+      <a href="/web-design/homecare-website-design/" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View All Plans</a>
     </div>
   </div>
 </section>

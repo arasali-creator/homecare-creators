@@ -537,16 +537,16 @@ include '../includes/header.php';
       <p class="section-sub">We specialize in Florida's most competitive home care markets. City-specific keyword strategies, real local knowledge, and results we can point to in each metro.</p>
     </div>
     <div class="cities-grid" data-reveal style="transition-delay:.1s">
-      <a href="/home-care-miami-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Miami</div><div class="city-county">Miami-Dade County</div></div></a>
-      <a href="/home-care-orlando-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Orlando</div><div class="city-county">Orange County</div></div></a>
-      <a href="/home-care-tampa-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Tampa</div><div class="city-county">Hillsborough County</div></div></a>
-      <a href="/home-care-jacksonville-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Jacksonville</div><div class="city-county">Duval County</div></div></a>
-      <a href="/home-care-fort-lauderdale-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Fort Lauderdale</div><div class="city-county">Broward County</div></div></a>
-      <a href="/home-care-naples-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Naples</div><div class="city-county">Collier County</div></div></a>
-      <a href="/home-care-sarasota-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Sarasota</div><div class="city-county">Sarasota County</div></div></a>
-      <a href="/home-care-west-palm-beach-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">West Palm Beach</div><div class="city-county">Palm Beach County</div></div></a>
-      <a href="/home-care-boca-raton-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Boca Raton</div><div class="city-county">Palm Beach County</div></div></a>
-      <a href="/home-care-clearwater-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Clearwater</div><div class="city-county">Pinellas County</div></div></a>
+      <a href="/home-care-agency-seo-miami-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Miami</div><div class="city-county">Miami-Dade County</div></div></a>
+      <a href="/home-care-agency-seo-orlando-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Orlando</div><div class="city-county">Orange County</div></div></a>
+      <a href="/home-care-agency-seo-tampa-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Tampa</div><div class="city-county">Hillsborough County</div></div></a>
+      <a href="/home-care-agency-seo-jacksonville-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Jacksonville</div><div class="city-county">Duval County</div></div></a>
+      <a href="/home-care-agency-seo-fort-lauderdale-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Fort Lauderdale</div><div class="city-county">Broward County</div></div></a>
+      <a href="/home-care-agency-seo-naples-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Naples</div><div class="city-county">Collier County</div></div></a>
+      <a href="/home-care-agency-seo-sarasota-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Sarasota</div><div class="city-county">Sarasota County</div></div></a>
+      <a href="/home-care-agency-seo-west-palm-beach-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">West Palm Beach</div><div class="city-county">Palm Beach County</div></div></a>
+      <a href="/home-care-agency-seo-boca-raton-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Boca Raton</div><div class="city-county">Palm Beach County</div></div></a>
+      <a href="/home-care-agency-seo-clearwater-fl/" class="city-card"><div class="city-icon"><i class="fa-solid fa-location-dot"></i></div><div><div class="city-name">Clearwater</div><div class="city-county">Pinellas County</div></div></a>
     </div>
   </div>
 </section>

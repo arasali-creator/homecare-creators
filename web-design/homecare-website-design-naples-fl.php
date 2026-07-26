@@ -1,7 +1,11 @@
 <?php
+$page_canonical = "https://homecarecreators.com/homecare-website-design-naples-fl/";
+if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
+    header('Location: ' . $page_canonical, true, 301);
+    exit;
+}
 $page_title = "Homecare Website Design for Naples, FL Agencies | Homecare Creators";
 $page_desc = "Homecare website design for Naples, FL agencies. We build fast, SEO-ready sites that rank on Google and turn Collier County families into private-pay clients.";
-$page_canonical = "https://homecarecreators.com/homecare-website-design-naples-fl/";
 $og_title = "Homecare Website Design Naples FL | Homecare Creators";
 $og_desc = "Naples homecare website design built for home care agencies only. Rank higher on Google, turn families into private-pay clients, starting from $699.";
 $og_image = "https://homecarecreators.com/images/home/service-website-dev.jpg";
@@ -338,8 +342,14 @@ include '../includes/header.php';
     <!-- INTERNAL LINK: Local SEO -->
     <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <div><i class="fa-solid fa-magnifying-glass-chart" style="font-size:28px;color:var(--teal)"></i></div>
-      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website still needs visibility to matter. Our <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO for Home Care Agencies</a> service pushes your new Naples website toward the top of Google Maps, driving more leads from the start.</div></div>
-      <a href="/seo/local-seo-for-home-care-agencies" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Packages</a>
+      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website still needs visibility to matter. Our <a href="/home-care-agency-seo-naples-fl/" style="color:var(--teal);font-weight:600">Naples Home Care Agency SEO</a> service pushes your new website toward the top of Google Maps, driving more leads from the start.</div></div>
+      <a href="/home-care-agency-seo-naples-fl/" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Packages</a>
+    </div>
+
+    <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:16px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+      <div><i class="fa-solid fa-laptop-code" style="font-size:28px;color:var(--teal)"></i></div>
+      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">See Every Homecare Website Design Plan</div><div style="font-size:14px;color:var(--muted)">Explore the full <a href="/web-design/homecare-website-design/" style="color:var(--teal);font-weight:600">Homecare Website Design</a> service, pricing, and everything included, beyond what's built for Naples alone.</div></div>
+      <a href="/web-design/homecare-website-design/" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View All Plans</a>
     </div>
   </div>
 </section>

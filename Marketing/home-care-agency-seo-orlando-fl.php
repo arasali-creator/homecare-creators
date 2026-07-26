@@ -1,8 +1,12 @@
 <?php
-$page_title = "Home Care Agency SEO in Orlando, FL | Homecare Creators";
-$page_desc = "Home care agency SEO in Orlando, FL. We get you ranked #1 on Google, build websites that convert, and bring in more private-pay clients in Orange County.";
 $page_canonical = "https://homecarecreators.com/home-care-agency-seo-orlando-fl/";
-$og_title = "Home Care Agency SEO in Orlando, FL | Homecare Creators";
+if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
+    header('Location: ' . $page_canonical, true, 301);
+    exit;
+}
+$page_title = "Orlando Home Care Agency SEO & Website Marketing | Homecare Creators";
+$page_desc = "Home care agency SEO in Orlando, FL. We get you ranked #1 on Google, build websites that convert, and bring in more private-pay clients in Orange County.";
+$og_title = "Orlando Home Care Agency SEO & Website Marketing | Homecare Creators";
 $og_desc = "Orlando home care agencies: get found on Google, dominate local search, and grow faster with the only marketing agency built 100% for home care.";
 $page_css = <<<CSS
 /* HERO */
@@ -151,7 +155,7 @@ include '../includes/header.php';
   <div class="hero-content">
     <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/florida/">Florida</a> / <span>Orlando</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Orange County, Florida</div>
-    <h1 class="hero-h1">Home Care Agency<br>SEO in <em>Orlando, FL</em></h1>
+    <h1 class="hero-h1">Orlando Home Care Agencies:<br><em>Built to Rank #1</em></h1>
     <p class="hero-desc">We help Orlando homecare agencies rank #1 on Google and build websites that turn visitors into inquiries. Families across Orange County find you first, not your competitor down the street.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Free Orlando SEO Audit</button>
@@ -432,13 +436,17 @@ include '../includes/header.php';
     <p class="section-label" style="justify-content:center">Our Services</p>
     <h2 class="section-h2" style="text-align:center">Grow Your Orlando Homecare Agency</h2>
     <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:32px">
-      <a href="/web-design/homecare-website-design/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+      <a href="/homecare-website-design-orlando-fl/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
         <i class="fa-solid fa-laptop-code" style="font-size:20px;color:var(--teal)"></i>
-        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Homecare Website Design</div><div style="font-size:12px;color:var(--muted)">Professional, SEO-optimized websites</div></div>
+        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Orlando Website Design</div><div style="font-size:12px;color:var(--muted)">Your dedicated Orlando web design page</div></div>
       </a>
       <a href="/seo/local-seo-for-home-care-agencies" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
         <i class="fa-solid fa-magnifying-glass-chart" style="font-size:20px;color:var(--teal)"></i>
         <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Local SEO for Homecare</div><div style="font-size:12px;color:var(--muted)">Rank #1 on Google Maps in Orlando</div></div>
+      </a>
+      <a href="/seo/home-care-seo/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+        <i class="fa-solid fa-bullhorn" style="font-size:20px;color:var(--teal)"></i>
+        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Home Care Agency Marketing</div><div style="font-size:12px;color:var(--muted)">Full-service SEO built for home care</div></div>
       </a>
     </div>
   </div>

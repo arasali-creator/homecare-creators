@@ -613,6 +613,41 @@ include '../../includes/header.php';
   </div>
 </section>
 
+<!-- CITIES WE SERVE -->
+<section style="background:var(--cream);padding:64px 40px">
+  <div class="container" style="text-align:center">
+    <p class="section-label" style="justify-content:center">Where We Build</p>
+    <h2 class="section-h2" style="text-align:center">Homecare Website Design<br><em>Across Florida</em></h2>
+    <p class="section-sub" style="max-width:640px;margin:16px auto 0">Every city page below is a live example of the work, tuned to that market's own neighborhoods, keywords, and families.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:32px">
+      <a href="/homecare-website-design-miami-fl/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 24px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+        <i class="fa-solid fa-location-dot" style="font-size:18px;color:var(--teal)"></i>
+        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Miami</div><div style="font-size:12px;color:var(--muted)">Miami-Dade County</div></div>
+      </a>
+      <a href="/homecare-website-design-orlando-fl/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 24px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+        <i class="fa-solid fa-location-dot" style="font-size:18px;color:var(--teal)"></i>
+        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Orlando</div><div style="font-size:12px;color:var(--muted)">Orange County</div></div>
+      </a>
+      <a href="/homecare-website-design-tampa-fl/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 24px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+        <i class="fa-solid fa-location-dot" style="font-size:18px;color:var(--teal)"></i>
+        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Tampa</div><div style="font-size:12px;color:var(--muted)">Hillsborough County</div></div>
+      </a>
+      <a href="/homecare-website-design-jacksonville-fl/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 24px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+        <i class="fa-solid fa-location-dot" style="font-size:18px;color:var(--teal)"></i>
+        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Jacksonville</div><div style="font-size:12px;color:var(--muted)">Duval County</div></div>
+      </a>
+      <a href="/homecare-website-design-fort-lauderdale-fl/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 24px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+        <i class="fa-solid fa-location-dot" style="font-size:18px;color:var(--teal)"></i>
+        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Fort Lauderdale</div><div style="font-size:12px;color:var(--muted)">Broward County</div></div>
+      </a>
+      <a href="/homecare-website-design-naples-fl/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 24px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
+        <i class="fa-solid fa-location-dot" style="font-size:18px;color:var(--teal)"></i>
+        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Naples</div><div style="font-size:12px;color:var(--muted)">Collier County</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section">
   <div class="container">
