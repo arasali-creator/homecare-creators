@@ -97,8 +97,8 @@ include '../includes/header.php';
       <p>That gap is why Homecare Creators exists. We don't split our attention across restaurants, law firms, and dentists. We work exclusively with home care agencies — which means every strategy, every page, and every piece of advice we give is built around one industry, not retrofitted from a generic template.</p>
       <p>Homecare Creators is based in Lady Lake, Florida, and works with home care agencies across the state. If you want to talk through your agency's marketing directly, you can reach me at the contact details below.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:8px">
-        <a href="/contact/" class="btn-primary" style="background:linear-gradient(135deg,var(--teal),var(--teal-lt))"><i class="fa-solid fa-comment"></i>Get in Touch</a>
-        <a href="tel:+14094193533" class="btn-secondary" style="background:var(--cream);border-color:var(--border);color:var(--forest)"><i class="fa-solid fa-phone"></i>+1 (409) 419-3533</a>
+        <a href="/contact/" class="btn-primary" style="background:linear-gradient(135deg,var(--teal),var(--teal-lt))"><i class="fa-solid fa-envelope"></i>Get in Touch</a>
+        <a href="https://wa.me/14094193533" target="_blank" rel="noopener" class="btn-secondary" style="background:var(--cream);border-color:var(--border);color:var(--forest)"><i class="fa-brands fa-whatsapp"></i>Message on WhatsApp</a>
       </div>
     </div>
   </div>
@@ -134,8 +134,8 @@ include '../includes/header.php';
 <!-- CONTACT STRIP -->
 <section class="contact-strip">
   <div class="container contact-strip-inner">
-    <div class="contact-strip-item"><i class="fa-solid fa-phone"></i><a href="tel:+14094193533">+1 (409) 419-3533</a><span>Call or Text</span></div>
     <div class="contact-strip-item"><i class="fa-solid fa-envelope"></i><a href="mailto:info@homecarecreators.com">info@homecarecreators.com</a><span>Email</span></div>
+    <div class="contact-strip-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/14094193533" target="_blank" rel="noopener">Message Us</a><span>WhatsApp</span></div>
     <div class="contact-strip-item"><i class="fa-solid fa-location-dot"></i><span style="color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:16px">Lady Lake, FL 32159</span><span>Based In</span></div>
   </div>
 </section>

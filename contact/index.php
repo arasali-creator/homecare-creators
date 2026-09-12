@@ -63,7 +63,7 @@ include '../includes/header.php';
   <div class="hero-inner">
     <div class="hero-badge"><i class="fa-solid fa-comment-dots" style="margin-right:6px"></i>Contact Us</div>
     <h1 class="hero-h1">Let's Talk About<br><em>Growing Your Agency</em></h1>
-    <p class="hero-desc">Call, email, or send us a message below. A real person replies within 24 hours, Monday through Friday.</p>
+    <p class="hero-desc">Email us, message us on WhatsApp, or send us a message below. A real person replies within 24 hours, Monday through Friday.</p>
   </div>
 </section>
 
@@ -76,17 +76,17 @@ include '../includes/header.php';
       <p class="section-sub">Have a question about our services, pricing, or CareOS? Reach out directly or fill out the form — either way, you'll hear back from a real person within 24 hours.</p>
       <div class="contact-details">
         <div class="contact-detail">
-          <div class="contact-detail-icon"><i class="fa-solid fa-phone"></i></div>
-          <div>
-            <div class="contact-detail-label">Call or Text</div>
-            <div class="contact-detail-value"><a href="tel:+14094193533">+1 (409) 419-3533</a></div>
-          </div>
-        </div>
-        <div class="contact-detail">
           <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
           <div>
             <div class="contact-detail-label">Email Us</div>
             <div class="contact-detail-value"><a href="mailto:info@homecarecreators.com">info@homecarecreators.com</a></div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div>
+            <div class="contact-detail-label">WhatsApp</div>
+            <div class="contact-detail-value"><a href="https://wa.me/14094193533" target="_blank" rel="noopener">Message Us</a></div>
           </div>
         </div>
         <div class="contact-detail">
