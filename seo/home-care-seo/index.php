@@ -1,9 +1,9 @@
 <?php
 $page_title = "Home Care SEO Services That Help Agencies Grow | HomeCareCreators";
-$page_desc = "Improve your online visibility with Home Care SEO services designed for home care agencies. Attract more families, rank higher on Google, and generate qualified leads with SEO strategies built for the senior care industry.";
+$page_desc = "Improve your online visibility with Home Care SEO services designed for home care agencies. Attract more families, rank higher on Google Search and Google Maps, and generate qualified leads with local SEO strategies built for the senior care industry.";
 $page_canonical = "https://homecarecreators.com/seo/home-care-seo/";
 $og_title = "Home Care SEO Services That Help Agencies Grow | HomeCareCreators";
-$og_desc = "Help more families find your home care agency with SEO strategies designed specifically for the home care industry.";
+$og_desc = "Help more families find your home care agency with SEO and local Google Maps strategies designed specifically for the home care industry.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:100vh;background:var(--forest);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0}
@@ -198,6 +198,7 @@ $_faqs = [
     ["Can you optimize my existing website?", "Yes. Whether your website is built on WordPress, Webflow, Wix, Shopify, or another platform, we can optimize it without starting from scratch in most cases."],
     ["Do you work with agencies across Florida?", "Home care is one of our primary specialties and Florida is our home market. We build SEO strategies that reflect how families search for care and how agencies grow in competitive local Florida markets."],
     ["Do you guarantee rankings?", "No. No ethical SEO agency can guarantee rankings because search engines constantly change. What we do promise is a transparent process, best practices, and a strategy focused on sustainable long-term growth."],
+    ["Can you help me get more Google reviews?", "Yes — it's one of our core services and one of the highest-impact things we do. We build a review request process around your actual home care workflows, reaching clients and families at the right moments by email, SMS, and QR code. Since reviews are among the top Google Maps ranking factors, consistent review growth can meaningfully move your local visibility."],
 ];
 echo '<script type="application/ld+json">' . json_encode(["@context"=>"https://schema.org","@type"=>"BreadcrumbList","itemListElement"=>$_bc], JSON_UNESCAPED_SLASHES) . "</script>\n";
 echo '<script type="application/ld+json">' . json_encode([
@@ -424,7 +425,7 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
     <div class="included-grid" data-reveal style="transition-delay:.1s">
       <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-compass"></i></div><h3>SEO Strategy Built Around Your Agency</h3><p>We build a custom SEO strategy based on your service areas, competition, and business objectives instead of using a one-size-fits-all approach.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Local SEO</h3><p>Most home care searches happen locally. Whether someone searches "home care near me" or a specific city, we help improve your local visibility so families can find you when they're ready to take the next step. See our dedicated <a href="/seo/local-seo-for-home-care-agencies" style="color:var(--teal);font-weight:600">Local SEO service</a> for the full breakdown.</p></div>
+      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Local SEO &amp; Google Maps</h3><p>Most home care searches happen locally. Whether someone searches "home care near me" or a specific city, we optimize your Google Business Profile, build citations, and improve your visibility in the Google Maps local pack so families find you when they're ready to take the next step.</p></div>
       <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Google Business Profile Optimization</h3><p>Your Google Business Profile is often the first thing potential clients see. We optimize every part of it, from business information to categories and ongoing improvements, to help increase visibility in Google Maps.</p></div>
       <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-pen-nib"></i></div><h3>Content That Builds Trust</h3><p>Families have questions before making a decision. We create content that answers those questions clearly, helping your website become a trusted resource while improving your search visibility at the same time.</p></div>
       <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-gauge-high"></i></div><h3>Technical SEO</h3><p>Behind every successful website is a strong technical foundation. We improve site speed, structure, internal linking, crawlability, and mobile performance so search engines understand your site better.</p></div>

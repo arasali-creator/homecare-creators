@@ -218,7 +218,7 @@ echo '<script type="application/ld+json">' . json_encode([
     <p class="section-label">What These Results Mean</p>
     <h2 class="section-h2">No One-Size-Fits-All<br><em>Marketing Here</em></h2>
     <p>Every home care agency is different. Some focus on private-pay clients, while others serve multiple locations or compete in highly competitive markets. That's why we don't believe in one-size-fits-all marketing.</p>
-    <p>Instead, we build customized strategies based on your agency's goals, local competition, and the way families search for care. Whether we're improving your <a href="/web-design/homecare-website-design/">website</a>, strengthening your <a href="/seo/local-seo-for-home-care-agencies">local SEO</a>, or optimizing for AI-powered search, every recommendation is designed to help generate more qualified inquiries — not just more traffic.</p>
+    <p>Instead, we build customized strategies based on your agency's goals, local competition, and the way families search for care. Whether we're improving your <a href="/web-design/homecare-website-design/">website</a>, strengthening your <a href="/seo/home-care-seo/">local SEO</a>, or optimizing for AI-powered search, every recommendation is designed to help generate more qualified inquiries — not just more traffic.</p>
   </div>
 </section>
 
@@ -265,11 +265,6 @@ echo '<script type="application/ld+json">' . json_encode([
         <div class="svc-card-icon"><i class="fa-solid fa-laptop-code"></i></div>
         <h3>Home Care Website Design</h3>
         <p>Build a professional, conversion-focused website that earns trust and generates more inquiries.</p>
-      </a>
-      <a href="/seo/local-seo-for-home-care-agencies" class="svc-card">
-        <div class="svc-card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-        <h3>Local SEO</h3>
-        <p>Appear in Google Maps and local search results where families are searching for nearby care providers.</p>
       </a>
       <a href="/#services" class="svc-card">
         <div class="svc-card-icon"><i class="fa-solid fa-brain"></i></div>

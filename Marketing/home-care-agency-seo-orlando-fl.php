@@ -414,10 +414,6 @@ include '../includes/header.php';
         <i class="fa-solid fa-laptop-code" style="font-size:20px;color:var(--teal)"></i>
         <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Orlando Website Design</div><div style="font-size:12px;color:var(--muted)">Your dedicated Orlando web design page</div></div>
       </a>
-      <a href="/seo/local-seo-for-home-care-agencies" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
-        <i class="fa-solid fa-magnifying-glass-chart" style="font-size:20px;color:var(--teal)"></i>
-        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Local SEO for Homecare</div><div style="font-size:12px;color:var(--muted)">Rank #1 on Google Maps in Orlando</div></div>
-      </a>
       <a href="/seo/home-care-seo/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
         <i class="fa-solid fa-bullhorn" style="font-size:20px;color:var(--teal)"></i>
         <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Home Care Agency Marketing</div><div style="font-size:12px;color:var(--muted)">Full-service SEO built for home care</div></div>
