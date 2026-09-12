@@ -12,7 +12,7 @@
       <p class="footer-tagline">Market It. Manage It. Grow It — Built Exclusively for Homecare.</p>
       <div class="footer-socials">
         <a href="https://www.linkedin.com/company/homecare-creators/" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="tel:+14094193533" class="footer-social" aria-label="Call us"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://wa.me/14094193533" target="_blank" rel="noopener" class="footer-social" aria-label="Message us on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         <a href="mailto:info@homecarecreators.com" class="footer-social" aria-label="Email us"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </div>
@@ -70,7 +70,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Homecare Creators &middot; Lady Lake, FL 32159, United States &middot; <a href="tel:+14094193533" style="color:inherit">+1 (409) 419-3533</a> &middot; <a href="mailto:info@homecarecreators.com" style="color:inherit">info@homecarecreators.com</a> &middot; All rights reserved.</div>
+    <div class="footer-copy">© 2026 Homecare Creators &middot; Lady Lake, FL 32159, United States &middot; <a href="mailto:info@homecarecreators.com" style="color:inherit">info@homecarecreators.com</a> &middot; All rights reserved.</div>
     <div class="footer-bottom-links"><a href="/privacy-policy">Privacy Policy</a><a href="/terms-of-service">Terms of Service</a></div>
   </div>
 </footer>

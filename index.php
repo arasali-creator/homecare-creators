@@ -198,7 +198,7 @@ $page_css = <<<CSS
 .results-image{border-radius:24px;overflow:hidden;box-shadow:0 24px 80px rgba(10,46,30,.18);aspect-ratio:4/5}
 .results-image img{width:100%;height:100%;object-fit:cover;display:block}
 .results-stat-card{position:absolute;bottom:-16px;right:-16px;background:#fff;border-radius:18px;padding:20px 24px;box-shadow:0 12px 48px rgba(10,46,30,.16);border:1px solid var(--border);min-width:150px;text-align:center}
-.results-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:42px;color:var(--teal);line-height:1}
+.results-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;color:var(--teal);line-height:1.15}
 .results-stat-label{font-size:11px;color:var(--muted);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-top:4px}
 .results-grid-right{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .result-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px 22px;text-align:center;transition:.3s;position:relative;overflow:hidden}
@@ -206,7 +206,7 @@ $page_css = <<<CSS
 .result-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(10,46,30,.1)}
 .result-card:hover::before{opacity:1}
 .result-card-icon{font-size:28px;color:var(--teal);margin-bottom:12px}
-.result-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;color:var(--forest);line-height:1;margin-bottom:6px}
+.result-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;color:var(--forest);line-height:1.2;margin-bottom:6px}
 .result-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:var(--forest);margin-bottom:6px}
 .result-desc{font-size:14px;line-height:1.6;color:var(--muted)}
 
@@ -378,7 +378,7 @@ function submitContact() {
       agency:  agency || 'Not provided',
       service: service || 'Not specified',
       message: msg || '(none)',
-      source:  'contact_form'
+      source:  window.location.pathname
     })
   })
   .then(function(res) { return res.json(); })

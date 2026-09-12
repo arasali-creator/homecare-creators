@@ -335,7 +335,7 @@ try {
     <li><a href="/blog">Blog</a></li>
     <li><a href="/#bundles">Pricing</a></li>
     <li><a href="/case-studies/">Case Studies</a></li>
-    <li><a href="/contact/" title="Contact Us"><i class="fa-solid fa-phone" style="font-size:11px;margin-right:5px"></i>+1 (409) 419-3533</a></li>
+    <li><a href="/contact/" title="Contact Us">Contact</a></li>
     <li><a href="#" class="nav-cta" onclick="openPopup();return false;"><i class="fa-solid fa-calendar-check" style="font-size:12px"></i> Free Audit</a></li>
   </ul>
   <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>

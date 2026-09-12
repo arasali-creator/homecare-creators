@@ -140,7 +140,7 @@ $page_css = <<<CSS
 .results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);overflow:hidden}
 .result-item{padding:32px 24px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
 .result-item:last-child{border-right:none}
-.result-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:48px;color:var(--teal-lt);line-height:1;margin-bottom:8px}
+.result-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;color:var(--teal-lt);line-height:1.2;margin-bottom:8px}
 .result-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.5px}
 
 /* CTA */
