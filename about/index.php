@@ -1,7 +1,11 @@
 <?php
+$page_canonical = "https://homecarecreators.com/about/";
+if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
+    header('Location: ' . $page_canonical, true, 301);
+    exit;
+}
 $page_title = "About Us | Homecare Creators";
 $page_desc = "Meet Asifa Rani, Founder & CEO of Homecare Creators — a marketing agency built exclusively for home care agencies in Florida.";
-$page_canonical = "https://homecarecreators.com/about/";
 $og_title = "About Us | Homecare Creators";
 $og_desc = "Meet the founder behind Homecare Creators and why we built a marketing agency exclusively for home care agencies.";
 $og_image = "https://homecarecreators.com/images/team/asifa-rani-founder-ceo.jpg";
@@ -57,7 +61,7 @@ $page_css = <<<CSS
   .contact-strip-inner{gap:28px}
 }
 CSS;
-include 'includes/header.php';
+include '../includes/header.php';
 ?>
 
 <div id="scrollProgress"></div>
@@ -136,4 +140,4 @@ include 'includes/header.php';
   </div>
 </section>
 
-<?php include 'includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>
