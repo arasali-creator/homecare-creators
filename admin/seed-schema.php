@@ -154,37 +154,11 @@ if ($run) {
     ]));
     $log[] = '✓ / → FAQPage (10 questions)';
 
-    // ════════════════════════════════════════════════════════════
-    //  LOCAL SEO SERVICE PAGE
-    // ════════════════════════════════════════════════════════════
-    $p = '/local-seo-for-home-care-agencies/';
-    add_schema($p, 'Service', [
-        'name'        => 'Local SEO for Home Care Agencies',
-        'description' => 'Comprehensive local SEO services built exclusively for home care agencies in Florida. We optimize your Google Business Profile, build authoritative citations, create geo-targeted content, and rank your agency in the Google Maps 3-pack — generating a steady flow of qualified client inquiries.',
-        'provider'    => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
-        'serviceType' => 'Local Search Engine Optimization',
-        'areaServed'  => ['@type'=>'State','name'=>'Florida'],
-        'url'         => SITE.$p,
-        'category'    => 'Digital Marketing',
-        'audience'    => ['@type'=>'Audience','audienceType'=>'Home Care Agency Owners and Operators in Florida'],
-        'offers'      => ['@type'=>'Offer','description'=>'Local SEO packages starting from $800/month. No long-term contracts.','priceCurrency'=>'USD','availability'=>'https://schema.org/InStock'],
-    ]);
-    $log[] = '✓ '.$p.' → Service';
-
-    add_schema($p, 'FAQPage', faq([
-        ['What is local SEO for home care agencies?', 'Local SEO for home care agencies is the process of optimizing your online presence so your agency appears prominently in Google search results and Google Maps when families in your area search for home care, elder care, or in-home assistance. It includes Google Business Profile optimization, citation building, geo-targeted content creation, and review management tailored to the care industry.'],
-        ['How long does local SEO take for a homecare business?', 'Most home care agencies see initial ranking improvements within 60 to 90 days. Google Maps 3-pack visibility can appear within 4 to 6 weeks with focused optimization. Full page-1 organic rankings for competitive keywords typically take 4 to 8 months depending on your market competition, existing domain authority, and the intensity of ongoing optimization work.'],
-        ['What keywords should a home care agency target for SEO?', 'High-value keywords combine service type and location: "home care agency [city]," "in-home care [city] FL," "elder care services near me," "personal care aide [city]," and "private duty home care [city]." Long-tail variations like "home care for seniors with dementia in [city]" often convert at higher rates with less competition — building early traction while broader terms gain authority.'],
-        ['How do home care agencies generate more Google reviews?', 'Most effective strategies: ask clients and families verbally right after a positive interaction, send a simple text or email with a direct Google review link, train caregivers to mention reviews during visits, and respond promptly to every existing review. Agencies with 20+ reviews averaging 4.5+ stars dramatically outperform competitors in local search rankings and conversion rates.'],
-        ['What is Google Business Profile optimization for home care?', 'Google Business Profile optimization means completing every field — service areas, specific services, team photos, business hours, Q&A, and regular posts — and actively maintaining it with updates and review responses. A fully optimized, regularly updated profile is the highest single-impact action a home care agency can take for Google Maps visibility.'],
-        ['Why doesn\'t my home care agency show up on Google Maps?', 'The most common causes: incomplete Google Business Profile, inconsistent business name/address/phone across directories (NAP inconsistency), too few or low-rated reviews, no location-specific content on your website, or poor mobile page performance. A targeted local SEO audit identifies which specific factors are suppressing your Maps ranking so fixes can be prioritized effectively.'],
-    ]));
-    $log[] = '✓ '.$p.' → FAQPage (6 questions)';
-
-    add_schema($p, 'BreadcrumbList', bc([
-        ['Home', SITE.'/'], ['Local SEO for Home Care Agencies', SITE.$p]
-    ]));
-    $log[] = '✓ '.$p.' → BreadcrumbList';
+    // Note: the former "Local SEO for Home Care Agencies" page
+    // (/local-seo-for-home-care-agencies/) was retired and 301-redirected
+    // into /seo/home-care-seo/ to resolve keyword cannibalization — that
+    // page now carries its own schema inline (see seo/home-care-seo/index.php),
+    // so no seeder entry is needed for it here.
 
     // ════════════════════════════════════════════════════════════
     //  WEBSITE DESIGN SERVICE PAGE
@@ -265,7 +239,7 @@ if ($run) {
         $log[] = "✓ {$path} → FAQPage (5 questions)";
 
         add_schema($path, 'BreadcrumbList', bc([
-            ['Home', SITE.'/'], ['Home Care Agency SEO', SITE.'/local-seo-for-home-care-agencies/'], ["{$c} Home Care Agency SEO", $url]
+            ['Home', SITE.'/'], ['Home Care Agency SEO', SITE.'/seo/home-care-seo/'], ["{$c} Home Care Agency SEO", $url]
         ]));
         $log[] = "✓ {$path} → BreadcrumbList";
     }
@@ -507,7 +481,6 @@ ul{margin:12px 0 12px 20px;font-size:13px;color:#374151;line-height:1.9}
 <p>This will <strong>TRUNCATE hc_page_schema</strong> and insert comprehensive, deeply researched schema blocks for every public page. Schema types included:</p>
 <ul>
   <li><strong>Homepage</strong> — MarketingAgency, WebSite, FAQPage (10 Qs)</li>
-  <li><strong>Local SEO service page</strong> — Service, FAQPage (6 Qs), BreadcrumbList</li>
   <li><strong>Website Design service page</strong> — Service, FAQPage (6 Qs), BreadcrumbList</li>
   <li><strong>10 marketing city pages</strong> — LocalBusiness, Service, FAQPage (5 Qs), BreadcrumbList each</li>
   <li><strong>6 web-design city pages</strong> — Service, FAQPage (4 Qs), BreadcrumbList each</li>

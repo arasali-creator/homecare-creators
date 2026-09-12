@@ -722,7 +722,7 @@ include 'includes/header.php';
             <li><i class="fa-solid fa-check"></i>Local landing pages</li>
             <li><i class="fa-solid fa-check"></i>Service area optimization</li>
           </ul>
-          <a href="/seo/local-seo-for-home-care-agencies" class="svc-grid-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/seo/home-care-seo/" class="svc-grid-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
