@@ -1,7 +1,11 @@
 <?php
+$page_canonical = "https://homecarecreators.com/contact/";
+if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
+    header('Location: ' . $page_canonical, true, 301);
+    exit;
+}
 $page_title = "Contact Us | Homecare Creators";
 $page_desc = "Get in touch with Homecare Creators — call, email, or send us a message. We reply within 24 hours, Monday through Friday.";
-$page_canonical = "https://homecarecreators.com/contact/";
 $og_title = "Contact Us | Homecare Creators";
 $og_desc = "Call, email, or message Homecare Creators — a marketing agency built exclusively for home care agencies in Florida.";
 $page_css = <<<CSS
@@ -48,7 +52,7 @@ $page_css = <<<CSS
   .form-row{grid-template-columns:1fr}
 }
 CSS;
-include 'includes/header.php';
+include '../includes/header.php';
 ?>
 
 <div id="scrollProgress"></div>
@@ -207,5 +211,5 @@ function submitContact() {
   });
 }
 JS;
-include 'includes/footer.php';
+include '../includes/footer.php';
 ?>
