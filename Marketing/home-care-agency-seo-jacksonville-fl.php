@@ -7,7 +7,7 @@ if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
 $page_title = "Jacksonville Home Care Agency SEO & Marketing | Homecare Creators";
 $page_desc = "SEO and web design for home care agencies in Jacksonville, FL. We get Duval County agencies ranking #1 on Google and filling their private-pay caseload.";
 $og_title = "Jacksonville Home Care Agency SEO & Marketing | Homecare Creators";
-$og_desc = "Jacksonville home care agencies: get found on Google, own local search, and grow faster with the only marketing agency built 100% for homecare.";
+$og_desc = "Jacksonville home care agencies: get found on Google, own local search, and grow faster with a marketing agency built 100% for homecare.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
@@ -148,7 +148,7 @@ include '../includes/header.php';
   <div class="hero-blob1"></div>
   <div class="hero-blob2"></div>
   <div class="hero-content">
-    <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/florida/">Florida</a> / <span>Jacksonville</span></div>
+    <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <span>Florida</span> / <span>Jacksonville</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Duval County, Florida</div>
     <h1 class="hero-h1">Jacksonville Home Care<br><em>Agencies, Ranked #1</em></h1>
     <p class="hero-desc">We put Jacksonville home care agencies at the top of Google, build websites that actually convert, and fill your private-pay pipeline across Duval County. When a family here searches for care, we want your name showing up first.</p>
@@ -157,11 +157,11 @@ include '../includes/header.php';
       <a href="https://homecarecreators.com/#services" class="btn-secondary"><i class="fa-solid fa-play"></i>View Our Services</a>
     </div>
     <div class="hero-proof">
-      <div class="hero-proof-item"><div class="hero-proof-num">312%</div><div class="hero-proof-label">Avg Lead Increase</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
       <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">#1</div><div class="hero-proof-label">Google Rank in 5mo</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">SEO</div><div class="hero-proof-label">+ AI Search Visibility</div></div>
       <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">67+</div><div class="hero-proof-label">Reviews in 90 Days</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">30-Day</div><div class="hero-proof-label">Satisfaction Guarantee</div></div>
       <div class="hero-proof-divider"></div>
       <div class="hero-proof-item"><div class="hero-proof-num">$0</div><div class="hero-proof-label">Free Audit Cost</div></div>
     </div>
@@ -224,7 +224,7 @@ include '../includes/header.php';
         <h2 class="section-h2">Why Jacksonville Is One of Florida's <em>Fastest-Growing</em> Homecare Markets</h2>
         <p>Jacksonville and Duval County are growing fast, and the senior population is growing right along with it. Retirees keep moving down from the Northeast and Midwest. The greater Jacksonville area is now home to more than 1.5 million people, with one of the highest concentrations of adults 65+ anywhere in Florida. Demand for quality in-home care here has never been stronger.</p>
         <p>Families in Mandarin, Southside, Arlington, and all over Duval County search Google every day looking for a homecare agency they can trust. If your digital presence isn't strong, you don't show up. Those searches don't just disappear, though. They go to whichever competitor Google decided to show instead.</p>
-        <p>Homecare Creators only works with homecare businesses. Nothing else. We know the Jacksonville market, we know what families actually type into Google when they need care, and we know how to get you to the top of Maps and organic results faster than a generalist marketing shop ever could.</p>
+        <p>Homecare Creators is a marketing agency built exclusively for homecare businesses. We know the Jacksonville market, we know what families actually type into Google when they need care, and we know how to get you to the top of Maps and organic results faster than a generalist marketing shop ever could.</p>
       </div>
       <div class="market-facts" data-reveal style="transition-delay:.15s">
         <div class="fact-card"><div class="fact-num">1.5M+</div><h4>Jacksonville area Population</h4><p>One of Florida's largest metros, and the senior population keeps climbing year after year</p></div>
@@ -260,7 +260,7 @@ include '../includes/header.php';
             <li><i class="fa-solid fa-check"></i>Dedicated service area pages for Jacksonville neighborhoods</li>
             <li><i class="fa-solid fa-check"></i>A careers page that helps you land caregivers</li>
             <li><i class="fa-solid fa-check"></i>Google Reviews widget built right in</li>
-            <li><i class="fa-solid fa-check"></i>Under 2-second load speed, guaranteed</li>
+            <li><i class="fa-solid fa-check"></i>Built for fast, sub-2-second load speed</li>
           </ul>
         </div>
       </div>
@@ -306,31 +306,6 @@ include '../includes/header.php';
   </div>
 </section>
 
-<!-- KEYWORDS -->
-<section class="kw-section">
-  <div class="container">
-    <div data-reveal>
-      <p class="section-label">Keyword Strategy</p>
-      <h2 class="section-h2">The Exact Keywords We Target for<br><em>Jacksonville Homecare Agencies</em></h2>
-      <p class="section-sub">These are the searches Jacksonville families actually type in when they're looking for homecare. We build out your entire digital presence to rank for every one of them.</p>
-    </div>
-    <div class="kw-grid" data-reveal style="transition-delay:.1s">
-      <div class="kw-card"><div><div class="kw-term">home care agency Jacksonville FL</div><div class="kw-intent">Commercial intent, ready to hire</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare near me Jacksonville</div><div class="kw-intent">Local + near-me, highest conversion</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">senior home care Jacksonville FL</div><div class="kw-intent">Family searching for elderly parent</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">in-home care for elderly Jacksonville</div><div class="kw-intent">Informational to decision stage</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">caregiver jobs Jacksonville FL</div><div class="kw-intent">Recruitment, attracts quality caregivers</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">home health aide Duval County</div><div class="kw-intent">County-level, broader reach</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">companion care services Jacksonville</div><div class="kw-intent">Service-specific, non-medical care</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">personal care assistance Jacksonville</div><div class="kw-intent">ADL support, Medicaid waiver keyword</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare Mandarin / Southside / Arlington</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">24-hour home care Jacksonville</div><div class="kw-intent">High urgency, premium private-pay lead</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">best home care agency Jacksonville FL 2025</div><div class="kw-intent">AI search and voice search query</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">how to choose a home care agency Jacksonville</div><div class="kw-intent">Blog target, educational and builds trust</div></div><span class="kw-badge kw-med">MED</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- AREAS -->
 <section class="areas-section">
   <div class="container">
@@ -353,7 +328,6 @@ include '../includes/header.php';
       <div class="area-pill"><div class="area-dot"></div>Ponte Vedra Beach</div>
       <div class="area-pill"><div class="area-dot"></div>Orange Park</div>
     </div>
-    <div class="areas-note" data-reveal style="transition-delay:.2s"><i class="fa-solid fa-lightbulb" style="margin-right:8px;color:var(--gold)"></i>SEO Tip: Each neighborhood above should have its own dedicated sub-page (e.g. /home-care-riverside-fl/) that links back to this page. That's how you build the kind of topical cluster Google rewards with higher rankings.</div>
   </div>
 </section>
 
@@ -362,13 +336,13 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label" style="color:var(--teal-lt)"><span style="background:var(--teal-lt);display:inline-block;width:24px;height:2px;border-radius:2px;margin-right:8px;vertical-align:middle"></span>Why Homecare Creators</p>
-      <h2 class="section-h2" style="color:#fff">The Only Agency That Truly<br><em>Understands Jacksonville Homecare</em></h2>
-      <p class="section-sub" style="color:rgba(255,255,255,.58)">Generalist agencies don't understand homecare, Florida's AHCA licensing, Medicaid waiver nuances, or the demographics driving senior care demand across Jacksonville. We do, because homecare is the only thing we do.</p>
+      <h2 class="section-h2" style="color:#fff">Built to Truly<br><em>Understand Jacksonville Homecare</em></h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.58)">Generalist agencies don't understand homecare, Florida's AHCA licensing, Medicaid waiver nuances, or the demographics driving senior care demand across Jacksonville. We do, because we're built exclusively for homecare.</p>
     </div>
     <div class="why-grid" data-reveal style="transition-delay:.1s">
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-bullseye"></i></div><h4>100% Homecare-Only</h4><p>Every keyword, page, and strategy we build is purpose-built for homecare agencies. We don't take on restaurants or dentists, and that focus is exactly why competitors can't match us.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-map-location-dot"></i></div><h4>Jacksonville Market Knowledge</h4><p>We know Duval County's demographics inside and out: the retirement migration from the Northeast, the strong private-pay demand in Riverside and San Marco, and a Medicaid landscape that trips up outsiders.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-robot"></i></div><h4>AI Search Optimization</h4><p>We're the only homecare agency optimizing for ChatGPT, Google AI Overviews, and Perplexity. Jacksonville families are already asking AI "what's the best homecare agency near me?" We make sure it's your name that comes back.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-robot"></i></div><h4>AI Search Optimization</h4><p>We optimize for ChatGPT, Google AI Overviews, and Perplexity. Jacksonville families are already asking AI "what's the best homecare agency near me?" We make sure it's your name that comes back.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-dollar-sign"></i></div><h4>ROI You Can Measure</h4><p>One new private-pay client in Jacksonville is worth $3,000–$8,000 per year. Most of the time, our SEO retainer pays for itself within 30 days of that first client inquiry.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-handshake"></i></div><h4>No Long-Term Contracts</h4><p>We keep clients because of results, not paperwork. Every plan goes month-to-month after the first 90 days, and we're confident enough in the work to let you walk away anytime.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-layer-group"></i></div><h4>Website + SEO + AI in One</h4><p>Stop juggling three different vendors. We design your site, manage your Google Business Profile, and build AI search authority in one retainer, with one strategy call a month.</p></div>
@@ -383,44 +357,44 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Home Care in Jacksonville:<br><em>Questions Families Ask</em></h2>
-      <p class="section-sub">These FAQs mirror real search queries Jacksonville families type into Google. Add this content to your own website and it helps you rank in the "People Also Ask" boxes.</p>
+      <h2 class="section-h2">Jacksonville Homecare Marketing:<br><em>Questions Agency Owners Ask</em></h2>
+      <p class="section-sub">Answers to what Jacksonville home care agency owners want to know before they sign on.</p>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I find a trusted home care agency in Jacksonville, FL?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Start by checking Google reviews, then verify the agency's state licensure through the Florida Agency for Health Care Administration (AHCA), and confirm caregivers go through real background checks. Look for one that specializes in the level of care your loved one actually needs, whether that's companion care, personal care assistance, or skilled nursing. A reputable Jacksonville homecare agency will offer a free in-home consultation and hand you a written plan of care before anything begins.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How much does home care SEO cost for a Jacksonville agency?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Every plan is a flat monthly retainer, no hidden setup fees. What you pay depends on how competitive your specific service area is and whether you need a new website built alongside SEO. Book a free audit and we'll walk you through exact numbers for your agency.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What does home care cost in Jacksonville, Florida?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">In Jacksonville, non-medical companion and personal care typically runs $20–$30 per hour. Some families pay out of pocket, some use long-term care insurance, and others tap into Florida's Statewide Medicaid Managed Care Long-Term Care (SMMC LTC) program to help cover the cost. A licensed local agency can sort out which of those options your loved one actually qualifies for, usually during that first free consultation.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long until my Jacksonville agency starts ranking on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Starting from zero, most Jacksonville clients see Google Maps movement within 60–90 days, with organic rankings building over the following months. Timelines vary with how competitive your service area is and how much content and citation work your site needs.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Does Duval County have Medicaid home care programs?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes, Florida's SMMC LTC program covers in-home personal care for eligible seniors right here in Duval County. To qualify, you generally need to be 65 or older and meet both functional and financial eligibility requirements, then enroll through an approved managed care plan. AHCA-licensed agencies in the Jacksonville area deal with this enrollment process all the time and can point families toward the right managed care organization.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you only work with agencies in Jacksonville?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">No, we work with home care agencies throughout Duval County and across Florida. If you serve multiple cities, we build out a dedicated strategy and pages for each market you operate in.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What areas of Jacksonville does your homecare service cover?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">We work with homecare agencies across all of Duval County and the greater Jacksonville area, including Riverside, San Marco, Mandarin, Southside, Arlington, Avondale, Baymeadows, Jacksonville Beach, Atlantic Beach, Neptune Beach, Ponte Vedra Beach, Orange Park, and the communities around them. Serve a neighborhood we haven't listed? We'll build a dedicated local page so you can rank there too.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What's included in the monthly retainer?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Local SEO (Google Business Profile management, citations, review growth), on-page optimization across your site, monthly ranking reports, and a strategy call every month. Website design and AI search optimization are available as add-ons or bundled in, depending on the plan.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to rank #1 on Google for homecare in Jacksonville?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">If you're starting from zero, most of our Jacksonville clients see meaningful Google Maps movement within 60–90 days, with strong organic rankings following in 4–6 months. Jacksonville is a tough market, no question. Even so, our homecare-specific approach still delivers top-3 Maps positions within 5 months on average. That's faster than generalist agencies manage, simply because every strategy we run is built for this niche and nothing else.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you require a long-term contract?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">No. After an initial 90-day ramp-up period, every plan moves to month-to-month. We'd rather earn your business every month than lock you into a contract.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do Jacksonville homecare agencies need a Florida state license?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Any agency providing companion care or personal care services in Florida must be licensed by the Florida Agency for Health Care Administration (AHCA). Which license type applies depends on what you offer: Home Health Agency, Nurse Registry, or Companion/Homemaker. You need that AHCA licensure in place before marketing your homecare services in Jacksonville, or anywhere else in Florida.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can you also build or redesign my agency's website?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Most Jacksonville clients bundle website design with SEO since the two work best together, but we also support agencies who already have a site and just want SEO and AI search optimization managed.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can families in Jacksonville find homecare agencies through ChatGPT or Google AI?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes, and it's happening faster than most agency owners realize. More Jacksonville families are turning to ChatGPT, Google AI Overviews, and Perplexity to find and vet local homecare providers. Homecare Creators is the only marketing agency that actually optimizes homecare websites to get cited by these AI systems, which puts your agency ahead of competitors still focused only on traditional Google rankings.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can ChatGPT and Google AI recommend my Jacksonville agency to families?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, and it's a fast-growing channel. We optimize your site's structure, entity data, and FAQ content so AI tools like ChatGPT, Google AI Overviews, and Perplexity can accurately cite and recommend your agency, not just traditional Google search.</div></div>
       </div>
 
     </div>
@@ -459,7 +433,7 @@ include '../includes/header.php';
         <div class="cta-actions">
           <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-calendar-check"></i>Get My Free Jacksonville SEO Audit</button>
         </div>
-        <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Results in 30 days guaranteed</div>
+        <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; 30-day satisfaction guarantee</div>
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
         <img src="/images/home/cta-business-owner.jpg" alt="Jacksonville home care agency owner growing their business with Homecare Creators" title="Jacksonville home care agency owner growth">

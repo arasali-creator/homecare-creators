@@ -12,18 +12,21 @@
       <p class="footer-tagline">Market It. Manage It. Grow It — Built Exclusively for Homecare.</p>
       <div class="footer-socials">
         <a href="https://www.linkedin.com/company/homecare-creators/" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="tel:+14094193533" class="footer-social" aria-label="Call us"><i class="fa-solid fa-phone"></i></a>
         <a href="mailto:info@homecarecreators.com" class="footer-social" aria-label="Email us"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </div>
     <div>
-      <div class="footer-col-title">Services</div>
+      <div class="footer-col-title">Company</div>
       <ul class="footer-links">
+        <li><a href="/about/">About Us</a></li>
+        <li><a href="/contact/">Contact</a></li>
         <li><a href="/seo/home-care-seo/">Home Care SEO</a></li>
         <li><a href="/web-design/homecare-website-design/">Website Design</a></li>
         <li><a href="/seo/local-seo-for-home-care-agencies">Local SEO</a></li>
-        <li><a href="/#services">AI Search SEO</a></li>
+        <li><a href="/ai-search-seo/">AI Search SEO</a></li>
         <li><a href="/#bundles">Pricing &amp; Packages</a></li>
-        <li><a href="/#careos">CareOS Platform</a></li>
+        <li><a href="/careos/">CareOS Platform</a></li>
         <li><a href="/case-studies/">Case Studies</a></li>
         <li><a href="/blog">Marketing Blog</a></li>
       </ul>
@@ -46,17 +49,28 @@
     <div>
       <div class="footer-col-title">Web Design Cities</div>
       <ul class="footer-links">
-        <li><a href="/web-design/homecare-website-design-miami-fl">Miami Web Design</a></li>
-        <li><a href="/web-design/homecare-website-design-orlando-fl">Orlando Web Design</a></li>
-        <li><a href="/web-design/homecare-website-design-tampa-fl">Tampa Web Design</a></li>
-        <li><a href="/web-design/homecare-website-design-jacksonville-fl">Jacksonville Web Design</a></li>
-        <li><a href="/web-design/homecare-website-design-fort-lauderdale-fl">Fort Lauderdale Web Design</a></li>
-        <li><a href="/web-design/homecare-website-design-naples-fl">Naples Web Design</a></li>
+        <li><a href="/homecare-website-design-miami-fl/">Miami Web Design</a></li>
+        <li><a href="/homecare-website-design-orlando-fl/">Orlando Web Design</a></li>
+        <li><a href="/homecare-website-design-tampa-fl/">Tampa Web Design</a></li>
+        <li><a href="/homecare-website-design-jacksonville-fl/">Jacksonville Web Design</a></li>
+        <li><a href="/homecare-website-design-fort-lauderdale-fl/">Fort Lauderdale Web Design</a></li>
+        <li><a href="/homecare-website-design-naples-fl/">Naples Web Design</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Senior Care Marketing</div>
+      <ul class="footer-links">
+        <li><a href="/areas-we-serve/">Areas We Serve</a></li>
+        <li><a href="/memory-care-marketing/">Memory Care</a></li>
+        <li><a href="/hospice-marketing/">Hospice</a></li>
+        <li><a href="/nursing-home-marketing/">Nursing Homes</a></li>
+        <li><a href="/senior-living-marketing/">Senior Living</a></li>
+        <li><a href="/assisted-living-marketing/">Assisted Living</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Homecare Creators &middot; Lady Lake, FL 32159, United States &middot; <a href="mailto:info@homecarecreators.com" style="color:inherit">info@homecarecreators.com</a> &middot; All rights reserved.</div>
+    <div class="footer-copy">© 2026 Homecare Creators &middot; Lady Lake, FL 32159, United States &middot; <a href="tel:+14094193533" style="color:inherit">+1 (409) 419-3533</a> &middot; <a href="mailto:info@homecarecreators.com" style="color:inherit">info@homecarecreators.com</a> &middot; All rights reserved.</div>
     <div class="footer-bottom-links"><a href="/privacy-policy">Privacy Policy</a><a href="/terms-of-service">Terms of Service</a></div>
   </div>
 </footer>

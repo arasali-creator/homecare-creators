@@ -7,7 +7,7 @@ if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
 $page_title = "West Palm Beach Home Care SEO & Digital Marketing | Homecare Creators";
 $page_desc = "SEO for home care agencies in West Palm Beach, FL. We get you ranking on Google Maps and bring in more private-pay clients across Palm Beach County.";
 $og_title = "West Palm Beach Home Care SEO & Digital Marketing | Homecare Creators";
-$og_desc = "We're the only marketing agency built exclusively for home care, and we help West Palm Beach agencies get found on Google and grow faster.";
+$og_desc = "We're a marketing agency built exclusively for home care, and we help West Palm Beach agencies get found on Google and grow faster.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
@@ -150,7 +150,7 @@ include '../includes/header.php';
   <div class="hero-blob1"></div>
   <div class="hero-blob2"></div>
   <div class="hero-content">
-    <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/florida/">Florida</a> / <span>West Palm Beach</span></div>
+    <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <span>Florida</span> / <span>West Palm Beach</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Palm Beach County, Florida</div>
     <h1 class="hero-h1">West Palm Beach<br>Home Care <em>Agency SEO</em></h1>
     <p class="hero-desc">We help West Palm Beach homecare agencies rank #1 on Google, build websites that actually convert, and bring in more private-pay clients across Palm Beach County. Families find you first, every time.</p>
@@ -159,11 +159,11 @@ include '../includes/header.php';
       <a href="https://homecarecreators.com/#services" class="btn-secondary"><i class="fa-solid fa-play"></i>View Our Services</a>
     </div>
     <div class="hero-proof">
-      <div class="hero-proof-item"><div class="hero-proof-num">312%</div><div class="hero-proof-label">Avg Lead Increase</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
       <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">#1</div><div class="hero-proof-label">Google Rank in 5mo</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">SEO</div><div class="hero-proof-label">+ AI Search Visibility</div></div>
       <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">67+</div><div class="hero-proof-label">Reviews in 90 Days</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">30-Day</div><div class="hero-proof-label">Satisfaction Guarantee</div></div>
       <div class="hero-proof-divider"></div>
       <div class="hero-proof-item"><div class="hero-proof-num">$0</div><div class="hero-proof-label">Free Audit Cost</div></div>
     </div>
@@ -262,7 +262,7 @@ include '../includes/header.php';
             <li><i class="fa-solid fa-check"></i>Service area pages for West Palm Beach neighborhoods</li>
             <li><i class="fa-solid fa-check"></i>Caregiver careers and jobs page</li>
             <li><i class="fa-solid fa-check"></i>Google Reviews widget built in</li>
-            <li><i class="fa-solid fa-check"></i>Under 2-second load speed guaranteed</li>
+            <li><i class="fa-solid fa-check"></i>Built for fast, sub-2-second load speed</li>
           </ul>
         </div>
       </div>
@@ -308,31 +308,6 @@ include '../includes/header.php';
   </div>
 </section>
 
-<!-- KEYWORDS -->
-<section class="kw-section">
-  <div class="container">
-    <div data-reveal>
-      <p class="section-label">Keyword Strategy</p>
-      <h2 class="section-h2">The Exact Keywords We Target for<br><em>West Palm Beach Homecare Agencies</em></h2>
-      <p class="section-sub">These are the searches that matter most for West Palm Beach home care agencies right now. We build your entire digital presence around ranking for every one of them.</p>
-    </div>
-    <div class="kw-grid" data-reveal style="transition-delay:.1s">
-      <div class="kw-card"><div><div class="kw-term">home care agency West Palm Beach FL</div><div class="kw-intent">Commercial, ready to hire</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare near me West Palm Beach</div><div class="kw-intent">Local + near-me, highest conversion</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">senior home care West Palm Beach FL</div><div class="kw-intent">Family searching for elderly parent</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">in-home care for elderly West Palm Beach</div><div class="kw-intent">Informational to decision stage</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">caregiver jobs West Palm Beach FL</div><div class="kw-intent">Recruitment, attracts quality caregivers</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">home health aide Palm Beach County</div><div class="kw-intent">County-level, broader reach</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">companion care services West Palm Beach</div><div class="kw-intent">Service-specific, non-medical care</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">personal care assistance West Palm Beach</div><div class="kw-intent">ADL support, Medicaid waiver keyword</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare Northwood / Royal Palm Beach / Wellington</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">24-hour home care West Palm Beach</div><div class="kw-intent">High urgency, premium private-pay client</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">best home care agency West Palm Beach FL 2025</div><div class="kw-intent">AI search and voice search query</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">how to choose a home care agency West Palm Beach</div><div class="kw-intent">Blog target, builds trust and education</div></div><span class="kw-badge kw-med">MED</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- AREAS -->
 <section class="areas-section">
   <div class="container">
@@ -353,7 +328,6 @@ include '../includes/header.php';
       <div class="area-pill"><div class="area-dot"></div>Jupiter</div>
       <div class="area-pill"><div class="area-dot"></div>Greenacres</div>
     </div>
-    <div class="areas-note" data-reveal style="transition-delay:.2s"><i class="fa-solid fa-lightbulb" style="margin-right:8px;color:var(--gold)"></i>SEO Tip: Give each neighborhood above its own dedicated sub-page (e.g. /home-care-wellington-fl/) linking back to this page. That's how you build the topical cluster Google rewards with higher rankings.</div>
   </div>
 </section>
 
@@ -362,13 +336,13 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label" style="color:var(--teal-lt)"><span style="background:var(--teal-lt);display:inline-block;width:24px;height:2px;border-radius:2px;margin-right:8px;vertical-align:middle"></span>Why Homecare Creators</p>
-      <h2 class="section-h2" style="color:#fff">The Only Agency That Truly<br><em>Understands West Palm Beach Homecare</em></h2>
+      <h2 class="section-h2" style="color:#fff">Built to Truly<br><em>Understand West Palm Beach Homecare</em></h2>
       <p class="section-sub" style="color:rgba(255,255,255,.58)">Most marketing agencies don't understand home care. They don't know Florida's AHCA licensing rules, Medicaid waiver nuances, or what's actually driving senior care demand in West Palm Beach. We do, because home care is all we do.</p>
     </div>
     <div class="why-grid" data-reveal style="transition-delay:.1s">
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-bullseye"></i></div><h4>100% Homecare-Only</h4><p>Every keyword, every page, every strategy we build is for home care agencies specifically. We don't take on restaurants or dental clients, so agencies working with a jack-of-all-trades marketer simply can't keep up.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-map-location-dot"></i></div><h4>West Palm Beach Market Knowledge</h4><p>We know Palm Beach County's demographics inside and out: the retirement migration from the Northeast, strong private-pay demand in El Cid and Flamingo Park, and a Medicaid landscape that's tougher than most agencies expect.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-robot"></i></div><h4>AI Search Optimization</h4><p>We're the only home care agency optimizing for ChatGPT, Google AI Overviews, and Perplexity answers. West Palm Beach families are already asking AI which agency to trust, and we make sure they hear your name.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-robot"></i></div><h4>AI Search Optimization</h4><p>We optimize for ChatGPT, Google AI Overviews, and Perplexity answers. West Palm Beach families are already asking AI which agency to trust, and we make sure they hear your name.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-dollar-sign"></i></div><h4>ROI You Can Measure</h4><p>A single new private-pay client here is worth $3,000–$8,000 a year. Land just one from our work and the retainer often pays for itself within 30 days.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-handshake"></i></div><h4>No Long-Term Contracts</h4><p>Results keep our clients around, not paperwork. Every plan goes month-to-month after the first 90 days. We're comfortable enough with what we deliver to let you walk away whenever you want.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-layer-group"></i></div><h4>Website + SEO + AI in One</h4><p>Skip the three-vendor juggling act. We design your site, run your Google Business Profile, and build your AI search authority under one retainer, with one strategy call a month to keep it all moving.</p></div>
@@ -383,44 +357,44 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Home Care in West Palm Beach:<br><em>Questions Families Ask</em></h2>
-      <p class="section-sub">These are real questions West Palm Beach families type into Google. Add content like this to your own site and you'll start showing up in the "People Also Ask" boxes too.</p>
+      <h2 class="section-h2">West Palm Beach Homecare Marketing:<br><em>Questions Agency Owners Ask</em></h2>
+      <p class="section-sub">Answers to what West Palm Beach home care agency owners want to know before they sign on.</p>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I find a trusted home care agency in West Palm Beach, FL?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Start by checking Google reviews and verifying the agency's license through the Florida Agency for Health Care Administration (AHCA). Ask how they handle caregiver background checks too, since that's where families sometimes get burned. Then look for an agency that specializes in the level of care your loved one needs, whether that's companion care, personal care assistance, or skilled nursing. A reputable West Palm Beach agency will offer a free in-home consultation and hand you a written plan of care before services begin.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How much does home care SEO cost for a West Palm Beach agency?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Every plan is a flat monthly retainer, no hidden setup fees. What you pay depends on how competitive your specific service area is and whether you need a new website built alongside SEO. Book a free audit and we'll walk you through exact numbers for your agency.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What does home care cost in West Palm Beach, Florida?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">In West Palm Beach, non-medical companion and personal care typically runs $20–$30 per hour. Some families pay out of pocket, others use long-term care insurance, and quite a few qualify for Florida's Statewide Medicaid Managed Care Long-Term Care (SMMC LTC) program. A licensed local agency can sort out which of those options your loved one actually qualifies for during a free initial consultation.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long until my West Palm Beach agency starts ranking on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Starting from zero, most West Palm Beach clients see Google Maps movement within 60–90 days, with organic rankings building over the following months. Timelines vary with how competitive your service area is and how much content and citation work your site needs.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Does Palm Beach County have Medicaid home care programs?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Florida's SMMC LTC program covers in-home personal care for eligible seniors right here in Palm Beach County. Generally you need to be 65 or older and meet certain functional and financial requirements, then enroll through an approved managed care plan. It's a lot of paperwork, honestly. That's why AHCA-licensed agencies in the West Palm Beach area usually walk families through enrollment and connect them with the right managed care organization.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you only work with agencies in West Palm Beach?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">No, we work with home care agencies throughout Palm Beach County and across Florida. If you serve multiple cities, we build out a dedicated strategy and pages for each market you operate in.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What areas of West Palm Beach does your homecare service cover?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">We work with agencies covering all of Palm Beach County and the West Palm Beach area, including El Cid, Flamingo Park, Northwood, Royal Palm Beach, Wellington, Palm Beach Gardens, Riviera Beach, North Palm Beach, Jupiter, Greenacres, and everything in between. Serve a specific neighborhood we didn't mention? We'll build a dedicated page to help you rank there too.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What's included in the monthly retainer?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Local SEO (Google Business Profile management, citations, review growth), on-page optimization across your site, monthly ranking reports, and a strategy call every month. Website design and AI search optimization are available as add-ons or bundled in, depending on the plan.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to rank #1 on Google for homecare in West Palm Beach?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">If you're starting from zero, expect real Google Maps movement within 60–90 days and solid organic rankings by month 4–6. West Palm Beach isn't an easy market to crack, but our clients typically land a top-3 Google Maps position within 5 months. That's faster than what generalist agencies manage, mostly because every part of our strategy is built around home care and nothing else.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you require a long-term contract?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">No. After an initial 90-day ramp-up period, every plan moves to month-to-month. We'd rather earn your business every month than lock you into a contract.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do West Palm Beach homecare agencies need a Florida state license?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Florida requires agencies offering companion care or personal care services to be licensed through the Agency for Health Care Administration (AHCA). Which license you need, whether that's Home Health Agency, Nurse Registry, or Companion/Homemaker, depends on what services you actually provide. You need that license in place before you start marketing anywhere in Florida, West Palm Beach included.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can you also build or redesign my agency's website?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Most West Palm Beach clients bundle website design with SEO since the two work best together, but we also support agencies who already have a site and just want SEO and AI search optimization managed.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can families in West Palm Beach find homecare agencies through ChatGPT or Google AI?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes, and it's happening more than most agency owners realize. West Palm Beach families increasingly use ChatGPT, Google AI Overviews, and Perplexity to research and vet local home care options before they ever pick up the phone. Homecare Creators is the only marketing agency that specifically optimizes home care websites to get cited by these AI systems, which puts you well ahead of competitors still focused only on traditional Google rankings.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can ChatGPT and Google AI recommend my West Palm Beach agency to families?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, and it's a fast-growing channel. We optimize your site's structure, entity data, and FAQ content so AI tools like ChatGPT, Google AI Overviews, and Perplexity can accurately cite and recommend your agency, not just traditional Google search.</div></div>
       </div>
 
     </div>
@@ -459,7 +433,7 @@ include '../includes/header.php';
         <div class="cta-actions">
           <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-calendar-check"></i>Get My Free West Palm Beach SEO Audit</button>
         </div>
-        <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Results in 30 days guaranteed</div>
+        <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; 30-day satisfaction guarantee</div>
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
         <img src="/images/home/cta-business-owner.jpg" alt="West Palm Beach home care agency owner growing their business with Homecare Creators" title="West Palm Beach home care agency owner growth">

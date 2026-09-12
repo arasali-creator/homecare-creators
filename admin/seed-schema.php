@@ -34,8 +34,10 @@ function bc(array $items): array {
 const SITE  = 'https://homecarecreators.com';
 const ORG   = 'Homecare Creators';
 const EMAIL = 'info@homecarecreators.com';
-const ADDR  = ['@type'=>'PostalAddress','streetAddress'=>'984 Old Camp Rd',
-               'addressLocality'=>'The Villages','addressRegion'=>'FL','postalCode'=>'32162','addressCountry'=>'US'];
+const PHONE = '+1-409-419-3533';
+const ADDR  = ['@type'=>'PostalAddress',
+               'addressLocality'=>'Lady Lake','addressRegion'=>'FL','postalCode'=>'32159','addressCountry'=>'US'];
+const FOUNDER = ['@type'=>'Person','name'=>'Asifa Rani','jobTitle'=>'Founder & CEO','url'=>'https://homecarecreators.com/about/','sameAs'=>['https://www.linkedin.com/in/asifa-rani/']];
 
 // ── City data: path => city info ─────────────────────────────────
 // Paths match $page_canonical (domain stripped) from each actual page file.
@@ -72,11 +74,12 @@ if ($run) {
     // ════════════════════════════════════════════════════════════
     add_schema('/', 'MarketingAgency', [
         'name'        => ORG,
-        'description' => 'Homecare Creators is the only full-service digital marketing agency in Florida built exclusively for home care agencies. We specialize in local SEO, Google Maps optimization, custom website design, and AI search visibility — helping homecare businesses attract more private-pay and Medicaid clients.',
+        'description' => 'Homecare Creators is a digital marketing agency built exclusively for home care agencies in Florida. We specialize in local SEO, Google Maps optimization, custom website design, and AI search visibility — helping homecare businesses attract more private-pay and Medicaid clients.',
         'url'         => SITE,
-
+        'telephone'   => PHONE,
         'email'       => EMAIL,
-        'foundingDate'=> '2021',
+        'foundingDate'=> '2026',
+        'founder'     => FOUNDER,
         'address'     => ADDR,
         'areaServed'  => [['@type'=>'State','name'=>'Florida'],['@type'=>'Country','name'=>'United States']],
         'serviceArea' => ['@type'=>'State','name'=>'Florida'],
@@ -92,10 +95,46 @@ if ($run) {
     ]);
     $log[] = '✓ / → MarketingAgency';
 
+    // ════════════════════════════════════════════════════════════
+    //  ABOUT PAGE — Founder / Person schema
+    // ════════════════════════════════════════════════════════════
+    add_schema('/about/', 'AboutPage', [
+        'name'        => 'About Homecare Creators',
+        'url'         => SITE.'/about/',
+        'mainEntity'  => array_merge(FOUNDER, [
+            'worksFor'    => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
+            'telephone'   => PHONE,
+            'email'       => EMAIL,
+            'address'     => ADDR,
+            'description' => 'Asifa Rani is the Founder & CEO of Homecare Creators, a marketing agency built exclusively for home care agencies. Before Homecare Creators, she co-founded a web solutions company helping businesses build their digital presence.',
+        ]),
+    ]);
+    $log[] = '✓ /about/ → AboutPage + Person (founder)';
+
+    add_schema('/about/', 'BreadcrumbList', bc([
+        ['Home', SITE.'/'], ['About', SITE.'/about/']
+    ]));
+    $log[] = '✓ /about/ → BreadcrumbList';
+
+    // ════════════════════════════════════════════════════════════
+    //  CONTACT PAGE
+    // ════════════════════════════════════════════════════════════
+    add_schema('/contact/', 'ContactPage', [
+        'name'        => 'Contact Homecare Creators',
+        'url'         => SITE.'/contact/',
+        'mainEntity'  => ['@type'=>'Organization','name'=>ORG,'telephone'=>PHONE,'email'=>EMAIL,'address'=>ADDR],
+    ]);
+    $log[] = '✓ /contact/ → ContactPage';
+
+    add_schema('/contact/', 'BreadcrumbList', bc([
+        ['Home', SITE.'/'], ['Contact', SITE.'/contact/']
+    ]));
+    $log[] = '✓ /contact/ → BreadcrumbList';
+
     add_schema('/', 'WebSite', [
         'name'        => ORG,
         'url'         => SITE,
-        'description' => "Florida's only marketing agency built exclusively for home care agencies.",
+        'description' => "A Florida marketing agency built exclusively for home care agencies.",
         'potentialAction' => ['@type'=>'SearchAction','target'=>['@type'=>'EntryPoint','urlTemplate'=>SITE.'/blog?s={search_term_string}'],'query-input'=>'required name=search_term_string'],
         'inLanguage'  => 'en-US',
     ]);
@@ -192,7 +231,7 @@ if ($run) {
             'name'        => ORG,
             'description' => "Homecare Creators provides expert digital marketing for home care agencies in {$c}, Florida — including local SEO, Google Maps optimization, and website design to help {$c} homecare businesses attract more private-pay and Medicaid clients.",
             'url'         => $url,
-    
+            'telephone'   => PHONE,
             'email'       => EMAIL,
             'address'     => ADDR,
             'areaServed'  => [
@@ -265,6 +304,165 @@ if ($run) {
     }
 
     // ════════════════════════════════════════════════════════════
+    //  AI SEARCH SEO SERVICE PAGE
+    // ════════════════════════════════════════════════════════════
+    $p = '/ai-search-seo/';
+    add_schema($p, 'Service', [
+        'name'        => 'AI Search SEO for Home Care Agencies',
+        'description' => 'AI Search SEO (GEO/AEO) for home care agencies — structured data, entity building, and answer-formatted content built to help agencies get cited by ChatGPT, Google AI Overviews, and Perplexity.',
+        'provider'    => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
+        'serviceType' => 'Generative Engine Optimization (GEO) / Answer Engine Optimization (AEO)',
+        'areaServed'  => ['@type'=>'State','name'=>'Florida'],
+        'url'         => SITE.$p,
+        'audience'    => ['@type'=>'Audience','audienceType'=>'Home Care Agency Owners'],
+        'offers'      => ['@type'=>'Offer','priceCurrency'=>'USD','availability'=>'https://schema.org/InStock'],
+    ]);
+    $log[] = '✓ '.$p.' → Service';
+
+    add_schema($p, 'FAQPage', faq([
+        ['What is AI Search SEO (GEO/AEO), exactly?', 'Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) are the practices of structuring your website and content so tools like ChatGPT, Google AI Overviews, and Perplexity can understand, trust, and cite your agency when a family asks for a home care recommendation. Think of it as the AI-era counterpart to traditional SEO, built around how these tools actually pull and summarize information.'],
+        ['How is this different from regular local SEO?', "Traditional SEO is built around ranking a page in a list of results for specific keywords. AI search optimization leans much more heavily on structured data, entity consistency, clear direct-answer content, and third-party authority signals, since that's what a generative model relies on to decide what to summarize and who to cite. We run both together, since they reinforce each other rather than compete."],
+        ['How long does it take to show up in AI answers?', "Honestly, there's no fixed timeline the way there is for something like Google Maps rankings, since this is such a new field. Most agencies see early signals, like being pulled into an AI Overview or referenced by a chatbot, within a few months of consistent work. But the AI platforms control their own models and update them on their own schedule, so visibility can shift as those models change, not just based on our work."],
+        ['Do you guarantee my agency will be cited by ChatGPT?', "No, and we won't pretend otherwise. No agency can honestly guarantee a placement inside a system it doesn't control. What we do guarantee is the work itself: building the structured data, entity signals, and answer-formatted content that give your agency a real, defensible shot at being included. Every engagement is also backed by our standard 30-day satisfaction guarantee."],
+        ["What's included in the AI Search SEO service?", 'AI Overviews and ChatGPT citation optimization, entity and knowledge graph building, FAQ schema and structured content, and a monthly AI visibility report showing what\'s changed. We also coordinate this work with your local SEO so both channels reinforce each other instead of working in isolation.'],
+        ['Can this be bundled with local SEO or website design?', "Yes. Most agencies bundle AI Search SEO with local SEO and/or website design, since all three draw on the same technical foundation and content. If you're already a local SEO client, we can also add AI Search SEO on to your existing retainer."],
+        ['Do you require a long-term contract?', 'No. Like the rest of our services, AI Search SEO starts with a 90-day ramp-up period so the foundational work, schema, entity data, and structured content, can be built properly. After that, everything moves to month-to-month.'],
+    ]));
+    $log[] = '✓ '.$p.' → FAQPage (7 questions)';
+
+    add_schema($p, 'BreadcrumbList', bc([
+        ['Home', SITE.'/'], ['AI Search SEO', SITE.$p]
+    ]));
+    $log[] = '✓ '.$p.' → BreadcrumbList';
+
+    // ════════════════════════════════════════════════════════════
+    //  AREAS WE SERVE HUB
+    // ════════════════════════════════════════════════════════════
+    $p = '/areas-we-serve/';
+    add_schema($p, 'CollectionPage', [
+        'name'        => 'Home Care Agency Marketing Across Florida',
+        'description' => 'An overview of the Florida markets Homecare Creators serves, with links to each city-specific home care agency marketing page.',
+        'url'         => SITE.$p,
+    ]);
+    $log[] = '✓ '.$p.' → CollectionPage';
+
+    add_schema($p, 'FAQPage', faq([
+        ['Do you only serve these 10 cities?', "No, these are our primary Florida markets but we work with agencies throughout the state. If your agency operates somewhere not listed above, reach out and we'll talk through how we'd build out a strategy and dedicated pages for your specific service area."],
+        ['Why does each city have its own page instead of one page?', 'Every Florida market has different demographics, competition, and search behavior. A dedicated page lets us speak directly to that local market and helps your agency show up when families in that specific city search for home care.'],
+        ['What if my agency serves more than one of these cities?', "That's common, and it's exactly what we plan for. We build out local SEO and, where needed, dedicated service-area pages for each city or county your agency actually operates in, not just one market."],
+        ['How do I know which services are right for my market?', "Book a free audit and we'll review your current online presence, your specific city or county, and your competitors, then recommend a plan built around what your market actually needs."],
+    ]));
+    $log[] = '✓ '.$p.' → FAQPage (4 questions)';
+
+    add_schema($p, 'BreadcrumbList', bc([
+        ['Home', SITE.'/'], ['Areas We Serve', SITE.$p]
+    ]));
+    $log[] = '✓ '.$p.' → BreadcrumbList';
+
+    // ════════════════════════════════════════════════════════════
+    //  CAREOS
+    // ════════════════════════════════════════════════════════════
+    $p = '/careos/';
+    add_schema($p, 'SoftwareApplication', [
+        'name'            => 'CareOS',
+        'description'     => 'CareOS is an AI-powered management platform for home care agencies — scheduling, billing, EVV compliance, voice journaling, and predictive intelligence in one login. Coming Q3 2026.',
+        'applicationCategory' => 'BusinessApplication',
+        'operatingSystem' => 'Web',
+        'url'             => SITE.$p,
+        'publisher'       => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
+    ]);
+    $log[] = '✓ '.$p.' → SoftwareApplication';
+
+    add_schema($p, 'BreadcrumbList', bc([
+        ['Home', SITE.'/'], ['CareOS', SITE.$p]
+    ]));
+    $log[] = '✓ '.$p.' → BreadcrumbList';
+
+    // ════════════════════════════════════════════════════════════
+    //  ADJACENT VERTICAL PAGES  (5 verticals)
+    // ════════════════════════════════════════════════════════════
+    $verticals = [
+        '/memory-care-marketing/' => [
+            'name' => 'Memory Care Marketing', 'noun' => 'memory care communities',
+            'faqs' => [
+                ['How is marketing for memory care different from home care marketing?', "Memory care marketing has to speak directly to Alzheimer's and dementia-specific concerns: secured environments, specialized staff training, and safety, not general in-home assistance. Search intent is also more urgent, and trust signals like certifications and reviews carry more weight in a family's decision. We build your strategy and content around those differences rather than reusing generic senior care messaging."],
+                ['How much does memory care marketing cost?', "Pricing is a flat monthly retainer with no hidden setup fees. What you pay depends on how competitive your local market is and whether you need a new website built alongside SEO. Book a free audit and we'll walk you through exact numbers for your community."],
+                ['How long until we see results?', 'Timelines vary based on your starting point and how competitive your area is, but most communities begin seeing measurable movement in visibility and inquiries within the first few months as local SEO, content, and reputation work take hold. We report on progress every month so you always know where things stand.'],
+                ['Do you require a long-term contract?', "No. After an initial 90-day ramp-up period, every plan moves to month-to-month. We'd rather earn your business every month than lock you into a contract."],
+                ['Can this be bundled with website design?', 'Yes. Most memory care clients bundle website design with SEO since the two work best together, but we also support communities who already have a site and just want SEO and AI search optimization managed.'],
+                ['Can ChatGPT and Google AI recommend our memory care community to families?', "Yes, and it's a fast-growing channel. We optimize your site's structure, entity data, and FAQ content so AI tools like ChatGPT, Google AI Overviews, and Perplexity can accurately cite and recommend your community, not just traditional Google search."],
+            ],
+        ],
+        '/hospice-marketing/' => [
+            'name' => 'Hospice Marketing', 'noun' => 'hospice providers',
+            'faqs' => [
+                ['How is marketing for hospice different from home care marketing?', 'Hospice search intent is far more sensitive, and tone matters as much as ranking position. Hospice growth also depends heavily on referral relationships with hospitals, physicians, and discharge planners, alongside direct family search. We build strategy and content around both audiences, with a respectful, non-promotional voice throughout.'],
+                ['How do you handle the sensitivity of hospice search terms?', 'Every piece of content is written and reviewed with tone in mind first. We avoid pressure tactics, aggressive calls to action, or anything that could feel dismissive of what a family is going through. The goal is always to inform and reassure.'],
+                ['How much does hospice marketing cost?', "Pricing is a flat monthly retainer with no hidden setup fees. What you pay depends on your local market and whether you need a new website built alongside SEO. Book a free audit and we'll walk you through exact numbers for your organization."],
+                ['How long until we see results?', 'Timelines vary based on your starting point and local competition, but most organizations see meaningful movement in visibility and inquiry volume within the first few months as SEO, content, and reputation work build up. We report on progress every month.'],
+                ['Do you require a long-term contract?', "No. After an initial 90-day ramp-up period, every plan moves to month-to-month. We'd rather earn your business every month than lock you into a contract."],
+                ['Can this be bundled with website design?', 'Yes. Most hospice clients bundle website design with SEO since the two work best together, but we also support organizations who already have a site and just want SEO and AI search optimization managed.'],
+            ],
+        ],
+        '/nursing-home-marketing/' => [
+            'name' => 'Nursing Home Marketing', 'noun' => 'nursing homes and skilled nursing facilities',
+            'faqs' => [
+                ['How is marketing for nursing homes different from home care marketing?', 'Nursing home marketing has to account for CMS star ratings appearing alongside your listing, a referral pipeline that includes hospital discharge planners and case managers, and a more regulated content environment. We build strategy and messaging specifically around those realities rather than treating your facility like a home care agency.'],
+                ['Do you help with CMS star ratings directly?', "We don't manage the CMS survey or rating process itself, but we do build website content and review strategies that present your quality-of-care story clearly to families who are researching ratings alongside your online presence."],
+                ['How much does nursing home marketing cost?', "Pricing is a flat monthly retainer with no hidden setup fees. What you pay depends on your local market and whether you need a new website built alongside SEO. Book a free audit and we'll walk you through exact numbers for your facility."],
+                ['How long until we see results?', 'Timelines vary based on your starting point and local competition, but most facilities see measurable movement in visibility and inquiry volume within the first few months as SEO, content, and reputation work build up. We report on progress every month.'],
+                ['Do you require a long-term contract?', "No. After an initial 90-day ramp-up period, every plan moves to month-to-month. We'd rather earn your business every month than lock you into a contract."],
+                ['Can this be bundled with website design?', 'Yes. Most nursing home clients bundle website design with SEO since the two work best together, but we also support facilities who already have a site and just want SEO and AI search optimization managed.'],
+            ],
+        ],
+        '/senior-living-marketing/' => [
+            'name' => 'Senior Living Marketing', 'noun' => 'independent and retirement living communities',
+            'faqs' => [
+                ['How is marketing for senior living different from home care marketing?', 'Senior living marketing sells a lifestyle and a community as much as a care level: amenities, dining, activities, and floor plans matter as much as any care service. Prospects also typically compare several communities before booking a single tour, so the content and conversion path need to be built around comparison shopping and tour bookings, not just inquiries.'],
+                ['How much does senior living marketing cost?', "Pricing is a flat monthly retainer with no hidden setup fees. What you pay depends on how competitive your local market is and whether you need a new website built alongside SEO. Book a free audit and we'll walk you through exact numbers for your community."],
+                ['How long until we see results?', 'Timelines vary based on your starting point and how competitive your area is, but most communities begin seeing measurable movement in visibility and tour requests within the first few months as local SEO, content, and reputation work take hold. We report on progress every month so you always know where things stand.'],
+                ['Do you require a long-term contract?', "No. After an initial 90-day ramp-up period, every plan moves to month-to-month. We'd rather earn your business every month than lock you into a contract."],
+                ['Can this be bundled with website design?', 'Yes. Most senior living clients bundle website design with SEO since the two work best together, but we also support communities who already have a site and just want SEO and AI search optimization managed.'],
+                ['Can ChatGPT and Google AI recommend our community to prospects?', "Yes, and it's a fast-growing channel. We optimize your site's structure, entity data, and FAQ content so AI tools like ChatGPT, Google AI Overviews, and Perplexity can accurately cite and recommend your community, not just traditional Google search."],
+            ],
+        ],
+        '/assisted-living-marketing/' => [
+            'name' => 'Assisted Living Marketing', 'noun' => 'assisted living communities',
+            'faqs' => [
+                ['How is marketing for assisted living different from home care marketing?', 'Assisted living marketing has to balance independence and support messaging clearly, since families are comparing a community lifestyle alongside a level of care. Prospects also typically compare several communities on cost and care level before booking a tour, so the site and content need to be built around that side-by-side comparison, not just an inquiry form.'],
+                ['How much does assisted living marketing cost?', "Pricing is a flat monthly retainer with no hidden setup fees. What you pay depends on how competitive your local market is and whether you need a new website built alongside SEO. Book a free audit and we'll walk you through exact numbers for your community."],
+                ['How long until we see results?', 'Timelines vary based on your starting point and how competitive your area is, but most communities begin seeing measurable movement in visibility and tour requests within the first few months as local SEO, content, and reputation work take hold. We report on progress every month so you always know where things stand.'],
+                ['Do you require a long-term contract?', "No. After an initial 90-day ramp-up period, every plan moves to month-to-month. We'd rather earn your business every month than lock you into a contract."],
+                ['Can this be bundled with website design?', 'Yes. Most assisted living clients bundle website design with SEO since the two work best together, but we also support communities who already have a site and just want SEO and AI search optimization managed.'],
+                ['Can ChatGPT and Google AI recommend our community to families?', "Yes, and it's a fast-growing channel. We optimize your site's structure, entity data, and FAQ content so AI tools like ChatGPT, Google AI Overviews, and Perplexity can accurately cite and recommend your community, not just traditional Google search."],
+            ],
+        ],
+    ];
+
+    foreach ($verticals as $path => $v) {
+        $url = SITE.$path;
+        add_schema($path, 'Service', [
+            'name'        => $v['name'],
+            'description' => "Digital marketing built specifically for {$v['noun']} — local SEO, website design, and AI search optimization from an agency built exclusively for senior care.",
+            'provider'    => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
+            'serviceType' => $v['name'],
+            'areaServed'  => ['@type'=>'State','name'=>'Florida'],
+            'url'         => $url,
+            'audience'    => ['@type'=>'Audience','audienceType'=>ucfirst($v['noun']).' operators'],
+            'offers'      => ['@type'=>'Offer','priceCurrency'=>'USD','availability'=>'https://schema.org/InStock'],
+        ]);
+        $log[] = "✓ {$path} → Service";
+
+        add_schema($path, 'FAQPage', faq($v['faqs']));
+        $log[] = "✓ {$path} → FAQPage (".count($v['faqs'])." questions)";
+
+        add_schema($path, 'BreadcrumbList', bc([
+            ['Home', SITE.'/'], [$v['name'], $url]
+        ]));
+        $log[] = "✓ {$path} → BreadcrumbList";
+    }
+
+    // ════════════════════════════════════════════════════════════
     //  BLOG INDEX
     // ════════════════════════════════════════════════════════════
     add_schema('/blog', 'Blog', [
@@ -313,9 +511,15 @@ ul{margin:12px 0 12px 20px;font-size:13px;color:#374151;line-height:1.9}
   <li><strong>Website Design service page</strong> — Service, FAQPage (6 Qs), BreadcrumbList</li>
   <li><strong>10 marketing city pages</strong> — LocalBusiness, Service, FAQPage (5 Qs), BreadcrumbList each</li>
   <li><strong>6 web-design city pages</strong> — Service, FAQPage (4 Qs), BreadcrumbList each</li>
+  <li><strong>About page</strong> — AboutPage + Person (founder), BreadcrumbList</li>
+  <li><strong>Contact page</strong> — ContactPage, BreadcrumbList</li>
+  <li><strong>AI Search SEO page</strong> — Service, FAQPage (7 Qs), BreadcrumbList</li>
+  <li><strong>Areas We Serve hub</strong> — CollectionPage, FAQPage (4 Qs), BreadcrumbList</li>
+  <li><strong>CareOS page</strong> — SoftwareApplication, BreadcrumbList</li>
+  <li><strong>5 adjacent-vertical pages</strong> (memory care, hospice, nursing homes, senior living, assisted living) — Service, FAQPage (6 Qs each), BreadcrumbList each</li>
   <li><strong>Blog index</strong> — Blog, BreadcrumbList</li>
 </ul>
-<p><strong>~57 schema blocks total.</strong> All page paths match the actual $page_canonical values from each page file. Safe to re-run — TRUNCATEs first.</p>
+<p><strong>~100 schema blocks total.</strong> All page paths match the actual $page_canonical values from each page file. Safe to re-run — TRUNCATEs first.</p>
 <a href="?run=1" class="btn">&#9654; Run Schema Seeder</a>
 <a href="/admin/schema/" class="btn btn-outline">View Schema Manager</a>
 

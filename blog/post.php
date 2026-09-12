@@ -134,6 +134,20 @@ include '../includes/header.php';
 preg_match_all('/<h2[^>]*>(.*?)<\/h2>/i', $post['content'] ?? '', $headings);
 $toc = $headings[1] ?? [];
 ?>
+<script type="application/ld+json">
+<?= json_encode([
+    '@context'         => 'https://schema.org',
+    '@type'            => 'Article',
+    'headline'         => $post['title'],
+    'description'      => $post['excerpt'] ?? $page_desc,
+    'image'            => $post['featured_image'] ?: 'https://homecarecreators.com/images/home/homecarecreators-logo.png',
+    'datePublished'    => date('c', strtotime($post['published_at'] ?? $post['created_at'])),
+    'dateModified'     => date('c', strtotime($post['updated_at'] ?? $post['published_at'] ?? $post['created_at'])),
+    'author'           => ['@type' => 'Person', 'name' => 'Asifa Rani', 'jobTitle' => 'Founder & CEO', 'url' => 'https://homecarecreators.com/about/', 'sameAs' => ['https://www.linkedin.com/in/asifa-rani/']],
+    'publisher'        => ['@type' => 'Organization', 'name' => 'Homecare Creators', 'url' => 'https://homecarecreators.com', 'logo' => ['@type' => 'ImageObject', 'url' => 'https://homecarecreators.com/images/home/homecarecreators-logo.png']],
+    'mainEntityOfPage' => ['@type' => 'WebPage', '@id' => $page_canonical],
+], JSON_UNESCAPED_SLASHES) ?>
+</script>
 
 <div class="post-wrap">
 
@@ -152,10 +166,10 @@ $toc = $headings[1] ?? [];
     <?php endif ?>
     <h1><?= htmlspecialchars($post['title']) ?></h1>
     <div class="post-meta-row">
-      <div class="post-avatar"><span><?= strtoupper(substr($post['author'],0,1)) ?></span></div>
+      <div class="post-avatar"><span>AR</span></div>
       <div class="post-author-info">
-        <span class="post-author-name"><?= htmlspecialchars($post['author']) ?></span>
-        <span class="post-author-meta">Homecare Marketing Expert</span>
+        <span class="post-author-name">Asifa Rani</span>
+        <span class="post-author-meta">Founder &amp; CEO, Homecare Creators</span>
       </div>
       <div class="post-sep"></div>
       <span class="post-reading"><?= date('M j, Y', strtotime($post['published_at'] ?? $post['created_at'])) ?></span>
@@ -216,6 +230,16 @@ $toc = $headings[1] ?? [];
       </ul>
     </div>
     <?php endif ?>
+
+    <!-- Author -->
+    <div class="sidebar-card">
+      <div class="author-card">
+        <div class="author-avatar-lg"><span>AR</span></div>
+        <div class="author-name">Asifa Rani</div>
+        <div class="author-title">Founder &amp; CEO, Homecare Creators</div>
+        <p class="author-bio">Asifa writes from direct experience running a marketing agency built exclusively for home care agencies. <a href="/about/" style="color:var(--teal);text-decoration:none;font-weight:700">More about Asifa &rarr;</a></p>
+      </div>
+    </div>
 
     <!-- Mini CTA 2 -->
     <div class="sidebar-card" style="background:rgba(29,158,117,.05);border-color:rgba(29,158,117,.2)">

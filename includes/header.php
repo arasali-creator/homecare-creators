@@ -56,7 +56,7 @@ try {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= htmlspecialchars($page_title ?? 'Homecare Creators — Market It. Manage It. Grow It.') ?></title>
-<meta name="description" content="<?= htmlspecialchars($page_desc ?? 'Homecare Creators is the only marketing agency built exclusively for home care agencies in Florida. Website design, local SEO, and AI search optimization.') ?>">
+<meta name="description" content="<?= htmlspecialchars($page_desc ?? 'Homecare Creators is a marketing agency built exclusively for home care agencies in Florida. Website design, local SEO, and AI search optimization.') ?>">
 <?php if (!empty($page_canonical)): ?><link rel="canonical" href="<?= htmlspecialchars($page_canonical) ?>">
 <link rel="alternate" hreflang="en-us" href="<?= htmlspecialchars($page_canonical) ?>">
 <link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($page_canonical) ?>"><?php endif; ?>
@@ -164,7 +164,7 @@ section{padding:96px 40px}
 
 /* FOOTER */
 footer{background:var(--forest);padding:64px 48px 0}
-.footer-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:36px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
 .footer-logo svg{height:48px;width:auto}
 .footer-tagline{font-size:15px;color:rgba(255,255,255,.65);margin-top:14px;margin-bottom:20px;line-height:1.6;max-width:220px}
 .footer-socials{display:flex;gap:10px}
@@ -329,12 +329,13 @@ try {
     <?php endif ?>
   </a>
   <ul class="nav-links">
-    <li><a href="/#why">Why Us</a></li>
+    <li><a href="/about/">About</a></li>
     <li><a href="/web-design/homecare-website-design/">Web Design</a></li>
     <li><a href="/seo/local-seo-for-home-care-agencies">Local SEO</a></li>
     <li><a href="/blog">Blog</a></li>
     <li><a href="/#bundles">Pricing</a></li>
     <li><a href="/case-studies/">Case Studies</a></li>
+    <li><a href="/contact/" title="Contact Us"><i class="fa-solid fa-phone" style="font-size:11px;margin-right:5px"></i>+1 (409) 419-3533</a></li>
     <li><a href="#" class="nav-cta" onclick="openPopup();return false;"><i class="fa-solid fa-calendar-check" style="font-size:12px"></i> Free Audit</a></li>
   </ul>
   <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>

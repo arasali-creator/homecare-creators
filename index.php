@@ -1,9 +1,9 @@
 <?php
 $page_title    = "Homecare Creators: Marketing for Home Care Agencies";
-$page_desc     = "The only marketing agency built exclusively for home care agencies in Florida - SEO, websites, and AI search optimization.";
+$page_desc     = "A marketing agency built exclusively for home care agencies in Florida - SEO, websites, and AI search optimization.";
 $page_canonical = "https://homecarecreators.com/";
 $og_title      = "Homecare Creators: Marketing for Home Care Agencies";
-$og_desc       = "The only agency built 100% for homecare - website design, local SEO, AI search SEO, and the CareOS platform.";
+$og_desc       = "A marketing agency built 100% for homecare - website design, local SEO, AI search SEO, and the CareOS platform.";
 
 $page_css = <<<CSS
 /* ── HERO ── */
@@ -350,24 +350,6 @@ function goSlide(n) {
 function slideReviews(dir) { goSlide(currentSlide + dir); }
 buildDots();
 
-// ── COUNTDOWN TIMER ──
-function updateCountdown() {
-  var launch = new Date('2026-09-01T00:00:00');
-  var now = new Date();
-  var diff = launch - now;
-  if (diff <= 0) return;
-  var d = Math.floor(diff / 86400000);
-  var h = Math.floor((diff % 86400000) / 3600000);
-  var m = Math.floor((diff % 3600000) / 60000);
-  var s = Math.floor((diff % 60000) / 1000);
-  document.getElementById('cntD').textContent = String(d).padStart(2, '0');
-  document.getElementById('cntH').textContent = String(h).padStart(2, '0');
-  document.getElementById('cntM').textContent = String(m).padStart(2, '0');
-  document.getElementById('cntS').textContent = String(s).padStart(2, '0');
-}
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
 // ── CONTACT FORM SUBMIT ──
 function submitContact() {
   var first   = (document.getElementById('cfFirst').value || '').trim();
@@ -468,7 +450,7 @@ include 'includes/header.php';
   <div class="hero-blob2"></div>
   <div class="hero-left">
     <div class="hero-badge">
-      <div class="hero-badge-pulse"></div>The #1 Marketing Agency Exclusively for Homecare
+      <div class="hero-badge-pulse"></div>The Marketing Agency Built Exclusively for Homecare
     </div>
     <h1 class="hero-h1">Florida Home Care <br><em>Marketing Agency</em></h1>
     <p class="hero-desc">Grow your home care agency with marketing built for your industry. We help agencies across Florida attract more qualified leads through SEO, high-converting websites, local SEO, and AI-powered marketing.</p>
@@ -479,18 +461,18 @@ include 'includes/header.php';
     </div>
     <div class="hero-proof">
       <div class="hero-proof-item">
-        <div class="hero-proof-num">312%</div>
-        <div class="hero-proof-label">Avg Lead Increase</div>
+        <div class="hero-proof-num">100%</div>
+        <div class="hero-proof-label">Homecare-Only Focus</div>
       </div>
       <div class="hero-proof-divider"></div>
       <div class="hero-proof-item">
-        <div class="hero-proof-num">67+</div>
-        <div class="hero-proof-label">Reviews in 90 Days</div>
+        <div class="hero-proof-num">SEO</div>
+        <div class="hero-proof-label">+ AI Search Visibility</div>
       </div>
       <div class="hero-proof-divider"></div>
       <div class="hero-proof-item">
-        <div class="hero-proof-num">#1</div>
-        <div class="hero-proof-label">Google Rank in 5mo</div>
+        <div class="hero-proof-num">30-Day</div>
+        <div class="hero-proof-label">Satisfaction Guarantee</div>
       </div>
       <div class="hero-proof-divider"></div>
       <div class="hero-proof-item">
@@ -518,19 +500,19 @@ include 'includes/header.php';
         alt="Home care nurse providing compassionate in-home senior care services"
         title="Home care nurse caring for a senior client">
       <div class="hero-float-badge" style="top:14px;left:12px">
-        <div class="hero-float-badge-num">+67</div>
-        <div class="hero-float-badge-label">New Reviews</div>
+        <div class="hero-float-badge-num">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="hero-float-badge-label">Review Growth</div>
       </div>
     </div>
     <div class="hero-img-card" style="animation:scaleIn .9s .7s ease both">
       <img src="/images/home/hero-caregiver-woman.jpg"
-        alt="Happy caregiver bonding with an elderly woman client, ranked #1 on Google"
-        title="Caregiver with elderly woman client — home care agency ranked #1 on Google">
+        alt="Happy caregiver bonding with an elderly woman client, home care agency growing its Google visibility"
+        title="Caregiver with elderly woman client — home care agency growing on Google">
       <div class="hero-img-overlay">
         <div class="hero-img-overlay-icon"><i class="fa-brands fa-google"></i></div>
         <div>
-          <div class="hero-img-overlay-text">Ranked #1 Google</div>
-          <div class="hero-img-overlay-sub">5 months in</div>
+          <div class="hero-img-overlay-text">Google Search Visibility</div>
+          <div class="hero-img-overlay-sub">Local SEO + AI Search</div>
         </div>
       </div>
     </div>
@@ -604,8 +586,8 @@ include 'includes/header.php';
           <img src="/images/home/why-team-training.jpg" alt="Homecare Creators marketing team meeting to plan home care agency growth strategy" title="Homecare Creators team training and strategy meeting">
         </div>
         <div class="why-img-stat">
-          <div class="why-img-stat-num">98%</div>
-          <div class="why-img-stat-label">Client Retention</div>
+          <div class="why-img-stat-num">No Lock-In</div>
+          <div class="why-img-stat-label">Month-to-Month Plans</div>
         </div>
         <div class="why-img-badge">
           <div class="why-img-badge-row"><i class="fa-solid fa-trophy why-img-badge-icon"></i>
@@ -618,7 +600,7 @@ include 'includes/header.php';
       </div>
       <div data-reveal style="transition-delay:.15s">
         <p class="section-label">Why Homecare Creators</p>
-        <h2 class="section-h2">The Only Agency Built <em>100% for </em>Homecare</h2>
+        <h2 class="section-h2">Built <em>100% for </em>Homecare</h2>
         <p class="section-sub">Generalist agencies don't get homecare. We do. That gap alone is worth hundreds
           of thousands in growth most years.</p>
         <div class="why-points">
@@ -763,7 +745,7 @@ include 'includes/header.php';
             <li><i class="fa-solid fa-check"></i>Topical authority</li>
             <li><i class="fa-solid fa-check"></i>Future-ready SEO</li>
           </ul>
-          <a class="svc-grid-link" onclick="openPopup('audit');return false;" href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          <a class="svc-grid-link" href="/ai-search-seo/">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -850,86 +832,10 @@ include 'includes/header.php';
         Scheduling, billing, voice AI, family portals, growth tools. One login, not six.</p>
       <p class="careos-tagline"><i class="fa-solid fa-circle-dot"
           style="margin-right:8px;color:var(--teal-lt)"></i>Early access members save 40% for life</p>
-    </div>
-    <div class="careos-launch" data-reveal style="transition-delay:.1s">
-      <div class="careos-launch-item"><span class="careos-launch-num" id="cntD">00</span><span
-          class="careos-launch-label">Days</span></div>
-      <div class="careos-launch-item"><span class="careos-launch-num" id="cntH">00</span><span
-          class="careos-launch-label">Hours</span></div>
-      <div class="careos-launch-item"><span class="careos-launch-num" id="cntM">00</span><span
-          class="careos-launch-label">Minutes</span></div>
-      <div class="careos-launch-item"><span class="careos-launch-num" id="cntS">00</span><span
-          class="careos-launch-label">Seconds</span></div>
-    </div>
-    <div class="careos-modules-grid" data-reveal style="transition-delay:.15s">
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-calendar-days"></i></div>
-        <div class="careos-module-name">Smart Scheduling</div>
-        <div class="careos-module-desc">AI matches shifts to the right caregiver, flags conflicts before they
-          happen, and remembers everyone's preferences so double bookings stop being a thing.</div><span class="module-badge badge-core">Core</span>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2">
+        <a href="/careos/" class="btn-primary" style="font-size:15px;padding:16px 32px"><i class="fa-solid fa-circle-info"></i>See All CareOS Features</a>
+        <button class="btn-secondary" style="font-size:15px;padding:16px 32px" onclick="openPopup('waitlist')"><i class="fa-solid fa-rocket"></i>Join the Waitlist</button>
       </div>
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-microphone"></i></div>
-        <div class="careos-module-name">Voice Shift Journal</div>
-        <div class="careos-module-desc">A caregiver talks for 60 seconds and the AI turns it into compliance logs,
-          a family update, and incident flags in under 8 seconds flat.</div><span class="module-badge badge-ai">AI Feature</span>
-      </div>
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-heart"></i></div>
-        <div class="careos-module-name">Family Trust Portal</div>
-        <div class="careos-module-desc">Families see shift updates as they happen, plus AI care summaries and mood
-          timelines. It's the kind of transparency that keeps them from shopping around.</div><span class="module-badge badge-new">Unique</span>
-      </div>
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-        <div class="careos-module-name">Billing & Payroll</div>
-        <div class="careos-module-desc">Handles private pay, Medicaid, and long-term care billing in one system.
-          Invoices go out automatically, ERA reconciliation runs itself, and it connects straight to Stripe.</div><span class="module-badge badge-core">Core</span>
-      </div>
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-star"></i></div>
-        <div class="careos-module-name">Auto Review Engine</div>
-        <div class="careos-module-desc">Sends review requests the moment satisfaction is running high, and catches
-          negative feedback before it ever hits Google.</div><span class="module-badge badge-ai">AI Feature</span>
-      </div>
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-brain"></i></div>
-        <div class="careos-module-name">Predictive Intelligence</div>
-        <div class="careos-module-desc">Flags which clients are at risk of leaving, warns you before a caregiver
-          quits, and forecasts revenue 90 days out.</div><span class="module-badge badge-ai">AI Feature</span>
-      </div>
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-map-pin"></i></div>
-        <div class="careos-module-name">EVV & Compliance</div>
-        <div class="careos-module-desc">GPS check-in and check-out, HHAeXchange sync, and a mandate tracker that
-          covers all 50 states so you're never caught off guard by a missed visit.</div><span class="module-badge badge-core">Core</span>
-      </div>
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-people-group"></i></div>
-        <div class="careos-module-name">Caregiver Wellness</div>
-        <div class="careos-module-desc">Picks up on burnout from voice tone and shift patterns before a caregiver
-          walks out, saving you the $4,500–$8,000 it typically costs to replace one.</div><span class="module-badge badge-new">Industry First</span>
-      </div>
-    </div>
-    <div class="careos-cta-box" data-reveal style="transition-delay:.2s">
-      <h3 class="careos-cta-title">Be First. Save 40% for Life.</h3>
-      <p class="careos-cta-desc">Get on the CareOS waitlist now and you'll never pay full price. The 40% lifetime
-        discount locks in the day you sign up.</p>
-      <div class="careos-cta-perks">
-        <div class="careos-cta-perk"><i class="fa-solid fa-check-circle"></i>40% lifetime discount</div>
-        <div class="careos-cta-perk"><i class="fa-solid fa-check-circle"></i>Free onboarding & migration</div>
-        <div class="careos-cta-perk"><i class="fa-solid fa-check-circle"></i>Priority feature access</div>
-        <div class="careos-cta-perk"><i class="fa-solid fa-check-circle"></i>Founding member badge</div>
-      </div>
-      <button class="btn-primary"
-        style="font-size:15px;padding:16px 40px;display:inline-flex;position:relative;z-index:2;"
-        onclick="openPopup('waitlist')">
-        <i class="fa-solid fa-rocket"></i>Join the CareOS Waitlist
-      </button>
-      <p
-        style="margin-top:16px;font-size:12px;color:rgba(255,255,255,.35);font-family:'Plus Jakarta Sans',sans-serif;position:relative;z-index:2;">
-        <i class="fa-solid fa-users" style="margin-right:5px;color:var(--teal)"></i>247 homecare agencies already on
-        the waitlist</p>
     </div>
   </div>
 </section>
@@ -1081,27 +987,27 @@ include 'includes/header.php';
             title="Home care agency growth results">
         </div>
         <div class="results-stat-card">
-          <div class="results-stat-num">312%</div>
-          <div class="results-stat-label">Lead Increase<br>in 6 Months</div>
+          <div class="results-stat-num">100%</div>
+          <div class="results-stat-label">Homecare-Only<br>Agency</div>
         </div>
       </div>
       <div data-reveal style="transition-delay:.15s">
-        <p class="section-label">Proven Results</p>
-        <h2 class="section-h2">What Homecare Agencies<br><em>Achieve With Us</em></h2>
-        <p class="section-sub" style="margin-bottom:36px">These numbers come from actual agency owners we work with.
-          Not projections we made up in a pitch deck.</p>
+        <p class="section-label">How We Work</p>
+        <h2 class="section-h2">What Homecare Agencies<br><em>Get With Us</em></h2>
+        <p class="section-sub" style="margin-bottom:36px">Built specifically for how homecare agencies grow, not a
+          generic marketing playbook.</p>
         <div class="results-grid-right">
           <div class="result-card">
             <div class="result-card-icon"><i class="fa-brands fa-google"></i></div>
-            <div class="result-num">8&rarr;67</div>
-            <div class="result-label">Google Reviews in 90 Days</div>
-            <div class="result-desc">Using our AI review automation</div>
+            <div class="result-num">AI-Powered</div>
+            <div class="result-label">Review Growth Automation</div>
+            <div class="result-desc">Requests reviews at the right moment, automatically</div>
           </div>
           <div class="result-card">
             <div class="result-card-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
-            <div class="result-num">312%</div>
-            <div class="result-label">Website Lead Increase</div>
-            <div class="result-desc">Avg uplift after website + SEO in 6 months</div>
+            <div class="result-num">Website + SEO</div>
+            <div class="result-label">Built to Convert</div>
+            <div class="result-desc">Full-funnel lead generation, not just traffic</div>
           </div>
           <div class="result-card">
             <div class="result-card-icon"><i class="fa-solid fa-clock"></i></div>
@@ -1111,9 +1017,9 @@ include 'includes/header.php';
           </div>
           <div class="result-card">
             <div class="result-card-icon"><i class="fa-solid fa-medal"></i></div>
-            <div class="result-num">#1</div>
-            <div class="result-label">Google Maps Rankings</div>
-            <div class="result-desc">Avg position reached within 5 months</div>
+            <div class="result-num">Local SEO</div>
+            <div class="result-label">Google Maps Optimization</div>
+            <div class="result-desc">Google Business Profile, citations &amp; reviews, managed for you</div>
           </div>
         </div>
       </div>
@@ -1362,7 +1268,7 @@ include 'includes/header.php';
             <div>
               <div class="contact-detail-label">Email Us</div>
               <div class="contact-detail-value"><a
-                  href="mailto:hello@homecarecreators.com">hello@homecarecreators.com</a></div>
+                  href="mailto:info@homecarecreators.com">info@homecarecreators.com</a></div>
             </div>
           </div>
           <div class="contact-detail">
@@ -1449,7 +1355,7 @@ include 'includes/header.php';
               class="fa-solid fa-calendar-check"></i>Book Your Free Audit</button>
         </div>
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;&middot;&nbsp; No
-          obligation &nbsp;&middot;&nbsp; Results in 30 days guaranteed</div>
+          obligation &nbsp;&middot;&nbsp; 30-day satisfaction guarantee</div>
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
         <img src="/images/home/cta-business-owner.jpg"

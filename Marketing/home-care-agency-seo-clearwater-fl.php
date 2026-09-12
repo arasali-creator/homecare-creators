@@ -148,7 +148,7 @@ include '../includes/header.php';
   <div class="hero-blob1"></div>
   <div class="hero-blob2"></div>
   <div class="hero-content">
-    <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/florida/">Florida</a> / <span>Clearwater</span></div>
+    <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <span>Florida</span> / <span>Clearwater</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Pinellas County, Florida</div>
     <h1 class="hero-h1">Clearwater Home Care<br>Agency <em>SEO & Marketing</em></h1>
     <p class="hero-desc">We build websites and run SEO for Clearwater homecare agencies. Rank #1 on Google, get a site that actually converts, and put your agency in front of Pinellas County families before your competitors ever show up.</p>
@@ -157,11 +157,11 @@ include '../includes/header.php';
       <a href="https://homecarecreators.com/#services" class="btn-secondary"><i class="fa-solid fa-play"></i>View Our Services</a>
     </div>
     <div class="hero-proof">
-      <div class="hero-proof-item"><div class="hero-proof-num">312%</div><div class="hero-proof-label">Avg Lead Increase</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
       <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">#1</div><div class="hero-proof-label">Google Rank in 5mo</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">SEO</div><div class="hero-proof-label">+ AI Search Visibility</div></div>
       <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">67+</div><div class="hero-proof-label">Reviews in 90 Days</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">30-Day</div><div class="hero-proof-label">Satisfaction Guarantee</div></div>
       <div class="hero-proof-divider"></div>
       <div class="hero-proof-item"><div class="hero-proof-num">$0</div><div class="hero-proof-label">Free Audit Cost</div></div>
     </div>
@@ -224,7 +224,7 @@ include '../includes/header.php';
         <h2 class="section-h2">Why Clearwater Is One of Florida's <em>Fastest-Growing</em> Homecare Markets</h2>
         <p>Clearwater and Pinellas County keep growing, and a lot of that growth is retirees moving down from the Northeast and Midwest. The greater Clearwater area is now home to over 1.5 million people, with one of the highest concentrations of adults 65+ anywhere in Florida. Demand for in-home care here hasn't been this strong before.</p>
         <p>Every day, families in Safety Harbor, Palm Harbor, Largo, and the rest of Pinellas County are typing "homecare near me" into Google. If your agency doesn't show up, they never find out you exist. Somebody else's agency gets that phone call instead.</p>
-        <p>Homecare Creators only works with homecare businesses, nothing else. That's given us a pretty specific read on this market: what families actually search for, and what it takes to land your agency near the top of Google Maps and organic results faster than a generalist marketing shop could manage.</p>
+        <p>Homecare Creators is a marketing agency built exclusively for homecare businesses. That's given us a pretty specific read on this market: what families actually search for, and what it takes to land your agency near the top of Google Maps and organic results faster than a generalist marketing shop could manage.</p>
       </div>
       <div class="market-facts" data-reveal style="transition-delay:.15s">
         <div class="fact-card"><div class="fact-num">1.5M+</div><h4>Clearwater area Population</h4><p>Already one of Florida's largest metros, and the senior population keeps climbing year over year</p></div>
@@ -260,7 +260,7 @@ include '../includes/header.php';
             <li><i class="fa-solid fa-check"></i>Service area pages for Clearwater neighborhoods</li>
             <li><i class="fa-solid fa-check"></i>A caregiver careers and jobs page</li>
             <li><i class="fa-solid fa-check"></i>Google Reviews widget built in</li>
-            <li><i class="fa-solid fa-check"></i>Loads in under 2 seconds, guaranteed</li>
+            <li><i class="fa-solid fa-check"></i>Built for fast, sub-2-second load speed</li>
           </ul>
         </div>
       </div>
@@ -306,31 +306,6 @@ include '../includes/header.php';
   </div>
 </section>
 
-<!-- KEYWORDS -->
-<section class="kw-section">
-  <div class="container">
-    <div data-reveal>
-      <p class="section-label">Keyword Strategy</p>
-      <h2 class="section-h2">The Exact Keywords We Target for<br><em>Clearwater Homecare Agencies</em></h2>
-      <p class="section-sub">These are the terms that matter most, the ones Clearwater families actually type in when they're looking for homecare. We build your entire digital presence around ranking for every one of them.</p>
-    </div>
-    <div class="kw-grid" data-reveal style="transition-delay:.1s">
-      <div class="kw-card"><div><div class="kw-term">home care agency Clearwater FL</div><div class="kw-intent">Commercial intent, ready to hire</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare near me Clearwater</div><div class="kw-intent">Local and near-me, converts best</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">senior home care Clearwater FL</div><div class="kw-intent">Family searching for elderly parent</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">in-home care for elderly Clearwater</div><div class="kw-intent">Informational to decision stage</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">caregiver jobs Clearwater FL</div><div class="kw-intent">Recruitment, for attracting quality caregivers</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">home health aide Pinellas County</div><div class="kw-intent">County-level, broader reach</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">companion care services Clearwater</div><div class="kw-intent">Service-specific, non-medical care</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">personal care assistance Clearwater</div><div class="kw-intent">ADL support, Medicaid waiver keyword</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare Safety Harbor / Palm Harbor / Largo</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">24-hour home care Clearwater</div><div class="kw-intent">High urgency, a premium private-pay client</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">best home care agency Clearwater FL 2025</div><div class="kw-intent">AI search and voice search query</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">how to choose a home care agency Clearwater</div><div class="kw-intent">Blog target, builds trust and educates</div></div><span class="kw-badge kw-med">MED</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- AREAS -->
 <section class="areas-section">
   <div class="container">
@@ -353,7 +328,6 @@ include '../includes/header.php';
       <div class="area-pill"><div class="area-dot"></div>Seminole</div>
       <div class="area-pill"><div class="area-dot"></div>Pinellas Park</div>
     </div>
-    <div class="areas-note" data-reveal style="transition-delay:.2s"><i class="fa-solid fa-lightbulb" style="margin-right:8px;color:var(--gold)"></i>SEO Tip: Give each neighborhood above its own dedicated sub-page (e.g. /home-care-clearwater-beach-fl/) that links back to this page. That's the topical cluster Google rewards with higher rankings.</div>
   </div>
 </section>
 
@@ -362,8 +336,8 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label" style="color:var(--teal-lt)"><span style="background:var(--teal-lt);display:inline-block;width:24px;height:2px;border-radius:2px;margin-right:8px;vertical-align:middle"></span>Why Homecare Creators</p>
-      <h2 class="section-h2" style="color:#fff">The Only Agency That Truly<br><em>Understands Clearwater Homecare</em></h2>
-      <p class="section-sub" style="color:rgba(255,255,255,.58)">Generalist agencies don't get homecare. They don't know AHCA licensing, Medicaid waiver nuances, or what's actually driving senior care demand in Clearwater. We do, because homecare is the only thing we work on.</p>
+      <h2 class="section-h2" style="color:#fff">Built to Truly<br><em>Understand Clearwater Homecare</em></h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.58)">Generalist agencies don't get homecare. They don't know AHCA licensing, Medicaid waiver nuances, or what's actually driving senior care demand in Clearwater. We do, because we're built exclusively for homecare.</p>
     </div>
     <div class="why-grid" data-reveal style="transition-delay:.1s">
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-bullseye"></i></div><h4>100% Homecare-Only</h4><p>Every keyword, page, and strategy we build is purpose-built for homecare agencies specifically. We don't take on restaurants or dentists as clients, so your competitors simply can't match this level of specialization.</p></div>
@@ -383,44 +357,44 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Home Care in Clearwater:<br><em>Questions Families Ask</em></h2>
-      <p class="section-sub">These are real search queries Clearwater families type into Google. Add content like this to your own site and you've got a shot at showing up in the "People Also Ask" boxes.</p>
+      <h2 class="section-h2">Clearwater Homecare Marketing:<br><em>Questions Agency Owners Ask</em></h2>
+      <p class="section-sub">Answers to what Clearwater home care agency owners want to know before they sign on.</p>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I find a trusted home care agency in Clearwater, FL?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Start by checking Google reviews and verifying the agency's state licensure through the Florida Agency for Health Care Administration (AHCA). Confirm caregivers go through real background checks, not just a box-checking exercise. It also helps to find an agency that specializes in the level of care your loved one actually needs, whether that's companion care, personal care assistance, or skilled nursing. A reputable Clearwater homecare agency will give you a free in-home consultation and a written plan of care before anything starts.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How much does home care SEO cost for a Clearwater agency?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Every plan is a flat monthly retainer, no hidden setup fees. What you pay depends on how competitive your specific service area is and whether you need a new website built alongside SEO. Book a free audit and we'll walk you through exact numbers for your agency.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What does home care cost in Clearwater, Florida?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">In-home care in Clearwater, FL typically runs $20–$30 an hour for non-medical companion and personal care services. Families cover this a few different ways: private pay, long-term care insurance, or Florida's Statewide Medicaid Managed Care Long-Term Care (SMMC LTC) program. A licensed local agency can sort out which of these your loved one actually qualifies for, usually during that first free consultation.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long until my Clearwater agency starts ranking on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Starting from zero, most Clearwater clients see Google Maps movement within 60–90 days, with organic rankings building over the following months. Timelines vary with how competitive your service area is and how much content and citation work your site needs.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Does Pinellas County have Medicaid home care programs?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes, Florida's SMMC LTC program covers in-home personal care for eligible seniors in Pinellas County. Generally, you need to be 65 or older and meet both functional and financial eligibility requirements, then enroll through an approved managed care plan. AHCA-licensed homecare agencies in the Clearwater area can walk families through that enrollment process and point them to the right managed care organization.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you only work with agencies in Clearwater?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">No, we work with home care agencies throughout Pinellas County and across Florida. If you serve multiple cities, we build out a dedicated strategy and pages for each market you operate in.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What areas of Clearwater does your homecare service cover?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">We work with agencies covering all of Pinellas County and the Clearwater area: Clearwater Beach, Dunedin, Safety Harbor, Palm Harbor, Largo, Belleair, Countryside, Oldsmar, Tarpon Springs, Indian Rocks Beach, Seminole, Pinellas Park, and everywhere in between. If there's a specific neighborhood you serve, we'll build a dedicated page so you rank there too.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What's included in the monthly retainer?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Local SEO (Google Business Profile management, citations, review growth), on-page optimization across your site, monthly ranking reports, and a strategy call every month. Website design and AI search optimization are available as add-ons or bundled in, depending on the plan.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to rank #1 on Google for homecare in Clearwater?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">If you're starting from zero, expect meaningful Google Maps improvement within 60–90 days, with strong organic rankings following in 4–6 months. Clearwater is competitive, no question. But because our whole approach is built around homecare specifically, clients consistently land top-3 Google Maps positions within 5 months, faster than what a generalist agency typically delivers.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you require a long-term contract?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">No. After an initial 90-day ramp-up period, every plan moves to month-to-month. We'd rather earn your business every month than lock you into a contract.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do Clearwater homecare agencies need a Florida state license?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Florida requires agencies providing companion care and personal care services to be licensed through AHCA, the Agency for Health Care Administration. Which license type you need, Home Health Agency, Nurse Registry, or Companion/Homemaker, depends on what services you actually offer. That AHCA licensure needs to be in place before you start marketing anywhere in Florida, not just Clearwater.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can you also build or redesign my agency's website?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Most Clearwater clients bundle website design with SEO since the two work best together, but we also support agencies who already have a site and just want SEO and AI search optimization managed.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can families in Clearwater find homecare agencies through ChatGPT or Google AI?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes, and it's happening more than most agency owners realize. Clearwater families increasingly turn to ChatGPT, Google AI Overviews, and Perplexity to find and vet local homecare providers. Homecare Creators is the only marketing agency that specifically optimizes homecare sites to get cited and recommended by these AI systems, which puts you ahead of competitors still focused only on traditional Google rankings.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can ChatGPT and Google AI recommend my Clearwater agency to families?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, and it's a fast-growing channel. We optimize your site's structure, entity data, and FAQ content so AI tools like ChatGPT, Google AI Overviews, and Perplexity can accurately cite and recommend your agency, not just traditional Google search.</div></div>
       </div>
 
     </div>
@@ -459,7 +433,7 @@ include '../includes/header.php';
         <div class="cta-actions">
           <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-calendar-check"></i>Get My Free Clearwater SEO Audit</button>
         </div>
-        <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Results in 30 days guaranteed</div>
+        <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; 30-day satisfaction guarantee</div>
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
         <img src="/images/home/cta-business-owner.jpg" alt="Clearwater home care agency owner growing their business with Homecare Creators" title="Clearwater home care agency owner growth">

@@ -6,8 +6,8 @@ if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
 }
 $page_title = "Home Care Agency SEO Miami, FL | Homecare Creators";
 $page_desc = "SEO for home care agencies in Miami, FL. We help you rank #1 on Google, build websites that convert, and grow private-pay clients in Miami-Dade.";
-$og_title = "Miami Home Care Agency SEO & Websites | Homecare Creators";
-$og_desc = "Home care agency SEO in Miami, FL. Rank #1 on Google Maps, get a website that converts, and grow private-pay clients with the only agency built for homecare.";
+$og_title = "Home Care Agency SEO Miami, FL | Homecare Creators";
+$og_desc = "Home care agency SEO in Miami, FL. Rank #1 on Google Maps, get a website that converts, and grow private-pay clients with a marketing agency built 100% for home care.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
@@ -150,7 +150,7 @@ include '../includes/header.php';
   <div class="hero-blob1"></div>
   <div class="hero-blob2"></div>
   <div class="hero-content">
-    <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/florida/">Florida</a> / <span>Miami</span></div>
+    <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <span>Florida</span> / <span>Miami</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Miami-Dade County, Florida</div>
     <h1 class="hero-h1">Miami Home Care Agencies:<br><em>Ranked #1 on Google</em></h1>
     <p class="hero-desc">We help Miami homecare agencies climb to #1 on Google, build websites that actually convert, and win more private-pay clients across Miami-Dade County. Families search first and call whoever shows up. Make it you.</p>
@@ -159,11 +159,11 @@ include '../includes/header.php';
       <a href="https://homecarecreators.com/#services" class="btn-secondary"><i class="fa-solid fa-play"></i>View Our Services</a>
     </div>
     <div class="hero-proof">
-      <div class="hero-proof-item"><div class="hero-proof-num">312%</div><div class="hero-proof-label">Avg Lead Increase</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
       <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">#1</div><div class="hero-proof-label">Google Rank in 5mo</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">SEO</div><div class="hero-proof-label">+ AI Search Visibility</div></div>
       <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">67+</div><div class="hero-proof-label">Reviews in 90 Days</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">30-Day</div><div class="hero-proof-label">Satisfaction Guarantee</div></div>
       <div class="hero-proof-divider"></div>
       <div class="hero-proof-item"><div class="hero-proof-num">$0</div><div class="hero-proof-label">Free Audit Cost</div></div>
     </div>
@@ -226,7 +226,7 @@ include '../includes/header.php';
         <h2 class="section-h2">Why Miami Is Florida's <em>Most Competitive</em> Homecare Market</h2>
         <p>Miami and Miami-Dade County make up the largest, most diverse homecare market in Florida. Nearly 2.8 million people live here, and a big share of them are adults 65 and older, so demand for quality in-home care keeps climbing year after year. Add in Miami's large Cuban, Colombian, and Caribbean communities and you get serious, sustained demand for bilingual homecare services. Combine that with one of the highest concentrations of private-pay clients anywhere in the state, and Miami becomes one of the most valuable homecare markets in the entire Southeast.</p>
         <p>Families in Coral Gables, Brickell, Coconut Grove, Kendall, and Hialeah are on Google every single day looking for a homecare agency they can trust. If your Google Business Profile isn't dialed in, if you don't have local landing pages, if your reviews are thin, you're simply not in the running. Your competitors pick up every client you're missing.</p>
-        <p>Homecare Creators is the only marketing agency built exclusively for homecare businesses, period. We know the Miami-Dade market. We know the bilingual search queries families actually type into Google. And we know how to get your agency to the top of Maps and organic results faster than a generalist shop ever could.</p>
+        <p>Homecare Creators is a marketing agency built exclusively for homecare businesses. We know the Miami-Dade market. We know the bilingual search queries families actually type into Google. And we know how to get your agency to the top of Maps and organic results faster than a generalist shop ever could.</p>
       </div>
       <div class="market-facts" data-reveal style="transition-delay:.15s">
         <div class="fact-card"><div class="fact-num">2.8M+</div><h4>Miami-Dade Population</h4><p>Florida's most populous county, and its senior population keeps climbing</p></div>
@@ -262,7 +262,7 @@ include '../includes/header.php';
             <li><i class="fa-solid fa-check"></i>Service area pages for Miami neighborhoods</li>
             <li><i class="fa-solid fa-check"></i>Caregiver careers and jobs page</li>
             <li><i class="fa-solid fa-check"></i>Google Reviews widget built in</li>
-            <li><i class="fa-solid fa-check"></i>Under 2-second load speed guaranteed</li>
+            <li><i class="fa-solid fa-check"></i>Built for fast, sub-2-second load speed</li>
           </ul>
         </div>
       </div>
@@ -308,31 +308,6 @@ include '../includes/header.php';
   </div>
 </section>
 
-<!-- KEYWORDS -->
-<section class="kw-section">
-  <div class="container">
-    <div data-reveal>
-      <p class="section-label">Keyword Strategy</p>
-      <h2 class="section-h2">The Exact Keywords We Target for<br><em>Miami Homecare Agencies</em></h2>
-      <p class="section-sub">These are the searches that matter most, the ones Miami families actually type in when they're looking for homecare, in English and in Spanish. We build your entire digital presence around ranking for every one of them.</p>
-    </div>
-    <div class="kw-grid" data-reveal style="transition-delay:.1s">
-      <div class="kw-card"><div><div class="kw-term">home care agency Miami FL</div><div class="kw-intent">Commercial: ready to hire</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare near me Miami</div><div class="kw-intent">Local + near-me, highest conversion</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">senior home care Miami FL</div><div class="kw-intent">Family searching for elderly parent</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">cuidado en casa Miami FL</div><div class="kw-intent">Spanish-language, high-intent bilingual</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">caregiver jobs Miami FL</div><div class="kw-intent">Recruitment: attract quality caregivers</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">home health aide Miami-Dade County</div><div class="kw-intent">County-level, broader reach</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">companion care services Miami</div><div class="kw-intent">Service-specific, non-medical care</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">in-home care for elderly Miami</div><div class="kw-intent">Informational to decision stage</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare Coral Gables / Kendall / Hialeah</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">24-hour home care Miami</div><div class="kw-intent">High urgency: premium private-pay client</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">best home care agency Miami FL 2025</div><div class="kw-intent">AI search and voice search query</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">agencia de cuidado de ancianos Miami</div><div class="kw-intent">Spanish-language, bilingual household</div></div><span class="kw-badge kw-high">HIGH</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- AREAS -->
 <section class="areas-section">
   <div class="container">
@@ -363,7 +338,6 @@ include '../includes/header.php';
       <div class="area-pill"><div class="area-dot"></div>Sweetwater</div>
       <div class="area-pill"><div class="area-dot"></div>Florida City</div>
     </div>
-    <div class="areas-note" data-reveal style="transition-delay:.2s"><i class="fa-solid fa-lightbulb" style="margin-right:8px;color:var(--gold)"></i>SEO Tip: Each neighborhood above should get its own dedicated sub-page (e.g. /home-care-coral-gables-fl/) linking back to this page. That's how you build the topical cluster Google rewards with higher rankings.</div>
   </div>
 </section>
 
@@ -372,13 +346,13 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label" style="color:var(--teal-lt)"><span style="background:var(--teal-lt);display:inline-block;width:24px;height:2px;border-radius:2px;margin-right:8px;vertical-align:middle"></span>Why Homecare Creators</p>
-      <h2 class="section-h2" style="color:#fff">The Only Agency That Truly<br><em>Understands Miami Homecare</em></h2>
+      <h2 class="section-h2" style="color:#fff">Built to Truly<br><em>Understand Miami Homecare</em></h2>
       <p class="section-sub" style="color:rgba(255,255,255,.58)">Generalist agencies don't get homecare. They don't know Florida's AHCA licensing rules, Miami's bilingual market, or what's actually driving senior care demand across Miami-Dade. We do, because homecare is the only thing we work on.</p>
     </div>
     <div class="why-grid" data-reveal style="transition-delay:.1s">
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-bullseye"></i></div><h4>100% Homecare-Only</h4><p>Every keyword, page, and strategy we build is purpose-made for homecare agencies. We don't work with restaurants or dentists, so your competitors simply can't match this level of specialization.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-map-location-dot"></i></div><h4>Miami Market Knowledge</h4><p>We understand Miami-Dade's demographics: the large Cuban and Hispanic communities, the strong private-pay demand in Coral Gables and Brickell, and just how competitive the bilingual homecare landscape has become.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-robot"></i></div><h4>AI Search Optimization</h4><p>We're the only homecare agency optimizing for ChatGPT, Google AI Overviews, and Perplexity answers in both English and Spanish. Miami families already ask AI "what's the best homecare agency near me?" We make sure your name is the one they get.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-robot"></i></div><h4>AI Search Optimization</h4><p>We optimize for ChatGPT, Google AI Overviews, and Perplexity answers in both English and Spanish. Miami families already ask AI "what's the best homecare agency near me?" We make sure your name is the one they get.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-dollar-sign"></i></div><h4>ROI You Can Measure</h4><p>One new private-pay client in Miami is worth $4,000–$9,000 a year. Most months, our SEO retainer pays for itself the moment that first inquiry comes in.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-handshake"></i></div><h4>No Long-Term Contracts</h4><p>We keep clients with results, not contracts. Every plan goes month-to-month after the first 90 days. If we're not delivering, you're free to walk.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-layer-group"></i></div><h4>Website + SEO + AI in One</h4><p>No juggling three different vendors. We design your site, manage your Google Business Profile, and build AI search authority, all under one retainer with a single strategy call each month.</p></div>
@@ -393,44 +367,44 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Home Care in Miami<br><em>Questions Families Ask</em></h2>
-      <p class="section-sub">These are real search queries Miami families type into Google. Add this content to your own website and it'll help you show up in the "People Also Ask" boxes.</p>
+      <h2 class="section-h2">Miami Homecare Marketing:<br><em>Questions Agency Owners Ask</em></h2>
+      <p class="section-sub">Answers to what Miami home care agency owners want to know before they sign on.</p>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I find a trusted home care agency in Miami, FL?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Start by checking Google reviews, then verify the agency's state license through the Florida Agency for Health Care Administration (AHCA), and confirm caregivers go through real background checks. Look for agencies that specialize in the level of care your loved one actually needs, whether that's companion care, personal care assistance, or skilled nursing. A lot of Miami families lean toward bilingual (English/Spanish) agencies too. A reputable Miami homecare agency should offer a free in-home consultation and hand you a written plan of care before anything starts.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How much does home care SEO cost for a Miami agency?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Every plan is a flat monthly retainer, no hidden setup fees. What you pay depends on how competitive your specific service area is and whether you need a new website built alongside SEO. Book a free audit and we'll walk you through exact numbers for your agency.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What does home care cost in Miami, Florida?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">In Miami, FL, non-medical companion and personal care typically runs $22–$32 per hour. That's a bit higher than the statewide average, which tracks with Miami-Dade's cost of living. Families cover it different ways: private pay, long-term care insurance, or Florida's Statewide Medicaid Managed Care Long-Term Care (SMMC LTC) program. A licensed Miami homecare agency can walk you through which option fits during a free initial consultation.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long until my Miami agency starts ranking on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Starting from zero, most Miami clients see Google Maps movement within 60–90 days, with organic rankings building over the following months. Timelines vary with how competitive your service area is and how much content and citation work your site needs.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Does Miami-Dade County have Medicaid home care programs?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Florida's SMMC LTC program covers in-home personal care for eligible seniors in Miami-Dade County. To qualify, you generally need to be 65 or older, meet the functional and financial eligibility requirements, and enroll through an approved managed care plan. Miami also has a large number of seniors who qualify for the Medicaid waiver through Cuban/Haitian Entrant programs and other special eligibility categories. A licensed Miami homecare agency can walk families through the enrollment process.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you only work with agencies in Miami?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">No, we work with home care agencies throughout Miami-Dade County and across Florida. If you serve multiple cities, we build out a dedicated strategy and pages for each market you operate in.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you offer bilingual homecare marketing for Spanish-speaking communities in Miami?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes, and honestly, it's one of the biggest ways we set Miami agencies apart. This market is heavily bilingual. Communities like Little Havana, Hialeah, and Westchester have large Spanish-speaking populations actively searching for "cuidado en casa Miami" and "agencia de homecare cerca de mí." We build bilingual SEO strategies, Spanish-language service pages, and Google Business Profile optimization in both languages so you capture the full Miami market, not just half of it.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What's included in the monthly retainer?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Local SEO (Google Business Profile management, citations, review growth), on-page optimization across your site, monthly ranking reports, and a strategy call every month. Website design and AI search optimization are available as add-ons or bundled in, depending on the plan.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to rank #1 on Google for homecare in Miami?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Miami is Florida's most competitive homecare market, so it does take a bit longer than it would in a smaller city. Most Miami agencies see real movement on Google Maps within 60–90 days, and strong organic rankings by month 5 to 7. Our approach tends to land top-3 Google Maps positions faster than a generalist agency simply because every strategy we run is built for homecare specifically. We're not splitting our attention across a dozen unrelated industries.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you require a long-term contract?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">No. After an initial 90-day ramp-up period, every plan moves to month-to-month. We'd rather earn your business every month than lock you into a contract.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do Miami homecare agencies need a Florida AHCA license?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. In Florida, any agency providing companion care or personal care services needs to be licensed through the Florida Agency for Health Care Administration (AHCA). Which license you need, Home Health Agency, Nurse Registry, or Companion/Homemaker, depends on what services you actually offer. You need that license locked down before you start marketing anywhere in Florida, Miami included. Operate without it and you're looking at fines, plus you lose the ability to accept Medicaid clients.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can you also build or redesign my agency's website?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Most Miami clients bundle website design with SEO since the two work best together, but we also support agencies who already have a site and just want SEO and AI search optimization managed.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can families in Miami find homecare agencies through ChatGPT or Google AI?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes, and it's happening fast in Miami. More families are turning to AI tools like ChatGPT, Google AI Overviews, and Perplexity to find and vet local homecare agencies, often in Spanish. Homecare Creators is the only marketing agency that specifically optimizes homecare websites to get cited and recommended by these AI systems in both languages. That's a real edge over competitors who are still only chasing traditional Google rankings.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can ChatGPT and Google AI recommend my Miami agency to families?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, and it's a fast-growing channel. We optimize your site's structure, entity data, and FAQ content so AI tools like ChatGPT, Google AI Overviews, and Perplexity can accurately cite and recommend your agency, not just traditional Google search.</div></div>
       </div>
 
     </div>
@@ -469,7 +443,7 @@ include '../includes/header.php';
         <div class="cta-actions">
           <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-calendar-check"></i>Get My Free Miami SEO Audit</button>
         </div>
-        <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Results in 30 days guaranteed</div>
+        <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; 30-day satisfaction guarantee</div>
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
         <img src="/images/home/cta-business-owner.jpg" alt="Miami home care agency owner growing their business with Homecare Creators" title="Miami home care agency owner growth">

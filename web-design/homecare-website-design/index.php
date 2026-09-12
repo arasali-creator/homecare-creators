@@ -2,8 +2,8 @@
 $page_title = "Home Care Agency Website Design | Homecare Creators";
 $page_desc = "We build fast, mobile-first websites made only for home care agencies. They rank on Google, convert families into callers, and start at $699.";
 $page_canonical = "https://homecarecreators.com/web-design/homecare-website-design/";
-$og_title = "Website Design for Home Care Agencies | Homecare Creators";
-$og_desc = "The only web design agency built 100% for home care. Sites load fast, rank #1 on Google, and turn visitors into new clients, starting at $699.";
+$og_title = "Home Care Agency Website Design | Homecare Creators";
+$og_desc = "A web design agency built 100% for home care. Sites load fast, are built to rank on Google, and turn visitors into new clients, starting at $699.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:100vh;background:var(--forest);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0}
@@ -206,8 +206,8 @@ $page_css = <<<CSS
 .cta-badge-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(255,255,255,.65)}
 
 /* RESPONSIVE */
-@media(max-width:1024px){.hero{grid-template-columns:1fr;min-height:auto}.hero-right{display:none}.hero-left{padding:140px 48px 80px}.packages-grid,.included-grid,.portfolio-grid{grid-template-columns:1fr 1fr}.results-grid{grid-template-columns:repeat(2,1fr)}.what-grid{grid-template-columns:1fr;gap:48px}.how-grid{grid-template-columns:repeat(2,1fr)}.cta-inner{grid-template-columns:1fr}.cta-image{display:none}}
-@media(max-width:640px){section{padding:64px 20px}.packages-grid,.included-grid,.portfolio-grid,.results-grid{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr}.compare-table{font-size:12px}}
+@media(max-width:1024px){.hero{grid-template-columns:1fr;min-height:auto}.hero-right{display:none}.hero-left{padding:140px 48px 80px}.packages-grid,.included-grid,.portfolio-grid{grid-template-columns:1fr 1fr}.results-grid{grid-template-columns:repeat(2,1fr)}.what-grid{grid-template-columns:1fr;gap:48px}.how-grid,.process-grid{grid-template-columns:repeat(2,1fr)}.cta-inner{grid-template-columns:1fr}.cta-image{display:none}}
+@media(max-width:640px){section{padding:64px 20px}.packages-grid,.included-grid,.portfolio-grid,.results-grid{grid-template-columns:1fr}.how-grid,.process-grid{grid-template-columns:1fr}.compare-table{font-size:12px}}
 CSS;
 include '../../includes/header.php';
 ?>
@@ -227,7 +227,7 @@ include '../../includes/header.php';
       <a href="#packages" class="btn-secondary"><i class="fa-solid fa-layer-group"></i>View Packages</a>
     </div>
     <div class="hero-proof">
-      <div class="hero-proof-item"><div class="hero-proof-num">312%</div><div class="hero-proof-label">Avg Lead Increase</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
       <div class="hero-proof-divider"></div>
       <div class="hero-proof-item"><div class="hero-proof-num">&lt;2s</div><div class="hero-proof-label">Load Speed</div></div>
       <div class="hero-proof-divider"></div>
@@ -257,9 +257,9 @@ include '../../includes/header.php';
           </div>
           <div class="mockup-content">
             <div class="mockup-stats">
-              <div class="mockup-stat"><div class="mockup-stat-num">312%</div><div class="mockup-stat-label">Lead Growth</div></div>
-              <div class="mockup-stat"><div class="mockup-stat-num">#1</div><div class="mockup-stat-label">Google Rank</div></div>
-              <div class="mockup-stat"><div class="mockup-stat-num">67+</div><div class="mockup-stat-label">Reviews</div></div>
+              <div class="mockup-stat"><div class="mockup-stat-num">Fast</div><div class="mockup-stat-label">Load Speed</div></div>
+              <div class="mockup-stat"><div class="mockup-stat-num">SEO</div><div class="mockup-stat-label">Built-In</div></div>
+              <div class="mockup-stat"><div class="mockup-stat-num">Reviews</div><div class="mockup-stat-label">Widget</div></div>
             </div>
             <div class="mockup-cards">
               <div class="mockup-card"><div class="mockup-card-img"></div><div class="mockup-card-line"></div><div class="mockup-card-line short"></div></div>
@@ -339,7 +339,7 @@ include '../../includes/header.php';
         <div class="what-points">
           <div class="what-point">
             <div class="what-point-icon"><i class="fa-solid fa-bolt"></i></div>
-            <div><div class="what-point-title">Under 2-Second Load Speed Guaranteed</div><div class="what-point-desc">Slow sites lose families in under 3 seconds. We optimize every image, script, and element so your site loads fast on both mobile and desktop.</div></div>
+            <div><div class="what-point-title">Built for Fast, Sub-2-Second Load Speed</div><div class="what-point-desc">Slow sites lose families in under 3 seconds. We optimize every image, script, and element so your site loads fast on both mobile and desktop.</div></div>
           </div>
           <div class="what-point">
             <div class="what-point-icon"><i class="fa-brands fa-google"></i></div>
@@ -360,8 +360,8 @@ include '../../includes/header.php';
           <img src="/images/home/hero-caregiver-elderly.jpg" alt="Professional home care agency website design showcasing a caregiver with an elderly client" title="Home care agency website design example">
         </div>
         <div class="what-stat-float">
-          <div class="what-stat-num">312%</div>
-          <div class="what-stat-label">Avg Lead Increase</div>
+          <div class="what-stat-num">100%</div>
+          <div class="what-stat-label">Homecare-Only Focus</div>
         </div>
         <div class="what-badge-float">
           <div class="what-badge-row">
@@ -557,9 +557,9 @@ include '../../includes/header.php';
       <h2 class="section-h2" style="color:#fff;text-align:center">What Happens After<br><em>Your Site Goes Live</em></h2>
     </div>
     <div class="results-grid" data-reveal style="transition-delay:.1s">
-      <div class="result-item"><div class="result-num">312%</div><div class="result-label">Average lead increase in 6 months</div></div>
-      <div class="result-item"><div class="result-num">#1</div><div class="result-label">Google Maps position within 5 months</div></div>
-      <div class="result-item"><div class="result-num">67+</div><div class="result-label">New Google reviews in 90 days</div></div>
+      <div class="result-item"><div class="result-num">Built to Convert</div><div class="result-label">Websites designed for homecare leads, not just traffic</div></div>
+      <div class="result-item"><div class="result-num">Local SEO</div><div class="result-label">Google Maps optimization included</div></div>
+      <div class="result-item"><div class="result-num">Reviews</div><div class="result-label">Google review growth built in</div></div>
       <div class="result-item"><div class="result-num">14</div><div class="result-label">Days from kickoff to live website</div></div>
     </div>
   </div>

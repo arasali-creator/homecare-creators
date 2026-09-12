@@ -198,11 +198,11 @@ include '../includes/header.php';
       <a href="#packages" class="btn-secondary"><i class="fa-solid fa-layer-group"></i>View Packages</a>
     </div>
     <div class="hero-proof">
-      <div class="hero-proof-item"><div class="hero-proof-num">#1</div><div class="hero-proof-label">Google Maps in 5mo</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">Local SEO</div><div class="hero-proof-label">Google Maps Optimization</div></div>
       <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">312%</div><div class="hero-proof-label">Avg Lead Increase</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
       <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">67+</div><div class="hero-proof-label">Reviews in 90 Days</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">SEO</div><div class="hero-proof-label">+ AI Search Visibility</div></div>
       <div class="hero-proof-divider"></div>
       <div class="hero-proof-item"><div class="hero-proof-num">$0</div><div class="hero-proof-label">Free Audit Cost</div></div>
     </div>
@@ -520,9 +520,9 @@ include '../includes/header.php';
       <h2 class="section-h2" style="color:#fff;text-align:center">What Our Florida Clients<br><em>Achieve in 6 Months</em></h2>
     </div>
     <div class="results-grid" data-reveal style="transition-delay:.1s">
-      <div class="result-item"><div class="result-num">312%</div><div class="result-label">Average lead increase after 6 months of SEO</div></div>
-      <div class="result-item"><div class="result-num">#1</div><div class="result-label">Google Maps position achieved within 5 months</div></div>
-      <div class="result-item"><div class="result-num">67+</div><div class="result-label">New 5-star Google reviews in the first 90 days</div></div>
+      <div class="result-item"><div class="result-num">Built to Convert</div><div class="result-label">SEO focused on leads, not just traffic</div></div>
+      <div class="result-item"><div class="result-num">Local SEO</div><div class="result-label">Google Maps optimization included</div></div>
+      <div class="result-item"><div class="result-num">Reviews</div><div class="result-label">Google review growth built in</div></div>
       <div class="result-item"><div class="result-num">60d</div><div class="result-label">Days to first visible Google Maps improvement</div></div>
     </div>
   </div>

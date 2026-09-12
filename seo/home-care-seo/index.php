@@ -2,7 +2,7 @@
 $page_title = "Home Care SEO Services That Help Agencies Grow | HomeCareCreators";
 $page_desc = "Improve your online visibility with Home Care SEO services designed for home care agencies. Attract more families, rank higher on Google, and generate qualified leads with SEO strategies built for the senior care industry.";
 $page_canonical = "https://homecarecreators.com/seo/home-care-seo/";
-$og_title = "Home Care SEO Services | HomeCareCreators";
+$og_title = "Home Care SEO Services That Help Agencies Grow | HomeCareCreators";
 $og_desc = "Help more families find your home care agency with SEO strategies designed specifically for the home care industry.";
 $page_css = <<<CSS
 /* HERO */
@@ -231,9 +231,9 @@ echo '<script type="application/ld+json">' . json_encode([
       <a href="#included" class="btn-secondary"><i class="fa-solid fa-layer-group"></i>What's Included</a>
     </div>
     <div class="hero-proof">
-      <div class="hero-proof-item"><div class="hero-proof-num">#1</div><div class="hero-proof-label">Google Maps in 5mo</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">Local SEO</div><div class="hero-proof-label">+ AI Search Visibility</div></div>
       <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">312%</div><div class="hero-proof-label">Avg Lead Increase</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
       <div class="hero-proof-divider"></div>
       <div class="hero-proof-item"><div class="hero-proof-num">$0</div><div class="hero-proof-label">Free Consultation</div></div>
     </div>
@@ -268,12 +268,12 @@ echo '<script type="application/ld+json">' . json_encode([
         </div>
       </div>
       <div class="seo-rank-badge">
-        <div class="seo-rank-num">#1</div>
+        <div class="seo-rank-num">Local SEO</div>
         <div class="seo-rank-label">Google &amp; AI Search</div>
       </div>
       <div class="seo-traffic-badge">
-        <div class="seo-traffic-num">312%</div>
-        <div class="seo-traffic-label">Avg. qualified lead increase</div>
+        <div class="seo-traffic-num">100%</div>
+        <div class="seo-traffic-label">Homecare-Only Focus</div>
       </div>
     </div>
   </div>

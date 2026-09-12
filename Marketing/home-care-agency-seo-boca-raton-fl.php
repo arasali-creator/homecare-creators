@@ -7,7 +7,7 @@ if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
 $page_title = "Boca Raton Home Care Agency Marketing & SEO | Homecare Creators";
 $page_desc = "SEO for Boca Raton home care agencies. We help you rank #1 on Google, build a website that converts, and win more private-pay clients in Palm Beach County.";
 $og_title = "Boca Raton Home Care Agency Marketing & SEO | Homecare Creators";
-$og_desc = "Boca Raton home care agencies: get found on Google, out-rank the competition, and grow faster with the only marketing agency built 100% for home care.";
+$og_desc = "Boca Raton home care agencies: get found on Google, out-rank the competition, and grow faster with a marketing agency built 100% for home care.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
@@ -151,7 +151,7 @@ include '../includes/header.php';
   <div class="hero-blob1"></div>
   <div class="hero-blob2"></div>
   <div class="hero-content">
-    <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <a href="/florida/">Florida</a> / <span>Boca Raton</span></div>
+    <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <span>Florida</span> / <span>Boca Raton</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Palm Beach County, Florida</div>
     <h1 class="hero-h1">Home Care Marketing<br>for <em>Boca Raton, FL</em></h1>
     <p class="hero-desc">We help Boca Raton home care agencies rank #1 on Google, build websites that actually convert, and bring in more private-pay clients across Palm Beach County. Families find you first, every time.</p>
@@ -160,11 +160,11 @@ include '../includes/header.php';
       <a href="https://homecarecreators.com/#services" class="btn-secondary"><i class="fa-solid fa-play"></i>View Our Services</a>
     </div>
     <div class="hero-proof">
-      <div class="hero-proof-item"><div class="hero-proof-num">312%</div><div class="hero-proof-label">Avg Lead Increase</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
       <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">#1</div><div class="hero-proof-label">Google Rank in 5mo</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">SEO</div><div class="hero-proof-label">+ AI Search Visibility</div></div>
       <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">67+</div><div class="hero-proof-label">Reviews in 90 Days</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">30-Day</div><div class="hero-proof-label">Satisfaction Guarantee</div></div>
       <div class="hero-proof-divider"></div>
       <div class="hero-proof-item"><div class="hero-proof-num">$0</div><div class="hero-proof-label">Free Audit Cost</div></div>
     </div>
@@ -227,7 +227,7 @@ include '../includes/header.php';
         <h2 class="section-h2">Why Boca Raton Is One of Florida's <em>Fastest-Growing</em> Homecare Markets</h2>
         <p>Boca Raton and Palm Beach County keep growing, and a big chunk of that growth is retirees moving down from the Northeast and Midwest. The greater Boca Raton area is now home to over 1.5 million residents, with one of the highest concentrations of adults 65+ anywhere in Florida. That's real, sustained demand for quality in-home care.</p>
         <p>Families in Highland Beach, Boynton Beach, Lake Worth Beach, and across Palm Beach County search Google every day looking for a trusted homecare agency. If you don't have a strong local presence online, you simply don't show up in those searches. Your competitors pick up those clients instead.</p>
-        <p>Homecare Creators is the only marketing agency built exclusively for homecare businesses. We know this market, and we know the exact terms Boca Raton families type into Google. That's how we get agencies to the top of Google Maps and organic results faster than a generalist shop ever could.</p>
+        <p>Homecare Creators is a marketing agency built exclusively for homecare businesses. We know this market, and we know the exact terms Boca Raton families type into Google. That's how we get agencies to the top of Google Maps and organic results faster than a generalist shop ever could.</p>
       </div>
       <div class="market-facts" data-reveal style="transition-delay:.15s">
         <div class="fact-card"><div class="fact-num">1.5M+</div><h4>Boca Raton area Population</h4><p>One of Florida's largest metros, and the senior population keeps climbing year over year</p></div>
@@ -263,7 +263,7 @@ include '../includes/header.php';
             <li><i class="fa-solid fa-check"></i>Service area pages for Boca Raton neighborhoods</li>
             <li><i class="fa-solid fa-check"></i>Caregiver careers and jobs page</li>
             <li><i class="fa-solid fa-check"></i>Google Reviews widget built in</li>
-            <li><i class="fa-solid fa-check"></i>Under 2-second load speed guaranteed</li>
+            <li><i class="fa-solid fa-check"></i>Built for fast, sub-2-second load speed</li>
           </ul>
         </div>
       </div>
@@ -309,31 +309,6 @@ include '../includes/header.php';
   </div>
 </section>
 
-<!-- KEYWORDS -->
-<section class="kw-section">
-  <div class="container">
-    <div data-reveal>
-      <p class="section-label">Keyword Strategy</p>
-      <h2 class="section-h2">The Exact Keywords We Target for<br><em>Boca Raton Homecare Agencies</em></h2>
-      <p class="section-sub">These are the searches that matter most when Boca Raton families go looking for homecare. We build your whole digital presence around ranking for every one of them.</p>
-    </div>
-    <div class="kw-grid" data-reveal style="transition-delay:.1s">
-      <div class="kw-card"><div><div class="kw-term">home care agency Boca Raton FL</div><div class="kw-intent">Commercial, ready to hire</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare near me Boca Raton</div><div class="kw-intent">Local + near-me, highest conversion</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">senior home care Boca Raton FL</div><div class="kw-intent">Family searching for elderly parent</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">in-home care for elderly Boca Raton</div><div class="kw-intent">Informational to decision stage</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">caregiver jobs Boca Raton FL</div><div class="kw-intent">Recruitment, attract quality caregivers</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">home health aide Palm Beach County</div><div class="kw-intent">County-level, broader reach</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">companion care services Boca Raton</div><div class="kw-intent">Service-specific, non-medical care</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">personal care assistance Boca Raton</div><div class="kw-intent">ADL support, Medicaid waiver keyword</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">homecare Highland Beach / Boynton Beach / Lake Worth Beach</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">24-hour home care Boca Raton</div><div class="kw-intent">High urgency, premium private-pay client</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">best home care agency Boca Raton FL 2025</div><div class="kw-intent">AI search and voice search query</div></div><span class="kw-badge kw-med">MED</span></div>
-      <div class="kw-card"><div><div class="kw-term">how to choose a home care agency Boca Raton</div><div class="kw-intent">Blog target, educational trust builder</div></div><span class="kw-badge kw-med">MED</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- AREAS -->
 <section class="areas-section">
   <div class="container">
@@ -358,7 +333,6 @@ include '../includes/header.php';
       <div class="area-pill"><div class="area-dot"></div>Greenacres</div>
       <div class="area-pill"><div class="area-dot"></div>Palm Beach Gardens</div>
     </div>
-    <div class="areas-note" data-reveal style="transition-delay:.2s"><i class="fa-solid fa-lightbulb" style="margin-right:8px;color:var(--gold)"></i>SEO Tip: Each neighborhood above should have its own dedicated sub-page (e.g. /home-care-delray-beach-fl/) linking back to this page. That builds the kind of topical cluster Google rewards with higher rankings.</div>
   </div>
 </section>
 
@@ -367,13 +341,13 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label" style="color:var(--teal-lt)"><span style="background:var(--teal-lt);display:inline-block;width:24px;height:2px;border-radius:2px;margin-right:8px;vertical-align:middle"></span>Why Homecare Creators</p>
-      <h2 class="section-h2" style="color:#fff">The Only Agency That Truly<br><em>Understands Boca Raton Homecare</em></h2>
+      <h2 class="section-h2" style="color:#fff">Built to Truly<br><em>Understand Boca Raton Homecare</em></h2>
       <p class="section-sub" style="color:rgba(255,255,255,.58)">Generalist agencies don't understand homecare, Florida's AHCA licensing, Medicaid waiver nuances, or the unique demographics driving Boca Raton's senior care demand. We do, because we're built exclusively for homecare.</p>
     </div>
     <div class="why-grid" data-reveal style="transition-delay:.1s">
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-bullseye"></i></div><h4>100% Homecare-Only</h4><p>Every keyword, page, and strategy is purpose-built for homecare agencies. We don't take on restaurants or dentists, so your competitors simply can't match this level of specialization.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-map-location-dot"></i></div><h4>Boca Raton Market Knowledge</h4><p>We understand Palm Beach County's demographics: the retirement migration from the Northeast, strong private-pay demand in Delray Beach and Deerfield Beach, and a competitive Medicaid landscape most agencies never fully learn.</p></div>
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-robot"></i></div><h4>AI Search Optimization</h4><p>We're the only homecare agency optimizing for ChatGPT, Google AI Overviews, and Perplexity answers. Boca Raton families already ask AI what the best homecare agency near them is, and we make sure they hear your name.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-robot"></i></div><h4>AI Search Optimization</h4><p>We optimize for ChatGPT, Google AI Overviews, and Perplexity answers. Boca Raton families already ask AI what the best homecare agency near them is, and we make sure they hear your name.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-dollar-sign"></i></div><h4>ROI You Can Measure</h4><p>One new private-pay client in Boca Raton is worth $3,000–$8,000 a year. Our SEO retainer often pays for itself within 30 days of that first new client enquiry.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-handshake"></i></div><h4>No Long-Term Contracts</h4><p>We keep clients through results, not contracts. All plans go month-to-month after the first 90 days. Frankly, we're confident enough in what we deliver to let you walk away anytime.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-layer-group"></i></div><h4>Website + SEO + AI in One</h4><p>No juggling three vendors. We design your site, manage your Google Business Profile, and build AI search authority, all under one retainer with a single strategy call each month.</p></div>
@@ -388,44 +362,44 @@ include '../includes/header.php';
   <div class="container">
     <div data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Home Care in Boca Raton:<br><em>Questions Families Ask</em></h2>
-      <p class="section-sub">These FAQs mirror the real queries Boca Raton families type into Google. Adding this content to your website helps you rank in the "People Also Ask" boxes.</p>
+      <h2 class="section-h2">Boca Raton Homecare Marketing:<br><em>Questions Agency Owners Ask</em></h2>
+      <p class="section-sub">Answers to what Boca Raton home care agency owners want to know before they sign on.</p>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I find a trusted home care agency in Boca Raton, FL?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Start by checking Google reviews, then verify the agency's state licensure through the Florida Agency for Health Care Administration (AHCA). Confirm caregivers go through real background checks, not just a phone screen. Look for a provider that specializes in the level of care your loved one actually needs: companion care, personal care assistance, or skilled nursing. A reputable Boca Raton homecare agency will also offer a free in-home consultation and a written plan of care before anything begins.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How much does home care SEO cost for a Boca Raton agency?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Every plan is a flat monthly retainer, no hidden setup fees. What you pay depends on how competitive your specific service area is and whether you need a new website built alongside SEO. Book a free audit and we'll walk you through exact numbers for your agency.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What does home care cost in Boca Raton, Florida?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">In Boca Raton, non-medical companion and personal care services typically run $20–$30 per hour. Families cover this a few different ways: private pay, long-term care insurance, or Florida's Statewide Medicaid Managed Care Long-Term Care (SMMC LTC) program. A licensed local agency can tell you exactly what your loved one qualifies for during a free initial consultation.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long until my Boca Raton agency starts ranking on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Starting from zero, most Boca Raton clients see Google Maps movement within 60–90 days, with organic rankings building over the following months. Timelines vary with how competitive your service area is and how much content and citation work your site needs.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Does Palm Beach County have Medicaid home care programs?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes, Florida's SMMC LTC program covers in-home personal care for eligible seniors in Palm Beach County. Generally you need to be 65 or older and meet functional and financial eligibility requirements, then enroll through an approved managed care plan. AHCA-licensed homecare agencies in the Boca Raton area can walk families through enrollment and connect them with the right managed care organization.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you only work with agencies in Boca Raton?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">No, we work with home care agencies throughout Palm Beach County and across Florida. If you serve multiple cities, we build out a dedicated strategy and pages for each market you operate in.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What areas of Boca Raton does your homecare service cover?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Our clients cover all of Palm Beach County and the Boca Raton area: Delray Beach, Deerfield Beach, Highland Beach, Boynton Beach, Lake Worth Beach, Wellington, Royal Palm Beach, Lantana, West Boca Raton, East Boca Raton, Parkland, Boca Del Mar, Greenacres, Palm Beach Gardens, and everything in between. If you serve a specific neighborhood, we'll build a dedicated local page to help you rank there.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What's included in the monthly retainer?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Local SEO (Google Business Profile management, citations, review growth), on-page optimization across your site, monthly ranking reports, and a strategy call every month. Website design and AI search optimization are available as add-ons or bundled in, depending on the plan.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to rank #1 on Google for homecare in Boca Raton?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Starting from zero, most of our Boca Raton clients see meaningful Google Maps improvement within 60–90 days, with strong organic rankings following in 4–6 months. It's a competitive market, sure. But our homecare-specific approach consistently lands top-3 Google Maps positions within 5 months, faster than a generalist agency, because every strategy here is purpose-built for this niche.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you require a long-term contract?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">No. After an initial 90-day ramp-up period, every plan moves to month-to-month. We'd rather earn your business every month than lock you into a contract.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do Boca Raton homecare agencies need a Florida state license?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Florida requires agencies providing companion care and personal care services to be licensed through the Agency for Health Care Administration (AHCA). Which license type you need (Home Health Agency, Nurse Registry, or Companion/Homemaker) depends on the services you actually offer. That AHCA licensure needs to be in place before you start marketing homecare services anywhere in Florida, Boca Raton included.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can you also build or redesign my agency's website?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Most Boca Raton clients bundle website design with SEO since the two work best together, but we also support agencies who already have a site and just want SEO and AI search optimization managed.</div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can families in Boca Raton find homecare agencies through ChatGPT or Google AI?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes, and this is growing fast. More Boca Raton families are turning to AI tools like ChatGPT, Google AI Overviews, and Perplexity to find and vet local homecare agencies. Homecare Creators is the only marketing agency that specifically optimizes homecare websites to get cited and recommended by these AI systems. That's a real edge over competitors who are still only chasing traditional Google rankings.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can ChatGPT and Google AI recommend my Boca Raton agency to families?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, and it's a fast-growing channel. We optimize your site's structure, entity data, and FAQ content so AI tools like ChatGPT, Google AI Overviews, and Perplexity can accurately cite and recommend your agency, not just traditional Google search.</div></div>
       </div>
 
     </div>
@@ -464,7 +438,7 @@ include '../includes/header.php';
         <div class="cta-actions">
           <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-calendar-check"></i>Get My Free Boca Raton SEO Audit</button>
         </div>
-        <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Results in 30 days guaranteed</div>
+        <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; 30-day satisfaction guarantee</div>
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
         <img src="/images/home/cta-business-owner.jpg" alt="Boca Raton home care agency owner growing their business with Homecare Creators" title="Boca Raton home care agency owner growth">

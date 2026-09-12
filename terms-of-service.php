@@ -3,7 +3,7 @@ $page_title    = "Terms of Service | Homecare Creators";
 $page_desc     = "Terms of Service for Homecare Creators. Read our terms and conditions for using our marketing services.";
 $page_canonical = "https://homecarecreators.com/terms-of-service";
 $og_title      = "Terms of Service | Homecare Creators";
-$og_desc       = "Terms of Service for Homecare Creators, the only marketing agency built exclusively for homecare agencies in Florida.";
+$og_desc       = "Terms of Service for Homecare Creators, a marketing agency built exclusively for homecare agencies in Florida.";
 
 $page_css = <<<CSS
 .legal-hero{background:var(--forest);padding:140px 48px 80px;text-align:center;position:relative;overflow:hidden}

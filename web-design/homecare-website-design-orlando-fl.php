@@ -168,7 +168,7 @@ include '../includes/header.php';
       <a href="/homecare-website-design/" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i>View All Packages</a>
     </div>
     <div class="hero-proof">
-      <div class="hero-proof-item"><div class="hero-proof-num">312%</div><div class="hero-proof-label">Avg Lead Increase</div></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
       <div class="hero-proof-divider"></div>
       <div class="hero-proof-item"><div class="hero-proof-num">&lt;2s</div><div class="hero-proof-label">Load Speed</div></div>
       <div class="hero-proof-divider"></div>
@@ -417,9 +417,9 @@ include '../includes/header.php';
       <h2 class="section-h2" style="color:#fff;text-align:center">What Happens After Your<br><em>Orlando Website Goes Live</em></h2>
     </div>
     <div class="results-grid" data-reveal style="transition-delay:.1s">
-      <div class="result-item"><div class="result-num">312%</div><div class="result-label">Average lead increase in 6 months</div></div>
-      <div class="result-item"><div class="result-num">#1</div><div class="result-label">Google Maps position in 5 months</div></div>
-      <div class="result-item"><div class="result-num">67+</div><div class="result-label">New Google reviews in 90 days</div></div>
+      <div class="result-item"><div class="result-num">Built to Convert</div><div class="result-label">Websites designed for homecare leads, not just traffic</div></div>
+      <div class="result-item"><div class="result-num">Local SEO</div><div class="result-label">Google Maps optimization included</div></div>
+      <div class="result-item"><div class="result-num">Reviews</div><div class="result-label">Google review growth built in</div></div>
       <div class="result-item"><div class="result-num">14</div><div class="result-label">Days from kickoff to live website</div></div>
     </div>
   </div>

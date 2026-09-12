@@ -2,7 +2,7 @@
 $page_title = "Home Care Marketing Case Studies | Real SEO & Lead Generation Results";
 $page_desc = "Explore real home care marketing case studies showcasing SEO growth, website performance, local SEO success, and lead generation results from campaigns managed by HomeCareCreators.";
 $page_canonical = "https://homecarecreators.com/case-studies/";
-$og_title = "Home Care Marketing Case Studies | HomeCareCreators";
+$og_title = "Home Care Marketing Case Studies | Real SEO & Lead Generation Results";
 $og_desc = "Real campaigns, real numbers. See the SEO, local search, and lead generation results HomeCareCreators has delivered for home care agencies.";
 $og_image = "https://homecarecreators.com/images/case-studies/case-study-01-florida-home-care.png";
 $page_css = <<<CSS
@@ -182,6 +182,7 @@ echo '<script type="application/ld+json">' . json_encode([
       <p class="section-label" style="justify-content:center">Real Results From Real Campaigns</p>
       <h2 class="section-h2" style="text-align:center">Whether the Goal Is Leads,<br><em>Visibility, or Growth</em></h2>
       <p class="section-sub" style="margin:0 auto;text-align:center">Our approach is always built around measurable business growth — not vanity metrics.</p>
+      <p style="margin:14px auto 0;text-align:center;font-size:13px;color:var(--muted);max-width:640px"><i class="fa-solid fa-lock" style="margin-right:6px;color:var(--teal)"></i>These are real client engagements and real numbers. Agency names and identifying details are withheld at each client's request to protect their privacy.</p>
     </div>
     <div class="cs-grid">
       <?php foreach ($case_studies as $c): ?>
