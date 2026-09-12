@@ -5,9 +5,9 @@ if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
     exit;
 }
 $page_title = "Contact Us | Homecare Creators";
-$page_desc = "Get in touch with Homecare Creators — call, email, or send us a message. We reply within 24 hours, Monday through Friday.";
+$page_desc = "Get in touch with Homecare Creators — email us or message us on WhatsApp. We reply within 24 hours, Monday through Friday.";
 $og_title = "Contact Us | Homecare Creators";
-$og_desc = "Call, email, or message Homecare Creators — a marketing agency built exclusively for home care agencies in Florida.";
+$og_desc = "Email or message Homecare Creators — a marketing agency built exclusively for home care agencies in Florida.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:42vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:140px 40px 60px}
@@ -29,19 +29,10 @@ $page_css = <<<CSS
 .contact-detail-value{font-size:15px;font-weight:500;color:var(--forest)}
 .contact-detail-value a{color:var(--teal);text-decoration:none}
 .contact-detail-value a:hover{text-decoration:underline}
-.contact-form-card{background:var(--warm);border:1px solid var(--border);border-radius:24px;padding:40px;box-shadow:0 16px 64px rgba(10,46,30,.1)}
-.form-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:18px;color:var(--forest);margin-bottom:8px}
-.form-subtitle{font-size:16px;color:var(--muted);margin-bottom:28px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-.form-success{display:none;text-align:center;padding:32px 16px;background:rgba(29,158,117,.06);border-radius:14px;border:1px solid rgba(29,158,117,.2)}
-.form-success i{font-size:40px;color:var(--teal);margin-bottom:14px;display:block}
-.form-success-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:18px;color:var(--forest);margin-bottom:6px}
-.form-success p{font-size:16px;color:var(--muted)}
 
 /* MAP */
-.map-section{background:var(--cream)}
-.map-wrap{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:0 16px 64px rgba(10,46,30,.08)}
-.map-wrap iframe{width:100%;height:380px;display:block;border:0}
+.map-wrap{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:0 16px 64px rgba(10,46,30,.1)}
+.map-wrap iframe{width:100%;height:100%;min-height:420px;display:block;border:0}
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -49,7 +40,6 @@ $page_css = <<<CSS
 }
 @media(max-width:640px){
   .hero{padding:120px 24px 50px}
-  .form-row{grid-template-columns:1fr}
 }
 CSS;
 include '../includes/header.php';
@@ -63,7 +53,7 @@ include '../includes/header.php';
   <div class="hero-inner">
     <div class="hero-badge"><i class="fa-solid fa-comment-dots" style="margin-right:6px"></i>Contact Us</div>
     <h1 class="hero-h1">Let's Talk About<br><em>Growing Your Agency</em></h1>
-    <p class="hero-desc">Email us, message us on WhatsApp, or send us a message below. A real person replies within 24 hours, Monday through Friday.</p>
+    <p class="hero-desc">Email us or message us on WhatsApp. A real person replies within 24 hours, Monday through Friday.</p>
   </div>
 </section>
 
@@ -73,7 +63,7 @@ include '../includes/header.php';
     <div class="contact-info" data-reveal>
       <p class="section-label">Get in Touch</p>
       <h2 class="section-h2">We'd Love to Hear<br><em>From You</em></h2>
-      <p class="section-sub">Have a question about our services, pricing, or CareOS? Reach out directly or fill out the form — either way, you'll hear back from a real person within 24 hours.</p>
+      <p class="section-sub">Have a question about our services, pricing, or CareOS? Reach out directly — you'll hear back from a real person within 24 hours.</p>
       <div class="contact-details">
         <div class="contact-detail">
           <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
@@ -112,104 +102,10 @@ include '../includes/header.php';
         </div>
       </div>
     </div>
-    <div class="contact-form-card" data-reveal style="transition-delay:.15s">
-      <div class="form-title">Send Us a Message</div>
-      <div class="form-subtitle">We'll get back to you within 24 hours.</div>
-      <div id="contactFormWrap">
-        <div class="form-row">
-          <div class="form-group" style="margin-bottom:0"><label class="form-label" for="cfFirst">First Name *</label><input type="text" class="form-input" id="cfFirst" placeholder="Sarah" autocomplete="given-name"></div>
-          <div class="form-group" style="margin-bottom:0"><label class="form-label" for="cfLast">Last Name *</label><input type="text" class="form-input" id="cfLast" placeholder="Johnson" autocomplete="family-name"></div>
-        </div>
-        <div class="form-group"><label class="form-label" for="cfEmail">Email Address *</label><input type="email" class="form-input" id="cfEmail" placeholder="sarah@agency.com" autocomplete="email"></div>
-        <div class="form-group"><label class="form-label" for="cfPhone">Phone Number</label><input type="tel" class="form-input" id="cfPhone" placeholder="+1 (555) 000-0000" autocomplete="tel"></div>
-        <div class="form-group"><label class="form-label" for="cfAgency">Agency Name</label><input type="text" class="form-input" id="cfAgency" placeholder="Comfort Home Care LLC"></div>
-        <div class="form-group"><label class="form-label" for="cfService">How Can We Help?</label>
-          <select class="form-select" id="cfService">
-            <option value="">Select a topic...</option>
-            <option>Free Growth Audit</option>
-            <option>Website Development</option>
-            <option>Local SEO</option>
-            <option>AI Search SEO</option>
-            <option>Full Bundle Package</option>
-            <option>CareOS Waitlist</option>
-            <option>General Enquiry</option>
-          </select>
-        </div>
-        <div class="form-group"><label class="form-label" for="cfMessage">Message</label><textarea class="form-textarea" id="cfMessage" placeholder="Tell us about your agency and what you'd like to achieve..."></textarea></div>
-        <button class="form-submit" onclick="submitContact()"><i class="fa-solid fa-paper-plane"></i>Send Message</button>
-      </div>
-      <div class="form-success" id="contactSuccess">
-        <i class="fa-solid fa-circle-check"></i>
-        <div class="form-success-title">Message Received!</div>
-        <p>Thank you! We'll reply within 24 hours.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MAP -->
-<section class="map-section">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:32px" data-reveal>
-      <p class="section-label" style="justify-content:center">Find Us</p>
-      <h2 class="section-h2">Based in Lady Lake, <em>Florida</em></h2>
-    </div>
-    <div class="map-wrap" data-reveal style="transition-delay:.1s">
+    <div class="map-wrap" data-reveal style="transition-delay:.15s">
       <iframe src="https://www.google.com/maps?q=Lady+Lake,+FL+32159&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing Lady Lake, FL 32159"></iframe>
     </div>
   </div>
 </section>
 
-<?php
-$page_js = <<<JS
-function submitContact() {
-  var first   = (document.getElementById('cfFirst').value || '').trim();
-  var last    = (document.getElementById('cfLast').value || '').trim();
-  var email   = (document.getElementById('cfEmail').value || '').trim();
-  var phone   = (document.getElementById('cfPhone').value || '').trim();
-  var agency  = (document.getElementById('cfAgency').value || '').trim();
-  var service = document.getElementById('cfService').value;
-  var msg     = (document.getElementById('cfMessage').value || '').trim();
-
-  if (!first) { alert('Please enter your first name.'); document.getElementById('cfFirst').focus(); return; }
-  if (!email || !email.includes('@')) { alert('Please enter a valid email.'); document.getElementById('cfEmail').focus(); return; }
-
-  var submitBtn = document.querySelector('#contactFormWrap .form-submit');
-  var originalHTML = submitBtn.innerHTML;
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Sending...';
-
-  fetch('/form-handler.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      name:    first + ' ' + last,
-      email:   email,
-      phone:   phone || 'Not provided',
-      agency:  agency || 'Not provided',
-      service: service || 'Not specified',
-      message: msg || '(none)',
-      source:  'contact_page'
-    })
-  })
-  .then(function(res) { return res.json(); })
-  .then(function(d) {
-    if (d.success) {
-      document.getElementById('contactFormWrap').style.display = 'none';
-      document.getElementById('contactSuccess').style.display = 'block';
-    } else {
-      alert('There was an error sending your message. Please try again.');
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalHTML;
-    }
-  })
-  .catch(function(err) {
-    console.error('Error:', err);
-    alert('There was an error sending your message. Please try again.');
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = originalHTML;
-  });
-}
-JS;
-include '../includes/footer.php';
-?>
+<?php include '../includes/footer.php'; ?>

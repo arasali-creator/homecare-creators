@@ -66,7 +66,16 @@ hc_topbar('Form Submissions', '<a href="/admin/">Admin</a> › Form Log');
   </div>
   <div class="divider"></div>
   <label style="font-size:11px;color:var(--muted);display:block;margin-bottom:6px">MESSAGE</label>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)"><?= nl2br(h($view['message'])) ?></p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)"><?= nl2br(h($view['message'] ?: '—')) ?></p>
+  <div class="divider"></div>
+  <label style="font-size:11px;color:var(--muted);display:block;margin-bottom:6px">VISITOR INFO</label>
+  <div class="form-grid">
+    <div><label style="font-size:11px;color:var(--muted);display:block;margin-bottom:3px">SOURCE PAGE</label><?= h($view['source_page'] ?? '' ?: '—') ?></div>
+    <div><label style="font-size:11px;color:var(--muted);display:block;margin-bottom:3px">IP ADDRESS</label><?= h($view['ip_address'] ?: '—') ?></div>
+    <div><label style="font-size:11px;color:var(--muted);display:block;margin-bottom:3px">LOCATION</label><?= h(trim(implode(', ', array_filter([$view['geo_city'] ?? '', $view['geo_region'] ?? '', $view['geo_country'] ?? '']))) ?: '—') ?></div>
+    <div><label style="font-size:11px;color:var(--muted);display:block;margin-bottom:3px">DEVICE</label><?= h($view['device_type'] ?? '' ?: '—') ?></div>
+    <div style="grid-column:1/-1"><label style="font-size:11px;color:var(--muted);display:block;margin-bottom:3px">BROWSER / USER AGENT</label><span style="font-size:12px;color:var(--muted)"><?= h($view['user_agent'] ?? '' ?: '—') ?></span></div>
+  </div>
   <div class="divider"></div>
   <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
     <form method="POST" style="display:flex;gap:8px;align-items:center">
@@ -95,7 +104,7 @@ hc_topbar('Form Submissions', '<a href="/admin/">Admin</a> › Form Log');
   <div class="table-wrap">
     <table>
       <thead>
-        <tr><th>Date</th><th>Name</th><th>Email</th><th>Agency</th><th>City</th><th>Service</th><th>Status</th><th></th></tr>
+        <tr><th>Date</th><th>Name</th><th>Email</th><th>Agency</th><th>City</th><th>Service</th><th>Location</th><th>Status</th><th></th></tr>
       </thead>
       <tbody>
       <?php foreach ($rows as $r): ?>
@@ -106,6 +115,7 @@ hc_topbar('Form Submissions', '<a href="/admin/">Admin</a> › Form Log');
         <td><?= h($r['agency_name'] ?: '—') ?></td>
         <td><?= h($r['city'] ?: '—') ?></td>
         <td><?= h($r['service'] ?: '—') ?></td>
+        <td style="font-size:12px;color:var(--muted)"><?= h(trim(implode(', ', array_filter([$r['geo_city'] ?? '', $r['geo_country'] ?? '']))) ?: '—') ?></td>
         <td><span class="badge <?= $r['status']==='new'?'badge-red':($r['status']==='read'?'badge-green':'badge-gray') ?>"><?= $r['status'] ?></span></td>
         <td class="td-actions">
           <a href="?view=<?= $r['id'] ?>">View</a>

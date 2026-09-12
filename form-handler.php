@@ -35,6 +35,36 @@ if (empty($name) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL))
     exit;
 }
 
+// ── Visitor context: IP, device, and IP-based location ──────────
+$ip = trim(explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'] ?? '')[0]) ?: ($_SERVER['REMOTE_ADDR'] ?? '');
+$user_agent = strip_tags(trim($_SERVER['HTTP_USER_AGENT'] ?? ''));
+
+$device_type = 'Desktop';
+if (preg_match('/tablet|ipad/i', $user_agent)) {
+    $device_type = 'Tablet';
+} elseif (preg_match('/mobile|android|iphone/i', $user_agent)) {
+    $device_type = 'Mobile';
+}
+
+$geo_city = '';
+$geo_region = '';
+$geo_country = '';
+$is_private_ip = !filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE);
+if ($ip && !$is_private_ip) {
+    try {
+        $ctx = stream_context_create(['http' => ['timeout' => 3]]);
+        $geo_raw = @file_get_contents("http://ip-api.com/json/{$ip}?fields=status,country,regionName,city", false, $ctx);
+        if ($geo_raw) {
+            $geo = json_decode($geo_raw, true);
+            if (($geo['status'] ?? '') === 'success') {
+                $geo_city    = $geo['city'] ?? '';
+                $geo_region  = $geo['regionName'] ?? '';
+                $geo_country = $geo['country'] ?? '';
+            }
+        }
+    } catch (Exception $e) { /* geolocation is best-effort — fail silently */ }
+}
+
 // Load DB settings — silently skip if DB unavailable
 $notification_email = 'info@homecarecreators.com';
 $notification_cc    = '';
@@ -49,9 +79,8 @@ try {
         require_once __DIR__ . '/admin/includes/mailer.php';
 
         // Save submission to DB
-        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? '';
-        hc_q("INSERT INTO hc_form_submissions (name,email,phone,agency_name,city,service,message,ip_address) VALUES (?,?,?,?,?,?,?,?)",
-            [$name,$email,$phone,$agency,$city,$service,$message,$ip]);
+        hc_q("INSERT INTO hc_form_submissions (name,email,phone,agency_name,city,service,message,ip_address,source_page,user_agent,device_type,geo_city,geo_region,geo_country) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            [$name,$email,$phone,$agency,$city,$service,$message,$ip,$source,$user_agent,$device_type,$geo_city,$geo_region,$geo_country]);
 
         $db_email = hc_setting('notification_email', '');
         if ($db_email) $notification_email = $db_email;
@@ -83,7 +112,11 @@ if ($agency)  $body .= "Agency:  {$agency}\n";
 if ($city)    $body .= "City:    {$city}\n";
 if ($service) $body .= "Service: {$service}\n";
 if ($message) $body .= "\nMessage:\n{$message}\n";
-$body .= "\nSource: {$source}\n";
+$geo_str = trim(implode(', ', array_filter([$geo_city, $geo_region, $geo_country])));
+$body .= "\nSource:   {$source}\n";
+$body .= "IP:       {$ip}\n";
+if ($geo_str) $body .= "Location: {$geo_str}\n";
+$body .= "Device:   {$device_type}\n";
 $body .= "\nView all leads: https://homecarecreators.com/admin/\n";
 $body .= "\n---\nSent from homecarecreators.com\n";
 
@@ -151,7 +184,10 @@ $html = '<!DOCTYPE html>
         ' . hc_field_row('Email', $email)
         . hc_field_row('Phone', $phone)
         . hc_field_row('City', $city)
-        . hc_field_row('Service', $service) . '
+        . hc_field_row('Service', $service)
+        . hc_field_row('Location', $geo_str)
+        . hc_field_row('Device', $device_type)
+        . hc_field_row('IP Address', $ip) . '
       </table>
     </td>
   </tr>
