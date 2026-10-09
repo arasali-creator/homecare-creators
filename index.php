@@ -451,7 +451,7 @@ try {
 <?php if ($_next_event):
     $_edt = new DateTime($_next_event['event_datetime'], new DateTimeZone($_next_event['timezone'] ?: 'America/New_York'));
 ?>
-<a href="/events/event?slug=<?= urlencode($_next_event['slug']) ?>" style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;background:linear-gradient(135deg,var(--teal),var(--teal-lt));color:#fff;text-decoration:none;padding:12px 20px;margin-top:72px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;font-weight:600;text-align:center">
+<a href="/events/<?= urlencode($_next_event['slug']) ?>" style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;background:linear-gradient(135deg,var(--teal),var(--teal-lt));color:#fff;text-decoration:none;padding:12px 20px;margin-top:72px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;font-weight:600;text-align:center">
   <i class="fa-solid fa-calendar-days"></i>
   <span><strong>Free Live Event:</strong> <?= htmlspecialchars($_next_event['title']) ?> — <?= $_edt->format('F j, Y \a\t g:i A T') ?></span>
   <span style="text-decoration:underline;font-weight:700">Register Free &rarr;</span>

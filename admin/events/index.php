@@ -107,7 +107,7 @@ hc_topbar('Events', '<a href="/admin/">Admin</a> › Events');
       <tr>
         <td>
           <strong><?= h($e['title']) ?></strong>
-          <div style="font-size:11px;color:var(--muted);font-family:monospace;margin-top:2px">/events/event?slug=<?= h($e['slug']) ?></div>
+          <div style="font-size:11px;color:var(--muted);font-family:monospace;margin-top:2px">/events/<?= h($e['slug']) ?></div>
         </td>
         <td style="font-size:13px;white-space:nowrap">
           <?= $dt->format('M j, Y g:i A') ?> <span style="color:var(--muted)"><?= h($e['timezone']) ?></span>
@@ -123,7 +123,7 @@ hc_topbar('Events', '<a href="/admin/">Admin</a> › Events');
           <a href="/admin/events/edit.php?id=<?= $e['id'] ?>">Edit</a>
           <a href="/admin/events/registrations.php?event_id=<?= $e['id'] ?>">Registrations</a>
           <?php if ($e['status']==='published'): ?>
-          <a href="/events/event?slug=<?= urlencode($e['slug']) ?>" target="_blank">View</a>
+          <a href="/events/<?= urlencode($e['slug']) ?>" target="_blank">View</a>
           <?php endif ?>
           <a href="?delete=<?= $e['id'] ?>" class="danger" data-confirm="Delete '<?= h($e['title']) ?>' and all its registrations?">Delete</a>
         </td>

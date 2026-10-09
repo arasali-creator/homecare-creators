@@ -19,8 +19,8 @@ $page_css = <<<CSS
 .events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;margin-top:40px}
 .event-card{background:var(--warm);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:.25s;text-decoration:none;display:flex;flex-direction:column}
 .event-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(10,46,30,.1);border-color:rgba(29,158,117,.25)}
-.event-card-img{height:180px;background:var(--forest);position:relative;overflow:hidden}
-.event-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.event-card-img{aspect-ratio:16/9;background:var(--forest);position:relative;overflow:hidden}
+.event-card-img img{width:100%;height:100%;object-fit:contain;display:block}
 .event-card-badge{position:absolute;top:14px;left:14px;background:var(--teal);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:5px 12px;border-radius:20px}
 .event-card-body{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
 .event-card-date{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
@@ -71,7 +71,7 @@ $past = hc_all("SELECT * FROM hc_events WHERE status IN ('published','completed'
       <?php foreach ($upcoming as $e):
         $dt = new DateTime($e['event_datetime'], new DateTimeZone($e['timezone'] ?: 'America/New_York'));
       ?>
-      <a href="/events/event?slug=<?= urlencode($e['slug']) ?>" class="event-card">
+      <a href="/events/<?= urlencode($e['slug']) ?>" class="event-card">
         <div class="event-card-img">
           <?php if ($e['banner_image']): ?>
           <img src="<?= htmlspecialchars($e['banner_image']) ?>" alt="<?= htmlspecialchars($e['title']) ?>" loading="lazy">

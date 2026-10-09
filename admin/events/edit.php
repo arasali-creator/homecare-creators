@@ -152,7 +152,7 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/events/">
     <div style="display:flex;flex-direction:column;gap:8px">
       <button type="submit" class="btn btn-primary btn-lg"><?= $event ? 'Update Event' : 'Save Event' ?></button>
       <?php if ($event && $event['status']==='published'): ?>
-      <a href="/events/event?slug=<?= h($event['slug']) ?>" target="_blank" class="btn btn-secondary btn-sm" style="text-align:center">↗ View Live Page</a>
+      <a href="/events/<?= h($event['slug']) ?>" target="_blank" class="btn btn-secondary btn-sm" style="text-align:center">↗ View Live Page</a>
       <?php endif ?>
       <?php if ($event): ?>
       <a href="/admin/events/registrations.php?event_id=<?= $event['id'] ?>" class="btn btn-secondary btn-sm" style="text-align:center">View Registrations</a>

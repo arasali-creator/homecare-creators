@@ -17,7 +17,7 @@ $highlights = array_filter(array_map('trim', explode("\n", $event['highlights'] 
 
 $page_title    = $event['title'] . " | Homecare Creators";
 $page_desc     = $event['subtitle'] ?: $page_title;
-$page_canonical = "https://homecarecreators.com/events/event?slug=" . $event['slug'];
+$page_canonical = "https://homecarecreators.com/events/" . $event['slug'];
 $og_title      = $page_title;
 $og_desc       = $page_desc;
 $og_image      = $event['banner_image'] ? ('https://homecarecreators.com' . $event['banner_image']) : null;
@@ -128,7 +128,7 @@ include '../includes/header.php';
 <section class="event-body">
   <div class="container event-grid">
     <div class="event-desc" data-reveal>
-      <?php if ($event['description']): ?><p><?= nl2br(htmlspecialchars($event['description'])) ?></p><?php endif ?>
+      <?php if ($event['description']): ?><p><?= htmlspecialchars($event['description']) ?></p><?php endif ?>
 
       <?php if ($highlights): ?>
       <p class="section-label" style="margin-top:28px">What You'll Learn</p>
@@ -159,11 +159,11 @@ include '../includes/header.php';
           <div class="reg-card-title"><?= htmlspecialchars($event['cta_text'] ?: 'Register Free') ?></div>
           <div class="reg-card-sub">Takes 30 seconds. We'll email you the Zoom link.</div>
           <div class="hp-field" aria-hidden="true"><label for="rWebsite">Website</label><input type="text" id="rWebsite" tabindex="-1" autocomplete="off"></div>
-          <div class="reg-form-group"><label for="rName">Full Name *</label><input type="text" id="rName" autocomplete="name"></div>
-          <div class="reg-form-group"><label for="rEmail">Email *</label><input type="email" id="rEmail" autocomplete="email"></div>
-          <div class="reg-form-group"><label for="rPhone">Phone</label><input type="tel" id="rPhone" autocomplete="tel"></div>
-          <div class="reg-form-group"><label for="rAgency">Agency Name</label><input type="text" id="rAgency" autocomplete="organization"></div>
-          <div class="reg-form-group"><label for="rRole">Your Role</label><input type="text" id="rRole" placeholder="Owner, Administrator, etc."></div>
+          <div class="reg-form-group"><label for="rName">Full Name *</label><input type="text" id="rName" autocomplete="name" required></div>
+          <div class="reg-form-group"><label for="rEmail">Email *</label><input type="email" id="rEmail" autocomplete="email" required></div>
+          <div class="reg-form-group"><label for="rPhone">Phone *</label><input type="tel" id="rPhone" autocomplete="tel" required></div>
+          <div class="reg-form-group"><label for="rAgency">Agency Name *</label><input type="text" id="rAgency" autocomplete="organization" required></div>
+          <div class="reg-form-group"><label for="rRole">Your Role *</label><input type="text" id="rRole" placeholder="Owner, Administrator, etc." required></div>
           <button class="reg-submit" id="regSubmitBtn" onclick="submitRegistration()">Reserve My Spot</button>
           <div class="reg-privacy"><i class="fa-solid fa-lock" style="margin-right:4px"></i>100% private. No spam, ever.</div>
         </div>
@@ -196,6 +196,9 @@ function submitRegistration() {
 
   if (!name) { alert('Please enter your name.'); document.getElementById('rName').focus(); return; }
   if (!email || !email.includes('@') || !email.includes('.')) { alert('Please enter a valid email address.'); document.getElementById('rEmail').focus(); return; }
+  if (!phone) { alert('Please enter your phone number.'); document.getElementById('rPhone').focus(); return; }
+  if (!agency) { alert('Please enter your agency name.'); document.getElementById('rAgency').focus(); return; }
+  if (!role) { alert('Please enter your role.'); document.getElementById('rRole').focus(); return; }
 
   var btn = document.getElementById('regSubmitBtn');
   btn.disabled = true;

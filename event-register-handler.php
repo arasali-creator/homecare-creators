@@ -28,9 +28,9 @@ $agency     = strip_tags(trim($data['agency'] ?? ''));
 $role       = strip_tags(trim($data['role']   ?? ''));
 $source     = strip_tags(trim($data['source'] ?? '/events/'));
 
-if (empty($name) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+if (empty($name) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($phone) || empty($agency) || empty($role)) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Name and a valid email are required.']);
+    echo json_encode(['success' => false, 'message' => 'Name, email, phone, agency name, and role are all required.']);
     exit;
 }
 if (empty($event_slug)) {
