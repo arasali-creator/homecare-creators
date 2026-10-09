@@ -439,7 +439,24 @@ function openPopup(type) {
 JS;
 
 include 'includes/header.php';
+
+$_next_event = null;
+try {
+    if (function_exists('hc_one')) {
+        $_next_event = hc_one("SELECT title, slug, event_datetime, timezone FROM hc_events WHERE status='published' AND event_datetime >= NOW() ORDER BY event_datetime ASC LIMIT 1");
+    }
+} catch (Exception $e) { /* banner is optional — fail silently */ }
 ?>
+
+<?php if ($_next_event):
+    $_edt = new DateTime($_next_event['event_datetime'], new DateTimeZone($_next_event['timezone'] ?: 'America/New_York'));
+?>
+<a href="/events/event?slug=<?= urlencode($_next_event['slug']) ?>" style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;background:linear-gradient(135deg,var(--teal),var(--teal-lt));color:#fff;text-decoration:none;padding:12px 20px;margin-top:72px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;font-weight:600;text-align:center">
+  <i class="fa-solid fa-calendar-days"></i>
+  <span><strong>Free Live Event:</strong> <?= htmlspecialchars($_next_event['title']) ?> — <?= $_edt->format('F j, Y \a\t g:i A T') ?></span>
+  <span style="text-decoration:underline;font-weight:700">Register Free &rarr;</span>
+</a>
+<?php endif; ?>
 
 <!-- ══════════════════════════
    HERO

@@ -333,6 +333,7 @@ try {
     <li><a href="/web-design/homecare-website-design/">Web Design</a></li>
     <li><a href="/seo/home-care-seo/">Home Care SEO</a></li>
     <li><a href="/blog">Blog</a></li>
+    <li><a href="/events/">Events</a></li>
     <li><a href="/#bundles">Pricing</a></li>
     <li><a href="/case-studies/">Case Studies</a></li>
     <li><a href="/contact/" title="Contact Us">Contact</a></li>
