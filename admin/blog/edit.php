@@ -129,6 +129,14 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/blog/">Bl
 .media-item:hover .media-item-del{display:flex}
 .media-upload-prog{display:none;margin-top:16px}
 .media-footer{padding:14px 24px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px}
+/* ── FAQ modal ── */
+.faq-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;align-items:center;justify-content:center}
+.faq-modal-overlay.open{display:flex}
+.faq-modal{background:#fff;border-radius:14px;width:90%;max-width:520px;overflow:hidden}
+.faq-modal-head{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--border)}
+.faq-modal-head h3{font-size:15px;font-weight:700;color:var(--text)}
+.faq-modal-body{padding:20px 24px}
+.faq-modal-footer{padding:14px 24px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:8px}
 </style>
 
 <!-- ── MEDIA MODAL ───────────────────────────────────────────────────────── -->
@@ -171,6 +179,30 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/blog/">Bl
         <button onclick="closeMedia()" class="btn btn-secondary btn-sm">Cancel</button>
         <button onclick="insertSelectedMedia()" class="btn btn-primary btn-sm" id="mediaInsertBtn" disabled>Insert Image</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FAQ MODAL ─────────────────────────────────────────────────────────── -->
+<div class="faq-modal-overlay" id="faqModal">
+  <div class="faq-modal">
+    <div class="faq-modal-head">
+      <h3>Insert FAQ Question</h3>
+      <button type="button" onclick="closeFaqModal()" style="background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);line-height:1">×</button>
+    </div>
+    <div class="faq-modal-body">
+      <div class="form-group">
+        <label>Question</label>
+        <input type="text" id="faqQuestion" placeholder="e.g. How much does home care marketing cost?">
+      </div>
+      <div class="form-group" style="margin-bottom:0">
+        <label>Answer</label>
+        <textarea id="faqAnswer" rows="4" placeholder="Write the answer…"></textarea>
+      </div>
+    </div>
+    <div class="faq-modal-footer">
+      <button type="button" onclick="closeFaqModal()" class="btn btn-secondary btn-sm">Cancel</button>
+      <button type="button" onclick="insertFaq()" class="btn btn-primary btn-sm">Insert FAQ Item</button>
     </div>
   </div>
 </div>
@@ -223,6 +255,7 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/blog/">Bl
       <div class="editor-sep"></div>
       <button class="editor-btn" type="button" onclick="insertLink()" title="Insert link">🔗 Link</button>
       <button class="editor-btn" type="button" onclick="openMedia('content')" title="Upload / insert image" style="background:var(--forest);color:#fff;border-color:var(--forest)">📷 Image</button>
+      <button class="editor-btn" type="button" onclick="openFaqModal()" title="Insert an interactive FAQ question" style="background:var(--teal);color:#fff;border-color:var(--teal)">❓ FAQ</button>
       <div class="editor-sep"></div>
       <button class="editor-btn" type="button" onclick="cmd('removeFormat')" title="Clear formatting">✕ Clear</button>
     </div>
@@ -596,6 +629,36 @@ function uploadFile(file, target, fromModal) {
 // ── Close modal on backdrop click ─────────────────────────────────────────────
 document.getElementById('mediaModal').closest('.media-modal-overlay').addEventListener('click', function(e) {
   if (e.target === this) closeMedia();
+});
+
+// ── FAQ insert ─────────────────────────────────────────────────────────────────
+function escHtml(s) {
+  var d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+function openFaqModal() {
+  document.getElementById('faqQuestion').value = '';
+  document.getElementById('faqAnswer').value = '';
+  document.getElementById('faqModal').classList.add('open');
+  document.getElementById('faqQuestion').focus();
+}
+function closeFaqModal() { document.getElementById('faqModal').classList.remove('open'); }
+function insertFaq() {
+  var q = document.getElementById('faqQuestion').value.trim();
+  var a = document.getElementById('faqAnswer').value.trim();
+  if (!q || !a) { alert('Please fill in both the question and the answer.'); return; }
+  var html = '<div class="faq-item" style="margin-bottom:12px">'
+    + '<div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">' + escHtml(q) + '</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>'
+    + '<div class="faq-a"><div class="faq-a-inner">' + escHtml(a) + '</div></div>'
+    + '</div>';
+  editor.focus();
+  document.execCommand('insertHTML', false, html);
+  hiddenField.value = editor.innerHTML;
+  closeFaqModal();
+}
+document.getElementById('faqModal').addEventListener('click', function(e) {
+  if (e.target === this) closeFaqModal();
 });
 
 // ── Prevent submit without syncing hidden field ───────────────────────────────

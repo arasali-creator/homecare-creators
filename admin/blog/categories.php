@@ -52,11 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && in_array($action, ['add', 'edit']))
         }
         hc_q("INSERT INTO hc_blog_categories (name,slug,color,description,sort_order) VALUES (?,?,?,?,?)",
             [$name, $slug, $color, $desc, $sort]);
-        hc_flash("Category "{$name}" created.");
+        hc_flash("Category \"{$name}\" created.");
     } else {
         hc_q("UPDATE hc_blog_categories SET name=?,slug=?,color=?,description=?,sort_order=? WHERE id=?",
             [$name, $slug, $color, $desc, $sort, $id]);
-        hc_flash("Category "{$name}" updated.");
+        hc_flash("Category \"{$name}\" updated.");
     }
     header('Location: /admin/blog/categories.php'); exit;
 }
