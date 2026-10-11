@@ -76,7 +76,7 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/blog/">Bl
 ?>
 <style>
 /* ── Editor chrome ── */
-.editor-toolbar{background:#f9f9f9;border:1.5px solid var(--border);border-bottom:none;border-radius:7px 7px 0 0;padding:6px 10px;display:flex;gap:3px;flex-wrap:wrap;align-items:center}
+.editor-toolbar{background:#f9f9f9;border:1.5px solid var(--border);border-bottom:none;border-radius:7px 7px 0 0;padding:6px 10px;display:flex;gap:3px;flex-wrap:wrap;align-items:center;position:sticky;top:54px;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.04)}
 .editor-btn{padding:4px 10px;background:#fff;border:1px solid var(--border);border-radius:5px;cursor:pointer;font-size:12.5px;font-weight:600;line-height:1;color:var(--text);transition:.1s;font-family:inherit}
 .editor-btn:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
 .editor-sep{width:1px;height:18px;background:var(--border);margin:0 3px;flex-shrink:0}
