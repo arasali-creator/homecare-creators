@@ -28,7 +28,7 @@ $page_css = <<<CSS
 .post-hero{position:relative;background:var(--forest);min-height:480px;display:flex;align-items:flex-end;overflow:hidden}
 .post-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.3}
 .post-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,46,30,1) 0%,rgba(10,46,30,.6) 60%,rgba(10,46,30,.2) 100%)}
-.post-hero-content{position:relative;z-index:2;padding:80px 48px 56px;max-width:900px;width:100%;margin:0 auto;text-align:center}
+.post-hero-content{position:relative;z-index:2;padding:80px 48px 56px;max-width:1100px;width:100%;margin:0 auto;text-align:center}
 .post-breadcrumb{display:flex;align-items:center;gap:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(255,255,255,.45);margin-bottom:20px;text-decoration:none}
 .post-breadcrumb a{color:rgba(255,255,255,.45);text-decoration:none}
 .post-breadcrumb a:hover{color:rgba(255,255,255,.8)}
@@ -45,7 +45,7 @@ $page_css = <<<CSS
 .post-reading{font-size:12px;color:rgba(255,255,255,.45);font-family:'Plus Jakarta Sans',sans-serif}
 
 /* ── TWO-COLUMN LAYOUT ── */
-.post-body-wrap{max-width:1160px;margin:0 auto;padding:60px 48px;display:grid;grid-template-columns:1fr 320px;gap:60px;align-items:start}
+.post-body-wrap{max-width:1400px;margin:0 auto;padding:60px 48px;display:grid;grid-template-columns:1fr 320px;gap:60px;align-items:start}
 .post-article{}
 .post-article h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(22px,2.8vw,34px);font-weight:600;color:var(--forest);margin:52px 0 16px;line-height:1.25}
 .post-article h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(19px,2.2vw,26px);font-weight:400;color:var(--forest);margin:36px 0 12px;line-height:1.3}
@@ -88,7 +88,7 @@ $page_css = <<<CSS
 
 /* ── RELATED POSTS ── */
 .related-section{background:var(--cream);padding:64px 48px}
-.related-inner{max-width:1160px;margin:0 auto}
+.related-inner{max-width:1400px;margin:0 auto}
 .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px}
 .related-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.2s;text-decoration:none;display:block}
 .related-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(10,46,30,.1)}
