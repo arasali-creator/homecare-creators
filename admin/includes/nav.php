@@ -1,6 +1,8 @@
 <?php
 $new_submissions = 0;
 try { $new_submissions = (int)hc_val("SELECT COUNT(*) FROM hc_form_submissions WHERE status='new'"); } catch(Exception $e){}
+$pending_listings = 0;
+try { $pending_listings = (int)hc_val("SELECT COUNT(*) FROM hc_directory_listings WHERE status='pending'"); } catch(Exception $e){}
 $cur = $_SERVER['REQUEST_URI'] ?? '';
 
 function is_active(string ...$paths): bool {
@@ -28,6 +30,11 @@ function is_active(string ...$paths): bool {
     <a href="/admin/events/" class="nav-item <?= is_active('/admin/events') ? 'active' : '' ?>">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       Events
+    </a>
+    <a href="/admin/directory/" class="nav-item <?= is_active('/admin/directory') ? 'active' : '' ?>">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      Directory
+      <?php if ($pending_listings > 0): ?><span class="badge badge-red" style="margin-left:auto;font-size:9px"><?= $pending_listings ?></span><?php endif ?>
     </a>
     <!-- Blog toggle -->
     <div class="nav-item nav-toggle <?= is_active('/admin/blog') ? 'open' : '' ?>" onclick="toggleNav(this)">

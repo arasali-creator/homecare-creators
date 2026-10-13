@@ -29,6 +29,7 @@
         <li><a href="/case-studies/">Case Studies</a></li>
         <li><a href="/events/">Events</a></li>
         <li><a href="/blog">Marketing Blog</a></li>
+        <li><a href="/directory/">Agency Directory</a></li>
       </ul>
     </div>
     <div>
