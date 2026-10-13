@@ -18,41 +18,46 @@ $og_desc       = $page_desc;
 $og_image      = $listing['logo'] ?: null;
 
 $page_css = <<<CSS
-.hero{background:var(--forest);position:relative;overflow:hidden;padding:140px 40px 60px}
+/* HERO — same recipe as /events/event.php */
+.hero{background:var(--forest);position:relative;overflow:hidden;padding:140px 40px 56px}
 .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 30% 50%,black 20%,transparent 80%)}
-.hero-inner{position:relative;z-index:2;max-width:900px;margin:0 auto}
-.hero-breadcrumb{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,.4);margin-bottom:24px}
+.hero-inner{position:relative;z-index:2;max-width:760px;margin:0 auto;text-align:center}
+.hero-breadcrumb{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,.4);margin-bottom:20px}
 .hero-breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none}
-.hero-top{display:flex;align-items:center;gap:20px}
-.hero-logo{width:76px;height:76px;border-radius:16px;object-fit:contain;background:#fff;padding:8px;flex-shrink:0}
-.hero-logo-fallback{width:76px;height:76px;border-radius:16px;background:rgba(29,158,117,.2);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:28px;flex-shrink:0}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(26px,3.6vw,40px);line-height:1.2;color:#fff;margin-bottom:8px}
-.hero-city{font-size:15px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px}
-.featured-pill{display:inline-flex;align-items:center;gap:4px;background:rgba(201,168,76,.18);color:#e9cf7a;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:12px}
+.hero-logo-row{display:flex;justify-content:center;margin-bottom:18px}
+.hero-logo{width:64px;height:64px;border-radius:50%;object-fit:contain;background:#fff;padding:6px}
+.hero-logo-fallback{width:64px;height:64px;border-radius:50%;background:rgba(29,158,117,.18);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:24px}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.35);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--gold-lt);letter-spacing:.9px;text-transform:uppercase;margin-bottom:18px}
+.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(28px,4.2vw,44px);line-height:1.15;color:#fff;margin-bottom:14px}
+.hero-meta{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.hero-meta-item{display:flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;color:#fff;font-weight:600}
+.hero-meta-item i{color:var(--teal-lt)}
 
+/* BODY — same two-column recipe as the event page / blog post */
 .listing-body{background:#fff}
 .listing-grid{display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:start}
 .listing-desc p{font-size:16.5px;line-height:1.85;color:var(--muted);margin-bottom:18px;white-space:pre-line}
-.svc-list{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 28px}
-.svc-list li{background:rgba(29,158,117,.08);color:var(--forest);font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:20px}
-.area-list{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
-.area-list li{font-size:13px;color:var(--muted);border:1px solid var(--border);padding:6px 13px;border-radius:14px}
+.cs-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;margin-top:28px}
+.cs-label:first-of-type{margin-top:0}
+.cs-chip-row{display:flex;flex-wrap:wrap;gap:8px}
+.cs-chip{font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;font-weight:600;color:var(--forest);background:var(--warm);border:1px solid var(--border);padding:7px 15px;border-radius:100px}
 
+/* SIDEBAR — same recipe as blog/post.php */
 .dir-sidebar{display:flex;flex-direction:column;gap:20px;position:sticky;top:90px}
-.contact-card{background:var(--warm);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px}
-.contact-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--forest);margin-bottom:16px}
-.contact-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:14.5px;color:var(--text)}
+.sidebar-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px}
+.sidebar-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.contact-row{display:flex;align-items:center;gap:12px;margin-bottom:13px;font-size:14.5px;color:var(--text)}
 .contact-row:last-child{margin-bottom:0}
-.contact-row i{width:18px;color:var(--teal);flex-shrink:0}
+.contact-row i{width:16px;color:var(--teal);flex-shrink:0}
 .contact-row a{color:var(--text);text-decoration:none;word-break:break-word}
 .contact-row a:hover{color:var(--teal)}
-.license-note{font-size:12px;color:var(--muted);margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
-
-.promo-card{background:var(--forest);border-radius:var(--r-lg);padding:26px;text-align:center}
-.promo-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;color:#fff;margin-bottom:8px;line-height:1.3}
-.promo-card p{font-size:13.5px;color:rgba(255,255,255,.55);margin-bottom:18px;line-height:1.6}
-.promo-card a{display:block;background:var(--teal);color:#fff;border:none;padding:12px 18px;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;text-decoration:none;transition:.2s}
-.promo-card a:hover{background:#178a64}
+.sidebar-cta-card{background:var(--forest);border-radius:16px;padding:28px;text-align:center}
+.sidebar-cta-card .sc-icon{width:52px;height:52px;background:rgba(29,158,117,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.sidebar-cta-card .sc-icon svg{width:24px;height:24px;color:var(--teal);stroke:var(--teal)}
+.sidebar-cta-card h3{font-size:16px;font-weight:600;color:#fff;margin-bottom:8px;line-height:1.3}
+.sidebar-cta-card p{font-size:14.5px;color:rgba(255,255,255,.5);margin-bottom:20px;line-height:1.6}
+.sidebar-cta-btn{display:block;background:var(--teal);color:#fff;border:none;padding:13px 20px;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:.2s;text-align:center;text-decoration:none}
+.sidebar-cta-btn:hover{background:#178a64;transform:translateY(-2px)}
 
 @media(max-width:1024px){
   .listing-grid{grid-template-columns:1fr}
@@ -60,7 +65,7 @@ $page_css = <<<CSS
 }
 @media(max-width:640px){
   .hero{padding:120px 24px 40px}
-  .hero-top{flex-direction:column;align-items:flex-start;gap:14px}
+  .hero-meta{gap:14px}
 }
 CSS;
 include '../includes/header.php';
@@ -98,17 +103,23 @@ echo json_encode($ld, JSON_UNESCAPED_SLASHES);
   <div class="hero-bg-grid"></div>
   <div class="hero-inner">
     <div class="hero-breadcrumb"><a href="/">Home</a> / <a href="/directory/">Directory</a> / <span style="color:var(--teal-lt)"><?= htmlspecialchars($listing['company_name']) ?></span></div>
-    <?php if ($listing['featured']): ?><div class="featured-pill"><i class="fa-solid fa-star"></i> Featured Agency</div><?php endif ?>
-    <div class="hero-top">
+    <div class="hero-logo-row">
       <?php if ($listing['logo']): ?>
       <img class="hero-logo" src="<?= htmlspecialchars($listing['logo']) ?>" alt="<?= htmlspecialchars($listing['company_name']) ?> logo">
       <?php else: ?>
       <div class="hero-logo-fallback"><?= htmlspecialchars(strtoupper(substr($listing['company_name'],0,1))) ?></div>
       <?php endif ?>
-      <div>
-        <h1 class="hero-h1"><?= htmlspecialchars($listing['company_name']) ?></h1>
-        <div class="hero-city"><i class="fa-solid fa-location-dot"></i><?= htmlspecialchars($listing['city']) ?>, <?= htmlspecialchars($listing['state']) ?></div>
-      </div>
+    </div>
+    <?php if ($listing['featured']): ?><div class="hero-badge"><i class="fa-solid fa-star" style="margin-right:6px"></i>Featured Agency</div><?php endif ?>
+    <h1 class="hero-h1"><?= htmlspecialchars($listing['company_name']) ?></h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><i class="fa-solid fa-location-dot"></i><?= htmlspecialchars($listing['city']) ?>, <?= htmlspecialchars($listing['state']) ?></div>
+      <?php if ($listing['license_number']): ?>
+      <div class="hero-meta-item"><i class="fa-solid fa-certificate"></i>License #<?= htmlspecialchars($listing['license_number']) ?></div>
+      <?php endif ?>
+      <?php if ($listing['years_in_business']): ?>
+      <div class="hero-meta-item"><i class="fa-solid fa-calendar"></i><?= htmlspecialchars($listing['years_in_business']) ?> yrs in business</div>
+      <?php endif ?>
     </div>
   </div>
 </section>
@@ -117,26 +128,27 @@ echo json_encode($ld, JSON_UNESCAPED_SLASHES);
 <section class="listing-body">
   <div class="container listing-grid">
     <div class="listing-desc" data-reveal>
+      <p class="cs-label" style="margin-top:0">About</p>
       <p><?= htmlspecialchars($listing['description']) ?></p>
 
       <?php if ($services): ?>
-      <p class="section-label" style="margin-top:8px">Services Offered</p>
-      <ul class="svc-list">
-        <?php foreach ($services as $s): ?><li><?= htmlspecialchars($s) ?></li><?php endforeach ?>
-      </ul>
+      <p class="cs-label">Services Offered</p>
+      <div class="cs-chip-row">
+        <?php foreach ($services as $s): ?><span class="cs-chip"><?= htmlspecialchars($s) ?></span><?php endforeach ?>
+      </div>
       <?php endif ?>
 
       <?php if ($service_areas): ?>
-      <p class="section-label">Service Areas</p>
-      <ul class="area-list">
-        <?php foreach ($service_areas as $a): ?><li><i class="fa-solid fa-location-dot" style="color:var(--teal);margin-right:5px;font-size:11px"></i><?= htmlspecialchars($a) ?></li><?php endforeach ?>
-      </ul>
+      <p class="cs-label">Service Areas</p>
+      <div class="cs-chip-row">
+        <?php foreach ($service_areas as $a): ?><span class="cs-chip"><i class="fa-solid fa-location-dot" style="color:var(--teal);margin-right:5px;font-size:10px"></i><?= htmlspecialchars($a) ?></span><?php endforeach ?>
+      </div>
       <?php endif ?>
     </div>
 
     <div class="dir-sidebar" data-reveal style="transition-delay:.1s">
-      <div class="contact-card">
-        <div class="contact-card-title">Contact <?= htmlspecialchars($listing['company_name']) ?></div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Contact Info</div>
         <?php if ($listing['phone']): ?>
         <div class="contact-row"><i class="fa-solid fa-phone"></i><a href="tel:<?= htmlspecialchars(preg_replace('/[^0-9+]/','',$listing['phone'])) ?>"><?= htmlspecialchars($listing['phone']) ?></a></div>
         <?php endif ?>
@@ -149,18 +161,13 @@ echo json_encode($ld, JSON_UNESCAPED_SLASHES);
         <?php if ($listing['address']): ?>
         <div class="contact-row"><i class="fa-solid fa-map-pin"></i><span><?= htmlspecialchars($listing['address']) ?></span></div>
         <?php endif ?>
-        <?php if ($listing['license_number'] || $listing['years_in_business']): ?>
-        <div class="license-note">
-          <?php if ($listing['license_number']): ?>License #<?= htmlspecialchars($listing['license_number']) ?><br><?php endif ?>
-          <?php if ($listing['years_in_business']): ?><?= htmlspecialchars($listing['years_in_business']) ?> years in business<?php endif ?>
-        </div>
-        <?php endif ?>
       </div>
 
-      <div class="promo-card">
+      <div class="sidebar-cta-card">
+        <div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
         <h3>Want a profile that actually brings in clients?</h3>
         <p>We build full marketing systems for home care agencies — websites, SEO, and lead generation that go far beyond a directory listing.</p>
-        <a href="/contact/">Get a Free SEO Audit &rarr;</a>
+        <a href="/contact/" class="sidebar-cta-btn">Get a Free SEO Audit &rarr;</a>
       </div>
     </div>
   </div>
