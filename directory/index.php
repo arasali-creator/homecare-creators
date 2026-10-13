@@ -56,7 +56,10 @@ $page_css = <<<CSS
 .dir-card-logo-fallback{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--forest));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;flex-shrink:0}
 .dir-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700;color:var(--forest);line-height:1.3}
 .dir-card-city{font-size:12.5px;color:var(--teal);font-weight:600;display:flex;align-items:center;gap:5px;margin-top:3px}
-.dir-card-desc{font-size:14.5px;color:var(--muted);line-height:1.65;margin-bottom:16px}
+.dir-card-desc{font-size:14.5px;color:var(--muted);line-height:1.65;margin-bottom:14px}
+.dir-contact-row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text);margin-bottom:6px}
+.dir-contact-row i{width:14px;color:var(--teal);flex-shrink:0;font-size:12px}
+.dir-contact-rows{margin-bottom:16px}
 .dir-chip-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
 .dir-chip{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:600;color:var(--forest);background:var(--warm);border:1px solid var(--border);padding:5px 11px;border-radius:100px}
 .dir-card-meta{font-size:13px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;color:var(--teal);border-top:1px solid var(--border);padding-top:14px;margin-top:auto}
@@ -135,12 +138,18 @@ include '../includes/header.php';
           </div>
         </div>
         <div class="dir-card-desc"><?= htmlspecialchars($snippet) ?></div>
+        <?php if ($l['phone'] || $l['email']): ?>
+        <div class="dir-contact-rows">
+          <?php if ($l['phone']): ?><div class="dir-contact-row"><i class="fa-solid fa-phone"></i><?= htmlspecialchars($l['phone']) ?></div><?php endif ?>
+          <?php if ($l['email']): ?><div class="dir-contact-row"><i class="fa-solid fa-envelope"></i><?= htmlspecialchars($l['email']) ?></div><?php endif ?>
+        </div>
+        <?php endif ?>
         <?php if ($svc_chips): ?>
         <div class="dir-chip-row">
           <?php foreach ($svc_chips as $s): ?><span class="dir-chip"><?= htmlspecialchars($s) ?></span><?php endforeach ?>
         </div>
         <?php endif ?>
-        <div class="dir-card-meta">View Profile &rarr;</div>
+        <div class="dir-card-meta">View More &rarr;</div>
       </div>
     </a>
     <?php endforeach ?>

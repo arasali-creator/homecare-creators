@@ -66,6 +66,26 @@ if (isset($_GET['delete'])) {
     header('Location: /admin/directory/'); exit;
 }
 
+// ── Bulk actions ─────────────────────────────────────────────────────────────
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['bulk_action'])) {
+    $ids = array_filter(array_map('intval', $_POST['ids'] ?? []));
+    $back = '/admin/directory/?status=' . urlencode($_POST['status'] ?? 'pending');
+    if ($ids) {
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
+        if ($_POST['bulk_action'] === 'approve') {
+            hc_q("UPDATE hc_directory_listings SET status='approved', approved_at=NOW(), rejection_reason=NULL WHERE id IN ($placeholders)", $ids);
+            hc_flash(count($ids) . ' listing(s) approved.');
+        } elseif ($_POST['bulk_action'] === 'reject') {
+            hc_q("UPDATE hc_directory_listings SET status='rejected' WHERE id IN ($placeholders)", $ids);
+            hc_flash(count($ids) . ' listing(s) rejected.');
+        } elseif ($_POST['bulk_action'] === 'delete') {
+            hc_q("DELETE FROM hc_directory_listings WHERE id IN ($placeholders)", $ids);
+            hc_flash(count($ids) . ' listing(s) deleted.');
+        }
+    }
+    header('Location: ' . $back); exit;
+}
+
 $filter = $_GET['status'] ?? 'pending';
 $where  = $filter !== 'all' ? "WHERE status = " . hc_db()->quote($filter) : '';
 $listings = hc_all("SELECT * FROM hc_directory_listings $where ORDER BY created_at DESC");
@@ -101,12 +121,21 @@ hc_topbar('Agency Directory', '<a href="/admin/">Admin</a> › Directory');
 
 <div class="card">
   <?php if ($listings): ?>
+  <form method="POST" id="bulkForm">
+    <input type="hidden" name="status" value="<?= h($filter) ?>">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:12.5px;color:var(--muted)" id="bulkCount">0 selected</span>
+      <button type="submit" name="bulk_action" value="approve" class="btn btn-secondary btn-sm" id="bulkApproveBtn" disabled>Approve Selected</button>
+      <button type="submit" name="bulk_action" value="reject" class="btn btn-secondary btn-sm" id="bulkRejectBtn" disabled data-confirm="Reject all selected listings?">Reject Selected</button>
+      <button type="submit" name="bulk_action" value="delete" class="btn btn-danger btn-sm" id="bulkDeleteBtn" disabled data-confirm="Permanently delete all selected listings?">Delete Selected</button>
+    </div>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Company</th><th>City</th><th>Contact</th><th>Status</th><th>Submitted</th><th></th></tr></thead>
+      <thead><tr><th style="width:30px"><input type="checkbox" id="selectAll"></th><th>Company</th><th>City</th><th>Contact</th><th>Status</th><th>Submitted</th><th></th></tr></thead>
       <tbody>
       <?php foreach ($listings as $l): ?>
       <tr>
+        <td><input type="checkbox" class="row-check" name="ids[]" value="<?= $l['id'] ?>"></td>
         <td>
           <strong><?= h($l['company_name']) ?></strong>
           <?php if ($l['featured']): ?><span class="badge badge-gold" style="margin-left:6px">★ Featured</span><?php endif ?>
@@ -138,6 +167,25 @@ hc_topbar('Agency Directory', '<a href="/admin/">Admin</a> › Directory');
       </tbody>
     </table>
   </div>
+  </form>
+  <script>
+  (function(){
+    var selectAll = document.getElementById('selectAll');
+    var checks = document.querySelectorAll('.row-check');
+    var countEl = document.getElementById('bulkCount');
+    var btns = [document.getElementById('bulkApproveBtn'), document.getElementById('bulkRejectBtn'), document.getElementById('bulkDeleteBtn')];
+    function update() {
+      var n = document.querySelectorAll('.row-check:checked').length;
+      countEl.textContent = n + ' selected';
+      btns.forEach(function(b){ b.disabled = n === 0; });
+    }
+    selectAll.addEventListener('change', function(){
+      checks.forEach(function(c){ c.checked = selectAll.checked; });
+      update();
+    });
+    checks.forEach(function(c){ c.addEventListener('change', update); });
+  })();
+  </script>
   <?php else: ?>
   <div class="empty-state">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
