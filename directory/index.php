@@ -28,17 +28,16 @@ $cities   = hc_all("SELECT DISTINCT city FROM hc_directory_listings WHERE status
 
 $page_css = <<<CSS
 /* HERO (same recipe as /events/, /case-studies/) */
-.hero{min-height:40vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:140px 40px 56px}
+.hero{min-height:40vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:140px 40px 64px}
 .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 30% 50%,black 20%,transparent 80%)}
-.hero-inner{position:relative;z-index:2;max-width:760px;margin:0 auto;text-align:center}
+.hero-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;text-align:center}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:22px}
 .hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(28px,4.2vw,46px);line-height:1.15;color:#fff;margin-bottom:14px}
 .hero-h1 em{font-style:italic;color:var(--teal-lt)}
-.hero-desc{font-size:17px;line-height:1.7;color:rgba(255,255,255,.65)}
+.hero-desc{font-size:17px;line-height:1.7;color:rgba(255,255,255,.65);margin-bottom:32px}
 
-/* SEARCH CARD — same floating-white-card recipe as the case-studies privacy note */
-.search-section{background:var(--cream);padding:0 40px;margin-top:-34px;position:relative;z-index:3}
-.search-box{max-width:900px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 22px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;box-shadow:0 20px 56px rgba(10,46,30,.12)}
+/* SEARCH CARD — sits inside the hero, same floating-white-card recipe as the case-studies privacy note */
+.search-box{max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 22px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;box-shadow:0 20px 56px rgba(0,0,0,.25);text-align:left}
 .search-box input[type=text]{flex:2;min-width:200px;padding:12px 16px;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:14.5px;outline:none;transition:border-color .2s}
 .search-box select{flex:1;min-width:150px;padding:12px 16px;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:14.5px;outline:none;background:#fff;transition:border-color .2s}
 .search-box input:focus,.search-box select:focus{border-color:var(--teal)}
@@ -75,8 +74,7 @@ $page_css = <<<CSS
 
 @media(max-width:960px){.dir-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){
-  .hero{padding:120px 24px 46px}
-  .search-section{padding:0 20px;margin-top:-26px}
+  .hero{padding:120px 24px 40px}
   .search-box{padding:16px}
   .dir-section{padding:56px 20px}
   .dir-grid{grid-template-columns:1fr}
@@ -95,21 +93,17 @@ include '../includes/header.php';
     <div class="hero-badge"><i class="fa-solid fa-building-shield" style="margin-right:6px"></i>Agency Directory</div>
     <h1 class="hero-h1">Find a <em>Home Care Agency</em><br>Near You</h1>
     <p class="hero-desc">A directory of home care agencies across Florida — browse by city or service, or list your own agency for free.</p>
+    <form class="search-box" method="GET" data-reveal>
+      <input type="text" name="q" value="<?= htmlspecialchars($q) ?>" placeholder="Search by agency name or service...">
+      <select name="city">
+        <option value="">All Cities</option>
+        <?php foreach ($cities as $c): ?>
+        <option value="<?= htmlspecialchars($c['city']) ?>" <?= $city===$c['city']?'selected':'' ?>><?= htmlspecialchars($c['city']) ?></option>
+        <?php endforeach ?>
+      </select>
+      <button type="submit">Search</button>
+    </form>
   </div>
-</section>
-
-<!-- SEARCH -->
-<section class="search-section">
-  <form class="search-box" method="GET" data-reveal>
-    <input type="text" name="q" value="<?= htmlspecialchars($q) ?>" placeholder="Search by agency name or service...">
-    <select name="city">
-      <option value="">All Cities</option>
-      <?php foreach ($cities as $c): ?>
-      <option value="<?= htmlspecialchars($c['city']) ?>" <?= $city===$c['city']?'selected':'' ?>><?= htmlspecialchars($c['city']) ?></option>
-      <?php endforeach ?>
-    </select>
-    <button type="submit">Search</button>
-  </form>
 </section>
 
 <!-- LISTINGS -->
