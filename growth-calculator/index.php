@@ -65,15 +65,14 @@ $page_css = <<<CSS
 .offer-banner strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;color:#7a5f18}
 .offer-banner span{font-size:12px;color:#8a6800}
 
-/* Blur-until-unlocked wrapper */
-.results-wrap{position:relative}
-.blurred-preview{filter:blur(7px);user-select:none;pointer-events:none}
-.gate-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:rgba(255,255,255,.75)}
-.gate-overlay > i{font-size:26px;color:var(--teal);margin-bottom:10px}
-.gate-overlay > p{font-size:13.5px;color:var(--forest);font-weight:600;margin-bottom:14px;max-width:320px}
+/* Blur-until-unlocked — plain stack, no absolute positioning (avoids overlap bugs) */
+.blurred-preview{filter:blur(6px);user-select:none;pointer-events:none;margin-bottom:20px}
+.unlock-prompt{text-align:center;margin-bottom:16px}
+.unlock-prompt i{font-size:24px;color:var(--teal);margin-bottom:8px;display:block}
+.unlock-prompt p{font-size:13.5px;color:var(--forest);font-weight:600;max-width:320px;margin:0 auto}
 
 /* Gate form */
-.gate-form{display:flex;flex-direction:column;gap:10px;text-align:left;width:100%;max-width:340px}
+.gate-form{display:flex;flex-direction:column;gap:10px;text-align:left;width:100%;max-width:340px;margin:0 auto}
 .gate-form input,.gate-form select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;background:#fff;transition:border-color .2s}
 .gate-form input:focus,.gate-form select:focus{border-color:var(--teal)}
 .gate-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -192,26 +191,25 @@ include '../includes/header.php';
       </div>
 
       <!-- Gated: dollar value + recommendation -->
-      <div class="results-wrap">
-
-        <div id="realResults" style="display:none">
-          <div class="res-breakdown">
-            <strong id="brkDelta">+3</strong> extra clients/mo &times; 12 months = <strong id="brkYearClients">+36</strong> new clients/year<br>
-            &times; <strong id="brkLtv">$15,000</strong> average client lifetime value
-          </div>
-          <div class="res-unlocked">
-            <div class="offer-banner">
-              <i class="fa-solid fa-fire"></i>
-              <div><strong><?= $offer_discount ?>% Off Your Free Audit</strong><span>Only <?= $offer_spots ?> spot<?= $offer_spots===1?'':'s' ?> left this month</span></div>
-            </div>
-            <div class="res-unlocked-eyebrow">Your Estimated Annual Opportunity</div>
-            <div class="res-unlocked-num" id="unlockedNum">$0</div>
-            <p style="font-size:13.5px;color:var(--muted);margin-bottom:20px" id="unlockedProblem"></p>
-            <a href="#" id="unlockedCta" class="res-cta-btn">Claim My Discounted Audit &rarr;</a>
-          </div>
+      <div id="realResults" style="display:none">
+        <div class="res-breakdown">
+          <strong id="brkDelta">+3</strong> extra clients/mo &times; 12 months = <strong id="brkYearClients">+36</strong> new clients/year<br>
+          &times; <strong id="brkLtv">$15,000</strong> average client lifetime value
         </div>
+        <div class="res-unlocked">
+          <div class="offer-banner">
+            <i class="fa-solid fa-fire"></i>
+            <div><strong><?= $offer_discount ?>% Off Your Free Audit</strong><span>Only <?= $offer_spots ?> spot<?= $offer_spots===1?'':'s' ?> left this month</span></div>
+          </div>
+          <div class="res-unlocked-eyebrow">Your Estimated Annual Opportunity</div>
+          <div class="res-unlocked-num" id="unlockedNum">$0</div>
+          <p style="font-size:13.5px;color:var(--muted);margin-bottom:20px" id="unlockedProblem"></p>
+          <a href="#" id="unlockedCta" class="res-cta-btn">Claim My Discounted Audit &rarr;</a>
+        </div>
+      </div>
 
-        <div id="blurredPreview" class="blurred-preview">
+      <div id="lockedState">
+        <div class="blurred-preview">
           <div class="res-breakdown">
             <strong>+3</strong> extra clients/mo &times; 12 months = <strong>+36</strong> new clients/year<br>
             &times; <strong>$15,000</strong> average client lifetime value
@@ -222,34 +220,33 @@ include '../includes/header.php';
           </div>
         </div>
 
-        <div id="gateOverlay" class="gate-overlay">
+        <div class="unlock-prompt">
           <i class="fa-solid fa-lock"></i>
           <p>Enter your info to unlock your full growth report + a free personalized recommendation.</p>
-          <div class="offer-banner">
-            <i class="fa-solid fa-fire"></i>
-            <div><strong><?= $offer_discount ?>% Off Your Free Audit</strong><span>Only <?= $offer_spots ?> spot<?= $offer_spots===1?'':'s' ?> left this month</span></div>
-          </div>
-          <form class="gate-form" id="gateForm">
-            <div class="hp-field" aria-hidden="true"><label for="gHp">Website</label><input type="text" id="gHp" tabindex="-1" autocomplete="off"></div>
-            <input type="text" id="gName" placeholder="Your name" autocomplete="name" required>
-            <div class="gate-row">
-              <input type="email" id="gEmail" placeholder="Email" autocomplete="email" required>
-              <input type="tel" id="gPhone" placeholder="Phone" autocomplete="tel" required>
-            </div>
-            <input type="text" id="gCity" placeholder="City your agency serves" autocomplete="address-level2" required>
-            <input type="url" id="gWebsiteUrl" placeholder="Your website URL" autocomplete="url" required>
-            <select id="gProblem" required>
-              <option value="" disabled selected>What's your biggest challenge right now?</option>
-              <option value="seo">Not showing up on Google</option>
-              <option value="website">Website doesn't turn visitors into leads</option>
-              <option value="ai">Not showing up in AI search (ChatGPT, etc.)</option>
-              <option value="strategy">Not sure / need an overall strategy</option>
-            </select>
-            <button type="submit" class="gate-submit" id="gateSubmitBtn">Unlock My Full Report</button>
-            <div class="gate-privacy"><i class="fa-solid fa-lock" style="margin-right:4px"></i>100% private. No spam, ever.</div>
-          </form>
         </div>
-
+        <div class="offer-banner">
+          <i class="fa-solid fa-fire"></i>
+          <div><strong><?= $offer_discount ?>% Off Your Free Audit</strong><span>Only <?= $offer_spots ?> spot<?= $offer_spots===1?'':'s' ?> left this month</span></div>
+        </div>
+        <form class="gate-form" id="gateForm">
+          <div class="hp-field" aria-hidden="true"><label for="gHp">Website</label><input type="text" id="gHp" tabindex="-1" autocomplete="off"></div>
+          <input type="text" id="gName" placeholder="Your name" autocomplete="name" required>
+          <div class="gate-row">
+            <input type="email" id="gEmail" placeholder="Email" autocomplete="email" required>
+            <input type="tel" id="gPhone" placeholder="Phone" autocomplete="tel" required>
+          </div>
+          <input type="text" id="gCity" placeholder="City your agency serves" autocomplete="address-level2" required>
+          <input type="url" id="gWebsiteUrl" placeholder="Your website URL" autocomplete="url" required>
+          <select id="gProblem" required>
+            <option value="" disabled selected>What's your biggest challenge right now?</option>
+            <option value="seo">Not showing up on Google</option>
+            <option value="website">Website doesn't turn visitors into leads</option>
+            <option value="ai">Not showing up in AI search (ChatGPT, etc.)</option>
+            <option value="strategy">Not sure / need an overall strategy</option>
+          </select>
+          <button type="submit" class="gate-submit" id="gateSubmitBtn">Unlock My Full Report</button>
+          <div class="gate-privacy"><i class="fa-solid fa-lock" style="margin-right:4px"></i>100% private. No spam, ever.</div>
+        </form>
       </div>
     </div>
 
@@ -370,8 +367,7 @@ document.getElementById('gateForm').addEventListener('submit', function(e) {
   .then(function(d){
     if (d.success) {
       unlocked = true;
-      document.getElementById('gateOverlay').style.display = 'none';
-      document.getElementById('blurredPreview').style.display = 'none';
+      document.getElementById('lockedState').style.display = 'none';
       document.getElementById('realResults').style.display = 'block';
 
       document.getElementById('brkDelta').textContent = '+' + d.results.additional_clients.toLocaleString();
