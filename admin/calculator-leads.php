@@ -17,7 +17,7 @@ try {
         problem VARCHAR(100) NOT NULL,
         monthly_visitors INT NOT NULL,
         current_rate DECIMAL(5,2) NOT NULL,
-        target_rate DECIMAL(5,2) NOT NULL,
+        traffic_increase_pct DECIMAL(6,2) NOT NULL,
         monthly_value_per_client DECIMAL(10,2) NOT NULL,
         avg_length_months DECIMAL(6,2) NOT NULL,
         current_inquiries INT NOT NULL,
@@ -37,6 +37,8 @@ try {
         KEY idx_status (status)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 } catch(Exception $e){}
+// Migrate older deployments that still have the retired target_rate column
+try { hc_db()->exec("ALTER TABLE hc_calculator_submissions CHANGE COLUMN target_rate traffic_increase_pct DECIMAL(6,2) NOT NULL"); } catch (Exception $e) {}
 
 if (isset($_GET['delete'])) {
     hc_q("DELETE FROM hc_calculator_submissions WHERE id=?", [(int)$_GET['delete']]);
