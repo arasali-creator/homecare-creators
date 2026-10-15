@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') !== 'test_
         'smtp_host','smtp_port','smtp_enc','smtp_user','smtp_pass',
         'logo_url','favicon_url',
         'wa_phone','wa_apikey',
+        'calc_offer_discount_pct','calc_offer_spots_left',
     ];
     foreach ($keys as $k) {
         if ($k === 'smtp_pass' && trim($_POST[$k] ?? '') === '') continue;
@@ -252,6 +253,30 @@ $smtp_configured = !empty($smtp_host);
              value="<?= h(hc_setting('wa_apikey','')) ?>"
              placeholder="e.g. 123456">
       <div class="form-hint">You receive this key via WhatsApp after sending the activation message.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Growth Calculator Offer -->
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="card-title">Growth Calculator Offer</div>
+      <div class="card-sub">The limited-time offer shown on /growth-calculator/ to encourage booking an audit</div>
+    </div>
+  </div>
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="calc_offer_discount_pct">Discount % Off Audit</label>
+      <input type="number" id="calc_offer_discount_pct" name="calc_offer_discount_pct"
+             value="<?= h(hc_setting('calc_offer_discount_pct','50')) ?>" min="0" max="100">
+    </div>
+    <div class="form-group">
+      <label for="calc_offer_spots_left">Spots Left This Month</label>
+      <input type="number" id="calc_offer_spots_left" name="calc_offer_spots_left"
+             value="<?= h(hc_setting('calc_offer_spots_left','3')) ?>" min="0">
+      <div class="form-hint">Keep this honest and up to date — update it as spots actually fill or each new month starts.</div>
     </div>
   </div>
 </div>

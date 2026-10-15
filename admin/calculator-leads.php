@@ -14,10 +14,11 @@ try {
         email VARCHAR(255) NOT NULL,
         phone VARCHAR(50) NOT NULL,
         city VARCHAR(100) NOT NULL,
+        website VARCHAR(500) NOT NULL,
         problem VARCHAR(100) NOT NULL,
-        monthly_visitors INT NOT NULL,
-        current_rate DECIMAL(5,2) NOT NULL,
-        traffic_increase_pct DECIMAL(6,2) NOT NULL,
+        monthly_inquiries INT NOT NULL,
+        close_rate DECIMAL(5,2) NOT NULL,
+        additional_inquiries_target INT NOT NULL,
         monthly_value_per_client DECIMAL(10,2) NOT NULL,
         avg_length_months DECIMAL(6,2) NOT NULL,
         current_inquiries INT NOT NULL,
@@ -37,8 +38,12 @@ try {
         KEY idx_status (status)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 } catch(Exception $e){}
-// Migrate older deployments that still have the retired target_rate column
-try { hc_db()->exec("ALTER TABLE hc_calculator_submissions CHANGE COLUMN target_rate traffic_increase_pct DECIMAL(6,2) NOT NULL"); } catch (Exception $e) {}
+// Migrate older deployments through each prior schema generation (all best-effort/no-ops if not applicable)
+try { hc_db()->exec("ALTER TABLE hc_calculator_submissions CHANGE COLUMN target_rate additional_inquiries_target INT NOT NULL"); } catch (Exception $e) {}
+try { hc_db()->exec("ALTER TABLE hc_calculator_submissions CHANGE COLUMN traffic_increase_pct additional_inquiries_target INT NOT NULL"); } catch (Exception $e) {}
+try { hc_db()->exec("ALTER TABLE hc_calculator_submissions CHANGE COLUMN monthly_visitors monthly_inquiries INT NOT NULL"); } catch (Exception $e) {}
+try { hc_db()->exec("ALTER TABLE hc_calculator_submissions CHANGE COLUMN current_rate close_rate DECIMAL(5,2) NOT NULL"); } catch (Exception $e) {}
+try { hc_db()->exec("ALTER TABLE hc_calculator_submissions ADD COLUMN website VARCHAR(500) NOT NULL DEFAULT ''"); } catch (Exception $e) {}
 
 if (isset($_GET['delete'])) {
     hc_q("DELETE FROM hc_calculator_submissions WHERE id=?", [(int)$_GET['delete']]);
@@ -68,16 +73,17 @@ hc_topbar('Growth Calculator Leads', '<a href="/admin/">Admin</a> › Growth Cal
   <?php if ($leads): ?>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Name</th><th>Contact</th><th>City</th><th>Problem</th><th>Opportunity</th><th>Status</th><th>Submitted</th><th></th></tr></thead>
+      <thead><tr><th>Name</th><th>Contact</th><th>City</th><th>Website</th><th>Problem</th><th>Opportunity</th><th>Status</th><th>Submitted</th><th></th></tr></thead>
       <tbody>
       <?php foreach ($leads as $l): ?>
       <tr>
         <td><strong><?= h($l['name']) ?></strong></td>
         <td style="font-size:13px"><a href="mailto:<?= h($l['email']) ?>"><?= h($l['email']) ?></a><br><span style="color:var(--muted)"><?= h($l['phone']) ?></span></td>
         <td><?= h($l['city']) ?></td>
+        <td style="font-size:13px"><a href="<?= h($l['website']) ?>" target="_blank" rel="noopener nofollow"><?= h($l['website']) ?></a></td>
         <td style="font-size:13px"><?= h($l['problem']) ?></td>
         <td style="font-size:13px">
-          <strong>+<?= (int)$l['additional_inquiries'] ?></strong> inquiries/mo<br>
+          <strong>+<?= (int)$l['additional_inquiries'] ?></strong> clients/mo<br>
           <span style="color:var(--teal);font-weight:700">$<?= number_format($l['additional_annual_value']) ?></span>/yr
         </td>
         <td><span class="badge <?= $l['status']==='contacted'?'badge-green':'badge-gray' ?>"><?= h($l['status']) ?></span></td>

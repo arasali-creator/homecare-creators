@@ -1,9 +1,16 @@
 <?php
 $page_title = "Website Growth Calculator — See What You're Missing | Homecare Creators";
-$page_desc = "See how many more inquiries and how much more revenue your home care agency's website could generate. Free, instant estimate.";
+$page_desc = "See how many more clients and how much more revenue your home care agency could generate. Free, instant estimate.";
 $page_canonical = "https://homecarecreators.com/growth-calculator/";
 $og_title = "Website Growth Calculator | Homecare Creators";
-$og_desc = "A free, 60-second tool to see what your home care agency's website could be missing.";
+$og_desc = "A free, 60-second tool to see what your home care agency could be missing.";
+
+require_once '../admin/config.php';
+require_once '../admin/includes/db.php';
+require_once '../admin/includes/functions.php';
+
+$offer_discount = (int) hc_setting('calc_offer_discount_pct', '50');
+$offer_spots    = (int) hc_setting('calc_offer_spots_left', '3');
 
 $page_css = <<<CSS
 /* HERO */
@@ -34,15 +41,16 @@ $page_css = <<<CSS
 .cf-range-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:4px}
 .cf-hint{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
 
-/* Results */
+/* Results — ungated headline stats */
 .res-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(29,158,117,.1);color:var(--teal);font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:5px 12px;border-radius:20px;margin-bottom:18px}
 .res-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
 .res-stat{background:var(--warm);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
 .res-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:700;color:var(--forest)}
 .res-stat-label{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.4}
-.res-delta{background:rgba(29,158,117,.08);border:1px solid rgba(29,158,117,.25);border-radius:12px;padding:16px;text-align:center;margin-bottom:22px}
+.res-delta{background:rgba(29,158,117,.08);border:1px solid rgba(29,158,117,.25);border-radius:12px;padding:16px;text-align:center;margin-bottom:24px}
 .res-delta-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;font-weight:700;color:var(--teal)}
 .res-delta-label{font-size:12.5px;color:var(--forest);font-weight:600;margin-top:4px}
+
 .res-breakdown{font-size:13.5px;color:var(--muted);line-height:2;background:var(--warm);border:1px dashed var(--border);border-radius:12px;padding:16px 18px;margin-bottom:20px}
 .res-breakdown strong{color:var(--forest)}
 .res-unlocked{text-align:center}
@@ -51,12 +59,18 @@ $page_css = <<<CSS
 .res-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;border:none;padding:14px 26px;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;transition:.2s}
 .res-cta-btn:hover{background:#178a64;transform:translateY(-2px)}
 
+/* Offer banner */
+.offer-banner{display:flex;align-items:center;gap:12px;background:rgba(201,168,76,.1);border:1px dashed rgba(201,168,76,.4);border-radius:12px;padding:14px 16px;margin-bottom:18px;text-align:left}
+.offer-banner i{font-size:20px;color:#c9a84c;flex-shrink:0}
+.offer-banner strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;color:#7a5f18}
+.offer-banner span{font-size:12px;color:#8a6800}
+
 /* Blur-until-unlocked wrapper */
 .results-wrap{position:relative}
 .blurred-preview{filter:blur(7px);user-select:none;pointer-events:none}
-.gate-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:rgba(255,255,255,.72)}
-.gate-overlay i{font-size:26px;color:var(--teal);margin-bottom:10px}
-.gate-overlay p{font-size:13.5px;color:var(--forest);font-weight:600;margin-bottom:16px;max-width:320px}
+.gate-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:rgba(255,255,255,.75)}
+.gate-overlay > i{font-size:26px;color:var(--teal);margin-bottom:10px}
+.gate-overlay > p{font-size:13.5px;color:var(--forest);font-weight:600;margin-bottom:14px;max-width:320px}
 
 /* Gate form */
 .gate-form{display:flex;flex-direction:column;gap:10px;text-align:left;width:100%;max-width:340px}
@@ -100,8 +114,8 @@ include '../includes/header.php';
   <div class="hero-bg-grid"></div>
   <div class="hero-inner">
     <div class="hero-badge"><i class="fa-solid fa-calculator" style="margin-right:6px"></i>Website Growth Calculator</div>
-    <h1 class="hero-h1">How Many Clients Could<br>Your Website Be <em>Missing?</em></h1>
-    <p class="hero-desc">Answer a few quick questions about your agency's website to see your estimated growth opportunity — takes about 60 seconds.</p>
+    <h1 class="hero-h1">How Many Clients Could<br>Your Agency Be <em>Missing?</em></h1>
+    <p class="hero-desc">Answer a few quick questions about your inquiries and close rate to see your estimated growth opportunity — takes about 60 seconds.</p>
   </div>
 </section>
 
@@ -111,36 +125,36 @@ include '../includes/header.php';
 
     <!-- INPUTS -->
     <div class="calc-card" data-reveal>
-      <div class="calc-card-title">Your Website Details</div>
+      <div class="calc-card-title">Your Agency Today</div>
       <div class="calc-card-sub">Rough estimates are fine — this just helps size the opportunity.</div>
 
       <div class="cf-group">
         <div class="cf-label-row">
-          <span class="cf-label">Monthly website visitors</span>
-          <span class="cf-value"><input type="number" id="numVisitors" value="500" min="50" max="5000" step="10"></span>
+          <span class="cf-label">Inquiries you get per month</span>
+          <span class="cf-value"><input type="number" id="numInquiries" value="20" min="1" max="150" step="1"></span>
         </div>
-        <input type="range" id="rngVisitors" min="50" max="5000" step="10" value="500">
-        <div class="cf-range-labels"><span>50</span><span>5,000</span></div>
+        <input type="range" id="rngInquiries" min="1" max="150" step="1" value="20">
+        <div class="cf-range-labels"><span>1</span><span>150</span></div>
       </div>
 
       <div class="cf-group">
         <div class="cf-label-row">
-          <span class="cf-label">Current inquiry rate</span>
-          <span class="cf-value"><input type="number" id="numCurrentRate" value="2" min="0.5" max="10" step="0.5"> %</span>
+          <span class="cf-label">% of inquiries that become clients</span>
+          <span class="cf-value"><input type="number" id="numCloseRate" value="33" min="5" max="70" step="1"> %</span>
         </div>
-        <input type="range" id="rngCurrentRate" min="0.5" max="10" step="0.5" value="2">
-        <div class="cf-range-labels"><span>0.5%</span><span>10%</span></div>
-        <div class="cf-hint">% of visitors who contact you today — this is just a fact about where you are now, not something we're promising to change.</div>
+        <input type="range" id="rngCloseRate" min="5" max="70" step="1" value="33">
+        <div class="cf-range-labels"><span>5%</span><span>70%</span></div>
+        <div class="cf-hint">This is just a fact about your intake process today — the industry average is around 33% (Home Care Pulse benchmark data).</div>
       </div>
 
       <div class="cf-group">
         <div class="cf-label-row">
-          <span class="cf-label">Potential additional visitors from SEO</span>
-          <span class="cf-value"><input type="number" id="numTraffic" value="75" min="0" max="200" step="5"> %</span>
+          <span class="cf-label">More inquiries stronger visibility could bring</span>
+          <span class="cf-value">+<input type="number" id="numAdditionalInq" value="10" min="0" max="100" step="1"></span>
         </div>
-        <input type="range" id="rngTraffic" min="0" max="200" step="5" value="75">
-        <div class="cf-range-labels"><span>0%</span><span>200%</span></div>
-        <div class="cf-hint">More visitors finding your site through Google — a realistic range for agencies not yet ranking well. Your inquiry rate stays the same; you just get seen by more people.</div>
+        <input type="range" id="rngAdditionalInq" min="0" max="100" step="1" value="10">
+        <div class="cf-range-labels"><span>+0</span><span>+100</span></div>
+        <div class="cf-hint">Extra monthly inquiries from more people finding and trusting your agency online — your close rate stays the same, you're just reaching more people.</div>
       </div>
 
       <div class="cf-group">
@@ -167,62 +181,63 @@ include '../includes/header.php';
     <div class="calc-card" data-reveal style="transition-delay:.1s">
       <div class="res-badge"><i class="fa-solid fa-chart-line"></i> Your Results</div>
 
+      <!-- Ungated: real, live, simple counts -->
+      <div class="res-stat-row">
+        <div class="res-stat"><div class="res-stat-num" id="outCurrent">7</div><div class="res-stat-label">Current clients per month</div></div>
+        <div class="res-stat"><div class="res-stat-num" id="outPotential">10</div><div class="res-stat-label">Potential clients per month</div></div>
+      </div>
+      <div class="res-delta">
+        <div class="res-delta-num" id="outDelta">+3</div>
+        <div class="res-delta-label">Additional clients per month</div>
+      </div>
+
+      <!-- Gated: dollar value + recommendation -->
       <div class="results-wrap">
 
-        <!-- Real results, hidden until unlocked -->
         <div id="realResults" style="display:none">
-          <div class="res-stat-row">
-            <div class="res-stat"><div class="res-stat-num" id="outCurrent">0</div><div class="res-stat-label">Current monthly inquiries</div></div>
-            <div class="res-stat"><div class="res-stat-num" id="outPotential">0</div><div class="res-stat-label">Potential monthly inquiries</div></div>
-          </div>
-          <div class="res-delta">
-            <div class="res-delta-num" id="outDelta">+0</div>
-            <div class="res-delta-label">Additional inquiries per month</div>
-          </div>
           <div class="res-breakdown">
-            <strong id="brkDelta">+0</strong> extra inquiries/mo &times; 12 months = <strong id="brkYearClients">+0</strong> new clients/year<br>
-            &times; <strong id="brkLtv">$0</strong> average client lifetime value
+            <strong id="brkDelta">+3</strong> extra clients/mo &times; 12 months = <strong id="brkYearClients">+36</strong> new clients/year<br>
+            &times; <strong id="brkLtv">$15,000</strong> average client lifetime value
           </div>
           <div class="res-unlocked">
+            <div class="offer-banner">
+              <i class="fa-solid fa-fire"></i>
+              <div><strong><?= $offer_discount ?>% Off Your Free Audit</strong><span>Only <?= $offer_spots ?> spot<?= $offer_spots===1?'':'s' ?> left this month</span></div>
+            </div>
             <div class="res-unlocked-eyebrow">Your Estimated Annual Opportunity</div>
             <div class="res-unlocked-num" id="unlockedNum">$0</div>
             <p style="font-size:13.5px;color:var(--muted);margin-bottom:20px" id="unlockedProblem"></p>
-            <a href="#" id="unlockedCta" class="res-cta-btn">See How We Fix This &rarr;</a>
+            <a href="#" id="unlockedCta" class="res-cta-btn">Claim My Discounted Audit &rarr;</a>
           </div>
         </div>
 
-        <!-- Blurred placeholder, visible until unlocked -->
         <div id="blurredPreview" class="blurred-preview">
-          <div class="res-stat-row">
-            <div class="res-stat"><div class="res-stat-num">24</div><div class="res-stat-label">Current monthly inquiries</div></div>
-            <div class="res-stat"><div class="res-stat-num">48</div><div class="res-stat-label">Potential monthly inquiries</div></div>
-          </div>
-          <div class="res-delta">
-            <div class="res-delta-num">+24</div>
-            <div class="res-delta-label">Additional inquiries per month</div>
-          </div>
           <div class="res-breakdown">
-            <strong>+24</strong> extra inquiries/mo &times; 12 months = <strong>+288</strong> new clients/year<br>
+            <strong>+3</strong> extra clients/mo &times; 12 months = <strong>+36</strong> new clients/year<br>
             &times; <strong>$15,000</strong> average client lifetime value
           </div>
           <div class="res-unlocked">
             <div class="res-unlocked-eyebrow">Your Estimated Annual Opportunity</div>
-            <div class="res-unlocked-num">$4,320,000</div>
+            <div class="res-unlocked-num">$540,000</div>
           </div>
         </div>
 
-        <!-- Gate overlay -->
         <div id="gateOverlay" class="gate-overlay">
           <i class="fa-solid fa-lock"></i>
           <p>Enter your info to unlock your full growth report + a free personalized recommendation.</p>
+          <div class="offer-banner">
+            <i class="fa-solid fa-fire"></i>
+            <div><strong><?= $offer_discount ?>% Off Your Free Audit</strong><span>Only <?= $offer_spots ?> spot<?= $offer_spots===1?'':'s' ?> left this month</span></div>
+          </div>
           <form class="gate-form" id="gateForm">
-            <div class="hp-field" aria-hidden="true"><label for="gWebsite">Website</label><input type="text" id="gWebsite" tabindex="-1" autocomplete="off"></div>
+            <div class="hp-field" aria-hidden="true"><label for="gHp">Website</label><input type="text" id="gHp" tabindex="-1" autocomplete="off"></div>
             <input type="text" id="gName" placeholder="Your name" autocomplete="name" required>
             <div class="gate-row">
               <input type="email" id="gEmail" placeholder="Email" autocomplete="email" required>
               <input type="tel" id="gPhone" placeholder="Phone" autocomplete="tel" required>
             </div>
             <input type="text" id="gCity" placeholder="City your agency serves" autocomplete="address-level2" required>
+            <input type="url" id="gWebsiteUrl" placeholder="Your website URL" autocomplete="url" required>
             <select id="gProblem" required>
               <option value="" disabled selected>What's your biggest challenge right now?</option>
               <option value="seo">Not showing up on Google</option>
@@ -275,42 +290,42 @@ var unlocked = false;
 var lastResults = null;
 
 function calc() {
-  var visitors = parseFloat(document.getElementById('numVisitors').value) || 0;
-  var currentRate = parseFloat(document.getElementById('numCurrentRate').value) || 0;
-  var trafficPct = parseFloat(document.getElementById('numTraffic').value) || 0;
+  var inquiries = parseFloat(document.getElementById('numInquiries').value) || 0;
+  var closeRate = parseFloat(document.getElementById('numCloseRate').value) || 0;
+  var additionalInq = parseFloat(document.getElementById('numAdditionalInq').value) || 0;
   var value = parseFloat(document.getElementById('numValue').value) || 0;
   var length = parseFloat(document.getElementById('numLength').value) || 0;
 
-  var current = Math.round(visitors * currentRate / 100);
-  var projectedVisitors = visitors * (1 + trafficPct / 100);
-  var potential = Math.round(projectedVisitors * currentRate / 100);
-  var delta = Math.max(0, potential - current);
+  var currentClients = Math.round(inquiries * closeRate / 100);
+  var potentialClients = Math.round((inquiries + additionalInq) * closeRate / 100);
+  var deltaClients = Math.max(0, potentialClients - currentClients);
   var ltv = Math.round(value * length);
-  var yearClients = delta * 12;
+  var yearClients = deltaClients * 12;
   var annualOpportunity = yearClients * ltv;
 
-  lastResults = { visitors: visitors, current_rate: currentRate, traffic_increase_pct: trafficPct, monthly_value_per_client: value, avg_length_months: length };
+  document.getElementById('outCurrent').textContent = currentClients.toLocaleString();
+  document.getElementById('outPotential').textContent = potentialClients.toLocaleString();
+  document.getElementById('outDelta').textContent = '+' + deltaClients.toLocaleString();
+
+  lastResults = { monthly_inquiries: inquiries, close_rate: closeRate, additional_inquiries_target: additionalInq, monthly_value_per_client: value, avg_length_months: length };
 
   if (unlocked) {
-    document.getElementById('outCurrent').textContent = current.toLocaleString();
-    document.getElementById('outPotential').textContent = potential.toLocaleString();
-    document.getElementById('outDelta').textContent = '+' + delta.toLocaleString();
-    document.getElementById('brkDelta').textContent = '+' + delta.toLocaleString();
+    document.getElementById('brkDelta').textContent = '+' + deltaClients.toLocaleString();
     document.getElementById('brkYearClients').textContent = '+' + yearClients.toLocaleString();
     document.getElementById('brkLtv').textContent = '\$' + ltv.toLocaleString();
     document.getElementById('unlockedNum').textContent = '\$' + annualOpportunity.toLocaleString();
   }
 }
 
-syncPair('rngVisitors', 'numVisitors', calc);
-syncPair('rngCurrentRate', 'numCurrentRate', calc);
-syncPair('rngTraffic', 'numTraffic', calc);
+syncPair('rngInquiries', 'numInquiries', calc);
+syncPair('rngCloseRate', 'numCloseRate', calc);
+syncPair('rngAdditionalInq', 'numAdditionalInq', calc);
 syncPair('rngValue', 'numValue', calc);
 syncPair('rngLength', 'numLength', calc);
 calc();
 
 var problemCtas = {
-  seo: { url: '/seo/home-care-seo/', label: "Based on your answer, your biggest lever is improving local SEO so more families find you on Google." },
+  seo: { url: '/seo/home-care-seo/', label: "Based on your answer, your biggest lever is stronger local SEO so more families find you on Google." },
   website: { url: '/web-design/homecare-website-design/', label: "Based on your answer, your biggest lever is a website redesign built to convert visitors into inquiries." },
   ai: { url: '/ai-search-seo/', label: "Based on your answer, your biggest lever is optimizing for AI search (ChatGPT, Google AI, etc.)." },
   strategy: { url: '/contact/', label: "Based on your answer, let's build a full strategy together." }
@@ -322,13 +337,15 @@ document.getElementById('gateForm').addEventListener('submit', function(e) {
   var email = document.getElementById('gEmail').value.trim();
   var phone = document.getElementById('gPhone').value.trim();
   var city = document.getElementById('gCity').value.trim();
+  var website = document.getElementById('gWebsiteUrl').value.trim();
   var problem = document.getElementById('gProblem').value;
-  var honeypot = document.getElementById('gWebsite').value.trim();
+  var honeypot = document.getElementById('gHp').value.trim();
 
   if (!name) { alert('Please enter your name.'); return; }
   if (!email || !email.includes('@') || !email.includes('.')) { alert('Please enter a valid email address.'); return; }
   if (!phone) { alert('Please enter your phone number.'); return; }
   if (!city) { alert('Please enter your city.'); return; }
+  if (!website) { alert('Please enter your website URL.'); return; }
   if (!problem) { alert("Please select your biggest challenge."); return; }
 
   var btn = document.getElementById('gateSubmitBtn');
@@ -339,10 +356,10 @@ document.getElementById('gateForm').addEventListener('submit', function(e) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      name: name, email: email, phone: phone, city: city, problem: problem,
-      monthly_visitors: lastResults.visitors,
-      current_rate: lastResults.current_rate,
-      traffic_increase_pct: lastResults.traffic_increase_pct,
+      name: name, email: email, phone: phone, city: city, website: website, problem: problem,
+      monthly_inquiries: lastResults.monthly_inquiries,
+      close_rate: lastResults.close_rate,
+      additional_inquiries_target: lastResults.additional_inquiries_target,
       monthly_value_per_client: lastResults.monthly_value_per_client,
       avg_length_months: lastResults.avg_length_months,
       source: window.location.pathname,
@@ -357,11 +374,8 @@ document.getElementById('gateForm').addEventListener('submit', function(e) {
       document.getElementById('blurredPreview').style.display = 'none';
       document.getElementById('realResults').style.display = 'block';
 
-      document.getElementById('outCurrent').textContent = d.results.current_inquiries.toLocaleString();
-      document.getElementById('outPotential').textContent = d.results.potential_inquiries.toLocaleString();
-      document.getElementById('outDelta').textContent = '+' + d.results.additional_inquiries.toLocaleString();
-      document.getElementById('brkDelta').textContent = '+' + d.results.additional_inquiries.toLocaleString();
-      document.getElementById('brkYearClients').textContent = '+' + (d.results.additional_inquiries * 12).toLocaleString();
+      document.getElementById('brkDelta').textContent = '+' + d.results.additional_clients.toLocaleString();
+      document.getElementById('brkYearClients').textContent = '+' + (d.results.additional_clients * 12).toLocaleString();
       document.getElementById('brkLtv').textContent = '\$' + Math.round(d.results.client_ltv).toLocaleString();
       document.getElementById('unlockedNum').textContent = '\$' + Math.round(d.results.additional_annual_value).toLocaleString();
 
