@@ -28,7 +28,7 @@ $problem_key = strip_tags(trim($data['problem'] ?? ''));
 
 $visitors = (int)($data['monthly_visitors'] ?? 0);
 $current_rate = (float)($data['current_rate'] ?? 0);
-$target_rate  = (float)($data['target_rate'] ?? 0);
+$traffic_increase_pct = (float)($data['traffic_increase_pct'] ?? 0);
 $monthly_value = (float)($data['monthly_value_per_client'] ?? 0);
 $avg_length    = (float)($data['avg_length_months'] ?? 0);
 
@@ -37,7 +37,7 @@ if (empty($name) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) 
     echo json_encode(['success' => false, 'message' => 'Name, email, phone, city, and your biggest challenge are all required.']);
     exit;
 }
-if ($visitors <= 0 || $current_rate < 0 || $target_rate < 0 || $monthly_value <= 0 || $avg_length <= 0) {
+if ($visitors <= 0 || $current_rate < 0 || $traffic_increase_pct < 0 || $monthly_value <= 0 || $avg_length <= 0) {
     http_response_code(400);
     echo json_encode(['success' => false, 'message' => 'Please fill in valid numbers for every calculator field.']);
     exit;
@@ -52,8 +52,11 @@ $problems = [
 $problem = $problems[$problem_key] ?? $problems['strategy'];
 
 // ── Server-side calculation (never trust client-computed numbers) ──
+// Traffic-based model: SEO drives more visitors; the agency's own inquiry
+// rate is held constant rather than claiming we'll change how they convert.
 $current_inquiries   = (int)round($visitors * $current_rate / 100);
-$potential_inquiries  = (int)round($visitors * $target_rate / 100);
+$projected_visitors   = $visitors * (1 + $traffic_increase_pct / 100);
+$potential_inquiries  = (int)round($projected_visitors * $current_rate / 100);
 $additional_inquiries = max(0, $potential_inquiries - $current_inquiries);
 $client_ltv           = round($monthly_value * $avg_length, 2);
 $additional_annual_value = round($additional_inquiries * 12 * $client_ltv, 2);
@@ -79,7 +82,7 @@ try {
         problem VARCHAR(100) NOT NULL,
         monthly_visitors INT NOT NULL,
         current_rate DECIMAL(5,2) NOT NULL,
-        target_rate DECIMAL(5,2) NOT NULL,
+        traffic_increase_pct DECIMAL(6,2) NOT NULL,
         monthly_value_per_client DECIMAL(10,2) NOT NULL,
         avg_length_months DECIMAL(6,2) NOT NULL,
         current_inquiries INT NOT NULL,
@@ -99,6 +102,8 @@ try {
         KEY idx_status (status)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 } catch(Exception $e){}
+// Migrate older deployments that still have the retired target_rate column
+try { hc_db()->exec("ALTER TABLE hc_calculator_submissions CHANGE COLUMN target_rate traffic_increase_pct DECIMAL(6,2) NOT NULL"); } catch (Exception $e) {}
 
 // ── Visitor context ──────────────────────────────────────────
 $ip = trim(explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'] ?? '')[0]) ?: ($_SERVER['REMOTE_ADDR'] ?? '');
@@ -125,8 +130,8 @@ if ($ip && !$is_private_ip) {
 $source = strip_tags(trim($data['source'] ?? '/growth-calculator/'));
 
 try {
-    hc_q("INSERT INTO hc_calculator_submissions (name,email,phone,city,problem,monthly_visitors,current_rate,target_rate,monthly_value_per_client,avg_length_months,current_inquiries,potential_inquiries,additional_inquiries,client_ltv,additional_annual_value,source_page,ip_address,user_agent,device_type,geo_city,geo_region,geo_country) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-        [$name,$email,$phone,$city,$problem['label'],$visitors,$current_rate,$target_rate,$monthly_value,$avg_length,$current_inquiries,$potential_inquiries,$additional_inquiries,$client_ltv,$additional_annual_value,$source,$ip,$user_agent,$device_type,$geo_city,$geo_region,$geo_country]);
+    hc_q("INSERT INTO hc_calculator_submissions (name,email,phone,city,problem,monthly_visitors,current_rate,traffic_increase_pct,monthly_value_per_client,avg_length_months,current_inquiries,potential_inquiries,additional_inquiries,client_ltv,additional_annual_value,source_page,ip_address,user_agent,device_type,geo_city,geo_region,geo_country) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        [$name,$email,$phone,$city,$problem['label'],$visitors,$current_rate,$traffic_increase_pct,$monthly_value,$avg_length,$current_inquiries,$potential_inquiries,$additional_inquiries,$client_ltv,$additional_annual_value,$source,$ip,$user_agent,$device_type,$geo_city,$geo_region,$geo_country]);
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['success' => false, 'message' => 'Could not save your results. Please try again.']);
@@ -165,7 +170,7 @@ $subject_admin = "🧮 New growth calculator lead: {$name} — {$city}";
 $body_admin  = "New growth calculator submission:\n\n";
 $body_admin .= "Name: {$name}\nEmail: {$email}\nPhone: {$phone}\nCity: {$city}\n";
 $body_admin .= "Biggest challenge: {$problem['label']}\n\n";
-$body_admin .= "Monthly visitors: {$visitors}\nCurrent rate: {$current_rate}%\nTarget rate: {$target_rate}%\n";
+$body_admin .= "Monthly visitors: {$visitors}\nCurrent rate: {$current_rate}%\nPotential traffic increase: +{$traffic_increase_pct}%\n";
 $body_admin .= "Client value/mo: \${$monthly_value}, avg length: {$avg_length} months (LTV: \${$client_ltv})\n\n";
 $body_admin .= "Additional monthly inquiries: +{$additional_inquiries}\nAdditional annual opportunity: \$" . number_format($additional_annual_value) . "\n\n";
 $geo_str = trim(implode(', ', array_filter([$geo_city, $geo_region, $geo_country])));

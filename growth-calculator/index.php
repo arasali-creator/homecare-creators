@@ -43,17 +43,23 @@ $page_css = <<<CSS
 .res-delta{background:rgba(29,158,117,.08);border:1px solid rgba(29,158,117,.25);border-radius:12px;padding:16px;text-align:center;margin-bottom:22px}
 .res-delta-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;font-weight:700;color:var(--teal)}
 .res-delta-label{font-size:12.5px;color:var(--forest);font-weight:600;margin-top:4px}
-
 .res-breakdown{font-size:13.5px;color:var(--muted);line-height:2;background:var(--warm);border:1px dashed var(--border);border-radius:12px;padding:16px 18px;margin-bottom:20px}
 .res-breakdown strong{color:var(--forest)}
+.res-unlocked{text-align:center}
+.res-unlocked-eyebrow{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:6px}
+.res-unlocked-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(30px,5vw,42px);font-weight:700;color:var(--forest);margin-bottom:14px}
+.res-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;border:none;padding:14px 26px;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;transition:.2s}
+.res-cta-btn:hover{background:#178a64;transform:translateY(-2px)}
 
-.res-locked{border:2px dashed var(--border);border-radius:14px;padding:24px;text-align:center;background:var(--warm)}
-.res-locked i{font-size:28px;color:var(--muted);margin-bottom:10px;display:block}
-.res-locked-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--muted);letter-spacing:2px;margin-bottom:6px}
-.res-locked p{font-size:13.5px;color:var(--muted);margin-bottom:18px}
+/* Blur-until-unlocked wrapper */
+.results-wrap{position:relative}
+.blurred-preview{filter:blur(7px);user-select:none;pointer-events:none}
+.gate-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:rgba(255,255,255,.72)}
+.gate-overlay i{font-size:26px;color:var(--teal);margin-bottom:10px}
+.gate-overlay p{font-size:13.5px;color:var(--forest);font-weight:600;margin-bottom:16px;max-width:320px}
 
 /* Gate form */
-.gate-form{display:flex;flex-direction:column;gap:10px;text-align:left}
+.gate-form{display:flex;flex-direction:column;gap:10px;text-align:left;width:100%;max-width:340px}
 .gate-form input,.gate-form select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;background:#fff;transition:border-color .2s}
 .gate-form input:focus,.gate-form select:focus{border-color:var(--teal)}
 .gate-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -61,13 +67,6 @@ $page_css = <<<CSS
 .gate-submit:hover{box-shadow:0 8px 28px rgba(29,158,117,.4)}
 .gate-submit:disabled{opacity:.6;cursor:not-allowed}
 .gate-privacy{font-size:11.5px;color:var(--muted);text-align:center;margin-top:2px}
-
-/* Unlocked big number */
-.res-unlocked{text-align:center}
-.res-unlocked-eyebrow{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:6px}
-.res-unlocked-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(30px,5vw,42px);font-weight:700;color:var(--forest);margin-bottom:14px}
-.res-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;border:none;padding:14px 26px;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;transition:.2s}
-.res-cta-btn:hover{background:#178a64;transform:translateY(-2px)}
 
 /* CHECKLIST */
 .checklist-section{background:#fff;padding:56px 40px;border-top:1px solid var(--border)}
@@ -126,21 +125,22 @@ include '../includes/header.php';
 
       <div class="cf-group">
         <div class="cf-label-row">
-          <span class="cf-label">Current inquiry conversion rate</span>
+          <span class="cf-label">Current inquiry rate</span>
           <span class="cf-value"><input type="number" id="numCurrentRate" value="2" min="0.5" max="10" step="0.5"> %</span>
         </div>
         <input type="range" id="rngCurrentRate" min="0.5" max="10" step="0.5" value="2">
         <div class="cf-range-labels"><span>0.5%</span><span>10%</span></div>
-        <div class="cf-hint">% of visitors who contact you right now.</div>
+        <div class="cf-hint">% of visitors who contact you today — this is just a fact about where you are now, not something we're promising to change.</div>
       </div>
 
       <div class="cf-group">
         <div class="cf-label-row">
-          <span class="cf-label">Potential improved conversion rate</span>
-          <span class="cf-value"><input type="number" id="numTargetRate" value="4" min="1" max="15" step="0.5"> %</span>
+          <span class="cf-label">Potential additional visitors from SEO</span>
+          <span class="cf-value"><input type="number" id="numTraffic" value="75" min="0" max="200" step="5"> %</span>
         </div>
-        <input type="range" id="rngTargetRate" min="1" max="15" step="0.5" value="4">
-        <div class="cf-range-labels"><span>1%</span><span>15%</span></div>
+        <input type="range" id="rngTraffic" min="0" max="200" step="5" value="75">
+        <div class="cf-range-labels"><span>0%</span><span>200%</span></div>
+        <div class="cf-hint">More visitors finding your site through Google — a realistic range for agencies not yet ranking well. Your inquiry rate stays the same; you just get seen by more people.</div>
       </div>
 
       <div class="cf-group">
@@ -167,50 +167,74 @@ include '../includes/header.php';
     <div class="calc-card" data-reveal style="transition-delay:.1s">
       <div class="res-badge"><i class="fa-solid fa-chart-line"></i> Your Results</div>
 
-      <div class="res-stat-row">
-        <div class="res-stat"><div class="res-stat-num" id="outCurrent">10</div><div class="res-stat-label">Current monthly inquiries</div></div>
-        <div class="res-stat"><div class="res-stat-num" id="outPotential">20</div><div class="res-stat-label">Potential monthly inquiries</div></div>
-      </div>
+      <div class="results-wrap">
 
-      <div class="res-delta">
-        <div class="res-delta-num" id="outDelta">+10</div>
-        <div class="res-delta-label">Additional inquiries per month</div>
-      </div>
-
-      <div class="res-breakdown">
-        <strong id="brkDelta">+10</strong> extra inquiries/mo &times; 12 months = <strong id="brkYearClients">+120</strong> new clients/year<br>
-        &times; <strong id="brkLtv">$15,000</strong> average client lifetime value
-      </div>
-
-      <div id="lockedBox" class="res-locked">
-        <i class="fa-solid fa-lock"></i>
-        <div class="res-locked-num">$ --- , ---</div>
-        <p>Enter your info to unlock your exact annual opportunity + a free personalized recommendation.</p>
-        <form class="gate-form" id="gateForm">
-          <div class="hp-field" aria-hidden="true"><label for="gWebsite">Website</label><input type="text" id="gWebsite" tabindex="-1" autocomplete="off"></div>
-          <input type="text" id="gName" placeholder="Your name" autocomplete="name" required>
-          <div class="gate-row">
-            <input type="email" id="gEmail" placeholder="Email" autocomplete="email" required>
-            <input type="tel" id="gPhone" placeholder="Phone" autocomplete="tel" required>
+        <!-- Real results, hidden until unlocked -->
+        <div id="realResults" style="display:none">
+          <div class="res-stat-row">
+            <div class="res-stat"><div class="res-stat-num" id="outCurrent">0</div><div class="res-stat-label">Current monthly inquiries</div></div>
+            <div class="res-stat"><div class="res-stat-num" id="outPotential">0</div><div class="res-stat-label">Potential monthly inquiries</div></div>
           </div>
-          <input type="text" id="gCity" placeholder="City your agency serves" autocomplete="address-level2" required>
-          <select id="gProblem" required>
-            <option value="" disabled selected>What's your biggest challenge right now?</option>
-            <option value="seo">Not showing up on Google</option>
-            <option value="website">Website doesn't turn visitors into leads</option>
-            <option value="ai">Not showing up in AI search (ChatGPT, etc.)</option>
-            <option value="strategy">Not sure / need an overall strategy</option>
-          </select>
-          <button type="submit" class="gate-submit" id="gateSubmitBtn">Unlock My Full Report</button>
-          <div class="gate-privacy"><i class="fa-solid fa-lock" style="margin-right:4px"></i>100% private. No spam, ever.</div>
-        </form>
-      </div>
+          <div class="res-delta">
+            <div class="res-delta-num" id="outDelta">+0</div>
+            <div class="res-delta-label">Additional inquiries per month</div>
+          </div>
+          <div class="res-breakdown">
+            <strong id="brkDelta">+0</strong> extra inquiries/mo &times; 12 months = <strong id="brkYearClients">+0</strong> new clients/year<br>
+            &times; <strong id="brkLtv">$0</strong> average client lifetime value
+          </div>
+          <div class="res-unlocked">
+            <div class="res-unlocked-eyebrow">Your Estimated Annual Opportunity</div>
+            <div class="res-unlocked-num" id="unlockedNum">$0</div>
+            <p style="font-size:13.5px;color:var(--muted);margin-bottom:20px" id="unlockedProblem"></p>
+            <a href="#" id="unlockedCta" class="res-cta-btn">See How We Fix This &rarr;</a>
+          </div>
+        </div>
 
-      <div id="unlockedBox" class="res-unlocked" style="display:none">
-        <div class="res-unlocked-eyebrow">Your Estimated Annual Opportunity</div>
-        <div class="res-unlocked-num" id="unlockedNum">$0</div>
-        <p style="font-size:13.5px;color:var(--muted);margin-bottom:20px" id="unlockedProblem"></p>
-        <a href="#" id="unlockedCta" class="res-cta-btn">See How We Fix This &rarr;</a>
+        <!-- Blurred placeholder, visible until unlocked -->
+        <div id="blurredPreview" class="blurred-preview">
+          <div class="res-stat-row">
+            <div class="res-stat"><div class="res-stat-num">24</div><div class="res-stat-label">Current monthly inquiries</div></div>
+            <div class="res-stat"><div class="res-stat-num">48</div><div class="res-stat-label">Potential monthly inquiries</div></div>
+          </div>
+          <div class="res-delta">
+            <div class="res-delta-num">+24</div>
+            <div class="res-delta-label">Additional inquiries per month</div>
+          </div>
+          <div class="res-breakdown">
+            <strong>+24</strong> extra inquiries/mo &times; 12 months = <strong>+288</strong> new clients/year<br>
+            &times; <strong>$15,000</strong> average client lifetime value
+          </div>
+          <div class="res-unlocked">
+            <div class="res-unlocked-eyebrow">Your Estimated Annual Opportunity</div>
+            <div class="res-unlocked-num">$4,320,000</div>
+          </div>
+        </div>
+
+        <!-- Gate overlay -->
+        <div id="gateOverlay" class="gate-overlay">
+          <i class="fa-solid fa-lock"></i>
+          <p>Enter your info to unlock your full growth report + a free personalized recommendation.</p>
+          <form class="gate-form" id="gateForm">
+            <div class="hp-field" aria-hidden="true"><label for="gWebsite">Website</label><input type="text" id="gWebsite" tabindex="-1" autocomplete="off"></div>
+            <input type="text" id="gName" placeholder="Your name" autocomplete="name" required>
+            <div class="gate-row">
+              <input type="email" id="gEmail" placeholder="Email" autocomplete="email" required>
+              <input type="tel" id="gPhone" placeholder="Phone" autocomplete="tel" required>
+            </div>
+            <input type="text" id="gCity" placeholder="City your agency serves" autocomplete="address-level2" required>
+            <select id="gProblem" required>
+              <option value="" disabled selected>What's your biggest challenge right now?</option>
+              <option value="seo">Not showing up on Google</option>
+              <option value="website">Website doesn't turn visitors into leads</option>
+              <option value="ai">Not showing up in AI search (ChatGPT, etc.)</option>
+              <option value="strategy">Not sure / need an overall strategy</option>
+            </select>
+            <button type="submit" class="gate-submit" id="gateSubmitBtn">Unlock My Full Report</button>
+            <div class="gate-privacy"><i class="fa-solid fa-lock" style="margin-right:4px"></i>100% private. No spam, ever.</div>
+          </form>
+        </div>
+
       </div>
     </div>
 
@@ -253,34 +277,34 @@ var lastResults = null;
 function calc() {
   var visitors = parseFloat(document.getElementById('numVisitors').value) || 0;
   var currentRate = parseFloat(document.getElementById('numCurrentRate').value) || 0;
-  var targetRate = parseFloat(document.getElementById('numTargetRate').value) || 0;
+  var trafficPct = parseFloat(document.getElementById('numTraffic').value) || 0;
   var value = parseFloat(document.getElementById('numValue').value) || 0;
   var length = parseFloat(document.getElementById('numLength').value) || 0;
 
   var current = Math.round(visitors * currentRate / 100);
-  var potential = Math.round(visitors * targetRate / 100);
+  var projectedVisitors = visitors * (1 + trafficPct / 100);
+  var potential = Math.round(projectedVisitors * currentRate / 100);
   var delta = Math.max(0, potential - current);
   var ltv = Math.round(value * length);
   var yearClients = delta * 12;
   var annualOpportunity = yearClients * ltv;
 
-  document.getElementById('outCurrent').textContent = current.toLocaleString();
-  document.getElementById('outPotential').textContent = potential.toLocaleString();
-  document.getElementById('outDelta').textContent = '+' + delta.toLocaleString();
-  document.getElementById('brkDelta').textContent = '+' + delta.toLocaleString();
-  document.getElementById('brkYearClients').textContent = '+' + yearClients.toLocaleString();
-  document.getElementById('brkLtv').textContent = '\$' + ltv.toLocaleString();
-
-  lastResults = { visitors: visitors, current_rate: currentRate, target_rate: targetRate, monthly_value_per_client: value, avg_length_months: length, _preview_annual: annualOpportunity };
+  lastResults = { visitors: visitors, current_rate: currentRate, traffic_increase_pct: trafficPct, monthly_value_per_client: value, avg_length_months: length };
 
   if (unlocked) {
+    document.getElementById('outCurrent').textContent = current.toLocaleString();
+    document.getElementById('outPotential').textContent = potential.toLocaleString();
+    document.getElementById('outDelta').textContent = '+' + delta.toLocaleString();
+    document.getElementById('brkDelta').textContent = '+' + delta.toLocaleString();
+    document.getElementById('brkYearClients').textContent = '+' + yearClients.toLocaleString();
+    document.getElementById('brkLtv').textContent = '\$' + ltv.toLocaleString();
     document.getElementById('unlockedNum').textContent = '\$' + annualOpportunity.toLocaleString();
   }
 }
 
 syncPair('rngVisitors', 'numVisitors', calc);
 syncPair('rngCurrentRate', 'numCurrentRate', calc);
-syncPair('rngTargetRate', 'numTargetRate', calc);
+syncPair('rngTraffic', 'numTraffic', calc);
 syncPair('rngValue', 'numValue', calc);
 syncPair('rngLength', 'numLength', calc);
 calc();
@@ -318,7 +342,7 @@ document.getElementById('gateForm').addEventListener('submit', function(e) {
       name: name, email: email, phone: phone, city: city, problem: problem,
       monthly_visitors: lastResults.visitors,
       current_rate: lastResults.current_rate,
-      target_rate: lastResults.target_rate,
+      traffic_increase_pct: lastResults.traffic_increase_pct,
       monthly_value_per_client: lastResults.monthly_value_per_client,
       avg_length_months: lastResults.avg_length_months,
       source: window.location.pathname,
@@ -329,13 +353,21 @@ document.getElementById('gateForm').addEventListener('submit', function(e) {
   .then(function(d){
     if (d.success) {
       unlocked = true;
-      document.getElementById('lockedBox').style.display = 'none';
-      document.getElementById('unlockedBox').style.display = 'block';
+      document.getElementById('gateOverlay').style.display = 'none';
+      document.getElementById('blurredPreview').style.display = 'none';
+      document.getElementById('realResults').style.display = 'block';
+
+      document.getElementById('outCurrent').textContent = d.results.current_inquiries.toLocaleString();
+      document.getElementById('outPotential').textContent = d.results.potential_inquiries.toLocaleString();
+      document.getElementById('outDelta').textContent = '+' + d.results.additional_inquiries.toLocaleString();
+      document.getElementById('brkDelta').textContent = '+' + d.results.additional_inquiries.toLocaleString();
+      document.getElementById('brkYearClients').textContent = '+' + (d.results.additional_inquiries * 12).toLocaleString();
+      document.getElementById('brkLtv').textContent = '\$' + Math.round(d.results.client_ltv).toLocaleString();
       document.getElementById('unlockedNum').textContent = '\$' + Math.round(d.results.additional_annual_value).toLocaleString();
+
       var pc = problemCtas[problem] || problemCtas.strategy;
       document.getElementById('unlockedProblem').textContent = pc.label;
-      var cta = document.getElementById('unlockedCta');
-      cta.href = pc.url;
+      document.getElementById('unlockedCta').href = pc.url;
     } else {
       alert(d.message || 'Something went wrong. Please try again.');
       btn.disabled = false;
