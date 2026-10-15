@@ -24,20 +24,21 @@ $name    = strip_tags(trim($data['name']  ?? ''));
 $email   = filter_var(trim($data['email'] ?? ''), FILTER_SANITIZE_EMAIL);
 $phone   = strip_tags(trim($data['phone'] ?? ''));
 $city    = strip_tags(trim($data['city']  ?? ''));
+$website = filter_var(trim($data['website'] ?? ''), FILTER_SANITIZE_URL);
 $problem_key = strip_tags(trim($data['problem'] ?? ''));
 
-$visitors = (int)($data['monthly_visitors'] ?? 0);
-$current_rate = (float)($data['current_rate'] ?? 0);
-$traffic_increase_pct = (float)($data['traffic_increase_pct'] ?? 0);
+$monthly_inquiries = (int)($data['monthly_inquiries'] ?? 0);
+$close_rate = (float)($data['close_rate'] ?? 0);
+$additional_inquiries_target = (int)($data['additional_inquiries_target'] ?? 0);
 $monthly_value = (float)($data['monthly_value_per_client'] ?? 0);
 $avg_length    = (float)($data['avg_length_months'] ?? 0);
 
-if (empty($name) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($phone) || empty($city) || empty($problem_key)) {
+if (empty($name) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($phone) || empty($city) || empty($website) || empty($problem_key)) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Name, email, phone, city, and your biggest challenge are all required.']);
+    echo json_encode(['success' => false, 'message' => 'Name, email, phone, city, website, and your biggest challenge are all required.']);
     exit;
 }
-if ($visitors <= 0 || $current_rate < 0 || $traffic_increase_pct < 0 || $monthly_value <= 0 || $avg_length <= 0) {
+if ($monthly_inquiries <= 0 || $close_rate <= 0 || $additional_inquiries_target < 0 || $monthly_value <= 0 || $avg_length <= 0) {
     http_response_code(400);
     echo json_encode(['success' => false, 'message' => 'Please fill in valid numbers for every calculator field.']);
     exit;
@@ -52,14 +53,14 @@ $problems = [
 $problem = $problems[$problem_key] ?? $problems['strategy'];
 
 // ── Server-side calculation (never trust client-computed numbers) ──
-// Traffic-based model: SEO drives more visitors; the agency's own inquiry
-// rate is held constant rather than claiming we'll change how they convert.
-$current_inquiries   = (int)round($visitors * $current_rate / 100);
-$projected_visitors   = $visitors * (1 + $traffic_increase_pct / 100);
-$potential_inquiries  = (int)round($projected_visitors * $current_rate / 100);
-$additional_inquiries = max(0, $potential_inquiries - $current_inquiries);
+// Inquiry/close-rate model: the agency's own close rate (inquiry-to-client)
+// is held constant -- that's their intake process, not something a
+// marketing agency controls. The lever is purely more inquiries.
+$current_clients   = (int)round($monthly_inquiries * $close_rate / 100);
+$potential_clients = (int)round(($monthly_inquiries + $additional_inquiries_target) * $close_rate / 100);
+$additional_clients = max(0, $potential_clients - $current_clients);
 $client_ltv           = round($monthly_value * $avg_length, 2);
-$additional_annual_value = round($additional_inquiries * 12 * $client_ltv, 2);
+$additional_annual_value = round($additional_clients * 12 * $client_ltv, 2);
 
 try {
     require_once __DIR__ . '/admin/config.php';
@@ -79,10 +80,11 @@ try {
         email VARCHAR(255) NOT NULL,
         phone VARCHAR(50) NOT NULL,
         city VARCHAR(100) NOT NULL,
+        website VARCHAR(500) NOT NULL,
         problem VARCHAR(100) NOT NULL,
-        monthly_visitors INT NOT NULL,
-        current_rate DECIMAL(5,2) NOT NULL,
-        traffic_increase_pct DECIMAL(6,2) NOT NULL,
+        monthly_inquiries INT NOT NULL,
+        close_rate DECIMAL(5,2) NOT NULL,
+        additional_inquiries_target INT NOT NULL,
         monthly_value_per_client DECIMAL(10,2) NOT NULL,
         avg_length_months DECIMAL(6,2) NOT NULL,
         current_inquiries INT NOT NULL,
@@ -102,8 +104,12 @@ try {
         KEY idx_status (status)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 } catch(Exception $e){}
-// Migrate older deployments that still have the retired target_rate column
-try { hc_db()->exec("ALTER TABLE hc_calculator_submissions CHANGE COLUMN target_rate traffic_increase_pct DECIMAL(6,2) NOT NULL"); } catch (Exception $e) {}
+// Migrate older deployments through each prior schema generation (all best-effort/no-ops if not applicable)
+try { hc_db()->exec("ALTER TABLE hc_calculator_submissions CHANGE COLUMN target_rate additional_inquiries_target INT NOT NULL"); } catch (Exception $e) {}
+try { hc_db()->exec("ALTER TABLE hc_calculator_submissions CHANGE COLUMN traffic_increase_pct additional_inquiries_target INT NOT NULL"); } catch (Exception $e) {}
+try { hc_db()->exec("ALTER TABLE hc_calculator_submissions CHANGE COLUMN monthly_visitors monthly_inquiries INT NOT NULL"); } catch (Exception $e) {}
+try { hc_db()->exec("ALTER TABLE hc_calculator_submissions CHANGE COLUMN current_rate close_rate DECIMAL(5,2) NOT NULL"); } catch (Exception $e) {}
+try { hc_db()->exec("ALTER TABLE hc_calculator_submissions ADD COLUMN website VARCHAR(500) NOT NULL DEFAULT ''"); } catch (Exception $e) {}
 
 // ── Visitor context ──────────────────────────────────────────
 $ip = trim(explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'] ?? '')[0]) ?: ($_SERVER['REMOTE_ADDR'] ?? '');
@@ -130,8 +136,8 @@ if ($ip && !$is_private_ip) {
 $source = strip_tags(trim($data['source'] ?? '/growth-calculator/'));
 
 try {
-    hc_q("INSERT INTO hc_calculator_submissions (name,email,phone,city,problem,monthly_visitors,current_rate,traffic_increase_pct,monthly_value_per_client,avg_length_months,current_inquiries,potential_inquiries,additional_inquiries,client_ltv,additional_annual_value,source_page,ip_address,user_agent,device_type,geo_city,geo_region,geo_country) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-        [$name,$email,$phone,$city,$problem['label'],$visitors,$current_rate,$traffic_increase_pct,$monthly_value,$avg_length,$current_inquiries,$potential_inquiries,$additional_inquiries,$client_ltv,$additional_annual_value,$source,$ip,$user_agent,$device_type,$geo_city,$geo_region,$geo_country]);
+    hc_q("INSERT INTO hc_calculator_submissions (name,email,phone,city,website,problem,monthly_inquiries,close_rate,additional_inquiries_target,monthly_value_per_client,avg_length_months,current_inquiries,potential_inquiries,additional_inquiries,client_ltv,additional_annual_value,source_page,ip_address,user_agent,device_type,geo_city,geo_region,geo_country) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        [$name,$email,$phone,$city,$website,$problem['label'],$monthly_inquiries,$close_rate,$additional_inquiries_target,$monthly_value,$avg_length,$current_clients,$potential_clients,$additional_clients,$client_ltv,$additional_annual_value,$source,$ip,$user_agent,$device_type,$geo_city,$geo_region,$geo_country]);
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['success' => false, 'message' => 'Could not save your results. Please try again.']);
@@ -151,28 +157,28 @@ $html_lead = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body styl
     . '<tr><td style="padding:28px 36px">'
     . '<p style="font-size:15px;color:#1a1a14;line-height:1.7">Based on what you entered, here\'s your estimated opportunity:</p>'
     . '<div style="background:#f8faf8;border-left:3px solid #1d9e75;border-radius:0 8px 8px 0;padding:16px 20px;margin:16px 0">'
-    . '<div style="font-size:13px;color:#6b7b6e;margin-bottom:4px">Additional monthly inquiries</div>'
-    . '<div style="font-size:20px;font-weight:700;color:#0a2e1e;margin-bottom:12px">+' . $additional_inquiries . '</div>'
+    . '<div style="font-size:13px;color:#6b7b6e;margin-bottom:4px">Additional clients per month</div>'
+    . '<div style="font-size:20px;font-weight:700;color:#0a2e1e;margin-bottom:12px">+' . $additional_clients . '</div>'
     . '<div style="font-size:13px;color:#6b7b6e;margin-bottom:4px">Additional annual opportunity</div>'
     . '<div style="font-size:24px;font-weight:700;color:#1d9e75">$' . number_format($additional_annual_value) . '</div>'
     . '</div>'
     . '<p style="font-size:14px;color:#6b7b6e;line-height:1.7">These are estimates based on the numbers you provided, not a guarantee. The biggest lever for agencies like yours is usually: <strong>' . htmlspecialchars($problem['label']) . '</strong>.</p>'
-    . '<div style="text-align:center;margin-top:24px"><a href="' . htmlspecialchars($cta_url) . '" style="display:inline-block;background:#1d9e75;color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-weight:700;font-size:14px">See How We Fix This &rarr;</a></div>'
+    . '<div style="text-align:center;margin-top:24px"><a href="' . htmlspecialchars($cta_url) . '" style="display:inline-block;background:#1d9e75;color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-weight:700;font-size:14px">Claim My Discounted Audit &rarr;</a></div>'
     . '</td></tr>'
     . '<tr><td style="background:#f8faf8;padding:18px 36px;text-align:center;font-size:12px;color:#9ca3af">Homecare Creators &middot; homecarecreators.com</td></tr>'
     . '</table></td></tr></table></body></html>';
 
 $notification_email = hc_setting('notification_email', 'info@homecarecreators.com');
-HcMailer::send($email, $subject_lead, "Hi {$name},\n\nYour estimated additional monthly inquiries: +{$additional_inquiries}\nYour estimated additional annual opportunity: $" . number_format($additional_annual_value) . "\n\nSee how we help: {$cta_url}\n\n— Homecare Creators", $notification_email, '', $html_lead);
+HcMailer::send($email, $subject_lead, "Hi {$name},\n\nYour estimated additional clients per month: +{$additional_clients}\nYour estimated additional annual opportunity: $" . number_format($additional_annual_value) . "\n\nSee how we help: {$cta_url}\n\n— Homecare Creators", $notification_email, '', $html_lead);
 
 // ── Notify admin ──────────────────────────────────────────────
 $subject_admin = "🧮 New growth calculator lead: {$name} — {$city}";
 $body_admin  = "New growth calculator submission:\n\n";
-$body_admin .= "Name: {$name}\nEmail: {$email}\nPhone: {$phone}\nCity: {$city}\n";
+$body_admin .= "Name: {$name}\nEmail: {$email}\nPhone: {$phone}\nCity: {$city}\nWebsite: {$website}\n";
 $body_admin .= "Biggest challenge: {$problem['label']}\n\n";
-$body_admin .= "Monthly visitors: {$visitors}\nCurrent rate: {$current_rate}%\nPotential traffic increase: +{$traffic_increase_pct}%\n";
+$body_admin .= "Monthly inquiries: {$monthly_inquiries}\nClose rate: {$close_rate}%\nAdditional inquiries target: +{$additional_inquiries_target}\n";
 $body_admin .= "Client value/mo: \${$monthly_value}, avg length: {$avg_length} months (LTV: \${$client_ltv})\n\n";
-$body_admin .= "Additional monthly inquiries: +{$additional_inquiries}\nAdditional annual opportunity: \$" . number_format($additional_annual_value) . "\n\n";
+$body_admin .= "Additional clients per month: +{$additional_clients}\nAdditional annual opportunity: \$" . number_format($additional_annual_value) . "\n\n";
 $geo_str = trim(implode(', ', array_filter([$geo_city, $geo_region, $geo_country])));
 if ($geo_str) $body_admin .= "Location: {$geo_str}\n";
 $body_admin .= "Device: {$device_type}\n\nView all leads: https://homecarecreators.com/admin/calculator-leads.php\n";
@@ -182,9 +188,9 @@ HcMailer::send($notification_email, $subject_admin, $body_admin, $email);
 echo json_encode([
     'success' => true,
     'results' => [
-        'current_inquiries'   => $current_inquiries,
-        'potential_inquiries' => $potential_inquiries,
-        'additional_inquiries'=> $additional_inquiries,
+        'current_clients'   => $current_clients,
+        'potential_clients' => $potential_clients,
+        'additional_clients'=> $additional_clients,
         'client_ltv'          => $client_ltv,
         'additional_annual_value' => $additional_annual_value,
         'cta_url'             => $problem['url'],
