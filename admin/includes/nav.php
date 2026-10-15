@@ -3,6 +3,8 @@ $new_submissions = 0;
 try { $new_submissions = (int)hc_val("SELECT COUNT(*) FROM hc_form_submissions WHERE status='new'"); } catch(Exception $e){}
 $pending_listings = 0;
 try { $pending_listings = (int)hc_val("SELECT COUNT(*) FROM hc_directory_listings WHERE status='pending'"); } catch(Exception $e){}
+$new_calc_leads = 0;
+try { $new_calc_leads = (int)hc_val("SELECT COUNT(*) FROM hc_calculator_submissions WHERE status='new'"); } catch(Exception $e){}
 $cur = $_SERVER['REQUEST_URI'] ?? '';
 
 function is_active(string ...$paths): bool {
@@ -35,6 +37,11 @@ function is_active(string ...$paths): bool {
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       Directory
       <?php if ($pending_listings > 0): ?><span class="badge badge-red" style="margin-left:auto;font-size:9px"><?= $pending_listings ?></span><?php endif ?>
+    </a>
+    <a href="/admin/calculator-leads.php" class="nav-item <?= is_active('calculator-leads') ? 'active' : '' ?>">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="9" y2="11"/><line x1="12" y1="11" x2="13" y2="11"/><line x1="16" y1="11" x2="17" y2="11"/><line x1="8" y1="15" x2="9" y2="15"/><line x1="12" y1="15" x2="13" y2="15"/></svg>
+      Growth Calculator
+      <?php if ($new_calc_leads > 0): ?><span class="badge badge-red" style="margin-left:auto;font-size:9px"><?= $new_calc_leads ?></span><?php endif ?>
     </a>
     <!-- Blog toggle -->
     <div class="nav-item nav-toggle <?= is_active('/admin/blog') ? 'open' : '' ?>" onclick="toggleNav(this)">

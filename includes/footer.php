@@ -30,6 +30,7 @@
         <li><a href="/events/">Events</a></li>
         <li><a href="/blog">Marketing Blog</a></li>
         <li><a href="/directory/">Agency Directory</a></li>
+        <li><a href="/growth-calculator/">Growth Calculator</a></li>
       </ul>
     </div>
     <div>
