@@ -121,6 +121,7 @@ nav.scrolled{height:62px;background:rgba(8,36,22,.97);box-shadow:0 4px 32px rgba
 .mega-menu,.simple-menu{display:none;position:absolute;top:100%;margin-top:14px;background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 28px rgba(10,46,30,.1);z-index:10;overflow:hidden}
 .nav-dropdown:hover .mega-menu,.nav-dropdown.open .mega-menu{display:flex}
 .nav-dropdown:hover .simple-menu,.nav-dropdown.open .simple-menu{display:flex}
+.nav-dropdown:hover .services-mobile-menu,.nav-dropdown.open .services-mobile-menu{display:none}
 /* invisible bridge over the margin-top gap so hover never breaks */
 .nav-dropdown::after{content:'';position:absolute;top:100%;left:0;right:0;height:14px}
 
@@ -294,21 +295,17 @@ footer{background:var(--forest);padding:28px}
   .nav-links a{display:block;padding:14px 16px;font-size:15px}
   .nav-hamburger{display:block;min-width:44px;min-height:44px}
 
-  /* Dropdowns become inline accordions inside the mobile menu */
+  /* Dropdowns become inline accordions inside the mobile menu. Services
+     shows the plain link list (like Resources) instead of the full
+     mega menu, which is too dense for a touch accordion. */
   .nav-dropdown:hover .mega-menu,.nav-dropdown:hover .simple-menu{display:none}
-  .mega-menu,.simple-menu{position:static;transform:none;width:auto;max-width:none;min-width:0;box-shadow:none;border:none;background:rgba(255,255,255,.04);margin-top:4px;border-radius:8px}
-  .mega-menu-links{flex-direction:column;gap:18px;padding:12px;width:auto}
-  .mega-primary{width:auto}
-  .mega-divider{display:none}
-  .mega-quick-cols{flex-direction:column;gap:18px;width:auto}
-  .mega-col{width:auto}
-  .mega-featured{display:none}
-  .simple-menu{padding:8px;width:auto}
-  .mega-col-title{margin-bottom:6px;color:var(--teal-lt)}
-  .mega-col a,.simple-menu a,.mega-primary a{color:rgba(255,255,255,.85)}
-  .mega-primary a .mega-item-title,.simple-menu a .mega-item-title{color:#fff}
-  .mega-primary a .mega-item-desc,.simple-menu a .mega-item-desc{color:rgba(255,255,255,.5)}
-  .mega-primary a .mega-icon,.simple-menu a .mega-icon{background:rgba(255,255,255,.1);color:var(--teal-lt)}
+  .nav-dropdown.open .mega-menu{display:none}
+  .nav-dropdown.open .services-mobile-menu{display:flex}
+  .simple-menu{position:static;transform:none;width:auto;max-width:none;min-width:0;box-shadow:none;border:none;background:rgba(255,255,255,.04);margin-top:4px;border-radius:8px;padding:8px}
+  .simple-menu a{color:rgba(255,255,255,.85)}
+  .simple-menu a .mega-item-title{color:#fff}
+  .simple-menu a .mega-item-desc{color:rgba(255,255,255,.5)}
+  .simple-menu a .mega-icon{background:rgba(255,255,255,.1);color:var(--teal-lt)}
 }
 @media(max-width:900px){
   .footer-card{padding:48px 36px 0;border-radius:28px}
@@ -473,6 +470,24 @@ try {
           <p>See how many more clients your agency's website could be missing — free, 60-second estimate.</p>
           <a href="/growth-calculator/" class="featured-cta">Try It Free &rarr;</a>
         </div>
+      </div>
+      <div class="simple-menu services-mobile-menu">
+        <a href="/seo/home-care-seo/">
+          <div class="mega-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <div><div class="mega-item-title">Home Care SEO</div><div class="mega-item-desc">Rank higher on Google Maps and local search.</div></div>
+        </a>
+        <a href="/web-design/homecare-website-design/">
+          <div class="mega-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <div><div class="mega-item-title">Website Design</div><div class="mega-item-desc">Conversion-focused sites that turn visitors into inquiries.</div></div>
+        </a>
+        <a href="/ai-search-seo/">
+          <div class="mega-icon"><i class="fa-solid fa-brain"></i></div>
+          <div><div class="mega-item-title">AI Search SEO (GEO)</div><div class="mega-item-desc">Get found in ChatGPT, Google AI, and beyond.</div></div>
+        </a>
+        <a href="/ai-automation/">
+          <div class="mega-icon"><i class="fa-solid fa-gears"></i></div>
+          <div><div class="mega-item-title">AI &amp; Automation</div><div class="mega-item-desc">AI chat, automated follow-ups, and scheduling.</div></div>
+        </a>
       </div>
     </li>
     <li><a href="/case-studies/">Case Studies</a></li>
