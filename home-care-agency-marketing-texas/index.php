@@ -81,7 +81,7 @@ $page_css = <<<CSS
 .metro-card p{font-size:14.5px;line-height:1.7;color:var(--muted)}
 
 /* CTA CARD (reused for mid + final CTA) */
-.cta-section{background:#fff;padding:72px 24px}
+.cta-section{background:#fff;padding:0 24px 72px}
 .cta-card{position:relative;max-width:1100px;margin:0 auto;background:var(--forest);border-radius:36px;padding:64px 48px;text-align:center;overflow:hidden}
 .cta-card::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.07) 1px,transparent 1px);background-size:50px 50px}
 .cta-card-inner{position:relative;z-index:2;max-width:620px;margin:0 auto}
