@@ -15,7 +15,7 @@ $page_css = <<<CSS
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
 .hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(26px,2.6vw,40px);line-height:1.18;margin:0;animation:fadeUp .8s .1s ease both;white-space:nowrap}
 .hero-h1-line1{display:block;color:#fff}
-.hero-rotator{position:relative;width:100%;height:1.25em;margin-top:14px;overflow:hidden}
+.hero-rotator{display:block;position:relative;width:100%;height:1.25em;margin-top:14px;overflow:hidden}
 .hero-rotator-word{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;color:var(--teal-lt);opacity:0;transform:translateY(45%);transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .4s ease}
 .hero-rotator-word.is-active{opacity:1;transform:translateY(0)}
 .hero-rotator-word.is-leaving{opacity:0;transform:translateY(-45%)}
