@@ -17,6 +17,14 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- State location pages -->
+  <url>
+    <loc>https://homecarecreators.com/home-care-agency-marketing-texas/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Service pages -->
   <url>
     <loc>https://homecarecreators.com/web-design/homecare-website-design/</loc>

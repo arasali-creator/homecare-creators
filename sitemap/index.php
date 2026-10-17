@@ -39,7 +39,7 @@ $_label_map = [
     'senior-living-marketing'   => 'Senior Care Marketing',
     'assisted-living-marketing' => 'Senior Care Marketing',
 ];
-$_preferred_order = ['Main Pages','Company','Services','Senior Care Marketing','Products','Content','Blog Posts','Tools',
+$_preferred_order = ['Main Pages','Company','Services','State Location Pages','Senior Care Marketing','Products','Content','Blog Posts','Tools',
     'Case Studies','Directory','Events','Florida SEO City Pages','Florida Web Design City Pages'];
 
 try {
@@ -58,9 +58,12 @@ try {
             [$rawPrefix] = explode(' › ', $p['name'], 2);
             $prefix = strtolower(str_replace(' ', '-', $rawPrefix));
         }
-        $group = $prefix !== null
-            ? ($_label_map[$prefix] ?? ucwords(str_replace('-', ' ', $prefix)))
-            : 'Main Pages';
+        $group = 'Main Pages';
+        if ($prefix !== null && str_starts_with($prefix, 'home-care-agency-marketing-')) {
+            $group = 'State Location Pages';
+        } elseif ($prefix !== null) {
+            $group = $_label_map[$prefix] ?? ucwords(str_replace('-', ' ', $prefix));
+        }
 
         $_sitemap_groups[$group][] = ['url' => $url, 'title' => $title ?: $p['name']];
     }
