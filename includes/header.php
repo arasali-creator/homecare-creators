@@ -233,7 +233,7 @@ footer{background:var(--forest);padding:28px}
 .footer-subscribe button{width:40px;height:40px;border-radius:50%;background:var(--forest);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:.2s}
 .footer-subscribe button:hover{background:var(--teal)}
 
-.footer-groups{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.footer-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .footer-group-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
 .footer-links a{font-size:14px;color:var(--forest);text-decoration:none;transition:opacity .15s}
@@ -451,21 +451,13 @@ try {
           </div>
           <div class="mega-divider"></div>
           <div class="mega-quick-cols">
-            <div class="mega-col">
+            <div class="mega-col" style="width:100%">
               <div class="mega-col-title">Senior Care Marketing</div>
               <a href="/memory-care-marketing/">Memory Care</a>
               <a href="/hospice-marketing/">Hospice</a>
               <a href="/nursing-home-marketing/">Nursing Homes</a>
               <a href="/senior-living-marketing/">Senior Living</a>
               <a href="/assisted-living-marketing/">Assisted Living</a>
-            </div>
-            <div class="mega-col">
-              <div class="mega-col-title">Florida Cities</div>
-              <a href="/home-care-agency-seo-miami-fl/">Miami</a>
-              <a href="/home-care-agency-seo-orlando-fl/">Orlando</a>
-              <a href="/home-care-agency-seo-tampa-fl/">Tampa</a>
-              <a href="/home-care-agency-seo-jacksonville-fl/">Jacksonville</a>
-              <a href="/areas-we-serve/" class="view-all">View All Cities &rarr;</a>
             </div>
           </div>
         </div>

@@ -31,47 +31,26 @@
           <ul class="footer-links">
             <li><a href="/about/">About Us</a></li>
             <li><a href="/contact/">Contact</a></li>
+            <li><a href="/case-studies/">Case Studies</a></li>
+            <li><a href="/events/">Events</a></li>
+            <li><a href="/blog">Marketing Blog</a></li>
+            <li><a href="/sitemap/">Sitemap</a></li>
+          </ul>
+        </div>
+        <div class="footer-group" data-reveal style="transition-delay:.1s">
+          <div class="footer-group-title">Services</div>
+          <ul class="footer-links">
             <li><a href="/seo/home-care-seo/">Home Care SEO</a></li>
             <li><a href="/web-design/homecare-website-design/">Website Design</a></li>
             <li><a href="/ai-search-seo/">AI Search SEO</a></li>
             <li><a href="/ai-automation/">AI &amp; Automation</a></li>
             <li><a href="/#bundles">Pricing &amp; Packages</a></li>
             <li><a href="/products/">Products</a></li>
-            <li><a href="/case-studies/">Case Studies</a></li>
-            <li><a href="/events/">Events</a></li>
-            <li><a href="/blog">Marketing Blog</a></li>
             <li><a href="/directory/">Agency Directory</a></li>
             <li><a href="/growth-calculator/">Growth Calculator</a></li>
-            <li><a href="/sitemap/">Sitemap</a></li>
-          </ul>
-        </div>
-        <div class="footer-group" data-reveal style="transition-delay:.1s">
-          <div class="footer-group-title">Florida Cities</div>
-          <ul class="footer-links">
-            <li><a href="/home-care-agency-seo-miami-fl/">Miami</a></li>
-            <li><a href="/home-care-agency-seo-orlando-fl/">Orlando</a></li>
-            <li><a href="/home-care-agency-seo-sarasota-fl/">Sarasota</a></li>
-            <li><a href="/home-care-agency-seo-jacksonville-fl/">Jacksonville</a></li>
-            <li><a href="/home-care-agency-seo-fort-lauderdale-fl/">Fort Lauderdale</a></li>
-            <li><a href="/home-care-agency-seo-naples-fl/">Naples</a></li>
-            <li><a href="/home-care-agency-seo-west-palm-beach-fl/">West Palm Beach</a></li>
-            <li><a href="/home-care-agency-seo-boca-raton-fl/">Boca Raton</a></li>
-            <li><a href="/home-care-agency-seo-clearwater-fl/">Clearwater</a></li>
-            <li><a href="/home-care-agency-seo-tampa-fl/">Tampa</a></li>
           </ul>
         </div>
         <div class="footer-group" data-reveal style="transition-delay:.15s">
-          <div class="footer-group-title">Web Design Cities</div>
-          <ul class="footer-links">
-            <li><a href="/homecare-website-design-miami-fl/">Miami Web Design</a></li>
-            <li><a href="/homecare-website-design-orlando-fl/">Orlando Web Design</a></li>
-            <li><a href="/homecare-website-design-tampa-fl/">Tampa Web Design</a></li>
-            <li><a href="/homecare-website-design-jacksonville-fl/">Jacksonville Web Design</a></li>
-            <li><a href="/homecare-website-design-fort-lauderdale-fl/">Fort Lauderdale Web Design</a></li>
-            <li><a href="/homecare-website-design-naples-fl/">Naples Web Design</a></li>
-          </ul>
-        </div>
-        <div class="footer-group" data-reveal style="transition-delay:.2s">
           <div class="footer-group-title">Get In Touch</div>
           <ul class="footer-links" style="margin-bottom:16px">
             <li><a href="/memory-care-marketing/">Memory Care</a></li>
