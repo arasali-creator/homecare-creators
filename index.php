@@ -1297,6 +1297,22 @@ try {
             </div>
           </div>
           <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa-brands fa-instagram"></i></div>
+            <div>
+              <div class="contact-detail-label">Instagram</div>
+              <div class="contact-detail-value"><a href="https://www.instagram.com/homecare_creators/"
+                  target="_blank" rel="noopener">@homecare_creators</a></div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa-brands fa-facebook-f"></i></div>
+            <div>
+              <div class="contact-detail-label">Facebook</div>
+              <div class="contact-detail-value"><a href="https://web.facebook.com/people/Homecare-Creators/61594535490703/"
+                  target="_blank" rel="noopener">Homecare Creators</a></div>
+            </div>
+          </div>
+          <div class="contact-detail">
             <div class="contact-detail-icon"><i class="fa-solid fa-clock"></i></div>
             <div>
               <div class="contact-detail-label">Response Time</div>

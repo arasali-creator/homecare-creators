@@ -47,6 +47,8 @@ if ($run) {
     $kg_links = [
         'LinkedIn (Company)' => 'https://www.linkedin.com/company/homecare-creators/',
         'LinkedIn (Founder — Asifa Rani)' => 'https://www.linkedin.com/in/asifa-rani/',
+        'Instagram' => 'https://www.instagram.com/homecare_creators/',
+        'Facebook' => 'https://web.facebook.com/people/Homecare-Creators/61594535490703/',
     ];
     foreach ($kg_links as $platform => $url) {
         hc_q("INSERT IGNORE INTO hc_kg_links (platform,url) VALUES (?,?)", [$platform, $url]);

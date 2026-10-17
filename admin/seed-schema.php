@@ -91,7 +91,11 @@ if ($run) {
             ['@type'=>'Offer','itemOffered'=>['@type'=>'Service','name'=>'AI Search & GEO Optimization']],
             ['@type'=>'Offer','itemOffered'=>['@type'=>'Service','name'=>'Google Maps 3-Pack Ranking']],
         ]],
-        'sameAs' => ['https://www.linkedin.com/company/homecare-creators/'],
+        'sameAs' => [
+            'https://www.linkedin.com/company/homecare-creators/',
+            'https://www.instagram.com/homecare_creators/',
+            'https://web.facebook.com/people/Homecare-Creators/61594535490703/',
+        ],
     ]);
     $log[] = '✓ / → MarketingAgency';
 
