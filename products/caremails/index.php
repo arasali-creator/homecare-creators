@@ -1,48 +1,49 @@
 <?php
 $page_title = "CareMails — Email Built for Home Care Teams | Homecare Creators";
-$page_desc = "CareMails is an all-in-one email system for home care agencies — one shared inbox for family communication and staff coordination, with templates built for home care. Coming soon.";
+$page_desc = "CareMails is an all-in-one email system for home care agencies — one shared inbox for family communication and staff coordination, with templates built for home care.";
 $page_canonical = "https://homecarecreators.com/products/caremails/";
 $og_title = "CareMails — Email Built for Home Care Teams";
-$og_desc = "One shared inbox for family updates and staff coordination, built specifically for home care agencies. Join the waitlist.";
+$og_desc = "One shared inbox for family updates and staff coordination, built specifically for home care agencies.";
 $page_css = <<<CSS
-/* HERO */
-.hero{min-height:40vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:140px 40px 60px}
-.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 30% 50%,black 20%,transparent 80%)}
-.hero-inner{position:relative;z-index:2;max-width:760px;margin:0 auto;text-align:center}
-.hero-breadcrumb{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,.4);margin-bottom:20px}
-.hero-breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(30px,4.4vw,50px);line-height:1.1;color:#fff;margin-bottom:16px}
-.hero-h1 em{font-style:italic;color:var(--teal-lt)}
-.hero-desc{font-size:18px;line-height:1.75;color:rgba(255,255,255,.65)}
+/* HERO — light, modern */
+.p-hero{background:linear-gradient(180deg,#fff 0%,var(--cream) 100%);position:relative;overflow:hidden;padding:150px 40px 80px}
+.p-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.05) 1px,transparent 1px);background-size:50px 50px;mask-image:radial-gradient(ellipse 70% 70% at 30% 20%,black 0%,transparent 75%)}
+.p-hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;max-width:1180px;margin:0 auto}
+.p-hero-breadcrumb{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:var(--muted);margin-bottom:20px}
+.p-hero-breadcrumb a{color:var(--muted);text-decoration:none}
+.p-hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(29,158,117,.1);border:1px solid rgba(29,158,117,.25);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--teal);letter-spacing:.8px;text-transform:uppercase;margin-bottom:20px}
+.p-hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,4.4vw,52px);line-height:1.1;color:var(--forest);margin-bottom:18px}
+.p-hero h1 em{font-style:italic;color:var(--teal)}
+.p-hero-desc{font-size:18px;line-height:1.75;color:var(--muted);margin-bottom:32px}
+.p-hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 
-/* FEATURE SHOWCASE (same recipe as /careos/) */
-.showcase{background:#020d06;position:relative;overflow:hidden;padding:96px 40px}
-.showcase-stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.4) 0%,transparent 100%),radial-gradient(1px 1px at 30% 60%,rgba(255,255,255,.3) 0%,transparent 100%),radial-gradient(1px 1px at 60% 15%,rgba(255,255,255,.5) 0%,transparent 100%),radial-gradient(2px 2px at 20% 45%,rgba(46,198,143,.6) 0%,transparent 100%),radial-gradient(2px 2px at 70% 30%,rgba(46,198,143,.5) 0%,transparent 100%)}
-.showcase-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(29,158,117,.12) 0%,transparent 70%)}
-.showcase-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.06) 1px,transparent 1px);background-size:48px 48px}
-.showcase-inner{position:relative;z-index:2}
-.showcase-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.35);padding:10px 22px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:var(--gold-lt);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:32px;animation:shimmer 3s ease-in-out infinite}
-.showcase-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--gold-lt);animation:pulse-ring 2s infinite}
-.showcase-headline{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,4.4vw,54px);line-height:1.08;color:#fff;margin-bottom:16px;text-align:center}
-.showcase-headline em{font-style:italic;color:var(--teal-lt)}
-.showcase-subhead{font-size:18px;line-height:1.75;color:rgba(255,255,255,.65);max-width:640px;margin:0 auto 56px;text-align:center}
-.module-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:64px}
-.module{background:rgba(255,255,255,.03);border:1px solid rgba(29,158,117,.15);border-radius:var(--r);padding:24px;position:relative;overflow:hidden;transition:.3s}
-.module::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--teal-lt));opacity:0;transition:.3s}
-.module:hover{border-color:rgba(29,158,117,.35);background:rgba(255,255,255,.06);transform:translateY(-4px)}
-.module:hover::before{opacity:1}
-.module-icon{width:46px;height:46px;border-radius:13px;background:rgba(29,158,117,.12);display:flex;align-items:center;justify-content:center;color:var(--teal-lt);font-size:20px;margin-bottom:16px}
-.module-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:8px}
-.module-desc{font-size:15px;line-height:1.65;color:rgba(255,255,255,.6)}
-.module-badge{display:inline-block;margin-top:12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 9px;border-radius:5px}
-.badge-ai{background:rgba(29,158,117,.2);color:var(--mint)}
-.badge-new{background:rgba(201,168,76,.2);color:var(--gold-lt)}
-.badge-core{background:rgba(255,255,255,.08);color:rgba(255,255,255,.5)}
-.showcase-cta-box{background:rgba(29,158,117,.08);border:1px solid rgba(29,158,117,.25);border-radius:24px;padding:48px;text-align:center;position:relative;overflow:hidden}
-.showcase-cta-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;color:#fff;margin-bottom:12px;position:relative;z-index:1}
-.showcase-cta-desc{font-size:18px;color:rgba(255,255,255,.6);margin-bottom:28px;position:relative;z-index:1;max-width:560px;margin-left:auto;margin-right:auto}
+/* Mockup placeholder — swap for real screenshots later */
+.mockup-frame{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 30px 80px rgba(10,46,30,.1);overflow:hidden}
+.mockup-bar{background:var(--cream);padding:12px 16px;display:flex;gap:6px;border-bottom:1px solid var(--border)}
+.mockup-dot{width:10px;height:10px;border-radius:50%;background:var(--border)}
+.mockup-body{aspect-ratio:4/3;background:linear-gradient(135deg,var(--cream) 0%,var(--warm) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);text-align:center;padding:20px}
+.mockup-body i{font-size:40px;opacity:.25}
+.mockup-body span{font-size:12.5px;font-weight:700;opacity:.5;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.5px;text-transform:uppercase}
 
-/* WHY SECTION */
+/* Feature grid */
+.feat-section{background:var(--cream)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.feat-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:28px}
+.feat-card-icon{width:46px;height:46px;background:rgba(29,158,117,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:19px;margin-bottom:18px}
+.feat-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;color:var(--forest);margin-bottom:10px}
+.feat-card p{font-size:14.5px;color:var(--muted);line-height:1.7}
+
+/* Feature showcase (zigzag) */
+.showrow-section{background:#fff}
+.showrow{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.showrow + .showrow{margin-top:80px}
+.showrow-eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.showrow h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(24px,3vw,34px);color:var(--forest);margin-bottom:16px;line-height:1.2}
+.showrow-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.showrow-list li{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--muted);line-height:1.6}
+.showrow-list li i{color:var(--teal);margin-top:4px;flex-shrink:0}
+
+/* Why cards */
 .why-section{background:var(--cream)}
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
 .wc-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:28px}
@@ -50,13 +51,30 @@ $page_css = <<<CSS
 .wc-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--forest);margin-bottom:10px}
 .wc-card p{font-size:15px;color:var(--muted);line-height:1.75}
 
-/* CROSS-LINK */
-.crosslink{background:#fff;padding:56px 40px;text-align:center;border-top:1px solid var(--border)}
-.crosslink p{font-size:15px;color:var(--muted);margin-bottom:16px}
+/* CTA (light) */
+.p-cta-section{background:#fff;padding:0 40px 96px}
+.p-cta-box{max-width:900px;margin:0 auto;background:linear-gradient(135deg,rgba(29,158,117,.06),rgba(201,168,76,.06));border:1px solid rgba(29,158,117,.2);border-radius:28px;padding:56px;text-align:center}
+.p-cta-box h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(26px,3.4vw,38px);color:var(--forest);margin-bottom:14px}
+.p-cta-box p{font-size:17px;color:var(--muted);margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
+
+/* Cross-link */
+.crosslink{background:var(--cream);padding:48px 40px;text-align:center}
+.crosslink p{font-size:15px;color:var(--muted);margin-bottom:12px}
 .crosslink a{color:var(--teal);font-weight:700;text-decoration:none}
 
-@media(max-width:900px){.why-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.hero{padding:120px 24px 50px}.why-grid{grid-template-columns:1fr}}
+@media(max-width:960px){
+  .p-hero-inner{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .showrow{grid-template-columns:1fr}
+  .showrow .mockup-frame{order:-1}
+  .why-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .p-hero{padding:120px 24px 56px}
+  .feat-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .p-cta-box{padding:36px 24px}
+}
 CSS;
 include '../../includes/header.php';
 ?>
@@ -64,64 +82,102 @@ include '../../includes/header.php';
 <div id="scrollProgress"></div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-inner">
-    <div class="hero-breadcrumb"><a href="/">Home</a> / <a href="/products/">Products</a> / <span style="color:var(--teal-lt)">CareMails</span></div>
-    <h1 class="hero-h1">One Inbox for Your<br>Whole <em>Home Care Team</em></h1>
-    <p class="hero-desc">CareMails replaces scattered personal inboxes with one shared, professional email system built for how home care agencies actually communicate — with families and with staff.</p>
+<section class="p-hero">
+  <div class="p-hero-grid"></div>
+  <div class="p-hero-inner">
+    <div data-reveal>
+      <div class="p-hero-breadcrumb"><a href="/">Home</a> / <a href="/products/">Products</a> / <span style="color:var(--teal)">CareMails</span></div>
+      <div class="p-hero-badge"><i class="fa-solid fa-circle-check" style="margin-right:4px"></i>Now Available</div>
+      <h1>One Inbox for Your<br>Whole <em>Home Care Team</em></h1>
+      <p class="p-hero-desc">CareMails replaces scattered personal inboxes with one shared, professional email system built for how home care agencies actually communicate — with families and with staff.</p>
+      <div class="p-hero-actions">
+        <button class="btn-primary" onclick="openPopup('caremails')"><i class="fa-solid fa-calendar-check"></i>Book a Demo</button>
+        <a href="#features" class="btn-secondary" style="color:var(--forest);border-color:var(--border);background:#fff"><i class="fa-solid fa-arrow-down"></i>See What's Inside</a>
+      </div>
+    </div>
+    <div data-reveal style="transition-delay:.1s">
+      <div class="mockup-frame">
+        <div class="mockup-bar"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+        <div class="mockup-body"><i class="fa-solid fa-image"></i><span>CareMails Inbox — Screenshot Coming Soon</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE GRID -->
+<section class="feat-section" id="features">
+  <div class="container">
+    <div style="text-align:center" data-reveal>
+      <p class="section-label" style="justify-content:center">What's Inside</p>
+      <h2 class="section-h2">Everything Your Team<br>Needs, <em>In One Inbox</em></h2>
+    </div>
+    <div class="feat-grid" data-reveal style="transition-delay:.1s">
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-inbox"></i></div>
+        <h3>Shared Team Inbox</h3>
+        <p>Every family and referral email lands in one place your whole team can see — not locked in one caregiver's personal account.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-file-lines"></i></div>
+        <h3>Branded Templates</h3>
+        <p>Welcome emails, schedule changes, and care plan updates go out looking professional every time.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h3>Automated Family Updates</h3>
+        <p>Tie routine updates to shift completions so families hear from you consistently, without anyone having to remember.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-users-rectangle"></i></div>
+        <h3>Internal Staff Threads</h3>
+        <p>Keep staff coordination separate from family-facing messages, so internal notes never get forwarded to the wrong person.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-bell"></i></div>
+        <h3>Follow-Up Reminders</h3>
+        <p>Get flagged when a family email hasn't been answered, so inquiries and concerns stop slipping through the cracks.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-robot"></i></div>
+        <h3>Smart Reply Suggestions</h3>
+        <p>Get a drafted response ready for common questions, so your team replies faster without starting from a blank screen.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FEATURE SHOWCASE -->
-<section class="showcase">
-  <div class="showcase-stars"></div>
-  <div class="showcase-glow"></div>
-  <div class="showcase-grid-lines"></div>
-  <div class="container showcase-inner">
-    <div style="text-align:center" data-reveal>
-      <div class="showcase-badge"><div class="showcase-badge-dot"></div>Coming Soon — Join the Waitlist Now</div>
-      <h2 class="showcase-headline">Meet <em>CareMails</em>:<br>Email Built for Home Care</h2>
-      <p class="showcase-subhead">No more family updates buried in a caregiver's personal inbox. One shared inbox, branded templates, and automatic updates tied to the care you're already providing.</p>
-    </div>
-    <div class="module-grid" data-reveal style="transition-delay:.1s">
-      <div class="module">
-        <div class="module-icon"><i class="fa-solid fa-inbox"></i></div>
-        <div class="module-name">Shared Team Inbox</div>
-        <div class="module-desc">Every family and referral email lands in one place your whole team can see — not locked in one caregiver's personal account.</div><span class="module-badge badge-core">Core</span>
+<section class="showrow-section">
+  <div class="container">
+    <div class="showrow" data-reveal>
+      <div>
+        <div class="showrow-eyebrow">Shared Team Inbox</div>
+        <h2>Stop Losing Emails in <em style="color:var(--teal);font-style:italic">Someone's Personal Account.</em></h2>
+        <ul class="showrow-list">
+          <li><i class="fa-solid fa-circle-check"></i>Every family and referral email visible to the whole team</li>
+          <li><i class="fa-solid fa-circle-check"></i>Nothing disappears when a caregiver changes roles or leaves</li>
+          <li><i class="fa-solid fa-circle-check"></i>Full history stays with your agency, not an individual inbox</li>
+        </ul>
       </div>
-      <div class="module">
-        <div class="module-icon"><i class="fa-solid fa-file-lines"></i></div>
-        <div class="module-name">Branded Templates</div>
-        <div class="module-desc">Welcome emails, schedule changes, and care plan updates go out looking professional every time — no more copy-pasting from old threads.</div><span class="module-badge badge-core">Core</span>
-      </div>
-      <div class="module">
-        <div class="module-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-        <div class="module-name">Automated Family Updates</div>
-        <div class="module-desc">Tie routine updates to shift completions so families hear from you consistently, without someone having to remember to send them.</div><span class="module-badge badge-ai">AI Feature</span>
-      </div>
-      <div class="module">
-        <div class="module-icon"><i class="fa-solid fa-users-rectangle"></i></div>
-        <div class="module-name">Internal Staff Threads</div>
-        <div class="module-desc">Keep staff coordination separate from family-facing messages, so nothing internal ever gets forwarded to the wrong person.</div><span class="module-badge badge-core">Core</span>
-      </div>
-      <div class="module">
-        <div class="module-icon"><i class="fa-solid fa-bell"></i></div>
-        <div class="module-name">Follow-Up Reminders</div>
-        <div class="module-desc">Get flagged when a family email hasn't been answered, so inquiries and concerns stop slipping through the cracks.</div><span class="module-badge badge-core">Core</span>
-      </div>
-      <div class="module">
-        <div class="module-icon"><i class="fa-solid fa-robot"></i></div>
-        <div class="module-name">Smart Reply Suggestions</div>
-        <div class="module-desc">Get a drafted response ready for common questions, so your team replies faster without starting from a blank screen.</div><span class="module-badge badge-ai">AI Feature</span>
+      <div class="mockup-frame">
+        <div class="mockup-bar"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+        <div class="mockup-body"><i class="fa-solid fa-inbox"></i><span>Shared Inbox — Screenshot Coming Soon</span></div>
       </div>
     </div>
-    <div class="showcase-cta-box" data-reveal style="transition-delay:.2s">
-      <h3 class="showcase-cta-title">Be First to Try CareMails</h3>
-      <p class="showcase-cta-desc">Join the waitlist and we'll reach out as soon as early access opens for home care agencies.</p>
-      <button class="btn-primary" style="font-size:15px;padding:16px 40px;display:inline-flex;position:relative;z-index:2" onclick="openPopup('waitlist')">
-        <i class="fa-solid fa-rocket"></i>Join the CareMails Waitlist
-      </button>
+    <div class="showrow" data-reveal>
+      <div>
+        <div class="showrow-eyebrow">Automated Family Updates</div>
+        <h2>Consistent Updates, <em style="color:var(--teal);font-style:italic">Without the Reminders.</em></h2>
+        <ul class="showrow-list">
+          <li><i class="fa-solid fa-circle-check"></i>Routine updates tied directly to shift completions</li>
+          <li><i class="fa-solid fa-circle-check"></i>Branded, consistent formatting every single time</li>
+          <li><i class="fa-solid fa-circle-check"></i>One less thing for your office staff to remember to send</li>
+        </ul>
+      </div>
+      <div class="mockup-frame">
+        <div class="mockup-bar"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+        <div class="mockup-body"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Automated Updates — Screenshot Coming Soon</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -137,26 +193,35 @@ include '../../includes/header.php';
       <div class="wc-card">
         <div class="wc-card-icon"><i class="fa-solid fa-inbox"></i></div>
         <h4>One Inbox, Not Six</h4>
-        <p>Stop relying on individual caregivers' personal email accounts to represent your agency — everything routes through one shared, trackable inbox.</p>
+        <p>Stop relying on individual caregivers' personal email accounts to represent your agency.</p>
       </div>
       <div class="wc-card">
         <div class="wc-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
         <h4>Nothing Falls Through</h4>
-        <p>Follow-up reminders and shared visibility mean a family inquiry never quietly disappears because the one person who saw it forgot to reply.</p>
+        <p>Follow-up reminders and shared visibility mean a family inquiry never quietly disappears.</p>
       </div>
       <div class="wc-card">
         <div class="wc-card-icon"><i class="fa-solid fa-star"></i></div>
         <h4>Looks Professional, Every Time</h4>
-        <p>Branded templates mean every family gets a consistent, polished experience — not a mix of formal and casual emails depending on who answered.</p>
+        <p>Branded templates mean every family gets a consistent, polished experience.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CTA -->
+<section class="p-cta-section">
+  <div class="p-cta-box" data-reveal>
+    <h2>See CareMails in Your Own Inbox</h2>
+    <p>Book a free walkthrough and we'll show you exactly how CareMails fits your team's communication today.</p>
+    <button class="btn-primary" onclick="openPopup('caremails')"><i class="fa-solid fa-calendar-check"></i>Book a Demo</button>
+  </div>
+</section>
+
 <!-- CROSS-LINK -->
 <div class="crosslink">
-  <p>CareMails is part of the CareOS family of tools built for home care agencies.</p>
-  <a href="/careos/">See the full CareOS platform &rarr;</a>
+  <p>CareMails is part of our product family for home care agencies.</p>
+  <a href="/products/">See all products &rarr;</a>
 </div>
 
 <?php include '../../includes/footer.php'; ?>
