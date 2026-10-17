@@ -66,6 +66,7 @@ $page_css = <<<CSS
 .offer-banner span{font-size:12px;color:#8a6800}
 
 /* Gated state */
+.blurred-preview{filter:blur(6px);user-select:none;pointer-events:none;margin-bottom:20px}
 .unlock-prompt{text-align:center;margin-bottom:16px}
 .unlock-prompt i{font-size:24px;color:var(--teal);margin-bottom:8px;display:block}
 .unlock-prompt p{font-size:13.5px;color:var(--muted);line-height:1.6;max-width:340px;margin:0 auto}
@@ -207,10 +208,23 @@ include '../includes/header.php';
       </div>
 
       <div id="lockedState">
+        <div class="blurred-preview">
+          <div class="res-stat-row">
+            <div class="res-stat"><div class="res-stat-num" id="previewCurrent">0</div><div class="res-stat-label">Current clients per month</div></div>
+            <div class="res-stat"><div class="res-stat-num" id="previewPotential">0</div><div class="res-stat-label">Potential clients per month</div></div>
+          </div>
+          <div class="res-breakdown">
+            <strong id="previewDelta">+0</strong> extra clients/mo &times; 12 months = <strong id="previewYearClients">+0</strong> new clients/year &times; <strong id="previewLtv">$0</strong> LTV
+          </div>
+          <div class="res-unlocked">
+            <div class="res-unlocked-eyebrow">Your Estimated Annual Opportunity</div>
+            <div class="res-unlocked-num" id="previewAnnual">$0</div>
+          </div>
+        </div>
         <div class="unlock-prompt">
-          <i class="fa-solid fa-chart-line"></i>
-          <p>Want Your Personalized Growth Report?</p>
-          <p>Fill in your details below for a deep, personalized audit of your agency's growth potential — plus a recommendation tailored to your biggest challenge.</p>
+          <i class="fa-solid fa-lock"></i>
+          <p>That's Your Real Number — Want the Full Report?</p>
+          <p>Fill in your details below to reveal it, plus a personalized audit of your agency's growth potential.</p>
         </div>
         <div class="offer-banner">
           <i class="fa-solid fa-fire"></i>
@@ -281,6 +295,21 @@ function calc() {
   var length = parseFloat(document.getElementById('numLength').value) || 0;
 
   lastResults = { monthly_inquiries: inquiries, close_rate: closeRate, additional_inquiries_target: additionalInq, monthly_value_per_client: value, avg_length_months: length };
+
+  // Live blurred preview — the real numbers, just unreadable until unlocked
+  var currentClients = Math.round(inquiries * closeRate / 100);
+  var potentialClients = Math.round((inquiries + additionalInq) * closeRate / 100);
+  var deltaClients = Math.max(0, potentialClients - currentClients);
+  var ltv = Math.round(value * length);
+  var yearClients = deltaClients * 12;
+  var annualOpportunity = yearClients * ltv;
+
+  document.getElementById('previewCurrent').textContent = currentClients.toLocaleString();
+  document.getElementById('previewPotential').textContent = potentialClients.toLocaleString();
+  document.getElementById('previewDelta').textContent = '+' + deltaClients.toLocaleString();
+  document.getElementById('previewYearClients').textContent = '+' + yearClients.toLocaleString();
+  document.getElementById('previewLtv').textContent = '\$' + ltv.toLocaleString();
+  document.getElementById('previewAnnual').textContent = '\$' + annualOpportunity.toLocaleString();
 }
 
 syncPair('rngInquiries', 'numInquiries', calc);

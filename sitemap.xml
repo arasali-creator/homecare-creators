@@ -143,6 +143,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://homecarecreators.com/products/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homecarecreators.com/products/caremails/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://homecarecreators.com/products/care-scheduling/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://homecarecreators.com/memory-care-marketing/</loc>
     <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
