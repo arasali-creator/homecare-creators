@@ -50,8 +50,6 @@ $page_css = <<<CSS
 /* SHARED TEXT */
 .lede{font-size:17px;line-height:1.8;color:var(--muted);margin-bottom:16px}
 .lede strong{color:var(--forest)}
-.text-link{color:var(--teal);font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-.text-link:hover{color:var(--forest)}
 .section-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;padding:14px 26px;border-radius:10px;border:none;cursor:pointer;transition:.2s;margin-top:8px}
 .section-cta-btn:hover{background:var(--forest);transform:translateY(-2px)}
 
@@ -247,7 +245,6 @@ echo '<script type="application/ld+json">' . json_encode([
             <li><i class="fa-solid fa-check"></i>Technical SEO, site structure, and performance improvements</li>
             <li><i class="fa-solid fa-check"></i>Local search optimization and Google Business Profile improvements</li>
           </ul>
-          <p style="margin-bottom:14px"><a href="/seo/home-care-seo/" class="text-link">Explore our Home Care SEO Services <i class="fa-solid fa-arrow-right"></i></a></p>
           <button class="section-cta-btn" onclick="openPopup('audit')">Request Your Free SEO Audit</button>
         </div>
       </div>
@@ -263,7 +260,6 @@ echo '<script type="application/ld+json">' . json_encode([
             <li><i class="fa-solid fa-check"></i>SEO-friendly page structure and metadata</li>
             <li><i class="fa-solid fa-check"></i>Website speed and performance optimization</li>
           </ul>
-          <p style="margin-bottom:14px"><a href="/web-design/homecare-website-design/" class="text-link">Explore our Website Design Services <i class="fa-solid fa-arrow-right"></i></a></p>
           <button class="section-cta-btn" onclick="openPopup('audit')">Discuss Your Website With Our Team</button>
         </div>
       </div>
@@ -279,7 +275,6 @@ echo '<script type="application/ld+json">' . json_encode([
             <li><i class="fa-solid fa-check"></i>Review-generation guidance and reputation improvements</li>
             <li><i class="fa-solid fa-check"></i>Local citation checks and consistency improvements</li>
           </ul>
-          <p style="margin-bottom:14px"><a href="/seo/home-care-seo/" class="text-link">Explore Local SEO Services <i class="fa-solid fa-arrow-right"></i></a></p>
           <button class="section-cta-btn" onclick="openPopup('audit')">Get Your Free Local Visibility Audit</button>
         </div>
       </div>
@@ -295,7 +290,6 @@ echo '<script type="application/ld+json">' . json_encode([
             <li><i class="fa-solid fa-check"></i>Well-structured service pages and FAQs</li>
             <li><i class="fa-solid fa-check"></i>Appropriate structured data and technical SEO</li>
           </ul>
-          <p style="margin-bottom:14px"><a href="/ai-search-seo/" class="text-link">Learn More About AI Search SEO <i class="fa-solid fa-arrow-right"></i></a></p>
           <button class="section-cta-btn" onclick="openPopup('audit')">Request an AI Search Visibility Review</button>
         </div>
       </div>
@@ -311,7 +305,6 @@ echo '<script type="application/ld+json">' . json_encode([
             <li><i class="fa-solid fa-check"></i>Appointment scheduling workflows</li>
             <li><i class="fa-solid fa-check"></i>Website chat and inquiry capture</li>
           </ul>
-          <p style="margin-bottom:14px"><a href="/ai-automation/" class="text-link">Explore AI &amp; Automation <i class="fa-solid fa-arrow-right"></i></a></p>
           <button class="section-cta-btn" onclick="openPopup('audit')">Discuss Automation for Your Agency</button>
         </div>
       </div>
