@@ -25,8 +25,8 @@ $page_css = <<<CSS
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .4s ease both}
 .hero-actions .btn-primary{border-radius:100px;padding:16px 32px}
 .hero-right{position:relative;min-height:560px;overflow:hidden}
-.hero-right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;transform:scale(1.15);display:block}
-.hero-right::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--forest) 0%,rgba(10,46,30,0) 8%);pointer-events:none}
+.hero-right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+.hero-right::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--forest) 0%,rgba(10,46,30,0) 12%);pointer-events:none}
 
 /* ── WHY US ── */
 .why{background:#fff}
