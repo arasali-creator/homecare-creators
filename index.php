@@ -785,7 +785,7 @@ try {
             <li><i class="fa-solid fa-check"></i>Email & SMS automation</li>
             <li><i class="fa-solid fa-check"></i>Workflow automation</li>
           </ul>
-          <a class="svc-grid-link" onclick="openPopup('audit');return false;" href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          <a class="svc-grid-link" href="/ai-automation/">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </div>

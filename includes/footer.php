@@ -24,6 +24,7 @@
         <li><a href="/seo/home-care-seo/">Home Care SEO</a></li>
         <li><a href="/web-design/homecare-website-design/">Website Design</a></li>
         <li><a href="/ai-search-seo/">AI Search SEO</a></li>
+        <li><a href="/ai-automation/">AI &amp; Automation</a></li>
         <li><a href="/#bundles">Pricing &amp; Packages</a></li>
         <li><a href="/products/">Products</a></li>
         <li><a href="/case-studies/">Case Studies</a></li>
