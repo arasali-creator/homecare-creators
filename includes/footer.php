@@ -76,7 +76,11 @@
   </div>
   <div class="footer-bottom">
     <div class="footer-copy">© 2026 Homecare Creators &middot; Lady Lake, FL 32159, United States &middot; <a href="mailto:info@homecarecreators.com" style="color:inherit">info@homecarecreators.com</a> &middot; All rights reserved.</div>
-    <div class="footer-bottom-links"><a href="/privacy-policy">Privacy Policy</a><a href="/terms-of-service">Terms of Service</a></div>
+    <div class="footer-bottom-links">
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/terms-of-service">Terms of Service</a>
+      <a href="#" class="footer-top-btn" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
   </div>
 </footer>
 

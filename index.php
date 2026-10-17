@@ -3,7 +3,7 @@ $page_title    = "Homecare Creators: Marketing for Home Care Agencies";
 $page_desc     = "A marketing agency built exclusively for home care agencies in Florida - SEO, websites, and AI search optimization.";
 $page_canonical = "https://homecarecreators.com/";
 $og_title      = "Homecare Creators: Marketing for Home Care Agencies";
-$og_desc       = "A marketing agency built 100% for homecare - website design, local SEO, AI search SEO, and the CareOS platform.";
+$og_desc       = "A marketing agency built 100% for homecare - website design, local SEO, and AI search SEO.";
 
 $page_css = <<<CSS
 /* ── HERO ── */
@@ -84,8 +84,8 @@ $page_css = <<<CSS
 .svc-grid-link:hover{color:var(--forest);gap:10px}
 @media(max-width:768px){.svc-grid-card{flex:1 1 100%}}
 
-/* ── HOW IT WORKS ── */
-.how{background:#fff}
+/* ── PROCESS ── */
+.how{background:var(--cream)}
 .how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:72px;position:relative}
 .how-grid::before{content:'';position:absolute;top:44px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--teal) 20%,var(--teal) 80%,transparent);opacity:.25}
 .how-step{text-align:center;padding:0 20px 48px;position:relative}
@@ -95,101 +95,15 @@ $page_css = <<<CSS
 .how-step-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15.5px;color:var(--forest);margin-bottom:10px}
 .how-step-desc{font-size:15.5px;line-height:1.65;color:var(--muted)}
 
-/* ── CAREOS ── */
-.careos{background:#020d06;position:relative;overflow:hidden;padding:120px 40px}
-.careos-stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.4) 0%,transparent 100%),radial-gradient(1px 1px at 30% 60%,rgba(255,255,255,.3) 0%,transparent 100%),radial-gradient(1px 1px at 60% 15%,rgba(255,255,255,.5) 0%,transparent 100%),radial-gradient(1px 1px at 80% 70%,rgba(255,255,255,.3) 0%,transparent 100%),radial-gradient(2px 2px at 20% 45%,rgba(46,198,143,.6) 0%,transparent 100%),radial-gradient(2px 2px at 70% 30%,rgba(46,198,143,.5) 0%,transparent 100%)}
-.careos-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(29,158,117,.12) 0%,transparent 70%)}
-.careos-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.06) 1px,transparent 1px);background-size:48px 48px}
-.careos-inner{position:relative;z-index:2}
-.careos-top-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.35);padding:10px 22px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:var(--gold-lt);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:32px;animation:shimmer 3s ease-in-out infinite}
-.careos-top-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--gold-lt);animation:pulse-ring 2s infinite}
-.careos-headline{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(40px,5vw,72px);line-height:1.05;color:#fff;margin-bottom:16px;text-align:center}
-.careos-headline em{font-style:italic;color:var(--teal-lt)}
-.careos-subhead{font-size:18px;line-height:1.75;color:rgba(255,255,255,.65);max-width:640px;margin:0 auto 16px;text-align:center}
-.careos-tagline{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--teal-lt);letter-spacing:1px;text-transform:uppercase;text-align:center;margin-bottom:56px;opacity:.8}
-.careos-launch{display:flex;justify-content:center;gap:0;margin-bottom:64px}
-.careos-launch-item{text-align:center;padding:28px 36px;position:relative}
-.careos-launch-item::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(29,158,117,.2)}
-.careos-launch-item:last-child::after{display:none}
-.careos-launch-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:56px;color:#fff;line-height:1;display:block}
-.careos-launch-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;margin-top:4px;display:block}
-.careos-modules-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:64px}
-.careos-module{background:rgba(255,255,255,.03);border:1px solid rgba(29,158,117,.15);border-radius:var(--r);padding:24px;position:relative;overflow:hidden;transition:.3s}
-.careos-module::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--teal-lt));opacity:0;transition:.3s}
-.careos-module:hover{border-color:rgba(29,158,117,.35);background:rgba(255,255,255,.06);transform:translateY(-4px)}
-.careos-module:hover::before{opacity:1}
-.careos-module-icon{width:46px;height:46px;border-radius:13px;background:rgba(29,158,117,.12);display:flex;align-items:center;justify-content:center;color:var(--teal-lt);font-size:20px;margin-bottom:16px}
-.careos-module-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:8px}
-.careos-module-desc{font-size:15px;line-height:1.65;color:rgba(255,255,255,.6)}
-.module-badge{display:inline-block;margin-top:12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 9px;border-radius:5px}
-.badge-ai{background:rgba(29,158,117,.2);color:var(--mint)}
-.badge-new{background:rgba(201,168,76,.2);color:var(--gold-lt)}
-.badge-core{background:rgba(255,255,255,.08);color:rgba(255,255,255,.5)}
-.careos-cta-box{background:rgba(29,158,117,.08);border:1px solid rgba(29,158,117,.25);border-radius:24px;padding:48px;text-align:center;position:relative;overflow:hidden}
-.careos-cta-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent 0%,rgba(29,158,117,.05) 25%,transparent 50%);animation:spin-slow 20s linear infinite}
-.careos-cta-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;color:#fff;margin-bottom:12px;position:relative;z-index:1}
-.careos-cta-desc{font-size:18px;color:rgba(255,255,255,.6);margin-bottom:28px;position:relative;z-index:1}
-.careos-cta-perks{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:32px;position:relative;z-index:1}
-.careos-cta-perk{display:flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;color:var(--mint)}
-.careos-cta-perk i{color:var(--teal-lt)}
-
-/* ── AI SEO ── */
-.ai-seo{background:var(--cream)}
-.ai-seo-inner{background:var(--forest);border-radius:32px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:0;box-shadow:0 32px 100px rgba(10,46,30,.25)}
-.ai-seo-left{padding:64px 56px;position:relative}
-.ai-seo-left .section-h2{color:#fff}
-.ai-seo-left .section-label{color:var(--mint)}
-.ai-seo-desc{font-size:18px;line-height:1.75;color:rgba(255,255,255,.58);margin-bottom:32px}
-.ai-pillars{display:flex;flex-direction:column;gap:12px}
-.ai-pillar{display:flex;align-items:flex-start;gap:14px;padding:15px 18px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(29,158,117,.15);transition:.25s}
-.ai-pillar:hover{background:rgba(255,255,255,.09);border-color:rgba(29,158,117,.35);transform:translateX(5px)}
-.ai-pillar-icon{width:34px;height:34px;border-radius:10px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
-.ai-pillar-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13.5px;color:#fff;margin-bottom:3px}
-.ai-pillar-sub{font-size:12px;color:rgba(255,255,255,.45);line-height:1.5}
-.ai-seo-right{position:relative;overflow:hidden;min-height:500px}
-.ai-seo-right img{width:100%;height:100%;object-fit:cover;display:block}
-.ai-seo-right::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(10,46,30,.8) 0%,transparent 50%)}
-.ai-seo-platforms{position:absolute;bottom:32px;right:32px;z-index:2;display:flex;flex-direction:column;gap:10px}
-.ai-platform-pill{display:flex;align-items:center;gap:10px;background:rgba(10,46,30,.88);backdrop-filter:blur(12px);border:1px solid rgba(29,158,117,.25);border-radius:100px;padding:8px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:#fff}
-.ai-platform-pill i{color:var(--teal-lt);font-size:14px}
-
-/* ── BUNDLES ── */
-.bundles{background:var(--forest);position:relative;overflow:hidden}
-.bundles-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.05) 1px,transparent 1px);background-size:48px 48px}
-.bundles .section-h2{color:#fff}
-.bundles .section-h2 em{color:var(--mint)}
-.bundles .section-sub{color:rgba(255,255,255,.5)}
-.bundles .section-label{color:var(--mint)}
-.bundles .section-label::before{background:var(--mint)}
-.bundles-header{text-align:center;position:relative;z-index:1;margin-bottom:64px}
-.bundles-header .section-label{justify-content:center}
-.bundles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;position:relative;z-index:1;align-items:start}
-.bundle-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:24px;padding:36px 30px;position:relative;overflow:hidden;transition:.4s cubic-bezier(.34,1.56,.64,1)}
-.bundle-card:hover{transform:translateY(-6px);border-color:rgba(29,158,117,.35)}
-.bundle-card.featured{background:var(--teal);border:none;box-shadow:0 0 0 1px var(--teal-lt),0 20px 60px rgba(29,158,117,.4);transform:translateY(-12px)}
-.bundle-card.featured:hover{transform:translateY(-18px)}
-.bundle-top-bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal-lt))}
-.bundle-card.featured .bundle-top-bar{background:linear-gradient(90deg,#fff,rgba(255,255,255,.6))}
-.bundle-badge{display:inline-flex;align-items:center;gap:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:5px 12px;border-radius:6px;margin-bottom:20px}
-.bundle-badge.hot{background:var(--gold);color:var(--forest)}
-.bundle-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;color:#fff;line-height:1;margin-bottom:6px}
-.bundle-price{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:42px;color:#fff;line-height:1;margin-bottom:4px}
-.bundle-price sub{font-size:16px;font-weight:400;opacity:.6;vertical-align:baseline;margin-right:2px}
-.bundle-price span{font-size:15px;font-weight:400;opacity:.6}
-.bundle-orig-price{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:rgba(255,255,255,.4);text-decoration:line-through;margin-bottom:4px}
-.bundle-setup{font-size:12px;color:rgba(255,255,255,.45);margin-bottom:24px}
-.bundle-divider{height:1px;background:rgba(255,255,255,.1);margin:22px 0}
-.bundle-features{list-style:none;display:flex;flex-direction:column;gap:11px}
-.bundle-features li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:rgba(255,255,255,.8);line-height:1.45}
-.bundle-features li i{color:var(--teal-lt);font-size:12px;margin-top:2px;flex-shrink:0}
-.bundle-card.featured .bundle-features li i{color:#fff}
-.bundle-cta{display:block;text-align:center;margin-top:26px;padding:14px;border-radius:12px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;text-decoration:none;transition:.25s;cursor:pointer;border:none;width:100%}
-.bundle-cta-default{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff}
-.bundle-cta-default:hover{background:rgba(255,255,255,.15)}
-.bundle-cta-featured{background:var(--forest);color:var(--mint)}
-.bundle-cta-featured:hover{background:var(--forest-md)}
-.bundles-note{text-align:center;margin-top:32px;font-size:12.5px;color:rgba(255,255,255,.3);font-family:'Plus Jakarta Sans',sans-serif;position:relative;z-index:1}
-.savings-badge{display:inline-block;background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.3);color:var(--gold-lt);font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;padding:3px 10px;border-radius:6px;margin-left:8px;letter-spacing:.5px}
+/* ── MID-PAGE CTA ── */
+.mid-cta{background:var(--forest);position:relative;overflow:hidden;padding:72px 40px;text-align:center}
+.mid-cta::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px}
+.mid-cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+.mid-cta .section-label{justify-content:center;color:var(--mint)}
+.mid-cta .section-label::before{background:var(--mint)}
+.mid-cta .section-h2{color:#fff}
+.mid-cta .section-h2 em{color:var(--mint)}
+.mid-cta p{font-size:17px;line-height:1.75;color:rgba(255,255,255,.6);margin:16px 0 28px}
 
 /* ── RESULTS ── */
 .results{background:var(--cream)}
@@ -247,35 +161,6 @@ $page_css = <<<CSS
 .faq-a-inner{padding:0 24px 20px;font-size:16px;line-height:1.75;color:var(--muted);border-top:1px solid var(--border)}
 .faq-a-inner p{padding-top:16px}
 
-/* ── CONTACT ── */
-.contact-section{background:var(--cream)}
-.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.contact-info{padding-top:8px}
-.contact-desc{font-size:18px;line-height:1.75;color:var(--muted);margin-bottom:40px}
-.contact-details{display:flex;flex-direction:column;gap:20px}
-.contact-detail{display:flex;align-items:center;gap:16px}
-.contact-detail-icon{width:46px;height:46px;border-radius:13px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.contact-detail-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:2px}
-.contact-detail-value{font-size:15px;font-weight:500;color:var(--forest)}
-.contact-detail-value a{color:var(--teal);text-decoration:none}
-.contact-detail-value a:hover{text-decoration:underline}
-.contact-form-card{background:#fff;border:1px solid var(--border);border-radius:24px;padding:40px;box-shadow:0 16px 64px rgba(10,46,30,.1)}
-.form-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:18px;color:var(--forest);margin-bottom:8px}
-.form-subtitle{font-size:16px;color:var(--muted);margin-bottom:28px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
-.form-group:last-of-type{margin-bottom:0}
-.form-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--forest)}
-.form-input,.form-select,.form-textarea{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:#fff;transition:.2s;outline:none;-webkit-appearance:none}
-.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(29,158,117,.1)}
-.form-textarea{min-height:110px;resize:vertical}
-.form-submit{width:100%;padding:15px;border-radius:11px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;background:linear-gradient(135deg,var(--teal),var(--teal-lt));color:#fff;border:none;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;gap:9px;margin-top:8px}
-.form-submit:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(29,158,117,.4)}
-.form-success{display:none;text-align:center;padding:32px 16px;background:rgba(29,158,117,.06);border-radius:14px;border:1px solid rgba(29,158,117,.2)}
-.form-success i{font-size:40px;color:var(--teal);margin-bottom:14px;display:block}
-.form-success-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:18px;color:var(--forest);margin-bottom:6px}
-.form-success p{font-size:16px;color:var(--muted)}
-
 /* ── CTA SECTION ── */
 .cta-section{background:var(--forest);position:relative;overflow:hidden}
 .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(29,158,117,.14),transparent)}
@@ -302,19 +187,14 @@ $page_css = <<<CSS
   .hero{grid-template-columns:1fr}
   .hero-right{display:none}
   .hero-left{padding:130px 40px 80px}
-  .why-inner,.results-inner,.cta-inner,.ai-seo-inner,.contact-inner{grid-template-columns:1fr}
-  .bundles-grid{grid-template-columns:1fr}
-  .bundle-card.featured{transform:none}
+  .why-inner,.results-inner,.cta-inner{grid-template-columns:1fr}
   .how-grid{grid-template-columns:1fr 1fr}
-  .ai-seo-right{min-height:300px}
 }
 @media(max-width:640px){
   .hero-left{padding:110px 24px 60px}
   section{padding:72px 24px}
   .results-grid-right{grid-template-columns:1fr}
-  .bundles-grid{grid-template-columns:1fr}
   .how-grid{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
   .review-card{min-width:calc(100vw - 80px);max-width:calc(100vw - 80px)}
   .faq-list{padding:0}
 }
@@ -350,62 +230,7 @@ function goSlide(n) {
 function slideReviews(dir) { goSlide(currentSlide + dir); }
 buildDots();
 
-// ── CONTACT FORM SUBMIT ──
-function submitContact() {
-  var first   = (document.getElementById('cfFirst').value || '').trim();
-  var last    = (document.getElementById('cfLast').value || '').trim();
-  var email   = (document.getElementById('cfEmail').value || '').trim();
-  var phone   = (document.getElementById('cfPhone').value || '').trim();
-  var agency  = (document.getElementById('cfAgency').value || '').trim();
-  var service = document.getElementById('cfService').value;
-  var msg     = (document.getElementById('cfMessage').value || '').trim();
-
-  if (!first) { alert('Please enter your first name.'); document.getElementById('cfFirst').focus(); return; }
-  if (!email || !email.includes('@')) { alert('Please enter a valid email.'); document.getElementById('cfEmail').focus(); return; }
-
-  var submitBtn = document.querySelector('#contactFormWrap .form-submit');
-  var originalHTML = submitBtn.innerHTML;
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Sending...';
-
-  fetch('/form-handler.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      name:    first + ' ' + last,
-      email:   email,
-      phone:   phone || 'Not provided',
-      agency:  agency || 'Not provided',
-      service: service || 'Not specified',
-      message: msg || '(none)',
-      source:  window.location.pathname
-    })
-  })
-  .then(function(res) { return res.json(); })
-  .then(function(d) {
-    if (d.success) {
-      document.getElementById('contactFormWrap').style.display = 'none';
-      document.getElementById('contactSuccess').style.display = 'block';
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalHTML;
-      ['cfFirst','cfLast','cfEmail','cfPhone','cfAgency','cfService','cfMessage'].forEach(function(id) {
-        document.getElementById(id).value = '';
-      });
-    } else {
-      alert('There was an error sending your message. Please try again.');
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalHTML;
-    }
-  })
-  .catch(function(err) {
-    console.error('Error:', err);
-    alert('There was an error sending your message. Please try again.');
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = originalHTML;
-  });
-}
-
-// ── OPEN POPUP OVERRIDE (homepage type-based variant) ──
+// ── OPEN POPUP OVERRIDE (homepage title customization) ──
 function openPopup(type) {
   var overlay  = document.getElementById('mainPopup');
   var formDiv  = document.getElementById('popupFormEl');
@@ -417,20 +242,9 @@ function openPopup(type) {
   formDiv.style.display = 'block';
   succDiv.style.display = 'none';
 
-  if (type === 'waitlist') {
-    titleEl.textContent  = 'Join the CareOS Waitlist';
-    btnLabel.textContent = 'Join the Waitlist';
-    svcSel.value         = 'CareOS Waitlist';
-  } else if (type === 'audit') {
-    titleEl.textContent  = 'Book Your Free Growth Audit';
-    btnLabel.textContent = 'Book My Free Audit';
-    svcSel.value         = 'Free Growth Audit';
-  } else {
-    var names = { starter: 'Starter Bundle', scale: 'Scale Bundle', dominate: 'Dominate Bundle' };
-    titleEl.textContent  = 'Get Started — ' + (names[type] || 'Bundle');
-    btnLabel.textContent = 'Send My Request';
-    svcSel.value         = 'Full Bundle Package';
-  }
+  titleEl.textContent  = 'Book Your Free Growth Audit';
+  btnLabel.textContent = 'Book My Free Audit';
+  svcSel.value         = 'Free Growth Audit';
 
   generateCaptcha();
   overlay.classList.add('open');
@@ -474,7 +288,7 @@ try {
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup('audit')"><i class="fa-solid fa-rocket"></i>Book Free Growth
         Audit</button>
-      <a href="#careos" class="btn-secondary"><i class="fa-solid fa-play"></i>See CareOS Platform</a>
+      <a href="#services" class="btn-secondary"><i class="fa-solid fa-play"></i>See Our Services</a>
     </div>
     <div class="hero-proof">
       <div class="hero-proof-item">
@@ -536,62 +350,6 @@ try {
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker-inner">
-    <div class="ticker-item"><i class="fa-solid fa-star"></i>Website Design & Development</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-solid fa-magnifying-glass-chart"></i>Local SEO Domination</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-brands fa-google"></i>AI Search SEO / GEO</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-solid fa-palette"></i>Brand Identity Design</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-solid fa-share-nodes"></i>Social Media Marketing</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-solid fa-robot"></i>CareOS AI Platform</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-solid fa-envelope-open-text"></i>Email Marketing</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-solid fa-chart-line"></i>Growth Analytics</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-solid fa-star"></i>Website Design & Development</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-solid fa-magnifying-glass-chart"></i>Local SEO Domination</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-brands fa-google"></i>AI Search SEO / GEO</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-solid fa-palette"></i>Brand Identity Design</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-solid fa-share-nodes"></i>Social Media Marketing</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-solid fa-robot"></i>CareOS AI Platform</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-solid fa-envelope-open-text"></i>Email Marketing</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-    <div class="ticker-item"><i class="fa-solid fa-chart-line"></i>Growth Analytics</div>
-    <div class="ticker-item"><span class="ticker-dot"></span></div>
-  </div>
-</div>
-
-<!-- ══════════════════════════
-   CERTIFICATIONS / TRUST BADGES
-══════════════════════════ -->
-<section class="certs">
-  <div class="container">
-    <p class="certs-label">Certified &amp; Trusted By</p>
-    <div class="certs-row">
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-BBB-Certified.png" alt="Homecare Creators BBB accredited business certification badge" title="BBB Accredited Business" loading="lazy"><span>BBB Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-Google-my-business-profile.png" alt="Homecare Creators verified Google Business Profile badge" title="Verified Google Business Profile" loading="lazy"><span>Google Business Profile</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-google-partner.jpg" alt="Homecare Creators Google Partner certification badge" title="Google Partner Certified Agency" loading="lazy"><span>Google Partner</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" alt="Homecare Creators HubSpot certified partner badge" title="HubSpot Certified Partner" loading="lazy"><span>HubSpot Partner</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" alt="Homecare Creators Meta certified marketing partner badge" title="Meta Certified Marketing Partner" loading="lazy"><span>Meta Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" alt="Homecare Creators SEMrush certified SEO partner badge" title="SEMrush Certified Agency Partner" loading="lazy"><span>SEMrush Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-NACH.webp" alt="Homecare Creators National Association for Home Care and Hospice member badge" title="NAHC Member Agency" loading="lazy"><span>NAHC Member</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- ══════════════════════════
    WHY US
 ══════════════════════════ -->
@@ -638,11 +396,11 @@ try {
             </div>
           </div>
           <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div class="why-point-icon"><i class="fa-solid fa-gears"></i></div>
             <div>
-              <div class="why-point-title">One Partner for Marketing and Software</div>
-              <div class="why-point-desc">Pair CareOS with our agency services and you get a growth loop your
-                competitors can't copy.</div>
+              <div class="why-point-title">AI &amp; Automation Built In</div>
+              <div class="why-point-desc">We don't just market your agency, we automate follow-ups and scheduling
+                so no lead slips through the cracks.</div>
             </div>
           </div>
           <div class="why-point">
@@ -684,15 +442,6 @@ try {
           <div class="svc-grid-label">Home Care SEO</div>
           <h3 class="svc-grid-title">Get Found by Families Looking for Care in Your Community</h3>
           <p class="svc-grid-desc">When families search for home care, your agency should be one of the first names they see. We help Florida home care agencies improve their visibility on Google with SEO strategies tailored to the senior care industry, so you can attract more qualified inquiries, build trust online, and grow without relying only on referrals.</p>
-          <div class="svc-grid-included">Included:</div>
-          <ul class="svc-grid-list">
-            <li><i class="fa-solid fa-check"></i>Local SEO for your service areas</li>
-            <li><i class="fa-solid fa-check"></i>Google Business Profile optimization</li>
-            <li><i class="fa-solid fa-check"></i>Technical & on-page SEO</li>
-            <li><i class="fa-solid fa-check"></i>Service & location pages</li>
-            <li><i class="fa-solid fa-check"></i>Helpful content for families</li>
-            <li><i class="fa-solid fa-check"></i>Monthly performance reporting</li>
-          </ul>
           <a href="/seo/home-care-seo/" class="svc-grid-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
@@ -707,15 +456,6 @@ try {
           <div class="svc-grid-label">Home Care Website Design</div>
           <h3 class="svc-grid-title">Build Trust Before the First Phone Call</h3>
           <p class="svc-grid-desc">Your website is often a family's first impression of your agency. We design clean, modern websites that clearly explain your services, build confidence, and make it easy for visitors to contact you. Every website is designed with SEO, speed, and lead generation in mind.</p>
-          <div class="svc-grid-included">Included:</div>
-          <ul class="svc-grid-list">
-            <li><i class="fa-solid fa-check"></i>Custom website design</li>
-            <li><i class="fa-solid fa-check"></i>Mobile-friendly development</li>
-            <li><i class="fa-solid fa-check"></i>Fast loading speeds</li>
-            <li><i class="fa-solid fa-check"></i>SEO-ready structure</li>
-            <li><i class="fa-solid fa-check"></i>Conversion-focused pages</li>
-            <li><i class="fa-solid fa-check"></i>Easy content management</li>
-          </ul>
           <a href="/web-design/homecare-website-design/" class="svc-grid-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
@@ -730,15 +470,6 @@ try {
           <div class="svc-grid-label">Local SEO</div>
           <h3 class="svc-grid-title">Help Families Find You Nearby</h3>
           <p class="svc-grid-desc">Most families search for care close to home. We improve your local visibility by optimizing your Google Business Profile, strengthening your presence in Google Maps, and helping your agency rank in the cities and communities you serve across Florida.</p>
-          <div class="svc-grid-included">Included:</div>
-          <ul class="svc-grid-list">
-            <li><i class="fa-solid fa-check"></i>Google Business Profile optimization</li>
-            <li><i class="fa-solid fa-check"></i>Google Maps SEO</li>
-            <li><i class="fa-solid fa-check"></i>Citation management</li>
-            <li><i class="fa-solid fa-check"></i>Review strategy</li>
-            <li><i class="fa-solid fa-check"></i>Local landing pages</li>
-            <li><i class="fa-solid fa-check"></i>Service area optimization</li>
-          </ul>
           <a href="/seo/home-care-seo/" class="svc-grid-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
@@ -753,15 +484,6 @@ try {
           <div class="svc-grid-label">AI Search Optimization (GEO)</div>
           <h3 class="svc-grid-title">Stay Visible in the Next Generation of Search</h3>
           <p class="svc-grid-desc">More people are using AI tools like ChatGPT and Google AI to find businesses. We prepare your website for this shift by creating AI-friendly content, improving your site's structure, and building the authority needed to increase your chances of being recommended in AI-powered search experiences.</p>
-          <div class="svc-grid-included">Included:</div>
-          <ul class="svc-grid-list">
-            <li><i class="fa-solid fa-check"></i>AI-friendly website structure</li>
-            <li><i class="fa-solid fa-check"></i>Structured data (schema)</li>
-            <li><i class="fa-solid fa-check"></i>Entity optimization</li>
-            <li><i class="fa-solid fa-check"></i>AI-friendly content</li>
-            <li><i class="fa-solid fa-check"></i>Topical authority</li>
-            <li><i class="fa-solid fa-check"></i>Future-ready SEO</li>
-          </ul>
           <a class="svc-grid-link" href="/ai-search-seo/">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
@@ -776,15 +498,6 @@ try {
           <div class="svc-grid-label">AI & Automation</div>
           <h3 class="svc-grid-title">Work Smarter, Respond Faster</h3>
           <p class="svc-grid-desc">Never miss another inquiry. We automate follow-ups, appointment requests, and repetitive tasks so your team can focus on what matters most: providing exceptional care while every lead receives a timely response.</p>
-          <div class="svc-grid-included">Included:</div>
-          <ul class="svc-grid-list">
-            <li><i class="fa-solid fa-check"></i>AI chat assistants</li>
-            <li><i class="fa-solid fa-check"></i>Automated follow-ups</li>
-            <li><i class="fa-solid fa-check"></i>Appointment scheduling</li>
-            <li><i class="fa-solid fa-check"></i>CRM integrations</li>
-            <li><i class="fa-solid fa-check"></i>Email & SMS automation</li>
-            <li><i class="fa-solid fa-check"></i>Workflow automation</li>
-          </ul>
           <a class="svc-grid-link" href="/ai-automation/">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
@@ -792,7 +505,7 @@ try {
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
+<!-- PROCESS -->
 <section class="how" id="how">
   <div class="container">
     <div data-reveal style="text-align:center;margin-bottom:16px;">
@@ -832,164 +545,13 @@ try {
   </div>
 </section>
 
-<!-- ══════════════════════════
-   CAREOS — COMING SOON SAAS
-══════════════════════════ -->
-<section class="careos" id="careos">
-  <div class="careos-stars"></div>
-  <div class="careos-glow"></div>
-  <div class="careos-grid-lines"></div>
-  <div class="container careos-inner">
-    <div style="text-align:center" data-reveal>
-      <div class="careos-top-badge">
-        <div class="careos-top-badge-dot"></div>Coming Q3 2026 — Join the Waitlist Now
-      </div>
-      <h2 class="careos-headline">Meet <em>CareOS</em>:<br>The AI Brain for Your Agency</h2>
-      <p class="careos-subhead">It's the first AI-powered management platform built just for homecare agencies.
-        Scheduling, billing, voice AI, family portals, growth tools. One login, not six.</p>
-      <p class="careos-tagline"><i class="fa-solid fa-circle-dot"
-          style="margin-right:8px;color:var(--teal-lt)"></i>Early access members save 40% for life</p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2">
-        <a href="/careos/" class="btn-primary" style="font-size:15px;padding:16px 32px"><i class="fa-solid fa-circle-info"></i>See All CareOS Features</a>
-        <button class="btn-secondary" style="font-size:15px;padding:16px 32px" onclick="openPopup('waitlist')"><i class="fa-solid fa-rocket"></i>Join the Waitlist</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AI SEO HIGHLIGHT -->
-<section class="ai-seo" id="ai-seo">
-  <div class="container">
-    <div class="ai-seo-inner" data-reveal>
-      <div class="ai-seo-left">
-        <p class="section-label">The Unfair Advantage</p>
-        <h2 class="section-h2" style="color:#fff;font-size:clamp(28px,3.2vw,44px)">Your Agency, Cited
-          by<br><em>ChatGPT & Google AI</em></h2>
-        <p class="ai-seo-desc">Families are typing "what's the best homecare agency near me" into ChatGPT now, not
-          just Google. We make sure your name is the one it gives them.</p>
-        <div class="ai-pillars">
-          <div class="ai-pillar">
-            <div class="ai-pillar-icon"><i class="fa-solid fa-robot"></i></div>
-            <div>
-              <div class="ai-pillar-title">ChatGPT & Perplexity Optimisation</div>
-              <div class="ai-pillar-sub">We structure your content and entity signals so AI models actually
-                recommend your agency by name.</div>
-            </div>
-          </div>
-          <div class="ai-pillar">
-            <div class="ai-pillar-icon"><i class="fa-brands fa-google"></i></div>
-            <div>
-              <div class="ai-pillar-title">Google AI Overviews Placement</div>
-              <div class="ai-pillar-sub">Over 50 FAQ schemas, E-E-A-T signals, and author pages built to earn a spot
-                in the featured AI answers.</div>
-            </div>
-          </div>
-          <div class="ai-pillar">
-            <div class="ai-pillar-icon"><i class="fa-solid fa-network-wired"></i></div>
-            <div>
-              <div class="ai-pillar-title">Knowledge Graph Entity Creation</div>
-              <div class="ai-pillar-sub">Your agency gets verified as a real entity across Google's Knowledge Graph
-                and the AI systems that pull from it.</div>
-            </div>
-          </div>
-          <div class="ai-pillar">
-            <div class="ai-pillar-icon"><i class="fa-solid fa-chart-bar"></i></div>
-            <div>
-              <div class="ai-pillar-title">Monthly AI Citation Audit</div>
-              <div class="ai-pillar-sub">Every month we check where you're showing up in AI answers and tighten
-                whatever's slipping.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="ai-seo-right">
-        <img src="/images/home/ai-seo-tech.jpg"
-          alt="AI search technology helping home care agencies get cited by ChatGPT and Google AI Overviews"
-          title="AI search technology for home care agency visibility">
-        <div class="ai-seo-platforms">
-          <div class="ai-platform-pill"><i class="fa-brands fa-google"></i>Google AI Overviews</div>
-          <div class="ai-platform-pill"><i class="fa-solid fa-robot"></i>ChatGPT Citations</div>
-          <div class="ai-platform-pill"><i class="fa-solid fa-magnifying-glass"></i>Perplexity AI</div>
-          <div class="ai-platform-pill"><i class="fa-solid fa-layer-group"></i>Bing Copilot</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════
-   PRICING BUNDLES
-══════════════════════════ -->
-<section class="bundles" id="bundles">
-  <div class="bundles-bg"></div>
-  <div class="container">
-    <div class="bundles-header" data-reveal>
-      <p class="section-label">Transparent Pricing</p>
-      <h2 class="section-h2">Simple Bundle Pricing.<br>Everything <em>Included.</em></h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center;">Every plan comes with CareOS software access
-        built in. No hidden fees, cancel whenever you want. <span class="savings-badge">20% OFF — Limited Time</span></p>
-    </div>
-    <div class="bundles-grid">
-      <div class="bundle-card" data-reveal style="transition-delay:.05s">
-        <div class="bundle-top-bar"></div>
-        <div class="bundle-badge"><i class="fa-solid fa-seedling" style="margin-right:4px"></i>Launch Bundle</div>
-        <div class="bundle-name">Starter</div>
-        <div class="bundle-orig-price">Was $1,039/mo</div>
-        <div class="bundle-price"><sub>$</sub>831<span>/mo</span></div>
-        <div class="bundle-setup">+ $960 one-time setup (was $1,200)</div>
-        <div class="bundle-divider"></div>
-        <ul class="bundle-features">
-          <li><i class="fa-solid fa-circle-check"></i>CareOS Starter plan included</li>
-          <li><i class="fa-solid fa-circle-check"></i>5-page website built & hosted</li>
-          <li><i class="fa-solid fa-circle-check"></i>Google My Business management</li>
-          <li><i class="fa-solid fa-circle-check"></i>Local SEO (citations + on-page)</li>
-          <li><i class="fa-solid fa-circle-check"></i>Brand Starter kit</li>
-          <li><i class="fa-solid fa-circle-check"></i>Monthly review management</li>
-          <li><i class="fa-solid fa-circle-check"></i>30-min monthly strategy call</li>
-        </ul>
-        <button class="bundle-cta bundle-cta-default" onclick="openPopup('starter')">Get Started</button>
-      </div>
-      <div class="bundle-card featured" data-reveal style="transition-delay:.1s">
-        <div class="bundle-top-bar"></div>
-        <div class="bundle-badge hot"><i class="fa-solid fa-fire" style="margin-right:4px"></i>Most Popular</div>
-        <div class="bundle-name">Scale</div>
-        <div class="bundle-orig-price">Was $1,599/mo</div>
-        <div class="bundle-price"><sub>$</sub>1,279<span>/mo</span></div>
-        <div class="bundle-setup">Everything to grow fast</div>
-        <div class="bundle-divider"></div>
-        <ul class="bundle-features">
-          <li><i class="fa-solid fa-circle-check"></i>CareOS Growth plan included</li>
-          <li><i class="fa-solid fa-circle-check"></i>Full SEO + AI Search SEO</li>
-          <li><i class="fa-solid fa-circle-check"></i>Social media (3 posts/week)</li>
-          <li><i class="fa-solid fa-circle-check"></i>Monthly email newsletter</li>
-          <li><i class="fa-solid fa-circle-check"></i>Review engine + referral activator</li>
-          <li><i class="fa-solid fa-circle-check"></i>Dedicated account manager</li>
-          <li><i class="fa-solid fa-circle-check"></i>60-min monthly strategy call</li>
-        </ul>
-        <button class="bundle-cta bundle-cta-featured" onclick="openPopup('scale')">Start Growing &rarr;</button>
-      </div>
-      <div class="bundle-card" data-reveal style="transition-delay:.15s">
-        <div class="bundle-top-bar"></div>
-        <div class="bundle-badge"><i class="fa-solid fa-crown" style="margin-right:4px"></i>Dominate Bundle</div>
-        <div class="bundle-name">Dominate</div>
-        <div class="bundle-orig-price">Was $2,799/mo</div>
-        <div class="bundle-price"><sub>$</sub>2,239<span>/mo</span></div>
-        <div class="bundle-setup">Full-service growth partner</div>
-        <div class="bundle-divider"></div>
-        <ul class="bundle-features">
-          <li><i class="fa-solid fa-circle-check"></i>CareOS Agency Pro included</li>
-          <li><i class="fa-solid fa-circle-check"></i>All marketing services</li>
-          <li><i class="fa-solid fa-circle-check"></i>AI Dominance SEO package</li>
-          <li><i class="fa-solid fa-circle-check"></i>Social media (5 posts/week)</li>
-          <li><i class="fa-solid fa-circle-check"></i>Full email automation suite</li>
-          <li><i class="fa-solid fa-circle-check"></i>Weekly strategy call (30 min)</li>
-          <li><i class="fa-solid fa-circle-check"></i>Fractional CMO access</li>
-        </ul>
-        <button class="bundle-cta bundle-cta-default" onclick="openPopup('dominate')">Contact Us</button>
-      </div>
-    </div>
-    <p class="bundles-note"><i class="fa-solid fa-shield-halved" style="color:var(--teal);margin-right:6px"></i>Every
-      plan comes with a 30-day satisfaction guarantee, no long-term contract attached.</p>
+<!-- MID-PAGE CTA -->
+<section class="mid-cta" id="bundles">
+  <div class="mid-cta-inner" data-reveal>
+    <p class="section-label">Get Started Today</p>
+    <h2 class="section-h2">Ready to Grow? <em>Let's Talk Numbers.</em></h2>
+    <p>Plans start at $831/mo, no hidden fees, no long-term contract, and every plan comes with a 30-day satisfaction guarantee.</p>
+    <button class="btn-primary" style="font-size:15px;padding:16px 32px" onclick="openPopup('audit')"><i class="fa-solid fa-tags"></i>Get My Custom Quote</button>
   </div>
 </section>
 
@@ -1030,7 +592,7 @@ try {
             <div class="result-card-icon"><i class="fa-solid fa-clock"></i></div>
             <div class="result-num">12h</div>
             <div class="result-label">Saved Per Week</div>
-            <div class="result-desc">Via CareOS AI voice journaling</div>
+            <div class="result-desc">Via AI-automated follow-ups and scheduling</div>
           </div>
           <div class="result-card">
             <div class="result-card-icon"><i class="fa-solid fa-medal"></i></div>
@@ -1108,8 +670,8 @@ try {
         </div>
         <div class="review-card">
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-quote">"Just the fact that CareOS exists tells you this team thinks differently. They're
-            building what homecare operations will actually look like in a few years."</p>
+          <p class="review-quote">"The follow-up automation alone paid for the retainer. Leads used to sit for days,
+            now they get a response in minutes, day or night."</p>
           <div class="review-author">
             <div class="review-avatar">RB</div>
             <div>
@@ -1211,14 +773,14 @@ try {
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">What is CareOS and when does it launch?</span>
+          <span class="faq-q-text">What does the AI & Automation service actually do?</span>
           <div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div>
         </div>
         <div class="faq-a">
           <div class="faq-a-inner">
-            <p>It's our AI-powered management platform for homecare agencies. Scheduling, billing, EVV compliance,
-              voice AI journaling, family portals, growth tools, all of it. CareOS launches in Q3 2026, and joining
-              the waitlist now locks in 40% off for life.</p>
+            <p>We set up automated follow-ups, lead response, and scheduling workflows so inquiries get answered
+              within minutes instead of sitting in an inbox. It runs quietly in the background and plugs into the
+              marketing work we're already doing for you.</p>
           </div>
         </div>
       </div>
@@ -1264,112 +826,6 @@ try {
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════
-   CONTACT FORM
-══════════════════════════ -->
-<section class="contact-section" id="contact">
-  <div class="container">
-    <div class="contact-inner">
-      <div class="contact-info" data-reveal>
-        <p class="section-label">Get in Touch</p>
-        <h2 class="section-h2">Let's Grow Your<br><em>Agency Together</em></h2>
-        <p class="contact-desc">Got a question about our services, pricing, or CareOS? Fill out the form below and
-          someone from our team will get back to you within 24 hours.</p>
-        <div class="contact-details">
-          <div class="contact-detail">
-            <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
-            <div>
-              <div class="contact-detail-label">Email Us</div>
-              <div class="contact-detail-value"><a
-                  href="mailto:info@homecarecreators.com">info@homecarecreators.com</a></div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon"><i class="fa-brands fa-linkedin-in"></i></div>
-            <div>
-              <div class="contact-detail-label">LinkedIn</div>
-              <div class="contact-detail-value"><a href="https://www.linkedin.com/company/homecare-creators/"
-                  target="_blank" rel="noopener">linkedin.com/company/homecare-creators</a></div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon"><i class="fa-brands fa-instagram"></i></div>
-            <div>
-              <div class="contact-detail-label">Instagram</div>
-              <div class="contact-detail-value"><a href="https://www.instagram.com/homecare_creators/"
-                  target="_blank" rel="noopener">@homecare_creators</a></div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon"><i class="fa-brands fa-facebook-f"></i></div>
-            <div>
-              <div class="contact-detail-label">Facebook</div>
-              <div class="contact-detail-value"><a href="https://web.facebook.com/people/Homecare-Creators/61594535490703/"
-                  target="_blank" rel="noopener">Homecare Creators</a></div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon"><i class="fa-solid fa-clock"></i></div>
-            <div>
-              <div class="contact-detail-label">Response Time</div>
-              <div class="contact-detail-value">Within 24 hours, Monday&ndash;Friday</div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <div>
-              <div class="contact-detail-label">Free Audit</div>
-              <div class="contact-detail-value">30-min growth audit, no obligation</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="contact-form-card" data-reveal style="transition-delay:.15s">
-        <div class="form-title">Send Us a Message</div>
-        <div class="form-subtitle">We'll get back to you within 24 hours.</div>
-        <div id="contactFormWrap">
-          <div class="form-row">
-            <div class="form-group" style="margin-bottom:0"><label class="form-label" for="cfFirst">First Name
-                *</label><input type="text" class="form-input" id="cfFirst" placeholder="Sarah"
-                autocomplete="given-name"></div>
-            <div class="form-group" style="margin-bottom:0"><label class="form-label" for="cfLast">Last Name
-                *</label><input type="text" class="form-input" id="cfLast" placeholder="Johnson"
-                autocomplete="family-name"></div>
-          </div>
-          <div class="form-group"><label class="form-label" for="cfEmail">Email Address *</label><input type="email"
-              class="form-input" id="cfEmail" placeholder="sarah@agency.com" autocomplete="email"></div>
-          <div class="form-group"><label class="form-label" for="cfPhone">Phone Number</label><input type="tel"
-              class="form-input" id="cfPhone" placeholder="+1 (555) 000-0000" autocomplete="tel"></div>
-          <div class="form-group"><label class="form-label" for="cfAgency">Agency Name</label><input type="text"
-              class="form-input" id="cfAgency" placeholder="Comfort Home Care LLC"></div>
-          <div class="form-group"><label class="form-label" for="cfService">How Can We Help?</label>
-            <select class="form-select" id="cfService">
-              <option value="">Select a topic...</option>
-              <option>Free Growth Audit</option>
-              <option>Website Development</option>
-              <option>Local SEO</option>
-              <option>AI Search SEO</option>
-              <option>Full Bundle Package</option>
-              <option>CareOS Waitlist</option>
-              <option>General Enquiry</option>
-            </select>
-          </div>
-          <div class="form-group"><label class="form-label" for="cfMessage">Message</label><textarea
-              class="form-textarea" id="cfMessage"
-              placeholder="Tell us about your agency and what you'd like to achieve..."></textarea></div>
-          <button class="form-submit" onclick="submitContact()"><i class="fa-solid fa-paper-plane"></i>Send
-            Message</button>
-        </div>
-        <div class="form-success" id="contactSuccess">
-          <i class="fa-solid fa-circle-check"></i>
-          <div class="form-success-title">Message Received!</div>
-          <p>Thank you! We'll reply within 24 hours.</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
