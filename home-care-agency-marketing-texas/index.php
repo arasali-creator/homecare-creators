@@ -178,7 +178,7 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
     <div class="hero-photo-wrap" data-reveal style="transition-delay:.15s">
       <div class="hero-photo">
-        <img src="/images/team/asifa-speaking-conference-stage.jpg" alt="Asifa Rani, founder of Homecare Creators, presenting home care marketing strategy to an industry audience" title="Homecare Creators — home care marketing specialists">
+        <img src="/images/team/asifa-speaking-conference-stage.jpg" alt="Asifa Rani, founder of Homecare Creators, presenting home care marketing strategy to an industry audience" title="Homecare Creators, home care marketing specialists">
       </div>
       <div class="hero-photo-badge">
         <div class="hero-photo-badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
@@ -230,7 +230,7 @@ echo '<script type="application/ld+json">' . json_encode([
     <div data-reveal style="max-width:720px">
       <p class="section-label">What We Do</p>
       <h2 class="section-h2">Digital Marketing Services for Texas Home Care Agencies</h2>
-      <p class="lede">A successful strategy requires more than an attractive website or occasional social posts — your website, search visibility, local business information, and lead follow-up should work together.</p>
+      <p class="lede">A successful strategy requires more than an attractive website or occasional social posts. Your website, search visibility, local business information, and lead follow-up should work together.</p>
     </div>
     <div class="svc-stack">
       <div class="svc-block" data-reveal>
@@ -268,7 +268,7 @@ echo '<script type="application/ld+json">' . json_encode([
         <div>
           <div class="svc-block-title">Local SEO and Google Maps Optimization</div>
           <div class="svc-block-tagline">Reach families searching in the communities you serve.</div>
-          <p class="svc-block-desc">Texas has large metros, surrounding suburbs, and smaller communities with different competitive conditions — a strategy that works in one market may not suit another.</p>
+          <p class="svc-block-desc">Texas has large metros, surrounding suburbs, and smaller communities with different competitive conditions. A strategy that works in one market may not suit another.</p>
           <ul class="svc-block-list">
             <li><i class="fa-solid fa-check"></i>Google Business Profile optimization</li>
             <li><i class="fa-solid fa-check"></i>Accurate business name, address, phone, and service info</li>
@@ -298,7 +298,7 @@ echo '<script type="application/ld+json">' . json_encode([
         <div>
           <div class="svc-block-title">AI and Marketing Automation</div>
           <div class="svc-block-tagline">Respond to inquiries consistently without extra manual work.</div>
-          <p class="svc-block-desc">Generating an inquiry is only part of the process — if a prospective client doesn't get a timely response, the opportunity is lost. Automation helps your team follow up consistently.</p>
+          <p class="svc-block-desc">Generating an inquiry is only part of the process. If a prospective client doesn't get a timely response, the opportunity is lost. Automation helps your team follow up consistently.</p>
           <ul class="svc-block-list">
             <li><i class="fa-solid fa-check"></i>Automated notifications when a new inquiry arrives</li>
             <li><i class="fa-solid fa-check"></i>Follow-up email workflows and lead routing</li>
@@ -318,7 +318,7 @@ echo '<script type="application/ld+json">' . json_encode([
     <div data-reveal style="max-width:720px">
       <p class="section-label">Where We Work</p>
       <h2 class="section-h2">Home Care Marketing Across Texas</h2>
-      <p class="lede">Texas is a diverse market, and your digital marketing strategy should reflect the locations and services that matter to your agency — not a copy-paste template.</p>
+      <p class="lede">Texas is a diverse market, and your digital marketing strategy should reflect the locations and services that matter to your agency, not a copy-paste template.</p>
     </div>
     <div class="metro-grid" data-reveal style="transition-delay:.1s">
       <div class="metro-card">
@@ -338,7 +338,7 @@ echo '<script type="application/ld+json">' . json_encode([
         <p>For agencies serving San Antonio and nearby communities, accurate business information, relevant service pages, and a consistent online presence support visibility among families researching care.</p>
       </div>
     </div>
-    <p class="lede" data-reveal>We also help agencies serving other Texas locations, depending on their needs and target markets. Our approach is to create useful, locally relevant content based on the areas your agency genuinely serves — not simply swap a city name across dozens of similar pages.</p>
+    <p class="lede" data-reveal>We also help agencies serving other Texas locations, depending on their needs and target markets. Our approach is to create useful, locally relevant content based on the areas your agency genuinely serves, not simply swap a city name across dozens of similar pages.</p>
     <button class="section-cta-btn" onclick="openPopup('audit')" data-reveal>Find Marketing Opportunities in Your Texas Market</button>
   </div>
 </section>
@@ -399,7 +399,7 @@ echo '<script type="application/ld+json">' . json_encode([
   <div class="cta-card" data-reveal>
     <div class="cta-card-inner">
       <h2 class="cta-headline">Ready to Grow Your <em>Texas</em> Home Care Agency?</h2>
-      <p class="cta-sub">Your agency deserves a marketing strategy built around its services, target market, and goals — not a generic plan copied from another industry.</p>
+      <p class="cta-sub">Your agency deserves a marketing strategy built around its services, target market, and goals, not a generic plan copied from another industry.</p>
       <button class="cta-pill-btn" onclick="openPopup('audit')"><i class="fa-solid fa-calendar-check"></i>Get Your Free Home Care Marketing Audit</button>
     </div>
   </div>

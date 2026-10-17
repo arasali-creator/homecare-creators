@@ -52,6 +52,9 @@ $page_css = <<<CSS
 
 /* INTRO */
 .intro-section{background:#fff}
+.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.intro-photo{border-radius:24px;overflow:hidden;aspect-ratio:4/4.6;box-shadow:0 24px 70px rgba(10,46,30,.15)}
+.intro-photo img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* SERVICES */
 .services-section{background:var(--cream)}
@@ -103,6 +106,8 @@ $page_css = <<<CSS
 /* RESPONSIVE */
 @media(max-width:1024px){
   .hero-grid{grid-template-columns:1fr;gap:40px;padding:0 32px}
+  .intro-grid{grid-template-columns:1fr;gap:32px}
+  .intro-photo{max-width:420px;margin:0 auto}
   .metro-grid{grid-template-columns:1fr}
   .svc-stack{grid-template-columns:1fr}
 }
@@ -201,16 +206,17 @@ echo '<script type="application/ld+json">' . json_encode([
 
 <!-- INTRO -->
 <section class="intro-section">
-  <div class="container" style="max-width:760px">
-    <div data-reveal style="text-align:center">
-      <p class="section-label" style="justify-content:center">Grow With a Smarter Strategy</p>
-      <h2 class="section-h2" style="text-align:center">Grow Your Home Care Agency With a Smarter Digital Marketing Strategy</h2>
-    </div>
-    <div data-reveal style="margin-top:8px">
+  <div class="container intro-grid">
+    <div data-reveal>
+      <p class="section-label">Grow With a Smarter Strategy</p>
+      <h2 class="section-h2">Grow Your Home Care Agency With a Smarter Digital Marketing Strategy</h2>
       <p class="lede">When families need help for an aging parent or a loved one, they turn to Google, compare local providers, read reviews, and visit websites before contacting an agency.</p>
       <p class="lede"><strong>Homecare Creators helps New York home care agencies strengthen their online presence through home care SEO, website design, local SEO, AI search optimization, and marketing automation.</strong> Our goal is to help your agency become easier to discover, communicate your value clearly, and create a better path from an online search to a real inquiry.</p>
       <p class="lede">Whether you're launching a new agency or growing an established one, your marketing should reflect your services, your target market, and the communities you actually serve.</p>
-      <div style="text-align:center"><button class="section-cta-btn" onclick="openPopup('audit')"><i class="fa-solid fa-calendar-check"></i>Get Your Free Home Care Marketing Audit</button></div>
+      <button class="section-cta-btn" onclick="openPopup('audit')"><i class="fa-solid fa-calendar-check"></i>Get Your Free Home Care Marketing Audit</button>
+    </div>
+    <div class="intro-photo" data-reveal style="transition-delay:.15s">
+      <img src="/images/team/team-coffee-break-meeting.jpg" alt="Homecare Creators team members discussing a New York home care agency's marketing strategy" title="Reviewing a home care agency's growth strategy">
     </div>
   </div>
 </section>
