@@ -785,7 +785,7 @@ try {
             <li><i class="fa-solid fa-check"></i>Email & SMS automation</li>
             <li><i class="fa-solid fa-check"></i>Workflow automation</li>
           </ul>
-          <a class="svc-grid-link" onclick="openPopup('audit');return false;" href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          <a class="svc-grid-link" href="/ai-automation/">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -1294,6 +1294,22 @@ try {
               <div class="contact-detail-label">LinkedIn</div>
               <div class="contact-detail-value"><a href="https://www.linkedin.com/company/homecare-creators/"
                   target="_blank" rel="noopener">linkedin.com/company/homecare-creators</a></div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa-brands fa-instagram"></i></div>
+            <div>
+              <div class="contact-detail-label">Instagram</div>
+              <div class="contact-detail-value"><a href="https://www.instagram.com/homecare_creators/"
+                  target="_blank" rel="noopener">@homecare_creators</a></div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa-brands fa-facebook-f"></i></div>
+            <div>
+              <div class="contact-detail-label">Facebook</div>
+              <div class="contact-detail-value"><a href="https://web.facebook.com/people/Homecare-Creators/61594535490703/"
+                  target="_blank" rel="noopener">Homecare Creators</a></div>
             </div>
           </div>
           <div class="contact-detail">

@@ -12,6 +12,8 @@
       <p class="footer-tagline">Market It. Manage It. Grow It — Built Exclusively for Homecare.</p>
       <div class="footer-socials">
         <a href="https://www.linkedin.com/company/homecare-creators/" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/homecare_creators/" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://web.facebook.com/people/Homecare-Creators/61594535490703/" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="https://wa.me/14094193533" target="_blank" rel="noopener" class="footer-social" aria-label="Message us on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         <a href="mailto:info@homecarecreators.com" class="footer-social" aria-label="Email us"><i class="fa-solid fa-envelope"></i></a>
       </div>
@@ -24,6 +26,7 @@
         <li><a href="/seo/home-care-seo/">Home Care SEO</a></li>
         <li><a href="/web-design/homecare-website-design/">Website Design</a></li>
         <li><a href="/ai-search-seo/">AI Search SEO</a></li>
+        <li><a href="/ai-automation/">AI &amp; Automation</a></li>
         <li><a href="/#bundles">Pricing &amp; Packages</a></li>
         <li><a href="/products/">Products</a></li>
         <li><a href="/case-studies/">Case Studies</a></li>
