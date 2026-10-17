@@ -196,7 +196,7 @@ $_faqs = [
     ["How long does Home Care SEO take?", "SEO is a long-term strategy. While every agency is different, many begin seeing meaningful improvements within three to six months, with continued growth over time."],
     ["Is Local SEO included?", "Absolutely. Local SEO is a core part of every strategy and includes optimizing your Google Business Profile, improving local visibility, and helping your agency appear in Google Maps and location-based searches."],
     ["Can you optimize my existing website?", "Yes. Whether your website is built on WordPress, Webflow, Wix, Shopify, or another platform, we can optimize it without starting from scratch in most cases."],
-    ["Do you work with agencies across Florida?", "Home care is one of our primary specialties and Florida is our home market. We build SEO strategies that reflect how families search for care and how agencies grow in competitive local Florida markets."],
+    ["Do you only work with agencies in Florida?", "No. Homecare Creators is based in Florida, but we work with home care agencies nationwide. We build SEO strategies that reflect how families search for care and how agencies grow in competitive local markets, wherever you're located."],
     ["Do you guarantee rankings?", "No. No ethical SEO agency can guarantee rankings because search engines constantly change. What we do promise is a transparent process, best practices, and a strategy focused on sustainable long-term growth."],
     ["Can you help me get more Google reviews?", "Yes — it's one of our core services and one of the highest-impact things we do. We build a review request process around your actual home care workflows, reaching clients and families at the right moments by email, SMS, and QR code. Since reviews are among the top Google Maps ranking factors, consistent review growth can meaningfully move your local visibility."],
 ];
@@ -206,7 +206,7 @@ echo '<script type="application/ld+json">' . json_encode([
     "name"=>"Home Care SEO Services",
     "serviceType"=>"SEO Services",
     "provider"=>["@type"=>"Organization","name"=>"HomeCareCreators","url"=>"https://homecarecreators.com/"],
-    "areaServed"=>["@type"=>"State","name"=>"Florida"],
+    "areaServed"=>["@type"=>"Country","name"=>"United States"],
     "description"=>$page_desc,
     "url"=>$page_canonical,
 ], JSON_UNESCAPED_SLASHES) . "</script>\n";
@@ -665,7 +665,7 @@ echo '<script type="application/ld+json">' . json_encode([
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free consultation &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; No guaranteed-ranking gimmicks</div>
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
-        <img src="/images/home/cta-business-owner.jpg" alt="Florida home care agency owner growing their business with Home Care SEO" title="Home care agency growth through SEO">
+        <img src="/images/home/cta-business-owner.jpg" alt="Home care agency owner growing their business with Home Care SEO" title="Home care agency growth through SEO">
         <div class="cta-image-badge">
           <div class="cta-image-badge-title"><i class="fa-solid fa-circle-dot" style="color:var(--teal-lt);margin-right:4px"></i>Free Strategy Call Includes</div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Current visibility &amp; ranking review</div></div>
