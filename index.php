@@ -41,6 +41,14 @@ $page_css = <<<CSS
 
 /* ── WHY US ── */
 .why{background:#fff}
+.why-grid{display:grid;grid-template-columns:380px 1fr;gap:64px;align-items:center}
+.why-photo-wrap{position:relative}
+.why-photo{border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 24px 70px rgba(10,46,30,.15)}
+.why-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.why-photo-stat{position:absolute;bottom:-20px;left:-20px;background:#fff;border-radius:16px;padding:18px 22px;box-shadow:0 12px 40px rgba(10,46,30,.16);border:1px solid var(--border)}
+.why-photo-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;color:var(--teal);line-height:1}
+.why-photo-stat-label{font-size:11px;color:var(--muted);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-top:4px;line-height:1.4}
+.why-content .section-sub{margin-bottom:24px}
 
 /* ── SERVICES ── */
 .services{background:var(--cream)}
@@ -64,18 +72,6 @@ $page_css = <<<CSS
 .svc-grid-link{display:inline-flex;align-items:center;gap:7px;margin-top:auto;font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;font-weight:700;color:var(--teal);text-decoration:none;transition:.2s;cursor:pointer}
 .svc-grid-link:hover{color:var(--forest);gap:10px}
 @media(max-width:768px){.svc-grid-card{flex:1 1 100%}}
-
-/* ── CASE STUDIES SLIDER ── */
-.case-studies{background:var(--cream);overflow:hidden}
-.case-card{background:#fff;border:1px solid var(--border);border-radius:22px;padding:32px;min-width:340px;max-width:340px;flex-shrink:0;box-shadow:0 8px 28px rgba(10,46,30,.06)}
-.case-card-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(29,158,117,.1);color:var(--teal);font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:6px 13px;border-radius:100px;margin-bottom:22px}
-.case-card-stat{font-family:'Plus Jakarta Sans',sans-serif;font-size:38px;font-weight:800;color:var(--forest);line-height:1;margin-bottom:6px}
-.case-card-stat-label{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.5}
-.case-card-desc{font-size:14.5px;line-height:1.7;color:var(--muted);margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
-.case-card-client{display:flex;align-items:center;gap:12px}
-.case-card-avatar{width:42px;height:42px;border-radius:50%;background:var(--forest);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;flex-shrink:0}
-.case-card-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13.5px;color:var(--forest)}
-.case-card-loc{font-size:12px;color:var(--muted)}
 
 /* ── REVIEWS SLIDER ── */
 .reviews{background:var(--forest);overflow:hidden;position:relative}
@@ -150,48 +146,48 @@ $page_css = <<<CSS
   .hero-right{display:none}
   .hero-left{padding:130px 40px 80px}
   .cta-inner{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr;gap:56px}
+  .why-photo{max-width:340px;margin:0 auto}
+  .why-photo-stat{left:50%;transform:translateX(calc(-50% - 110px))}
 }
 @media(max-width:640px){
   .hero-left{padding:110px 24px 60px}
   section{padding:72px 24px}
-  .review-card,.case-card{min-width:calc(100vw - 80px);max-width:calc(100vw - 80px)}
+  .review-card{min-width:calc(100vw - 80px);max-width:calc(100vw - 80px)}
   .faq-list{padding:0}
+  .why-photo-stat{left:16px;transform:none}
 }
 CSS;
 
 $page_js = <<<JS
-// ── GENERIC CARD SLIDER (used by Reviews + Case Studies) ──
-function makeSlider(trackId, dotsId, totalCards, visible, cardWidth) {
-  var current = 0;
-  var maxSlide = Math.max(0, totalCards - visible);
-  var track = document.getElementById(trackId);
-  var dotsWrap = document.getElementById(dotsId);
+// ── REVIEW SLIDER ──
+var currentSlide = 0;
+var TOTAL_CARDS = 6;
+var VISIBLE = 3;
+var MAX_SLIDE = TOTAL_CARDS - VISIBLE;
+var CARD_W = 360 + 24;
 
-  function buildDots() {
-    if (!dotsWrap) return;
-    dotsWrap.innerHTML = '';
-    for (var i = 0; i <= maxSlide; i++) {
-      var d = document.createElement('button');
-      d.className = 'slider-dot' + (i === 0 ? ' active' : '');
-      d.setAttribute('aria-label', 'Slide ' + (i + 1));
-      (function(idx) { d.addEventListener('click', function() { goSlide(idx); }); })(i);
-      dotsWrap.appendChild(d);
-    }
+function buildDots() {
+  var dots = document.getElementById('sliderDots');
+  if (!dots) return;
+  dots.innerHTML = '';
+  for (var i = 0; i <= MAX_SLIDE; i++) {
+    var d = document.createElement('button');
+    d.className = 'slider-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i + 1));
+    (function(idx) { d.addEventListener('click', function() { goSlide(idx); }); })(i);
+    dots.appendChild(d);
   }
-  function goSlide(n) {
-    current = Math.max(0, Math.min(n, maxSlide));
-    if (track) track.style.transform = 'translateX(-' + (current * cardWidth) + 'px)';
-    if (dotsWrap) Array.prototype.forEach.call(dotsWrap.children, function(d, i) {
-      d.classList.toggle('active', i === current);
-    });
-  }
-  buildDots();
-  return { next: function() { goSlide(current + 1); }, prev: function() { goSlide(current - 1); } };
 }
-var reviewsSlider = makeSlider('sliderTrack', 'sliderDots', 6, 3, 360 + 24);
-var caseSlider = makeSlider('caseSliderTrack', 'caseSliderDots', 4, 3, 340 + 24);
-function slideReviews(dir) { dir < 0 ? reviewsSlider.prev() : reviewsSlider.next(); }
-function slideCases(dir) { dir < 0 ? caseSlider.prev() : caseSlider.next(); }
+function goSlide(n) {
+  currentSlide = Math.max(0, Math.min(n, MAX_SLIDE));
+  document.getElementById('sliderTrack').style.transform = 'translateX(-' + (currentSlide * CARD_W) + 'px)';
+  document.querySelectorAll('.slider-dot').forEach(function(d, i) {
+    d.classList.toggle('active', i === currentSlide);
+  });
+}
+function slideReviews(dir) { goSlide(currentSlide + dir); }
+buildDots();
 
 // ── OPEN POPUP OVERRIDE (homepage title customization) ──
 function openPopup(type) {
@@ -335,15 +331,26 @@ try {
    ABOUT US
 ══════════════════════════ -->
 <section class="why" id="why">
-  <div class="container" style="max-width:760px">
-    <div data-reveal style="text-align:center">
-      <p class="section-label" style="justify-content:center">Why Homecare Creators</p>
-      <h2 class="section-h2" style="text-align:center">Built <em>100% for </em>Homecare</h2>
-      <p class="section-sub" style="margin:0 auto">Generalist agencies don't get homecare. We do, and that focus is
-        worth hundreds of thousands in growth most years. Every strategy, keyword, and page we build is for a
-        homecare agency, nothing else — plus AI search visibility and automation most competitors haven't even
-        heard of yet. All on month-to-month plans with no long-term lock-in, because one new client usually covers
-        the entire retainer within 30 days.</p>
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-photo-wrap" data-reveal>
+        <div class="why-photo">
+          <img src="/images/team/asifa-rani-founder-ceo.jpg" alt="Asifa Rani, Founder and CEO of Homecare Creators" title="Asifa Rani — Founder & CEO, Homecare Creators">
+        </div>
+        <div class="why-photo-stat">
+          <div class="why-photo-stat-num">100%</div>
+          <div class="why-photo-stat-label">Homecare-Only<br>Focus</div>
+        </div>
+      </div>
+      <div class="why-content" data-reveal style="transition-delay:.1s">
+        <p class="section-label">Why Homecare Creators</p>
+        <h2 class="section-h2">Built <em>100% for</em> Homecare</h2>
+        <p class="section-sub">Founded by Asifa Rani, Homecare Creators works exclusively with home care agencies
+          nationwide — no restaurants, no law firms, no generic playbooks. Every strategy, keyword, and page we
+          build is for this industry alone, paired with AI search visibility and automation most competitors
+          haven't even heard of yet.</p>
+        <a href="/about/" class="btn-primary" style="margin-top:8px">Learn More</a>
+      </div>
     </div>
   </div>
 </section>
@@ -482,81 +489,7 @@ try {
 </section>
 
 <!-- CASE STUDIES -->
-<section class="case-studies" id="results">
-  <div class="container">
-    <div class="reviews-header" data-reveal>
-      <p class="section-label">Case Studies</p>
-      <h2 class="section-h2">Real Agencies.<br><em>Real Growth.</em></h2>
-    </div>
-    <div class="slider-wrap" data-reveal style="transition-delay:.1s">
-      <div class="slider-track" id="caseSliderTrack">
-        <div class="case-card">
-          <div class="case-card-tag"><i class="fa-solid fa-magnifying-glass-dollar"></i>Website + Local SEO</div>
-          <div class="case-card-stat">0&nbsp;&rarr;&nbsp;28</div>
-          <div class="case-card-stat-label">Private-pay clients in 7 months</div>
-          <p class="case-card-desc">A full website redesign paired with local SEO took this agency from zero
-            private-pay inquiries to a steady monthly pipeline.</p>
-          <div class="case-card-client">
-            <div class="case-card-avatar">TW</div>
-            <div>
-              <div class="case-card-name">Sunrise Senior Care</div>
-              <div class="case-card-loc">Phoenix, AZ</div>
-            </div>
-          </div>
-        </div>
-        <div class="case-card">
-          <div class="case-card-tag"><i class="fa-solid fa-gears"></i>AI &amp; Automation</div>
-          <div class="case-card-stat">12 hrs</div>
-          <div class="case-card-stat-label">Saved per week on follow-ups</div>
-          <p class="case-card-desc">Automated lead response and scheduling freed up a full workday every week that
-            used to go to manual phone tag.</p>
-          <div class="case-card-client">
-            <div class="case-card-avatar">RB</div>
-            <div>
-              <div class="case-card-name">Premier Home Health</div>
-              <div class="case-card-loc">Dallas, TX</div>
-            </div>
-          </div>
-        </div>
-        <div class="case-card">
-          <div class="case-card-tag"><i class="fa-brands fa-google"></i>Local SEO + Reviews</div>
-          <div class="case-card-stat">6&nbsp;&rarr;&nbsp;52</div>
-          <div class="case-card-stat-label">Google reviews, #1 local ranking in 4 months</div>
-          <p class="case-card-desc">Review automation plus a Google Business Profile overhaul moved this agency to
-            the top of the local map pack in its city.</p>
-          <div class="case-card-client">
-            <div class="case-card-avatar">SR</div>
-            <div>
-              <div class="case-card-name">Comfort Home Care</div>
-              <div class="case-card-loc">Chicago, IL</div>
-            </div>
-          </div>
-        </div>
-        <div class="case-card">
-          <div class="case-card-tag"><i class="fa-solid fa-arrow-trend-up"></i>AI Search SEO</div>
-          <div class="case-card-stat">3x</div>
-          <div class="case-card-stat-label">Increase in inquiry calls</div>
-          <p class="case-card-desc">Getting cited by ChatGPT and Google AI Overviews put this agency in front of
-            families before competitors even showed up.</p>
-          <div class="case-card-client">
-            <div class="case-card-avatar">LD</div>
-            <div>
-              <div class="case-card-name">Caring Hands Agency</div>
-              <div class="case-card-loc">Houston, TX</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="slider-controls">
-      <button class="slider-btn" onclick="slideCases(-1)" aria-label="Previous"><i
-          class="fa-solid fa-chevron-left"></i></button>
-      <div class="slider-dots" id="caseSliderDots"></div>
-      <button class="slider-btn" onclick="slideCases(1)" aria-label="Next"><i
-          class="fa-solid fa-chevron-right"></i></button>
-    </div>
-  </div>
-</section>
+<?php include 'includes/case-study-slider.php'; ?>
 
 <!-- ══════════════════════════
    REVIEWS SLIDER

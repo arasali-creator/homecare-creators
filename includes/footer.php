@@ -1,97 +1,99 @@
 <!-- FOOTER -->
 <footer>
-  <div class="footer-cta" data-reveal>
-    <div class="footer-cta-text">
-      <p class="footer-cta-label"><i class="fa-solid fa-comment-dots"></i>Let's Talk</p>
-      <h3>Ready to Grow Your Homecare Agency?</h3>
-      <p>Book a free 30-minute growth audit — no obligation, no sales pitch.</p>
-    </div>
-    <button class="footer-cta-btn" onclick="openPopup('audit')"><i class="fa-solid fa-calendar-check"></i>Book Free Audit</button>
-  </div>
+  <div class="footer-card">
+    <div class="footer-top">
+      <div class="footer-brand" data-reveal>
+        <div class="footer-brand-row">
+          <div class="footer-logo">
+            <?php if (!empty($_hc_logo_url)): ?>
+            <img src="<?= htmlspecialchars($_hc_logo_url) ?>" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" style="height:36px;width:auto;display:block">
+            <?php else: ?>
+            <img src="/images/home/homecarecreators-logo.png" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" style="height:36px;width:auto;display:block">
+            <?php endif ?>
+          </div>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/homecare-creators/" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/homecare_creators/" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://web.facebook.com/people/Homecare-Creators/61594535490703/" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://wa.me/14094193533" target="_blank" rel="noopener" class="footer-social" aria-label="Message us on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <h3 class="footer-heading">Ready to Grow Your <em>Homecare Agency?</em></h3>
+        <form class="footer-subscribe" id="footerSubscribeForm">
+          <input type="email" id="footerEmailInput" placeholder="Enter your email" required autocomplete="email">
+          <button type="submit" aria-label="Get started"><i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+      </div>
 
-  <div class="footer-main">
-    <div class="footer-brand">
-      <div class="footer-logo">
-        <?php if (!empty($_hc_logo_url)): ?>
-        <img src="<?= htmlspecialchars($_hc_logo_url) ?>" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" style="height:48px;width:auto;display:block">
-        <?php else: ?>
-        <img src="/images/home/homecarecreators-logo.png" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" width="167" height="48" style="height:48px;width:auto;display:block">
-        <?php endif ?>
-      </div>
-      <p class="footer-brand-tagline">Market It. Manage It. Grow It — built exclusively for home care agencies nationwide.</p>
-      <div class="footer-socials">
-        <a href="https://www.linkedin.com/company/homecare-creators/" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://www.instagram.com/homecare_creators/" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://web.facebook.com/people/Homecare-Creators/61594535490703/" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://wa.me/14094193533" target="_blank" rel="noopener" class="footer-social" aria-label="Message us on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="mailto:info@homecarecreators.com" class="footer-social" aria-label="Email us"><i class="fa-solid fa-envelope"></i></a>
-      </div>
-    </div>
-    <div class="footer-groups">
-      <div class="footer-group">
-        <div class="footer-group-title"><i class="fa-solid fa-building"></i>Company</div>
-        <ul class="footer-links">
-          <li><a href="/about/">About Us</a></li>
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href="/seo/home-care-seo/">Home Care SEO</a></li>
-          <li><a href="/web-design/homecare-website-design/">Website Design</a></li>
-          <li><a href="/ai-search-seo/">AI Search SEO</a></li>
-          <li><a href="/ai-automation/">AI &amp; Automation</a></li>
-          <li><a href="/#bundles">Pricing &amp; Packages</a></li>
-          <li><a href="/products/">Products</a></li>
-          <li><a href="/case-studies/">Case Studies</a></li>
-          <li><a href="/events/">Events</a></li>
-          <li><a href="/blog">Marketing Blog</a></li>
-          <li><a href="/directory/">Agency Directory</a></li>
-          <li><a href="/growth-calculator/">Growth Calculator</a></li>
-        </ul>
-      </div>
-      <div class="footer-group">
-        <div class="footer-group-title"><i class="fa-solid fa-location-dot"></i>Florida Cities</div>
-        <ul class="footer-links">
-          <li><a href="/home-care-agency-seo-miami-fl/">Miami</a></li>
-          <li><a href="/home-care-agency-seo-orlando-fl/">Orlando</a></li>
-          <li><a href="/home-care-agency-seo-sarasota-fl/">Sarasota</a></li>
-          <li><a href="/home-care-agency-seo-jacksonville-fl/">Jacksonville</a></li>
-          <li><a href="/home-care-agency-seo-fort-lauderdale-fl/">Fort Lauderdale</a></li>
-          <li><a href="/home-care-agency-seo-naples-fl/">Naples</a></li>
-          <li><a href="/home-care-agency-seo-west-palm-beach-fl/">West Palm Beach</a></li>
-          <li><a href="/home-care-agency-seo-boca-raton-fl/">Boca Raton</a></li>
-          <li><a href="/home-care-agency-seo-clearwater-fl/">Clearwater</a></li>
-          <li><a href="/home-care-agency-seo-tampa-fl/">Tampa</a></li>
-        </ul>
-      </div>
-      <div class="footer-group">
-        <div class="footer-group-title"><i class="fa-solid fa-code"></i>Web Design Cities</div>
-        <ul class="footer-links">
-          <li><a href="/homecare-website-design-miami-fl/">Miami Web Design</a></li>
-          <li><a href="/homecare-website-design-orlando-fl/">Orlando Web Design</a></li>
-          <li><a href="/homecare-website-design-tampa-fl/">Tampa Web Design</a></li>
-          <li><a href="/homecare-website-design-jacksonville-fl/">Jacksonville Web Design</a></li>
-          <li><a href="/homecare-website-design-fort-lauderdale-fl/">Fort Lauderdale Web Design</a></li>
-          <li><a href="/homecare-website-design-naples-fl/">Naples Web Design</a></li>
-        </ul>
-      </div>
-      <div class="footer-group">
-        <div class="footer-group-title"><i class="fa-solid fa-heart"></i>Senior Care Marketing</div>
-        <ul class="footer-links">
-          <li><a href="/areas-we-serve/">Areas We Serve</a></li>
-          <li><a href="/memory-care-marketing/">Memory Care</a></li>
-          <li><a href="/hospice-marketing/">Hospice</a></li>
-          <li><a href="/nursing-home-marketing/">Nursing Homes</a></li>
-          <li><a href="/senior-living-marketing/">Senior Living</a></li>
-          <li><a href="/assisted-living-marketing/">Assisted Living</a></li>
-        </ul>
+      <div class="footer-groups">
+        <div class="footer-group" data-reveal style="transition-delay:.05s">
+          <div class="footer-group-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/seo/home-care-seo/">Home Care SEO</a></li>
+            <li><a href="/web-design/homecare-website-design/">Website Design</a></li>
+            <li><a href="/ai-search-seo/">AI Search SEO</a></li>
+            <li><a href="/ai-automation/">AI &amp; Automation</a></li>
+            <li><a href="/#bundles">Pricing &amp; Packages</a></li>
+            <li><a href="/products/">Products</a></li>
+            <li><a href="/case-studies/">Case Studies</a></li>
+            <li><a href="/events/">Events</a></li>
+            <li><a href="/blog">Marketing Blog</a></li>
+            <li><a href="/directory/">Agency Directory</a></li>
+            <li><a href="/growth-calculator/">Growth Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-group" data-reveal style="transition-delay:.1s">
+          <div class="footer-group-title">Florida Cities</div>
+          <ul class="footer-links">
+            <li><a href="/home-care-agency-seo-miami-fl/">Miami</a></li>
+            <li><a href="/home-care-agency-seo-orlando-fl/">Orlando</a></li>
+            <li><a href="/home-care-agency-seo-sarasota-fl/">Sarasota</a></li>
+            <li><a href="/home-care-agency-seo-jacksonville-fl/">Jacksonville</a></li>
+            <li><a href="/home-care-agency-seo-fort-lauderdale-fl/">Fort Lauderdale</a></li>
+            <li><a href="/home-care-agency-seo-naples-fl/">Naples</a></li>
+            <li><a href="/home-care-agency-seo-west-palm-beach-fl/">West Palm Beach</a></li>
+            <li><a href="/home-care-agency-seo-boca-raton-fl/">Boca Raton</a></li>
+            <li><a href="/home-care-agency-seo-clearwater-fl/">Clearwater</a></li>
+            <li><a href="/home-care-agency-seo-tampa-fl/">Tampa</a></li>
+          </ul>
+        </div>
+        <div class="footer-group" data-reveal style="transition-delay:.15s">
+          <div class="footer-group-title">Web Design Cities</div>
+          <ul class="footer-links">
+            <li><a href="/homecare-website-design-miami-fl/">Miami Web Design</a></li>
+            <li><a href="/homecare-website-design-orlando-fl/">Orlando Web Design</a></li>
+            <li><a href="/homecare-website-design-tampa-fl/">Tampa Web Design</a></li>
+            <li><a href="/homecare-website-design-jacksonville-fl/">Jacksonville Web Design</a></li>
+            <li><a href="/homecare-website-design-fort-lauderdale-fl/">Fort Lauderdale Web Design</a></li>
+            <li><a href="/homecare-website-design-naples-fl/">Naples Web Design</a></li>
+          </ul>
+        </div>
+        <div class="footer-group" data-reveal style="transition-delay:.2s">
+          <div class="footer-group-title">Get In Touch</div>
+          <ul class="footer-links" style="margin-bottom:16px">
+            <li><a href="/memory-care-marketing/">Memory Care</a></li>
+            <li><a href="/hospice-marketing/">Hospice</a></li>
+            <li><a href="/nursing-home-marketing/">Nursing Homes</a></li>
+            <li><a href="/senior-living-marketing/">Senior Living</a></li>
+            <li><a href="/assisted-living-marketing/">Assisted Living</a></li>
+          </ul>
+          <div class="footer-contact-pills">
+            <a href="mailto:info@homecarecreators.com" class="footer-pill"><i class="fa-solid fa-envelope"></i>info@homecarecreators.com</a>
+            <a href="https://wa.me/14094193533" target="_blank" rel="noopener" class="footer-pill"><i class="fa-brands fa-whatsapp"></i>+1 (409) 419-3533</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Homecare Creators &middot; Lady Lake, FL 32159, United States &middot; <a href="mailto:info@homecarecreators.com" style="color:inherit">info@homecarecreators.com</a> &middot; All rights reserved.</div>
-    <div class="footer-bottom-links">
-      <a href="/privacy-policy">Privacy Policy</a>
-      <a href="/terms-of-service">Terms of Service</a>
-      <a href="#" class="footer-top-btn" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"><i class="fa-solid fa-arrow-up"></i></a>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Homecare Creators &middot; Lady Lake, FL 32159, United States &middot; All rights reserved.</div>
+      <div class="footer-bottom-links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+        <a href="#" class="footer-top-btn" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"><i class="fa-solid fa-arrow-up"></i></a>
+      </div>
     </div>
   </div>
 </footer>
@@ -158,6 +160,18 @@ document.getElementById('pPhone').addEventListener('input', function() {
   this.value = fmt;
   this.classList.toggle('error', digits.length > 0 && digits.length < 10);
 });
+
+// ── Footer quick-start (pre-fills the booking popup's email) ──
+var footerSubscribeForm = document.getElementById('footerSubscribeForm');
+if (footerSubscribeForm) {
+  footerSubscribeForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var val = (document.getElementById('footerEmailInput').value || '').trim();
+    var pEmail = document.getElementById('pEmail');
+    if (pEmail) pEmail.value = val;
+    openPopup();
+  });
+}
 
 // ── Popup open / close ────────────────────────────────────────
 function openPopup() {
