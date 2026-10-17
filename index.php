@@ -120,32 +120,27 @@ $page_css = <<<CSS
 .faq-a-inner p{padding-top:16px}
 
 /* ── CTA SECTION ── */
-.cta-section{background:var(--forest);position:relative;overflow:hidden}
-.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(29,158,117,.14),transparent)}
-.cta-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.cta-content .section-h2{color:#fff}
-.cta-content .section-h2 em{color:var(--mint)}
-.cta-content .section-label{color:var(--mint)}
-.cta-content .section-label::before{background:var(--mint)}
-.cta-desc{font-size:18px;line-height:1.75;color:rgba(255,255,255,.6);margin-bottom:36px;max-width:460px}
-.cta-actions{display:flex;gap:14px;flex-wrap:wrap}
-.cta-guarantee{margin-top:24px;display:flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(255,255,255,.35)}
-.cta-guarantee i{color:var(--teal)}
-.cta-image{border-radius:24px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.3);position:relative;aspect-ratio:4/5}
-.cta-image img{width:100%;height:100%;object-fit:cover;display:block}
-.cta-image::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,46,30,.6),transparent 60%)}
-.cta-image-badge{position:absolute;top:24px;left:24px;z-index:2;background:rgba(10,46,30,.9);backdrop-filter:blur(16px);border:1px solid rgba(29,158,117,.3);border-radius:14px;padding:14px 18px}
-.cta-image-badge-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:var(--mint);letter-spacing:.8px;text-transform:uppercase;margin-bottom:6px}
-.cta-badge-row{display:flex;align-items:center;gap:8px;margin-top:6px}
-.cta-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--teal-lt)}
-.cta-badge-text{font-size:12px;color:rgba(255,255,255,.65)}
+.cta-section{background:#fff;padding:64px 24px}
+.cta-card{position:relative;max-width:1180px;margin:0 auto;background:var(--forest);border-radius:40px;padding:88px 48px;text-align:center;overflow:hidden}
+.cta-card::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.07) 1px,transparent 1px);background-size:50px 50px}
+.cta-decor{position:absolute;width:180px;height:150px;pointer-events:none;opacity:.8}
+.cta-decor-tr{top:0;right:0}
+.cta-decor-bl{bottom:0;left:0;transform:scaleX(-1) scaleY(-1)}
+.cta-card-inner{position:relative;z-index:2;max-width:720px;margin:0 auto}
+.cta-headline{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(32px,4.4vw,50px);line-height:1.18;color:#fff;margin-bottom:22px}
+.cta-headline em{font-style:italic;color:var(--mint)}
+.cta-headline i{color:var(--mint);margin-left:10px;font-size:.72em}
+.cta-sub{font-size:17px;line-height:1.75;color:rgba(255,255,255,.62);margin:0 auto 36px;max-width:600px}
+.cta-pill-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--forest);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;padding:18px 36px;border-radius:100px;border:none;cursor:pointer;transition:.2s}
+.cta-pill-btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,0,0,.3)}
+.cta-guarantee{position:relative;z-index:2;margin-top:24px;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(255,255,255,.4)}
+.cta-guarantee i{color:var(--mint)}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .hero{grid-template-columns:1fr}
   .hero-right{display:none}
   .hero-left{padding:130px 40px 80px}
-  .cta-inner{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr;gap:56px}
   .why-photo{max-width:340px;margin:0 auto}
   .why-photo-stat{left:50%;transform:translateX(calc(-50% - 110px))}
@@ -153,6 +148,8 @@ $page_css = <<<CSS
 @media(max-width:640px){
   .hero-left{padding:110px 24px 60px}
   section{padding:72px 24px}
+  .cta-card{padding:56px 24px;border-radius:28px}
+  .cta-decor{width:110px;height:90px}
   .review-card{min-width:calc(100vw - 80px);max-width:calc(100vw - 80px)}
   .faq-list{padding:0}
   .why-photo-stat{left:16px;transform:none}
@@ -445,45 +442,30 @@ try {
 
 <!-- CTA -->
 <section class="cta-section" id="bundles">
-  <div class="container">
-    <div class="cta-inner">
-      <div class="cta-content" data-reveal>
-        <p class="section-label">Get Started Today</p>
-        <h2 class="section-h2">Ready to Grow Your<br><em>Homecare Agency?</em></h2>
-        <p class="cta-desc">Book a free 30-minute growth audit and we'll walk through your digital presence with
-          you, then show you exactly what needs fixing. No obligation, no sales pitch.</p>
-        <div class="cta-actions">
-          <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup('audit')"><i
-              class="fa-solid fa-calendar-check"></i>Book Your Free Audit</button>
-        </div>
-        <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;&middot;&nbsp; No
-          obligation &nbsp;&middot;&nbsp; 30-day satisfaction guarantee</div>
-      </div>
-      <div class="cta-image" data-reveal style="transition-delay:.15s">
-        <img src="/images/home/cta-business-owner.jpg"
-          alt="Home care agency owner reviewing a free growth audit with Homecare Creators"
-          title="Home care agency owner growing their business">
-        <div class="cta-image-badge">
-          <div class="cta-image-badge-title"><i class="fa-solid fa-circle-dot"
-              style="color:var(--teal-lt);margin-right:4px"></i>Audit Includes</div>
-          <div class="cta-badge-row">
-            <div class="cta-badge-dot"></div>
-            <div class="cta-badge-text">Website & speed analysis</div>
-          </div>
-          <div class="cta-badge-row">
-            <div class="cta-badge-dot"></div>
-            <div class="cta-badge-text">Google ranking audit</div>
-          </div>
-          <div class="cta-badge-row">
-            <div class="cta-badge-dot"></div>
-            <div class="cta-badge-text">Competitor comparison</div>
-          </div>
-          <div class="cta-badge-row">
-            <div class="cta-badge-dot"></div>
-            <div class="cta-badge-text">90-day growth roadmap</div>
-          </div>
-        </div>
-      </div>
+  <div class="cta-card" data-reveal>
+    <div class="cta-decor cta-decor-tr">
+      <svg viewBox="0 0 180 150" fill="none" width="100%" height="100%">
+        <path d="M10 145 C 55 100, 35 45, 95 25 S 165 55, 172 8" style="stroke:var(--teal-lt)" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+        <circle cx="95" cy="25" r="3.5" style="fill:var(--mint)"/>
+        <circle cx="172" cy="8" r="3.5" style="fill:var(--mint)"/>
+        <path d="M140 55 l4 11 l11 4 l-11 4 l-4 11 l-4-11 l-11-4 l11-4 Z" style="fill:var(--mint)" opacity="0.8"/>
+      </svg>
+    </div>
+    <div class="cta-decor cta-decor-bl">
+      <svg viewBox="0 0 180 150" fill="none" width="100%" height="100%">
+        <path d="M10 145 C 55 100, 35 45, 95 25 S 165 55, 172 8" style="stroke:var(--teal-lt)" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+        <circle cx="95" cy="25" r="3.5" style="fill:var(--mint)"/>
+        <circle cx="172" cy="8" r="3.5" style="fill:var(--mint)"/>
+        <path d="M140 55 l4 11 l11 4 l-11 4 l-4 11 l-4-11 l-11-4 l11-4 Z" style="fill:var(--mint)" opacity="0.8"/>
+      </svg>
+    </div>
+    <div class="cta-card-inner">
+      <h2 class="cta-headline">Let's Grow Your Next<br>High-Performing <em>Agency</em><i class="fa-solid fa-bullhorn"></i></h2>
+      <p class="cta-sub">Whether you're just getting started or ready to scale across every channel, our team
+        builds a growth strategy around your agency's goals, not a generic template.</p>
+      <button class="cta-pill-btn" onclick="openPopup('audit')"><i class="fa-solid fa-calendar-check"></i>Book a Free Growth Audit</button>
+      <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;&middot;&nbsp; No
+        obligation &nbsp;&middot;&nbsp; 30-day satisfaction guarantee</div>
     </div>
   </div>
 </section>
