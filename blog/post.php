@@ -196,7 +196,7 @@ $toc = $headings[1] ?? [];
     <!-- IN-CONTENT CTA (appended after content) -->
     <div class="inline-cta">
       <div class="inline-cta-text">
-        <h4>Ready to dominate local search in your Florida market?</h4>
+        <h4>Ready to dominate local search in your market?</h4>
         <p>Get a free SEO audit — we'll show you exactly where you're losing clients to competitors.</p>
       </div>
       <button class="inline-cta-btn" onclick="openPopup('audit')">Get Free Audit</button>
@@ -244,7 +244,7 @@ $toc = $headings[1] ?? [];
     <!-- Mini CTA 2 -->
     <div class="sidebar-card" style="background:rgba(29,158,117,.05);border-color:rgba(29,158,117,.2)">
       <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px">Struggling to get new clients?</div>
-      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px;line-height:1.65">See the exact SEO strategy we use to rank homecare agencies on page 1 in Florida.</p>
+      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px;line-height:1.65">See the exact SEO strategy we use to rank homecare agencies on page 1 nationwide.</p>
       <button onclick="openPopup('starter')" style="background:var(--teal);color:#fff;border:none;padding:10px 18px;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:.2s">View Our Packages</button>
     </div>
 
@@ -285,13 +285,13 @@ $toc = $headings[1] ?? [];
   <div class="post-bottom-cta-inner">
     <div class="eyebrow">Ready to Grow?</div>
     <h2>Let's Get Your Homecare Agency to Page 1</h2>
-    <p>We build and rank homecare websites across Florida — Miami, Tampa, Orlando, Jacksonville and beyond. Free SEO audit, no strings attached.</p>
+    <p>We build and rank homecare websites nationwide — from Miami to Phoenix and everywhere between. Free SEO audit, no strings attached.</p>
     <div class="post-bottom-cta-btns">
       <button class="btn-cta-primary" onclick="openPopup('audit')">Get My Free SEO Audit</button>
       <button class="btn-cta-ghost" onclick="openPopup('scale')">View Packages</button>
     </div>
     <div class="trust-row">
-      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Florida homecare specialists</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Homecare marketing specialists</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Results in 90 days</span>
       <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>No long-term contracts</span>
     </div>

@@ -335,7 +335,7 @@ include '../../includes/header.php';
         <p class="section-label">Why It Matters</p>
         <h2 class="section-h2">Your Website Is Your<br><em>#1 Growth Asset</em></h2>
         <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:16px">Most homecare agency websites were built by generalist developers who have never heard of AHCA licensing, Medicaid waiver programs, or the specific trust signals families need before they call. The result? A website that looks okay but generates almost no leads.</p>
-        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:24px">We build every page and every word specifically for homecare, right down to which trust signal shows up first for a daughter searching for help at 11pm. Families in Miami, Tampa, Orlando, or anywhere else in Florida land on your site and feel like they found the right agency immediately. That's what a specialist gets you that a generalist can't.</p>
+        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:24px">We build every page and every word specifically for homecare, right down to which trust signal shows up first for a daughter searching for help at 11pm. Families in Miami, Tampa, Phoenix, or anywhere else in the country land on your site and feel like they found the right agency immediately. That's what a specialist gets you that a generalist can't.</p>
         <div class="what-points">
           <div class="what-point">
             <div class="what-point-icon"><i class="fa-solid fa-bolt"></i></div>
@@ -448,7 +448,7 @@ include '../../includes/header.php';
         <ul class="pkg-features">
           <li><i class="fa-solid fa-check"></i>Everything in Starter</li>
           <li><i class="fa-solid fa-check"></i>10 custom pages including service pages</li>
-          <li><i class="fa-solid fa-check"></i>3 Florida city service area pages</li>
+          <li><i class="fa-solid fa-check"></i>3 city service area pages</li>
           <li><i class="fa-solid fa-check"></i>Caregiver careers &amp; jobs page (SEO-optimized)</li>
           <li><i class="fa-solid fa-check"></i>LocalBusiness schema markup</li>
           <li><i class="fa-solid fa-check"></i>Blog setup (ready for content)</li>
@@ -468,7 +468,7 @@ include '../../includes/header.php';
         <ul class="pkg-features">
           <li><i class="fa-solid fa-check"></i>Everything in Growth</li>
           <li><i class="fa-solid fa-check"></i>15+ custom pages</li>
-          <li><i class="fa-solid fa-check"></i>8 Florida city service area pages</li>
+          <li><i class="fa-solid fa-check"></i>8 city service area pages</li>
           <li><i class="fa-solid fa-check"></i>Custom brand identity (logo + colors)</li>
           <li><i class="fa-solid fa-check"></i>AI chatbot integration</li>
           <li><i class="fa-solid fa-check"></i>Video background hero section</li>
@@ -534,13 +534,13 @@ include '../../includes/header.php';
         </thead>
         <tbody>
           <tr><td>Homecare-specific copy &amp; content</td><td><i class="fa-solid fa-xmark compare-cross"></i></td><td><i class="fa-solid fa-xmark compare-cross"></i></td><td><i class="fa-solid fa-check compare-check"></i></td></tr>
-          <tr class="compare-hl"><td>Florida local SEO built in</td><td><i class="fa-solid fa-xmark compare-cross"></i></td><td>Sometimes</td><td><i class="fa-solid fa-check compare-check"></i></td></tr>
+          <tr class="compare-hl"><td>Local SEO built in</td><td><i class="fa-solid fa-xmark compare-cross"></i></td><td>Sometimes</td><td><i class="fa-solid fa-check compare-check"></i></td></tr>
           <tr><td>Service area pages per city</td><td><i class="fa-solid fa-xmark compare-cross"></i></td><td>Extra cost</td><td><i class="fa-solid fa-check compare-check"></i></td></tr>
           <tr class="compare-hl"><td>Caregiver recruitment page</td><td><i class="fa-solid fa-xmark compare-cross"></i></td><td><i class="fa-solid fa-xmark compare-cross"></i></td><td><i class="fa-solid fa-check compare-check"></i></td></tr>
           <tr><td>Schema markup (LocalBusiness + FAQ)</td><td><i class="fa-solid fa-xmark compare-cross"></i></td><td>Rarely</td><td><i class="fa-solid fa-check compare-check"></i></td></tr>
           <tr class="compare-hl"><td>Google Reviews widget built in</td><td>Plugin only</td><td>Extra cost</td><td><i class="fa-solid fa-check compare-check"></i></td></tr>
           <tr><td>Under 2-second load speed</td><td><i class="fa-solid fa-xmark compare-cross"></i></td><td>Sometimes</td><td><i class="fa-solid fa-check compare-check"></i></td></tr>
-          <tr class="compare-hl"><td>Knows AHCA &amp; Florida homecare market</td><td><i class="fa-solid fa-xmark compare-cross"></i></td><td><i class="fa-solid fa-xmark compare-cross"></i></td><td><i class="fa-solid fa-check compare-check"></i></td></tr>
+          <tr class="compare-hl"><td>Knows state licensing &amp; homecare regulations</td><td><i class="fa-solid fa-xmark compare-cross"></i></td><td><i class="fa-solid fa-xmark compare-cross"></i></td><td><i class="fa-solid fa-check compare-check"></i></td></tr>
           <tr><td>Live in 14 days</td><td>Self-paced</td><td>6–12 weeks</td><td><i class="fa-solid fa-check compare-check"></i></td></tr>
           <tr class="compare-hl"><td>Ongoing SEO support available</td><td><i class="fa-solid fa-xmark compare-cross"></i></td><td>Yes (expensive)</td><td><i class="fa-solid fa-check compare-check"></i></td></tr>
         </tbody>
@@ -605,8 +605,8 @@ include '../../includes/header.php';
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you build websites for homecare agencies outside Florida?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Florida homecare agencies are our main focus, especially in Miami, Tampa, Orlando, Jacksonville, Fort Lauderdale, and Naples, but we also work with agencies across our other target states: Texas, California, and Pennsylvania. The homecare-specific expertise we bring applies no matter which US market you're in.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you only build websites for homecare agencies in Florida?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner">No. We're based in Florida, with deep roots in markets like Miami, Tampa, Orlando, Jacksonville, Fort Lauderdale, and Naples, but we build homecare websites for agencies nationwide — including Texas, California, New York, Georgia, North Carolina, Arizona, Pennsylvania, Ohio, and Virginia. The homecare-specific expertise we bring applies no matter which US market you're in.</div></div>
       </div>
 
     </div>

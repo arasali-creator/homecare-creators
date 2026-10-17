@@ -1,6 +1,6 @@
 <?php
 $page_title    = "Homecare Agency Marketing Blog | Homecare Creators";
-$page_desc     = "Expert marketing insights, SEO tips, and growth strategies exclusively for homecare agencies in Florida.";
+$page_desc     = "Expert marketing insights, SEO tips, and growth strategies exclusively for homecare agencies nationwide.";
 $page_canonical = "https://homecarecreators.com/blog";
 $og_title      = "Homecare Marketing Blog | Homecare Creators";
 $og_desc       = $page_desc;
@@ -40,7 +40,7 @@ try {
 
 <div class="blog-hero">
   <h1>The Homecare Marketing Blog</h1>
-  <p>SEO, local search, and growth strategies — written exclusively for Florida homecare agencies.</p>
+  <p>SEO, local search, and growth strategies — written exclusively for homecare agencies nationwide.</p>
 </div>
 
 <section class="blog-section">

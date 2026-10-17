@@ -1,9 +1,9 @@
 <?php
-$page_title = "Florida Home Care Agency Directory | Homecare Creators";
-$page_desc = "Browse licensed home care agencies across Florida — personal care, companion care, skilled nursing, and more. Find an agency near you.";
+$page_title = "Home Care Agency Directory | Homecare Creators";
+$page_desc = "Browse licensed home care agencies nationwide — personal care, companion care, skilled nursing, and more. Find an agency near you.";
 $page_canonical = "https://homecarecreators.com/directory/";
-$og_title = "Florida Home Care Agency Directory | Homecare Creators";
-$og_desc = "Browse licensed home care agencies across Florida, or list your own agency for free.";
+$og_title = "Home Care Agency Directory | Homecare Creators";
+$og_desc = "Browse licensed home care agencies nationwide, or list your own agency for free.";
 
 require_once '../admin/config.php';
 require_once '../admin/includes/db.php';
@@ -95,7 +95,7 @@ include '../includes/header.php';
   <div class="hero-inner">
     <div class="hero-badge"><i class="fa-solid fa-building-shield" style="margin-right:6px"></i>Agency Directory</div>
     <h1 class="hero-h1">Find a <em>Home Care Agency</em><br>Near You</h1>
-    <p class="hero-desc">A directory of home care agencies across Florida — browse by city or service, or list your own agency for free.</p>
+    <p class="hero-desc">A directory of home care agencies nationwide — browse by city or service, or list your own agency for free.</p>
     <form class="search-box" method="GET" data-reveal>
       <input type="text" name="q" value="<?= htmlspecialchars($q) ?>" placeholder="Search by agency name or service...">
       <select name="city">

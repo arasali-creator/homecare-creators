@@ -214,7 +214,7 @@ include '../includes/header.php';
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you only serve these 10 cities?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">No, these are our primary Florida markets but we work with agencies throughout the state. If your agency operates somewhere not listed above, reach out and we'll talk through how we'd build out a strategy and dedicated pages for your specific service area.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">No — these are our primary Florida markets, but we work with home care agencies nationwide. If your agency operates somewhere not listed above, reach out and we'll talk through how we'd build out a strategy and dedicated pages for your specific service area.</div></div>
       </div>
 
       <div class="faq-item">

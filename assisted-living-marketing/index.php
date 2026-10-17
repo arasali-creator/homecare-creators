@@ -193,14 +193,14 @@ include '../includes/header.php';
         <p class="section-label">The Assisted Living Market</p>
         <h2 class="section-h2">Why Assisted Living Marketing Needs <em>Both Sides of the Story</em></h2>
         <p>Assisted living searches blend independence and support in a way few other senior care categories do. Families want to know a loved one will keep their dignity and routine, while also getting help with medication, meals, and daily activities when needed. Sites that lean too far into "independent living" or too far into "medical care" both lose ground with families trying to picture their parent actually living there.</p>
-        <p>Florida has one of the largest assisted living markets in the country, and communities compete for families comparing care level, cost, and community feel across several options before booking a single tour. A generic senior living website rarely answers the specific questions families ask about assisted living: what level of care is included, how staffing works, and what a typical day looks like.</p>
+        <p>The assisted living market across the United States is large and growing, and communities compete for families comparing care level, cost, and community feel across several options before booking a single tour. A generic senior living website rarely answers the specific questions families ask about assisted living: what level of care is included, how staffing works, and what a typical day looks like.</p>
         <p>Homecare Creators builds marketing specifically for senior care operators. For assisted living, that means messaging that balances independence and support clearly, virtual tour content, and local SEO and AI search visibility that gets your community found and toured.</p>
       </div>
       <div class="market-facts" data-reveal style="transition-delay:.15s">
         <div class="fact-card"><div class="fact-num">Dual-Sided</div><h4>Search Intent</h4><p>Families weigh independence and support together, not care level alone, when comparing communities</p></div>
         <div class="fact-card"><div class="fact-num">Multi-Community</div><h4>Comparison Shopping</h4><p>Families typically shortlist and compare several communities on cost and care level before touring</p></div>
         <div class="fact-card"><div class="fact-num">Tour-First</div><h4>Conversion Point</h4><p>A booked tour is usually the real conversion event, not a phone call or form fill alone</p></div>
-        <div class="fact-card"><div class="fact-num">Competitive</div><h4>Florida Market</h4><p>One of the country's largest assisted living markets means heavy competition for visibility</p></div>
+        <div class="fact-card"><div class="fact-num">Competitive</div><h4>Nationwide Market</h4><p>A large and growing assisted living market nationwide means heavy competition for visibility</p></div>
       </div>
     </div>
   </div>

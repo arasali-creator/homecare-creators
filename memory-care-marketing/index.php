@@ -193,14 +193,14 @@ include '../includes/header.php';
         <p class="section-label">The Memory Care Market</p>
         <h2 class="section-h2">Why Memory Care Marketing Needs a <em>Different Playbook</em></h2>
         <p>Memory care is not a generic "senior living" search. Families typing "memory care near me" or "dementia care facility for my mother" are often searching under real stress, sometimes the same day a doctor recommends placement or a caregiver reaches a breaking point. The words they use, the questions they ask, and the reassurance they need are specific to Alzheimer's and dementia care, not home care or general assisted living.</p>
-        <p>Florida has one of the largest populations of older adults in the country, and memory care communities across the state compete hard for a limited pool of families who are actively, urgently searching. If your website reads like a generic senior living brochure, or your Google Business Profile isn't showing up when a family searches at 11pm after a hard day, you lose that family to a competitor who does show up.</p>
+        <p>The United States has a rapidly growing population of older adults, and memory care communities everywhere compete hard for a limited pool of families who are actively, urgently searching. If your website reads like a generic senior living brochure, or your Google Business Profile isn't showing up when a family searches at 11pm after a hard day, you lose that family to a competitor who does show up.</p>
         <p>Homecare Creators builds marketing specifically for senior care operators. For memory care communities, that means messaging built around dementia-specific care, secured environments, staff training and certifications, and the safety reassurance families are actually looking for, paired with local SEO and AI search visibility that gets you found the moment a family starts searching.</p>
       </div>
       <div class="market-facts" data-reveal style="transition-delay:.15s">
         <div class="fact-card"><div class="fact-num">Crisis-Driven</div><h4>Search Behavior</h4><p>Many memory care searches happen in urgent, emotional moments, not weeks of casual browsing</p></div>
         <div class="fact-card"><div class="fact-num">Trust-First</div><h4>Decision Making</h4><p>Families weigh safety, staff training, and secured units heavily before ever calling a community</p></div>
         <div class="fact-card"><div class="fact-num">Specialized</div><h4>Search Language</h4><p>"Memory care," "dementia care," and "Alzheimer's care" all carry different intent than "senior living"</p></div>
-        <div class="fact-card"><div class="fact-num">Competitive</div><h4>Florida Market</h4><p>A large, growing senior population means memory care communities across Florida compete for visibility daily</p></div>
+        <div class="fact-card"><div class="fact-num">Competitive</div><h4>Nationwide Market</h4><p>A large, growing senior population means memory care communities everywhere compete for visibility daily</p></div>
       </div>
     </div>
   </div>

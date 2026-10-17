@@ -1,9 +1,9 @@
 <?php
 $page_title = "List Your Home Care Agency Free | Homecare Creators Directory";
-$page_desc = "Add your home care agency to our free Florida directory. Submit your listing — we'll review and publish it within 1-2 business days.";
+$page_desc = "Add your home care agency to our free nationwide directory. Submit your listing — we'll review and publish it within 1-2 business days.";
 $page_canonical = "https://homecarecreators.com/directory/submit/";
 $og_title = "List Your Home Care Agency Free | Homecare Creators Directory";
-$og_desc = "Get your agency listed in front of families searching for home care in Florida.";
+$og_desc = "Get your agency listed in front of families searching for home care nationwide.";
 
 $page_css = <<<CSS
 .hero{background:var(--forest);position:relative;overflow:hidden;padding:140px 40px 60px}
@@ -66,7 +66,7 @@ include '../../includes/header.php';
 
         <div class="sf-row">
           <div class="sf-group"><label for="fCity">City *</label><input type="text" id="fCity" required></div>
-          <div class="sf-group"><label for="fState">State *</label><input type="text" id="fState" value="FL" maxlength="2" required></div>
+          <div class="sf-group"><label for="fState">State *</label><input type="text" id="fState" placeholder="e.g. FL" maxlength="2" required></div>
         </div>
 
         <div class="sf-group">

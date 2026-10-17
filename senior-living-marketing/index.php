@@ -193,14 +193,14 @@ include '../includes/header.php';
         <p class="section-label">The Senior Living Market</p>
         <h2 class="section-h2">Why Senior Living Marketing Is a <em>Lifestyle Sale</em></h2>
         <p>Independent and retirement living searches look more like a lifestyle purchase than a care purchase. Prospective residents and their adult children compare amenities, dining, activities, floor plans, and community culture across several communities before ever picking up the phone. If your website and Google presence don't communicate that lifestyle clearly, you lose the tour booking to a competitor whose site does.</p>
-        <p>Florida has one of the largest concentrations of retirees in the country, and senior living communities across the state compete for the same pool of prospects through paid ads, SEO, and referral networks. A generic website built for "senior care" broadly won't convert the way a site built specifically around amenities, community life, and tour scheduling will.</p>
+        <p>The United States has a large and growing population of retirees, and senior living communities everywhere compete for the same pool of prospects through paid ads, SEO, and referral networks. A generic website built for "senior care" broadly won't convert the way a site built specifically around amenities, community life, and tour scheduling will.</p>
         <p>Homecare Creators builds marketing specifically for senior care operators. For senior living communities, that means amenity-forward messaging, virtual tour and event content, and local SEO and AI search visibility that gets your community found and toured, not just browsed.</p>
       </div>
       <div class="market-facts" data-reveal style="transition-delay:.15s">
         <div class="fact-card"><div class="fact-num">Lifestyle-Driven</div><h4>Search Behavior</h4><p>Prospects compare amenities, dining, and community culture as much as care level before touring</p></div>
         <div class="fact-card"><div class="fact-num">Multi-Community</div><h4>Comparison Shopping</h4><p>Families typically shortlist and compare several communities before booking a single tour</p></div>
         <div class="fact-card"><div class="fact-num">Tour-First</div><h4>Conversion Point</h4><p>A booked tour, not a phone call alone, is usually the real conversion event for senior living</p></div>
-        <div class="fact-card"><div class="fact-num">Competitive</div><h4>Florida Market</h4><p>A large retiree population means senior living communities across Florida compete hard for visibility</p></div>
+        <div class="fact-card"><div class="fact-num">Competitive</div><h4>Nationwide Market</h4><p>A large retiree population means senior living communities everywhere compete hard for visibility</p></div>
       </div>
     </div>
   </div>
