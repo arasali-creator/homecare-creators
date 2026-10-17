@@ -11,19 +11,19 @@ $page_css = <<<CSS
 .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 70% at 50% 40%,black 20%,transparent 80%)}
 .hero-blob1{position:absolute;width:700px;height:700px;top:-260px;right:-220px;background:radial-gradient(circle,rgba(29,158,117,.16) 0%,transparent 65%);animation:float 10s ease-in-out infinite}
 .hero-blob2{position:absolute;width:600px;height:600px;bottom:-260px;left:-220px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 65%);animation:float 13s ease-in-out infinite reverse}
-.hero-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:168px 24px 96px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.hero-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:132px 24px 72px;display:flex;flex-direction:column;align-items:center;text-align:center}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
-.hero-h1{width:100%;font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,5vw,60px);line-height:1.15;margin:0;animation:fadeUp .8s .1s ease both;white-space:nowrap}
+.hero-h1{width:100%;font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,5vw,60px);line-height:1.12;margin:0;animation:fadeUp .8s .1s ease both;white-space:nowrap}
 .hero-h1-line1{display:block;color:#fff}
-.hero-rotator{position:relative;width:100%;height:1.15em;margin-top:4px;overflow:hidden}
+.hero-rotator{position:relative;width:100%;height:1.2em;margin-top:16px;overflow:hidden}
 .hero-rotator-word{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--teal-lt);opacity:0;transform:translateY(45%);transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .4s ease}
 .hero-rotator-word.is-active{opacity:1;transform:translateY(0)}
 .hero-rotator-word.is-leaving{opacity:0;transform:translateY(-45%)}
 .hero-swoosh{display:block;margin:12px auto 0}
 .hero-swoosh path{stroke:var(--gold-lt)}
-.hero-desc{font-size:18px;line-height:1.75;color:rgba(255,255,255,.62);max-width:600px;margin:28px 0 40px;animation:fadeUp .8s .3s ease both}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeUp .8s .4s ease both;margin-bottom:52px}
+.hero-desc{font-size:18px;line-height:1.7;color:rgba(255,255,255,.62);max-width:600px;margin:22px 0 32px;animation:fadeUp .8s .3s ease both}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeUp .8s .4s ease both;margin-bottom:40px}
 .hero-actions .btn-primary,.hero-actions .btn-secondary{border-radius:100px;padding:16px 32px}
 .hero-proof{display:flex;gap:32px;flex-wrap:wrap;justify-content:center;animation:fadeUp .8s .55s ease both}
 .hero-proof-item{display:flex;flex-direction:column;gap:2px;align-items:center}
@@ -136,8 +136,9 @@ $page_css = <<<CSS
   .why-photo-stat{left:50%;transform:translateX(calc(-50% - 110px))}
 }
 @media(max-width:640px){
-  .hero-inner{padding:120px 24px 56px}
+  .hero-inner{padding:100px 24px 48px}
   .hero-h1{font-size:clamp(24px,7.2vw,32px)}
+  .hero-rotator{margin-top:10px}
   .hero-proof{gap:20px}
   section{padding:72px 24px}
   .cta-card{padding:56px 24px;border-radius:28px}
