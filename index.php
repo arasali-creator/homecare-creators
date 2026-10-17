@@ -299,7 +299,7 @@ try {
       </div>
     </div>
     <div class="hero-right">
-      <img src="/images/home/hero-caregiver-elderly.jpg" alt="Professional caregiver assisting an elderly client at home for a home care agency" title="Home care agency caregiver assisting an elderly client">
+      <img src="/images/home/hero-team-homecare-creators.jpg" alt="The Homecare Creators marketing team, a digital marketing agency built exclusively for home care agencies" title="Meet the Homecare Creators team">
     </div>
   </div>
 </section>
