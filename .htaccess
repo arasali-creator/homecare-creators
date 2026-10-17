@@ -2,6 +2,9 @@
 Options -Indexes
 ServerSignature Off
 
+# Custom error page
+ErrorDocument 404 /404.php
+
 # Block direct access to includes directory
 <IfModule mod_rewrite.c>
     RewriteEngine On
