@@ -216,20 +216,35 @@ section{padding:96px 40px}
 .consent-label{font-size:12px;color:var(--muted);line-height:1.6;cursor:pointer}
 
 /* FOOTER */
-footer{background:var(--forest);position:relative;overflow:hidden;padding:72px 48px 0}
-footer::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.05) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 65% 70% at 10% 0%,black 0%,transparent 75%);pointer-events:none}
-.footer-inner{position:relative;z-index:1;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:36px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
+footer{background:var(--forest);position:relative;overflow:hidden;padding:64px 48px 0}
+footer::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.05) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 65% 60% at 85% 100%,black 0%,transparent 75%);pointer-events:none}
+
+/* Lifted CTA card */
+.footer-cta{position:relative;z-index:1;max-width:1180px;margin:0 auto;background:var(--teal);border-radius:28px;padding:44px 52px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;overflow:hidden;box-shadow:0 28px 70px rgba(6,30,20,.45)}
+.footer-cta::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:34px 34px;mask-image:radial-gradient(ellipse 55% 110% at 95% 50%,black 0%,transparent 75%)}
+.footer-cta-text{position:relative;z-index:1;max-width:540px}
+.footer-cta-label{display:inline-flex;align-items:center;gap:7px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(10,46,30,.6);margin-bottom:10px}
+.footer-cta-text h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(21px,2.4vw,28px);line-height:1.22;color:var(--forest);margin-bottom:8px}
+.footer-cta-text p{font-size:14.5px;line-height:1.6;color:rgba(10,46,30,.65)}
+.footer-cta-btn{position:relative;z-index:1;flex-shrink:0;display:inline-flex;align-items:center;gap:10px;background:var(--forest);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14.5px;padding:17px 30px;border-radius:12px;border:none;cursor:pointer;text-decoration:none;transition:.2s;white-space:nowrap}
+.footer-cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.3)}
+
+/* Brand + link tiles */
+.footer-main{position:relative;z-index:1;max-width:1180px;margin:48px auto 0;display:grid;grid-template-columns:270px 1fr;gap:48px;padding:0 0 44px}
 .footer-logo svg{height:48px;width:auto}
-.footer-tagline{font-size:15px;color:rgba(255,255,255,.65);margin-top:14px;margin-bottom:24px;line-height:1.6;max-width:240px}
+.footer-brand-tagline{font-size:14.5px;color:rgba(255,255,255,.6);margin:16px 0 24px;line-height:1.65;max-width:240px}
 .footer-socials{display:flex;gap:10px}
 .footer-social{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:14px;text-decoration:none;transition:.18s}
 .footer-social:hover{background:var(--teal);color:#fff;border-color:var(--teal);transform:translateY(-2px)}
-.footer-col-title{display:flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px}
-.footer-col-title::before{content:'';width:14px;height:2px;border-radius:2px;background:var(--teal-lt);flex-shrink:0}
+.footer-groups{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.footer-group{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 20px 22px;transition:background .2s,border-color .2s}
+.footer-group:hover{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.12)}
+.footer-group-title{display:flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal-lt);margin-bottom:14px}
+.footer-group-title i{font-size:11px;width:16px;text-align:center}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:11px}
 .footer-links a{font-size:13px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s,transform .15s;display:inline-block}
 .footer-links a:hover{color:#fff;transform:translateX(3px)}
-.footer-bottom{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-bottom{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid rgba(255,255,255,.08)}
 .footer-copy{font-size:12px;color:rgba(255,255,255,.35)}
 .footer-bottom-links{display:flex;align-items:center;gap:20px}
 .footer-bottom-links a{font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;transition:color .15s}
@@ -268,8 +283,12 @@ footer::before{content:'';position:absolute;inset:0;background-image:linear-grad
 .faq-a-inner{padding:0 24px 20px;font-size:16px;color:var(--muted);line-height:1.8}
 
 /* RESPONSIVE */
+@media(max-width:1024px){
+  .footer-main{grid-template-columns:1fr}
+  .footer-groups{grid-template-columns:1fr 1fr}
+}
 @media(max-width:900px){
-  .footer-inner{grid-template-columns:1fr 1fr;gap:32px}
+  .footer-cta{padding:36px 32px}
 }
 @media(max-width:640px){
   nav{padding:0 20px}
@@ -277,7 +296,11 @@ footer::before{content:'';position:absolute;inset:0;background-image:linear-grad
 .nav-links a{display:block;padding:14px 16px;font-size:15px}
   .nav-hamburger{display:block;min-width:44px;min-height:44px}
   section{padding:64px 24px}
-  .footer-inner{grid-template-columns:1fr}
+  footer{padding:48px 20px 0}
+  .footer-cta{padding:32px 24px;flex-direction:column;align-items:flex-start;border-radius:22px}
+  .footer-cta-btn{width:100%;justify-content:center}
+  .footer-main{margin-top:32px;padding:0 0 36px}
+  .footer-groups{grid-template-columns:1fr}
 
   /* Dropdowns become inline accordions inside the mobile menu */
   .nav-dropdown:hover .mega-menu,.nav-dropdown:hover .simple-menu{display:none}

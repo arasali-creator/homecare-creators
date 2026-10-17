@@ -41,25 +41,6 @@ $page_css = <<<CSS
 
 /* ── WHY US ── */
 .why{background:#fff}
-.why-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.why-image-wrap{position:relative;align-self:start}
-.why-image-main{border-radius:24px;overflow:hidden;box-shadow:0 24px 80px rgba(10,46,30,.18);position:relative;aspect-ratio:4/5}
-.why-image-main img{width:100%;height:100%;object-fit:cover;display:block}
-.why-image-main::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,46,30,.55) 100%);border-radius:24px}
-.why-img-stat{position:absolute;bottom:-20px;right:-20px;background:#fff;border-radius:16px;padding:18px 22px;box-shadow:0 12px 48px rgba(10,46,30,.18);text-align:center;min-width:130px;border:1px solid var(--border);animation:floatR 5s ease-in-out infinite}
-.why-img-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:38px;color:var(--teal);line-height:1}
-.why-img-stat-label{font-size:11px;color:var(--muted);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-top:3px}
-.why-img-badge{position:absolute;top:24px;left:-18px;background:var(--forest);border-radius:14px;padding:12px 18px;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,.25);border:1px solid rgba(29,158,117,.3);animation:floatR 7s ease-in-out infinite 1s}
-.why-img-badge-row{display:flex;align-items:center;gap:10px}
-.why-img-badge-icon{font-size:18px;color:var(--teal-lt)}
-.why-img-badge-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:#fff}
-.why-img-badge-sub{font-size:10px;color:rgba(255,255,255,.5)}
-.why-points{display:flex;flex-direction:column;gap:16px;margin-top:24px}
-.why-point{display:flex;gap:16px;align-items:flex-start;padding:18px;border-radius:16px;border:1px solid var(--border);background:var(--warm);transition:.3s}
-.why-point:hover{border-color:rgba(29,158,117,.3);box-shadow:0 8px 32px rgba(10,46,30,.08);transform:translateX(4px)}
-.why-point-icon{width:44px;height:44px;border-radius:12px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.why-point-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--forest);margin-bottom:4px}
-.why-point-desc{font-size:15.5px;line-height:1.6;color:var(--muted)}
 
 /* ── SERVICES ── */
 .services{background:var(--cream)}
@@ -84,50 +65,27 @@ $page_css = <<<CSS
 .svc-grid-link:hover{color:var(--forest);gap:10px}
 @media(max-width:768px){.svc-grid-card{flex:1 1 100%}}
 
-/* ── PROCESS ── */
-.how{background:var(--cream)}
-.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:72px;position:relative}
-.how-grid::before{content:'';position:absolute;top:44px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--teal) 20%,var(--teal) 80%,transparent);opacity:.25}
-.how-step{text-align:center;padding:0 20px 48px;position:relative}
-.how-step-num{width:88px;height:88px;border-radius:50%;background:var(--forest);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:26px;position:relative;z-index:1;box-shadow:0 0 0 10px rgba(29,158,117,.08),0 8px 32px rgba(10,46,30,.2);transition:.3s}
-.how-step:hover .how-step-num{background:var(--teal);box-shadow:0 0 0 10px rgba(29,158,117,.15),0 12px 40px rgba(29,158,117,.35)}
-.how-step-icon{position:absolute;bottom:-4px;right:-4px;width:28px;height:28px;border-radius:50%;background:var(--teal-lt);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
-.how-step-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15.5px;color:var(--forest);margin-bottom:10px}
-.how-step-desc{font-size:15.5px;line-height:1.65;color:var(--muted)}
-
-/* ── MID-PAGE CTA ── */
-.mid-cta{background:var(--forest);position:relative;overflow:hidden;padding:72px 40px;text-align:center}
-.mid-cta::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px}
-.mid-cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
-.mid-cta .section-label{justify-content:center;color:var(--mint)}
-.mid-cta .section-label::before{background:var(--mint)}
-.mid-cta .section-h2{color:#fff}
-.mid-cta .section-h2 em{color:var(--mint)}
-.mid-cta p{font-size:17px;line-height:1.75;color:rgba(255,255,255,.6);margin:16px 0 28px}
-
-/* ── RESULTS ── */
-.results{background:var(--cream)}
-.results-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.results-image-wrap{position:relative;align-self:start}
-.results-image{border-radius:24px;overflow:hidden;box-shadow:0 24px 80px rgba(10,46,30,.18);aspect-ratio:4/5}
-.results-image img{width:100%;height:100%;object-fit:cover;display:block}
-.results-stat-card{position:absolute;bottom:-16px;right:-16px;background:#fff;border-radius:18px;padding:20px 24px;box-shadow:0 12px 48px rgba(10,46,30,.16);border:1px solid var(--border);min-width:150px;text-align:center}
-.results-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;color:var(--teal);line-height:1.15}
-.results-stat-label{font-size:11px;color:var(--muted);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-top:4px}
-.results-grid-right{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.result-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px 22px;text-align:center;transition:.3s;position:relative;overflow:hidden}
-.result-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal-lt));opacity:0;transition:.3s}
-.result-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(10,46,30,.1)}
-.result-card:hover::before{opacity:1}
-.result-card-icon{font-size:28px;color:var(--teal);margin-bottom:12px}
-.result-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;color:var(--forest);line-height:1.2;margin-bottom:6px}
-.result-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:var(--forest);margin-bottom:6px}
-.result-desc{font-size:14px;line-height:1.6;color:var(--muted)}
+/* ── CASE STUDIES SLIDER ── */
+.case-studies{background:var(--cream);overflow:hidden}
+.case-card{background:#fff;border:1px solid var(--border);border-radius:22px;padding:32px;min-width:340px;max-width:340px;flex-shrink:0;box-shadow:0 8px 28px rgba(10,46,30,.06)}
+.case-card-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(29,158,117,.1);color:var(--teal);font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:6px 13px;border-radius:100px;margin-bottom:22px}
+.case-card-stat{font-family:'Plus Jakarta Sans',sans-serif;font-size:38px;font-weight:800;color:var(--forest);line-height:1;margin-bottom:6px}
+.case-card-stat-label{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.5}
+.case-card-desc{font-size:14.5px;line-height:1.7;color:var(--muted);margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.case-card-client{display:flex;align-items:center;gap:12px}
+.case-card-avatar{width:42px;height:42px;border-radius:50%;background:var(--forest);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;flex-shrink:0}
+.case-card-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13.5px;color:var(--forest)}
+.case-card-loc{font-size:12px;color:var(--muted)}
 
 /* ── REVIEWS SLIDER ── */
-.reviews{background:#fff;overflow:hidden}
+.reviews{background:var(--forest);overflow:hidden;position:relative}
+.reviews::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.reviews .container{position:relative;z-index:1}
 .reviews-header{text-align:center;margin-bottom:56px}
-.reviews-header .section-label{justify-content:center}
+.reviews-header .section-label{justify-content:center;color:var(--mint)}
+.reviews-header .section-label::before{background:var(--mint)}
+.reviews-header .section-h2{color:#fff}
+.reviews-header .section-h2 em{color:var(--mint)}
 .slider-wrap{overflow:hidden;position:relative}
 .slider-track{display:flex;gap:24px;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform}
 .review-card{background:var(--cream);border:1px solid var(--border);border-radius:22px;padding:32px;min-width:360px;max-width:360px;position:relative;overflow:hidden;flex-shrink:0}
@@ -144,6 +102,10 @@ $page_css = <<<CSS
 .slider-dots{display:flex;gap:8px;align-items:center}
 .slider-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:.3s;border:none}
 .slider-dot.active{background:var(--teal);width:24px;border-radius:4px}
+.reviews .slider-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+.reviews .slider-btn:hover{background:var(--teal);border-color:var(--teal)}
+.reviews .slider-dot{background:rgba(255,255,255,.2)}
+.reviews .slider-dot.active{background:var(--mint)}
 
 /* ── FAQ ── */
 .faq{background:#fff}
@@ -187,48 +149,49 @@ $page_css = <<<CSS
   .hero{grid-template-columns:1fr}
   .hero-right{display:none}
   .hero-left{padding:130px 40px 80px}
-  .why-inner,.results-inner,.cta-inner{grid-template-columns:1fr}
-  .how-grid{grid-template-columns:1fr 1fr}
+  .cta-inner{grid-template-columns:1fr}
 }
 @media(max-width:640px){
   .hero-left{padding:110px 24px 60px}
   section{padding:72px 24px}
-  .results-grid-right{grid-template-columns:1fr}
-  .how-grid{grid-template-columns:1fr}
-  .review-card{min-width:calc(100vw - 80px);max-width:calc(100vw - 80px)}
+  .review-card,.case-card{min-width:calc(100vw - 80px);max-width:calc(100vw - 80px)}
   .faq-list{padding:0}
 }
 CSS;
 
 $page_js = <<<JS
-// ── REVIEW SLIDER ──
-var currentSlide = 0;
-var TOTAL_CARDS = 6;
-var VISIBLE = 3;
-var MAX_SLIDE = TOTAL_CARDS - VISIBLE;
-var CARD_W = 360 + 24;
+// ── GENERIC CARD SLIDER (used by Reviews + Case Studies) ──
+function makeSlider(trackId, dotsId, totalCards, visible, cardWidth) {
+  var current = 0;
+  var maxSlide = Math.max(0, totalCards - visible);
+  var track = document.getElementById(trackId);
+  var dotsWrap = document.getElementById(dotsId);
 
-function buildDots() {
-  var dots = document.getElementById('sliderDots');
-  if (!dots) return;
-  dots.innerHTML = '';
-  for (var i = 0; i <= MAX_SLIDE; i++) {
-    var d = document.createElement('button');
-    d.className = 'slider-dot' + (i === 0 ? ' active' : '');
-    d.setAttribute('aria-label', 'Slide ' + (i + 1));
-    (function(idx) { d.addEventListener('click', function() { goSlide(idx); }); })(i);
-    dots.appendChild(d);
+  function buildDots() {
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = '';
+    for (var i = 0; i <= maxSlide; i++) {
+      var d = document.createElement('button');
+      d.className = 'slider-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Slide ' + (i + 1));
+      (function(idx) { d.addEventListener('click', function() { goSlide(idx); }); })(i);
+      dotsWrap.appendChild(d);
+    }
   }
+  function goSlide(n) {
+    current = Math.max(0, Math.min(n, maxSlide));
+    if (track) track.style.transform = 'translateX(-' + (current * cardWidth) + 'px)';
+    if (dotsWrap) Array.prototype.forEach.call(dotsWrap.children, function(d, i) {
+      d.classList.toggle('active', i === current);
+    });
+  }
+  buildDots();
+  return { next: function() { goSlide(current + 1); }, prev: function() { goSlide(current - 1); } };
 }
-function goSlide(n) {
-  currentSlide = Math.max(0, Math.min(n, MAX_SLIDE));
-  document.getElementById('sliderTrack').style.transform = 'translateX(-' + (currentSlide * CARD_W) + 'px)';
-  document.querySelectorAll('.slider-dot').forEach(function(d, i) {
-    d.classList.toggle('active', i === currentSlide);
-  });
-}
-function slideReviews(dir) { goSlide(currentSlide + dir); }
-buildDots();
+var reviewsSlider = makeSlider('sliderTrack', 'sliderDots', 6, 3, 360 + 24);
+var caseSlider = makeSlider('caseSliderTrack', 'caseSliderDots', 4, 3, 340 + 24);
+function slideReviews(dir) { dir < 0 ? reviewsSlider.prev() : reviewsSlider.next(); }
+function slideCases(dir) { dir < 0 ? caseSlider.prev() : caseSlider.next(); }
 
 // ── OPEN POPUP OVERRIDE (homepage title customization) ──
 function openPopup(type) {
@@ -351,68 +314,36 @@ try {
 </section>
 
 <!-- ══════════════════════════
-   WHY US
+   CERTIFICATIONS / TRUST BADGES
+══════════════════════════ -->
+<section class="certs">
+  <div class="container">
+    <p class="certs-label">Certified &amp; Trusted By</p>
+    <div class="certs-row">
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-BBB-Certified.png" alt="Homecare Creators BBB accredited business certification badge" title="BBB Accredited Business" loading="lazy"><span>BBB Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-Google-my-business-profile.png" alt="Homecare Creators verified Google Business Profile badge" title="Verified Google Business Profile" loading="lazy"><span>Google Business Profile</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-google-partner.jpg" alt="Homecare Creators Google Partner certification badge" title="Google Partner Certified Agency" loading="lazy"><span>Google Partner</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" alt="Homecare Creators HubSpot certified partner badge" title="HubSpot Certified Partner" loading="lazy"><span>HubSpot Partner</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" alt="Homecare Creators Meta certified marketing partner badge" title="Meta Certified Marketing Partner" loading="lazy"><span>Meta Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" alt="Homecare Creators SEMrush certified SEO partner badge" title="SEMrush Certified Agency Partner" loading="lazy"><span>SEMrush Certified</span></div>
+      <div class="cert-item"><img src="/images/blog/Homecarecreators-NACH.webp" alt="Homecare Creators National Association for Home Care and Hospice member badge" title="NAHC Member Agency" loading="lazy"><span>NAHC Member</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════
+   ABOUT US
 ══════════════════════════ -->
 <section class="why" id="why">
-  <div class="container">
-    <div class="why-inner">
-      <div class="why-image-wrap" data-reveal>
-        <div class="why-image-main">
-          <img src="/images/home/why-team-training.jpg" alt="Homecare Creators marketing team meeting to plan home care agency growth strategy" title="Homecare Creators team training and strategy meeting">
-        </div>
-        <div class="why-img-stat">
-          <div class="why-img-stat-num">No Lock-In</div>
-          <div class="why-img-stat-label">Month-to-Month Plans</div>
-        </div>
-        <div class="why-img-badge">
-          <div class="why-img-badge-row"><i class="fa-solid fa-trophy why-img-badge-icon"></i>
-            <div>
-              <div class="why-img-badge-text">Homecare Only</div>
-              <div class="why-img-badge-sub">100% niche focus</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div data-reveal style="transition-delay:.15s">
-        <p class="section-label">Why Homecare Creators</p>
-        <h2 class="section-h2">Built <em>100% for </em>Homecare</h2>
-        <p class="section-sub">Generalist agencies don't get homecare. We do. That gap alone is worth hundreds
-          of thousands in growth most years.</p>
-        <div class="why-points">
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-crosshairs"></i></div>
-            <div>
-              <div class="why-point-title">We Only Do One Thing</div>
-              <div class="why-point-desc">Every strategy, keyword, and page we build is for a homecare agency,
-                nothing else. That focus means faster results and none of your budget wasted on trial and error.</div>
-            </div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-brands fa-google"></i></div>
-            <div>
-              <div class="why-point-title">AI Search SEO, Before Your Competitors Even Know It Exists</div>
-              <div class="why-point-desc">We get your agency cited by ChatGPT, Google AI Overviews, and Perplexity.
-                Most agencies in your city haven't heard of this yet.</div>
-            </div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-gears"></i></div>
-            <div>
-              <div class="why-point-title">AI &amp; Automation Built In</div>
-              <div class="why-point-desc">We don't just market your agency, we automate follow-ups and scheduling
-                so no lead slips through the cracks.</div>
-            </div>
-          </div>
-          <div class="why-point">
-            <div class="why-point-icon"><i class="fa-solid fa-dollar-sign"></i></div>
-            <div>
-              <div class="why-point-title">Every New Client = $3,000–$8,000/Year</div>
-              <div class="why-point-desc">Land one new client through our SEO and it often covers the entire
-                retainer within 30 days.</div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="container" style="max-width:760px">
+    <div data-reveal style="text-align:center">
+      <p class="section-label" style="justify-content:center">Why Homecare Creators</p>
+      <h2 class="section-h2" style="text-align:center">Built <em>100% for </em>Homecare</h2>
+      <p class="section-sub" style="margin:0 auto">Generalist agencies don't get homecare. We do, and that focus is
+        worth hundreds of thousands in growth most years. Every strategy, keyword, and page we build is for a
+        homecare agency, nothing else — plus AI search visibility and automation most competitors haven't even
+        heard of yet. All on month-to-month plans with no long-term lock-in, because one new client usually covers
+        the entire retainer within 30 days.</p>
     </div>
   </div>
 </section>
@@ -505,103 +436,124 @@ try {
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="how" id="how">
+<!-- CTA -->
+<section class="cta-section" id="bundles">
   <div class="container">
-    <div data-reveal style="text-align:center;margin-bottom:16px;">
-      <p class="section-label" style="justify-content:center">How It Works</p>
-      <h2 class="section-h2" style="text-align:center">From Zero to <em>#1</em><br>in 4 Simple Steps</h2>
-    </div>
-    <div class="how-grid" data-reveal style="transition-delay:.1s">
-      <div class="how-step">
-        <div class="how-step-num">1<div class="how-step-icon"><i class="fa-solid fa-calendar"></i></div>
+    <div class="cta-inner">
+      <div class="cta-content" data-reveal>
+        <p class="section-label">Get Started Today</p>
+        <h2 class="section-h2">Ready to Grow Your<br><em>Homecare Agency?</em></h2>
+        <p class="cta-desc">Book a free 30-minute growth audit and we'll walk through your digital presence with
+          you, then show you exactly what needs fixing. No obligation, no sales pitch.</p>
+        <div class="cta-actions">
+          <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup('audit')"><i
+              class="fa-solid fa-calendar-check"></i>Book Your Free Audit</button>
         </div>
-        <div class="how-step-title">Book Free Audit</div>
-        <div class="how-step-desc">We dig through your website, SEO, Google profile, and a couple of local
-          competitors. No cost, no catch.</div>
+        <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;&middot;&nbsp; No
+          obligation &nbsp;&middot;&nbsp; 30-day satisfaction guarantee</div>
       </div>
-      <div class="how-step">
-        <div class="how-step-num">2<div class="how-step-icon"><i class="fa-solid fa-map"></i></div>
+      <div class="cta-image" data-reveal style="transition-delay:.15s">
+        <img src="/images/home/cta-business-owner.jpg"
+          alt="Home care agency owner reviewing a free growth audit with Homecare Creators"
+          title="Home care agency owner growing their business">
+        <div class="cta-image-badge">
+          <div class="cta-image-badge-title"><i class="fa-solid fa-circle-dot"
+              style="color:var(--teal-lt);margin-right:4px"></i>Audit Includes</div>
+          <div class="cta-badge-row">
+            <div class="cta-badge-dot"></div>
+            <div class="cta-badge-text">Website & speed analysis</div>
+          </div>
+          <div class="cta-badge-row">
+            <div class="cta-badge-dot"></div>
+            <div class="cta-badge-text">Google ranking audit</div>
+          </div>
+          <div class="cta-badge-row">
+            <div class="cta-badge-dot"></div>
+            <div class="cta-badge-text">Competitor comparison</div>
+          </div>
+          <div class="cta-badge-row">
+            <div class="cta-badge-dot"></div>
+            <div class="cta-badge-text">90-day growth roadmap</div>
+          </div>
         </div>
-        <div class="how-step-title">Custom Growth Plan</div>
-        <div class="how-step-desc">You get a 90-day roadmap built around your market, with real ROI numbers attached
-          to it, not vague promises.</div>
-      </div>
-      <div class="how-step">
-        <div class="how-step-num">3<div class="how-step-icon"><i class="fa-solid fa-gears"></i></div>
-        </div>
-        <div class="how-step-title">We Execute for You</div>
-        <div class="how-step-desc">A dedicated team runs the whole plan day to day. You keep running care, we
-          run the growth side.</div>
-      </div>
-      <div class="how-step">
-        <div class="how-step-num">4<div class="how-step-icon"><i class="fa-solid fa-chart-line"></i></div>
-        </div>
-        <div class="how-step-title">Watch Your Agency Grow</div>
-        <div class="how-step-desc">Rankings climb. Leads pick up. Reviews stack. And you'll hear about all of it on
-          a monthly strategy call, not just a report you never open.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MID-PAGE CTA -->
-<section class="mid-cta" id="bundles">
-  <div class="mid-cta-inner" data-reveal>
-    <p class="section-label">Get Started Today</p>
-    <h2 class="section-h2">Ready to Grow? <em>Let's Talk Numbers.</em></h2>
-    <p>Plans start at $831/mo, no hidden fees, no long-term contract, and every plan comes with a 30-day satisfaction guarantee.</p>
-    <button class="btn-primary" style="font-size:15px;padding:16px 32px" onclick="openPopup('audit')"><i class="fa-solid fa-tags"></i>Get My Custom Quote</button>
-  </div>
-</section>
-
-<!-- RESULTS -->
-<section class="results" id="results">
+<!-- CASE STUDIES -->
+<section class="case-studies" id="results">
   <div class="container">
-    <div class="results-inner">
-      <div class="results-image-wrap" data-reveal>
-        <div class="results-image">
-          <img src="/images/home/results-growth.jpg"
-            alt="Home care agency growth results achieved with Homecare Creators marketing"
-            title="Home care agency growth results">
+    <div class="reviews-header" data-reveal>
+      <p class="section-label">Case Studies</p>
+      <h2 class="section-h2">Real Agencies.<br><em>Real Growth.</em></h2>
+    </div>
+    <div class="slider-wrap" data-reveal style="transition-delay:.1s">
+      <div class="slider-track" id="caseSliderTrack">
+        <div class="case-card">
+          <div class="case-card-tag"><i class="fa-solid fa-magnifying-glass-dollar"></i>Website + Local SEO</div>
+          <div class="case-card-stat">0&nbsp;&rarr;&nbsp;28</div>
+          <div class="case-card-stat-label">Private-pay clients in 7 months</div>
+          <p class="case-card-desc">A full website redesign paired with local SEO took this agency from zero
+            private-pay inquiries to a steady monthly pipeline.</p>
+          <div class="case-card-client">
+            <div class="case-card-avatar">TW</div>
+            <div>
+              <div class="case-card-name">Sunrise Senior Care</div>
+              <div class="case-card-loc">Phoenix, AZ</div>
+            </div>
+          </div>
         </div>
-        <div class="results-stat-card">
-          <div class="results-stat-num">100%</div>
-          <div class="results-stat-label">Homecare-Only<br>Agency</div>
+        <div class="case-card">
+          <div class="case-card-tag"><i class="fa-solid fa-gears"></i>AI &amp; Automation</div>
+          <div class="case-card-stat">12 hrs</div>
+          <div class="case-card-stat-label">Saved per week on follow-ups</div>
+          <p class="case-card-desc">Automated lead response and scheduling freed up a full workday every week that
+            used to go to manual phone tag.</p>
+          <div class="case-card-client">
+            <div class="case-card-avatar">RB</div>
+            <div>
+              <div class="case-card-name">Premier Home Health</div>
+              <div class="case-card-loc">Dallas, TX</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-card-tag"><i class="fa-brands fa-google"></i>Local SEO + Reviews</div>
+          <div class="case-card-stat">6&nbsp;&rarr;&nbsp;52</div>
+          <div class="case-card-stat-label">Google reviews, #1 local ranking in 4 months</div>
+          <p class="case-card-desc">Review automation plus a Google Business Profile overhaul moved this agency to
+            the top of the local map pack in its city.</p>
+          <div class="case-card-client">
+            <div class="case-card-avatar">SR</div>
+            <div>
+              <div class="case-card-name">Comfort Home Care</div>
+              <div class="case-card-loc">Chicago, IL</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-card-tag"><i class="fa-solid fa-arrow-trend-up"></i>AI Search SEO</div>
+          <div class="case-card-stat">3x</div>
+          <div class="case-card-stat-label">Increase in inquiry calls</div>
+          <p class="case-card-desc">Getting cited by ChatGPT and Google AI Overviews put this agency in front of
+            families before competitors even showed up.</p>
+          <div class="case-card-client">
+            <div class="case-card-avatar">LD</div>
+            <div>
+              <div class="case-card-name">Caring Hands Agency</div>
+              <div class="case-card-loc">Houston, TX</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div data-reveal style="transition-delay:.15s">
-        <p class="section-label">How We Work</p>
-        <h2 class="section-h2">What Homecare Agencies<br><em>Get With Us</em></h2>
-        <p class="section-sub" style="margin-bottom:36px">Built specifically for how homecare agencies grow, not a
-          generic marketing playbook.</p>
-        <div class="results-grid-right">
-          <div class="result-card">
-            <div class="result-card-icon"><i class="fa-brands fa-google"></i></div>
-            <div class="result-num">AI-Powered</div>
-            <div class="result-label">Review Growth Automation</div>
-            <div class="result-desc">Requests reviews at the right moment, automatically</div>
-          </div>
-          <div class="result-card">
-            <div class="result-card-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
-            <div class="result-num">Website + SEO</div>
-            <div class="result-label">Built to Convert</div>
-            <div class="result-desc">Full-funnel lead generation, not just traffic</div>
-          </div>
-          <div class="result-card">
-            <div class="result-card-icon"><i class="fa-solid fa-clock"></i></div>
-            <div class="result-num">12h</div>
-            <div class="result-label">Saved Per Week</div>
-            <div class="result-desc">Via AI-automated follow-ups and scheduling</div>
-          </div>
-          <div class="result-card">
-            <div class="result-card-icon"><i class="fa-solid fa-medal"></i></div>
-            <div class="result-num">Local SEO</div>
-            <div class="result-label">Google Maps Optimization</div>
-            <div class="result-desc">Google Business Profile, citations &amp; reviews, managed for you</div>
-          </div>
-        </div>
-      </div>
+    </div>
+    <div class="slider-controls">
+      <button class="slider-btn" onclick="slideCases(-1)" aria-label="Previous"><i
+          class="fa-solid fa-chevron-left"></i></button>
+      <div class="slider-dots" id="caseSliderDots"></div>
+      <button class="slider-btn" onclick="slideCases(1)" aria-label="Next"><i
+          class="fa-solid fa-chevron-right"></i></button>
     </div>
   </div>
 </section>
@@ -826,51 +778,6 @@ try {
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <div class="cta-inner">
-      <div class="cta-content" data-reveal>
-        <p class="section-label">Get Started Today</p>
-        <h2 class="section-h2">Ready to Grow Your<br><em>Homecare Agency?</em></h2>
-        <p class="cta-desc">Book a free 30-minute growth audit and we'll walk through your digital presence with
-          you, then show you exactly what needs fixing. No obligation, no sales pitch.</p>
-        <div class="cta-actions">
-          <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup('audit')"><i
-              class="fa-solid fa-calendar-check"></i>Book Your Free Audit</button>
-        </div>
-        <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;&middot;&nbsp; No
-          obligation &nbsp;&middot;&nbsp; 30-day satisfaction guarantee</div>
-      </div>
-      <div class="cta-image" data-reveal style="transition-delay:.15s">
-        <img src="/images/home/cta-business-owner.jpg"
-          alt="Home care agency owner reviewing a free growth audit with Homecare Creators"
-          title="Home care agency owner growing their business">
-        <div class="cta-image-badge">
-          <div class="cta-image-badge-title"><i class="fa-solid fa-circle-dot"
-              style="color:var(--teal-lt);margin-right:4px"></i>Audit Includes</div>
-          <div class="cta-badge-row">
-            <div class="cta-badge-dot"></div>
-            <div class="cta-badge-text">Website & speed analysis</div>
-          </div>
-          <div class="cta-badge-row">
-            <div class="cta-badge-dot"></div>
-            <div class="cta-badge-text">Google ranking audit</div>
-          </div>
-          <div class="cta-badge-row">
-            <div class="cta-badge-dot"></div>
-            <div class="cta-badge-text">Competitor comparison</div>
-          </div>
-          <div class="cta-badge-row">
-            <div class="cta-badge-dot"></div>
-            <div class="cta-badge-text">90-day growth roadmap</div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
