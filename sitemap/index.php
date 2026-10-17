@@ -10,6 +10,7 @@ $og_title = "Sitemap | Homecare Creators";
 $og_desc = "Browse every page on the Homecare Creators website.";
 
 require_once __DIR__ . '/../admin/config.php';
+require_once __DIR__ . '/../admin/includes/db.php';
 require_once __DIR__ . '/../admin/includes/functions.php';
 
 // Build the sitemap by scanning the filesystem on every request, so any new
@@ -38,15 +39,17 @@ $_label_map = [
     'senior-living-marketing'   => 'Senior Care Marketing',
     'assisted-living-marketing' => 'Senior Care Marketing',
 ];
-$_preferred_order = ['Main Pages','Company','Services','Senior Care Marketing','Products','Content','Tools',
+$_preferred_order = ['Main Pages','Company','Services','Senior Care Marketing','Products','Content','Blog Posts','Tools',
     'Case Studies','Directory','Events','Florida SEO City Pages','Florida Web Design City Pages'];
 
 try {
     foreach (hc_scan_pages() as $p) {
         if ($p['path'] === '/') continue; // homepage is linked separately above the groups
 
-        $meta  = hc_extract_page_meta($p['file']);
-        $url   = $meta['page_canonical'] ?? (SITE_URL . $p['path']);
+        $meta = hc_extract_page_meta($p['file']);
+        if (empty($meta['page_canonical'])) continue; // retired URLs are pure redirect stubs, not real pages
+
+        $url   = $meta['page_canonical'];
         $title = $meta['page_title'] ?? $p['name'];
         $title = preg_replace('/\s*[|\x{2014}]\s*Home ?[Cc]are Creators.*$/u', '', $title);
 
@@ -63,8 +66,14 @@ try {
     }
 } catch (Exception $e) { /* render with whatever we have */ }
 
-// Blog is DB-driven content, not a scanned file, so it's added by hand.
+// Blog is DB-driven content, not a scanned file, so it's pulled in separately.
 $_sitemap_groups['Content'][] = ['url' => SITE_URL . '/blog', 'title' => 'Marketing Blog'];
+try {
+    $_posts = hc_all("SELECT title, slug FROM hc_blog_posts WHERE status='published' ORDER BY published_at DESC");
+    foreach ($_posts as $_post) {
+        $_sitemap_groups['Blog Posts'][] = ['url' => SITE_URL . '/blog/' . $_post['slug'], 'title' => $_post['title']];
+    }
+} catch (Exception $e) { /* blog table may not exist yet — skip silently */ }
 
 foreach ($_sitemap_groups as &$_g) {
     usort($_g, fn($a, $b) => strcmp($a['title'], $b['title']));
