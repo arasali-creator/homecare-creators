@@ -56,7 +56,7 @@ try {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= htmlspecialchars($page_title ?? 'Homecare Creators — Market It. Manage It. Grow It.') ?></title>
-<meta name="description" content="<?= htmlspecialchars($page_desc ?? 'Homecare Creators is a marketing agency built exclusively for home care agencies in Florida. Website design, local SEO, and AI search optimization.') ?>">
+<meta name="description" content="<?= htmlspecialchars($page_desc ?? 'Homecare Creators is a marketing agency built exclusively for home care agencies nationwide. Website design, local SEO, and AI search optimization.') ?>">
 <?php if (!empty($page_canonical)): ?><link rel="canonical" href="<?= htmlspecialchars($page_canonical) ?>">
 <link rel="alternate" hreflang="en-us" href="<?= htmlspecialchars($page_canonical) ?>">
 <link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($page_canonical) ?>"><?php endif; ?>
@@ -319,7 +319,7 @@ try {
         if ($org_fields) {
             $od = []; foreach($org_fields as $f) $od[$f['field_key']]=$f['field_value'];
             $kg = array_column(hc_all("SELECT url FROM hc_kg_links") ?? [], 'url');
-            $org = array_filter(['@context'=>'https://schema.org','@type'=>$od['org_type']??'LocalBusiness','name'=>$od['org_name']??'','url'=>SITE_URL,'description'=>$od['org_desc']??'','telephone'=>$od['org_phone']??'','email'=>$od['org_email']??'','sameAs'=>$kg?:null]);
+            $org = hc_build_org_schema($od, $kg);
             if (!empty($od['org_name'])) echo '<script type="application/ld+json">' . json_encode($org, JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
         }
     }

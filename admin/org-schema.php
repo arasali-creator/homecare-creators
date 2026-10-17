@@ -33,20 +33,8 @@ foreach ($fields as $f) $data[$f['field_key']] = $f['field_value'];
 // Pull sameAs links
 $same_as = array_column(hc_all("SELECT url FROM hc_kg_links ORDER BY platform"), 'url');
 
-// Build preview JSON
-$org_json = array_filter([
-    '@context'    => 'https://schema.org',
-    '@type'       => $data['org_type'] ?? 'LocalBusiness',
-    'name'        => $data['org_name'] ?? 'Homecare Creators',
-    'description' => $data['org_desc'] ?? '',
-    'url'         => SITE_URL,
-    'logo'        => $data['org_logo'] ?? '',
-    'telephone'   => $data['org_phone'] ?? '',
-    'email'       => $data['org_email'] ?? '',
-    'address'     => array_filter(['@type'=>'PostalAddress','streetAddress'=>$data['org_address']??'','addressLocality'=>$data['org_city']??'','addressRegion'=>$data['org_state']??'','postalCode'=>$data['org_zip']??'','addressCountry'=>'US']),
-    'areaServed'  => $data['org_area'] ?? 'Florida',
-    'sameAs'      => $same_as ?: null,
-]);
+// Build preview JSON — shared with includes/header.php's live output so they never drift apart
+$org_json = hc_build_org_schema($data, $same_as);
 
 hc_head('Organization Schema');
 hc_topbar('Organization Schema', '<a href="/admin/">Admin</a> › Schema › Organization');
@@ -91,7 +79,16 @@ hc_topbar('Organization Schema', '<a href="/admin/">Admin</a> › Schema › Org
     <div class="form-group"><label>State</label><input type="text" name="field[org_state]" value="<?= h($data['org_state']??'FL') ?>"></div>
     <div class="form-group"><label>ZIP</label><input type="text" name="field[org_zip]" value="<?= h($data['org_zip']??'') ?>"></div>
   </div>
-  <div class="form-group"><label>Area Served</label><input type="text" name="field[org_area]" value="<?= h($data['org_area']??'Florida') ?>" placeholder="Florida, Miami, Tampa..."></div>
+  <div class="form-group"><label>States Served</label><textarea name="field[org_area]" rows="2" placeholder="Florida, Texas, Georgia, North Carolina, Arizona, Tennessee, South Carolina, Virginia, New York, California"><?= h($data['org_area']??'Florida') ?></textarea>
+    <div class="form-hint">Comma-separated list of states you serve clients in. Each becomes its own <code>areaServed</code> entry in the schema.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title" style="margin-bottom:16px">Services &amp; Client Industries</div>
+  <div class="form-group"><label>Service Types</label><textarea name="field[org_service_types]" rows="2" placeholder="Home Care Marketing, Senior Care Marketing, Memory Care Marketing, Hospice Marketing, Assisted Living Marketing, Nursing Home Marketing"><?= h($data['org_service_types']??'') ?></textarea>
+    <div class="form-hint">Comma-separated list of the services you offer / client industries you serve. Rendered as <code>serviceType</code> in the schema.</div>
+  </div>
 </div>
 
 <div style="display:flex;gap:12px;align-items:center">

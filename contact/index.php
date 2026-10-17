@@ -7,7 +7,7 @@ if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
 $page_title = "Contact Us | Homecare Creators";
 $page_desc = "Get in touch with Homecare Creators — email us or message us on WhatsApp. We reply within 24 hours, Monday through Friday.";
 $og_title = "Contact Us | Homecare Creators";
-$og_desc = "Email or message Homecare Creators — a marketing agency built exclusively for home care agencies in Florida.";
+$og_desc = "Email or message Homecare Creators — a marketing agency built exclusively for home care agencies nationwide.";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:42vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:140px 40px 60px}
@@ -63,7 +63,7 @@ include '../includes/header.php';
     <div class="contact-info" data-reveal>
       <p class="section-label">Get in Touch</p>
       <h2 class="section-h2">We'd Love to Hear<br><em>From You</em></h2>
-      <p class="section-sub">Have a question about our services, pricing, or CareOS? Reach out directly — you'll hear back from a real person within 24 hours.</p>
+      <p class="section-sub">Have a question about our services or pricing? Reach out directly — you'll hear back from a real person within 24 hours.</p>
       <div class="contact-details">
         <div class="contact-detail">
           <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>

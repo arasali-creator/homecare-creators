@@ -5,7 +5,7 @@ if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
     exit;
 }
 $page_title = "About Us | Homecare Creators";
-$page_desc = "Meet Asifa Rani, Founder & CEO of Homecare Creators — a marketing agency built exclusively for home care agencies in Florida.";
+$page_desc = "Meet Asifa Rani, Founder & CEO of Homecare Creators — a marketing agency built exclusively for home care agencies nationwide.";
 $og_title = "About Us | Homecare Creators";
 $og_desc = "Meet the founder behind Homecare Creators and why we built a marketing agency exclusively for home care agencies.";
 $og_image = "https://homecarecreators.com/images/team/asifa-rani-founder-ceo.jpg";
@@ -95,7 +95,7 @@ include '../includes/header.php';
       <p>Hi, I'm Asifa — founder and CEO of Homecare Creators.</p>
       <p>Before starting Homecare Creators, I co-founded a web solutions company helping businesses across industries build their digital presence. Along the way, I kept running into the same problem: home care agencies — the people trusted with caring for someone's parent or grandparent — were being marketed by agencies that treated them like any other local business. Same templates, same generic SEO playbook, no real understanding of how families actually search for care, what builds trust with them, or what a homecare business owner is actually up against day to day.</p>
       <p>That gap is why Homecare Creators exists. We don't split our attention across restaurants, law firms, and dentists. We work exclusively with home care agencies — which means every strategy, every page, and every piece of advice we give is built around one industry, not retrofitted from a generic template.</p>
-      <p>Homecare Creators is based in Lady Lake, Florida, and works with home care agencies across the state. If you want to talk through your agency's marketing directly, you can reach me at the contact details below.</p>
+      <p>Homecare Creators is based in Lady Lake, Florida, and works with home care agencies nationwide. If you want to talk through your agency's marketing directly, you can reach me at the contact details below.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:8px">
         <a href="/contact/" class="btn-primary" style="background:linear-gradient(135deg,var(--teal),var(--teal-lt))"><i class="fa-solid fa-envelope"></i>Get in Touch</a>
         <a href="https://wa.me/14094193533" target="_blank" rel="noopener" class="btn-secondary" style="background:var(--cream);border-color:var(--border);color:var(--forest)"><i class="fa-brands fa-whatsapp"></i>Message on WhatsApp</a>
