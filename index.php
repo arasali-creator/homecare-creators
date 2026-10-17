@@ -7,37 +7,40 @@ $og_desc       = "A marketing agency built 100% for homecare - website design, l
 
 $page_css = <<<CSS
 /* ── HERO ── */
-.hero{min-height:100vh;background:var(--forest);position:relative;overflow:hidden;padding:0;display:grid;grid-template-columns:1fr 1fr;align-items:center}
+.hero{background:var(--forest);position:relative;overflow:hidden;padding:150px 0 0}
 .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 30% 50%,black 20%,transparent 80%)}
 .hero-blob1{position:absolute;width:700px;height:700px;top:-200px;right:-150px;background:radial-gradient(circle,rgba(29,158,117,.16) 0%,transparent 65%);animation:float 10s ease-in-out infinite}
 .hero-blob2{position:absolute;width:500px;height:500px;bottom:-150px;left:-100px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 65%);animation:float 13s ease-in-out infinite reverse}
-.hero-left{position:relative;z-index:2;padding:140px 52px 80px 80px}
-.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:32px;width:fit-content;animation:fadeIn .6s ease both}
+.hero-grid{position:relative;z-index:2;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;padding:0 48px 96px}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;width:fit-content;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(42px,5.2vw,70px);line-height:1.04;color:#fff;margin-bottom:6px;animation:fadeUp .8s .1s ease both}
+.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(38px,4.6vw,60px);line-height:1.1;color:#fff;margin-bottom:22px;animation:fadeUp .8s .1s ease both}
 .hero-h1 em{font-style:italic;color:var(--teal-lt)}
-.hero-tagline{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(20px,2.4vw,30px);line-height:1.3;color:rgba(255,255,255,.5);margin-bottom:10px;animation:fadeUp .8s .18s ease both}
-.hero-tagline em{color:var(--mint);font-style:normal}
-.hero-desc{font-size:18.5px;line-height:1.75;color:rgba(255,255,255,.62);max-width:500px;margin-bottom:42px;animation:fadeUp .8s .3s ease both}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .4s ease both;margin-bottom:52px}
-.hero-proof{display:flex;gap:32px;flex-wrap:wrap;animation:fadeUp .8s .55s ease both}
-.hero-proof-item{display:flex;flex-direction:column;gap:2px}
-.hero-proof-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:34px;color:var(--teal-lt);line-height:1}
-.hero-proof-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.42)}
-.hero-proof-divider{width:1px;background:rgba(255,255,255,.1);align-self:stretch}
-.hero-right{position:relative;z-index:2;height:100vh;min-height:700px;padding:120px 48px 60px 24px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px}
-.hero-img-card{border-radius:20px;overflow:hidden;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.35)}
-.hero-img-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
-.hero-img-card:hover img{transform:scale(1.04)}
-.hero-img-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(5,25,14,.65) 100%);pointer-events:none}
-.hero-img-card.tall{grid-row:span 2}
-.hero-img-overlay{position:absolute;bottom:14px;left:14px;right:14px;z-index:2;background:rgba(10,46,30,.85);backdrop-filter:blur(10px);border:1px solid rgba(29,158,117,.25);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px}
-.hero-img-overlay-icon{width:30px;height:30px;border-radius:8px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;flex-shrink:0}
-.hero-img-overlay-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:600;color:#fff;line-height:1.3}
-.hero-img-overlay-sub{font-size:10px;color:rgba(255,255,255,.5)}
-.hero-float-badge{position:absolute;z-index:3;background:rgba(201,168,76,.15);backdrop-filter:blur(16px);border:1px solid rgba(201,168,76,.4);border-radius:12px;padding:10px 16px;font-family:'Plus Jakarta Sans',sans-serif}
-.hero-float-badge-num{font-size:22px;font-weight:800;color:var(--gold-lt);line-height:1}
-.hero-float-badge-label{font-size:10px;color:rgba(255,255,255,.6)}
+.hero-desc{font-size:18px;line-height:1.75;color:rgba(255,255,255,.62);max-width:480px;margin-bottom:36px;animation:fadeUp .8s .22s ease both}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .34s ease both;margin-bottom:40px}
+.hero-social-proof{display:flex;align-items:center;gap:16px;animation:fadeUp .8s .46s ease both}
+.hero-avatar-stack{display:flex;flex-shrink:0}
+.hero-avatar{width:38px;height:38px;border-radius:50%;background:var(--teal);border:2.5px solid var(--forest);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:11.5px;margin-left:-10px}
+.hero-avatar:first-child{margin-left:0}
+.hero-stars{color:var(--gold);font-size:12px;letter-spacing:2px;margin-bottom:3px}
+.hero-social-label{font-size:12.5px;color:rgba(255,255,255,.5);font-family:'Plus Jakarta Sans',sans-serif;font-weight:500}
+
+.hero-right{position:relative;animation:fadeUp .9s .25s ease both}
+.hero-photo{border-radius:28px;overflow:hidden;aspect-ratio:4/4.7;position:relative;box-shadow:0 30px 90px rgba(0,0,0,.4)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,25,14,.6) 100%)}
+.hero-photo-tag{position:absolute;top:20px;right:20px;z-index:3;background:rgba(10,46,30,.85);backdrop-filter:blur(10px);border:1px solid rgba(29,158,117,.3);border-radius:100px;padding:9px 16px;display:flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:600;color:#fff}
+.hero-photo-tag i{color:var(--mint)}
+.hero-photo-badge{position:absolute;bottom:-24px;left:-24px;z-index:3;background:#fff;border-radius:18px;padding:18px 22px;box-shadow:0 20px 50px rgba(10,46,30,.25);display:flex;align-items:center;gap:14px;min-width:220px}
+.hero-photo-badge-icon{width:44px;height:44px;border-radius:12px;background:rgba(29,158,117,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.hero-photo-badge-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;color:var(--forest);line-height:1.15}
+.hero-photo-badge-label{font-size:11.5px;color:var(--muted);font-weight:600;font-family:'Plus Jakarta Sans',sans-serif}
+
+.hero-proof-bar{position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.14)}
+.hero-proof-inner{max-width:1280px;margin:0 auto;padding:28px 48px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px 40px}
+.hero-proof-item{display:flex;flex-direction:column;gap:3px}
+.hero-proof-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;color:var(--teal-lt);line-height:1}
+.hero-proof-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:500;color:rgba(255,255,255,.45)}
 
 /* ── WHY US ── */
 .why{background:#fff}
@@ -138,15 +141,17 @@ $page_css = <<<CSS
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .hero{grid-template-columns:1fr}
-  .hero-right{display:none}
-  .hero-left{padding:130px 40px 80px}
+  .hero-grid{grid-template-columns:1fr;padding:0 32px 72px;gap:48px}
+  .hero-right{max-width:420px;margin:0 auto}
   .why-grid{grid-template-columns:1fr;gap:56px}
   .why-photo{max-width:340px;margin:0 auto}
   .why-photo-stat{left:50%;transform:translateX(calc(-50% - 110px))}
 }
 @media(max-width:640px){
-  .hero-left{padding:110px 24px 60px}
+  .hero{padding-top:110px}
+  .hero-grid{padding:0 24px 56px;gap:40px}
+  .hero-photo-badge{left:0;bottom:-20px;padding:14px 18px;min-width:0}
+  .hero-proof-inner{padding:22px 24px}
   section{padding:72px 24px}
   .cta-card{padding:56px 24px;border-radius:28px}
   .cta-decor{width:110px;height:90px}
@@ -235,72 +240,67 @@ try {
   <div class="hero-bg-grid"></div>
   <div class="hero-blob1"></div>
   <div class="hero-blob2"></div>
-  <div class="hero-left">
-    <div class="hero-badge">
-      <div class="hero-badge-pulse"></div>The Marketing Agency Built Exclusively for Homecare
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <div class="hero-badge-pulse"></div>The Marketing Agency Built Exclusively for Homecare
+      </div>
+      <h1 class="hero-h1">Grow Your Home Care Agency<br><em>Without the Guesswork.</em></h1>
+      <p class="hero-desc">SEO, high-converting websites, and AI search visibility built exclusively for home care
+        agencies nationwide — not another generic marketing template.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openPopup('audit')"><i class="fa-solid fa-rocket"></i>Book Free Growth
+          Audit</button>
+        <a href="#services" class="btn-secondary"><i class="fa-solid fa-play"></i>See Our Services</a>
+      </div>
+      <div class="hero-social-proof">
+        <div class="hero-avatar-stack">
+          <div class="hero-avatar">SR</div>
+          <div class="hero-avatar">TW</div>
+          <div class="hero-avatar">RB</div>
+          <div class="hero-avatar">LD</div>
+        </div>
+        <div>
+          <div class="hero-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="hero-social-label">Trusted by home care agencies nationwide</div>
+        </div>
+      </div>
     </div>
-    <h1 class="hero-h1">Home Care <br><em>Marketing Agency</em></h1>
-    <p class="hero-desc">Grow your home care agency with marketing built for your industry. We help agencies nationwide attract more qualified leads through SEO, high-converting websites, local SEO, and AI-powered marketing.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="openPopup('audit')"><i class="fa-solid fa-rocket"></i>Book Free Growth
-        Audit</button>
-      <a href="#services" class="btn-secondary"><i class="fa-solid fa-play"></i>See Our Services</a>
-    </div>
-    <div class="hero-proof">
-      <div class="hero-proof-item">
-        <div class="hero-proof-num">100%</div>
-        <div class="hero-proof-label">Homecare-Only Focus</div>
-      </div>
-      <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item">
-        <div class="hero-proof-num">SEO</div>
-        <div class="hero-proof-label">+ AI Search Visibility</div>
-      </div>
-      <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item">
-        <div class="hero-proof-num">30-Day</div>
-        <div class="hero-proof-label">Satisfaction Guarantee</div>
-      </div>
-      <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item">
-        <div class="hero-proof-num">12h</div>
-        <div class="hero-proof-label">Saved/Week via AI</div>
+
+    <div class="hero-right">
+      <div class="hero-photo">
+        <img src="/images/home/hero-caregiver-elderly.jpg"
+          alt="Professional caregiver assisting an elderly client at home for a home care agency"
+          title="Home care agency caregiver assisting an elderly client">
+        <div class="hero-photo-tag"><i class="fa-solid fa-location-dot"></i>Serving Agencies Nationwide</div>
+        <div class="hero-photo-badge">
+          <div class="hero-photo-badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div>
+            <div class="hero-photo-badge-num">30-Day</div>
+            <div class="hero-photo-badge-label">Satisfaction Guarantee</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="hero-right">
-    <div class="hero-img-card tall" style="animation:scaleIn .9s .4s ease both">
-      <img src="/images/home/hero-caregiver-elderly.jpg"
-        alt="Professional caregiver assisting an elderly client at home for a home care agency"
-        title="Home care agency caregiver assisting an elderly client">
-      <div class="hero-img-overlay">
-        <div class="hero-img-overlay-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-        <div>
-          <div class="hero-img-overlay-text">Live Shift Active</div>
-          <div class="hero-img-overlay-sub">AI monitoring in real-time</div>
-        </div>
+  <div class="hero-proof-bar">
+    <div class="hero-proof-inner">
+      <div class="hero-proof-item">
+        <div class="hero-proof-num">100%</div>
+        <div class="hero-proof-label">Homecare-Only Focus</div>
       </div>
-    </div>
-    <div class="hero-img-card" style="animation:scaleIn .9s .55s ease both">
-      <img src="/images/home/hero-nurse-senior.jpg"
-        alt="Home care nurse providing compassionate in-home senior care services"
-        title="Home care nurse caring for a senior client">
-      <div class="hero-float-badge" style="top:14px;left:12px">
-        <div class="hero-float-badge-num">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="hero-float-badge-label">Review Growth</div>
+      <div class="hero-proof-item">
+        <div class="hero-proof-num">SEO</div>
+        <div class="hero-proof-label">+ AI Search Visibility</div>
       </div>
-    </div>
-    <div class="hero-img-card" style="animation:scaleIn .9s .7s ease both">
-      <img src="/images/home/hero-caregiver-woman.jpg"
-        alt="Happy caregiver bonding with an elderly woman client, home care agency growing its Google visibility"
-        title="Caregiver with elderly woman client — home care agency growing on Google">
-      <div class="hero-img-overlay">
-        <div class="hero-img-overlay-icon"><i class="fa-brands fa-google"></i></div>
-        <div>
-          <div class="hero-img-overlay-text">Google Search Visibility</div>
-          <div class="hero-img-overlay-sub">Local SEO + AI Search</div>
-        </div>
+      <div class="hero-proof-item">
+        <div class="hero-proof-num">30-Day</div>
+        <div class="hero-proof-label">Satisfaction Guarantee</div>
+      </div>
+      <div class="hero-proof-item">
+        <div class="hero-proof-num">12h</div>
+        <div class="hero-proof-label">Saved/Week via AI</div>
       </div>
     </div>
   </div>
