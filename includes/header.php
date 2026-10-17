@@ -148,7 +148,7 @@ nav.scrolled{height:62px;background:rgba(8,36,22,.97);box-shadow:0 4px 32px rgba
 .mega-col a.view-all{color:var(--teal);font-weight:700;margin-top:6px}
 
 /* Featured side panel */
-.mega-featured{width:260px;flex-shrink:0;background:var(--forest);padding:28px;display:flex;flex-direction:column}
+.mega-featured{flex:1;min-width:260px;background:var(--forest);padding:28px;display:flex;flex-direction:column}
 .mega-featured img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:14px;margin-bottom:18px}
 .mega-featured-label{display:inline-flex;align-items:center;gap:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal-lt);margin-bottom:10px}
 .mega-featured h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:16.5px;font-weight:700;color:#fff;margin-bottom:9px;line-height:1.3}
