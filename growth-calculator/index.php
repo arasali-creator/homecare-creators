@@ -65,11 +65,11 @@ $page_css = <<<CSS
 .offer-banner strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;color:#7a5f18}
 .offer-banner span{font-size:12px;color:#8a6800}
 
-/* Blur-until-unlocked — plain stack, no absolute positioning (avoids overlap bugs) */
-.blurred-preview{filter:blur(6px);user-select:none;pointer-events:none;margin-bottom:20px}
+/* Gated state */
 .unlock-prompt{text-align:center;margin-bottom:16px}
 .unlock-prompt i{font-size:24px;color:var(--teal);margin-bottom:8px;display:block}
-.unlock-prompt p{font-size:13.5px;color:var(--forest);font-weight:600;max-width:320px;margin:0 auto}
+.unlock-prompt p{font-size:13.5px;color:var(--muted);line-height:1.6;max-width:340px;margin:0 auto}
+.unlock-prompt p:first-of-type{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;color:var(--forest);margin-bottom:8px}
 
 /* Gate form */
 .gate-form{display:flex;flex-direction:column;gap:10px;text-align:left;width:100%;max-width:340px;margin:0 auto}
@@ -180,21 +180,19 @@ include '../includes/header.php';
     <div class="calc-card" data-reveal style="transition-delay:.1s">
       <div class="res-badge"><i class="fa-solid fa-chart-line"></i> Your Results</div>
 
-      <!-- Ungated: real, live, simple counts -->
-      <div class="res-stat-row">
-        <div class="res-stat"><div class="res-stat-num" id="outCurrent">7</div><div class="res-stat-label">Current clients per month</div></div>
-        <div class="res-stat"><div class="res-stat-num" id="outPotential">10</div><div class="res-stat-label">Potential clients per month</div></div>
-      </div>
-      <div class="res-delta">
-        <div class="res-delta-num" id="outDelta">+3</div>
-        <div class="res-delta-label">Additional clients per month</div>
-      </div>
-
-      <!-- Gated: dollar value + recommendation -->
+      <!-- Gated: nothing computed is shown until the form is submitted -->
       <div id="realResults" style="display:none">
+        <div class="res-stat-row">
+          <div class="res-stat"><div class="res-stat-num" id="outCurrent">0</div><div class="res-stat-label">Current clients per month</div></div>
+          <div class="res-stat"><div class="res-stat-num" id="outPotential">0</div><div class="res-stat-label">Potential clients per month</div></div>
+        </div>
+        <div class="res-delta">
+          <div class="res-delta-num" id="outDelta">+0</div>
+          <div class="res-delta-label">Additional clients per month</div>
+        </div>
         <div class="res-breakdown">
-          <strong id="brkDelta">+3</strong> extra clients/mo &times; 12 months = <strong id="brkYearClients">+36</strong> new clients/year<br>
-          &times; <strong id="brkLtv">$15,000</strong> average client lifetime value
+          <strong id="brkDelta">+0</strong> extra clients/mo &times; 12 months = <strong id="brkYearClients">+0</strong> new clients/year<br>
+          &times; <strong id="brkLtv">$0</strong> average client lifetime value
         </div>
         <div class="res-unlocked">
           <div class="offer-banner">
@@ -209,24 +207,14 @@ include '../includes/header.php';
       </div>
 
       <div id="lockedState">
-        <div class="blurred-preview">
-          <div class="res-breakdown">
-            <strong>+3</strong> extra clients/mo &times; 12 months = <strong>+36</strong> new clients/year<br>
-            &times; <strong>$15,000</strong> average client lifetime value
-          </div>
-          <div class="res-unlocked">
-            <div class="res-unlocked-eyebrow">Your Estimated Annual Opportunity</div>
-            <div class="res-unlocked-num">$540,000</div>
-          </div>
-        </div>
-
         <div class="unlock-prompt">
-          <i class="fa-solid fa-lock"></i>
-          <p>Enter your info to unlock your full growth report + a free personalized recommendation.</p>
+          <i class="fa-solid fa-chart-line"></i>
+          <p>Want Your Personalized Growth Report?</p>
+          <p>Fill in your details below for a deep, personalized audit of your agency's growth potential — plus a recommendation tailored to your biggest challenge.</p>
         </div>
         <div class="offer-banner">
           <i class="fa-solid fa-fire"></i>
-          <div><strong><?= $offer_discount ?>% Off Your Free Audit</strong><span>Only <?= $offer_spots ?> spot<?= $offer_spots===1?'':'s' ?> left this month</span></div>
+          <div><strong><?= $offer_discount ?>% Off Your Audit</strong><span>If you request your personalized report — only <?= $offer_spots ?> spot<?= $offer_spots===1?'':'s' ?> left this month</span></div>
         </div>
         <form class="gate-form" id="gateForm">
           <div class="hp-field" aria-hidden="true"><label for="gHp">Website</label><input type="text" id="gHp" tabindex="-1" autocomplete="off"></div>
@@ -283,7 +271,6 @@ function syncPair(rangeId, numId, onChange) {
   });
 }
 
-var unlocked = false;
 var lastResults = null;
 
 function calc() {
@@ -293,25 +280,7 @@ function calc() {
   var value = parseFloat(document.getElementById('numValue').value) || 0;
   var length = parseFloat(document.getElementById('numLength').value) || 0;
 
-  var currentClients = Math.round(inquiries * closeRate / 100);
-  var potentialClients = Math.round((inquiries + additionalInq) * closeRate / 100);
-  var deltaClients = Math.max(0, potentialClients - currentClients);
-  var ltv = Math.round(value * length);
-  var yearClients = deltaClients * 12;
-  var annualOpportunity = yearClients * ltv;
-
-  document.getElementById('outCurrent').textContent = currentClients.toLocaleString();
-  document.getElementById('outPotential').textContent = potentialClients.toLocaleString();
-  document.getElementById('outDelta').textContent = '+' + deltaClients.toLocaleString();
-
   lastResults = { monthly_inquiries: inquiries, close_rate: closeRate, additional_inquiries_target: additionalInq, monthly_value_per_client: value, avg_length_months: length };
-
-  if (unlocked) {
-    document.getElementById('brkDelta').textContent = '+' + deltaClients.toLocaleString();
-    document.getElementById('brkYearClients').textContent = '+' + yearClients.toLocaleString();
-    document.getElementById('brkLtv').textContent = '\$' + ltv.toLocaleString();
-    document.getElementById('unlockedNum').textContent = '\$' + annualOpportunity.toLocaleString();
-  }
 }
 
 syncPair('rngInquiries', 'numInquiries', calc);
@@ -366,10 +335,12 @@ document.getElementById('gateForm').addEventListener('submit', function(e) {
   .then(function(r){ return r.json(); })
   .then(function(d){
     if (d.success) {
-      unlocked = true;
       document.getElementById('lockedState').style.display = 'none';
       document.getElementById('realResults').style.display = 'block';
 
+      document.getElementById('outCurrent').textContent = d.results.current_clients.toLocaleString();
+      document.getElementById('outPotential').textContent = d.results.potential_clients.toLocaleString();
+      document.getElementById('outDelta').textContent = '+' + d.results.additional_clients.toLocaleString();
       document.getElementById('brkDelta').textContent = '+' + d.results.additional_clients.toLocaleString();
       document.getElementById('brkYearClients').textContent = '+' + (d.results.additional_clients * 12).toLocaleString();
       document.getElementById('brkLtv').textContent = '\$' + Math.round(d.results.client_ltv).toLocaleString();
