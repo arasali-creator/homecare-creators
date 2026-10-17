@@ -124,25 +124,43 @@ nav.scrolled{height:62px;background:rgba(8,36,22,.97);box-shadow:0 4px 32px rgba
 /* invisible bridge over the margin-top gap so hover never breaks */
 .nav-dropdown::after{content:'';position:absolute;top:100%;left:0;right:0;height:14px}
 
-.mega-menu{left:50%;transform:translateX(-50%);width:760px;padding:0}
-.mega-menu-links{display:flex;gap:8px;padding:26px 10px 26px 26px;flex:1}
-.mega-col{display:flex;flex-direction:column;gap:2px;min-width:170px}
-.mega-col-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
-.mega-col a{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:500;color:var(--text);text-decoration:none;padding:8px;border-radius:10px;transition:.15s}
-.mega-col a:hover{background:var(--cream)}
-.mega-col a img{width:32px;height:32px;border-radius:9px;object-fit:cover;flex-shrink:0}
-.mega-col a.view-all{color:var(--teal);font-weight:700;margin-top:6px}
-.mega-featured{width:220px;flex-shrink:0;background:var(--forest);padding:24px;display:flex;flex-direction:column}
-.mega-featured img{width:100%;height:96px;object-fit:cover;border-radius:12px;margin-bottom:16px}
-.mega-featured-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal-lt);margin-bottom:8px}
-.mega-featured h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3}
-.mega-featured p{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:16px;flex:1}
-.mega-featured .featured-cta{display:inline-flex;align-items:center;gap:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;font-weight:700;color:var(--teal-lt);text-decoration:none}
+.mega-menu{left:0;width:1020px;max-width:calc(100vw - 96px);padding:0}
+.mega-menu-links{display:flex;align-items:flex-start;padding:32px 36px;flex-shrink:0}
 
-.simple-menu{left:0;flex-direction:column;padding:10px;gap:2px;min-width:190px}
-.simple-menu a{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:500;color:var(--text);text-decoration:none;padding:10px 12px;border-radius:10px;transition:.15s}
+/* Primary column — rich rows with icon + title + one-line description */
+.mega-primary{display:flex;flex-direction:column;gap:4px;width:290px;flex-shrink:0}
+.mega-primary a{display:flex;align-items:flex-start;gap:14px;text-decoration:none;padding:12px;border-radius:12px;transition:.15s}
+.mega-primary a:hover{background:var(--cream)}
+.mega-primary a .mega-icon{width:44px;height:44px;border-radius:12px;background:rgba(29,158,117,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.mega-primary a .mega-item-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14.5px;font-weight:700;color:var(--forest);margin-bottom:3px}
+.mega-primary a .mega-item-desc{font-size:12.5px;color:var(--muted);line-height:1.5}
+
+/* Divider between primary rich column and the quick-link columns */
+.mega-divider{width:1px;align-self:stretch;background:var(--border);margin:0 28px;flex-shrink:0}
+
+/* Quick-link columns — plain, uncluttered */
+.mega-quick-cols{display:flex;gap:28px;width:348px;flex-shrink:0}
+.mega-col{display:flex;flex-direction:column;gap:2px;width:160px;flex-shrink:0}
+.mega-col-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.mega-col a{font-size:13.5px;font-weight:500;color:var(--text);text-decoration:none;padding:9px 10px;border-radius:9px;transition:.15s}
+.mega-col a:hover{background:var(--cream);color:var(--forest)}
+.mega-col a.view-all{color:var(--teal);font-weight:700;margin-top:6px}
+
+/* Featured side panel */
+.mega-featured{width:260px;flex-shrink:0;background:var(--forest);padding:28px;display:flex;flex-direction:column}
+.mega-featured img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:14px;margin-bottom:18px}
+.mega-featured-label{display:inline-flex;align-items:center;gap:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal-lt);margin-bottom:10px}
+.mega-featured h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:16.5px;font-weight:700;color:#fff;margin-bottom:9px;line-height:1.3}
+.mega-featured p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:18px;flex:1}
+.mega-featured .featured-cta{display:inline-flex;align-items:center;gap:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--teal-lt);text-decoration:none}
+
+/* Resources dropdown — same rich-row treatment, single column */
+.simple-menu{left:0;flex-direction:column;padding:14px;gap:2px;width:300px}
+.simple-menu a{display:flex;align-items:flex-start;gap:14px;text-decoration:none;padding:11px 12px;border-radius:12px;transition:.15s}
 .simple-menu a:hover{background:var(--cream)}
-.simple-menu a i{width:15px;color:var(--teal);font-size:13px}
+.simple-menu a .mega-icon{width:38px;height:38px;border-radius:10px;background:rgba(29,158,117,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;margin-top:1px}
+.simple-menu a .mega-item-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--forest);margin-bottom:2px}
+.simple-menu a .mega-item-desc{font-size:12px;color:var(--muted);line-height:1.5}
 
 /* BUTTONS */
 .btn-primary{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,var(--teal),var(--teal-lt));color:#fff;text-decoration:none;padding:15px 30px;border-radius:11px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14.5px;box-shadow:0 4px 24px rgba(29,158,117,.45);transition:.3s cubic-bezier(.34,1.56,.64,1);border:none;cursor:pointer}
@@ -257,13 +275,20 @@ footer{background:var(--forest);padding:64px 48px 0}
 
   /* Dropdowns become inline accordions inside the mobile menu */
   .nav-dropdown:hover .mega-menu,.nav-dropdown:hover .simple-menu{display:none}
-  .mega-menu,.simple-menu{position:static;transform:none;width:auto;min-width:0;box-shadow:none;border:none;background:rgba(255,255,255,.04);margin-top:4px;border-radius:8px}
-  .mega-menu-links{flex-direction:column;gap:18px;padding:10px}
+  .mega-menu,.simple-menu{position:static;transform:none;width:auto;max-width:none;min-width:0;box-shadow:none;border:none;background:rgba(255,255,255,.04);margin-top:4px;border-radius:8px}
+  .mega-menu-links{flex-direction:column;gap:18px;padding:12px;width:auto}
+  .mega-primary{width:auto}
+  .mega-divider{display:none}
+  .mega-quick-cols{flex-direction:column;gap:18px;width:auto}
+  .mega-col{width:auto}
   .mega-featured{display:none}
-  .simple-menu{padding:6px}
+  .simple-menu{padding:8px;width:auto}
   .mega-col-title{margin-bottom:6px;color:var(--teal-lt)}
-  .mega-col a,.simple-menu a{color:rgba(255,255,255,.8)}
-  .mega-col a:hover,.simple-menu a:hover{background:rgba(255,255,255,.08)}
+  .mega-col a,.simple-menu a,.mega-primary a{color:rgba(255,255,255,.85)}
+  .mega-col a:hover,.simple-menu a:hover,.mega-primary a:hover{background:rgba(255,255,255,.08)}
+  .mega-primary a .mega-item-title,.simple-menu a .mega-item-title{color:#fff}
+  .mega-primary a .mega-item-desc,.simple-menu a .mega-item-desc{color:rgba(255,255,255,.5)}
+  .mega-primary a .mega-icon,.simple-menu a .mega-icon{background:rgba(255,255,255,.1);color:var(--teal-lt)}
 }
 </style>
 <?php if (!empty($page_css)): ?>
@@ -379,32 +404,44 @@ try {
       <a href="#" class="nav-dropdown-trigger">Services <i class="fa-solid fa-chevron-down"></i></a>
       <div class="mega-menu">
         <div class="mega-menu-links">
-          <div class="mega-col">
+          <div class="mega-primary">
             <div class="mega-col-title">Marketing Services</div>
-            <a href="/seo/home-care-seo/"><img src="/images/home/service-local-seo.jpg" alt="Home Care SEO">Home Care SEO</a>
-            <a href="/web-design/homecare-website-design/"><img src="/images/home/service-website-dev.jpg" alt="Website Design">Website Design</a>
-            <a href="/ai-search-seo/"><img src="/images/home/service-ai-search-seo.jpg" alt="AI Search SEO">AI Search SEO (GEO)</a>
+            <a href="/seo/home-care-seo/">
+              <div class="mega-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+              <div><div class="mega-item-title">Home Care SEO</div><div class="mega-item-desc">Rank higher on Google Maps and local search.</div></div>
+            </a>
+            <a href="/web-design/homecare-website-design/">
+              <div class="mega-icon"><i class="fa-solid fa-laptop-code"></i></div>
+              <div><div class="mega-item-title">Website Design</div><div class="mega-item-desc">Conversion-focused sites that turn visitors into inquiries.</div></div>
+            </a>
+            <a href="/ai-search-seo/">
+              <div class="mega-icon"><i class="fa-solid fa-brain"></i></div>
+              <div><div class="mega-item-title">AI Search SEO (GEO)</div><div class="mega-item-desc">Get found in ChatGPT, Google AI, and beyond.</div></div>
+            </a>
           </div>
-          <div class="mega-col">
-            <div class="mega-col-title">Senior Care Marketing</div>
-            <a href="/memory-care-marketing/">Memory Care</a>
-            <a href="/hospice-marketing/">Hospice</a>
-            <a href="/nursing-home-marketing/">Nursing Homes</a>
-            <a href="/senior-living-marketing/">Senior Living</a>
-            <a href="/assisted-living-marketing/">Assisted Living</a>
-          </div>
-          <div class="mega-col">
-            <div class="mega-col-title">Florida Cities</div>
-            <a href="/home-care-agency-seo-miami-fl/">Miami</a>
-            <a href="/home-care-agency-seo-orlando-fl/">Orlando</a>
-            <a href="/home-care-agency-seo-tampa-fl/">Tampa</a>
-            <a href="/home-care-agency-seo-jacksonville-fl/">Jacksonville</a>
-            <a href="/areas-we-serve/" class="view-all">View All Cities &rarr;</a>
+          <div class="mega-divider"></div>
+          <div class="mega-quick-cols">
+            <div class="mega-col">
+              <div class="mega-col-title">Senior Care Marketing</div>
+              <a href="/memory-care-marketing/">Memory Care</a>
+              <a href="/hospice-marketing/">Hospice</a>
+              <a href="/nursing-home-marketing/">Nursing Homes</a>
+              <a href="/senior-living-marketing/">Senior Living</a>
+              <a href="/assisted-living-marketing/">Assisted Living</a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-col-title">Florida Cities</div>
+              <a href="/home-care-agency-seo-miami-fl/">Miami</a>
+              <a href="/home-care-agency-seo-orlando-fl/">Orlando</a>
+              <a href="/home-care-agency-seo-tampa-fl/">Tampa</a>
+              <a href="/home-care-agency-seo-jacksonville-fl/">Jacksonville</a>
+              <a href="/areas-we-serve/" class="view-all">View All Cities &rarr;</a>
+            </div>
           </div>
         </div>
         <div class="mega-featured">
           <img src="/images/home/results-growth.jpg" alt="Website Growth Calculator">
-          <div class="mega-featured-label">Free Tool</div>
+          <div class="mega-featured-label"><i class="fa-solid fa-bolt"></i>Free Tool</div>
           <h4>Website Growth Calculator</h4>
           <p>See how many more clients your agency's website could be missing — free, 60-second estimate.</p>
           <a href="/growth-calculator/" class="featured-cta">Try It Free &rarr;</a>
@@ -415,12 +452,30 @@ try {
     <li class="nav-dropdown">
       <a href="#" class="nav-dropdown-trigger">Resources <i class="fa-solid fa-chevron-down"></i></a>
       <div class="simple-menu">
-        <a href="/products/"><i class="fa-solid fa-layer-group"></i>Products</a>
-        <a href="/#bundles"><i class="fa-solid fa-tags"></i>Pricing</a>
-        <a href="/blog"><i class="fa-solid fa-newspaper"></i>Blog</a>
-        <a href="/events/"><i class="fa-solid fa-calendar-days"></i>Events</a>
-        <a href="/directory/"><i class="fa-solid fa-building-shield"></i>Directory</a>
-        <a href="/contact/"><i class="fa-solid fa-envelope"></i>Contact</a>
+        <a href="/products/">
+          <div class="mega-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <div><div class="mega-item-title">Products</div><div class="mega-item-desc">CareOS, CareMails &amp; Care Scheduling</div></div>
+        </a>
+        <a href="/#bundles">
+          <div class="mega-icon"><i class="fa-solid fa-tags"></i></div>
+          <div><div class="mega-item-title">Pricing</div><div class="mega-item-desc">Packages and bundles for every agency size</div></div>
+        </a>
+        <a href="/blog">
+          <div class="mega-icon"><i class="fa-solid fa-newspaper"></i></div>
+          <div><div class="mega-item-title">Blog</div><div class="mega-item-desc">SEO and growth tips for home care agencies</div></div>
+        </a>
+        <a href="/events/">
+          <div class="mega-icon"><i class="fa-solid fa-calendar-days"></i></div>
+          <div><div class="mega-item-title">Events</div><div class="mega-item-desc">Free live masterclasses and webinars</div></div>
+        </a>
+        <a href="/directory/">
+          <div class="mega-icon"><i class="fa-solid fa-building-shield"></i></div>
+          <div><div class="mega-item-title">Directory</div><div class="mega-item-desc">Browse licensed home care agencies</div></div>
+        </a>
+        <a href="/contact/">
+          <div class="mega-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div><div class="mega-item-title">Contact</div><div class="mega-item-desc">Talk to our team</div></div>
+        </a>
       </div>
     </li>
     <li><a href="#" class="nav-cta" onclick="openPopup();return false;"><i class="fa-solid fa-calendar-check" style="font-size:12px"></i> Free Audit</a></li>
