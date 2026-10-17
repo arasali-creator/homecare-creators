@@ -52,8 +52,8 @@ $page_css = <<<CSS
 .wc-card p{font-size:15px;color:var(--muted);line-height:1.75}
 
 /* CTA (light) */
-.p-cta-section{background:#fff;padding:0 40px 96px}
-.p-cta-box{max-width:900px;margin:0 auto;background:var(--cream);border:2px solid var(--forest);border-radius:20px;padding:56px;text-align:center}
+.p-cta-section{background:#fff;padding:96px 40px}
+.p-cta-box{max-width:900px;margin:0 auto;background:var(--cream);border-radius:20px;padding:56px;text-align:center}
 .p-cta-box h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(26px,3.4vw,38px);color:var(--forest);margin-bottom:14px}
 .p-cta-box p{font-size:17px;color:var(--muted);margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
 
