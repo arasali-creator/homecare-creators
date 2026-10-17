@@ -7,37 +7,28 @@ $og_desc       = "A marketing agency built 100% for homecare - website design, l
 
 $page_css = <<<CSS
 /* ── HERO ── */
-.hero{min-height:100vh;background:var(--forest);position:relative;overflow:hidden;padding:0;display:grid;grid-template-columns:1fr 1fr;align-items:center}
-.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 30% 50%,black 20%,transparent 80%)}
-.hero-blob1{position:absolute;width:700px;height:700px;top:-200px;right:-150px;background:radial-gradient(circle,rgba(29,158,117,.16) 0%,transparent 65%);animation:float 10s ease-in-out infinite}
-.hero-blob2{position:absolute;width:500px;height:500px;bottom:-150px;left:-100px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 65%);animation:float 13s ease-in-out infinite reverse}
-.hero-left{position:relative;z-index:2;padding:140px 52px 80px 80px}
-.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:32px;width:fit-content;animation:fadeIn .6s ease both}
+.hero{background:var(--forest);position:relative;overflow:hidden;padding:0}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 70% at 50% 40%,black 20%,transparent 80%)}
+.hero-blob1{position:absolute;width:700px;height:700px;top:-260px;right:-220px;background:radial-gradient(circle,rgba(29,158,117,.16) 0%,transparent 65%);animation:float 10s ease-in-out infinite}
+.hero-blob2{position:absolute;width:600px;height:600px;bottom:-260px;left:-220px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 65%);animation:float 13s ease-in-out infinite reverse}
+.hero-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:168px 24px 96px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(42px,5.2vw,70px);line-height:1.04;color:#fff;margin-bottom:6px;animation:fadeUp .8s .1s ease both}
-.hero-h1 em{font-style:italic;color:var(--teal-lt)}
-.hero-tagline{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(20px,2.4vw,30px);line-height:1.3;color:rgba(255,255,255,.5);margin-bottom:10px;animation:fadeUp .8s .18s ease both}
-.hero-tagline em{color:var(--mint);font-style:normal}
-.hero-desc{font-size:18.5px;line-height:1.75;color:rgba(255,255,255,.62);max-width:500px;margin-bottom:42px;animation:fadeUp .8s .3s ease both}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .4s ease both;margin-bottom:52px}
-.hero-proof{display:flex;gap:32px;flex-wrap:wrap;animation:fadeUp .8s .55s ease both}
-.hero-proof-item{display:flex;flex-direction:column;gap:2px}
-.hero-proof-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:34px;color:var(--teal-lt);line-height:1}
+.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(34px,5.4vw,64px);line-height:1.15;margin:0;animation:fadeUp .8s .1s ease both}
+.hero-h1-line1{display:block;color:#fff}
+.hero-h1-line2{display:block;color:var(--teal-lt);margin-top:4px;min-height:1.15em}
+.hero-type-cursor{display:inline-block;margin-left:2px;color:var(--teal-lt);animation:blink 1s step-start infinite}
+.hero-swoosh{display:block;margin:12px auto 0}
+.hero-swoosh path{stroke:var(--gold-lt)}
+.hero-desc{font-size:18px;line-height:1.75;color:rgba(255,255,255,.62);max-width:600px;margin:28px 0 40px;animation:fadeUp .8s .3s ease both}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeUp .8s .4s ease both;margin-bottom:52px}
+.hero-actions .btn-primary,.hero-actions .btn-secondary{border-radius:100px;padding:16px 32px}
+.hero-proof{display:flex;gap:32px;flex-wrap:wrap;justify-content:center;animation:fadeUp .8s .55s ease both}
+.hero-proof-item{display:flex;flex-direction:column;gap:2px;align-items:center}
+.hero-proof-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;color:var(--teal-lt);line-height:1}
 .hero-proof-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.42)}
 .hero-proof-divider{width:1px;background:rgba(255,255,255,.1);align-self:stretch}
-.hero-right{position:relative;z-index:2;height:100vh;min-height:700px;padding:120px 48px 60px 24px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px}
-.hero-img-card{border-radius:20px;overflow:hidden;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.35)}
-.hero-img-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
-.hero-img-card:hover img{transform:scale(1.04)}
-.hero-img-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(5,25,14,.65) 100%);pointer-events:none}
-.hero-img-card.tall{grid-row:span 2}
-.hero-img-overlay{position:absolute;bottom:14px;left:14px;right:14px;z-index:2;background:rgba(10,46,30,.85);backdrop-filter:blur(10px);border:1px solid rgba(29,158,117,.25);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px}
-.hero-img-overlay-icon{width:30px;height:30px;border-radius:8px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;flex-shrink:0}
-.hero-img-overlay-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:600;color:#fff;line-height:1.3}
-.hero-img-overlay-sub{font-size:10px;color:rgba(255,255,255,.5)}
-.hero-float-badge{position:absolute;z-index:3;background:rgba(201,168,76,.15);backdrop-filter:blur(16px);border:1px solid rgba(201,168,76,.4);border-radius:12px;padding:10px 16px;font-family:'Plus Jakarta Sans',sans-serif}
-.hero-float-badge-num{font-size:22px;font-weight:800;color:var(--gold-lt);line-height:1}
-.hero-float-badge-label{font-size:10px;color:rgba(255,255,255,.6)}
+@keyframes blink{50%{opacity:0}}
 
 /* ── WHY US ── */
 .why{background:#fff}
@@ -138,15 +129,14 @@ $page_css = <<<CSS
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .hero{grid-template-columns:1fr}
-  .hero-right{display:none}
-  .hero-left{padding:130px 40px 80px}
+  .hero-inner{padding:150px 24px 80px}
   .why-grid{grid-template-columns:1fr;gap:56px}
   .why-photo{max-width:340px;margin:0 auto}
   .why-photo-stat{left:50%;transform:translateX(calc(-50% - 110px))}
 }
 @media(max-width:640px){
-  .hero-left{padding:110px 24px 60px}
+  .hero-inner{padding:120px 24px 56px}
+  .hero-proof{gap:20px}
   section{padding:72px 24px}
   .cta-card{padding:56px 24px;border-radius:28px}
   .cta-decor{width:110px;height:90px}
@@ -206,6 +196,39 @@ function openPopup(type) {
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
+
+// ── HERO TYPEWRITER ──
+(function() {
+  var el = document.getElementById('heroType');
+  if (!el) return;
+  var phrases = ['Booked Clients', 'Real Inquiries', '5-Star Reviews', 'Page-One Rankings'];
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    el.textContent = phrases[0];
+    return;
+  }
+  var pIndex = 0, charIndex = 0, deleting = false;
+  function tick() {
+    var current = phrases[pIndex];
+    if (!deleting) {
+      charIndex++;
+      el.textContent = current.slice(0, charIndex);
+      if (charIndex === current.length) {
+        deleting = true;
+        setTimeout(tick, 1600);
+        return;
+      }
+    } else {
+      charIndex--;
+      el.textContent = current.slice(0, charIndex);
+      if (charIndex === 0) {
+        deleting = false;
+        pIndex = (pIndex + 1) % phrases.length;
+      }
+    }
+    setTimeout(tick, deleting ? 35 : 60);
+  }
+  tick();
+})();
 JS;
 
 include 'includes/header.php';
@@ -235,11 +258,17 @@ try {
   <div class="hero-bg-grid"></div>
   <div class="hero-blob1"></div>
   <div class="hero-blob2"></div>
-  <div class="hero-left">
+  <div class="hero-inner">
     <div class="hero-badge">
       <div class="hero-badge-pulse"></div>The Marketing Agency Built Exclusively for Homecare
     </div>
-    <h1 class="hero-h1">Home Care <br><em>Marketing Agency</em></h1>
+    <h1 class="hero-h1">
+      <span class="hero-h1-line1">We Craft Marketing That</span>
+      <span class="hero-h1-line2">Turns Clicks Into <span id="heroType"></span><span class="hero-type-cursor">|</span></span>
+    </h1>
+    <svg class="hero-swoosh" width="260" height="20" viewBox="0 0 260 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M4 14C40 2 60 2 86 14C112 26 132 26 158 14C184 2 204 2 230 14C244 20 252 18 256 14" stroke-width="5" stroke-linecap="round"/>
+    </svg>
     <p class="hero-desc">Grow your home care agency with marketing built for your industry. We help agencies nationwide attract more qualified leads through SEO, high-converting websites, local SEO, and AI-powered marketing.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup('audit')"><i class="fa-solid fa-rocket"></i>Book Free Growth
@@ -265,42 +294,6 @@ try {
       <div class="hero-proof-item">
         <div class="hero-proof-num">12h</div>
         <div class="hero-proof-label">Saved/Week via AI</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-img-card tall" style="animation:scaleIn .9s .4s ease both">
-      <img src="/images/home/hero-caregiver-elderly.jpg"
-        alt="Professional caregiver assisting an elderly client at home for a home care agency"
-        title="Home care agency caregiver assisting an elderly client">
-      <div class="hero-img-overlay">
-        <div class="hero-img-overlay-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-        <div>
-          <div class="hero-img-overlay-text">Live Shift Active</div>
-          <div class="hero-img-overlay-sub">AI monitoring in real-time</div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-img-card" style="animation:scaleIn .9s .55s ease both">
-      <img src="/images/home/hero-nurse-senior.jpg"
-        alt="Home care nurse providing compassionate in-home senior care services"
-        title="Home care nurse caring for a senior client">
-      <div class="hero-float-badge" style="top:14px;left:12px">
-        <div class="hero-float-badge-num">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="hero-float-badge-label">Review Growth</div>
-      </div>
-    </div>
-    <div class="hero-img-card" style="animation:scaleIn .9s .7s ease both">
-      <img src="/images/home/hero-caregiver-woman.jpg"
-        alt="Happy caregiver bonding with an elderly woman client, home care agency growing its Google visibility"
-        title="Caregiver with elderly woman client — home care agency growing on Google">
-      <div class="hero-img-overlay">
-        <div class="hero-img-overlay-icon"><i class="fa-brands fa-google"></i></div>
-        <div>
-          <div class="hero-img-overlay-text">Google Search Visibility</div>
-          <div class="hero-img-overlay-sub">Local SEO + AI Search</div>
-        </div>
       </div>
     </div>
   </div>
