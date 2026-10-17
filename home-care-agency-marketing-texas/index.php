@@ -92,11 +92,11 @@ $page_css = <<<CSS
 .cta-pill-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.3)}
 
 /* FAQ */
-.faq{background:var(--cream)}
+.faq{background:#fff}
 .faq-header{text-align:center;margin-bottom:48px}
 .faq-header .section-label{justify-content:center}
 .faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
-.faq-item{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .3s}
+.faq-item{background:var(--warm);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .3s}
 .faq-item:hover{border-color:rgba(29,158,117,.3)}
 .faq-q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;user-select:none}
 .faq-q-text{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14.5px;color:var(--forest)}
