@@ -7,7 +7,7 @@ if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
 $page_title = "Home Care Agency Marketing in Texas | Homecare Creators";
 $page_desc = "SEO, websites & AI search marketing for home care agencies across Texas. Free growth audit.";
 $og_title = "Home Care Agency Marketing in Texas | Homecare Creators";
-$og_desc = "SEO, website design, and AI search visibility for home care agencies across Texas — from Houston to El Paso.";
+$og_desc = "SEO, website design, local SEO, AI search optimization, and marketing automation for home care agencies across Texas.";
 
 $page_css = <<<CSS
 /* HERO */
@@ -15,7 +15,7 @@ $page_css = <<<CSS
 .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 30% 50%,black 20%,transparent 80%)}
 .hero-grid{position:relative;z-index:2;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;padding:0 48px}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:24px}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(34px,4.4vw,54px);line-height:1.12;color:#fff;margin-bottom:20px}
+.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,4.2vw,52px);line-height:1.12;color:#fff;margin-bottom:20px}
 .hero-h1 em{font-style:italic;color:var(--teal-lt)}
 .hero-desc{font-size:17.5px;line-height:1.75;color:rgba(255,255,255,.62);max-width:480px;margin-bottom:32px}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
@@ -41,17 +41,57 @@ $page_css = <<<CSS
 .cert-item img{height:56px;width:auto;max-width:120px;object-fit:contain;filter:grayscale(15%)}
 .cert-item span{font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:600;color:var(--muted);text-align:center}
 
-/* SERVICES LIST */
-.services-section{background:var(--cream)}
-.services-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
-.svc-row{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start;transition:.2s}
-.svc-row:hover{border-color:rgba(29,158,117,.3);box-shadow:0 8px 28px rgba(10,46,30,.06)}
-.svc-row-icon{width:42px;height:42px;border-radius:11px;background:rgba(29,158,117,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
-.svc-row-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--forest);margin-bottom:4px}
-.svc-row-desc{font-size:14px;color:var(--muted);line-height:1.6}
+/* SHARED TEXT */
+.lede{font-size:17px;line-height:1.8;color:var(--muted);margin-bottom:16px}
+.lede strong{color:var(--forest)}
+.text-link{color:var(--teal);font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.text-link:hover{color:var(--forest)}
+.section-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;padding:14px 26px;border-radius:10px;border:none;cursor:pointer;transition:.2s;margin-top:8px}
+.section-cta-btn:hover{background:var(--forest);transform:translateY(-2px)}
 
-/* CTA */
-.cta-section{background:#fff;padding:64px 24px}
+/* INTRO (text + photo) */
+.intro-section{background:#fff}
+.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.intro-photo{border-radius:24px;overflow:hidden;aspect-ratio:4/4.6;box-shadow:0 24px 70px rgba(10,46,30,.15)}
+.intro-photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* SERVICES */
+.services-section{background:var(--cream)}
+.svc-stack{display:flex;flex-direction:column;gap:20px;margin-top:40px}
+.svc-block{background:#fff;border:1px solid var(--border);border-radius:20px;padding:32px;display:flex;gap:24px}
+.svc-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:#fff;background:var(--forest);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.svc-block-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:700;color:var(--forest);margin-bottom:6px}
+.svc-block-tagline{font-size:15px;font-weight:600;color:var(--teal);margin-bottom:12px}
+.svc-block-desc{font-size:15.5px;line-height:1.75;color:var(--muted);margin-bottom:14px}
+.svc-block-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.svc-block-list li{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--text);line-height:1.5}
+.svc-block-list li i{color:var(--teal);font-size:11px;margin-top:4px;flex-shrink:0}
+
+/* METRO CARDS */
+.market-section{background:#fff}
+.metro-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:36px 0}
+.metro-card{background:var(--warm);border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:14px;padding:24px}
+.metro-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:15.5px;font-weight:700;color:var(--forest);margin-bottom:8px}
+.metro-card p{font-size:14.5px;line-height:1.7;color:var(--muted)}
+
+/* CITIES + MAP */
+.cities-section{background:var(--cream)}
+.cities-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.cities-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 20px;margin-top:20px}
+.cities-list span{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--forest);padding:6px 0}
+.cities-list span i{color:var(--teal);font-size:10px;flex-shrink:0}
+.cities-map{border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 16px 56px rgba(10,46,30,.1);aspect-ratio:1/1}
+.cities-map iframe{width:100%;height:100%;display:block;border:0}
+
+/* WHY CHOOSE */
+.why-section{background:#fff}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
+.why-card{background:var(--cream);border:1px solid var(--border);border-radius:18px;padding:28px}
+.why-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;color:var(--forest);margin-bottom:10px}
+.why-card p{font-size:14.5px;line-height:1.75;color:var(--muted)}
+
+/* CTA CARD (reused for mid + final CTA) */
+.cta-section{background:#fff;padding:24px 24px 64px}
 .cta-card{position:relative;max-width:1100px;margin:0 auto;background:var(--forest);border-radius:36px;padding:64px 48px;text-align:center;overflow:hidden}
 .cta-card::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.07) 1px,transparent 1px);background-size:50px 50px}
 .cta-card-inner{position:relative;z-index:2;max-width:620px;margin:0 auto}
@@ -81,11 +121,11 @@ $page_css = <<<CSS
 .review-role{font-size:11.5px;color:var(--muted);margin-top:2px}
 
 /* FAQ */
-.faq{background:#fff}
+.faq{background:var(--cream)}
 .faq-header{text-align:center;margin-bottom:48px}
 .faq-header .section-label{justify-content:center}
 .faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
-.faq-item{background:var(--warm);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .3s}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .3s}
 .faq-item:hover{border-color:rgba(29,158,117,.3)}
 .faq-q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;user-select:none}
 .faq-q-text{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14.5px;color:var(--forest)}
@@ -95,28 +135,24 @@ $page_css = <<<CSS
 .faq-item.open .faq-a{max-height:400px}
 .faq-a-inner{padding:0 24px 20px;font-size:15px;line-height:1.75;color:var(--muted);border-top:1px solid var(--border)}
 .faq-a-inner p{padding-top:16px}
-
-/* CITIES + MAP */
-.cities-section{background:var(--cream)}
-.cities-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.cities-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 20px;margin-top:28px}
-.cities-list span{display:flex;align-items:center;gap:9px;font-size:14.5px;color:var(--forest);padding:8px 0}
-.cities-list span i{color:var(--teal);font-size:11px;flex-shrink:0}
-.cities-map{border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 16px 56px rgba(10,46,30,.1);aspect-ratio:1/1}
-.cities-map iframe{width:100%;height:100%;display:block;border:0}
+.faq-a-inner a{color:var(--teal);font-weight:600;text-decoration:none}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
   .hero-grid{grid-template-columns:1fr;gap:40px;padding:0 32px}
-  .services-list{grid-template-columns:1fr}
-  .review-grid{grid-template-columns:1fr}
+  .intro-grid{grid-template-columns:1fr;gap:32px}
+  .intro-photo{max-width:420px;margin:0 auto}
+  .metro-grid{grid-template-columns:1fr}
   .cities-grid{grid-template-columns:1fr;gap:32px}
   .cities-map{aspect-ratio:16/9}
+  .why-grid{grid-template-columns:1fr}
+  .review-grid{grid-template-columns:1fr}
 }
 @media(max-width:640px){
   .hero{padding:120px 0 56px}
   .hero-grid{padding:0 24px}
   section{padding:64px 24px}
+  .svc-block{flex-direction:column}
   .cta-card{padding:48px 24px;border-radius:26px}
   .cities-list{grid-template-columns:1fr}
 }
@@ -143,11 +179,15 @@ echo '<script type="application/ld+json">' . json_encode([
 echo '<script type="application/ld+json">' . json_encode([
     "@context"=>"https://schema.org","@type"=>"FAQPage",
     "mainEntity"=>array_map(fn($q)=>["@type"=>"Question","name"=>$q[0],"acceptedAnswer"=>["@type"=>"Answer","text"=>$q[1]]], [
-        ["Do you work with home care agencies throughout Texas?", "Yes. We work with home care agencies across Texas, from major metros like Houston, Dallas, San Antonio, and Austin to smaller markets throughout the state."],
-        ["How is marketing for a Texas home care agency different?", "Texas is a large, fast-growing state with a mix of dense urban metros and sprawling suburbs, so local SEO has to account for wide service areas and heavy competition from national franchises. We build strategy around your specific Texas market, not a generic template."],
-        ["What services are included for Texas home care agencies?", "Local SEO, Google Business Profile optimization, website design, AI search visibility, and AI-powered follow-up automation — the same specialist services we provide nationwide, tailored to your Texas market."],
-        ["How much does home care marketing cost in Texas?", "Plans typically range from $800 to $3,000 per month depending on how many Texas markets you target and which services are included. Book a free audit and we'll give you exact numbers for your agency."],
-        ["Do you require a long-term contract?", "No. Every plan goes month-to-month after a 90-day ramp-up period, and every engagement is backed by a 30-day satisfaction guarantee."],
+        ["What is home care agency marketing?", "Home care agency marketing combines strategies such as SEO, website design, local search optimization, useful content, reputation management, and lead follow-up to help an agency reach prospective clients and communicate its services."],
+        ["How can SEO help my Texas home care agency?", "SEO can help your website become more visible for relevant searches, explain your services more clearly, and attract visitors looking for the care you provide. Results depend on your website, competition, service areas, and the work involved."],
+        ["How long does home care SEO take to produce results?", "SEO is an ongoing process, and the timeline varies. Some improvements may be noticed sooner, while meaningful organic growth often requires several months of consistent work."],
+        ["Do you help home care agencies improve Google Maps visibility?", "Yes. Local SEO may include Google Business Profile optimization, accurate business information, relevant local content, and review-process guidance. No agency can guarantee a particular Google Maps position."],
+        ["Do I need a new website to improve my marketing?", "Not necessarily. In some cases, your existing website can be improved through technical fixes, better content, stronger calls to action, and SEO updates."],
+        ["Can you help my agency appear in AI search results?", "We can improve the clarity and structure of your website content and business information to support discoverability across AI-powered search experiences. Inclusion and placement cannot be guaranteed."],
+        ["Can you help an agency serving multiple Texas cities?", "Yes. We can plan content and local SEO around the communities your agency genuinely serves, with useful, specific information rather than duplicate content."],
+        ["How much does home care agency marketing cost in Texas?", "Pricing depends on the services required, your current online presence, the number of markets you target, and the scope of ongoing work."],
+        ["How do I get started with Homecare Creators?", "Start by requesting a free marketing audit. Share your website, service area, and main growth goals so we can identify potential opportunities."],
     ]),
 ], JSON_UNESCAPED_SLASHES) . "</script>\n";
 ?>
@@ -160,10 +200,10 @@ echo '<script type="application/ld+json">' . json_encode([
   <div class="hero-grid">
     <div data-reveal>
       <div class="hero-badge"><i class="fa-solid fa-location-dot" style="margin-right:6px"></i>Texas Home Care Marketing</div>
-      <h1 class="hero-h1">Home Care Agency Marketing<br><em>in Texas</em></h1>
-      <p class="hero-desc">SEO, website design, and AI search visibility built exclusively for home care agencies across Texas — from Houston and Dallas to Austin, San Antonio, and beyond.</p>
+      <h1 class="hero-h1">Home Care Agency Marketing <em>in Texas</em></h1>
+      <p class="hero-desc">Families across Texas search online before choosing a home care provider. If your agency isn't visible when that happens, the inquiry goes to a competitor instead.</p>
       <div class="hero-actions">
-        <button class="btn-primary" onclick="openPopup('audit')"><i class="fa-solid fa-rocket"></i>Book Free Growth Audit</button>
+        <button class="btn-primary" onclick="openPopup('audit')"><i class="fa-solid fa-rocket"></i>Get Your Free Marketing Audit</button>
         <a href="#services" class="btn-secondary"><i class="fa-solid fa-play"></i>See Our Services</a>
       </div>
       <div class="hero-proof">
@@ -174,7 +214,7 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
     <div class="hero-photo-wrap" data-reveal style="transition-delay:.15s">
       <div class="hero-photo">
-        <img src="/images/home/hero-nurse-senior.jpg" alt="Home care nurse providing in-home senior care for a Texas home care agency" title="Home care marketing for Texas agencies">
+        <img src="/images/team/asifa-speaking-conference-stage.jpg" alt="Asifa Rani, founder of Homecare Creators, presenting home care marketing strategy to an industry audience" title="Homecare Creators — home care marketing specialists">
       </div>
       <div class="hero-photo-badge">
         <div class="hero-photo-badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
@@ -203,45 +243,211 @@ echo '<script type="application/ld+json">' . json_encode([
   </div>
 </section>
 
+<!-- INTRO -->
+<section class="intro-section">
+  <div class="container intro-grid">
+    <div data-reveal>
+      <p class="section-label">Grow With a Smarter Strategy</p>
+      <h2 class="section-h2">Grow Your Home Care Agency With a Smarter Digital Marketing Strategy</h2>
+      <p class="lede">When families need help for an aging parent or a loved one, they turn to Google, compare local providers, read reviews, and visit websites before contacting an agency.</p>
+      <p class="lede"><strong>Homecare Creators helps Texas home care agencies strengthen their online presence through home care SEO, website design, local SEO, AI search optimization, and marketing automation.</strong> Our goal is to help your agency become easier to discover, communicate your value clearly, and create a better path from an online search to a real inquiry.</p>
+      <p class="lede">Whether you're launching a new agency or growing an established one, your marketing should reflect your services, your target market, and the communities you actually serve.</p>
+      <button class="section-cta-btn" onclick="openPopup('audit')"><i class="fa-solid fa-calendar-check"></i>Get Your Free Home Care Marketing Audit</button>
+    </div>
+    <div class="intro-photo" data-reveal style="transition-delay:.15s">
+      <img src="/images/team/team-discussion-desk-meeting.jpg" alt="Homecare Creators team reviewing a Texas home care agency's marketing strategy" title="Reviewing a home care agency's growth strategy">
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section class="services-section" id="services">
   <div class="container">
-    <div data-reveal style="text-align:center;max-width:620px;margin:0 auto">
-      <p class="section-label" style="justify-content:center">What We Do</p>
-      <h2 class="section-h2" style="text-align:center">Marketing Built for <em>Texas</em> Home Care Agencies</h2>
+    <div data-reveal style="max-width:720px">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-h2">Digital Marketing Services for Texas Home Care Agencies</h2>
+      <p class="lede">A successful strategy requires more than an attractive website or occasional social posts — your website, search visibility, local business information, and lead follow-up should work together.</p>
     </div>
-    <div class="services-list">
-      <div class="svc-row" data-reveal>
-        <div class="svc-row-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-        <div><div class="svc-row-title">Home Care SEO</div><div class="svc-row-desc">Rank higher on Google and Google Maps in your Texas market.</div></div>
+    <div class="svc-stack">
+      <div class="svc-block" data-reveal>
+        <div class="svc-num">1</div>
+        <div>
+          <div class="svc-block-title">Home Care SEO in Texas</div>
+          <div class="svc-block-tagline">Help more families discover your agency through organic search.</div>
+          <p class="svc-block-desc">When families search for home care services, visibility can influence which agencies they consider. We focus on attracting people searching for services your agency actually provides, not traffic for its own sake.</p>
+          <ul class="svc-block-list">
+            <li><i class="fa-solid fa-check"></i>Keyword research based on your services and target locations</li>
+            <li><i class="fa-solid fa-check"></i>On-page SEO for your homepage and core service pages</li>
+            <li><i class="fa-solid fa-check"></i>Technical SEO, site structure, and performance improvements</li>
+            <li><i class="fa-solid fa-check"></i>Local search optimization and Google Business Profile improvements</li>
+          </ul>
+          <p style="margin-bottom:14px"><a href="/seo/home-care-seo/" class="text-link">Explore our Home Care SEO Services <i class="fa-solid fa-arrow-right"></i></a></p>
+          <button class="section-cta-btn" onclick="openPopup('audit')">Request Your Free SEO Audit</button>
+        </div>
       </div>
-      <div class="svc-row" data-reveal style="transition-delay:.05s">
-        <div class="svc-row-icon"><i class="fa-solid fa-display"></i></div>
-        <div><div class="svc-row-title">Website Design</div><div class="svc-row-desc">Fast, mobile-first websites that turn Texas visitors into inquiries.</div></div>
+      <div class="svc-block" data-reveal style="transition-delay:.05s">
+        <div class="svc-num">2</div>
+        <div>
+          <div class="svc-block-title">Home Care Website Design</div>
+          <div class="svc-block-tagline">Turn your website into a stronger first impression.</div>
+          <p class="svc-block-desc">Your website is often the first place families visit when researching a provider. If it loads slowly or doesn't explain your services clearly, visitors leave without making contact.</p>
+          <ul class="svc-block-list">
+            <li><i class="fa-solid fa-check"></i>Mobile-friendly layouts for desktop, tablet, and smartphone</li>
+            <li><i class="fa-solid fa-check"></i>Clear service pages and prominent calls to action</li>
+            <li><i class="fa-solid fa-check"></i>SEO-friendly page structure and metadata</li>
+            <li><i class="fa-solid fa-check"></i>Website speed and performance optimization</li>
+          </ul>
+          <p style="margin-bottom:14px"><a href="/web-design/homecare-website-design/" class="text-link">Explore our Website Design Services <i class="fa-solid fa-arrow-right"></i></a></p>
+          <button class="section-cta-btn" onclick="openPopup('audit')">Discuss Your Website With Our Team</button>
+        </div>
       </div>
-      <div class="svc-row" data-reveal style="transition-delay:.1s">
-        <div class="svc-row-icon"><i class="fa-solid fa-location-dot"></i></div>
-        <div><div class="svc-row-title">Local SEO</div><div class="svc-row-desc">Google Business Profile optimization for the cities and counties you serve.</div></div>
+      <div class="svc-block" data-reveal style="transition-delay:.1s">
+        <div class="svc-num">3</div>
+        <div>
+          <div class="svc-block-title">Local SEO and Google Maps Optimization</div>
+          <div class="svc-block-tagline">Reach families searching in the communities you serve.</div>
+          <p class="svc-block-desc">Texas has large metros, surrounding suburbs, and smaller communities with different competitive conditions — a strategy that works in one market may not suit another.</p>
+          <ul class="svc-block-list">
+            <li><i class="fa-solid fa-check"></i>Google Business Profile optimization</li>
+            <li><i class="fa-solid fa-check"></i>Accurate business name, address, phone, and service info</li>
+            <li><i class="fa-solid fa-check"></i>Review-generation guidance and reputation improvements</li>
+            <li><i class="fa-solid fa-check"></i>Local citation checks and consistency improvements</li>
+          </ul>
+          <p style="margin-bottom:14px"><a href="/seo/home-care-seo/" class="text-link">Explore Local SEO Services <i class="fa-solid fa-arrow-right"></i></a></p>
+          <button class="section-cta-btn" onclick="openPopup('audit')">Get Your Free Local Visibility Audit</button>
+        </div>
       </div>
-      <div class="svc-row" data-reveal style="transition-delay:.15s">
-        <div class="svc-row-icon"><i class="fa-solid fa-brain"></i></div>
-        <div><div class="svc-row-title">AI Search SEO (GEO)</div><div class="svc-row-desc">Get found in ChatGPT, Google AI Overviews, and beyond.</div></div>
+      <div class="svc-block" data-reveal style="transition-delay:.15s">
+        <div class="svc-num">4</div>
+        <div>
+          <div class="svc-block-title">AI Search SEO (GEO)</div>
+          <div class="svc-block-tagline">Prepare your agency for the changing search landscape.</div>
+          <p class="svc-block-desc">People increasingly use AI-powered tools alongside traditional search. Clear, trustworthy information helps these systems understand what your agency does and where it operates.</p>
+          <ul class="svc-block-list">
+            <li><i class="fa-solid fa-check"></i>Clear, useful website content that answers relevant questions</li>
+            <li><i class="fa-solid fa-check"></i>Consistent business and service information across sources</li>
+            <li><i class="fa-solid fa-check"></i>Well-structured service pages and FAQs</li>
+            <li><i class="fa-solid fa-check"></i>Appropriate structured data and technical SEO</li>
+          </ul>
+          <p style="margin-bottom:14px"><a href="/ai-search-seo/" class="text-link">Learn More About AI Search SEO <i class="fa-solid fa-arrow-right"></i></a></p>
+          <button class="section-cta-btn" onclick="openPopup('audit')">Request an AI Search Visibility Review</button>
+        </div>
       </div>
-      <div class="svc-row" data-reveal style="transition-delay:.2s">
-        <div class="svc-row-icon"><i class="fa-solid fa-gears"></i></div>
-        <div><div class="svc-row-title">AI &amp; Automation</div><div class="svc-row-desc">Automated follow-ups and scheduling, so no lead slips through.</div></div>
+      <div class="svc-block" data-reveal style="transition-delay:.2s">
+        <div class="svc-num">5</div>
+        <div>
+          <div class="svc-block-title">AI and Marketing Automation</div>
+          <div class="svc-block-tagline">Respond to inquiries consistently without extra manual work.</div>
+          <p class="svc-block-desc">Generating an inquiry is only part of the process — if a prospective client doesn't get a timely response, the opportunity is lost. Automation helps your team follow up consistently.</p>
+          <ul class="svc-block-list">
+            <li><i class="fa-solid fa-check"></i>Automated notifications when a new inquiry arrives</li>
+            <li><i class="fa-solid fa-check"></i>Follow-up email workflows and lead routing</li>
+            <li><i class="fa-solid fa-check"></i>Appointment scheduling workflows</li>
+            <li><i class="fa-solid fa-check"></i>Website chat and inquiry capture</li>
+          </ul>
+          <p style="margin-bottom:14px"><a href="/ai-automation/" class="text-link">Explore AI &amp; Automation <i class="fa-solid fa-arrow-right"></i></a></p>
+          <button class="section-cta-btn" onclick="openPopup('audit')">Discuss Automation for Your Agency</button>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="cta-card" data-reveal>
-    <div class="cta-card-inner">
-      <h2 class="cta-headline">Ready to Grow Your <em>Texas</em> Home Care Agency?</h2>
-      <p class="cta-sub">Book a free 30-minute growth audit and we'll show you exactly what's holding your agency back in your market. No obligation.</p>
-      <button class="cta-pill-btn" onclick="openPopup('audit')"><i class="fa-solid fa-calendar-check"></i>Book a Free Growth Audit</button>
+<!-- MARKET -->
+<section class="market-section">
+  <div class="container">
+    <div data-reveal style="max-width:720px">
+      <p class="section-label">Where We Work</p>
+      <h2 class="section-h2">Home Care Marketing Across Texas</h2>
+      <p class="lede">Texas is a diverse market, and your digital marketing strategy should reflect the locations and services that matter to your agency — not a copy-paste template.</p>
+    </div>
+    <div class="metro-grid" data-reveal style="transition-delay:.1s">
+      <div class="metro-card">
+        <h3>Houston</h3>
+        <p>Houston and its surrounding communities cover a broad geographic area. Local SEO and useful service-area content help clarify where your agency operates and which services it provides.</p>
+      </div>
+      <div class="metro-card">
+        <h3>Dallas&ndash;Fort Worth</h3>
+        <p>The Metroplex includes multiple cities and suburban markets. A thoughtful strategy helps prioritize the services and locations that align with your capacity, not repetitive pages for every nearby city.</p>
+      </div>
+      <div class="metro-card">
+        <h3>Austin &amp; Central Texas</h3>
+        <p>Agencies in Austin and surrounding communities benefit from a website that clearly explains their care offerings and service boundaries, with keyword research identifying which local searches matter most.</p>
+      </div>
+      <div class="metro-card">
+        <h3>San Antonio</h3>
+        <p>For agencies serving San Antonio and nearby communities, accurate business information, relevant service pages, and a consistent online presence support visibility among families researching care.</p>
+      </div>
+    </div>
+    <p class="lede" data-reveal>We also help agencies serving other Texas locations, depending on their needs and target markets. Our approach is to create useful, locally relevant content based on the areas your agency genuinely serves — not simply swap a city name across dozens of similar pages.</p>
+    <button class="section-cta-btn" onclick="openPopup('audit')" data-reveal>Find Marketing Opportunities in Your Texas Market</button>
+  </div>
+</section>
+
+<!-- CITIES + MAP -->
+<section class="cities-section">
+  <div class="container">
+    <div class="cities-grid">
+      <div data-reveal>
+        <p class="section-label">Texas Cities We Support</p>
+        <h2 class="section-h2">Markets We Work In <em>Most Often</em></h2>
+        <div class="cities-list">
+          <span><i class="fa-solid fa-location-dot"></i>Houston</span>
+          <span><i class="fa-solid fa-location-dot"></i>San Antonio</span>
+          <span><i class="fa-solid fa-location-dot"></i>Dallas</span>
+          <span><i class="fa-solid fa-location-dot"></i>Austin</span>
+          <span><i class="fa-solid fa-location-dot"></i>Fort Worth</span>
+          <span><i class="fa-solid fa-location-dot"></i>El Paso</span>
+          <span><i class="fa-solid fa-location-dot"></i>Arlington</span>
+          <span><i class="fa-solid fa-location-dot"></i>Corpus Christi</span>
+          <span><i class="fa-solid fa-location-dot"></i>Plano</span>
+          <span><i class="fa-solid fa-location-dot"></i>Laredo</span>
+          <span><i class="fa-solid fa-location-dot"></i>Lubbock</span>
+          <span><i class="fa-solid fa-location-dot"></i>Garland</span>
+          <span><i class="fa-solid fa-location-dot"></i>Irving</span>
+          <span><i class="fa-solid fa-location-dot"></i>Amarillo</span>
+          <span><i class="fa-solid fa-location-dot"></i>Grand Prairie</span>
+          <span><i class="fa-solid fa-location-dot"></i>McKinney</span>
+          <span><i class="fa-solid fa-location-dot"></i>Frisco</span>
+          <span><i class="fa-solid fa-location-dot"></i>Brownsville</span>
+          <span><i class="fa-solid fa-location-dot"></i>Pasadena</span>
+          <span><i class="fa-solid fa-location-dot"></i>Mesquite</span>
+        </div>
+      </div>
+      <div class="cities-map" data-reveal style="transition-delay:.15s">
+        <iframe src="https://www.google.com/maps?q=Texas&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Texas service area"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="why-section">
+  <div class="container">
+    <div data-reveal style="text-align:center;max-width:620px;margin:0 auto">
+      <p class="section-label" style="justify-content:center">Why Homecare Creators</p>
+      <h2 class="section-h2" style="text-align:center">Why Choose Homecare Creators?</h2>
+    </div>
+    <div class="why-grid" data-reveal style="transition-delay:.1s">
+      <div class="why-card">
+        <h3>Marketing Focused on Home Care</h3>
+        <p>Home care agencies have different needs from general local businesses. We focus our work on the home care and senior care sector, aligning content, SEO, and lead generation with how people actually research care.</p>
+      </div>
+      <div class="why-card">
+        <h3>A Connected Digital Strategy</h3>
+        <p>SEO, website design, local visibility, and lead follow-up should support one another. Attracting visitors through SEO is more useful when your website answers their questions and makes contacting you easy.</p>
+      </div>
+      <div class="why-card">
+        <h3>Recommendations Based on Your Market</h3>
+        <p>Your agency's priorities depend on its current website, competition, service area, and growth goals. We review those factors to identify which improvements may have the greatest value.</p>
+      </div>
+      <div class="why-card">
+        <h3>Clear Reporting, Practical Priorities</h3>
+        <p>We track indicators like organic visibility, engagement, local performance, and inquiries. We don't promise a specific ranking or client count — we focus on process, clarity, and measurable progress.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px" data-reveal>
+      <button class="section-cta-btn" onclick="openPopup('audit')">Get Your Free Home Care Marketing Audit</button>
     </div>
   </div>
 </section>
@@ -282,67 +488,56 @@ echo '<script type="application/ld+json">' . json_encode([
   <div class="container">
     <div class="faq-header" data-reveal>
       <p class="section-label">FAQ</p>
-      <h2 class="section-h2">Texas Home Care<br><em>Marketing Questions</em></h2>
+      <h2 class="section-h2">Questions About Home Care<br><em>Marketing in Texas</em></h2>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you work with home care agencies throughout Texas?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner"><p>Yes. We work with home care agencies across Texas, from major metros like Houston, Dallas, San Antonio, and Austin to smaller markets throughout the state.</p></div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What is home care agency marketing?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Home care agency marketing combines strategies such as SEO, website design, local search optimization, useful content, reputation management, and lead follow-up to help an agency reach prospective clients and communicate its services.</p></div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How is marketing for a Texas home care agency different?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner"><p>Texas is a large, fast-growing state with a mix of dense urban metros and sprawling suburbs, so local SEO has to account for wide service areas and heavy competition from national franchises. We build strategy around your specific Texas market, not a generic template.</p></div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How can SEO help my Texas home care agency?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>SEO can help your website become more visible for relevant searches, explain your services more clearly, and attract visitors looking for the care you provide. Results depend on your website, competition, service areas, and the work involved. Read more about our <a href="/seo/home-care-seo/">Home Care SEO Services</a>.</p></div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What services are included for Texas home care agencies?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner"><p>Local SEO, Google Business Profile optimization, website design, AI search visibility, and AI-powered follow-up automation — the same specialist services we provide nationwide, tailored to your Texas market.</p></div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does home care SEO take to produce results?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>SEO is an ongoing process, and the timeline varies. Some improvements may be noticed sooner, while meaningful organic growth often requires several months of consistent work. Competition, website condition, and local demand all influence progress.</p></div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How much does home care marketing cost in Texas?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner"><p>Plans typically range from $800 to $3,000 per month depending on how many Texas markets you target and which services are included. Book a free audit and we'll give you exact numbers for your agency.</p></div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you help home care agencies improve Google Maps visibility?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes. Local SEO may include Google Business Profile optimization, accurate business information, relevant local content, and review-process guidance. No agency can guarantee a particular Google Maps position.</p></div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you require a long-term contract?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner"><p>No. Every plan goes month-to-month after a 90-day ramp-up period, and every engagement is backed by a 30-day satisfaction guarantee.</p></div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need a new website to improve my marketing?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Not necessarily. In some cases, your existing website can be improved through technical fixes, better content, stronger calls to action, and SEO updates. A redesign may be appropriate when the current site has deeper usability or structural problems.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can you help my agency appear in AI search results?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>We can improve the clarity and structure of your website content and business information to support discoverability across AI-powered search experiences. AI platforms determine their own results, so inclusion and placement cannot be guaranteed.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can you help an agency serving multiple Texas cities?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes. We can plan content and local SEO around the communities your agency genuinely serves. Each location page should offer useful, specific information rather than duplicate the same content with only the city name changed.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How much does home care agency marketing cost in Texas?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Pricing depends on the services required, your current online presence, the number of markets you target, and the scope of ongoing work. We recommend reviewing your goals before deciding on a suitable scope.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I get started with Homecare Creators?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Start by requesting a free marketing audit. Share your website, service area, and main growth goals so we can better understand your agency and identify potential opportunities.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CITIES + MAP -->
-<section class="cities-section">
-  <div class="container">
-    <div class="cities-grid">
-      <div data-reveal>
-        <p class="section-label">Where We Work</p>
-        <h2 class="section-h2">Texas Cities <em>We Serve</em></h2>
-        <p class="section-sub">We work with home care agencies across Texas — here are some of the markets we support most often.</p>
-        <div class="cities-list">
-          <span><i class="fa-solid fa-location-dot"></i>Houston</span>
-          <span><i class="fa-solid fa-location-dot"></i>San Antonio</span>
-          <span><i class="fa-solid fa-location-dot"></i>Dallas</span>
-          <span><i class="fa-solid fa-location-dot"></i>Austin</span>
-          <span><i class="fa-solid fa-location-dot"></i>Fort Worth</span>
-          <span><i class="fa-solid fa-location-dot"></i>El Paso</span>
-          <span><i class="fa-solid fa-location-dot"></i>Arlington</span>
-          <span><i class="fa-solid fa-location-dot"></i>Corpus Christi</span>
-          <span><i class="fa-solid fa-location-dot"></i>Plano</span>
-          <span><i class="fa-solid fa-location-dot"></i>Laredo</span>
-          <span><i class="fa-solid fa-location-dot"></i>Lubbock</span>
-          <span><i class="fa-solid fa-location-dot"></i>Garland</span>
-          <span><i class="fa-solid fa-location-dot"></i>Irving</span>
-          <span><i class="fa-solid fa-location-dot"></i>Amarillo</span>
-          <span><i class="fa-solid fa-location-dot"></i>Grand Prairie</span>
-          <span><i class="fa-solid fa-location-dot"></i>McKinney</span>
-          <span><i class="fa-solid fa-location-dot"></i>Frisco</span>
-          <span><i class="fa-solid fa-location-dot"></i>Brownsville</span>
-          <span><i class="fa-solid fa-location-dot"></i>Pasadena</span>
-          <span><i class="fa-solid fa-location-dot"></i>Mesquite</span>
-        </div>
-      </div>
-      <div class="cities-map" data-reveal style="transition-delay:.15s">
-        <iframe src="https://www.google.com/maps?q=Texas&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Texas service area"></iframe>
-      </div>
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="cta-card" data-reveal>
+    <div class="cta-card-inner">
+      <h2 class="cta-headline">Ready to Grow Your <em>Texas</em> Home Care Agency?</h2>
+      <p class="cta-sub">Your agency deserves a marketing strategy built around its services, target market, and goals — not a generic plan copied from another industry.</p>
+      <button class="cta-pill-btn" onclick="openPopup('audit')"><i class="fa-solid fa-calendar-check"></i>Get Your Free Home Care Marketing Audit</button>
     </div>
   </div>
 </section>
