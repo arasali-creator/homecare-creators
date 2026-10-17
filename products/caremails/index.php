@@ -18,7 +18,7 @@ $page_css = <<<CSS
 .p-hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 
 /* Mockup placeholder — swap for real screenshots later */
-.mockup-frame{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 30px 80px rgba(10,46,30,.1);overflow:hidden}
+.mockup-frame{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 4px 16px rgba(10,46,30,.06);overflow:hidden}
 .mockup-bar{background:var(--cream);padding:12px 16px;display:flex;gap:6px;border-bottom:1px solid var(--border)}
 .mockup-dot{width:10px;height:10px;border-radius:50%;background:var(--border)}
 .mockup-body{aspect-ratio:4/3;background:linear-gradient(135deg,var(--cream) 0%,var(--warm) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);text-align:center;padding:20px}
@@ -53,7 +53,7 @@ $page_css = <<<CSS
 
 /* CTA (light) */
 .p-cta-section{background:#fff;padding:0 40px 96px}
-.p-cta-box{max-width:900px;margin:0 auto;background:linear-gradient(135deg,rgba(29,158,117,.06),rgba(201,168,76,.06));border:1px solid rgba(29,158,117,.2);border-radius:28px;padding:56px;text-align:center}
+.p-cta-box{max-width:900px;margin:0 auto;background:var(--cream);border:2px solid var(--forest);border-radius:20px;padding:56px;text-align:center}
 .p-cta-box h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(26px,3.4vw,38px);color:var(--forest);margin-bottom:14px}
 .p-cta-box p{font-size:17px;color:var(--muted);margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
 

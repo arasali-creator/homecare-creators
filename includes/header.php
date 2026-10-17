@@ -118,7 +118,7 @@ nav.scrolled{height:62px;background:rgba(8,36,22,.97);box-shadow:0 4px 32px rgba
 .nav-dropdown.open .nav-dropdown-trigger i{transform:rotate(180deg)}
 /* top:100% with zero gap — a gap here is the classic cause of a mega menu
    closing when the cursor moves from the trigger down into the panel */
-.mega-menu,.simple-menu{display:none;position:absolute;top:100%;margin-top:14px;background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 30px 70px rgba(10,46,30,.22);z-index:10;overflow:hidden}
+.mega-menu,.simple-menu{display:none;position:absolute;top:100%;margin-top:14px;background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 28px rgba(10,46,30,.1);z-index:10;overflow:hidden}
 .nav-dropdown:hover .mega-menu,.nav-dropdown.open .mega-menu{display:flex}
 .nav-dropdown:hover .simple-menu,.nav-dropdown.open .simple-menu{display:flex}
 /* invisible bridge over the margin-top gap so hover never breaks */
@@ -129,10 +129,11 @@ nav.scrolled{height:62px;background:rgba(8,36,22,.97);box-shadow:0 4px 32px rgba
 
 /* Primary column — rich rows with icon + title + one-line description */
 .mega-primary{display:flex;flex-direction:column;gap:4px;width:290px;flex-shrink:0}
-.mega-primary a{display:flex;align-items:flex-start;gap:14px;text-decoration:none;padding:12px;border-radius:12px;transition:.15s}
-.mega-primary a:hover{background:var(--cream)}
-.mega-primary a .mega-icon{width:44px;height:44px;border-radius:12px;background:rgba(29,158,117,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.mega-primary a .mega-item-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14.5px;font-weight:700;color:var(--forest);margin-bottom:3px}
+.mega-primary a{display:flex;align-items:flex-start;gap:14px;text-decoration:none;padding:10px 4px}
+.mega-primary a .mega-icon{width:44px;height:44px;border-radius:12px;background:rgba(29,158,117,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;transition:background .15s,color .15s}
+.mega-primary a:hover .mega-icon{background:var(--teal);color:#fff}
+.mega-primary a .mega-item-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14.5px;font-weight:700;color:var(--forest);margin-bottom:3px;transition:color .15s}
+.mega-primary a:hover .mega-item-title{color:var(--teal)}
 .mega-primary a .mega-item-desc{font-size:12.5px;color:var(--muted);line-height:1.5}
 
 /* Divider between primary rich column and the quick-link columns */
@@ -142,8 +143,8 @@ nav.scrolled{height:62px;background:rgba(8,36,22,.97);box-shadow:0 4px 32px rgba
 .mega-quick-cols{display:flex;gap:28px;width:348px;flex-shrink:0}
 .mega-col{display:flex;flex-direction:column;gap:2px;width:160px;flex-shrink:0}
 .mega-col-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
-.mega-col a{font-size:13.5px;font-weight:500;color:var(--text);text-decoration:none;padding:9px 10px;border-radius:9px;transition:.15s}
-.mega-col a:hover{background:var(--cream);color:var(--forest)}
+.mega-col a{font-size:13.5px;font-weight:500;color:var(--text);text-decoration:none;padding:8px 0 8px 12px;border-left:2px solid transparent;transition:border-color .15s,color .15s}
+.mega-col a:hover{border-left-color:var(--teal);color:var(--teal)}
 .mega-col a.view-all{color:var(--teal);font-weight:700;margin-top:6px}
 
 /* Featured side panel */
@@ -156,10 +157,11 @@ nav.scrolled{height:62px;background:rgba(8,36,22,.97);box-shadow:0 4px 32px rgba
 
 /* Resources dropdown — same rich-row treatment, single column */
 .simple-menu{left:0;flex-direction:column;padding:14px;gap:2px;width:300px}
-.simple-menu a{display:flex;align-items:flex-start;gap:14px;text-decoration:none;padding:11px 12px;border-radius:12px;transition:.15s}
-.simple-menu a:hover{background:var(--cream)}
-.simple-menu a .mega-icon{width:38px;height:38px;border-radius:10px;background:rgba(29,158,117,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;margin-top:1px}
-.simple-menu a .mega-item-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--forest);margin-bottom:2px}
+.simple-menu a{display:flex;align-items:flex-start;gap:14px;text-decoration:none;padding:9px 8px}
+.simple-menu a .mega-icon{width:38px;height:38px;border-radius:10px;background:rgba(29,158,117,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;margin-top:1px;transition:background .15s,color .15s}
+.simple-menu a:hover .mega-icon{background:var(--teal);color:#fff}
+.simple-menu a .mega-item-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--forest);margin-bottom:2px;transition:color .15s}
+.simple-menu a:hover .mega-item-title{color:var(--teal)}
 .simple-menu a .mega-item-desc{font-size:12px;color:var(--muted);line-height:1.5}
 
 /* BUTTONS */
@@ -285,7 +287,6 @@ footer{background:var(--forest);padding:64px 48px 0}
   .simple-menu{padding:8px;width:auto}
   .mega-col-title{margin-bottom:6px;color:var(--teal-lt)}
   .mega-col a,.simple-menu a,.mega-primary a{color:rgba(255,255,255,.85)}
-  .mega-col a:hover,.simple-menu a:hover,.mega-primary a:hover{background:rgba(255,255,255,.08)}
   .mega-primary a .mega-item-title,.simple-menu a .mega-item-title{color:#fff}
   .mega-primary a .mega-item-desc,.simple-menu a .mega-item-desc{color:rgba(255,255,255,.5)}
   .mega-primary a .mega-icon,.simple-menu a .mega-icon{background:rgba(255,255,255,.1);color:var(--teal-lt)}
