@@ -390,6 +390,7 @@ try {
         <a href="/#bundles">Pricing</a>
         <a href="/blog">Blog</a>
         <a href="/events/">Events</a>
+        <a href="/directory/">Directory</a>
         <a href="/contact/">Contact</a>
       </div>
     </li>
