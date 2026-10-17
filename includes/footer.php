@@ -315,7 +315,7 @@ document.addEventListener('click', function(e) {
 // whether it needs to shift left to stay fully visible.
 function positionDropdownPanel(dropdown) {
   var panel = dropdown.querySelector('.mega-menu, .simple-menu');
-  if (!panel || window.innerWidth <= 640) return;
+  if (!panel || window.innerWidth <= 1024) return;
   panel.style.left = '0px';
   var rect = panel.getBoundingClientRect();
   var margin = 16;

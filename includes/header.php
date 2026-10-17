@@ -285,20 +285,14 @@ footer{background:var(--forest);padding:28px}
 @media(max-width:1024px){
   .footer-top{grid-template-columns:1fr;gap:40px}
   .footer-groups{grid-template-columns:1fr 1fr}
-}
-@media(max-width:900px){
-  .footer-card{padding:48px 36px 0;border-radius:28px}
-}
-@media(max-width:640px){
-  nav{padding:0 20px}
+
+  /* The full desktop nav (About/Services/Case Studies/Resources/Contact/CTA)
+     doesn't fit below 1024px - switch to the hamburger menu here instead of
+     waiting until 640px, where it was overflowing/wrapping on tablets. */
+  nav{padding:0 24px}
   .nav-links{display:none}
-.nav-links a{display:block;padding:14px 16px;font-size:15px}
+  .nav-links a{display:block;padding:14px 16px;font-size:15px}
   .nav-hamburger{display:block;min-width:44px;min-height:44px}
-  section{padding:64px 24px}
-  footer{padding:14px}
-  .footer-card{padding:36px 22px 0;border-radius:22px}
-  .footer-subscribe{max-width:none}
-  .footer-groups{grid-template-columns:1fr;gap:32px}
 
   /* Dropdowns become inline accordions inside the mobile menu */
   .nav-dropdown:hover .mega-menu,.nav-dropdown:hover .simple-menu{display:none}
@@ -315,6 +309,17 @@ footer{background:var(--forest);padding:28px}
   .mega-primary a .mega-item-title,.simple-menu a .mega-item-title{color:#fff}
   .mega-primary a .mega-item-desc,.simple-menu a .mega-item-desc{color:rgba(255,255,255,.5)}
   .mega-primary a .mega-icon,.simple-menu a .mega-icon{background:rgba(255,255,255,.1);color:var(--teal-lt)}
+}
+@media(max-width:900px){
+  .footer-card{padding:48px 36px 0;border-radius:28px}
+}
+@media(max-width:640px){
+  nav{padding:0 20px}
+  section{padding:64px 24px}
+  footer{padding:14px}
+  .footer-card{padding:36px 22px 0;border-radius:22px}
+  .footer-subscribe{max-width:none}
+  .footer-groups{grid-template-columns:1fr;gap:32px}
 }
 </style>
 <?php if (!empty($page_css)): ?>

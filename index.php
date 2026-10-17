@@ -10,7 +10,7 @@ $page_css = <<<CSS
 .hero{background:var(--forest);position:relative;overflow:hidden;padding:0}
 .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.06) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
 .hero-grid{position:relative;z-index:2;max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}
-.hero-left{padding:108px 24px 64px 56px;display:flex;flex-direction:column;justify-content:center}
+.hero-left{padding:78px 24px 64px 0px;display:flex;flex-direction:column;justify-content:center}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:24px;width:fit-content;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
 .hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(30px,3.2vw,46px);line-height:1.1;margin:0;animation:fadeUp .8s .1s ease both;white-space:nowrap}
@@ -131,7 +131,7 @@ $page_css = <<<CSS
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .hero-grid{grid-template-columns:1fr;min-height:0}
-  .hero-right{display:none}
+  .hero-right{min-height:0;aspect-ratio:10/9;margin-top:16px}
   .hero-left{padding:140px 32px 64px}
   .hero-h1{font-size:clamp(28px,6vw,44px)}
   .why-grid{grid-template-columns:1fr;gap:56px}
