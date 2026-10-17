@@ -25,7 +25,7 @@
         <li><a href="/web-design/homecare-website-design/">Website Design</a></li>
         <li><a href="/ai-search-seo/">AI Search SEO</a></li>
         <li><a href="/#bundles">Pricing &amp; Packages</a></li>
-        <li><a href="/careos/">CareOS Platform</a></li>
+        <li><a href="/products/">Products</a></li>
         <li><a href="/case-studies/">Case Studies</a></li>
         <li><a href="/events/">Events</a></li>
         <li><a href="/blog">Marketing Blog</a></li>
@@ -276,6 +276,23 @@ document.addEventListener('keydown', function(e) {
       hamburger.setAttribute('aria-expanded', 'false');
       hamburger.setAttribute('aria-label', 'Open menu');
     }
+  }
+});
+
+// Nav dropdowns (Services mega menu, Resources menu) — click-toggle,
+// works alongside the CSS :hover reveal used on desktop pointer devices
+document.querySelectorAll('.nav-dropdown-trigger').forEach(function(trigger) {
+  trigger.addEventListener('click', function(e) {
+    e.preventDefault();
+    var parent = trigger.closest('.nav-dropdown');
+    var wasOpen = parent.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
+    if (!wasOpen) parent.classList.add('open');
+  });
+});
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
   }
 });
 </script>

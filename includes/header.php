@@ -111,6 +111,24 @@ nav.scrolled{height:62px;background:rgba(8,36,22,.97);box-shadow:0 4px 32px rgba
 .nav-cta:hover{transform:translateY(-2px)!important;box-shadow:0 8px 24px rgba(29,158,117,.5)!important}
 .nav-hamburger{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:8px}
 
+/* NAV DROPDOWNS (Services mega menu, Resources menu) */
+.nav-dropdown{position:relative}
+.nav-dropdown-trigger{display:flex!important;align-items:center;gap:6px}
+.nav-dropdown-trigger i{font-size:9px;transition:transform .2s}
+.nav-dropdown.open .nav-dropdown-trigger i{transform:rotate(180deg)}
+.mega-menu,.simple-menu{display:none;position:absolute;top:calc(100% + 14px);background:#0d3322;border:1px solid rgba(46,198,143,.15);border-radius:14px;box-shadow:0 24px 64px rgba(0,0,0,.4);z-index:10}
+.nav-dropdown:hover .mega-menu,.nav-dropdown.open .mega-menu{display:flex}
+.nav-dropdown:hover .simple-menu,.nav-dropdown.open .simple-menu{display:flex}
+.mega-menu{left:50%;transform:translateX(-50%);padding:28px;gap:36px;min-width:600px}
+.mega-col{display:flex;flex-direction:column;gap:3px;min-width:160px}
+.mega-col-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--mint);margin-bottom:10px}
+.mega-col a{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.7);text-decoration:none;padding:7px 8px;border-radius:7px;transition:.15s}
+.mega-col a:hover{background:rgba(255,255,255,.06);color:#fff}
+.mega-col a i{width:14px;color:var(--teal-lt);font-size:12px}
+.simple-menu{left:0;flex-direction:column;padding:10px;gap:2px;min-width:160px}
+.simple-menu a{font-size:13px;color:rgba(255,255,255,.75);text-decoration:none;padding:9px 12px;border-radius:7px;transition:.15s}
+.simple-menu a:hover{background:rgba(255,255,255,.07);color:#fff}
+
 /* BUTTONS */
 .btn-primary{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,var(--teal),var(--teal-lt));color:#fff;text-decoration:none;padding:15px 30px;border-radius:11px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14.5px;box-shadow:0 4px 24px rgba(29,158,117,.45);transition:.3s cubic-bezier(.34,1.56,.64,1);border:none;cursor:pointer}
 .btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 40px rgba(29,158,117,.55)}
@@ -221,6 +239,11 @@ footer{background:var(--forest);padding:64px 48px 0}
   .nav-hamburger{display:block;min-width:44px;min-height:44px}
   section{padding:64px 24px}
   .footer-inner{grid-template-columns:1fr}
+
+  /* Dropdowns become inline accordions inside the mobile menu */
+  .nav-dropdown:hover .mega-menu,.nav-dropdown:hover .simple-menu{display:none}
+  .mega-menu,.simple-menu{position:static;transform:none;min-width:0;box-shadow:none;border:none;background:rgba(255,255,255,.04);margin-top:4px;border-radius:8px;padding:10px;flex-direction:column;gap:18px}
+  .mega-col-title{margin-bottom:6px}
 }
 </style>
 <?php if (!empty($page_css)): ?>
@@ -291,6 +314,8 @@ try {
           <option>Full Bundle Package</option>
           <option>Free Growth Audit</option>
           <option>CareOS Waitlist</option>
+          <option>CareMails Waitlist</option>
+          <option>Care Scheduling Waitlist</option>
         </select>
       </div>
       <div class="popup-form-group"><label class="sr-only" for="pMsg">Message</label><textarea class="form-textarea" id="pMsg" placeholder="Message (optional) — tell us about your agency..." style="min-height:80px"></textarea></div>
@@ -329,14 +354,45 @@ try {
     <?php endif ?>
   </a>
   <ul class="nav-links">
-    <li><a href="/about/">About</a></li>
-    <li><a href="/web-design/homecare-website-design/">Web Design</a></li>
-    <li><a href="/seo/home-care-seo/">Home Care SEO</a></li>
-    <li><a href="/blog">Blog</a></li>
-    <li><a href="/events/">Events</a></li>
-    <li><a href="/#bundles">Pricing</a></li>
+    <li><a href="/about/">About Us</a></li>
+    <li class="nav-dropdown">
+      <a href="#" class="nav-dropdown-trigger">Services <i class="fa-solid fa-chevron-down"></i></a>
+      <div class="mega-menu">
+        <div class="mega-col">
+          <div class="mega-col-title">Marketing Services</div>
+          <a href="/seo/home-care-seo/"><i class="fa-solid fa-magnifying-glass-chart"></i>Home Care SEO</a>
+          <a href="/web-design/homecare-website-design/"><i class="fa-solid fa-laptop-code"></i>Website Design</a>
+          <a href="/ai-search-seo/"><i class="fa-solid fa-brain"></i>AI Search SEO (GEO)</a>
+        </div>
+        <div class="mega-col">
+          <div class="mega-col-title">Senior Care Marketing</div>
+          <a href="/memory-care-marketing/">Memory Care</a>
+          <a href="/hospice-marketing/">Hospice</a>
+          <a href="/nursing-home-marketing/">Nursing Homes</a>
+          <a href="/senior-living-marketing/">Senior Living</a>
+          <a href="/assisted-living-marketing/">Assisted Living</a>
+        </div>
+        <div class="mega-col">
+          <div class="mega-col-title">Florida Cities</div>
+          <a href="/home-care-agency-seo-miami-fl/">Miami</a>
+          <a href="/home-care-agency-seo-orlando-fl/">Orlando</a>
+          <a href="/home-care-agency-seo-tampa-fl/">Tampa</a>
+          <a href="/home-care-agency-seo-jacksonville-fl/">Jacksonville</a>
+          <a href="/areas-we-serve/" style="font-weight:700;color:var(--teal-lt)">View All Cities &rarr;</a>
+        </div>
+      </div>
+    </li>
     <li><a href="/case-studies/">Case Studies</a></li>
-    <li><a href="/contact/" title="Contact Us">Contact</a></li>
+    <li class="nav-dropdown">
+      <a href="#" class="nav-dropdown-trigger">Resources <i class="fa-solid fa-chevron-down"></i></a>
+      <div class="simple-menu">
+        <a href="/products/">Products</a>
+        <a href="/#bundles">Pricing</a>
+        <a href="/blog">Blog</a>
+        <a href="/events/">Events</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </li>
     <li><a href="#" class="nav-cta" onclick="openPopup();return false;"><i class="fa-solid fa-calendar-check" style="font-size:12px"></i> Free Audit</a></li>
   </ul>
   <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
