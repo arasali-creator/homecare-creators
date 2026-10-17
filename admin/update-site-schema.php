@@ -1,8 +1,21 @@
 <?php
 // ================================================================
-//  Schema Seeder — Homecare Creators
-//  Visit /admin/seed-schema.php?run=1  to execute.
+//  Site-Wide Schema Update — Homecare Creators (Nationwide Edition)
+//  Visit /admin/update-site-schema.php?run=1  to execute.
 //  DELETE THIS FILE after running!
+//
+//  Supersedes the old seed-schema.php / seed-org-schema.php. Does two things:
+//   1. Updates hc_org_schema (sitewide Organization block) with nationwide
+//      area-served states + service types, replacing Florida-only values.
+//   2. TRUNCATEs + rebuilds hc_page_schema with nationwide-aware schema for
+//      every existing page, PLUS new schema blocks for pages added since
+//      the last seeder ran (AI & Automation, Products hub + CareMails +
+//      Care Scheduling, Directory, Growth Calculator, Events).
+//
+//  Florida CITY-specific pages (the 10 marketing city pages + 6 web-design
+//  city pages) intentionally KEEP their Florida/city scoping — those are
+//  legitimate location landing pages. Only the company-wide and general
+//  service-page schema is broadened to reflect nationwide service.
 // ================================================================
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/auth.php';
@@ -39,8 +52,17 @@ const ADDR  = ['@type'=>'PostalAddress',
                'addressLocality'=>'Lady Lake','addressRegion'=>'FL','postalCode'=>'32159','addressCountry'=>'US'];
 const FOUNDER = ['@type'=>'Person','name'=>'Asifa Rani','jobTitle'=>'Founder & CEO','url'=>'https://homecarecreators.com/about/','sameAs'=>['https://www.linkedin.com/in/asifa-rani/']];
 
-// ── City data: path => city info ─────────────────────────────────
-// Paths match $page_canonical (domain stripped) from each actual page file.
+// Nationwide area-served states (used for the org-wide and general-service blocks)
+const NATIONWIDE_STATES = ['Florida','Texas','California','New York','Georgia','North Carolina','Arizona','Pennsylvania','Ohio','Virginia'];
+const SERVICE_TYPES = ['Home Care Marketing','Senior Care Marketing','Memory Care Marketing','Hospice Marketing','Assisted Living Marketing','Nursing Home Marketing'];
+
+function nationwideAreaServed(): array {
+    $out = array_map(fn($s) => ['@type'=>'State','name'=>$s], NATIONWIDE_STATES);
+    $out[] = ['@type'=>'Country','name'=>'United States'];
+    return $out;
+}
+
+// ── City data: path => city info (Florida city pages keep their scoping) ──
 $mkt_cities = [
     '/home-care-agency-seo-miami-fl/'          => ['name'=>'Miami',          'county'=>'Miami-Dade',  'pop'=>'over 478,000 seniors in the metro area'],
     '/home-care-agency-seo-tampa-fl/'          => ['name'=>'Tampa',           'county'=>'Hillsborough','pop'=>'over 320,000 seniors in Hillsborough County'],
@@ -67,29 +89,43 @@ $run = isset($_GET['run']);
 $log = [];
 
 if ($run) {
-    hc_q("TRUNCATE TABLE hc_page_schema");
+    // ════════════════════════════════════════════════════════════
+    //  PART 1 — Sitewide Organization schema (hc_org_schema)
+    // ════════════════════════════════════════════════════════════
+    $org_fields = [
+        'org_desc'          => 'Homecare Creators is a digital marketing agency serving home care, senior care, memory care, and other care-related agencies across the United States. We specialize in local SEO, Google Maps optimization, custom website design, and AI search visibility — helping care businesses attract more private-pay and Medicaid clients.',
+        'org_area'          => implode(', ', NATIONWIDE_STATES),
+        'org_service_types' => implode(', ', SERVICE_TYPES),
+    ];
+    foreach ($org_fields as $key => $value) {
+        hc_q("INSERT INTO hc_org_schema (field_key,field_value) VALUES (?,?) ON DUPLICATE KEY UPDATE field_value=VALUES(field_value)", [$key, $value]);
+        $log[] = "✓ hc_org_schema.{$key} updated";
+    }
 
     // ════════════════════════════════════════════════════════════
-    //  HOMEPAGE  /
+    //  PART 2 — Per-page schema (hc_page_schema)
     // ════════════════════════════════════════════════════════════
+    hc_q("TRUNCATE TABLE hc_page_schema");
+
+    // ── HOMEPAGE ────────────────────────────────────────────────
     add_schema('/', 'MarketingAgency', [
         'name'        => ORG,
-        'description' => 'Homecare Creators is a digital marketing agency built exclusively for home care agencies in Florida. We specialize in local SEO, Google Maps optimization, custom website design, and AI search visibility — helping homecare businesses attract more private-pay and Medicaid clients.',
+        'description' => 'Homecare Creators is a digital marketing agency serving home care, senior care, memory care, and other care-related agencies across the United States. We specialize in local SEO, Google Maps optimization, custom website design, and AI search visibility — helping care businesses attract more private-pay and Medicaid clients.',
         'url'         => SITE,
         'telephone'   => PHONE,
         'email'       => EMAIL,
         'foundingDate'=> '2026',
         'founder'     => FOUNDER,
         'address'     => ADDR,
-        'areaServed'  => [['@type'=>'State','name'=>'Florida'],['@type'=>'Country','name'=>'United States']],
-        'serviceArea' => ['@type'=>'State','name'=>'Florida'],
+        'areaServed'  => nationwideAreaServed(),
         'slogan'      => 'Market It. Manage It. Grow It. — Built Exclusively for Homecare.',
-        'knowsAbout'  => ['Home Care Marketing','Local SEO','Homecare Website Design','AI Search Optimization','GEO — Generative Engine Optimization','Google Maps Ranking for Home Care'],
+        'knowsAbout'  => array_merge(SERVICE_TYPES, ['Local SEO','Homecare Website Design','AI Search Optimization','GEO — Generative Engine Optimization','Google Maps Ranking for Home Care','Marketing Automation']),
         'hasOfferCatalog' => ['@type'=>'OfferCatalog','name'=>'Homecare Marketing Services','itemListElement'=>[
             ['@type'=>'Offer','itemOffered'=>['@type'=>'Service','name'=>'Local SEO for Home Care Agencies']],
             ['@type'=>'Offer','itemOffered'=>['@type'=>'Service','name'=>'Homecare Website Design']],
             ['@type'=>'Offer','itemOffered'=>['@type'=>'Service','name'=>'AI Search & GEO Optimization']],
             ['@type'=>'Offer','itemOffered'=>['@type'=>'Service','name'=>'Google Maps 3-Pack Ranking']],
+            ['@type'=>'Offer','itemOffered'=>['@type'=>'Service','name'=>'AI & Automation for Care Agencies']],
         ]],
         'sameAs' => [
             'https://www.linkedin.com/company/homecare-creators/',
@@ -99,9 +135,31 @@ if ($run) {
     ]);
     $log[] = '✓ / → MarketingAgency';
 
-    // ════════════════════════════════════════════════════════════
-    //  ABOUT PAGE — Founder / Person schema
-    // ════════════════════════════════════════════════════════════
+    add_schema('/', 'WebSite', [
+        'name'        => ORG,
+        'url'         => SITE,
+        'description' => "A marketing agency built exclusively for home care agencies nationwide.",
+        'potentialAction' => ['@type'=>'SearchAction','target'=>['@type'=>'EntryPoint','urlTemplate'=>SITE.'/blog?s={search_term_string}'],'query-input'=>'required name=search_term_string'],
+        'inLanguage'  => 'en-US',
+    ]);
+    $log[] = '✓ / → WebSite';
+
+    add_schema('/', 'FAQPage', faq([
+        ['Do you only work with home care agencies in Florida?', 'No. Homecare Creators is based in Lady Lake, Florida, but we work with home care, senior care, memory care, and other care-related agencies nationwide — not just in Florida.'],
+        ['What does a homecare marketing agency do?', 'A homecare marketing agency helps home care businesses attract more clients through local SEO, Google Maps optimization, website design, and AI search visibility. Unlike general marketing agencies, a specialized homecare agency understands private-pay vs. Medicaid client acquisition, the search behavior of families looking for care, and what compels a senior or adult child to call one agency over another — delivering faster, more targeted results.'],
+        ['How long does homecare SEO take to show results?', 'Most homecare agencies see measurable ranking improvements within 60 to 90 days. Google Maps visibility often improves within 4 to 6 weeks. Significant organic lead increases typically occur between months 4 and 6. Timeline depends on current website authority, local competition level, and the consistency of ongoing optimization efforts.'],
+        ['How much does SEO cost for a home care agency?', 'Homecare SEO services range from $800 to $3,000 per month depending on cities targeted, competition level, and services included. Packages typically start with local SEO for a single market and scale to full multi-city campaigns with website design, content creation, and AI search optimization included.'],
+        ['Why is local SEO critical for home care agencies?', 'Over 80% of families searching for home care use Google to find local providers. If your agency doesn\'t appear on page 1 — especially in the Google Maps 3-pack — you\'re invisible to the majority of potential clients. Local SEO ensures your agency shows up when families in your service area search for home care, elder care, or in-home assistance.'],
+        ['How do I get my home care agency to rank on Google Maps?', 'Ranking on Google Maps requires a fully optimized Google Business Profile, consistent NAP citations across directories, genuine client reviews (15+ with a 4.5+ rating), and location-specific pages on your website. Proximity to the searcher, keyword relevance in your profile, and your website domain authority all directly influence your Maps 3-pack position.'],
+        ['What is the difference between homecare SEO and regular SEO?', 'Homecare SEO targets keywords, search intent, and geographic signals used by families looking for elder care and in-home assistance. It requires understanding of care-industry competitors including national franchises, local service area targeting, and review strategies suited to the care industry — expertise that most general agencies lack.'],
+        ['Can AI search tools like ChatGPT send clients to my home care agency?', 'Yes — increasingly. AI tools including ChatGPT, Google AI Overviews, and Perplexity cite local businesses in their answers. To appear in AI-generated results, your agency needs structured FAQ schema, authoritative local content, a strong entity footprint, and consistent citations across the web. This growing channel is called GEO (Generative Engine Optimization).'],
+        ['Do home care agencies need a professional website?', 'Absolutely. Your website is your most important marketing asset. Families researching home care judge credibility heavily by website quality — a poor site signals an unprofessional agency. A professional homecare website must load fast on mobile, clearly explain services and coverage areas, include trust signals like licenses and testimonials, and be optimized for local search.'],
+        ['How do I attract more private-pay clients to my home care agency?', 'Attracting private-pay clients requires ranking for high-intent search terms like "home care agency near me" and "private duty home care [city]," combined with a website that builds trust. Key strategies include local SEO, Google Maps optimization, professional website design, active review generation, and content targeting adult children researching care for aging parents.'],
+        ['Which Florida cities have the strongest demand for home care?', "Florida's highest-demand homecare markets include Miami, Tampa, Fort Lauderdale, Sarasota, Naples, Jacksonville, Boca Raton, and The Villages — which has 57% of its population aged 65+. With Florida ranking last nationally in home health aide availability relative to need, every major metro has far more demand than supply, making effective marketing a major growth lever for Florida homecare agencies specifically, alongside the other states we now serve."],
+    ]));
+    $log[] = '✓ / → FAQPage (11 questions)';
+
+    // ── ABOUT PAGE ──────────────────────────────────────────────
     add_schema('/about/', 'AboutPage', [
         'name'        => 'About Homecare Creators',
         'url'         => SITE.'/about/',
@@ -110,7 +168,7 @@ if ($run) {
             'telephone'   => PHONE,
             'email'       => EMAIL,
             'address'     => ADDR,
-            'description' => 'Asifa Rani is the Founder & CEO of Homecare Creators, a marketing agency built exclusively for home care agencies. Before Homecare Creators, she co-founded a web solutions company helping businesses build their digital presence.',
+            'description' => 'Asifa Rani is the Founder & CEO of Homecare Creators, a marketing agency built exclusively for home care agencies nationwide. Before Homecare Creators, she co-founded a web solutions company helping businesses build their digital presence.',
         ]),
     ]);
     $log[] = '✓ /about/ → AboutPage + Person (founder)';
@@ -120,9 +178,7 @@ if ($run) {
     ]));
     $log[] = '✓ /about/ → BreadcrumbList';
 
-    // ════════════════════════════════════════════════════════════
-    //  CONTACT PAGE
-    // ════════════════════════════════════════════════════════════
+    // ── CONTACT PAGE ────────────────────────────────────────────
     add_schema('/contact/', 'ContactPage', [
         'name'        => 'Contact Homecare Creators',
         'url'         => SITE.'/contact/',
@@ -135,59 +191,28 @@ if ($run) {
     ]));
     $log[] = '✓ /contact/ → BreadcrumbList';
 
-    add_schema('/', 'WebSite', [
-        'name'        => ORG,
-        'url'         => SITE,
-        'description' => "A Florida marketing agency built exclusively for home care agencies.",
-        'potentialAction' => ['@type'=>'SearchAction','target'=>['@type'=>'EntryPoint','urlTemplate'=>SITE.'/blog?s={search_term_string}'],'query-input'=>'required name=search_term_string'],
-        'inLanguage'  => 'en-US',
-    ]);
-    $log[] = '✓ / → WebSite';
-
-    add_schema('/', 'FAQPage', faq([
-        ['What does a homecare marketing agency do?', 'A homecare marketing agency helps home care businesses attract more clients through local SEO, Google Maps optimization, website design, and AI search visibility. Unlike general marketing agencies, a specialized homecare agency understands private-pay vs. Medicaid client acquisition, the search behavior of families looking for care, and what compels a senior or adult child to call one agency over another — delivering faster, more targeted results.'],
-        ['How long does homecare SEO take to show results?', 'Most homecare agencies see measurable ranking improvements within 60 to 90 days. Google Maps visibility often improves within 4 to 6 weeks. Significant organic lead increases typically occur between months 4 and 6. Timeline depends on current website authority, local competition level, and the consistency of ongoing optimization efforts.'],
-        ['How much does SEO cost for a home care agency?', 'Homecare SEO services range from $800 to $3,000 per month depending on cities targeted, competition level, and services included. Packages typically start with local SEO for a single market and scale to full multi-city campaigns with website design, content creation, and AI search optimization included.'],
-        ['Why is local SEO critical for home care agencies?', 'Over 80% of families searching for home care use Google to find local providers. If your agency doesn\'t appear on page 1 — especially in the Google Maps 3-pack — you\'re invisible to the majority of potential clients. Local SEO ensures your agency shows up when families in your service area search for home care, elder care, or in-home assistance.'],
-        ['How do I get my home care agency to rank on Google Maps?', 'Ranking on Google Maps requires a fully optimized Google Business Profile, consistent NAP citations across directories, genuine client reviews (15+ with a 4.5+ rating), and location-specific pages on your website. Proximity to the searcher, keyword relevance in your profile, and your website domain authority all directly influence your Maps 3-pack position.'],
-        ['What is the difference between homecare SEO and regular SEO?', 'Homecare SEO targets keywords, search intent, and geographic signals used by families looking for elder care and in-home assistance. It requires understanding of care-industry competitors including national franchises, local service area targeting, and review strategies suited to the care industry — expertise that most general agencies lack.'],
-        ['Can AI search tools like ChatGPT send clients to my home care agency?', 'Yes — increasingly. AI tools including ChatGPT, Google AI Overviews, and Perplexity cite local businesses in their answers. To appear in AI-generated results, your agency needs structured FAQ schema, authoritative local content, a strong entity footprint, and consistent citations across the web. This growing channel is called GEO (Generative Engine Optimization).'],
-        ['Do home care agencies need a professional website?', 'Absolutely. Your website is your most important marketing asset. Families researching home care judge credibility heavily by website quality — a poor site signals an unprofessional agency. A professional homecare website must load fast on mobile, clearly explain services and coverage areas, include trust signals like licenses and testimonials, and be optimized for local search.'],
-        ['How do I attract more private-pay clients to my home care agency?', 'Attracting private-pay clients requires ranking for high-intent search terms like "home care agency near me" and "private duty home care [city]," combined with a website that builds trust. Key strategies include local SEO, Google Maps optimization, professional website design, active review generation, and content targeting adult children researching care for aging parents.'],
-        ['Which Florida cities have the strongest demand for home care?', "Florida's highest-demand homecare markets include Miami, Tampa, Fort Lauderdale, Sarasota, Naples, Jacksonville, Boca Raton, and The Villages — which has 57% of its population aged 65+. With Florida ranking last nationally in home health aide availability relative to need, every major metro has far more demand than supply, making effective marketing the single biggest growth lever for Florida homecare agencies."],
-    ]));
-    $log[] = '✓ / → FAQPage (10 questions)';
-
-    // Note: the former "Local SEO for Home Care Agencies" page
-    // (/local-seo-for-home-care-agencies/) was retired and 301-redirected
-    // into /seo/home-care-seo/ to resolve keyword cannibalization — that
-    // page now carries its own schema inline (see seo/home-care-seo/index.php),
-    // so no seeder entry is needed for it here.
-
-    // ════════════════════════════════════════════════════════════
-    //  WEBSITE DESIGN SERVICE PAGE
-    // ════════════════════════════════════════════════════════════
+    // ── WEBSITE DESIGN SERVICE PAGE (general, nationwide) ──────
     $p = '/web-design/homecare-website-design/';
     add_schema($p, 'Service', [
         'name'        => 'Homecare Agency Website Design',
-        'description' => 'Custom website design and development for home care agencies in Florida. We build fast, mobile-first, SEO-optimized websites that establish trust with families, convert visitors into inquiries, and rank on Google — engineered specifically for homecare agency owners who need results, not templates.',
+        'description' => 'Custom website design and development for home care agencies nationwide. We build fast, mobile-first, SEO-optimized websites that establish trust with families, convert visitors into inquiries, and rank on Google — engineered specifically for homecare agency owners who need results, not templates.',
         'provider'    => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
         'serviceType' => 'Website Design and Development',
-        'areaServed'  => ['@type'=>'State','name'=>'Florida'],
+        'areaServed'  => nationwideAreaServed(),
         'url'         => SITE.$p,
         'category'    => 'Web Design',
-        'audience'    => ['@type'=>'Audience','audienceType'=>'Home Care Agency Owners in Florida'],
+        'audience'    => ['@type'=>'Audience','audienceType'=>'Home Care Agency Owners Nationwide'],
         'offers'      => ['@type'=>'Offer','description'=>'Custom homecare website design — SEO-ready, mobile-first, delivered in 3–5 weeks.','priceCurrency'=>'USD','availability'=>'https://schema.org/InStock'],
     ]);
     $log[] = '✓ '.$p.' → Service';
 
     add_schema($p, 'FAQPage', faq([
-        ['What should a homecare agency website include?', 'An effective homecare website must include: a homepage clearly stating services and coverage areas, individual pages for each care service (personal care, companionship, Alzheimer\'s care, etc.), a dedicated city page for each location served, client testimonials, caregiver profiles, your Florida homecare license number, and a visible contact form or phone number on every page. Speed and mobile performance are non-negotiable.'],
+        ['What should a homecare agency website include?', 'An effective homecare website must include: a homepage clearly stating services and coverage areas, individual pages for each care service (personal care, companionship, Alzheimer\'s care, etc.), a dedicated city page for each location served, client testimonials, caregiver profiles, your state homecare license number, and a visible contact form or phone number on every page. Speed and mobile performance are non-negotiable.'],
         ['How much does a homecare website design cost?', 'Professional homecare website design ranges from $2,500 to $8,000 for a custom build. Basic template sites start around $1,500 but rarely rank well on Google. A full package includes custom design, copywriting for core pages, local SEO optimization, and Google Analytics setup — delivered in 3 to 5 weeks.'],
         ['How long does it take to build a homecare website?', 'A professionally built homecare website typically takes 3 to 5 weeks from kickoff to launch, including design, content writing, SEO optimization, mobile testing, and revision rounds. The timeline depends largely on how quickly the agency provides their logo, photos, and content feedback. Rush builds in 2 weeks are available for agencies with urgent launch deadlines.'],
         ['Is mobile optimization important for homecare websites?', 'Critically important. Over 70% of families searching for home care do so on a mobile device — often in a stressful moment when a parent needs immediate care. A slow or hard-to-navigate mobile site loses these high-intent visitors immediately. Google also uses mobile performance as a primary ranking signal, so poor mobile design is a direct liability for your search rankings.'],
         ['What makes a homecare website rank on Google?', 'A homecare website ranks through: technical performance (fast load times, clean code, mobile-first), on-page SEO (location-specific titles, meta descriptions, schema markup), local authority (Google Business Profile, consistent citations), and content depth (service pages, city pages, and blog posts targeting local homecare keywords in your service area).'],
-        ['Do home care agencies need city-specific pages on their website?', 'Yes — if you serve multiple cities, dedicated city pages are essential. A page optimized for "home care agency in Tampa" can independently rank for Tampa searches. Agencies with city-specific content consistently outrank competitors across their entire service area in both Google Maps and organic results.'],
+        ['Do home care agencies need city-specific pages on their website?', 'Yes — if you serve multiple cities, dedicated city pages are essential. A page optimized for "home care agency in [city]" can independently rank for that city\'s searches. Agencies with city-specific content consistently outrank competitors across their entire service area in both Google Maps and organic results.'],
     ]));
     $log[] = '✓ '.$p.' → FAQPage (6 questions)';
 
@@ -196,9 +221,7 @@ if ($run) {
     ]));
     $log[] = '✓ '.$p.' → BreadcrumbList';
 
-    // ════════════════════════════════════════════════════════════
-    //  MARKETING CITY PAGES  (10 cities)
-    // ════════════════════════════════════════════════════════════
+    // ── MARKETING CITY PAGES (10 — Florida-scoped by design) ───
     foreach ($mkt_cities as $path => $city) {
         $c   = $city['name'];
         $co  = $city['county'];
@@ -248,9 +271,7 @@ if ($run) {
         $log[] = "✓ {$path} → BreadcrumbList";
     }
 
-    // ════════════════════════════════════════════════════════════
-    //  WEB-DESIGN CITY PAGES  (6 cities)
-    // ════════════════════════════════════════════════════════════
+    // ── WEB-DESIGN CITY PAGES (6 — Florida-scoped by design) ───
     foreach ($wd_cities as $path => $city) {
         $c   = $city['name'];
         $co  = $city['county'];
@@ -281,16 +302,14 @@ if ($run) {
         $log[] = "✓ {$path} → BreadcrumbList";
     }
 
-    // ════════════════════════════════════════════════════════════
-    //  AI SEARCH SEO SERVICE PAGE
-    // ════════════════════════════════════════════════════════════
+    // ── AI SEARCH SEO SERVICE PAGE (nationwide) ────────────────
     $p = '/ai-search-seo/';
     add_schema($p, 'Service', [
         'name'        => 'AI Search SEO for Home Care Agencies',
-        'description' => 'AI Search SEO (GEO/AEO) for home care agencies — structured data, entity building, and answer-formatted content built to help agencies get cited by ChatGPT, Google AI Overviews, and Perplexity.',
+        'description' => 'AI Search SEO (GEO/AEO) for home care agencies nationwide — structured data, entity building, and answer-formatted content built to help agencies get cited by ChatGPT, Google AI Overviews, and Perplexity.',
         'provider'    => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
         'serviceType' => 'Generative Engine Optimization (GEO) / Answer Engine Optimization (AEO)',
-        'areaServed'  => ['@type'=>'State','name'=>'Florida'],
+        'areaServed'  => nationwideAreaServed(),
         'url'         => SITE.$p,
         'audience'    => ['@type'=>'Audience','audienceType'=>'Home Care Agency Owners'],
         'offers'      => ['@type'=>'Offer','priceCurrency'=>'USD','availability'=>'https://schema.org/InStock'],
@@ -313,22 +332,39 @@ if ($run) {
     ]));
     $log[] = '✓ '.$p.' → BreadcrumbList';
 
-    // ════════════════════════════════════════════════════════════
-    //  AREAS WE SERVE HUB
-    // ════════════════════════════════════════════════════════════
+    // ── AI & AUTOMATION SERVICE PAGE (new) ─────────────────────
+    $p = '/ai-automation/';
+    add_schema($p, 'Service', [
+        'name'        => 'AI & Automation for Home Care Agencies',
+        'description' => 'AI chat assistants, automated follow-ups, scheduling, and CRM/workflow automation for home care agencies nationwide — so no inquiry sits unanswered.',
+        'provider'    => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
+        'serviceType' => 'Marketing Automation & AI Chat Assistants',
+        'areaServed'  => nationwideAreaServed(),
+        'url'         => SITE.$p,
+        'audience'    => ['@type'=>'Audience','audienceType'=>'Home Care Agency Owners'],
+        'offers'      => ['@type'=>'Offer','priceCurrency'=>'USD','availability'=>'https://schema.org/InStock'],
+    ]);
+    $log[] = '✓ '.$p.' → Service';
+
+    add_schema($p, 'BreadcrumbList', bc([
+        ['Home', SITE.'/'], ['AI & Automation', SITE.$p]
+    ]));
+    $log[] = '✓ '.$p.' → BreadcrumbList';
+
+    // ── AREAS WE SERVE HUB ──────────────────────────────────────
     $p = '/areas-we-serve/';
     add_schema($p, 'CollectionPage', [
         'name'        => 'Home Care Agency Marketing Across Florida',
-        'description' => 'An overview of the Florida markets Homecare Creators serves, with links to each city-specific home care agency marketing page.',
+        'description' => 'An overview of the Florida markets Homecare Creators serves, with links to each city-specific home care agency marketing page. We also work with home care agencies nationwide.',
         'url'         => SITE.$p,
     ]);
     $log[] = '✓ '.$p.' → CollectionPage';
 
     add_schema($p, 'FAQPage', faq([
-        ['Do you only serve these 10 cities?', "No, these are our primary Florida markets but we work with agencies throughout the state. If your agency operates somewhere not listed above, reach out and we'll talk through how we'd build out a strategy and dedicated pages for your specific service area."],
-        ['Why does each city have its own page instead of one page?', 'Every Florida market has different demographics, competition, and search behavior. A dedicated page lets us speak directly to that local market and helps your agency show up when families in that specific city search for home care.'],
+        ['Do you only serve these 10 cities?', "No — these are our primary Florida markets, but we work with home care agencies nationwide. If your agency operates somewhere not listed above, reach out and we'll talk through how we'd build out a strategy for your specific service area."],
+        ['Why does each city have its own page instead of one page?', 'Every market has different demographics, competition, and search behavior. A dedicated page lets us speak directly to that local market and helps your agency show up when families in that specific city search for home care.'],
         ['What if my agency serves more than one of these cities?', "That's common, and it's exactly what we plan for. We build out local SEO and, where needed, dedicated service-area pages for each city or county your agency actually operates in, not just one market."],
-        ['How do I know which services are right for my market?', "Book a free audit and we'll review your current online presence, your specific city or county, and your competitors, then recommend a plan built around what your market actually needs."],
+        ['How do I know which services are right for my market?', "Book a free audit and we'll review your current online presence, your specific city, state, or county, and your competitors, then recommend a plan built around what your market actually needs."],
     ]));
     $log[] = '✓ '.$p.' → FAQPage (4 questions)';
 
@@ -337,13 +373,11 @@ if ($run) {
     ]));
     $log[] = '✓ '.$p.' → BreadcrumbList';
 
-    // ════════════════════════════════════════════════════════════
-    //  CAREOS
-    // ════════════════════════════════════════════════════════════
+    // ── CAREOS ──────────────────────────────────────────────────
     $p = '/careos/';
     add_schema($p, 'SoftwareApplication', [
         'name'            => 'CareOS',
-        'description'     => 'CareOS is an AI-powered management platform for home care agencies — scheduling, billing, EVV compliance, voice journaling, and predictive intelligence in one login. Coming Q3 2026.',
+        'description'     => 'CareOS is an AI-powered practice management platform for home care agencies — scheduling, billing, EVV compliance, voice journaling, and predictive intelligence in one login.',
         'applicationCategory' => 'BusinessApplication',
         'operatingSystem' => 'Web',
         'url'             => SITE.$p,
@@ -356,9 +390,93 @@ if ($run) {
     ]));
     $log[] = '✓ '.$p.' → BreadcrumbList';
 
-    // ════════════════════════════════════════════════════════════
-    //  ADJACENT VERTICAL PAGES  (5 verticals)
-    // ════════════════════════════════════════════════════════════
+    // ── PRODUCTS HUB + CAREMAILS + CARE SCHEDULING (new) ───────
+    $p = '/products/';
+    add_schema($p, 'CollectionPage', [
+        'name'        => 'Products for Home Care Agencies',
+        'description' => 'Purpose-built software for home care agency owners — CareOS, CareMails, and Care Scheduling.',
+        'url'         => SITE.$p,
+    ]);
+    $log[] = '✓ '.$p.' → CollectionPage';
+    add_schema($p, 'BreadcrumbList', bc([
+        ['Home', SITE.'/'], ['Products', SITE.$p]
+    ]));
+    $log[] = '✓ '.$p.' → BreadcrumbList';
+
+    $p = '/products/caremails/';
+    add_schema($p, 'SoftwareApplication', [
+        'name'            => 'CareMails',
+        'description'     => 'CareMails is an all-in-one shared-inbox email system for home care agencies — built for family communication and staff coordination.',
+        'applicationCategory' => 'BusinessApplication',
+        'operatingSystem' => 'Web',
+        'url'             => SITE.$p,
+        'publisher'       => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
+    ]);
+    $log[] = '✓ '.$p.' → SoftwareApplication';
+    add_schema($p, 'BreadcrumbList', bc([
+        ['Home', SITE.'/'], ['Products', SITE.'/products/'], ['CareMails', SITE.$p]
+    ]));
+    $log[] = '✓ '.$p.' → BreadcrumbList';
+
+    $p = '/products/care-scheduling/';
+    add_schema($p, 'SoftwareApplication', [
+        'name'            => 'Care Scheduling',
+        'description'     => 'Care Scheduling is shift-scheduling software for home care agencies with caregiver-client matching, conflict alerts, mobile clock-in/out, and family visibility.',
+        'applicationCategory' => 'BusinessApplication',
+        'operatingSystem' => 'Web',
+        'url'             => SITE.$p,
+        'publisher'       => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
+    ]);
+    $log[] = '✓ '.$p.' → SoftwareApplication';
+    add_schema($p, 'BreadcrumbList', bc([
+        ['Home', SITE.'/'], ['Products', SITE.'/products/'], ['Care Scheduling', SITE.$p]
+    ]));
+    $log[] = '✓ '.$p.' → BreadcrumbList';
+
+    // ── DIRECTORY (new) ─────────────────────────────────────────
+    $p = '/directory/';
+    add_schema($p, 'CollectionPage', [
+        'name'        => 'Home Care Agency Directory',
+        'description' => 'Browse licensed home care agencies — personal care, companion care, skilled nursing, and more. Find an agency near you.',
+        'url'         => SITE.$p,
+    ]);
+    $log[] = '✓ '.$p.' → CollectionPage';
+    add_schema($p, 'BreadcrumbList', bc([
+        ['Home', SITE.'/'], ['Directory', SITE.$p]
+    ]));
+    $log[] = '✓ '.$p.' → BreadcrumbList';
+
+    // ── GROWTH CALCULATOR (new) ─────────────────────────────────
+    $p = '/growth-calculator/';
+    add_schema($p, 'WebApplication', [
+        'name'            => 'Website Growth Calculator',
+        'description'     => "A free instant estimate of the clients and revenue a home care agency's website may be missing.",
+        'applicationCategory' => 'BusinessApplication',
+        'operatingSystem' => 'Web',
+        'url'             => SITE.$p,
+        'offers'          => ['@type'=>'Offer','price'=>'0','priceCurrency'=>'USD'],
+        'publisher'       => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
+    ]);
+    $log[] = '✓ '.$p.' → WebApplication';
+    add_schema($p, 'BreadcrumbList', bc([
+        ['Home', SITE.'/'], ['Growth Calculator', SITE.$p]
+    ]));
+    $log[] = '✓ '.$p.' → BreadcrumbList';
+
+    // ── EVENTS HUB (new — individual events carry their own schema) ──
+    $p = '/events/';
+    add_schema($p, 'CollectionPage', [
+        'name'        => 'Free Events & Webinars for Home Care Agencies',
+        'description' => 'Free live events and masterclasses on SEO, marketing, and growth for home care agency owners.',
+        'url'         => SITE.$p,
+    ]);
+    $log[] = '✓ '.$p.' → CollectionPage';
+    add_schema($p, 'BreadcrumbList', bc([
+        ['Home', SITE.'/'], ['Events', SITE.$p]
+    ]));
+    $log[] = '✓ '.$p.' → BreadcrumbList';
+
+    // ── ADJACENT VERTICAL PAGES (5 — nationwide) ───────────────
     $verticals = [
         '/memory-care-marketing/' => [
             'name' => 'Memory Care Marketing', 'noun' => 'memory care communities',
@@ -421,10 +539,10 @@ if ($run) {
         $url = SITE.$path;
         add_schema($path, 'Service', [
             'name'        => $v['name'],
-            'description' => "Digital marketing built specifically for {$v['noun']} — local SEO, website design, and AI search optimization from an agency built exclusively for senior care.",
+            'description' => "Digital marketing built specifically for {$v['noun']} nationwide — local SEO, website design, and AI search optimization from an agency built exclusively for senior care.",
             'provider'    => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
             'serviceType' => $v['name'],
-            'areaServed'  => ['@type'=>'State','name'=>'Florida'],
+            'areaServed'  => nationwideAreaServed(),
             'url'         => $url,
             'audience'    => ['@type'=>'Audience','audienceType'=>ucfirst($v['noun']).' operators'],
             'offers'      => ['@type'=>'Offer','priceCurrency'=>'USD','availability'=>'https://schema.org/InStock'],
@@ -440,12 +558,10 @@ if ($run) {
         $log[] = "✓ {$path} → BreadcrumbList";
     }
 
-    // ════════════════════════════════════════════════════════════
-    //  BLOG INDEX
-    // ════════════════════════════════════════════════════════════
+    // ── BLOG INDEX ──────────────────────────────────────────────
     add_schema('/blog', 'Blog', [
         'name'        => 'Homecare Creators Marketing Blog',
-        'description' => 'Expert guides, SEO strategies, and marketing insights for home care agency owners across Florida. Learn how to rank on Google, attract more clients, and grow your homecare business.',
+        'description' => 'Expert guides, SEO strategies, and marketing insights for home care agency owners nationwide. Learn how to rank on Google, attract more clients, and grow your homecare business.',
         'url'         => SITE.'/blog',
         'publisher'   => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
         'inLanguage'  => 'en-US',
@@ -462,7 +578,7 @@ if ($run) {
 
 // ── UI ───────────────────────────────────────────────────────────
 ?><!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Schema Seeder — Homecare Creators Admin</title>
+<title>Site-Wide Schema Update — Homecare Creators Admin</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a2e1e;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
@@ -480,38 +596,31 @@ code{background:#f3f4f6;padding:2px 7px;border-radius:4px;font-size:11.5px;word-
 ul{margin:12px 0 12px 20px;font-size:13px;color:#374151;line-height:1.9}
 </style></head><body>
 <div class="card">
-<h1>Schema Seeder</h1>
+<h1>Site-Wide Schema Update (Nationwide Edition)</h1>
 <?php if (!$run): ?>
-<p>This will <strong>TRUNCATE hc_page_schema</strong> and insert comprehensive, deeply researched schema blocks for every public page. Schema types included:</p>
+<p>This updates <strong>hc_org_schema</strong> (states served + service types) and <strong>TRUNCATEs + rebuilds hc_page_schema</strong> with nationwide-aware schema for every page, plus new blocks for pages added since the last seeder ran:</p>
 <ul>
-  <li><strong>Homepage</strong> — MarketingAgency, WebSite, FAQPage (10 Qs)</li>
-  <li><strong>Website Design service page</strong> — Service, FAQPage (6 Qs), BreadcrumbList</li>
-  <li><strong>10 marketing city pages</strong> — LocalBusiness, Service, FAQPage (5 Qs), BreadcrumbList each</li>
-  <li><strong>6 web-design city pages</strong> — Service, FAQPage (4 Qs), BreadcrumbList each</li>
-  <li><strong>About page</strong> — AboutPage + Person (founder), BreadcrumbList</li>
-  <li><strong>Contact page</strong> — ContactPage, BreadcrumbList</li>
-  <li><strong>AI Search SEO page</strong> — Service, FAQPage (7 Qs), BreadcrumbList</li>
-  <li><strong>Areas We Serve hub</strong> — CollectionPage, FAQPage (4 Qs), BreadcrumbList</li>
-  <li><strong>CareOS page</strong> — SoftwareApplication, BreadcrumbList</li>
-  <li><strong>5 adjacent-vertical pages</strong> (memory care, hospice, nursing homes, senior living, assisted living) — Service, FAQPage (6 Qs each), BreadcrumbList each</li>
-  <li><strong>Blog index</strong> — Blog, BreadcrumbList</li>
+  <li><strong>Homepage</strong> — MarketingAgency (10 states + nationwide), WebSite, FAQPage (11 Qs)</li>
+  <li><strong>Website Design, AI Search SEO, 5 vertical pages</strong> — nationwide areaServed instead of Florida-only</li>
+  <li><strong>10 marketing + 6 web-design Florida city pages</strong> — unchanged, still Florida/city-scoped (correct for location pages)</li>
+  <li><strong>New:</strong> AI &amp; Automation, Products hub, CareMails, Care Scheduling, Directory, Growth Calculator, Events</li>
+  <li><strong>About, Contact, CareOS, Blog</strong> — refreshed, nationwide wording</li>
 </ul>
-<p><strong>~100 schema blocks total.</strong> All page paths match the actual $page_canonical values from each page file. Safe to re-run — TRUNCATEs first.</p>
-<a href="?run=1" class="btn">&#9654; Run Schema Seeder</a>
+<p><strong>Note:</strong> this TRUNCATEs the whole table, so any one-off schema you added manually via <code>/admin/schema/</code> for a page not listed here will be removed and would need to be re-added.</p>
+<a href="?run=1" class="btn">&#9654; Run Update</a>
 <a href="/admin/schema/" class="btn btn-outline">View Schema Manager</a>
 
 <?php else: ?>
 <span class="count"><?= $total ?></span>
-<p><strong><?= $total ?> schema blocks</strong> inserted successfully across all pages.</p>
+<p><strong><?= $total ?> schema blocks</strong> inserted, plus 3 hc_org_schema fields updated.</p>
 <div class="log">
   <?php foreach ($log as $l): ?><div><?= htmlspecialchars($l) ?></div><?php endforeach ?>
 </div>
 <div class="warn">
-  <strong>Security: delete this file immediately after running.</strong> SSH command:<br><br>
-  <code>rm /home/homecarecreators/htdocs/homecarecreators.com/admin/seed-schema.php</code><br><br>
-  Or delete via FTP: <code>admin/seed-schema.php</code>
+  <strong>Security: delete this file immediately after running.</strong> Via SSH or FTP: <code>admin/update-site-schema.php</code>
 </div>
 <a href="/admin/schema/" class="btn" style="margin-top:20px">View Schema Manager &#8594;</a>
+<a href="/admin/org-schema.php" class="btn btn-outline" style="margin-top:20px">View Organization Schema &#8594;</a>
 <?php endif ?>
 </div>
 </body></html>
