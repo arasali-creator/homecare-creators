@@ -63,9 +63,9 @@ $page_css = <<<CSS
 
 /* SERVICES */
 .services-section{background:var(--cream)}
-.svc-stack{display:flex;flex-direction:column;gap:20px;margin-top:40px}
-.svc-block{background:#fff;border:1px solid var(--border);border-radius:20px;padding:32px;display:flex;gap:24px}
-.svc-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:#fff;background:var(--forest);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.svc-stack{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px}
+.svc-block{background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px}
+.svc-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:#fff;background:var(--forest);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:16px}
 .svc-block-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--forest);margin-bottom:6px}
 .svc-block-tagline{font-size:15px;font-weight:600;color:var(--teal);margin-bottom:12px}
 .svc-block-desc{font-size:15.5px;line-height:1.75;color:var(--muted);margin-bottom:14px}
@@ -81,7 +81,7 @@ $page_css = <<<CSS
 .metro-card p{font-size:14.5px;line-height:1.7;color:var(--muted)}
 
 /* CTA CARD (reused for mid + final CTA) */
-.cta-section{background:#fff;padding:24px 24px 64px}
+.cta-section{background:#fff;padding:72px 24px}
 .cta-card{position:relative;max-width:1100px;margin:0 auto;background:var(--forest);border-radius:36px;padding:64px 48px;text-align:center;overflow:hidden}
 .cta-card::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.07) 1px,transparent 1px);background-size:50px 50px}
 .cta-card-inner{position:relative;z-index:2;max-width:620px;margin:0 auto}
@@ -114,12 +114,12 @@ $page_css = <<<CSS
   .intro-grid{grid-template-columns:1fr;gap:32px}
   .intro-photo{max-width:420px;margin:0 auto}
   .metro-grid{grid-template-columns:1fr}
+  .svc-stack{grid-template-columns:1fr}
 }
 @media(max-width:640px){
   .hero{padding:120px 0 56px}
   .hero-grid{padding:0 24px}
   section{padding:64px 24px}
-  .svc-block{flex-direction:column}
   .cta-card{padding:48px 24px;border-radius:26px}
 }
 CSS;
