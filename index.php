@@ -7,14 +7,11 @@ $og_desc       = "A marketing agency built 100% for homecare - website design, l
 
 $page_css = <<<CSS
 /* ── HERO ── */
-.hero{background:var(--forest);position:relative;overflow:hidden;padding:0}
-.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 70% at 50% 40%,black 20%,transparent 80%)}
-.hero-blob1{position:absolute;width:700px;height:700px;top:-260px;right:-220px;background:radial-gradient(circle,rgba(29,158,117,.16) 0%,transparent 65%);animation:float 10s ease-in-out infinite}
-.hero-blob2{position:absolute;width:600px;height:600px;bottom:-260px;left:-220px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 65%);animation:float 13s ease-in-out infinite reverse}
+.hero{position:relative;overflow:hidden;padding:0;background:linear-gradient(rgba(10,46,30,.9),rgba(10,46,30,.9)),url('/images/home/hero-caregiver-elderly.jpg') center 30%/cover no-repeat}
 .hero-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:132px 24px 72px;display:flex;flex-direction:column;align-items:center;text-align:center}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
-.hero-h1{width:100%;font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,5vw,60px);line-height:1.12;margin:0;animation:fadeUp .8s .1s ease both;white-space:nowrap}
+.hero-h1{width:100%;font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(28px,6vw,52px);line-height:1.12;margin:0;animation:fadeUp .8s .1s ease both;white-space:nowrap}
 .hero-h1-line1{display:block;color:#fff}
 .hero-rotator{position:relative;width:100%;height:1.2em;margin-top:16px;overflow:hidden}
 .hero-rotator-word{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--teal-lt);opacity:0;transform:translateY(45%);transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .4s ease}
@@ -246,9 +243,6 @@ try {
    HERO
 ══════════════════════════ -->
 <section class="hero" id="home">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-blob1"></div>
-  <div class="hero-blob2"></div>
   <div class="hero-inner">
     <div class="hero-badge">
       <div class="hero-badge-pulse"></div>The Marketing Agency Built Exclusively for Homecare
@@ -450,9 +444,9 @@ try {
       </svg>
     </div>
     <div class="cta-card-inner">
-      <h2 class="cta-headline">Let's Grow Your Next<br>High-Performing <em>Agency</em><i class="fa-solid fa-bullhorn"></i></h2>
-      <p class="cta-sub">Whether you're just getting started or ready to scale across every channel, our team
-        builds a growth strategy around your agency's goals, not a generic template.</p>
+      <h2 class="cta-headline">Let's Grow Your Home Care<br>Agency's <em>Online Presence</em><i class="fa-solid fa-bullhorn"></i></h2>
+      <p class="cta-sub">Whether you're just getting started with SEO or ready to scale across search, your
+        website, and AI search visibility, our team builds a growth strategy around your agency's goals, not a generic template.</p>
       <button class="cta-pill-btn" onclick="openPopup('audit')"><i class="fa-solid fa-calendar-check"></i>Book a Free Growth Audit</button>
       <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;&middot;&nbsp; No
         obligation &nbsp;&middot;&nbsp; 30-day satisfaction guarantee</div>
