@@ -9,6 +9,14 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- HTML Sitemap -->
+  <url>
+    <loc>https://homecarecreators.com/sitemap/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
   <!-- Service pages -->
   <url>
     <loc>https://homecarecreators.com/web-design/homecare-website-design/</loc>

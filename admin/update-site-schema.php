@@ -476,6 +476,19 @@ if ($run) {
     ]));
     $log[] = '✓ '.$p.' → BreadcrumbList';
 
+    // ── HTML SITEMAP (new) ──────────────────────────────────────
+    $p = '/sitemap/';
+    add_schema($p, 'CollectionPage', [
+        'name'        => 'Sitemap',
+        'description' => 'A complete, always up-to-date overview of every page on the Homecare Creators website.',
+        'url'         => SITE.$p,
+    ]);
+    $log[] = '✓ '.$p.' → CollectionPage';
+    add_schema($p, 'BreadcrumbList', bc([
+        ['Home', SITE.'/'], ['Sitemap', SITE.$p]
+    ]));
+    $log[] = '✓ '.$p.' → BreadcrumbList';
+
     // ── ADJACENT VERTICAL PAGES (5 — nationwide) ───────────────
     $verticals = [
         '/memory-care-marketing/' => [
