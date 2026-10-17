@@ -11,7 +11,7 @@ function hc_scan_pages(): array {
     $scan = function(string $dir, string $prefix, ?string $flattenFolder) use (&$scan, $root, $skip, $flatten, &$pages) {
         foreach (glob("$dir/*.php") as $f) {
             $base = basename($f, '.php');
-            if (in_array($base, ['form-handler','install'])) continue;
+            if (in_array($base, ['form-handler','install','404']) || str_ends_with($base, '-handler')) continue;
             if ($flattenFolder) {
                 $path = '/' . $base . '/';
             } elseif ($base === 'index' && rtrim(str_replace($root, '', $dir), '/\\') === '') {
