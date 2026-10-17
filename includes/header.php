@@ -116,18 +116,33 @@ nav.scrolled{height:62px;background:rgba(8,36,22,.97);box-shadow:0 4px 32px rgba
 .nav-dropdown-trigger{display:flex!important;align-items:center;gap:6px}
 .nav-dropdown-trigger i{font-size:9px;transition:transform .2s}
 .nav-dropdown.open .nav-dropdown-trigger i{transform:rotate(180deg)}
-.mega-menu,.simple-menu{display:none;position:absolute;top:calc(100% + 14px);background:#0d3322;border:1px solid rgba(46,198,143,.15);border-radius:14px;box-shadow:0 24px 64px rgba(0,0,0,.4);z-index:10}
+/* top:100% with zero gap — a gap here is the classic cause of a mega menu
+   closing when the cursor moves from the trigger down into the panel */
+.mega-menu,.simple-menu{display:none;position:absolute;top:100%;margin-top:14px;background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 30px 70px rgba(10,46,30,.22);z-index:10;overflow:hidden}
 .nav-dropdown:hover .mega-menu,.nav-dropdown.open .mega-menu{display:flex}
 .nav-dropdown:hover .simple-menu,.nav-dropdown.open .simple-menu{display:flex}
-.mega-menu{left:50%;transform:translateX(-50%);padding:28px;gap:36px;min-width:600px}
-.mega-col{display:flex;flex-direction:column;gap:3px;min-width:160px}
-.mega-col-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--mint);margin-bottom:10px}
-.mega-col a{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.7);text-decoration:none;padding:7px 8px;border-radius:7px;transition:.15s}
-.mega-col a:hover{background:rgba(255,255,255,.06);color:#fff}
-.mega-col a i{width:14px;color:var(--teal-lt);font-size:12px}
-.simple-menu{left:0;flex-direction:column;padding:10px;gap:2px;min-width:160px}
-.simple-menu a{font-size:13px;color:rgba(255,255,255,.75);text-decoration:none;padding:9px 12px;border-radius:7px;transition:.15s}
-.simple-menu a:hover{background:rgba(255,255,255,.07);color:#fff}
+/* invisible bridge over the margin-top gap so hover never breaks */
+.nav-dropdown::after{content:'';position:absolute;top:100%;left:0;right:0;height:14px}
+
+.mega-menu{left:50%;transform:translateX(-50%);width:760px;padding:0}
+.mega-menu-links{display:flex;gap:8px;padding:26px 10px 26px 26px;flex:1}
+.mega-col{display:flex;flex-direction:column;gap:2px;min-width:170px}
+.mega-col-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.mega-col a{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:500;color:var(--text);text-decoration:none;padding:8px;border-radius:10px;transition:.15s}
+.mega-col a:hover{background:var(--cream)}
+.mega-col a img{width:32px;height:32px;border-radius:9px;object-fit:cover;flex-shrink:0}
+.mega-col a.view-all{color:var(--teal);font-weight:700;margin-top:6px}
+.mega-featured{width:220px;flex-shrink:0;background:var(--forest);padding:24px;display:flex;flex-direction:column}
+.mega-featured img{width:100%;height:96px;object-fit:cover;border-radius:12px;margin-bottom:16px}
+.mega-featured-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal-lt);margin-bottom:8px}
+.mega-featured h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3}
+.mega-featured p{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:16px;flex:1}
+.mega-featured .featured-cta{display:inline-flex;align-items:center;gap:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;font-weight:700;color:var(--teal-lt);text-decoration:none}
+
+.simple-menu{left:0;flex-direction:column;padding:10px;gap:2px;min-width:190px}
+.simple-menu a{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:500;color:var(--text);text-decoration:none;padding:10px 12px;border-radius:10px;transition:.15s}
+.simple-menu a:hover{background:var(--cream)}
+.simple-menu a i{width:15px;color:var(--teal);font-size:13px}
 
 /* BUTTONS */
 .btn-primary{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,var(--teal),var(--teal-lt));color:#fff;text-decoration:none;padding:15px 30px;border-radius:11px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14.5px;box-shadow:0 4px 24px rgba(29,158,117,.45);transition:.3s cubic-bezier(.34,1.56,.64,1);border:none;cursor:pointer}
@@ -242,8 +257,13 @@ footer{background:var(--forest);padding:64px 48px 0}
 
   /* Dropdowns become inline accordions inside the mobile menu */
   .nav-dropdown:hover .mega-menu,.nav-dropdown:hover .simple-menu{display:none}
-  .mega-menu,.simple-menu{position:static;transform:none;min-width:0;box-shadow:none;border:none;background:rgba(255,255,255,.04);margin-top:4px;border-radius:8px;padding:10px;flex-direction:column;gap:18px}
-  .mega-col-title{margin-bottom:6px}
+  .mega-menu,.simple-menu{position:static;transform:none;width:auto;min-width:0;box-shadow:none;border:none;background:rgba(255,255,255,.04);margin-top:4px;border-radius:8px}
+  .mega-menu-links{flex-direction:column;gap:18px;padding:10px}
+  .mega-featured{display:none}
+  .simple-menu{padding:6px}
+  .mega-col-title{margin-bottom:6px;color:var(--teal-lt)}
+  .mega-col a,.simple-menu a{color:rgba(255,255,255,.8)}
+  .mega-col a:hover,.simple-menu a:hover{background:rgba(255,255,255,.08)}
 }
 </style>
 <?php if (!empty($page_css)): ?>
@@ -358,27 +378,36 @@ try {
     <li class="nav-dropdown">
       <a href="#" class="nav-dropdown-trigger">Services <i class="fa-solid fa-chevron-down"></i></a>
       <div class="mega-menu">
-        <div class="mega-col">
-          <div class="mega-col-title">Marketing Services</div>
-          <a href="/seo/home-care-seo/"><i class="fa-solid fa-magnifying-glass-chart"></i>Home Care SEO</a>
-          <a href="/web-design/homecare-website-design/"><i class="fa-solid fa-laptop-code"></i>Website Design</a>
-          <a href="/ai-search-seo/"><i class="fa-solid fa-brain"></i>AI Search SEO (GEO)</a>
+        <div class="mega-menu-links">
+          <div class="mega-col">
+            <div class="mega-col-title">Marketing Services</div>
+            <a href="/seo/home-care-seo/"><img src="/images/home/service-local-seo.jpg" alt="Home Care SEO">Home Care SEO</a>
+            <a href="/web-design/homecare-website-design/"><img src="/images/home/service-website-dev.jpg" alt="Website Design">Website Design</a>
+            <a href="/ai-search-seo/"><img src="/images/home/service-ai-search-seo.jpg" alt="AI Search SEO">AI Search SEO (GEO)</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Senior Care Marketing</div>
+            <a href="/memory-care-marketing/">Memory Care</a>
+            <a href="/hospice-marketing/">Hospice</a>
+            <a href="/nursing-home-marketing/">Nursing Homes</a>
+            <a href="/senior-living-marketing/">Senior Living</a>
+            <a href="/assisted-living-marketing/">Assisted Living</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Florida Cities</div>
+            <a href="/home-care-agency-seo-miami-fl/">Miami</a>
+            <a href="/home-care-agency-seo-orlando-fl/">Orlando</a>
+            <a href="/home-care-agency-seo-tampa-fl/">Tampa</a>
+            <a href="/home-care-agency-seo-jacksonville-fl/">Jacksonville</a>
+            <a href="/areas-we-serve/" class="view-all">View All Cities &rarr;</a>
+          </div>
         </div>
-        <div class="mega-col">
-          <div class="mega-col-title">Senior Care Marketing</div>
-          <a href="/memory-care-marketing/">Memory Care</a>
-          <a href="/hospice-marketing/">Hospice</a>
-          <a href="/nursing-home-marketing/">Nursing Homes</a>
-          <a href="/senior-living-marketing/">Senior Living</a>
-          <a href="/assisted-living-marketing/">Assisted Living</a>
-        </div>
-        <div class="mega-col">
-          <div class="mega-col-title">Florida Cities</div>
-          <a href="/home-care-agency-seo-miami-fl/">Miami</a>
-          <a href="/home-care-agency-seo-orlando-fl/">Orlando</a>
-          <a href="/home-care-agency-seo-tampa-fl/">Tampa</a>
-          <a href="/home-care-agency-seo-jacksonville-fl/">Jacksonville</a>
-          <a href="/areas-we-serve/" style="font-weight:700;color:var(--teal-lt)">View All Cities &rarr;</a>
+        <div class="mega-featured">
+          <img src="/images/home/results-growth.jpg" alt="Website Growth Calculator">
+          <div class="mega-featured-label">Free Tool</div>
+          <h4>Website Growth Calculator</h4>
+          <p>See how many more clients your agency's website could be missing — free, 60-second estimate.</p>
+          <a href="/growth-calculator/" class="featured-cta">Try It Free &rarr;</a>
         </div>
       </div>
     </li>
@@ -386,12 +415,12 @@ try {
     <li class="nav-dropdown">
       <a href="#" class="nav-dropdown-trigger">Resources <i class="fa-solid fa-chevron-down"></i></a>
       <div class="simple-menu">
-        <a href="/products/">Products</a>
-        <a href="/#bundles">Pricing</a>
-        <a href="/blog">Blog</a>
-        <a href="/events/">Events</a>
-        <a href="/directory/">Directory</a>
-        <a href="/contact/">Contact</a>
+        <a href="/products/"><i class="fa-solid fa-layer-group"></i>Products</a>
+        <a href="/#bundles"><i class="fa-solid fa-tags"></i>Pricing</a>
+        <a href="/blog"><i class="fa-solid fa-newspaper"></i>Blog</a>
+        <a href="/events/"><i class="fa-solid fa-calendar-days"></i>Events</a>
+        <a href="/directory/"><i class="fa-solid fa-building-shield"></i>Directory</a>
+        <a href="/contact/"><i class="fa-solid fa-envelope"></i>Contact</a>
       </div>
     </li>
     <li><a href="#" class="nav-cta" onclick="openPopup();return false;"><i class="fa-solid fa-calendar-check" style="font-size:12px"></i> Free Audit</a></li>
