@@ -14,10 +14,12 @@ $page_css = <<<CSS
 .hero-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:168px 24px 96px;display:flex;flex-direction:column;align-items:center;text-align:center}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(34px,5.4vw,64px);line-height:1.15;margin:0;animation:fadeUp .8s .1s ease both}
+.hero-h1{width:100%;font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,5vw,60px);line-height:1.15;margin:0;animation:fadeUp .8s .1s ease both;white-space:nowrap}
 .hero-h1-line1{display:block;color:#fff}
-.hero-h1-line2{display:block;color:var(--teal-lt);margin-top:4px;min-height:1.15em}
-.hero-type-cursor{display:inline-block;margin-left:2px;color:var(--teal-lt);animation:blink 1s step-start infinite}
+.hero-rotator{position:relative;width:100%;height:1.15em;margin-top:4px;overflow:hidden}
+.hero-rotator-word{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--teal-lt);opacity:0;transform:translateY(45%);transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .4s ease}
+.hero-rotator-word.is-active{opacity:1;transform:translateY(0)}
+.hero-rotator-word.is-leaving{opacity:0;transform:translateY(-45%)}
 .hero-swoosh{display:block;margin:12px auto 0}
 .hero-swoosh path{stroke:var(--gold-lt)}
 .hero-desc{font-size:18px;line-height:1.75;color:rgba(255,255,255,.62);max-width:600px;margin:28px 0 40px;animation:fadeUp .8s .3s ease both}
@@ -28,7 +30,6 @@ $page_css = <<<CSS
 .hero-proof-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;color:var(--teal-lt);line-height:1}
 .hero-proof-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.42)}
 .hero-proof-divider{width:1px;background:rgba(255,255,255,.1);align-self:stretch}
-@keyframes blink{50%{opacity:0}}
 
 /* ── WHY US ── */
 .why{background:#fff}
@@ -136,6 +137,7 @@ $page_css = <<<CSS
 }
 @media(max-width:640px){
   .hero-inner{padding:120px 24px 56px}
+  .hero-h1{font-size:clamp(24px,7.2vw,32px)}
   .hero-proof{gap:20px}
   section{padding:72px 24px}
   .cta-card{padding:56px 24px;border-radius:28px}
@@ -197,37 +199,25 @@ function openPopup(type) {
   document.body.style.overflow = 'hidden';
 }
 
-// ── HERO TYPEWRITER ──
+// ── HERO SERVICE ROTATOR ──
 (function() {
-  var el = document.getElementById('heroType');
-  if (!el) return;
-  var phrases = ['Booked Clients', 'Real Inquiries', '5-Star Reviews', 'Page-One Rankings'];
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    el.textContent = phrases[0];
-    return;
-  }
-  var pIndex = 0, charIndex = 0, deleting = false;
-  function tick() {
-    var current = phrases[pIndex];
-    if (!deleting) {
-      charIndex++;
-      el.textContent = current.slice(0, charIndex);
-      if (charIndex === current.length) {
-        deleting = true;
-        setTimeout(tick, 1600);
-        return;
-      }
-    } else {
-      charIndex--;
-      el.textContent = current.slice(0, charIndex);
-      if (charIndex === 0) {
-        deleting = false;
-        pIndex = (pIndex + 1) % phrases.length;
-      }
-    }
-    setTimeout(tick, deleting ? 35 : 60);
-  }
-  tick();
+  var rotator = document.getElementById('heroRotator');
+  if (!rotator) return;
+  var words = rotator.querySelectorAll('.hero-rotator-word');
+  if (!words.length) return;
+  words[0].classList.add('is-active');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var idx = 0;
+  setInterval(function() {
+    var current = words[idx];
+    var nextIdx = (idx + 1) % words.length;
+    var next = words[nextIdx];
+    current.classList.remove('is-active');
+    current.classList.add('is-leaving');
+    next.classList.add('is-active');
+    setTimeout(function() { current.classList.remove('is-leaving'); }, 550);
+    idx = nextIdx;
+  }, 2400);
 })();
 JS;
 
@@ -263,8 +253,14 @@ try {
       <div class="hero-badge-pulse"></div>The Marketing Agency Built Exclusively for Homecare
     </div>
     <h1 class="hero-h1">
-      <span class="hero-h1-line1">We Craft Marketing That</span>
-      <span class="hero-h1-line2">Turns Clicks Into <span id="heroType"></span><span class="hero-type-cursor">|</span></span>
+      <span class="hero-h1-line1">Marketing Built Around</span>
+      <span class="hero-rotator" id="heroRotator">
+        <span class="hero-rotator-word">Home Care SEO</span>
+        <span class="hero-rotator-word">Website Design</span>
+        <span class="hero-rotator-word">Local SEO &amp; Maps</span>
+        <span class="hero-rotator-word">AI Search Optimization</span>
+        <span class="hero-rotator-word">Marketing Automation</span>
+      </span>
     </h1>
     <svg class="hero-swoosh" width="260" height="20" viewBox="0 0 260 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M4 14C40 2 60 2 86 14C112 26 132 26 158 14C184 2 204 2 230 14C244 20 252 18 256 14" stroke-width="5" stroke-linecap="round"/>
