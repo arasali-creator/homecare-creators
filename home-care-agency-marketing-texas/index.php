@@ -10,12 +10,18 @@ $og_title = "Home Care Agency Marketing in Texas | Homecare Creators";
 $og_desc = "SEO, website design, local SEO, AI search optimization, and marketing automation for home care agencies across Texas.";
 
 $page_css = <<<CSS
+/* Unify every section's content width with the hero (1280px) */
+.container{max-width:1280px}
+
+/* Scale down all headings ~20% on this page */
+.section-h2{font-size:clamp(24px,3.2vw,42px)}
+
 /* HERO */
 .hero{background:var(--forest);position:relative;overflow:hidden;padding:150px 0 72px}
 .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 30% 50%,black 20%,transparent 80%)}
 .hero-grid{position:relative;z-index:2;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;padding:0 48px}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:24px}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,4.2vw,52px);line-height:1.12;color:#fff;margin-bottom:20px}
+.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(26px,3.4vw,42px);line-height:1.15;color:#fff;margin-bottom:20px}
 .hero-h1 em{font-style:italic;color:var(--teal-lt)}
 .hero-desc{font-size:17.5px;line-height:1.75;color:rgba(255,255,255,.62);max-width:480px;margin-bottom:32px}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
@@ -60,7 +66,7 @@ $page_css = <<<CSS
 .svc-stack{display:flex;flex-direction:column;gap:20px;margin-top:40px}
 .svc-block{background:#fff;border:1px solid var(--border);border-radius:20px;padding:32px;display:flex;gap:24px}
 .svc-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:#fff;background:var(--forest);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.svc-block-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:700;color:var(--forest);margin-bottom:6px}
+.svc-block-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--forest);margin-bottom:6px}
 .svc-block-tagline{font-size:15px;font-weight:600;color:var(--teal);margin-bottom:12px}
 .svc-block-desc{font-size:15.5px;line-height:1.75;color:var(--muted);margin-bottom:14px}
 .svc-block-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
@@ -71,54 +77,19 @@ $page_css = <<<CSS
 .market-section{background:#fff}
 .metro-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:36px 0}
 .metro-card{background:var(--warm);border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:14px;padding:24px}
-.metro-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:15.5px;font-weight:700;color:var(--forest);margin-bottom:8px}
+.metro-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px}
 .metro-card p{font-size:14.5px;line-height:1.7;color:var(--muted)}
-
-/* CITIES + MAP */
-.cities-section{background:var(--cream)}
-.cities-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.cities-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 20px;margin-top:20px}
-.cities-list span{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--forest);padding:6px 0}
-.cities-list span i{color:var(--teal);font-size:10px;flex-shrink:0}
-.cities-map{border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 16px 56px rgba(10,46,30,.1);aspect-ratio:1/1}
-.cities-map iframe{width:100%;height:100%;display:block;border:0}
-
-/* WHY CHOOSE */
-.why-section{background:#fff}
-.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
-.why-card{background:var(--cream);border:1px solid var(--border);border-radius:18px;padding:28px}
-.why-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;color:var(--forest);margin-bottom:10px}
-.why-card p{font-size:14.5px;line-height:1.75;color:var(--muted)}
 
 /* CTA CARD (reused for mid + final CTA) */
 .cta-section{background:#fff;padding:24px 24px 64px}
 .cta-card{position:relative;max-width:1100px;margin:0 auto;background:var(--forest);border-radius:36px;padding:64px 48px;text-align:center;overflow:hidden}
 .cta-card::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.07) 1px,transparent 1px);background-size:50px 50px}
 .cta-card-inner{position:relative;z-index:2;max-width:620px;margin:0 auto}
-.cta-headline{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3.6vw,38px);line-height:1.2;color:#fff;margin-bottom:18px}
+.cta-headline{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(21px,2.9vw,30px);line-height:1.25;color:#fff;margin-bottom:18px}
 .cta-headline em{font-style:italic;color:var(--mint)}
 .cta-sub{font-size:16px;line-height:1.7;color:rgba(255,255,255,.62);margin:0 auto 28px}
 .cta-pill-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--forest);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;padding:17px 32px;border-radius:100px;border:none;cursor:pointer;transition:.2s}
 .cta-pill-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.3)}
-
-/* REVIEWS */
-.reviews{background:var(--forest);overflow:hidden;position:relative}
-.reviews::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px}
-.reviews .container{position:relative;z-index:1}
-.reviews-header{text-align:center;margin-bottom:44px}
-.reviews-header .section-label{justify-content:center;color:var(--mint)}
-.reviews-header .section-label::before{background:var(--mint)}
-.reviews-header .section-h2{color:#fff}
-.reviews-header .section-h2 em{color:var(--mint)}
-.review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:860px;margin:0 auto}
-.review-card{background:var(--cream);border:1px solid var(--border);border-radius:22px;padding:32px;position:relative;overflow:hidden}
-.review-card::before{content:'\201C';position:absolute;top:-12px;right:20px;font-family:'Plus Jakarta Sans',sans-serif;font-size:110px;color:rgba(29,158,117,.08);line-height:1}
-.review-stars{color:var(--gold);font-size:14px;margin-bottom:14px;letter-spacing:2px}
-.review-quote{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.6;color:var(--forest);font-style:italic;margin-bottom:20px}
-.review-author{display:flex;align-items:center;gap:12px}
-.review-avatar{width:42px;height:42px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;flex-shrink:0}
-.review-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13.5px;color:var(--forest)}
-.review-role{font-size:11.5px;color:var(--muted);margin-top:2px}
 
 /* FAQ */
 .faq{background:var(--cream)}
@@ -143,10 +114,6 @@ $page_css = <<<CSS
   .intro-grid{grid-template-columns:1fr;gap:32px}
   .intro-photo{max-width:420px;margin:0 auto}
   .metro-grid{grid-template-columns:1fr}
-  .cities-grid{grid-template-columns:1fr;gap:32px}
-  .cities-map{aspect-ratio:16/9}
-  .why-grid{grid-template-columns:1fr}
-  .review-grid{grid-template-columns:1fr}
 }
 @media(max-width:640px){
   .hero{padding:120px 0 56px}
@@ -154,7 +121,6 @@ $page_css = <<<CSS
   section{padding:64px 24px}
   .svc-block{flex-direction:column}
   .cta-card{padding:48px 24px;border-radius:26px}
-  .cities-list{grid-template-columns:1fr}
 }
 CSS;
 include '../includes/header.php';
@@ -384,104 +350,8 @@ echo '<script type="application/ld+json">' . json_encode([
   </div>
 </section>
 
-<!-- CITIES + MAP -->
-<section class="cities-section">
-  <div class="container">
-    <div class="cities-grid">
-      <div data-reveal>
-        <p class="section-label">Texas Cities We Support</p>
-        <h2 class="section-h2">Markets We Work In <em>Most Often</em></h2>
-        <div class="cities-list">
-          <span><i class="fa-solid fa-location-dot"></i>Houston</span>
-          <span><i class="fa-solid fa-location-dot"></i>San Antonio</span>
-          <span><i class="fa-solid fa-location-dot"></i>Dallas</span>
-          <span><i class="fa-solid fa-location-dot"></i>Austin</span>
-          <span><i class="fa-solid fa-location-dot"></i>Fort Worth</span>
-          <span><i class="fa-solid fa-location-dot"></i>El Paso</span>
-          <span><i class="fa-solid fa-location-dot"></i>Arlington</span>
-          <span><i class="fa-solid fa-location-dot"></i>Corpus Christi</span>
-          <span><i class="fa-solid fa-location-dot"></i>Plano</span>
-          <span><i class="fa-solid fa-location-dot"></i>Laredo</span>
-          <span><i class="fa-solid fa-location-dot"></i>Lubbock</span>
-          <span><i class="fa-solid fa-location-dot"></i>Garland</span>
-          <span><i class="fa-solid fa-location-dot"></i>Irving</span>
-          <span><i class="fa-solid fa-location-dot"></i>Amarillo</span>
-          <span><i class="fa-solid fa-location-dot"></i>Grand Prairie</span>
-          <span><i class="fa-solid fa-location-dot"></i>McKinney</span>
-          <span><i class="fa-solid fa-location-dot"></i>Frisco</span>
-          <span><i class="fa-solid fa-location-dot"></i>Brownsville</span>
-          <span><i class="fa-solid fa-location-dot"></i>Pasadena</span>
-          <span><i class="fa-solid fa-location-dot"></i>Mesquite</span>
-        </div>
-      </div>
-      <div class="cities-map" data-reveal style="transition-delay:.15s">
-        <iframe src="https://www.google.com/maps?q=Texas&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Texas service area"></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY CHOOSE -->
-<section class="why-section">
-  <div class="container">
-    <div data-reveal style="text-align:center;max-width:620px;margin:0 auto">
-      <p class="section-label" style="justify-content:center">Why Homecare Creators</p>
-      <h2 class="section-h2" style="text-align:center">Why Choose Homecare Creators?</h2>
-    </div>
-    <div class="why-grid" data-reveal style="transition-delay:.1s">
-      <div class="why-card">
-        <h3>Marketing Focused on Home Care</h3>
-        <p>Home care agencies have different needs from general local businesses. We focus our work on the home care and senior care sector, aligning content, SEO, and lead generation with how people actually research care.</p>
-      </div>
-      <div class="why-card">
-        <h3>A Connected Digital Strategy</h3>
-        <p>SEO, website design, local visibility, and lead follow-up should support one another. Attracting visitors through SEO is more useful when your website answers their questions and makes contacting you easy.</p>
-      </div>
-      <div class="why-card">
-        <h3>Recommendations Based on Your Market</h3>
-        <p>Your agency's priorities depend on its current website, competition, service area, and growth goals. We review those factors to identify which improvements may have the greatest value.</p>
-      </div>
-      <div class="why-card">
-        <h3>Clear Reporting, Practical Priorities</h3>
-        <p>We track indicators like organic visibility, engagement, local performance, and inquiries. We don't promise a specific ranking or client count — we focus on process, clarity, and measurable progress.</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:40px" data-reveal>
-      <button class="section-cta-btn" onclick="openPopup('audit')">Get Your Free Home Care Marketing Audit</button>
-    </div>
-  </div>
-</section>
-
 <!-- CASE STUDIES -->
 <?php include '../includes/case-study-slider.php'; ?>
-
-<!-- REVIEWS -->
-<section class="reviews" id="reviews">
-  <div class="container">
-    <div class="reviews-header" data-reveal>
-      <p class="section-label">What Owners Say</p>
-      <h2 class="section-h2">Texas Agencies<br><em>Love the Results</em></h2>
-    </div>
-    <div class="review-grid" data-reveal style="transition-delay:.1s">
-      <div class="review-card">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-quote">"Their AI Search SEO is unlike anything I've seen from a marketing agency. We show up now when families search on ChatGPT and Google AI, and I don't think our competitors even know this is possible yet."</p>
-        <div class="review-author">
-          <div class="review-avatar">LD</div>
-          <div><div class="review-name">Linda D.</div><div class="review-role">CEO, Caring Hands Agency &middot; Houston, TX</div></div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-quote">"The follow-up automation alone paid for the retainer. Leads used to sit for days, now they get a response in minutes, day or night."</p>
-        <div class="review-author">
-          <div class="review-avatar">RB</div>
-          <div><div class="review-name">Robert B.</div><div class="review-role">CEO, Premier Home Health &middot; Dallas, TX</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- FAQ -->
 <section class="faq">
