@@ -1,6 +1,6 @@
 <?php
 $page_title    = "Homecare Creators: Marketing for Home Care Agencies";
-$page_desc     = "A marketing agency built exclusively for home care agencies in Florida - SEO, websites, and AI search optimization.";
+$page_desc     = "A marketing agency built exclusively for home care agencies nationwide - SEO, websites, and AI search optimization.";
 $page_canonical = "https://homecarecreators.com/";
 $og_title      = "Homecare Creators: Marketing for Home Care Agencies";
 $og_desc       = "A marketing agency built 100% for homecare - website design, local SEO, and AI search SEO.";
@@ -283,8 +283,8 @@ try {
     <div class="hero-badge">
       <div class="hero-badge-pulse"></div>The Marketing Agency Built Exclusively for Homecare
     </div>
-    <h1 class="hero-h1">Florida Home Care <br><em>Marketing Agency</em></h1>
-    <p class="hero-desc">Grow your home care agency with marketing built for your industry. We help agencies across Florida attract more qualified leads through SEO, high-converting websites, local SEO, and AI-powered marketing.</p>
+    <h1 class="hero-h1">Home Care <br><em>Marketing Agency</em></h1>
+    <p class="hero-desc">Grow your home care agency with marketing built for your industry. We help agencies nationwide attract more qualified leads through SEO, high-converting websites, local SEO, and AI-powered marketing.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="openPopup('audit')"><i class="fa-solid fa-rocket"></i>Book Free Growth
         Audit</button>
@@ -316,7 +316,7 @@ try {
   <div class="hero-right">
     <div class="hero-img-card tall" style="animation:scaleIn .9s .4s ease both">
       <img src="/images/home/hero-caregiver-elderly.jpg"
-        alt="Professional caregiver assisting an elderly client at home for a Florida home care agency"
+        alt="Professional caregiver assisting an elderly client at home for a home care agency"
         title="Home care agency caregiver assisting an elderly client">
       <div class="hero-img-overlay">
         <div class="hero-img-overlay-icon"><i class="fa-solid fa-heart-pulse"></i></div>
@@ -441,7 +441,7 @@ try {
         <div class="svc-grid-body">
           <div class="svc-grid-label">Home Care SEO</div>
           <h3 class="svc-grid-title">Get Found by Families Looking for Care in Your Community</h3>
-          <p class="svc-grid-desc">When families search for home care, your agency should be one of the first names they see. We help Florida home care agencies improve their visibility on Google with SEO strategies tailored to the senior care industry, so you can attract more qualified inquiries, build trust online, and grow without relying only on referrals.</p>
+          <p class="svc-grid-desc">When families search for home care, your agency should be one of the first names they see. We help home care agencies nationwide improve their visibility on Google with SEO strategies tailored to the senior care industry, so you can attract more qualified inquiries, build trust online, and grow without relying only on referrals.</p>
           <a href="/seo/home-care-seo/" class="svc-grid-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
@@ -469,7 +469,7 @@ try {
         <div class="svc-grid-body">
           <div class="svc-grid-label">Local SEO</div>
           <h3 class="svc-grid-title">Help Families Find You Nearby</h3>
-          <p class="svc-grid-desc">Most families search for care close to home. We improve your local visibility by optimizing your Google Business Profile, strengthening your presence in Google Maps, and helping your agency rank in the cities and communities you serve across Florida.</p>
+          <p class="svc-grid-desc">Most families search for care close to home. We improve your local visibility by optimizing your Google Business Profile, strengthening your presence in Google Maps, and helping your agency rank in the cities and communities you serve.</p>
           <a href="/seo/home-care-seo/" class="svc-grid-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>

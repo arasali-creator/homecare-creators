@@ -125,3 +125,41 @@ function hc_slug(string $text): string {
     $text = preg_replace('/[\s-]+/', '-', $text);
     return trim($text, '-');
 }
+
+function hc_csv_list(string $value): array {
+    return array_values(array_filter(array_map('trim', explode(',', $value))));
+}
+
+/**
+ * Builds the Organization/LocalBusiness JSON-LD array from hc_org_schema + hc_kg_links.
+ * Shared by includes/header.php (live output) and admin/org-schema.php (preview)
+ * so the two can never drift out of sync.
+ */
+function hc_build_org_schema(array $od, array $sameAs): array {
+    $areaServed = array_map(fn($s) => ['@type' => 'State', 'name' => $s], hc_csv_list($od['org_area'] ?? ''));
+    $serviceType = hc_csv_list($od['org_service_types'] ?? '');
+    $address = array_filter([
+        '@type'           => 'PostalAddress',
+        'streetAddress'   => $od['org_address'] ?? '',
+        'addressLocality' => $od['org_city'] ?? '',
+        'addressRegion'   => $od['org_state'] ?? '',
+        'postalCode'      => $od['org_zip'] ?? '',
+        'addressCountry'  => 'US',
+    ]);
+
+    return array_filter([
+        '@context'      => 'https://schema.org',
+        '@type'         => $od['org_type'] ?? 'LocalBusiness',
+        'name'          => $od['org_name'] ?? '',
+        'description'   => $od['org_desc'] ?? '',
+        'url'           => defined('SITE_URL') ? SITE_URL : '',
+        'logo'          => $od['org_logo'] ?? '',
+        'foundingDate'  => $od['org_founded'] ?? '',
+        'telephone'     => $od['org_phone'] ?? '',
+        'email'         => $od['org_email'] ?? '',
+        'address'       => $address ?: null,
+        'areaServed'    => $areaServed ?: null,
+        'serviceType'   => $serviceType ?: null,
+        'sameAs'        => $sameAs ?: null,
+    ]);
+}
