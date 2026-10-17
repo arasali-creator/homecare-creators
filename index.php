@@ -7,26 +7,31 @@ $og_desc       = "A marketing agency built 100% for homecare - website design, l
 
 $page_css = <<<CSS
 /* ── HERO ── */
-.hero{position:relative;overflow:hidden;padding:0;background:linear-gradient(rgba(10,46,30,.9),rgba(10,46,30,.9)),url('/images/home/hero-caregiver-elderly.jpg') center 30%/cover no-repeat}
-.hero-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:132px 24px 72px;display:flex;flex-direction:column;align-items:center;text-align:center}
-.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;animation:fadeIn .6s ease both}
+.hero{background:var(--forest);position:relative;overflow:hidden;padding:0}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.06) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
+.hero-grid{position:relative;z-index:2;max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}
+.hero-left{padding:150px 24px 72px 56px;display:flex;flex-direction:column;justify-content:center}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:24px;width:fit-content;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
-.hero-h1{width:100%;font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(28px,6vw,52px);line-height:1.12;margin:0;animation:fadeUp .8s .1s ease both;white-space:nowrap}
+.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(26px,2.6vw,40px);line-height:1.18;margin:0;animation:fadeUp .8s .1s ease both;white-space:nowrap}
 .hero-h1-line1{display:block;color:#fff}
-.hero-rotator{position:relative;width:100%;height:1.2em;margin-top:16px;overflow:hidden}
-.hero-rotator-word{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--teal-lt);opacity:0;transform:translateY(45%);transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .4s ease}
+.hero-rotator{position:relative;width:100%;height:1.25em;margin-top:14px;overflow:hidden}
+.hero-rotator-word{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;color:var(--teal-lt);opacity:0;transform:translateY(45%);transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .4s ease}
 .hero-rotator-word.is-active{opacity:1;transform:translateY(0)}
 .hero-rotator-word.is-leaving{opacity:0;transform:translateY(-45%)}
-.hero-swoosh{display:block;margin:12px auto 0}
+.hero-swoosh{display:block;margin:10px 0 0}
 .hero-swoosh path{stroke:var(--gold-lt)}
-.hero-desc{font-size:18px;line-height:1.7;color:rgba(255,255,255,.62);max-width:600px;margin:22px 0 32px;animation:fadeUp .8s .3s ease both}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeUp .8s .4s ease both;margin-bottom:40px}
+.hero-desc{font-size:17px;line-height:1.75;color:rgba(255,255,255,.62);max-width:480px;margin:22px 0 32px;animation:fadeUp .8s .3s ease both}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .4s ease both;margin-bottom:40px}
 .hero-actions .btn-primary,.hero-actions .btn-secondary{border-radius:100px;padding:16px 32px}
-.hero-proof{display:flex;gap:32px;flex-wrap:wrap;justify-content:center;animation:fadeUp .8s .55s ease both}
-.hero-proof-item{display:flex;flex-direction:column;gap:2px;align-items:center}
-.hero-proof-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;color:var(--teal-lt);line-height:1}
+.hero-proof{display:flex;gap:28px;flex-wrap:wrap;animation:fadeUp .8s .55s ease both}
+.hero-proof-item{display:flex;flex-direction:column;gap:2px}
+.hero-proof-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;color:var(--teal-lt);line-height:1}
 .hero-proof-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.42)}
 .hero-proof-divider{width:1px;background:rgba(255,255,255,.1);align-self:stretch}
+.hero-right{position:relative;min-height:560px}
+.hero-right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hero-right::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--forest) 0%,rgba(10,46,30,0) 20%);pointer-events:none}
 
 /* ── WHY US ── */
 .why{background:#fff}
@@ -127,13 +132,16 @@ $page_css = <<<CSS
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .hero-inner{padding:150px 24px 80px}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:140px 32px 64px}
+  .hero-h1{font-size:clamp(28px,6vw,44px)}
   .why-grid{grid-template-columns:1fr;gap:56px}
   .why-photo{max-width:340px;margin:0 auto}
   .why-photo-stat{left:50%;transform:translateX(calc(-50% - 110px))}
 }
 @media(max-width:640px){
-  .hero-inner{padding:100px 24px 48px}
+  .hero-left{padding:110px 24px 48px}
   .hero-h1{font-size:clamp(24px,7.2vw,32px)}
   .hero-rotator{margin-top:10px}
   .hero-proof{gap:20px}
@@ -243,49 +251,55 @@ try {
    HERO
 ══════════════════════════ -->
 <section class="hero" id="home">
-  <div class="hero-inner">
-    <div class="hero-badge">
-      <div class="hero-badge-pulse"></div>The Marketing Agency Built Exclusively for Homecare
+  <div class="hero-bg-grid"></div>
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <div class="hero-badge-pulse"></div>The Marketing Agency Built Exclusively for Homecare
+      </div>
+      <h1 class="hero-h1">
+        <span class="hero-h1-line1">Marketing Built Around</span>
+        <span class="hero-rotator" id="heroRotator">
+          <span class="hero-rotator-word">Home Care SEO</span>
+          <span class="hero-rotator-word">Website Design</span>
+          <span class="hero-rotator-word">Local SEO &amp; Maps</span>
+          <span class="hero-rotator-word">AI Search Optimization</span>
+          <span class="hero-rotator-word">Marketing Automation</span>
+        </span>
+      </h1>
+      <svg class="hero-swoosh" width="260" height="20" viewBox="0 0 260 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M4 14C40 2 60 2 86 14C112 26 132 26 158 14C184 2 204 2 230 14C244 20 252 18 256 14" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <p class="hero-desc">Grow your home care agency with marketing built for your industry. We help agencies nationwide attract more qualified leads through SEO, high-converting websites, local SEO, and AI-powered marketing.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openPopup('audit')"><i class="fa-solid fa-rocket"></i>Book Free Growth
+          Audit</button>
+        <a href="#services" class="btn-secondary"><i class="fa-solid fa-play"></i>See Our Services</a>
+      </div>
+      <div class="hero-proof">
+        <div class="hero-proof-item">
+          <div class="hero-proof-num">100%</div>
+          <div class="hero-proof-label">Homecare-Only Focus</div>
+        </div>
+        <div class="hero-proof-divider"></div>
+        <div class="hero-proof-item">
+          <div class="hero-proof-num">SEO</div>
+          <div class="hero-proof-label">+ AI Search Visibility</div>
+        </div>
+        <div class="hero-proof-divider"></div>
+        <div class="hero-proof-item">
+          <div class="hero-proof-num">30-Day</div>
+          <div class="hero-proof-label">Satisfaction Guarantee</div>
+        </div>
+        <div class="hero-proof-divider"></div>
+        <div class="hero-proof-item">
+          <div class="hero-proof-num">12h</div>
+          <div class="hero-proof-label">Saved/Week via AI</div>
+        </div>
+      </div>
     </div>
-    <h1 class="hero-h1">
-      <span class="hero-h1-line1">Marketing Built Around</span>
-      <span class="hero-rotator" id="heroRotator">
-        <span class="hero-rotator-word">Home Care SEO</span>
-        <span class="hero-rotator-word">Website Design</span>
-        <span class="hero-rotator-word">Local SEO &amp; Maps</span>
-        <span class="hero-rotator-word">AI Search Optimization</span>
-        <span class="hero-rotator-word">Marketing Automation</span>
-      </span>
-    </h1>
-    <svg class="hero-swoosh" width="260" height="20" viewBox="0 0 260 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M4 14C40 2 60 2 86 14C112 26 132 26 158 14C184 2 204 2 230 14C244 20 252 18 256 14" stroke-width="5" stroke-linecap="round"/>
-    </svg>
-    <p class="hero-desc">Grow your home care agency with marketing built for your industry. We help agencies nationwide attract more qualified leads through SEO, high-converting websites, local SEO, and AI-powered marketing.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="openPopup('audit')"><i class="fa-solid fa-rocket"></i>Book Free Growth
-        Audit</button>
-      <a href="#services" class="btn-secondary"><i class="fa-solid fa-play"></i>See Our Services</a>
-    </div>
-    <div class="hero-proof">
-      <div class="hero-proof-item">
-        <div class="hero-proof-num">100%</div>
-        <div class="hero-proof-label">Homecare-Only Focus</div>
-      </div>
-      <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item">
-        <div class="hero-proof-num">SEO</div>
-        <div class="hero-proof-label">+ AI Search Visibility</div>
-      </div>
-      <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item">
-        <div class="hero-proof-num">30-Day</div>
-        <div class="hero-proof-label">Satisfaction Guarantee</div>
-      </div>
-      <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item">
-        <div class="hero-proof-num">12h</div>
-        <div class="hero-proof-label">Saved/Week via AI</div>
-      </div>
+    <div class="hero-right">
+      <img src="/images/home/hero-caregiver-elderly.jpg" alt="Professional caregiver assisting an elderly client at home for a home care agency" title="Home care agency caregiver assisting an elderly client">
     </div>
   </div>
 </section>
