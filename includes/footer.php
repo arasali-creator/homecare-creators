@@ -287,13 +287,33 @@ document.querySelectorAll('.nav-dropdown-trigger').forEach(function(trigger) {
     var parent = trigger.closest('.nav-dropdown');
     var wasOpen = parent.classList.contains('open');
     document.querySelectorAll('.nav-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
-    if (!wasOpen) parent.classList.add('open');
+    if (!wasOpen) { parent.classList.add('open'); positionDropdownPanel(parent); }
   });
 });
 document.addEventListener('click', function(e) {
   if (!e.target.closest('.nav-dropdown')) {
     document.querySelectorAll('.nav-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
   }
+});
+
+// Keep wide dropdown panels (the Services mega menu especially) from
+// running off the right edge of the viewport -- the panel is anchored
+// to its trigger's position, not the viewport, so CSS alone can't know
+// whether it needs to shift left to stay fully visible.
+function positionDropdownPanel(dropdown) {
+  var panel = dropdown.querySelector('.mega-menu, .simple-menu');
+  if (!panel || window.innerWidth <= 640) return;
+  panel.style.left = '0px';
+  var rect = panel.getBoundingClientRect();
+  var margin = 16;
+  var overflowRight = rect.right - (window.innerWidth - margin);
+  if (overflowRight > 0) panel.style.left = (-overflowRight) + 'px';
+}
+document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
+  dropdown.addEventListener('mouseenter', function() { positionDropdownPanel(dropdown); });
+});
+window.addEventListener('resize', function() {
+  document.querySelectorAll('.nav-dropdown.open').forEach(function(d) { positionDropdownPanel(d); });
 });
 </script>
 <?php if (!empty($page_js)): ?>
