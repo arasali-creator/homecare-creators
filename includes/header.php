@@ -216,22 +216,26 @@ section{padding:96px 40px}
 .consent-label{font-size:12px;color:var(--muted);line-height:1.6;cursor:pointer}
 
 /* FOOTER */
-footer{background:var(--forest);padding:64px 48px 0}
-.footer-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:36px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
+footer{background:var(--forest);position:relative;overflow:hidden;padding:72px 48px 0}
+footer::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.05) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 65% 70% at 10% 0%,black 0%,transparent 75%);pointer-events:none}
+.footer-inner{position:relative;z-index:1;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:36px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
 .footer-logo svg{height:48px;width:auto}
-.footer-tagline{font-size:15px;color:rgba(255,255,255,.65);margin-top:14px;margin-bottom:20px;line-height:1.6;max-width:220px}
+.footer-tagline{font-size:15px;color:rgba(255,255,255,.65);margin-top:14px;margin-bottom:24px;line-height:1.6;max-width:240px}
 .footer-socials{display:flex;gap:10px}
-.footer-social{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:14px;text-decoration:none;transition:.2s}
-.footer-social:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
-.footer-col-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:16px}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-links a{font-size:13px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:#fff}
-.footer-bottom{max-width:1180px;margin:0 auto;padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.footer-copy{font-size:12px;color:rgba(255,255,255,.3)}
-.footer-bottom-links{display:flex;gap:20px}
-.footer-bottom-links a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none}
-.footer-bottom-links a:hover{color:rgba(255,255,255,.7)}
+.footer-social{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:14px;text-decoration:none;transition:.18s}
+.footer-social:hover{background:var(--teal);color:#fff;border-color:var(--teal);transform:translateY(-2px)}
+.footer-col-title{display:flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px}
+.footer-col-title::before{content:'';width:14px;height:2px;border-radius:2px;background:var(--teal-lt);flex-shrink:0}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:11px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s,transform .15s;display:inline-block}
+.footer-links a:hover{color:#fff;transform:translateX(3px)}
+.footer-bottom{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.35)}
+.footer-bottom-links{display:flex;align-items:center;gap:20px}
+.footer-bottom-links a{font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;transition:color .15s}
+.footer-bottom-links a:hover{color:rgba(255,255,255,.8)}
+.footer-top-btn{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:13px;transition:.18s;flex-shrink:0}
+.footer-top-btn:hover{background:var(--teal);color:#fff;border-color:var(--teal);transform:translateY(-2px)}
 
 /* CERTIFICATIONS / TRUST BADGES */
 .certs{background:#fff;padding:52px 40px;border-bottom:1px solid var(--border)}
@@ -477,12 +481,9 @@ try {
           <div class="mega-icon"><i class="fa-solid fa-building-shield"></i></div>
           <div><div class="mega-item-title">Directory</div><div class="mega-item-desc">Browse licensed home care agencies</div></div>
         </a>
-        <a href="/contact/">
-          <div class="mega-icon"><i class="fa-solid fa-envelope"></i></div>
-          <div><div class="mega-item-title">Contact</div><div class="mega-item-desc">Talk to our team</div></div>
-        </a>
       </div>
     </li>
+    <li><a href="/contact/">Contact Us</a></li>
     <li><a href="#" class="nav-cta" onclick="openPopup();return false;"><i class="fa-solid fa-calendar-check" style="font-size:12px"></i> Free Audit</a></li>
   </ul>
   <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
