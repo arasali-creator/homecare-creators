@@ -333,9 +333,9 @@ try {
           <option>AI Search SEO (ChatGPT &amp; Google AI)</option>
           <option>Full Bundle Package</option>
           <option>Free Growth Audit</option>
-          <option>CareOS Waitlist</option>
-          <option>CareMails Waitlist</option>
-          <option>Care Scheduling Waitlist</option>
+          <option>CareOS Demo</option>
+          <option>CareMails Demo</option>
+          <option>Care Scheduling Demo</option>
         </select>
       </div>
       <div class="popup-form-group"><label class="sr-only" for="pMsg">Message</label><textarea class="form-textarea" id="pMsg" placeholder="Message (optional) — tell us about your agency..." style="min-height:80px"></textarea></div>

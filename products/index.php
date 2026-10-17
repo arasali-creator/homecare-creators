@@ -21,7 +21,6 @@ $page_css = <<<CSS
 .product-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:32px;display:flex;flex-direction:column;transition:.25s;text-decoration:none}
 .product-card:hover{transform:translateY(-4px);box-shadow:0 20px 56px rgba(10,46,30,.1);border-color:rgba(29,158,117,.25)}
 .product-card-icon{width:52px;height:52px;border-radius:14px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px}
-.product-card-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,.12);color:#8a6800;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border-radius:20px;align-self:flex-start;margin-bottom:14px}
 .product-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:700;color:var(--forest);margin-bottom:10px}
 .product-card p{font-size:14.5px;color:var(--muted);line-height:1.65;flex:1;margin-bottom:20px}
 .product-card-cta{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--teal)}
@@ -54,7 +53,6 @@ include '../includes/header.php';
     <div class="products-grid" data-reveal style="transition-delay:.1s">
 
       <a href="/careos/" class="product-card">
-        <div class="product-card-badge"><i class="fa-solid fa-circle-dot"></i> Coming Q3 2026</div>
         <div class="product-card-icon"><i class="fa-solid fa-brain"></i></div>
         <h3>CareOS</h3>
         <p>The full AI-powered management platform — scheduling, billing, EVV compliance, family portals, and predictive intelligence in one login.</p>
@@ -62,7 +60,6 @@ include '../includes/header.php';
       </a>
 
       <a href="/products/caremails/" class="product-card">
-        <div class="product-card-badge"><i class="fa-solid fa-circle-dot"></i> Coming Soon</div>
         <div class="product-card-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
         <h3>CareMails</h3>
         <p>An all-in-one email system built for homecare teams — one shared inbox for family communication and staff coordination instead of scattered personal inboxes.</p>
@@ -70,7 +67,6 @@ include '../includes/header.php';
       </a>
 
       <a href="/products/care-scheduling/" class="product-card">
-        <div class="product-card-badge"><i class="fa-solid fa-circle-dot"></i> Coming Soon</div>
         <div class="product-card-icon"><i class="fa-solid fa-calendar-check"></i></div>
         <h3>Care Scheduling</h3>
         <p>Shift scheduling built for home care — caregiver-to-client matching, conflict alerts, mobile clock-in/out, and family visibility into the schedule.</p>

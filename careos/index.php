@@ -1,62 +1,80 @@
 <?php
 $page_title = "CareOS — AI Practice Management for Home Care Agencies | Homecare Creators";
-$page_desc = "CareOS is an AI-powered management platform built for home care agencies — scheduling, billing, EVV compliance, voice journaling, and predictive intelligence in one login. Coming Q3 2026.";
+$page_desc = "CareOS is an AI-powered management platform built for home care agencies — scheduling, billing, EVV compliance, voice journaling, and predictive intelligence in one login.";
 $page_canonical = "https://homecarecreators.com/careos/";
 $og_title = "CareOS — AI Practice Management for Home Care Agencies";
-$og_desc = "The AI brain for your home care agency: scheduling, billing, family portals, and compliance in one platform. Join the waitlist.";
+$og_desc = "The AI brain for your home care agency: scheduling, billing, family portals, and compliance in one platform.";
 $page_css = <<<CSS
-/* HERO */
-.hero{min-height:40vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:140px 40px 60px}
-.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 30% 50%,black 20%,transparent 80%)}
-.hero-inner{position:relative;z-index:2;max-width:760px;margin:0 auto;text-align:center}
-.hero-breadcrumb{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,.4);margin-bottom:20px}
-.hero-breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(30px,4.4vw,50px);line-height:1.1;color:#fff;margin-bottom:16px}
-.hero-h1 em{font-style:italic;color:var(--teal-lt)}
-.hero-desc{font-size:18px;line-height:1.75;color:rgba(255,255,255,.65)}
+/* HERO — light, modern */
+.p-hero{background:linear-gradient(180deg,#fff 0%,var(--cream) 100%);position:relative;overflow:hidden;padding:150px 40px 80px}
+.p-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.05) 1px,transparent 1px);background-size:50px 50px;mask-image:radial-gradient(ellipse 70% 70% at 30% 20%,black 0%,transparent 75%)}
+.p-hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;max-width:1180px;margin:0 auto}
+.p-hero-breadcrumb{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:var(--muted);margin-bottom:20px}
+.p-hero-breadcrumb a{color:var(--muted);text-decoration:none}
+.p-hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(29,158,117,.1);border:1px solid rgba(29,158,117,.25);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--teal);letter-spacing:.8px;text-transform:uppercase;margin-bottom:20px}
+.p-hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,4.4vw,52px);line-height:1.1;color:var(--forest);margin-bottom:18px}
+.p-hero h1 em{font-style:italic;color:var(--teal)}
+.p-hero-desc{font-size:18px;line-height:1.75;color:var(--muted);margin-bottom:32px}
+.p-hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 
-/* CAREOS (reused from homepage) */
-.careos{background:#020d06;position:relative;overflow:hidden;padding:96px 40px}
-.careos-stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.4) 0%,transparent 100%),radial-gradient(1px 1px at 30% 60%,rgba(255,255,255,.3) 0%,transparent 100%),radial-gradient(1px 1px at 60% 15%,rgba(255,255,255,.5) 0%,transparent 100%),radial-gradient(1px 1px at 80% 70%,rgba(255,255,255,.3) 0%,transparent 100%),radial-gradient(2px 2px at 20% 45%,rgba(46,198,143,.6) 0%,transparent 100%),radial-gradient(2px 2px at 70% 30%,rgba(46,198,143,.5) 0%,transparent 100%)}
-.careos-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(29,158,117,.12) 0%,transparent 70%)}
-.careos-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.06) 1px,transparent 1px);background-size:48px 48px}
-.careos-inner{position:relative;z-index:2}
-.careos-top-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.35);padding:10px 22px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:var(--gold-lt);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:32px;animation:shimmer 3s ease-in-out infinite}
-.careos-top-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--gold-lt);animation:pulse-ring 2s infinite}
-.careos-headline{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(34px,4.6vw,60px);line-height:1.05;color:#fff;margin-bottom:16px;text-align:center}
-.careos-headline em{font-style:italic;color:var(--teal-lt)}
-.careos-subhead{font-size:18px;line-height:1.75;color:rgba(255,255,255,.65);max-width:640px;margin:0 auto 16px;text-align:center}
-.careos-tagline{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--teal-lt);letter-spacing:1px;text-transform:uppercase;text-align:center;margin-bottom:56px;opacity:.8}
-.careos-modules-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:64px}
-.careos-module{background:rgba(255,255,255,.03);border:1px solid rgba(29,158,117,.15);border-radius:var(--r);padding:24px;position:relative;overflow:hidden;transition:.3s}
-.careos-module::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--teal-lt));opacity:0;transition:.3s}
-.careos-module:hover{border-color:rgba(29,158,117,.35);background:rgba(255,255,255,.06);transform:translateY(-4px)}
-.careos-module:hover::before{opacity:1}
-.careos-module-icon{width:46px;height:46px;border-radius:13px;background:rgba(29,158,117,.12);display:flex;align-items:center;justify-content:center;color:var(--teal-lt);font-size:20px;margin-bottom:16px}
-.careos-module-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:8px}
-.careos-module-desc{font-size:15px;line-height:1.65;color:rgba(255,255,255,.6)}
-.module-badge{display:inline-block;margin-top:12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 9px;border-radius:5px}
-.badge-ai{background:rgba(29,158,117,.2);color:var(--mint)}
-.badge-new{background:rgba(201,168,76,.2);color:var(--gold-lt)}
-.badge-core{background:rgba(255,255,255,.08);color:rgba(255,255,255,.5)}
-.careos-cta-box{background:rgba(29,158,117,.08);border:1px solid rgba(29,158,117,.25);border-radius:24px;padding:48px;text-align:center;position:relative;overflow:hidden}
-.careos-cta-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent 0%,rgba(29,158,117,.05) 25%,transparent 50%);animation:spin-slow 20s linear infinite}
-.careos-cta-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;color:#fff;margin-bottom:12px;position:relative;z-index:1}
-.careos-cta-desc{font-size:18px;color:rgba(255,255,255,.6);margin-bottom:28px;position:relative;z-index:1}
-.careos-cta-perks{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:32px;position:relative;z-index:1}
-.careos-cta-perk{display:flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;color:var(--mint)}
-.careos-cta-perk i{color:var(--teal-lt)}
+/* Mockup placeholder — swap for real screenshots later */
+.mockup-frame{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 30px 80px rgba(10,46,30,.1);overflow:hidden}
+.mockup-bar{background:var(--cream);padding:12px 16px;display:flex;gap:6px;border-bottom:1px solid var(--border)}
+.mockup-dot{width:10px;height:10px;border-radius:50%;background:var(--border)}
+.mockup-body{aspect-ratio:4/3;background:linear-gradient(135deg,var(--cream) 0%,var(--warm) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);text-align:center;padding:20px}
+.mockup-body i{font-size:40px;opacity:.25}
+.mockup-body span{font-size:12.5px;font-weight:700;opacity:.5;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.5px;text-transform:uppercase}
 
-/* WHY CAREOS */
-.why-careos{background:var(--cream)}
-.why-careos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+/* Feature grid */
+.feat-section{background:var(--cream)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.feat-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:28px}
+.feat-card-icon{width:46px;height:46px;background:rgba(29,158,117,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:19px;margin-bottom:18px}
+.feat-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;color:var(--forest);margin-bottom:10px}
+.feat-card p{font-size:14.5px;color:var(--muted);line-height:1.7}
+
+/* Feature showcase (zigzag) */
+.showrow-section{background:#fff}
+.showrow{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.showrow + .showrow{margin-top:80px}
+.showrow-eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.showrow h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(24px,3vw,34px);color:var(--forest);margin-bottom:16px;line-height:1.2}
+.showrow-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.showrow-list li{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--muted);line-height:1.6}
+.showrow-list li i{color:var(--teal);margin-top:4px;flex-shrink:0}
+
+/* Why cards */
+.why-section{background:var(--cream)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
 .wc-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:28px}
 .wc-card-icon{width:42px;height:42px;background:rgba(29,158,117,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:17px;margin-bottom:16px}
 .wc-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--forest);margin-bottom:10px}
 .wc-card p{font-size:15px;color:var(--muted);line-height:1.75}
 
-@media(max-width:900px){ .why-careos-grid{grid-template-columns:1fr 1fr} }
-@media(max-width:640px){ .hero{padding:120px 24px 50px} .why-careos-grid{grid-template-columns:1fr} }
+/* CTA (light) */
+.p-cta-section{background:#fff;padding:0 40px 96px}
+.p-cta-box{max-width:900px;margin:0 auto;background:linear-gradient(135deg,rgba(29,158,117,.06),rgba(201,168,76,.06));border:1px solid rgba(29,158,117,.2);border-radius:28px;padding:56px;text-align:center}
+.p-cta-box h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(26px,3.4vw,38px);color:var(--forest);margin-bottom:14px}
+.p-cta-box p{font-size:17px;color:var(--muted);margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
+
+/* Cross-link */
+.crosslink{background:var(--cream);padding:48px 40px;text-align:center}
+.crosslink p{font-size:15px;color:var(--muted);margin-bottom:12px}
+.crosslink a{color:var(--teal);font-weight:700;text-decoration:none}
+
+@media(max-width:960px){
+  .p-hero-inner{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .showrow{grid-template-columns:1fr}
+  .showrow .mockup-frame{order:-1}
+  .why-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .p-hero{padding:120px 24px 56px}
+  .feat-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .p-cta-box{padding:36px 24px}
+}
 CSS;
 include '../includes/header.php';
 ?>
@@ -64,106 +82,123 @@ include '../includes/header.php';
 <div id="scrollProgress"></div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-inner">
-    <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <span>CareOS</span></div>
-    <h1 class="hero-h1">The AI Brain<br>for <em>Your Home Care Agency</em></h1>
-    <p class="hero-desc">One platform for scheduling, billing, compliance, and family communication — built specifically for home care, not adapted from generic practice-management software.</p>
+<section class="p-hero">
+  <div class="p-hero-grid"></div>
+  <div class="p-hero-inner">
+    <div data-reveal>
+      <div class="p-hero-breadcrumb"><a href="/">Home</a> / <a href="/products/">Products</a> / <span style="color:var(--teal)">CareOS</span></div>
+      <div class="p-hero-badge"><i class="fa-solid fa-circle-check" style="margin-right:4px"></i>Now Available</div>
+      <h1>The AI Brain for<br><em>Your Home Care Agency</em></h1>
+      <p class="p-hero-desc">One platform for scheduling, billing, compliance, and family communication — built specifically for home care, not adapted from generic practice-management software.</p>
+      <div class="p-hero-actions">
+        <button class="btn-primary" onclick="openPopup('careos')"><i class="fa-solid fa-calendar-check"></i>Book a Demo</button>
+        <a href="#features" class="btn-secondary" style="color:var(--forest);border-color:var(--border);background:#fff"><i class="fa-solid fa-arrow-down"></i>See What's Inside</a>
+      </div>
+    </div>
+    <div data-reveal style="transition-delay:.1s">
+      <div class="mockup-frame">
+        <div class="mockup-bar"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+        <div class="mockup-body"><i class="fa-solid fa-image"></i><span>CareOS Dashboard — Screenshot Coming Soon</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- CAREOS -->
-<section class="careos" id="careos">
-  <div class="careos-stars"></div>
-  <div class="careos-glow"></div>
-  <div class="careos-grid-lines"></div>
-  <div class="container careos-inner">
+<!-- FEATURE GRID -->
+<section class="feat-section" id="features">
+  <div class="container">
     <div style="text-align:center" data-reveal>
-      <div class="careos-top-badge">
-        <div class="careos-top-badge-dot"></div>Coming Q3 2026 — Join the Waitlist Now
-      </div>
-      <h2 class="careos-headline">Meet <em>CareOS</em>:<br>The AI Brain for Your Agency</h2>
-      <p class="careos-subhead">It's the first AI-powered management platform built just for homecare agencies. Scheduling, billing, voice AI, family portals, growth tools. One login, not six.</p>
-      <p class="careos-tagline"><i class="fa-solid fa-circle-dot" style="margin-right:8px;color:var(--teal-lt)"></i>Early access members save 40% for life</p>
+      <p class="section-label" style="justify-content:center">What's Inside</p>
+      <h2 class="section-h2">Everything Your Agency<br>Runs On, <em>In One Login</em></h2>
     </div>
-    <div class="careos-modules-grid" data-reveal style="transition-delay:.1s">
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-calendar-days"></i></div>
-        <div class="careos-module-name">Smart Scheduling</div>
-        <div class="careos-module-desc">AI matches shifts to the right caregiver, flags conflicts before they happen, and remembers everyone's preferences so double bookings stop being a thing.</div><span class="module-badge badge-core">Core</span>
+    <div class="feat-grid" data-reveal style="transition-delay:.1s">
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-calendar-days"></i></div>
+        <h3>Smart Scheduling</h3>
+        <p>Matches shifts to the right caregiver, flags conflicts before they happen, and remembers everyone's preferences.</p>
       </div>
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-microphone"></i></div>
-        <div class="careos-module-name">Voice Shift Journal</div>
-        <div class="careos-module-desc">A caregiver talks for 60 seconds and the AI turns it into compliance logs, a family update, and incident flags in under 8 seconds flat.</div><span class="module-badge badge-ai">AI Feature</span>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-microphone"></i></div>
+        <h3>Voice Shift Journal</h3>
+        <p>A caregiver talks for 60 seconds and it becomes a compliance log, a family update, and incident flags automatically.</p>
       </div>
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-heart"></i></div>
-        <div class="careos-module-name">Family Trust Portal</div>
-        <div class="careos-module-desc">Families see shift updates as they happen, plus AI care summaries and mood timelines. It's the kind of transparency that keeps them from shopping around.</div><span class="module-badge badge-new">Unique</span>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-heart"></i></div>
+        <h3>Family Trust Portal</h3>
+        <p>Families see shift updates as they happen, plus care summaries — the transparency that keeps them from shopping around.</p>
       </div>
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-        <div class="careos-module-name">Billing &amp; Payroll</div>
-        <div class="careos-module-desc">Handles private pay, Medicaid, and long-term care billing in one system. Invoices go out automatically, ERA reconciliation runs itself, and it connects straight to Stripe.</div><span class="module-badge badge-core">Core</span>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+        <h3>Billing &amp; Payroll</h3>
+        <p>Private pay, Medicaid, and long-term care billing in one system, with invoices and reconciliation running automatically.</p>
       </div>
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-star"></i></div>
-        <div class="careos-module-name">Auto Review Engine</div>
-        <div class="careos-module-desc">Sends review requests the moment satisfaction is running high, and catches negative feedback before it ever hits Google.</div><span class="module-badge badge-ai">AI Feature</span>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-map-pin"></i></div>
+        <h3>EVV &amp; Compliance</h3>
+        <p>GPS check-in/out and a mandate tracker across all 50 states, so you're never caught off guard by a missed visit.</p>
       </div>
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-brain"></i></div>
-        <div class="careos-module-name">Predictive Intelligence</div>
-        <div class="careos-module-desc">Flags which clients are at risk of leaving, warns you before a caregiver quits, and forecasts revenue 90 days out.</div><span class="module-badge badge-ai">AI Feature</span>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-brain"></i></div>
+        <h3>Predictive Intelligence</h3>
+        <p>Flags which clients are at risk of leaving, warns you before a caregiver quits, and forecasts revenue ahead of time.</p>
       </div>
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-map-pin"></i></div>
-        <div class="careos-module-name">EVV &amp; Compliance</div>
-        <div class="careos-module-desc">GPS check-in and check-out, HHAeXchange sync, and a mandate tracker that covers all 50 states so you're never caught off guard by a missed visit.</div><span class="module-badge badge-core">Core</span>
-      </div>
-      <div class="careos-module">
-        <div class="careos-module-icon"><i class="fa-solid fa-people-group"></i></div>
-        <div class="careos-module-name">Caregiver Wellness</div>
-        <div class="careos-module-desc">Picks up on burnout from voice tone and shift patterns before a caregiver walks out, saving you the $4,500–$8,000 it typically costs to replace one.</div><span class="module-badge badge-new">Industry First</span>
-      </div>
-    </div>
-    <div class="careos-cta-box" data-reveal style="transition-delay:.2s">
-      <h3 class="careos-cta-title">Be First. Save 40% for Life.</h3>
-      <p class="careos-cta-desc">Get on the CareOS waitlist now and you'll never pay full price. The 40% lifetime discount locks in the day you sign up.</p>
-      <div class="careos-cta-perks">
-        <div class="careos-cta-perk"><i class="fa-solid fa-check-circle"></i>40% lifetime discount</div>
-        <div class="careos-cta-perk"><i class="fa-solid fa-check-circle"></i>Free onboarding &amp; migration</div>
-        <div class="careos-cta-perk"><i class="fa-solid fa-check-circle"></i>Priority feature access</div>
-        <div class="careos-cta-perk"><i class="fa-solid fa-check-circle"></i>Founding member badge</div>
-      </div>
-      <button class="btn-primary" style="font-size:15px;padding:16px 40px;display:inline-flex;position:relative;z-index:2;" onclick="openPopup('waitlist')">
-        <i class="fa-solid fa-rocket"></i>Join the CareOS Waitlist
-      </button>
-      <p style="margin-top:16px;font-size:12px;color:rgba(255,255,255,.35);font-family:'Plus Jakarta Sans',sans-serif;position:relative;z-index:2;">
-        <i class="fa-solid fa-users" style="margin-right:5px;color:var(--teal)"></i>Homecare agencies are already joining the waitlist &mdash; get in before general availability</p>
     </div>
   </div>
 </section>
 
-<!-- WHY CAREOS -->
-<section class="why-careos">
+<!-- FEATURE SHOWCASE -->
+<section class="showrow-section">
+  <div class="container">
+    <div class="showrow" data-reveal>
+      <div>
+        <div class="showrow-eyebrow">Voice Shift Journal</div>
+        <h2>Caregivers Talk. <em style="color:var(--teal);font-style:italic">CareOS Handles the Rest.</em></h2>
+        <ul class="showrow-list">
+          <li><i class="fa-solid fa-circle-check"></i>60-second voice note becomes a structured compliance log</li>
+          <li><i class="fa-solid fa-circle-check"></i>Automatically drafts a family-friendly update from the same note</li>
+          <li><i class="fa-solid fa-circle-check"></i>Flags incidents or concerns for office review in real time</li>
+        </ul>
+      </div>
+      <div class="mockup-frame">
+        <div class="mockup-bar"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+        <div class="mockup-body"><i class="fa-solid fa-microphone"></i><span>Voice Journal — Screenshot Coming Soon</span></div>
+      </div>
+    </div>
+    <div class="showrow" data-reveal>
+      <div>
+        <div class="showrow-eyebrow">Family Trust Portal</div>
+        <h2>Give Families a <em style="color:var(--teal);font-style:italic">Reason to Stay.</em></h2>
+        <ul class="showrow-list">
+          <li><i class="fa-solid fa-circle-check"></i>Real-time shift updates families can check anytime</li>
+          <li><i class="fa-solid fa-circle-check"></i>Care summaries that build confidence in your agency</li>
+          <li><i class="fa-solid fa-circle-check"></i>Fewer "how's mom doing?" phone calls tying up your office</li>
+        </ul>
+      </div>
+      <div class="mockup-frame">
+        <div class="mockup-bar"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+        <div class="mockup-body"><i class="fa-solid fa-heart"></i><span>Family Portal — Screenshot Coming Soon</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-section">
   <div class="container">
     <div style="text-align:center" data-reveal>
       <p class="section-label" style="justify-content:center">Why It's Different</p>
       <h2 class="section-h2">Built for Home Care.<br>Not <em>Retrofitted for It.</em></h2>
     </div>
-    <div class="why-careos-grid" data-reveal style="transition-delay:.1s">
+    <div class="why-grid" data-reveal style="transition-delay:.1s">
       <div class="wc-card">
         <div class="wc-card-icon"><i class="fa-solid fa-layer-group"></i></div>
         <h4>One Login, Not Six</h4>
-        <p>Scheduling, billing, EVV, reviews, and family communication live in one system instead of five disconnected tools that don't talk to each other.</p>
+        <p>Scheduling, billing, EVV, reviews, and family communication live in one system instead of five disconnected tools.</p>
       </div>
       <div class="wc-card">
         <div class="wc-card-icon"><i class="fa-solid fa-robot"></i></div>
         <h4>AI That Does Real Work</h4>
-        <p>Voice journaling, predictive churn flags, and automated review requests aren't gimmicks bolted onto old software — they're built into the core workflow.</p>
+        <p>Voice journaling and predictive flags aren't gimmicks bolted onto old software — they're built into the core workflow.</p>
       </div>
       <div class="wc-card">
         <div class="wc-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
@@ -173,5 +208,20 @@ include '../includes/header.php';
     </div>
   </div>
 </section>
+
+<!-- CTA -->
+<section class="p-cta-section">
+  <div class="p-cta-box" data-reveal>
+    <h2>See CareOS on Your Own Agency's Data</h2>
+    <p>Book a free walkthrough and we'll show you exactly how CareOS fits your current workflow.</p>
+    <button class="btn-primary" onclick="openPopup('careos')"><i class="fa-solid fa-calendar-check"></i>Book a Demo</button>
+  </div>
+</section>
+
+<!-- CROSS-LINK -->
+<div class="crosslink">
+  <p>CareOS is part of our product family for home care agencies.</p>
+  <a href="/products/">See all products &rarr;</a>
+</div>
 
 <?php include '../includes/footer.php'; ?>

@@ -1,48 +1,49 @@
 <?php
 $page_title = "Care Scheduling — Shift Scheduling Built for Home Care | Homecare Creators";
-$page_desc = "Care Scheduling is a shift scheduling system built for home care agencies — caregiver-to-client matching, conflict alerts, mobile clock-in/out, and family visibility. Coming soon.";
+$page_desc = "Care Scheduling is a shift scheduling system built for home care agencies — caregiver-to-client matching, conflict alerts, mobile clock-in/out, and family visibility.";
 $page_canonical = "https://homecarecreators.com/products/care-scheduling/";
 $og_title = "Care Scheduling — Shift Scheduling Built for Home Care";
-$og_desc = "Caregiver-to-client matching, conflict alerts, and mobile clock-in/out, built specifically for home care agencies. Join the waitlist.";
+$og_desc = "Caregiver-to-client matching, conflict alerts, and mobile clock-in/out, built specifically for home care agencies.";
 $page_css = <<<CSS
-/* HERO */
-.hero{min-height:40vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:140px 40px 60px}
-.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 30% 50%,black 20%,transparent 80%)}
-.hero-inner{position:relative;z-index:2;max-width:760px;margin:0 auto;text-align:center}
-.hero-breadcrumb{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,.4);margin-bottom:20px}
-.hero-breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(30px,4.4vw,50px);line-height:1.1;color:#fff;margin-bottom:16px}
-.hero-h1 em{font-style:italic;color:var(--teal-lt)}
-.hero-desc{font-size:18px;line-height:1.75;color:rgba(255,255,255,.65)}
+/* HERO — light, modern */
+.p-hero{background:linear-gradient(180deg,#fff 0%,var(--cream) 100%);position:relative;overflow:hidden;padding:150px 40px 80px}
+.p-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.05) 1px,transparent 1px);background-size:50px 50px;mask-image:radial-gradient(ellipse 70% 70% at 30% 20%,black 0%,transparent 75%)}
+.p-hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;max-width:1180px;margin:0 auto}
+.p-hero-breadcrumb{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:var(--muted);margin-bottom:20px}
+.p-hero-breadcrumb a{color:var(--muted);text-decoration:none}
+.p-hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(29,158,117,.1);border:1px solid rgba(29,158,117,.25);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--teal);letter-spacing:.8px;text-transform:uppercase;margin-bottom:20px}
+.p-hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,4.4vw,52px);line-height:1.1;color:var(--forest);margin-bottom:18px}
+.p-hero h1 em{font-style:italic;color:var(--teal)}
+.p-hero-desc{font-size:18px;line-height:1.75;color:var(--muted);margin-bottom:32px}
+.p-hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 
-/* FEATURE SHOWCASE (same recipe as /careos/) */
-.showcase{background:#020d06;position:relative;overflow:hidden;padding:96px 40px}
-.showcase-stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.4) 0%,transparent 100%),radial-gradient(1px 1px at 30% 60%,rgba(255,255,255,.3) 0%,transparent 100%),radial-gradient(1px 1px at 60% 15%,rgba(255,255,255,.5) 0%,transparent 100%),radial-gradient(2px 2px at 20% 45%,rgba(46,198,143,.6) 0%,transparent 100%),radial-gradient(2px 2px at 70% 30%,rgba(46,198,143,.5) 0%,transparent 100%)}
-.showcase-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(29,158,117,.12) 0%,transparent 70%)}
-.showcase-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.06) 1px,transparent 1px);background-size:48px 48px}
-.showcase-inner{position:relative;z-index:2}
-.showcase-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.35);padding:10px 22px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:var(--gold-lt);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:32px;animation:shimmer 3s ease-in-out infinite}
-.showcase-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--gold-lt);animation:pulse-ring 2s infinite}
-.showcase-headline{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,4.4vw,54px);line-height:1.08;color:#fff;margin-bottom:16px;text-align:center}
-.showcase-headline em{font-style:italic;color:var(--teal-lt)}
-.showcase-subhead{font-size:18px;line-height:1.75;color:rgba(255,255,255,.65);max-width:640px;margin:0 auto 56px;text-align:center}
-.module-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:64px}
-.module{background:rgba(255,255,255,.03);border:1px solid rgba(29,158,117,.15);border-radius:var(--r);padding:24px;position:relative;overflow:hidden;transition:.3s}
-.module::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--teal-lt));opacity:0;transition:.3s}
-.module:hover{border-color:rgba(29,158,117,.35);background:rgba(255,255,255,.06);transform:translateY(-4px)}
-.module:hover::before{opacity:1}
-.module-icon{width:46px;height:46px;border-radius:13px;background:rgba(29,158,117,.12);display:flex;align-items:center;justify-content:center;color:var(--teal-lt);font-size:20px;margin-bottom:16px}
-.module-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:8px}
-.module-desc{font-size:15px;line-height:1.65;color:rgba(255,255,255,.6)}
-.module-badge{display:inline-block;margin-top:12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 9px;border-radius:5px}
-.badge-ai{background:rgba(29,158,117,.2);color:var(--mint)}
-.badge-new{background:rgba(201,168,76,.2);color:var(--gold-lt)}
-.badge-core{background:rgba(255,255,255,.08);color:rgba(255,255,255,.5)}
-.showcase-cta-box{background:rgba(29,158,117,.08);border:1px solid rgba(29,158,117,.25);border-radius:24px;padding:48px;text-align:center;position:relative;overflow:hidden}
-.showcase-cta-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;color:#fff;margin-bottom:12px;position:relative;z-index:1}
-.showcase-cta-desc{font-size:18px;color:rgba(255,255,255,.6);margin-bottom:28px;position:relative;z-index:1;max-width:560px;margin-left:auto;margin-right:auto}
+/* Mockup placeholder — swap for real screenshots later */
+.mockup-frame{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 30px 80px rgba(10,46,30,.1);overflow:hidden}
+.mockup-bar{background:var(--cream);padding:12px 16px;display:flex;gap:6px;border-bottom:1px solid var(--border)}
+.mockup-dot{width:10px;height:10px;border-radius:50%;background:var(--border)}
+.mockup-body{aspect-ratio:4/3;background:linear-gradient(135deg,var(--cream) 0%,var(--warm) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);text-align:center;padding:20px}
+.mockup-body i{font-size:40px;opacity:.25}
+.mockup-body span{font-size:12.5px;font-weight:700;opacity:.5;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.5px;text-transform:uppercase}
 
-/* WHY SECTION */
+/* Feature grid */
+.feat-section{background:var(--cream)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.feat-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:28px}
+.feat-card-icon{width:46px;height:46px;background:rgba(29,158,117,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:19px;margin-bottom:18px}
+.feat-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;color:var(--forest);margin-bottom:10px}
+.feat-card p{font-size:14.5px;color:var(--muted);line-height:1.7}
+
+/* Feature showcase (zigzag) */
+.showrow-section{background:#fff}
+.showrow{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.showrow + .showrow{margin-top:80px}
+.showrow-eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.showrow h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(24px,3vw,34px);color:var(--forest);margin-bottom:16px;line-height:1.2}
+.showrow-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.showrow-list li{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--muted);line-height:1.6}
+.showrow-list li i{color:var(--teal);margin-top:4px;flex-shrink:0}
+
+/* Why cards */
 .why-section{background:var(--cream)}
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
 .wc-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:28px}
@@ -50,13 +51,30 @@ $page_css = <<<CSS
 .wc-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--forest);margin-bottom:10px}
 .wc-card p{font-size:15px;color:var(--muted);line-height:1.75}
 
-/* CROSS-LINK */
-.crosslink{background:#fff;padding:56px 40px;text-align:center;border-top:1px solid var(--border)}
-.crosslink p{font-size:15px;color:var(--muted);margin-bottom:16px}
+/* CTA (light) */
+.p-cta-section{background:#fff;padding:0 40px 96px}
+.p-cta-box{max-width:900px;margin:0 auto;background:linear-gradient(135deg,rgba(29,158,117,.06),rgba(201,168,76,.06));border:1px solid rgba(29,158,117,.2);border-radius:28px;padding:56px;text-align:center}
+.p-cta-box h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(26px,3.4vw,38px);color:var(--forest);margin-bottom:14px}
+.p-cta-box p{font-size:17px;color:var(--muted);margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
+
+/* Cross-link */
+.crosslink{background:var(--cream);padding:48px 40px;text-align:center}
+.crosslink p{font-size:15px;color:var(--muted);margin-bottom:12px}
 .crosslink a{color:var(--teal);font-weight:700;text-decoration:none}
 
-@media(max-width:900px){.why-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.hero{padding:120px 24px 50px}.why-grid{grid-template-columns:1fr}}
+@media(max-width:960px){
+  .p-hero-inner{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .showrow{grid-template-columns:1fr}
+  .showrow .mockup-frame{order:-1}
+  .why-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .p-hero{padding:120px 24px 56px}
+  .feat-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .p-cta-box{padding:36px 24px}
+}
 CSS;
 include '../../includes/header.php';
 ?>
@@ -64,64 +82,102 @@ include '../../includes/header.php';
 <div id="scrollProgress"></div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-inner">
-    <div class="hero-breadcrumb"><a href="/">Home</a> / <a href="/products/">Products</a> / <span style="color:var(--teal-lt)">Care Scheduling</span></div>
-    <h1 class="hero-h1">Scheduling Built for<br><em>Home Care Shifts</em></h1>
-    <p class="hero-desc">Care Scheduling matches caregivers to clients, flags conflicts before they happen, and gives families visibility into who's coming and when — built for home care, not adapted from a generic calendar app.</p>
+<section class="p-hero">
+  <div class="p-hero-grid"></div>
+  <div class="p-hero-inner">
+    <div data-reveal>
+      <div class="p-hero-breadcrumb"><a href="/">Home</a> / <a href="/products/">Products</a> / <span style="color:var(--teal)">Care Scheduling</span></div>
+      <div class="p-hero-badge"><i class="fa-solid fa-circle-check" style="margin-right:4px"></i>Now Available</div>
+      <h1>Scheduling Built for<br><em>Home Care Shifts</em></h1>
+      <p class="p-hero-desc">Care Scheduling matches caregivers to clients, flags conflicts before they happen, and gives families visibility into who's coming and when — built for home care, not adapted from a generic calendar app.</p>
+      <div class="p-hero-actions">
+        <button class="btn-primary" onclick="openPopup('care-scheduling')"><i class="fa-solid fa-calendar-check"></i>Book a Demo</button>
+        <a href="#features" class="btn-secondary" style="color:var(--forest);border-color:var(--border);background:#fff"><i class="fa-solid fa-arrow-down"></i>See What's Inside</a>
+      </div>
+    </div>
+    <div data-reveal style="transition-delay:.1s">
+      <div class="mockup-frame">
+        <div class="mockup-bar"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+        <div class="mockup-body"><i class="fa-solid fa-image"></i><span>Care Scheduling Calendar — Screenshot Coming Soon</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE GRID -->
+<section class="feat-section" id="features">
+  <div class="container">
+    <div style="text-align:center" data-reveal>
+      <p class="section-label" style="justify-content:center">What's Inside</p>
+      <h2 class="section-h2">Every Shift, <em>Covered</em><br>— Without the Chaos</h2>
+    </div>
+    <div class="feat-grid" data-reveal style="transition-delay:.1s">
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-people-arrows"></i></div>
+        <h3>Caregiver-Client Matching</h3>
+        <p>Matches shifts to caregivers based on skills, location, and client preference instead of whoever happens to be free.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <h3>Conflict &amp; Double-Booking Alerts</h3>
+        <p>Flags scheduling conflicts the moment they're created, before a caregiver shows up to find someone else already there.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+        <h3>Mobile Clock In/Out</h3>
+        <p>Caregivers clock in and out from their phone at every visit, so you always know a shift actually happened.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+        <h3>Shift Swap Requests</h3>
+        <p>Caregivers can request a swap or cover from their phone, and you approve it in one tap.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-heart"></i></div>
+        <h3>Family Schedule Visibility</h3>
+        <p>Families can see who's scheduled to visit and when, cutting down on "is someone coming today?" calls.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Predictive Coverage Gaps</h3>
+        <p>Spots upcoming shifts that don't have a caregiver assigned yet, so you can fill them days ahead.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FEATURE SHOWCASE -->
-<section class="showcase">
-  <div class="showcase-stars"></div>
-  <div class="showcase-glow"></div>
-  <div class="showcase-grid-lines"></div>
-  <div class="container showcase-inner">
-    <div style="text-align:center" data-reveal>
-      <div class="showcase-badge"><div class="showcase-badge-dot"></div>Coming Soon — Join the Waitlist Now</div>
-      <h2 class="showcase-headline">Meet <em>Care Scheduling</em>:<br>Shift Scheduling for Home Care</h2>
-      <p class="showcase-subhead">Double bookings, missed shifts, and scheduling by spreadsheet cost agencies time and trust. Care Scheduling is built around how home care shifts actually work.</p>
-    </div>
-    <div class="module-grid" data-reveal style="transition-delay:.1s">
-      <div class="module">
-        <div class="module-icon"><i class="fa-solid fa-people-arrows"></i></div>
-        <div class="module-name">Caregiver-Client Matching</div>
-        <div class="module-desc">Matches shifts to caregivers based on skills, location, and client preference instead of whoever happens to be free.</div><span class="module-badge badge-core">Core</span>
+<section class="showrow-section">
+  <div class="container">
+    <div class="showrow" data-reveal>
+      <div>
+        <div class="showrow-eyebrow">Caregiver-Client Matching</div>
+        <h2>Matching, <em style="color:var(--teal);font-style:italic">Not Just Booking.</em></h2>
+        <ul class="showrow-list">
+          <li><i class="fa-solid fa-circle-check"></i>Matches on skills, location, and client preference — not just availability</li>
+          <li><i class="fa-solid fa-circle-check"></i>Keeps continuity of care intact across repeat visits</li>
+          <li><i class="fa-solid fa-circle-check"></i>Conflict alerts catch problems before they reach a client's door</li>
+        </ul>
       </div>
-      <div class="module">
-        <div class="module-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-        <div class="module-name">Conflict &amp; Double-Booking Alerts</div>
-        <div class="module-desc">Flags scheduling conflicts the moment they're created, before a caregiver shows up to find someone else already there.</div><span class="module-badge badge-core">Core</span>
-      </div>
-      <div class="module">
-        <div class="module-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-        <div class="module-name">Mobile Clock In/Out</div>
-        <div class="module-desc">Caregivers clock in and out from their phone at the start and end of every visit, so you always know a shift actually happened.</div><span class="module-badge badge-core">Core</span>
-      </div>
-      <div class="module">
-        <div class="module-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
-        <div class="module-name">Shift Swap Requests</div>
-        <div class="module-desc">Caregivers can request a swap or cover from their phone, and you approve it in one tap instead of a chain of phone calls.</div><span class="module-badge badge-core">Core</span>
-      </div>
-      <div class="module">
-        <div class="module-icon"><i class="fa-solid fa-heart"></i></div>
-        <div class="module-name">Family Schedule Visibility</div>
-        <div class="module-desc">Families can see who's scheduled to visit and when, cutting down on "is someone coming today?" phone calls to the office.</div><span class="module-badge badge-new">Unique</span>
-      </div>
-      <div class="module">
-        <div class="module-icon"><i class="fa-solid fa-chart-line"></i></div>
-        <div class="module-name">Predictive Coverage Gaps</div>
-        <div class="module-desc">Spots upcoming shifts that don't have a caregiver assigned yet, so you can fill them days ahead instead of scrambling same-day.</div><span class="module-badge badge-ai">AI Feature</span>
+      <div class="mockup-frame">
+        <div class="mockup-bar"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+        <div class="mockup-body"><i class="fa-solid fa-people-arrows"></i><span>Matching View — Screenshot Coming Soon</span></div>
       </div>
     </div>
-    <div class="showcase-cta-box" data-reveal style="transition-delay:.2s">
-      <h3 class="showcase-cta-title">Be First to Try Care Scheduling</h3>
-      <p class="showcase-cta-desc">Join the waitlist and we'll reach out as soon as early access opens for home care agencies.</p>
-      <button class="btn-primary" style="font-size:15px;padding:16px 40px;display:inline-flex;position:relative;z-index:2" onclick="openPopup('waitlist')">
-        <i class="fa-solid fa-rocket"></i>Join the Care Scheduling Waitlist
-      </button>
+    <div class="showrow" data-reveal>
+      <div>
+        <div class="showrow-eyebrow">Mobile Clock In/Out</div>
+        <h2>Caregivers Can <em style="color:var(--teal);font-style:italic">Self-Serve.</em></h2>
+        <ul class="showrow-list">
+          <li><i class="fa-solid fa-circle-check"></i>Clock in and out from their own phone at every visit</li>
+          <li><i class="fa-solid fa-circle-check"></i>Request shift swaps without a chain of phone calls to the office</li>
+          <li><i class="fa-solid fa-circle-check"></i>Fewer routine schedule questions landing on your front desk</li>
+        </ul>
+      </div>
+      <div class="mockup-frame">
+        <div class="mockup-bar"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+        <div class="mockup-body"><i class="fa-solid fa-mobile-screen"></i><span>Mobile App — Screenshot Coming Soon</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -142,21 +198,30 @@ include '../../includes/header.php';
       <div class="wc-card">
         <div class="wc-card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
         <h4>Caregivers Can Self-Serve</h4>
-        <p>Clock-ins and shift swaps happen from a caregiver's own phone, cutting down on calls to the office for routine schedule changes.</p>
+        <p>Clock-ins and shift swaps happen from a caregiver's own phone, cutting down on calls to the office.</p>
       </div>
       <div class="wc-card">
         <div class="wc-card-icon"><i class="fa-solid fa-heart"></i></div>
         <h4>Families See What's Coming</h4>
-        <p>Schedule visibility for families builds trust and cuts down on the "who's coming today?" calls your office handles every day.</p>
+        <p>Schedule visibility for families builds trust and cuts down on the "who's coming today?" calls.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CTA -->
+<section class="p-cta-section">
+  <div class="p-cta-box" data-reveal>
+    <h2>See Care Scheduling on Your Own Shifts</h2>
+    <p>Book a free walkthrough and we'll show you exactly how Care Scheduling fits your agency's workflow.</p>
+    <button class="btn-primary" onclick="openPopup('care-scheduling')"><i class="fa-solid fa-calendar-check"></i>Book a Demo</button>
+  </div>
+</section>
+
 <!-- CROSS-LINK -->
 <div class="crosslink">
-  <p>Care Scheduling is part of the CareOS family of tools built for home care agencies.</p>
-  <a href="/careos/">See the full CareOS platform &rarr;</a>
+  <p>Care Scheduling is part of our product family for home care agencies.</p>
+  <a href="/products/">See all products &rarr;</a>
 </div>
 
 <?php include '../../includes/footer.php'; ?>
