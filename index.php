@@ -24,9 +24,12 @@ $page_css = <<<CSS
 .hero-desc{font-size:17px;line-height:1.7;color:rgba(255,255,255,.62);max-width:460px;margin:20px 0 32px;animation:fadeUp .8s .3s ease both}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .4s ease both}
 .hero-actions .btn-primary{border-radius:100px;padding:16px 32px}
-.hero-right{position:relative;min-height:560px;overflow:hidden}
-.hero-right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
-.hero-right::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--forest) 0%,rgba(10,46,30,0) 12%);pointer-events:none}
+.hero-right{position:relative;min-height:560px}
+.hero-cutout{position:absolute;bottom:0;display:block;filter:drop-shadow(0 20px 40px rgba(0,0,0,.35))}
+.hero-cutout img{width:100%;height:auto;display:block}
+.hero-cutout.cutout-left{left:-14%;width:65%;z-index:2}
+.hero-cutout.cutout-center{left:50%;transform:translateX(-50%);width:85%;z-index:3}
+.hero-cutout.cutout-right{right:-16%;width:65%;z-index:1}
 
 /* ── WHY US ── */
 .why{background:#fff}
@@ -271,7 +274,15 @@ try {
       </div>
     </div>
     <div class="hero-right">
-      <img src="/images/home/hero-team-homecare-creators.jpg" alt="The Homecare Creators marketing team, a digital marketing agency built exclusively for home care agencies" title="Meet the Homecare Creators team">
+      <div class="hero-cutout cutout-left">
+        <img src="/images/team/hero-cutout-1.png" alt="Homecare Creators team member" loading="lazy">
+      </div>
+      <div class="hero-cutout cutout-center">
+        <img src="/images/team/hero-cutout-2.png" alt="Homecare Creators team member" loading="lazy">
+      </div>
+      <div class="hero-cutout cutout-right">
+        <img src="/images/team/hero-cutout-3.png" alt="Homecare Creators team member" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
