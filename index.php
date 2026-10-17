@@ -9,29 +9,24 @@ $page_css = <<<CSS
 /* ── HERO ── */
 .hero{background:var(--forest);position:relative;overflow:hidden;padding:0}
 .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.06) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
-.hero-grid{position:relative;z-index:2;max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}
+.hero-grid{position:relative;z-index:2;max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;min-height:680px}
 .hero-left{padding:150px 24px 72px 56px;display:flex;flex-direction:column;justify-content:center}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:24px;width:fit-content;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(26px,2.6vw,40px);line-height:1.18;margin:0;animation:fadeUp .8s .1s ease both;white-space:nowrap}
+.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(30px,3.2vw,46px);line-height:1.1;margin:0;animation:fadeUp .8s .1s ease both;white-space:nowrap}
 .hero-h1-line1{display:block;color:#fff}
-.hero-rotator{display:block;position:relative;width:100%;height:1.25em;margin-top:14px;overflow:hidden}
+.hero-rotator{display:block;position:relative;width:100%;height:1.2em;margin-top:12px;overflow:hidden}
 .hero-rotator-word{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;color:var(--teal-lt);opacity:0;transform:translateY(45%);transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .4s ease}
 .hero-rotator-word.is-active{opacity:1;transform:translateY(0)}
 .hero-rotator-word.is-leaving{opacity:0;transform:translateY(-45%)}
 .hero-swoosh{display:block;margin:10px 0 0}
 .hero-swoosh path{stroke:var(--gold-lt)}
-.hero-desc{font-size:17px;line-height:1.75;color:rgba(255,255,255,.62);max-width:480px;margin:22px 0 32px;animation:fadeUp .8s .3s ease both}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .4s ease both;margin-bottom:40px}
-.hero-actions .btn-primary,.hero-actions .btn-secondary{border-radius:100px;padding:16px 32px}
-.hero-proof{display:flex;gap:28px;flex-wrap:wrap;animation:fadeUp .8s .55s ease both}
-.hero-proof-item{display:flex;flex-direction:column;gap:2px}
-.hero-proof-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;color:var(--teal-lt);line-height:1}
-.hero-proof-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.42)}
-.hero-proof-divider{width:1px;background:rgba(255,255,255,.1);align-self:stretch}
-.hero-right{position:relative;min-height:560px}
-.hero-right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.hero-right::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--forest) 0%,rgba(10,46,30,0) 20%);pointer-events:none}
+.hero-desc{font-size:17px;line-height:1.7;color:rgba(255,255,255,.62);max-width:460px;margin:20px 0 32px;animation:fadeUp .8s .3s ease both}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .4s ease both}
+.hero-actions .btn-primary{border-radius:100px;padding:16px 32px}
+.hero-right{position:relative;min-height:560px;overflow:hidden}
+.hero-right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;transform:scale(1.15);display:block}
+.hero-right::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--forest) 0%,rgba(10,46,30,0) 8%);pointer-events:none}
 
 /* ── WHY US ── */
 .why{background:#fff}
@@ -132,7 +127,7 @@ $page_css = <<<CSS
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .hero-grid{grid-template-columns:1fr}
+  .hero-grid{grid-template-columns:1fr;min-height:0}
   .hero-right{display:none}
   .hero-left{padding:140px 32px 64px}
   .hero-h1{font-size:clamp(28px,6vw,44px)}
@@ -144,7 +139,6 @@ $page_css = <<<CSS
   .hero-left{padding:110px 24px 48px}
   .hero-h1{font-size:clamp(24px,7.2vw,32px)}
   .hero-rotator{margin-top:10px}
-  .hero-proof{gap:20px}
   section{padding:72px 24px}
   .cta-card{padding:56px 24px;border-radius:28px}
   .cta-decor{width:110px;height:90px}
@@ -274,28 +268,6 @@ try {
       <div class="hero-actions">
         <button class="btn-primary" onclick="openPopup('audit')"><i class="fa-solid fa-rocket"></i>Book Free Growth
           Audit</button>
-        <a href="#services" class="btn-secondary"><i class="fa-solid fa-play"></i>See Our Services</a>
-      </div>
-      <div class="hero-proof">
-        <div class="hero-proof-item">
-          <div class="hero-proof-num">100%</div>
-          <div class="hero-proof-label">Homecare-Only Focus</div>
-        </div>
-        <div class="hero-proof-divider"></div>
-        <div class="hero-proof-item">
-          <div class="hero-proof-num">SEO</div>
-          <div class="hero-proof-label">+ AI Search Visibility</div>
-        </div>
-        <div class="hero-proof-divider"></div>
-        <div class="hero-proof-item">
-          <div class="hero-proof-num">30-Day</div>
-          <div class="hero-proof-label">Satisfaction Guarantee</div>
-        </div>
-        <div class="hero-proof-divider"></div>
-        <div class="hero-proof-item">
-          <div class="hero-proof-num">12h</div>
-          <div class="hero-proof-label">Saved/Week via AI</div>
-        </div>
       </div>
     </div>
     <div class="hero-right">
