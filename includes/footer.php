@@ -6,9 +6,9 @@
         <div class="footer-brand-row">
           <div class="footer-logo">
             <?php if (!empty($_hc_logo_url)): ?>
-            <img src="<?= htmlspecialchars($_hc_logo_url) ?>" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" style="height:36px;width:auto;display:block">
+            <img src="<?= htmlspecialchars($_hc_logo_url) ?>" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" style="height:36px;width:auto;display:block;border-radius:12px">
             <?php else: ?>
-            <img src="/images/home/homecarecreators-logo.png" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" style="height:36px;width:auto;display:block">
+            <img src="/images/home/homecarecreators-logo.png" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" style="height:36px;width:auto;display:block;border-radius:12px">
             <?php endif ?>
           </div>
           <div class="footer-socials">

@@ -419,9 +419,9 @@ try {
 <nav id="mainNav">
   <a href="/" class="nav-logo" aria-label="Homecare Creators Home">
     <?php if ($_hc_logo_url): ?>
-    <img src="<?= htmlspecialchars($_hc_logo_url) ?>" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" style="height:46px;width:auto;display:block">
+    <img src="<?= htmlspecialchars($_hc_logo_url) ?>" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" style="height:46px;width:auto;display:block;border-radius:12px">
     <?php else: ?>
-    <img src="/images/home/homecarecreators-logo.png" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" width="160" height="46" style="height:46px;width:auto;display:block">
+    <img src="/images/home/homecarecreators-logo.png" alt="Homecare Creators — Home Care Agency Marketing Company" title="Homecare Creators" width="160" height="46" style="height:46px;width:auto;display:block;border-radius:12px">
     <?php endif ?>
   </a>
   <ul class="nav-links">
