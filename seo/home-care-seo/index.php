@@ -28,14 +28,23 @@ $page_css = <<<CSS
 .hero-photo-badge-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:21px;color:var(--forest);line-height:1.1}
 .hero-photo-badge-label{font-size:11px;color:var(--muted);font-weight:600;font-family:'Plus Jakarta Sans',sans-serif}
 
-/* FEATURE LIST (What's Included) */
+/* WHAT'S INCLUDED */
 .feature-intro{max-width:720px;margin:0 auto 48px;text-align:center}
-.feature-list{display:flex;flex-direction:column;gap:4px;max-width:880px;margin:0 auto}
-.feature-row{display:flex;gap:22px;align-items:flex-start;padding:26px 8px;border-bottom:1px solid var(--border)}
-.feature-row:last-child{border-bottom:none}
-.feature-icon{width:50px;height:50px;border-radius:14px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.feature-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;color:var(--forest);margin-bottom:6px}
-.feature-desc{font-size:15.5px;line-height:1.75;color:var(--muted)}
+.included-grid-wrap{display:grid;grid-template-columns:360px 1fr;gap:56px;align-items:start}
+.included-photos{position:relative}
+.included-photo-main{border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 24px 70px rgba(10,46,30,.18)}
+.included-photo-main img{width:100%;height:100%;object-fit:cover;display:block}
+.included-photo-accent{position:absolute;width:62%;aspect-ratio:4/3;bottom:-28px;right:-24px;border-radius:16px;overflow:hidden;border:5px solid #fff;box-shadow:0 16px 48px rgba(10,46,30,.2)}
+.included-photo-accent img{width:100%;height:100%;object-fit:cover;display:block}
+.included-stat-badge{position:absolute;top:20px;left:-20px;background:var(--forest);border-radius:14px;padding:12px 18px;box-shadow:0 10px 30px rgba(0,0,0,.25);min-width:140px}
+.included-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:var(--teal-lt);line-height:1}
+.included-stat-label{font-size:10.5px;color:rgba(255,255,255,.6);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-top:3px}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.feature-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;transition:.25s}
+.feature-card:hover{border-color:rgba(29,158,117,.25);box-shadow:0 10px 32px rgba(10,46,30,.08)}
+.feature-icon{width:44px;height:44px;border-radius:12px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:14px}
+.feature-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15.5px;color:var(--forest);margin-bottom:8px}
+.feature-desc{font-size:14px;line-height:1.65;color:var(--muted)}
 
 /* TWO-COLUMN TEXT+IMAGE (shared by the process section) */
 .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
@@ -103,6 +112,8 @@ $page_css = <<<CSS
   .hero-photo-badge{left:16px}
   .why-grid{grid-template-columns:1fr;gap:48px}
   .why-img{max-width:420px;margin:0 auto}
+  .included-grid-wrap{grid-template-columns:1fr;gap:64px}
+  .included-photos{max-width:360px;margin:0 auto}
   .pricing-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
   .price-card.featured{transform:none}
   .cta-inner{grid-template-columns:1fr}
@@ -111,7 +122,7 @@ $page_css = <<<CSS
 @media(max-width:640px){
   section{padding:64px 20px}
   .hero-grid{padding:120px 24px 48px}
-  .feature-row{flex-direction:column;gap:14px}
+  .feature-grid{grid-template-columns:1fr}
   .timeline-item{gap:16px}
 }
 CSS;
@@ -211,61 +222,59 @@ echo '<script type="application/ld+json">' . json_encode([
       <h2 class="section-h2" style="text-align:center">What Our Home Care SEO Includes</h2>
       <p class="section-sub" style="margin:0 auto">Every plan covers the foundations of home care SEO. Higher plans add more keywords, pages, content, and depth.</p>
     </div>
-    <div class="feature-list" data-reveal style="transition-delay:.1s">
-      <div class="feature-row">
-        <div class="feature-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-        <div>
+    <div class="included-grid-wrap">
+      <div class="included-photos" data-reveal>
+        <div class="included-stat-badge">
+          <div class="included-stat-num">8+</div>
+          <div class="included-stat-label">SEO Deliverables Per Plan</div>
+        </div>
+        <div class="included-photo-main">
+          <img src="/images/team/team-presenting-results-screen.jpg" alt="Homecare Creators team presenting SEO results and rankings to a client" title="Presenting monthly SEO results">
+        </div>
+        <div class="included-photo-accent">
+          <img src="/images/team/team-coffee-break-laughing.jpg" alt="Homecare Creators team discussing a home care agency's SEO strategy" title="The Homecare Creators team">
+        </div>
+      </div>
+      <div class="feature-grid" data-reveal style="transition-delay:.1s">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
           <div class="feature-title">Keyword research and intent mapping</div>
           <div class="feature-desc">We identify the terms families use, from "home care near me" to "how much does home care cost," and map them to the right pages. Starter targets 5 keywords, Care Plus targets 10, and Care Advanced targets 15.</div>
         </div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-icon"><i class="fa-brands fa-google"></i></div>
-        <div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-brands fa-google"></i></div>
           <div class="feature-title">Google Maps and Business Profile management</div>
-          <div class="feature-desc">Your Google Business Profile is often the first thing a family sees. We manage your profile, keep your services and service areas accurate, and publish regular posts. Starter includes 2 posts per month, Care Plus includes 4, and Care Advanced includes 8.</div>
+          <div class="feature-desc">We manage your profile, keep services and service areas accurate, and publish regular posts. Starter includes 2 posts per month, Care Plus includes 4, and Care Advanced includes 8.</div>
         </div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-icon"><i class="fa-solid fa-file-lines"></i></div>
-        <div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-file-lines"></i></div>
           <div class="feature-title">On-page optimization</div>
-          <div class="feature-desc">We optimize titles, meta descriptions, headings, URLs, and internal links on the pages that matter most to your agency. Starter covers 2 pages, Care Plus covers 4, and Care Advanced covers 6.</div>
+          <div class="feature-desc">We optimize titles, meta descriptions, headings, URLs, and internal links on the pages that matter most. Starter covers 2 pages, Care Plus covers 4, and Care Advanced covers 6.</div>
         </div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-icon"><i class="fa-solid fa-gauge-high"></i></div>
-        <div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-gauge-high"></i></div>
           <div class="feature-title">Technical SEO</div>
-          <div class="feature-desc">We audit how search engines crawl and index your site, then fix redirects, canonical tags, sitemaps, and page speed issues. Higher plans add Core Web Vitals work and more frequent audits.</div>
+          <div class="feature-desc">We audit how search engines crawl and index your site, then fix redirects, canonical tags, sitemaps, and page speed issues. Higher plans add Core Web Vitals work.</div>
         </div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-icon"><i class="fa-solid fa-robot"></i></div>
-        <div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-robot"></i></div>
           <div class="feature-title">Schema and AI search readiness</div>
-          <div class="feature-desc">Structured data helps search engines and AI tools understand your agency. Every plan includes local schema. Care Plus adds FAQ schema, and Care Advanced adds review and service schema plus an llms.txt file.</div>
+          <div class="feature-desc">Every plan includes local schema. Care Plus adds FAQ schema, and Care Advanced adds review and service schema plus an llms.txt file.</div>
         </div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-icon"><i class="fa-solid fa-pen-nib"></i></div>
-        <div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-pen-nib"></i></div>
           <div class="feature-title">Content that answers family questions</div>
-          <div class="feature-desc">Blog posts target the questions families ask before they call. Starter includes 1 post per month, Care Plus includes 2, and Care Advanced includes 4, each written to 800–1,500 words depending on the plan.</div>
+          <div class="feature-desc">Starter includes 1 blog post per month, Care Plus includes 2, and Care Advanced includes 4, each written to 800–1,500 words depending on the plan.</div>
         </div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-icon"><i class="fa-solid fa-link"></i></div>
-        <div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-link"></i></div>
           <div class="feature-title">Backlinks and authority</div>
           <div class="feature-desc">We build links from relevant, authoritative sites and audit for harmful links. Starter includes 2 backlinks per month, Care Plus includes 4, and Care Advanced includes 6.</div>
         </div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
-        <div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
           <div class="feature-title">Tracking and reporting</div>
-          <div class="feature-desc">We set up Google Analytics 4 and Google Search Console from day one. Care Plus and Care Advanced also include Bing Search Console and Google Tag Manager. Your reports show rankings, calls, and website leads.</div>
+          <div class="feature-desc">We set up Google Analytics 4 and Search Console from day one. Care Plus and Care Advanced also include Bing Search Console and Google Tag Manager.</div>
         </div>
       </div>
     </div>
