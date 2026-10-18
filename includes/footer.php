@@ -293,17 +293,19 @@ document.addEventListener('keydown', function(e) {
 });
 
 // Nav dropdowns (Services mega menu, Resources menu) — click-toggle,
-// works alongside the CSS :hover reveal used on desktop pointer devices
-document.querySelectorAll('.nav-dropdown-trigger').forEach(function(trigger) {
-  trigger.addEventListener('click', function(e) {
+// works alongside the CSS :hover reveal used on desktop pointer devices.
+// Delegated from document (rather than bound per-trigger) so it's immune
+// to any binding-order edge cases.
+document.addEventListener('click', function(e) {
+  var trigger = e.target.closest('.nav-dropdown-trigger');
+  if (trigger) {
     e.preventDefault();
     var parent = trigger.closest('.nav-dropdown');
     var wasOpen = parent.classList.contains('open');
     document.querySelectorAll('.nav-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
     if (!wasOpen) { parent.classList.add('open'); positionDropdownPanel(parent); }
-  });
-});
-document.addEventListener('click', function(e) {
+    return;
+  }
   if (!e.target.closest('.nav-dropdown')) {
     document.querySelectorAll('.nav-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
   }

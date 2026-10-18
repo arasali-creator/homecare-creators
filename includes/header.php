@@ -294,6 +294,10 @@ footer{background:var(--forest);padding:28px}
   .nav-links{display:none}
   .nav-links a{display:block;padding:14px 16px;font-size:15px}
   .nav-hamburger{display:block;min-width:44px;min-height:44px}
+  /* The hover-bridge only matters for the desktop hover gap; on mobile the
+     panel is position:static (no gap to bridge) and the invisible 14px
+     strip can sit over the item just below the dropdown, intercepting taps. */
+  .nav-dropdown::after{display:none}
 
   /* Dropdowns become inline accordions inside the mobile menu. Services
      shows the plain link list (like Resources) instead of the full
