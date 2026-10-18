@@ -46,6 +46,13 @@ $page_css = <<<CSS
 .designed-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--forest);margin-bottom:8px}
 .designed-card p{font-size:14px;line-height:1.65;color:var(--muted)}
 
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+.process-step{text-align:center;padding:0 10px}
+.process-num{width:52px;height:52px;border-radius:50%;background:var(--forest);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px}
+.process-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14.5px;color:var(--forest);margin-bottom:6px}
+.process-desc{font-size:13.5px;line-height:1.55;color:var(--muted)}
+
 /* PRICING */
 .pricing-intro{max-width:700px;margin:0 auto 48px;text-align:center}
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
@@ -81,15 +88,10 @@ $page_css = <<<CSS
 .seo-crosssell-inner .section-h2{color:#fff;text-align:center;font-size:clamp(24px,3vw,36px);line-height:1.25;margin-bottom:0}
 .seo-crosssell-text{font-size:15.5px;line-height:1.7;color:rgba(255,255,255,.62);margin-top:14px}
 
-/* CITIES */
-.city-pill{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 24px;text-decoration:none;transition:.25s}
-.city-pill:hover{border-color:var(--teal)}
-.city-pill-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--forest)}
-.city-pill-county{font-size:12px;color:var(--muted)}
-
 /* SECTIONS */
 .feature-section{background:#fff}
 .why-section{background:var(--cream)}
+.process-section{background:#fff}
 .pricing-section{background:var(--cream)}
 .included-section{background:#fff}
 .faq-section{background:var(--cream)}
@@ -121,6 +123,7 @@ $page_css = <<<CSS
   .why-grid{grid-template-columns:1fr;gap:48px}
   .why-img{max-width:420px;margin:0 auto}
   .designed-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
   .pricing-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
   .price-card.featured{transform:none}
   .included-grid{grid-template-columns:1fr 1fr}
@@ -130,7 +133,7 @@ $page_css = <<<CSS
 @media(max-width:640px){
   section{padding:64px 20px}
   .hero-grid{padding:120px 24px 48px}
-  .feature-grid,.included-grid{grid-template-columns:1fr}
+  .feature-grid,.included-grid,.process-grid{grid-template-columns:1fr}
 }
 CSS;
 include '../../includes/header.php';
@@ -307,6 +310,39 @@ echo '<script type="application/ld+json">' . json_encode([
   </div>
 </section>
 
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="container">
+    <div style="text-align:center" data-reveal>
+      <p class="section-label" style="justify-content:center">Our Process</p>
+      <h2 class="section-h2" style="text-align:center">Our Home Care Website Design Process</h2>
+    </div>
+    <div class="process-grid" data-reveal style="transition-delay:.1s">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <div class="process-title">Discovery and Planning</div>
+        <div class="process-desc">We learn about your agency, services, audience, and goals.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <div class="process-title">Structure, Content &amp; Design</div>
+        <div class="process-desc">We plan your pages and design a site that reflects your brand.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <div class="process-title">Development and Review</div>
+        <div class="process-desc">We build the site, test it, and you review before launch.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <div class="process-title">SEO Setup and Launch</div>
+        <div class="process-desc">We finalize SEO, test forms, and launch your site.</div>
+      </div>
+    </div>
+    <p class="section-sub" style="text-align:center;margin:28px auto 0">Standard timelines are 10–14 days for Starter and Growth, up to 21 days for Dominate.</p>
+  </div>
+</section>
+
 <!-- PACKAGES -->
 <section class="pricing-section" id="packages">
   <div class="container">
@@ -406,33 +442,6 @@ echo '<script type="application/ld+json">' . json_encode([
     <p class="seo-crosssell-text">Launching a well-built website is an important step, but it is not the same as achieving strong Google rankings. Your website needs a clear structure and useful content. Your agency may also need ongoing work on local search, Google Business Profile, relevant service pages, reviews, content development, and other competitive factors.</p>
     <p class="seo-crosssell-text">If your goal is to improve your visibility after launch, Homecare Creators also offers dedicated SEO services for home care agencies, supporting work beyond the initial website setup based on your selected plan and market.</p>
     <div style="margin-top:28px"><a href="/seo/home-care-seo/" class="btn-primary"><i class="fa-solid fa-magnifying-glass-chart"></i>Explore Home Care SEO Services</a></div>
-  </div>
-</section>
-
-<!-- CITIES WE SERVE -->
-<section style="background:var(--cream);padding:64px 40px">
-  <div class="container" style="text-align:center">
-    <p class="section-label" style="justify-content:center">Where We Build</p>
-    <h2 class="section-h2" style="text-align:center">Home Care Website Design for Agencies Across the United States</h2>
-    <p class="section-sub" style="max-width:680px;margin:16px auto 0">We work with home care agencies that need a professional website aligned with their services, brand, and local market. Your website should reflect the communities your agency actually serves. For agencies in our existing Florida markets, explore our local website design pages:</p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:32px">
-      <a href="/homecare-website-design-miami-fl/" class="city-pill">
-        <i class="fa-solid fa-location-dot" style="font-size:18px;color:var(--teal)"></i>
-        <div><div class="city-pill-name">Miami</div><div class="city-pill-county">Miami-Dade County</div></div>
-      </a>
-      <a href="/homecare-website-design-tampa-fl/" class="city-pill">
-        <i class="fa-solid fa-location-dot" style="font-size:18px;color:var(--teal)"></i>
-        <div><div class="city-pill-name">Tampa</div><div class="city-pill-county">Hillsborough County</div></div>
-      </a>
-      <a href="/homecare-website-design-orlando-fl/" class="city-pill">
-        <i class="fa-solid fa-location-dot" style="font-size:18px;color:var(--teal)"></i>
-        <div><div class="city-pill-name">Orlando</div><div class="city-pill-county">Orange County</div></div>
-      </a>
-      <a href="/homecare-website-design-fort-lauderdale-fl/" class="city-pill">
-        <i class="fa-solid fa-location-dot" style="font-size:18px;color:var(--teal)"></i>
-        <div><div class="city-pill-name">Fort Lauderdale</div><div class="city-pill-county">Broward County</div></div>
-      </a>
-    </div>
   </div>
 </section>
 
