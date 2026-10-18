@@ -72,14 +72,6 @@ $page_css = <<<CSS
 .price-cta.dark{background:var(--forest);color:#fff;border:none}
 .pricing-footnote{max-width:820px;margin:32px auto 0;text-align:center;font-size:13.5px;line-height:1.7;color:var(--muted);font-style:italic}
 
-/* SEO CROSS-SELL */
-.seo-crosssell{background:var(--forest);position:relative;overflow:hidden;padding:72px 40px}
-.seo-crosssell-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1}
-.seo-crosssell-inner .section-label{justify-content:center;color:var(--teal-lt)}
-.seo-crosssell-inner .section-label::before{background:var(--teal-lt)}
-.seo-crosssell-inner .section-h2{color:#fff;text-align:center;font-size:clamp(24px,3vw,36px);line-height:1.25;margin-bottom:0}
-.seo-crosssell-text{font-size:15.5px;line-height:1.7;color:rgba(255,255,255,.62);margin-top:14px}
-
 /* SECTIONS */
 .feature-section{background:#fff}
 .why-section{background:var(--cream)}
@@ -263,15 +255,12 @@ echo '<script type="application/ld+json">' . json_encode([
       <div data-reveal>
         <p class="section-label">Why It Matters</p>
         <h2 class="section-h2">Why Home Care Agencies Need Specialized Website Design</h2>
-        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:12px">A home care website needs to help families feel confident about inviting a care provider into their loved one's life, and answer the questions they have before they call:</p>
+        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:12px">A home care website should answer the questions families ask before they call:</p>
         <ul class="why-questions">
-          <li><i class="fa-solid fa-circle-question"></i>What types of home care services do you provide?</li>
-          <li><i class="fa-solid fa-circle-question"></i>Which cities and communities do you serve?</li>
-          <li><i class="fa-solid fa-circle-question"></i>How can I discuss care options for a family member?</li>
+          <li><i class="fa-solid fa-circle-question"></i>What services do you provide, and where?</li>
           <li><i class="fa-solid fa-circle-question"></i>What makes your agency different?</li>
-          <li><i class="fa-solid fa-circle-question"></i>How do I contact your team or arrange an initial conversation?</li>
+          <li><i class="fa-solid fa-circle-question"></i>How do I get in touch with your team?</li>
         </ul>
-        <p style="font-size:16px;line-height:1.8;color:var(--muted)">A specialist website gives each question a clear place, so services are easier to understand and search engines can crawl a more organized site.</p>
       </div>
       <div class="why-visual" data-reveal style="transition-delay:.15s">
         <div class="why-img">
@@ -282,19 +271,19 @@ echo '<script type="application/ld+json">' . json_encode([
     <div class="designed-grid" data-reveal style="transition-delay:.1s">
       <div class="designed-card">
         <h3>Designed for Families Looking for Care</h3>
-        <p>We organize content around your services, your care approach, the areas you serve, and the questions families are likely to ask before getting in touch.</p>
+        <p>Content organized around your services and the questions families ask before getting in touch.</p>
       </div>
       <div class="designed-card">
         <h3>Designed to Generate Meaningful Inquiries</h3>
-        <p>Clear calls to action, accessible contact information, and straightforward inquiry forms help visitors take the next step when they are ready to speak with your team.</p>
+        <p>Clear calls to action and simple inquiry forms help visitors take the next step.</p>
       </div>
       <div class="designed-card">
         <h3>Designed to Support Caregiver Recruitment</h3>
-        <p>Your website can support more than client acquisition. A dedicated careers page can introduce your agency to job seekers and provide a clear route to apply.</p>
+        <p>A dedicated careers page introduces your agency to job seekers and makes it easy to apply.</p>
       </div>
       <div class="designed-card">
         <h3>Designed With Search Visibility in Mind</h3>
-        <p>Relevant page content, sound site structure, mobile usability, and technical SEO foundations help search engines understand your services. Rankings depend on multiple factors, so website launch alone cannot guarantee a specific position.</p>
+        <p>Strong content, site structure, and technical SEO help search engines understand your services.</p>
       </div>
     </div>
   </div>
@@ -403,16 +392,7 @@ echo '<script type="application/ld+json">' . json_encode([
   </div>
 </section>
 
-<!-- SEO CROSS-SELL -->
-<section class="seo-crosssell">
-  <div class="container seo-crosssell-inner" data-reveal>
-    <p class="section-label">Beyond Launch</p>
-    <h2 class="section-h2">Website Design Is the Foundation.<br><em>Ongoing SEO Helps You Build Visibility.</em></h2>
-    <p class="seo-crosssell-text">Launching a well-built website is an important step, but it is not the same as achieving strong Google rankings. Your website needs a clear structure and useful content. Your agency may also need ongoing work on local search, Google Business Profile, relevant service pages, reviews, content development, and other competitive factors.</p>
-    <p class="seo-crosssell-text">If your goal is to improve your visibility after launch, Homecare Creators also offers dedicated SEO services for home care agencies, supporting work beyond the initial website setup based on your selected plan and market.</p>
-    <div style="margin-top:28px"><a href="/seo/home-care-seo/" class="btn-primary"><i class="fa-solid fa-magnifying-glass-chart"></i>Explore Home Care SEO Services</a></div>
-  </div>
-</section>
+<?php include '../../includes/reviews-slider.php'; ?>
 
 <!-- FAQ -->
 <section class="faq-section">
