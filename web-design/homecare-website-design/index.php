@@ -72,14 +72,6 @@ $page_css = <<<CSS
 .price-cta.dark{background:var(--forest);color:#fff;border:none}
 .pricing-footnote{max-width:820px;margin:32px auto 0;text-align:center;font-size:13.5px;line-height:1.7;color:var(--muted);font-style:italic}
 
-/* WHAT TO INCLUDE GRID */
-.included-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-.inc-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:24px;transition:.25s}
-.inc-card:hover{box-shadow:0 8px 32px rgba(10,46,30,.08);border-color:rgba(29,158,117,.2)}
-.inc-icon{width:46px;height:46px;border-radius:12px;background:rgba(29,158,117,.1);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:20px;margin-bottom:16px}
-.inc-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--forest);margin-bottom:8px}
-.inc-card p{font-size:14.5px;color:var(--muted);line-height:1.7}
-
 /* SEO CROSS-SELL */
 .seo-crosssell{background:var(--forest);position:relative;overflow:hidden;padding:72px 40px}
 .seo-crosssell-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1}
@@ -93,7 +85,6 @@ $page_css = <<<CSS
 .why-section{background:var(--cream)}
 .process-section{background:#fff}
 .pricing-section{background:var(--cream)}
-.included-section{background:#fff}
 .faq-section{background:var(--cream)}
 
 /* CTA */
@@ -126,14 +117,13 @@ $page_css = <<<CSS
   .process-grid{grid-template-columns:1fr 1fr}
   .pricing-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
   .price-card.featured{transform:none}
-  .included-grid{grid-template-columns:1fr 1fr}
   .cta-inner{grid-template-columns:1fr}
   .cta-image{display:none}
 }
 @media(max-width:640px){
   section{padding:64px 20px}
   .hero-grid{padding:120px 24px 48px}
-  .feature-grid,.included-grid,.process-grid{grid-template-columns:1fr}
+  .feature-grid,.process-grid{grid-template-columns:1fr}
 }
 CSS;
 include '../../includes/header.php';
@@ -410,27 +400,6 @@ echo '<script type="application/ld+json">' . json_encode([
       </div>
     </div>
     <p class="pricing-footnote">All packages are subject to a confirmed project scope. We will clarify any third-party subscription fees, ongoing service costs, and additional work before the project begins.</p>
-  </div>
-</section>
-
-<!-- WHAT EVERY WEBSITE SHOULD INCLUDE -->
-<section class="included-section">
-  <div class="container">
-    <div data-reveal>
-      <p class="section-label">The Essentials</p>
-      <h2 class="section-h2">What Every Home Care Website Should Include</h2>
-    </div>
-    <div class="included-grid" data-reveal style="transition-delay:.1s">
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-file-lines"></i></div><h3>Clear Service Pages</h3><p>Explain the care services your agency actually provides, who they are intended for, and how families can ask questions or discuss their needs.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-map-location-dot"></i></div><h3>Local Search Foundations</h3><p>Organize your website around your genuine service area. We use relevant location information and appropriate internal links to help visitors navigate between your main services and local pages.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-phone"></i></div><h3>A Simple Contact Experience</h3><p>Make your phone number, inquiry form, and next steps easy to find. Forms should request the information your team needs without creating unnecessary friction.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-brands fa-google"></i></div><h3>Technical and On-Page SEO</h3><p>We configure agreed SEO essentials, including page titles, meta descriptions, headings, image alt text, clean URLs, internal linking, and relevant structured data.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-gauge-high"></i></div><h3>Performance and Mobile Usability</h3><p>We optimize images and other page elements and test the site to identify performance issues. Actual loading speed depends on the final content, hosting, integrations, and visitor environment.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-star"></i></div><h3>Reviews and Testimonials</h3><p>Where available and authorized, display genuine reviews or testimonials to help visitors learn about other people's experiences with your agency. We do not fabricate reviews or guarantee that a widget will increase inquiries.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-user-nurse"></i></div><h3>Caregiver Careers and Applications</h3><p>Give job seekers a clear overview of your opportunities, application process, and next steps. Recruitment features can be tailored to your agency's hiring needs.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Analytics and Measurement</h3><p>Where included in your package, we configure Google Analytics and Search Console so you can monitor website traffic and search performance. Call and form tracking may require additional configuration.</p></div>
-      <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>Secure Hosting and Maintenance</h3><p>Our hosting plan is $79/month. Before starting, we will confirm the included hosting, SSL, backups, updates, security monitoring, support, and maintenance terms so you know what is covered.</p></div>
-    </div>
   </div>
 </section>
 
