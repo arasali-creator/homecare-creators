@@ -25,7 +25,7 @@ $page_css = <<<CSS
 .hero-photo-badge-label{font-size:11px;color:var(--muted);font-weight:600;font-family:'Plus Jakarta Sans',sans-serif}
 
 /* FEATURE GRID */
-.feature-intro{max-width:760px;margin:0 auto 48px;text-align:center}
+.feature-intro{max-width:960px;margin:0 auto 48px;text-align:center}
 .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .feature-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;transition:.25s}
 .feature-card:hover{border-color:rgba(29,158,117,.25);box-shadow:0 10px 32px rgba(10,46,30,.08)}
@@ -45,17 +45,6 @@ $page_css = <<<CSS
 .designed-card{background:var(--warm);border:1px solid var(--border);border-radius:14px;padding:22px}
 .designed-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--forest);margin-bottom:8px}
 .designed-card p{font-size:14px;line-height:1.65;color:var(--muted)}
-
-/* TIMELINE (process) */
-.timeline{display:flex;flex-direction:column;gap:0;position:relative;margin-top:24px}
-.timeline-item{display:flex;gap:20px;padding-bottom:36px;position:relative}
-.timeline-item:last-child{padding-bottom:0}
-.timeline-item::before{content:'';position:absolute;left:21px;top:46px;bottom:0;width:1px;background:var(--border)}
-.timeline-item:last-child::before{display:none}
-.timeline-num{width:44px;height:44px;border-radius:50%;background:var(--forest);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:16px;flex-shrink:0;position:relative;z-index:1}
-.timeline-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:6px}
-.timeline-desc{font-size:15px;line-height:1.7;color:var(--muted)}
-.timeline-note{font-size:15px;line-height:1.75;color:var(--muted);margin-top:8px;padding:20px 24px;background:var(--warm);border-radius:14px;border:1px solid var(--border)}
 
 /* PRICING */
 .pricing-intro{max-width:700px;margin:0 auto 48px;text-align:center}
@@ -85,12 +74,12 @@ $page_css = <<<CSS
 .inc-card p{font-size:14.5px;color:var(--muted);line-height:1.7}
 
 /* SEO CROSS-SELL */
-.seo-crosssell{background:var(--forest);position:relative;overflow:hidden}
-.seo-crosssell-inner{max-width:780px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.seo-crosssell{background:var(--forest);position:relative;overflow:hidden;padding:72px 40px}
+.seo-crosssell-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1}
 .seo-crosssell-inner .section-label{justify-content:center;color:var(--teal-lt)}
 .seo-crosssell-inner .section-label::before{background:var(--teal-lt)}
-.seo-crosssell-inner .section-h2{color:#fff;text-align:center}
-.seo-crosssell-text{font-size:17px;line-height:1.8;color:rgba(255,255,255,.65);margin-top:16px}
+.seo-crosssell-inner .section-h2{color:#fff;text-align:center;font-size:clamp(24px,3vw,36px);line-height:1.25;margin-bottom:0}
+.seo-crosssell-text{font-size:15.5px;line-height:1.7;color:rgba(255,255,255,.62);margin-top:14px}
 
 /* CITIES */
 .city-pill{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 24px;text-decoration:none;transition:.25s}
@@ -101,7 +90,6 @@ $page_css = <<<CSS
 /* SECTIONS */
 .feature-section{background:#fff}
 .why-section{background:var(--cream)}
-.process-section{background:#fff}
 .pricing-section{background:var(--cream)}
 .included-section{background:#fff}
 .faq-section{background:var(--cream)}
@@ -143,7 +131,6 @@ $page_css = <<<CSS
   section{padding:64px 20px}
   .hero-grid{padding:120px 24px 48px}
   .feature-grid,.included-grid{grid-template-columns:1fr}
-  .timeline-item{gap:16px}
 }
 CSS;
 include '../../includes/header.php';
@@ -283,8 +270,7 @@ echo '<script type="application/ld+json">' . json_encode([
       <div data-reveal>
         <p class="section-label">Why It Matters</p>
         <h2 class="section-h2">Why Home Care Agencies Need Specialized Website Design</h2>
-        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:16px">A generic business website may tell visitors what a company does. A well-planned home care website must also help families feel confident about inviting a care provider into their loved one's life.</p>
-        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:12px">Families may want to know:</p>
+        <p style="font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:12px">A home care website needs to help families feel confident about inviting a care provider into their loved one's life, and answer the questions they have before they call:</p>
         <ul class="why-questions">
           <li><i class="fa-solid fa-circle-question"></i>What types of home care services do you provide?</li>
           <li><i class="fa-solid fa-circle-question"></i>Which cities and communities do you serve?</li>
@@ -292,7 +278,7 @@ echo '<script type="application/ld+json">' . json_encode([
           <li><i class="fa-solid fa-circle-question"></i>What makes your agency different?</li>
           <li><i class="fa-solid fa-circle-question"></i>How do I contact your team or arrange an initial conversation?</li>
         </ul>
-        <p style="font-size:16px;line-height:1.8;color:var(--muted)">If these answers are difficult to find, visitors may leave before contacting your agency. A specialist website gives each important question a clear place on the site. Your services are easier to understand, your contact options are easier to find, and your website has a more organized structure for search engines to crawl.</p>
+        <p style="font-size:16px;line-height:1.8;color:var(--muted)">A specialist website gives each question a clear place, so services are easier to understand and search engines can crawl a more organized site.</p>
       </div>
       <div class="why-visual" data-reveal style="transition-delay:.15s">
         <div class="why-img">
@@ -316,58 +302,6 @@ echo '<script type="application/ld+json">' . json_encode([
       <div class="designed-card">
         <h3>Designed With Search Visibility in Mind</h3>
         <p>Relevant page content, sound site structure, mobile usability, and technical SEO foundations help search engines understand your services. Rankings depend on multiple factors, so website launch alone cannot guarantee a specific position.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="process-section">
-  <div class="container">
-    <div style="text-align:center" data-reveal>
-      <p class="section-label" style="justify-content:center">Our Process</p>
-      <h2 class="section-h2" style="text-align:center">Our Home Care Website Design Process</h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">From the first discussion to launch, we keep the process clear and organized.</p>
-    </div>
-    <div class="why-grid" data-reveal style="transition-delay:.1s;margin-top:48px">
-      <div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-num">1</div>
-            <div>
-              <div class="timeline-title">Discovery and Planning</div>
-              <div class="timeline-desc">We learn about your agency, the services you offer, your target audience, your service area, and the goals you want your website to support. We also review your existing website, when applicable, to identify opportunities to improve content, usability, search foundations, and contact paths.</div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-num">2</div>
-            <div>
-              <div class="timeline-title">Website Structure, Content and Design</div>
-              <div class="timeline-desc">We plan the pages your agency needs and create a design that reflects your brand. Website copy is developed around your services and audience, with your input to ensure that business details, care offerings, and policies are accurate.</div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-num">3</div>
-            <div>
-              <div class="timeline-title">Development and Review</div>
-              <div class="timeline-desc">We build the approved design, configure the agreed features, and check the website across common screen sizes. You review the site and provide feedback before launch.</div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-num">4</div>
-            <div>
-              <div class="timeline-title">SEO Setup and Launch</div>
-              <div class="timeline-desc">Before launch, we check the agreed on-page SEO elements, test forms and contact links, configure analytics tools where included, and prepare the site for search engine discovery.</div>
-            </div>
-          </div>
-        </div>
-        <p class="timeline-note">Our standard timelines are 10–14 days for Starter and Growth, and up to 21 days for Dominate, provided the required content, approvals, and access are supplied on time.</p>
-        <div style="margin-top:28px"><button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-route"></i>Plan Your Home Care Website</button></div>
-      </div>
-      <div class="why-visual" data-reveal style="transition-delay:.15s">
-        <div class="why-img">
-          <img src="/images/team/team-reviewing-laptop-collaboration.jpg" alt="Homecare Creators team reviewing a home care agency's website design" title="Reviewing a home care agency's website design">
-        </div>
       </div>
     </div>
   </div>
