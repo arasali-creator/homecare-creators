@@ -30,16 +30,7 @@ $page_css = <<<CSS
 
 /* WHAT'S INCLUDED */
 .feature-intro{max-width:720px;margin:0 auto 48px;text-align:center}
-.included-grid-wrap{display:grid;grid-template-columns:360px 1fr;gap:56px;align-items:start}
-.included-photos{position:relative}
-.included-photo-main{border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 24px 70px rgba(10,46,30,.18)}
-.included-photo-main img{width:100%;height:100%;object-fit:cover;display:block}
-.included-photo-accent{position:absolute;width:62%;aspect-ratio:4/3;bottom:-28px;right:-24px;border-radius:16px;overflow:hidden;border:5px solid #fff;box-shadow:0 16px 48px rgba(10,46,30,.2)}
-.included-photo-accent img{width:100%;height:100%;object-fit:cover;display:block}
-.included-stat-badge{position:absolute;top:20px;left:-20px;background:var(--forest);border-radius:14px;padding:12px 18px;box-shadow:0 10px 30px rgba(0,0,0,.25);min-width:140px}
-.included-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:var(--teal-lt);line-height:1}
-.included-stat-label{font-size:10.5px;color:rgba(255,255,255,.6);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-top:3px}
-.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .feature-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;transition:.25s}
 .feature-card:hover{border-color:rgba(29,158,117,.25);box-shadow:0 10px 32px rgba(10,46,30,.08)}
 .feature-icon{width:44px;height:44px;border-radius:12px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:14px}
@@ -112,8 +103,7 @@ $page_css = <<<CSS
   .hero-photo-badge{left:16px}
   .why-grid{grid-template-columns:1fr;gap:48px}
   .why-img{max-width:420px;margin:0 auto}
-  .included-grid-wrap{grid-template-columns:1fr;gap:64px}
-  .included-photos{max-width:360px;margin:0 auto}
+  .feature-grid{grid-template-columns:1fr 1fr}
   .pricing-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
   .price-card.featured{transform:none}
   .cta-inner{grid-template-columns:1fr}
@@ -222,20 +212,7 @@ echo '<script type="application/ld+json">' . json_encode([
       <h2 class="section-h2" style="text-align:center">What Our Home Care SEO Includes</h2>
       <p class="section-sub" style="margin:0 auto">Every plan covers the foundations of home care SEO. Higher plans add more keywords, pages, content, and depth.</p>
     </div>
-    <div class="included-grid-wrap">
-      <div class="included-photos" data-reveal>
-        <div class="included-stat-badge">
-          <div class="included-stat-num">8+</div>
-          <div class="included-stat-label">SEO Deliverables Per Plan</div>
-        </div>
-        <div class="included-photo-main">
-          <img src="/images/team/team-discussion-desk-meeting.jpg" alt="Homecare Creators team reviewing a home care agency's SEO strategy" title="Reviewing a home care agency's SEO strategy">
-        </div>
-        <div class="included-photo-accent">
-          <img src="/images/team/team-coffee-break-meeting.jpg" alt="Homecare Creators team discussing a home care agency's SEO strategy over coffee" title="The Homecare Creators team">
-        </div>
-      </div>
-      <div class="feature-grid" data-reveal style="transition-delay:.1s">
+    <div class="feature-grid" data-reveal style="transition-delay:.1s">
         <div class="feature-card">
           <div class="feature-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
           <div class="feature-title">Keyword research and intent mapping</div>
@@ -276,7 +253,6 @@ echo '<script type="application/ld+json">' . json_encode([
           <div class="feature-title">Tracking and reporting</div>
           <div class="feature-desc">We set up Google Analytics 4 and Search Console from day one. Care Plus and Care Advanced also include Bing Search Console and Google Tag Manager.</div>
         </div>
-      </div>
     </div>
   </div>
 </section>
