@@ -185,7 +185,7 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
     <div class="hero-photo-wrap" data-reveal>
       <div class="hero-photo">
-        <img src="/images/seo/seo.jpg" alt="Senior couple searching for a home care agency on Google, Facebook, and LinkedIn" title="Families search Google and social media before choosing a home care agency">
+        <img src="/images/team/team-presenting-results-screen.jpg" alt="Homecare Creators team presenting SEO rankings and results on screen" title="Presenting a home care agency's SEO results">
       </div>
       <div class="hero-photo-badge">
         <div class="hero-photo-badge-icon"><i class="fa-solid fa-tag"></i></div>
@@ -229,10 +229,10 @@ echo '<script type="application/ld+json">' . json_encode([
           <div class="included-stat-label">SEO Deliverables Per Plan</div>
         </div>
         <div class="included-photo-main">
-          <img src="/images/team/team-presenting-results-screen.jpg" alt="Homecare Creators team presenting SEO results and rankings to a client" title="Presenting monthly SEO results">
+          <img src="/images/team/team-discussion-desk-meeting.jpg" alt="Homecare Creators team reviewing a home care agency's SEO strategy" title="Reviewing a home care agency's SEO strategy">
         </div>
         <div class="included-photo-accent">
-          <img src="/images/team/team-coffee-break-laughing.jpg" alt="Homecare Creators team discussing a home care agency's SEO strategy" title="The Homecare Creators team">
+          <img src="/images/team/team-coffee-break-meeting.jpg" alt="Homecare Creators team discussing a home care agency's SEO strategy over coffee" title="The Homecare Creators team">
         </div>
       </div>
       <div class="feature-grid" data-reveal style="transition-delay:.1s">
@@ -315,7 +315,7 @@ echo '<script type="application/ld+json">' . json_encode([
       </div>
       <div class="why-visual" data-reveal style="transition-delay:.15s">
         <div class="why-img">
-          <img src="/images/seo/home-care-seo-process.jpg" alt="Homecare Creators team mapping out a home care agency's SEO strategy" title="Planning a home care agency's SEO strategy">
+          <img src="/images/team/team-presenting-results-screen-2.jpg" alt="Homecare Creators team presenting a home care agency's SEO audit and plan" title="Presenting a home care agency's SEO audit and plan">
         </div>
       </div>
     </div>
@@ -423,7 +423,7 @@ echo '<script type="application/ld+json">' . json_encode([
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free strategy call &nbsp;·&nbsp; No obligation</div>
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
-        <img src="/images/home/cta-business-owner.jpg" alt="Home care agency owner growing their business with Home Care SEO" title="Home care agency growth through SEO">
+        <img src="/images/team/team-coffee-break-laughing.jpg" alt="Homecare Creators team celebrating a home care agency's SEO growth" title="Growing a home care agency's SEO results">
         <div class="cta-image-badge">
           <div class="cta-image-badge-title"><i class="fa-solid fa-circle-dot" style="color:var(--teal-lt);margin-right:4px"></i>Your Strategy Call Includes</div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Current visibility &amp; ranking review</div></div>
