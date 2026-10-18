@@ -34,17 +34,17 @@ $page_css = <<<CSS
 .feature-desc{font-size:14.5px;line-height:1.65;color:var(--muted)}
 
 /* TWO-COLUMN TEXT+IMAGE */
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
 .why-visual{position:relative;align-self:start}
 .why-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:0 24px 80px rgba(10,46,30,.18);aspect-ratio:4/5}
 .why-img img{width:100%;height:100%;object-fit:cover;display:block}
 .why-questions{list-style:none;display:flex;flex-direction:column;gap:10px;margin:20px 0}
 .why-questions li{display:flex;align-items:flex-start;gap:10px;font-size:15.5px;color:var(--text);line-height:1.5}
 .why-questions li i{color:var(--teal);font-size:12px;margin-top:5px;flex-shrink:0}
-.designed-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
-.designed-card{background:var(--warm);border:1px solid var(--border);border-radius:14px;padding:22px}
-.designed-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--forest);margin-bottom:8px}
-.designed-card p{font-size:14px;line-height:1.65;color:var(--muted)}
+.designed-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
+.designed-card{background:var(--warm);border:1px solid var(--border);border-radius:14px;padding:18px}
+.designed-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13.5px;color:var(--forest);margin-bottom:6px}
+.designed-card p{font-size:13px;line-height:1.55;color:var(--muted)}
 
 /* PROCESS */
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
@@ -104,8 +104,7 @@ $page_css = <<<CSS
   .hero-photo-badge{left:16px}
   .feature-grid{grid-template-columns:1fr 1fr}
   .why-grid{grid-template-columns:1fr;gap:48px}
-  .why-img{max-width:420px;margin:0 auto}
-  .designed-grid{grid-template-columns:1fr}
+  .why-img{max-width:480px;margin:0 auto}
   .process-grid{grid-template-columns:1fr 1fr}
   .pricing-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
   .price-card.featured{transform:none}
@@ -115,7 +114,7 @@ $page_css = <<<CSS
 @media(max-width:640px){
   section{padding:64px 20px}
   .hero-grid{padding:120px 24px 48px}
-  .feature-grid,.process-grid{grid-template-columns:1fr}
+  .feature-grid,.process-grid,.designed-grid{grid-template-columns:1fr}
 }
 CSS;
 include '../../includes/header.php';
@@ -261,29 +260,29 @@ echo '<script type="application/ld+json">' . json_encode([
           <li><i class="fa-solid fa-circle-question"></i>What makes your agency different?</li>
           <li><i class="fa-solid fa-circle-question"></i>How do I get in touch with your team?</li>
         </ul>
+        <div class="designed-grid">
+          <div class="designed-card">
+            <h3>Designed for Families</h3>
+            <p>Content organized around your services and the questions families ask.</p>
+          </div>
+          <div class="designed-card">
+            <h3>Designed for Inquiries</h3>
+            <p>Clear calls to action and simple forms help visitors take the next step.</p>
+          </div>
+          <div class="designed-card">
+            <h3>Designed for Recruitment</h3>
+            <p>A dedicated careers page makes it easy for job seekers to apply.</p>
+          </div>
+          <div class="designed-card">
+            <h3>Designed for Search Visibility</h3>
+            <p>Strong content and structure help search engines understand your services.</p>
+          </div>
+        </div>
       </div>
       <div class="why-visual" data-reveal style="transition-delay:.15s">
         <div class="why-img">
           <img src="/images/team/team-member-working-laptop-office.jpg" alt="Homecare Creators web developer building a home care agency website" title="Building a home care agency website">
         </div>
-      </div>
-    </div>
-    <div class="designed-grid" data-reveal style="transition-delay:.1s">
-      <div class="designed-card">
-        <h3>Designed for Families Looking for Care</h3>
-        <p>Content organized around your services and the questions families ask before getting in touch.</p>
-      </div>
-      <div class="designed-card">
-        <h3>Designed to Generate Meaningful Inquiries</h3>
-        <p>Clear calls to action and simple inquiry forms help visitors take the next step.</p>
-      </div>
-      <div class="designed-card">
-        <h3>Designed to Support Caregiver Recruitment</h3>
-        <p>A dedicated careers page introduces your agency to job seekers and makes it easy to apply.</p>
-      </div>
-      <div class="designed-card">
-        <h3>Designed With Search Visibility in Mind</h3>
-        <p>Strong content, site structure, and technical SEO help search engines understand your services.</p>
       </div>
     </div>
   </div>
