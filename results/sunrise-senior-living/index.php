@@ -371,7 +371,7 @@ section{padding:88px 24px}
 <script>
 function openPopup() {
   if (window.Calendly) {
-    Calendly.initPopupWidget({ url: 'https://calendly.com/homecarecreators-info/30min?text_color=ffffff&primary_color=0a2e1e' });
+    Calendly.initPopupWidget({ url: 'https://calendly.com/homecarecreators/30min' });
   }
   return false;
 }
