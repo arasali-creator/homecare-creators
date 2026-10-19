@@ -16,6 +16,7 @@ $page_title = "Sunrise Senior Living Case Study | Homecare Creators";
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <style>
 :root{--forest:#0a2e1e;--forest-lt:#1a5c3a;--teal:#1d9e75;--teal-lt:#2ec68f;--mint:#9fe1cb;--cream:#f5f2ec;--warm:#fffdf8;--gold:#c9a84c;--gold-lt:#e8c96a;--text:#1a1a14;--muted:#6b7b6e;--border:rgba(26,92,58,0.15)}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -122,36 +123,6 @@ section{padding:88px 24px}
 .cta-photo img{width:100%;height:100%;object-fit:cover;display:block}
 
 .endnote{text-align:center;padding:28px 24px;font-size:12px;color:var(--muted);background:var(--warm)}
-
-/* POPUP / FORM (matches the main site's booking popup) */
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.hp-field{position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden}
-.popup-overlay{display:none;position:fixed;inset:0;background:rgba(5,20,12,.75);backdrop-filter:blur(8px);z-index:1000;align-items:center;justify-content:center;padding:20px}
-.popup-overlay.open{display:flex}
-.popup-box{background:#fff;border-radius:20px;padding:40px;width:100%;max-width:580px;position:relative;max-height:90vh;overflow-y:auto;animation-name:popupFadeUp;animation-duration:.3s;animation-timing-function:ease;animation-fill-mode:both;text-align:left}
-@keyframes popupFadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.popup-close{position:absolute;top:16px;right:16px;background:var(--cream);border:none;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);font-size:14px;transition:.2s}
-.popup-close:hover{background:var(--border);color:var(--text)}
-.popup-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;color:var(--forest);margin-bottom:8px}
-.popup-form-group{margin-bottom:10px}
-.popup-form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
-.form-input,.form-select,.form-textarea{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:#fff;transition:border-color .2s;outline:none}
-.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--teal)}
-.form-textarea{min-height:80px;resize:vertical}
-.form-submit{width:100%;background:linear-gradient(135deg,var(--teal),var(--teal-lt));color:#fff;border:none;border-radius:11px;padding:14px 24px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:.2s}
-.form-submit:hover{box-shadow:0 8px 28px rgba(29,158,117,.45)}
-.popup-success{text-align:center;padding:20px 0;display:none}
-.popup-success i{font-size:52px;color:var(--teal);margin-bottom:16px;display:block}
-.popup-success-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;color:var(--forest);margin-bottom:10px}
-.popup-success-sub{font-size:16px;color:var(--muted);line-height:1.65}
-.form-input.error{border-color:#e53e3e;background:#fff8f8}
-.captcha-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.captcha-question{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--forest);white-space:nowrap;background:var(--cream);border-radius:8px;padding:10px 14px;flex-shrink:0}
-.captcha-input{width:90px!important;text-align:center;font-size:16px!important;font-weight:700}
-.consent-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:16px}
-.consent-row input[type=checkbox]{width:18px;height:18px;accent-color:var(--teal);flex-shrink:0;margin-top:2px;cursor:pointer}
-.consent-label{font-size:12px;color:var(--muted);line-height:1.6;cursor:pointer}
-.field-error-msg{font-size:11px;color:#e53e3e;margin-top:4px;font-family:'DM Sans',sans-serif}
 
 @media(max-width:900px){
   .seo-banner-inner{flex-direction:column;text-align:center;padding:32px 24px}
@@ -396,173 +367,13 @@ section{padding:88px 24px}
 
 <div class="endnote">&copy; <?= date('Y') ?> Homecare Creators &middot; Results shown are specific to Sunrise Senior Living and are not a guarantee of future results.</div>
 
-<!-- BOOKING POPUP (same form/behavior as the main site) -->
-<div class="popup-overlay" id="mainPopup">
-  <div class="popup-box">
-    <button class="popup-close" id="popupCloseBtn" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-    <div id="popupFormEl">
-      <h2 class="popup-title" id="popupTitleEl">Book Your Free SEO Strategy Call</h2>
-      <div class="hp-field" aria-hidden="true"><label for="pWebsite">Website</label><input type="text" id="pWebsite" name="pWebsite" tabindex="-1" autocomplete="off"></div>
-      <div class="popup-form-group" style="margin-top:20px"><label class="sr-only" for="pName">Full Name</label><input type="text" class="form-input" id="pName" placeholder="Full Name *" autocomplete="name"></div>
-      <div class="popup-form-row">
-        <div class="popup-form-group" style="margin-bottom:0"><label class="sr-only" for="pEmail">Email</label><input type="email" class="form-input" id="pEmail" placeholder="Email *" autocomplete="email"></div>
-        <div class="popup-form-group" style="margin-bottom:0"><label class="sr-only" for="pPhone">Phone</label><input type="tel" class="form-input" id="pPhone" placeholder="Phone *" maxlength="15" autocomplete="tel"></div>
-      </div>
-      <div class="popup-form-row" style="margin-top:12px">
-        <div class="popup-form-group" style="margin-bottom:0"><label class="sr-only" for="pAgency">Agency Name</label><input type="text" class="form-input" id="pAgency" placeholder="Agency Name" autocomplete="organization"></div>
-        <div class="popup-form-group" style="margin-bottom:0"><label class="sr-only" for="pCity">City You Serve</label><input type="text" class="form-input" id="pCity" placeholder="City You Serve"></div>
-      </div>
-      <div class="popup-form-group" style="margin-top:12px">
-        <label class="sr-only" for="pService">What Do You Need Most?</label>
-        <select class="form-select" id="pService">
-          <option value="Home Care SEO" selected>Home Care SEO</option>
-          <option>Website Design &amp; Development</option>
-          <option>AI Search SEO (ChatGPT &amp; Google AI)</option>
-          <option>Full Bundle Package</option>
-          <option>Free Growth Audit</option>
-        </select>
-      </div>
-      <div class="popup-form-group"><label class="sr-only" for="pMsg">Message</label><textarea class="form-textarea" id="pMsg" placeholder="Message (optional) — tell us about your agency..."></textarea></div>
-      <div style="margin-bottom:12px">
-        <div class="captcha-row">
-          <div class="captcha-question" id="captchaQuestion"></div>
-          <span style="font-size:18px;color:var(--muted)">=</span>
-          <label class="sr-only" for="pCaptcha">Answer</label>
-          <input type="number" class="form-input captcha-input" id="pCaptcha" placeholder="?" min="0" max="99" autocomplete="off">
-        </div>
-      </div>
-      <div class="consent-row">
-        <input type="checkbox" id="pConsent">
-        <label class="consent-label" for="pConsent">I agree to be contacted by Homecare Creators about my inquiry. We respect your privacy and will never share your information.</label>
-      </div>
-      <button class="form-submit" id="popupSubmitBtn"><i class="fa-solid fa-paper-plane"></i><span id="popupBtnLabel">Send My Request</span></button>
-      <p style="text-align:center;margin-top:14px;font-size:12px;color:var(--muted)"><i class="fa-solid fa-lock" style="margin-right:4px;color:var(--teal)"></i>100% private. No spam, ever.</p>
-    </div>
-    <div class="popup-success" id="popupSuccessEl">
-      <i class="fa-solid fa-circle-check"></i>
-      <div class="popup-success-title">You're all set!</div>
-      <p class="popup-success-sub">We've received your request and will reply within 24 hours.<br>Talk soon! The Homecare Creators Team</p>
-    </div>
-  </div>
-</div>
-
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
 <script>
-var _captchaA = 0, _captchaB = 0;
-function generateCaptcha() {
-  _captchaA = Math.floor(Math.random() * 9) + 1;
-  _captchaB = Math.floor(Math.random() * 9) + 1;
-  var el = document.getElementById('captchaQuestion');
-  if (el) el.textContent = 'What is ' + _captchaA + ' + ' + _captchaB + '?';
-  var inp = document.getElementById('pCaptcha');
-  if (inp) inp.value = '';
-}
-generateCaptcha();
-
-document.getElementById('pPhone').addEventListener('input', function() {
-  var digits = this.value.replace(/\D/g, '').substring(0, 10);
-  var fmt = '';
-  if (digits.length > 0) fmt = '(' + digits.substring(0, 3);
-  if (digits.length >= 4) fmt += ') ' + digits.substring(3, 6);
-  if (digits.length >= 7) fmt += '-' + digits.substring(6, 10);
-  this.value = fmt;
-  this.classList.toggle('error', digits.length > 0 && digits.length < 10);
-});
-
 function openPopup() {
-  document.getElementById('mainPopup').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  generateCaptcha();
-}
-function closePopup() {
-  document.getElementById('mainPopup').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.getElementById('mainPopup').addEventListener('click', function(e) { if (e.target === this) closePopup(); });
-document.getElementById('popupCloseBtn').addEventListener('click', closePopup);
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePopup(); });
-
-document.getElementById('popupSubmitBtn').addEventListener('click', function() {
-  var name    = (document.getElementById('pName').value  || '').trim();
-  var email   = (document.getElementById('pEmail').value || '').trim();
-  var phone   = (document.getElementById('pPhone').value || '').trim();
-  var captcha = parseInt(document.getElementById('pCaptcha').value, 10);
-  var consent = document.getElementById('pConsent').checked;
-  var honeypot = (document.getElementById('pWebsite').value || '').trim();
-
-  if (honeypot) {
-    document.getElementById('popupFormEl').style.display = 'none';
-    document.getElementById('popupSuccessEl').style.display = 'block';
-    return;
+  if (window.Calendly) {
+    Calendly.initPopupWidget({ url: 'https://calendly.com/homecarecreators-info/30min?text_color=ffffff&primary_color=0a2e1e' });
   }
-
-  if (!name)  { markError('pName',  'Please enter your full name.'); return; }
-  if (!email || !email.includes('@') || !email.includes('.')) { markError('pEmail', 'Please enter a valid email address.'); return; }
-  var phoneDigits = phone.replace(/\D/g, '');
-  if (!phone || phoneDigits.length !== 10) { markError('pPhone', 'Please enter a valid 10-digit phone number.'); return; }
-  if (isNaN(captcha) || captcha !== _captchaA + _captchaB) {
-    markError('pCaptcha', 'Incorrect answer. Please try again.');
-    generateCaptcha();
-    return;
-  }
-  if (!consent) {
-    var cb = document.getElementById('pConsent');
-    cb.style.outline = '2px solid #e53e3e';
-    setTimeout(function(){ cb.style.outline = ''; }, 2000);
-    alert('Please check the consent box to continue.');
-    return;
-  }
-
-  var btnLabel = document.getElementById('popupBtnLabel');
-  btnLabel.textContent = 'Sending...';
-  this.disabled = true;
-  fetch('https://homecarecreators.com/form-handler.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      name:    name,
-      email:   email,
-      phone:   phone,
-      agency:  document.getElementById('pAgency').value,
-      city:    document.getElementById('pCity').value,
-      service: document.getElementById('pService').value,
-      message: document.getElementById('pMsg').value,
-      source:  'results/sunrise-senior-living (case study email link)',
-      website: honeypot
-    })
-  })
-  .then(function(r) { return r.json(); })
-  .then(function(d) {
-    if (d.success) {
-      document.getElementById('popupFormEl').style.display = 'none';
-      document.getElementById('popupSuccessEl').style.display = 'block';
-    } else {
-      alert('Error: ' + (d.message || 'Please try again or email info@homecarecreators.com'));
-      btnLabel.textContent = 'Send My Request';
-      document.getElementById('popupSubmitBtn').disabled = false;
-    }
-  })
-  .catch(function() {
-    alert('Connection error. Please email info@homecarecreators.com directly.');
-    btnLabel.textContent = 'Send My Request';
-    document.getElementById('popupSubmitBtn').disabled = false;
-  });
-});
-
-function markError(id, msg) {
-  var el = document.getElementById(id);
-  if (!el) { alert(msg); return; }
-  el.classList.add('error');
-  el.focus();
-  el.addEventListener('input', function(){ el.classList.remove('error'); }, { once: true });
-  var existing = el.parentNode.querySelector('.field-error-msg');
-  if (existing) existing.remove();
-  var err = document.createElement('div');
-  err.className = 'field-error-msg';
-  err.setAttribute('role', 'alert');
-  err.setAttribute('aria-live', 'assertive');
-  err.textContent = msg;
-  el.parentNode.appendChild(err);
-  setTimeout(function(){ if (err.parentNode) err.remove(); }, 6000);
+  return false;
 }
 </script>
 
