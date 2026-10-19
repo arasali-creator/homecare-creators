@@ -38,6 +38,26 @@ h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif}
 .hero-sub{font-size:17px;line-height:1.7;color:rgba(255,255,255,.65);max-width:580px;margin:0 auto}
 .hero-range{margin-top:22px;display:inline-flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.45)}
 
+/* SEO HIGHLIGHT BANNER */
+.seo-banner{background:var(--cream);padding:0 24px 0}
+.seo-banner-inner{max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:24px;padding:40px 36px;display:flex;align-items:center;gap:32px;box-shadow:0 20px 56px rgba(10,46,30,.1)}
+.seo-banner-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(46px,6vw,64px);color:var(--gold);line-height:1;flex-shrink:0}
+.seo-banner-text{font-size:16.5px;line-height:1.65;color:var(--text)}
+.seo-banner-text strong{color:var(--forest)}
+
+/* SCREENSHOT */
+.screenshot-frame{max-width:900px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--border);box-shadow:0 24px 70px rgba(10,46,30,.15)}
+.screenshot-bar{background:var(--forest);padding:12px 16px;display:flex;align-items:center;gap:8px}
+.screenshot-dot{width:10px;height:10px;border-radius:50%}
+.screenshot-frame img{width:100%;display:block}
+.screenshot-caption{text-align:center;font-size:13px;color:var(--muted);margin-top:16px}
+
+/* INDUSTRIES */
+.industries-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;max-width:900px;margin:0 auto}
+.industry-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px 18px;display:flex;align-items:center;gap:12px}
+.industry-icon{width:36px;height:36px;border-radius:9px;background:rgba(29,158,117,.1);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:15px;flex-shrink:0}
+.industry-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;font-weight:700;color:var(--forest)}
+
 /* BIG STATS */
 .stats-wrap{position:relative;z-index:1;margin-top:-56px;padding:0 24px 0}
 .stats-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -90,6 +110,7 @@ section{padding:88px 24px}
 .endnote{text-align:center;padding:28px 24px;font-size:12px;color:var(--muted);background:var(--warm)}
 
 @media(max-width:900px){
+  .seo-banner-inner{flex-direction:column;text-align:center;padding:32px 24px}
   .stats-grid{grid-template-columns:1fr 1fr}
   .breakdown-grid{grid-template-columns:1fr;gap:32px}
   .insight-grid{grid-template-columns:1fr}
@@ -115,8 +136,8 @@ section{padding:88px 24px}
 <section class="hero" style="padding-bottom:88px">
   <div class="hero-inner">
     <div class="hero-badge"><div class="hero-dot"></div>Client Case Study</div>
-    <h1>Sunrise Senior Living:<br><em>679 Leads in 90 Days</em></h1>
-    <p class="hero-sub">A look at the real lead-generation results from our marketing campaign for Sunrise Senior Living, straight from the numbers, not projections.</p>
+    <h1>Sunrise Senior Living:<br><em>679 Leads in 90 Days From SEO</em></h1>
+    <p class="hero-sub">A look at the real SEO-driven lead generation results for Sunrise Senior Living, straight from the dashboard, not projections or paid ads.</p>
     <div class="hero-range"><i class="fa-regular fa-calendar"></i>July 1 &ndash; October 1, 2026</div>
   </div>
 </section>
@@ -143,11 +164,35 @@ section{padding:88px 24px}
   </div>
 </div>
 
+<!-- SEO HIGHLIGHT -->
+<section class="seo-banner">
+  <div class="seo-banner-inner">
+    <div class="seo-banner-num">46%</div>
+    <div class="seo-banner-text"><strong>Nearly half of all leads came from organic SEO</strong>, not paid ads. That's the difference between renting visibility month to month and owning a search presence that keeps bringing in leads on its own.</div>
+  </div>
+</section>
+
+<!-- SCREENSHOT -->
+<section>
+  <p class="section-label">The Proof</p>
+  <h2 class="section-h2">Straight From the Dashboard</h2>
+  <p class="section-sub">No slides, no cherry-picked numbers. This is the actual lead tracking dashboard for Sunrise Senior Living.</p>
+  <div class="screenshot-frame">
+    <div class="screenshot-bar">
+      <div class="screenshot-dot" style="background:#ff5f57"></div>
+      <div class="screenshot-dot" style="background:#febc2e"></div>
+      <div class="screenshot-dot" style="background:#28c840"></div>
+    </div>
+    <img src="/images/case-studies/sunrise-senior-living-dashboard.png" alt="Sunrise Senior Living lead tracking dashboard showing 679 total leads and $379.12K total quote value" title="Sunrise Senior Living lead dashboard">
+  </div>
+  <p class="screenshot-caption">Lead Manager dashboard &middot; July 1 &ndash; October 1, 2026</p>
+</section>
+
 <!-- BREAKDOWN -->
 <section>
   <p class="section-label">The Breakdown</p>
-  <h2 class="section-h2">Where the Leads Came From</h2>
-  <p class="section-sub">679 total leads tracked across every channel and qualified by our team's review process.</p>
+  <h2 class="section-h2">How the Leads Came In</h2>
+  <p class="section-sub">679 total leads tracked by type and qualified by the Sunrise Senior Living team.</p>
   <div class="breakdown-grid">
     <div class="breakdown-card">
       <h3>Leads by Type</h3>
@@ -190,6 +235,25 @@ section{padding:88px 24px}
   </div>
 </section>
 
+<!-- INDUSTRIES -->
+<section>
+  <p class="section-label">Who This Works For</p>
+  <h2 class="section-h2">Built for the Senior Care Industry</h2>
+  <p class="section-sub">The same SEO approach behind these results applies across every corner of home care.</p>
+  <div class="industries-grid">
+    <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-house-chimney-medical"></i></div><div class="industry-name">Home Care Agencies</div></div>
+    <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-user-nurse"></i></div><div class="industry-name">Home Health Agencies</div></div>
+    <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-handshake-angle"></i></div><div class="industry-name">Companion Care Providers</div></div>
+    <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-hand-holding-heart"></i></div><div class="industry-name">Personal Care Services</div></div>
+    <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-people-roof"></i></div><div class="industry-name">Private Duty Care Agencies</div></div>
+    <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-cane"></i></div><div class="industry-name">Senior Care Providers</div></div>
+    <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-tree"></i></div><div class="industry-name">Elder Care Services</div></div>
+    <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-brain"></i></div><div class="industry-name">Memory Care Providers</div></div>
+    <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-dove"></i></div><div class="industry-name">Hospice Organizations</div></div>
+    <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-building-user"></i></div><div class="industry-name">Assisted Living Communities</div></div>
+  </div>
+</section>
+
 <!-- INSIGHTS -->
 <section class="insight-section">
   <p class="section-label">What It Means</p>
@@ -212,9 +276,9 @@ section{padding:88px 24px}
   <div class="cta-inner">
     <div class="cta-content">
       <p class="section-label">Let's Talk</p>
-      <h2>Want Results Like This for Your Agency?</h2>
-      <p>This is what a 90-day campaign built specifically for a senior care provider looks like. We only work with home care, senior living, and hospice agencies, no other industries, no learning curve.</p>
-      <a href="https://homecarecreators.com/contact/" class="cta-btn"><i class="fa-solid fa-phone"></i>Book Your Free Strategy Call</a>
+      <h2>Want SEO Results Like This for Your Agency?</h2>
+      <p>This is what Home Care SEO looks like when it's built specifically for a senior care provider, not a generic campaign, not paid ads. We only work with home care, senior living, hospice, and memory care agencies, so there's no learning curve on our end.</p>
+      <a href="https://homecarecreators.com/seo/home-care-seo/" class="cta-btn"><i class="fa-solid fa-magnifying-glass-chart"></i>Book Your Free SEO Strategy Call</a>
       <div class="cta-trust"><i class="fa-solid fa-shield-halved"></i>Free consultation &nbsp;&middot;&nbsp; No obligation</div>
     </div>
     <div class="cta-photo">
