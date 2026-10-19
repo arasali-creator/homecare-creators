@@ -56,6 +56,9 @@ h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif}
 .screenshot-frame img{width:100%;display:block}
 .screenshot-caption{text-align:center;font-size:13px;color:var(--muted);margin-top:16px}
 
+/* SEARCH CONSOLE STATS */
+.gsc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:960px;margin:0 auto 44px}
+
 /* INDUSTRIES */
 .industries-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;max-width:900px;margin:0 auto}
 .industry-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px 18px;display:flex;align-items:center;gap:12px}
@@ -150,6 +153,7 @@ section{padding:88px 24px}
   .seo-banner-inner::before{top:0;left:0;right:0;bottom:auto;width:auto;height:6px;background:linear-gradient(90deg,var(--gold),var(--gold-lt))}
   .seo-banner-divider{width:100%;height:1px}
   .stats-grid{grid-template-columns:1fr 1fr}
+  .gsc-grid{grid-template-columns:1fr 1fr}
   .breakdown-grid{grid-template-columns:1fr;gap:32px}
   .insight-grid{grid-template-columns:1fr}
   .cta-inner{grid-template-columns:1fr}
@@ -228,6 +232,40 @@ section{padding:88px 24px}
     <img src="/images/case-studies/sunrise-senior-living-organic-dashboard.png" alt="Sunrise Senior Living lead tracking dashboard filtered to organic search showing 137 total leads and $40.66K total quote value" title="Sunrise Senior Living organic search lead dashboard">
   </div>
   <p class="screenshot-caption">Lead Manager dashboard &middot; Medium: Organic &middot; July 1 &ndash; October 1, 2026</p>
+</section>
+
+<!-- SEARCH CONSOLE -->
+<section>
+  <p class="section-label">Search Visibility</p>
+  <h2 class="section-h2">The Visibility Behind the Leads</h2>
+  <p class="section-sub">Pulled directly from Google Search Console for the same 3-month window, this is the organic search growth driving the leads above.</p>
+  <div class="gsc-grid">
+    <div class="stat-card">
+      <div class="stat-num">3.34K</div>
+      <div class="stat-label">Total Clicks</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num accent">301K</div>
+      <div class="stat-label">Total Impressions</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">1.11%</div>
+      <div class="stat-label">Average CTR</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num accent">1.9</div>
+      <div class="stat-label">Average Position</div>
+    </div>
+  </div>
+  <div class="screenshot-frame">
+    <div class="screenshot-bar">
+      <div class="screenshot-dot" style="background:#ff5f57"></div>
+      <div class="screenshot-dot" style="background:#febc2e"></div>
+      <div class="screenshot-dot" style="background:#28c840"></div>
+    </div>
+    <img src="/images/case-studies/sunrise-senior-living-search-console.png" alt="Google Search Console performance report for Sunrise Senior Living showing 3.34K total clicks, 301K total impressions, 1.11% average CTR, and 1.9 average position" title="Sunrise Senior Living Google Search Console performance">
+  </div>
+  <p class="screenshot-caption">Google Search Console &middot; Performance report &middot; 3 months</p>
 </section>
 
 <!-- BREAKDOWN -->
