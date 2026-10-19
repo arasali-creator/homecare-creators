@@ -39,9 +39,13 @@ h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif}
 .hero-range{margin-top:22px;display:inline-flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.45)}
 
 /* SEO HIGHLIGHT BANNER */
-.seo-banner{background:var(--cream);padding:0 24px 0;margin-top:-28px;position:relative;z-index:1}
-.seo-banner-inner{max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:24px;padding:36px 36px;display:flex;align-items:center;gap:32px;box-shadow:0 10px 28px rgba(10,46,30,.08)}
-.seo-banner-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(46px,6vw,64px);color:var(--gold);line-height:1;flex-shrink:0}
+.seo-banner{background:var(--cream);padding:40px 24px 8px}
+.seo-banner-inner{max-width:820px;margin:0 auto;background:#fff;border-radius:24px;padding:36px 40px;display:flex;align-items:center;gap:32px;box-shadow:0 14px 36px rgba(10,46,30,.1);position:relative;overflow:hidden}
+.seo-banner-inner::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,var(--gold),var(--gold-lt))}
+.seo-banner-figure{flex-shrink:0;text-align:center}
+.seo-banner-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(46px,6vw,64px);color:var(--gold);line-height:1}
+.seo-banner-figure-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.seo-banner-divider{width:1px;align-self:stretch;background:var(--border);flex-shrink:0}
 .seo-banner-text{font-size:16.5px;line-height:1.65;color:var(--text)}
 .seo-banner-text strong{color:var(--forest)}
 
@@ -143,6 +147,8 @@ section{padding:88px 24px}
 
 @media(max-width:900px){
   .seo-banner-inner{flex-direction:column;text-align:center;padding:32px 24px}
+  .seo-banner-inner::before{top:0;left:0;right:0;bottom:auto;width:auto;height:6px;background:linear-gradient(90deg,var(--gold),var(--gold-lt))}
+  .seo-banner-divider{width:100%;height:1px}
   .stats-grid{grid-template-columns:1fr 1fr}
   .breakdown-grid{grid-template-columns:1fr;gap:32px}
   .insight-grid{grid-template-columns:1fr}
@@ -168,7 +174,7 @@ section{padding:88px 24px}
 <section class="hero" style="padding-bottom:88px">
   <div class="hero-inner">
     <div class="hero-badge"><div class="hero-dot"></div>Client Case Study</div>
-    <h1>Sunrise Senior Living:<br><em>679 Leads in 90 Days From SEO</em></h1>
+    <h1>Sunrise Senior Living:<br><em>312 Leads in 90 Days From SEO</em></h1>
     <p class="hero-sub">A look at the real SEO-driven lead generation results for Sunrise Senior Living, straight from the dashboard, not projections or paid ads.</p>
     <div class="hero-range"><i class="fa-regular fa-calendar"></i>July 1 &ndash; October 1, 2026</div>
   </div>
@@ -198,9 +204,13 @@ section{padding:88px 24px}
 
 <!-- SEO HIGHLIGHT -->
 <section class="seo-banner">
-  <div class="seo-banner-inner">
-    <div class="seo-banner-num">66%</div>
-    <div class="seo-banner-text"><strong>Two out of every three leads came from organic SEO</strong>, not paid ads. That's the difference between renting visibility month to month and owning a search presence that keeps bringing in leads on its own.</div>
+  <div class="seo-banner-inner" data-reveal>
+    <div class="seo-banner-figure">
+      <div class="seo-banner-num">46%</div>
+      <div class="seo-banner-figure-label">Of All Leads</div>
+    </div>
+    <div class="seo-banner-divider"></div>
+    <div class="seo-banner-text"><i class="fa-solid fa-magnifying-glass" style="color:var(--gold);margin-right:6px"></i><strong>Nearly half of all leads came from organic SEO</strong> (312 of 679), not paid ads. That's the difference between renting visibility month to month and owning a search presence that keeps bringing in leads on its own.</div>
   </div>
 </section>
 
