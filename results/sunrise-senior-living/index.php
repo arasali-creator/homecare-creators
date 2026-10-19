@@ -23,9 +23,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--warm);color:var(--text);o
 .container{max-width:1080px;margin:0 auto;padding:0 24px}
 h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif}
 
-/* TOP BAR — logo only, no nav */
-.topbar{padding:28px 0;text-align:center;background:var(--forest)}
-.topbar img{height:34px;width:auto}
+/* TOP BAR — logo + CTA, no nav */
+.topbar{padding:18px 0;background:var(--forest)}
+.topbar-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.topbar img{height:32px;width:auto}
+.topbar-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13.5px;padding:10px 20px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:.2s}
+.topbar-btn:hover{background:var(--teal-lt)}
 
 /* HERO */
 .hero{background:var(--forest);position:relative;overflow:hidden;padding:64px 24px 88px}
@@ -38,8 +41,9 @@ h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif}
 .hero-sub{font-size:17px;line-height:1.7;color:rgba(255,255,255,.65);max-width:580px;margin:0 auto}
 .hero-range{margin-top:22px;display:inline-flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.45)}
 
-/* SEO HIGHLIGHT BANNER */
-.seo-banner{background:var(--cream);padding:40px 24px 8px}
+/* RESULTS BAND — stat cards + SEO banner share one backdrop below the hero */
+.results-band{background:var(--cream);padding-bottom:64px}
+.seo-banner-wrap{padding:0 24px}
 .seo-banner-inner{max-width:820px;margin:0 auto;background:#fff;border-radius:24px;padding:36px 40px;display:flex;align-items:center;gap:32px;box-shadow:0 14px 36px rgba(10,46,30,.1);position:relative;overflow:hidden}
 .seo-banner-inner::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,var(--gold),var(--gold-lt))}
 .seo-banner-figure{flex-shrink:0;text-align:center}
@@ -66,7 +70,7 @@ h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif}
 .industry-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;font-weight:700;color:var(--forest)}
 
 /* BIG STATS */
-.stats-wrap{position:relative;z-index:1;margin-top:-56px;padding:0 24px 0}
+.stats-wrap{position:relative;z-index:1;margin-top:-56px;padding:0 24px 40px}
 .stats-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .stat-card{background:#fff;border-radius:20px;padding:30px 24px;text-align:center;box-shadow:0 10px 28px rgba(10,46,30,.1);border:1px solid var(--border)}
 .stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,34px);color:var(--forest);line-height:1}
@@ -166,12 +170,19 @@ section{padding:88px 24px}
   .stat-card{padding:22px 14px}
   section{padding:64px 20px}
 }
+@media(max-width:480px){
+  .topbar-btn{padding:9px 14px;font-size:12.5px}
+  .topbar-btn i{display:none}
+}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <a href="https://homecarecreators.com/"><img src="/images/home/homecarecreators-logo.png" alt="Homecare Creators"></a>
+  <div class="topbar-inner">
+    <a href="https://homecarecreators.com/"><img src="/images/home/homecarecreators-logo.png" alt="Homecare Creators"></a>
+    <button type="button" class="topbar-btn" onclick="openPopup()"><i class="fa-solid fa-phone"></i>Book a Free Call</button>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -184,42 +195,42 @@ section{padding:88px 24px}
   </div>
 </section>
 
-<!-- BIG STATS -->
-<div class="stats-wrap">
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-num">137</div>
-      <div class="stat-label">Organic Leads</div>
+<!-- BIG STATS + SEO HIGHLIGHT (one shared backdrop below the hero) -->
+<div class="results-band">
+  <div class="stats-wrap">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">137</div>
+        <div class="stat-label">Organic Leads</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num accent">106</div>
+        <div class="stat-label">Quotable Leads</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">$40.66K</div>
+        <div class="stat-label">Total Quote Value</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num accent">$33.25K</div>
+        <div class="stat-label">Total Sales Value</div>
+      </div>
     </div>
-    <div class="stat-card">
-      <div class="stat-num accent">106</div>
-      <div class="stat-label">Quotable Leads</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">$40.66K</div>
-      <div class="stat-label">Total Quote Value</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num accent">$33.25K</div>
-      <div class="stat-label">Total Sales Value</div>
+  </div>
+  <div class="seo-banner-wrap">
+    <div class="seo-banner-inner" data-reveal>
+      <div class="seo-banner-figure">
+        <div class="seo-banner-num">$0</div>
+        <div class="seo-banner-figure-label">Ad Spend</div>
+      </div>
+      <div class="seo-banner-divider"></div>
+      <div class="seo-banner-text"><i class="fa-solid fa-magnifying-glass" style="color:var(--gold);margin-right:6px"></i><strong>All 137 of these leads came from organic search</strong>, with zero dollars spent on paid ads. That's the difference between renting visibility month to month and owning a search presence that keeps bringing in leads on its own.</div>
     </div>
   </div>
 </div>
 
-<!-- SEO HIGHLIGHT -->
-<section class="seo-banner">
-  <div class="seo-banner-inner" data-reveal>
-    <div class="seo-banner-figure">
-      <div class="seo-banner-num">$0</div>
-      <div class="seo-banner-figure-label">Ad Spend</div>
-    </div>
-    <div class="seo-banner-divider"></div>
-    <div class="seo-banner-text"><i class="fa-solid fa-magnifying-glass" style="color:var(--gold);margin-right:6px"></i><strong>All 137 of these leads came from organic search</strong>, with zero dollars spent on paid ads. That's the difference between renting visibility month to month and owning a search presence that keeps bringing in leads on its own.</div>
-  </div>
-</section>
-
 <!-- SCREENSHOT -->
-<section>
+<section style="padding-bottom:48px">
   <p class="section-label">The Proof</p>
   <h2 class="section-h2">Straight From the Dashboard</h2>
   <p class="section-sub">No slides, no cherry-picked numbers. This is the actual lead tracking dashboard for Sunrise Senior Living, filtered to organic search only.</p>
@@ -235,7 +246,7 @@ section{padding:88px 24px}
 </section>
 
 <!-- SEARCH CONSOLE -->
-<section>
+<section style="padding-top:40px">
   <p class="section-label">Search Visibility</p>
   <h2 class="section-h2">The Visibility Behind the Leads</h2>
   <p class="section-sub">Pulled directly from Google Search Console for the same 3-month window, this is the organic search growth driving the leads above.</p>
