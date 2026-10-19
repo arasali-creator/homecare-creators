@@ -55,7 +55,7 @@ h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif}
 .seo-banner-text strong{color:var(--forest)}
 
 /* SCREENSHOT */
-.screenshot-frame{max-width:900px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--border);box-shadow:0 24px 70px rgba(10,46,30,.15)}
+.screenshot-frame{max-width:900px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--border)}
 .screenshot-bar{background:var(--forest);padding:12px 16px;display:flex;align-items:center;gap:8px}
 .screenshot-dot{width:10px;height:10px;border-radius:50%}
 .screenshot-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -121,8 +121,6 @@ section{padding:88px 24px}
 .cta-trust i{color:var(--teal-lt)}
 .cta-photo{border-radius:20px;overflow:hidden;aspect-ratio:4/4.6;box-shadow:0 24px 70px rgba(0,0,0,.35)}
 .cta-photo img{width:100%;height:100%;object-fit:cover;display:block}
-
-.endnote{text-align:center;padding:28px 24px;font-size:12px;color:var(--muted);background:var(--warm)}
 
 @media(max-width:900px){
   .seo-banner-inner{flex-direction:column;text-align:center;padding:32px 24px}
@@ -365,7 +363,6 @@ section{padding:88px 24px}
   </div>
 </section>
 
-<div class="endnote">&copy; <?= date('Y') ?> Homecare Creators &middot; Results shown are specific to Sunrise Senior Living and are not a guarantee of future results.</div>
 
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
 <script>
