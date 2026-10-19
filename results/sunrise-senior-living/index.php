@@ -23,11 +23,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--warm);color:var(--text);o
 .container{max-width:1080px;margin:0 auto;padding:0 24px}
 h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif}
 
-/* TOP BAR — logo + CTA, no nav */
-.topbar{padding:18px 0;background:var(--forest)}
+/* TOP BAR — logo + CTA, no nav, sticky */
+.topbar{padding:14px 0;background:var(--forest);position:sticky;top:0;z-index:200;box-shadow:0 2px 16px rgba(0,0,0,.2)}
 .topbar-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.topbar img{height:32px;width:auto}
-.topbar-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13.5px;padding:10px 20px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:.2s}
+.topbar img{height:46px;width:auto;display:block}
+.topbar-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13.5px;padding:10px 20px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:.2s;flex-shrink:0}
 .topbar-btn:hover{background:var(--teal-lt)}
 
 /* HERO */
@@ -57,6 +57,7 @@ h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif}
 .screenshot-frame{max-width:900px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--border);box-shadow:0 24px 70px rgba(10,46,30,.15)}
 .screenshot-bar{background:var(--forest);padding:12px 16px;display:flex;align-items:center;gap:8px}
 .screenshot-dot{width:10px;height:10px;border-radius:50%}
+.screenshot-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .screenshot-frame img{width:100%;display:block}
 .screenshot-caption{text-align:center;font-size:13px;color:var(--muted);margin-top:16px}
 
@@ -165,14 +166,29 @@ section{padding:88px 24px}
   .cta-content h2,.cta-content p{text-align:center}
   .cta-content .section-label{justify-content:center}
 }
+@media(max-width:700px){
+  .screenshot-scroll img{width:640px;max-width:none}
+}
 @media(max-width:560px){
+  .topbar{padding:12px 0}
+  .topbar img{height:34px}
+  .hero{padding:44px 20px 60px}
+  .stats-wrap{margin-top:-40px;padding-bottom:28px}
   .stats-grid{grid-template-columns:1fr 1fr;gap:12px}
   .stat-card{padding:22px 14px}
   section{padding:64px 20px}
+  .gsc-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .industries-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:480px){
+  .topbar-inner{gap:10px}
   .topbar-btn{padding:9px 14px;font-size:12.5px}
   .topbar-btn i{display:none}
+}
+@media(max-width:380px){
+  .industries-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr}
+  .gsc-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -186,7 +202,7 @@ section{padding:88px 24px}
 </div>
 
 <!-- HERO -->
-<section class="hero" style="padding-bottom:88px">
+<section class="hero">
   <div class="hero-inner">
     <div class="hero-badge"><div class="hero-dot"></div>Client Case Study</div>
     <h1>Sunrise Senior Living:<br><em>137 Leads in 90 Days, 100% Organic</em></h1>
@@ -240,7 +256,7 @@ section{padding:88px 24px}
       <div class="screenshot-dot" style="background:#febc2e"></div>
       <div class="screenshot-dot" style="background:#28c840"></div>
     </div>
-    <img src="/images/case-studies/sunrise-senior-living-organic-dashboard.png" alt="Sunrise Senior Living lead tracking dashboard filtered to organic search showing 137 total leads and $40.66K total quote value" title="Sunrise Senior Living organic search lead dashboard">
+    <div class="screenshot-scroll"><img src="/images/case-studies/sunrise-senior-living-organic-dashboard.png" alt="Sunrise Senior Living lead tracking dashboard filtered to organic search showing 137 total leads and $40.66K total quote value" title="Sunrise Senior Living organic search lead dashboard"></div>
   </div>
   <p class="screenshot-caption">Lead Manager dashboard &middot; Medium: Organic &middot; July 1 &ndash; October 1, 2026</p>
 </section>
@@ -274,7 +290,7 @@ section{padding:88px 24px}
       <div class="screenshot-dot" style="background:#febc2e"></div>
       <div class="screenshot-dot" style="background:#28c840"></div>
     </div>
-    <img src="/images/case-studies/sunrise-senior-living-search-console.png" alt="Google Search Console performance report for Sunrise Senior Living showing 3.34K total clicks, 301K total impressions, 1.11% average CTR, and 1.9 average position" title="Sunrise Senior Living Google Search Console performance">
+    <div class="screenshot-scroll"><img src="/images/case-studies/sunrise-senior-living-search-console.png" alt="Google Search Console performance report for Sunrise Senior Living showing 3.34K total clicks, 301K total impressions, 1.11% average CTR, and 1.9 average position" title="Sunrise Senior Living Google Search Console performance"></div>
   </div>
   <p class="screenshot-caption">Google Search Console &middot; Performance report &middot; 3 months</p>
 </section>
@@ -337,7 +353,7 @@ section{padding:88px 24px}
     <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-handshake-angle"></i></div><div class="industry-name">Companion Care Providers</div></div>
     <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-hand-holding-heart"></i></div><div class="industry-name">Personal Care Services</div></div>
     <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-people-roof"></i></div><div class="industry-name">Private Duty Care Agencies</div></div>
-    <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-cane"></i></div><div class="industry-name">Senior Care Providers</div></div>
+    <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-wheelchair"></i></div><div class="industry-name">Senior Care Providers</div></div>
     <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-tree"></i></div><div class="industry-name">Elder Care Services</div></div>
     <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-brain"></i></div><div class="industry-name">Memory Care Providers</div></div>
     <div class="industry-card"><div class="industry-icon"><i class="fa-solid fa-dove"></i></div><div class="industry-name">Hospice Organizations</div></div>
@@ -373,7 +389,7 @@ section{padding:88px 24px}
       <div class="cta-trust"><i class="fa-solid fa-shield-halved"></i>Free consultation &nbsp;&middot;&nbsp; No obligation</div>
     </div>
     <div class="cta-photo">
-      <img src="/images/team/team-presenting-results-screen.jpg" alt="Homecare Creators team presenting campaign results" title="Presenting real client results">
+      <img src="/images/team/team-reviewing-seo-dashboard.jpg" alt="Homecare Creators team reviewing SEO dashboard results" title="Reviewing real client results">
     </div>
   </div>
 </section>
