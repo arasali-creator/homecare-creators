@@ -174,8 +174,8 @@ section{padding:88px 24px}
 <section class="hero" style="padding-bottom:88px">
   <div class="hero-inner">
     <div class="hero-badge"><div class="hero-dot"></div>Client Case Study</div>
-    <h1>Sunrise Senior Living:<br><em>312 Leads in 90 Days From SEO</em></h1>
-    <p class="hero-sub">A look at the real SEO-driven lead generation results for Sunrise Senior Living, straight from the dashboard, not projections or paid ads.</p>
+    <h1>Sunrise Senior Living:<br><em>137 Leads in 90 Days, 100% Organic</em></h1>
+    <p class="hero-sub">Every lead below came from organic search, not a paid ad. A look at the real SEO-driven lead generation results for Sunrise Senior Living, straight from the dashboard.</p>
     <div class="hero-range"><i class="fa-regular fa-calendar"></i>July 1 &ndash; October 1, 2026</div>
   </div>
 </section>
@@ -184,19 +184,19 @@ section{padding:88px 24px}
 <div class="stats-wrap">
   <div class="stats-grid">
     <div class="stat-card">
-      <div class="stat-num">679</div>
-      <div class="stat-label">Total Leads</div>
+      <div class="stat-num">137</div>
+      <div class="stat-label">Organic Leads</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num accent">621</div>
+      <div class="stat-num accent">106</div>
       <div class="stat-label">Quotable Leads</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">$379.12K</div>
+      <div class="stat-num">$40.66K</div>
       <div class="stat-label">Total Quote Value</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num accent">$353.64K</div>
+      <div class="stat-num accent">$33.25K</div>
       <div class="stat-label">Total Sales Value</div>
     </div>
   </div>
@@ -206,11 +206,11 @@ section{padding:88px 24px}
 <section class="seo-banner">
   <div class="seo-banner-inner" data-reveal>
     <div class="seo-banner-figure">
-      <div class="seo-banner-num">46%</div>
-      <div class="seo-banner-figure-label">Of All Leads</div>
+      <div class="seo-banner-num">$0</div>
+      <div class="seo-banner-figure-label">Ad Spend</div>
     </div>
     <div class="seo-banner-divider"></div>
-    <div class="seo-banner-text"><i class="fa-solid fa-magnifying-glass" style="color:var(--gold);margin-right:6px"></i><strong>Nearly half of all leads came from organic SEO</strong> (312 of 679), not paid ads. That's the difference between renting visibility month to month and owning a search presence that keeps bringing in leads on its own.</div>
+    <div class="seo-banner-text"><i class="fa-solid fa-magnifying-glass" style="color:var(--gold);margin-right:6px"></i><strong>All 137 of these leads came from organic search</strong>, with zero dollars spent on paid ads. That's the difference between renting visibility month to month and owning a search presence that keeps bringing in leads on its own.</div>
   </div>
 </section>
 
@@ -218,56 +218,56 @@ section{padding:88px 24px}
 <section>
   <p class="section-label">The Proof</p>
   <h2 class="section-h2">Straight From the Dashboard</h2>
-  <p class="section-sub">No slides, no cherry-picked numbers. This is the actual lead tracking dashboard for Sunrise Senior Living.</p>
+  <p class="section-sub">No slides, no cherry-picked numbers. This is the actual lead tracking dashboard for Sunrise Senior Living, filtered to organic search only.</p>
   <div class="screenshot-frame">
     <div class="screenshot-bar">
       <div class="screenshot-dot" style="background:#ff5f57"></div>
       <div class="screenshot-dot" style="background:#febc2e"></div>
       <div class="screenshot-dot" style="background:#28c840"></div>
     </div>
-    <img src="/images/case-studies/sunrise-senior-living-dashboard.png" alt="Sunrise Senior Living lead tracking dashboard showing 679 total leads and $379.12K total quote value" title="Sunrise Senior Living lead dashboard">
+    <img src="/images/case-studies/sunrise-senior-living-organic-dashboard.png" alt="Sunrise Senior Living lead tracking dashboard filtered to organic search showing 137 total leads and $40.66K total quote value" title="Sunrise Senior Living organic search lead dashboard">
   </div>
-  <p class="screenshot-caption">Lead Manager dashboard &middot; July 1 &ndash; October 1, 2026</p>
+  <p class="screenshot-caption">Lead Manager dashboard &middot; Medium: Organic &middot; July 1 &ndash; October 1, 2026</p>
 </section>
 
 <!-- BREAKDOWN -->
 <section class="breakdown-section">
   <p class="section-label">The Breakdown</p>
   <h2 class="section-h2">How the Leads Came In</h2>
-  <p class="section-sub">679 total leads tracked by type and qualified by the Sunrise Senior Living team.</p>
+  <p class="section-sub">137 organic leads tracked by type and qualified by the Sunrise Senior Living team.</p>
   <div class="breakdown-grid">
     <div class="breakdown-card">
       <h3>Leads by Type</h3>
       <div class="bar-row">
-        <div class="bar-head"><span class="bar-name">Appointments</span><span class="bar-num">454</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:67%"></div></div>
+        <div class="bar-head"><span class="bar-name">Calls</span><span class="bar-num">126</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
       </div>
       <div class="bar-row">
-        <div class="bar-head"><span class="bar-name">Calls</span><span class="bar-num">190</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-head"><span class="bar-name">Forms</span><span class="bar-num">29</span></div>
+        <div class="bar-head"><span class="bar-name">Forms</span><span class="bar-num">6</span></div>
         <div class="bar-track"><div class="bar-fill" style="width:4%"></div></div>
       </div>
       <div class="bar-row">
-        <div class="bar-head"><span class="bar-name">Other Types</span><span class="bar-num">6</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:1%"></div></div>
+        <div class="bar-head"><span class="bar-name">Messages</span><span class="bar-num">5</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:4%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-head"><span class="bar-name">Other Types</span><span class="bar-num">0</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
       </div>
     </div>
     <div class="breakdown-card">
       <h3>Leads by Status</h3>
       <div class="bar-row">
-        <div class="bar-head"><span class="bar-name">Quotable</span><span class="bar-num">621</span></div>
-        <div class="bar-track"><div class="bar-fill gold" style="width:91%"></div></div>
+        <div class="bar-head"><span class="bar-name">Quotable</span><span class="bar-num">106</span></div>
+        <div class="bar-track"><div class="bar-fill gold" style="width:77%"></div></div>
       </div>
       <div class="bar-row">
-        <div class="bar-head"><span class="bar-name">Not Quotable</span><span class="bar-num">50</span></div>
-        <div class="bar-track"><div class="bar-fill muted" style="width:7%"></div></div>
+        <div class="bar-head"><span class="bar-name">Not Quotable</span><span class="bar-num">25</span></div>
+        <div class="bar-track"><div class="bar-fill muted" style="width:18%"></div></div>
       </div>
       <div class="bar-row">
-        <div class="bar-head"><span class="bar-name">Pending</span><span class="bar-num">8</span></div>
-        <div class="bar-track"><div class="bar-fill muted" style="width:1%"></div></div>
+        <div class="bar-head"><span class="bar-name">Pending</span><span class="bar-num">6</span></div>
+        <div class="bar-track"><div class="bar-fill muted" style="width:4%"></div></div>
       </div>
       <div class="bar-row">
         <div class="bar-head"><span class="bar-name">Not Set</span><span class="bar-num">0</span></div>
@@ -303,11 +303,11 @@ section{padding:88px 24px}
   <p class="section-sub">It's not just about how many leads come in. It's how many of them are worth following up on.</p>
   <div class="insight-grid">
     <div class="insight-card">
-      <div class="insight-num">91%</div>
-      <div class="insight-label">of all leads were marked <strong>quotable</strong> by the Sunrise Senior Living team</div>
+      <div class="insight-num">77%</div>
+      <div class="insight-label">of all organic leads were marked <strong>quotable</strong> by the Sunrise Senior Living team</div>
     </div>
     <div class="insight-card">
-      <div class="insight-num">93%</div>
+      <div class="insight-num">82%</div>
       <div class="insight-label">of total quote value converted into <strong>closed sales value</strong></div>
     </div>
   </div>
