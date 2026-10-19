@@ -174,7 +174,7 @@ section{padding:88px 24px}
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-badge"><div class="hero-dot"></div>Client Case Study</div>
-    <h1>Sunrise Senior Living:<br><em>137 Leads in 90 Days, 100% Organic</em></h1>
+    <h1>Sunrise Senior Living<br><em>137 Leads in 90 Days, 100% Organic</em></h1>
     <p class="hero-sub">Every lead below came from organic search, not a paid ad. A look at the real SEO-driven lead generation results for Sunrise Senior Living, straight from the dashboard.</p>
     <div class="hero-range"><i class="fa-regular fa-calendar"></i>July 1 &ndash; October 1, 2026</div>
   </div>
@@ -209,7 +209,7 @@ section{padding:88px 24px}
         <div class="seo-banner-figure-label">Ad Spend</div>
       </div>
       <div class="seo-banner-divider"></div>
-      <div class="seo-banner-text"><i class="fa-solid fa-magnifying-glass" style="color:var(--gold);margin-right:6px"></i><strong>All 137 of these leads came from organic search</strong>, with zero dollars spent on paid ads. That's the difference between renting visibility month to month and owning a search presence that keeps bringing in leads on its own.</div>
+      <div class="seo-banner-text"><strong>All 137 of these leads came from organic search</strong>, with zero dollars spent on paid ads. That's the difference between renting visibility month to month and owning a search presence that keeps bringing in leads on its own.</div>
     </div>
   </div>
 </div>
