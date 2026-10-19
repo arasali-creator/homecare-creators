@@ -39,8 +39,8 @@ h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif}
 .hero-range{margin-top:22px;display:inline-flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.45)}
 
 /* SEO HIGHLIGHT BANNER */
-.seo-banner{background:var(--cream);padding:0 24px 0}
-.seo-banner-inner{max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:24px;padding:40px 36px;display:flex;align-items:center;gap:32px;box-shadow:0 20px 56px rgba(10,46,30,.1)}
+.seo-banner{background:var(--cream);padding:0 24px 0;margin-top:-28px;position:relative;z-index:1}
+.seo-banner-inner{max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:24px;padding:36px 36px;display:flex;align-items:center;gap:32px;box-shadow:0 10px 28px rgba(10,46,30,.08)}
 .seo-banner-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(46px,6vw,64px);color:var(--gold);line-height:1;flex-shrink:0}
 .seo-banner-text{font-size:16.5px;line-height:1.65;color:var(--text)}
 .seo-banner-text strong{color:var(--forest)}
@@ -61,7 +61,7 @@ h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif}
 /* BIG STATS */
 .stats-wrap{position:relative;z-index:1;margin-top:-56px;padding:0 24px 0}
 .stats-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.stat-card{background:#fff;border-radius:20px;padding:30px 24px;text-align:center;box-shadow:0 24px 60px rgba(10,46,30,.16);border:1px solid var(--border)}
+.stat-card{background:#fff;border-radius:20px;padding:30px 24px;text-align:center;box-shadow:0 10px 28px rgba(10,46,30,.1);border:1px solid var(--border)}
 .stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,34px);color:var(--forest);line-height:1}
 .stat-num.accent{color:var(--teal)}
 .stat-label{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:8px}
@@ -199,8 +199,8 @@ section{padding:88px 24px}
 <!-- SEO HIGHLIGHT -->
 <section class="seo-banner">
   <div class="seo-banner-inner">
-    <div class="seo-banner-num">46%</div>
-    <div class="seo-banner-text"><strong>Nearly half of all leads came from organic SEO</strong>, not paid ads. That's the difference between renting visibility month to month and owning a search presence that keeps bringing in leads on its own.</div>
+    <div class="seo-banner-num">66%</div>
+    <div class="seo-banner-text"><strong>Two out of every three leads came from organic SEO</strong>, not paid ads. That's the difference between renting visibility month to month and owning a search presence that keeps bringing in leads on its own.</div>
   </div>
 </section>
 
