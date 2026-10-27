@@ -43,7 +43,7 @@ $page_css = <<<CSS
 .post-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22}
 .post-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,46,30,.94) 0%,rgba(10,46,30,.8) 55%,rgba(10,46,30,.58) 100%)}
 .post-hero-content{position:relative;z-index:2;padding:80px 48px 56px;max-width:1100px;width:100%;margin:0 auto;text-align:center}
-.post-breadcrumb{display:flex;align-items:center;gap:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(255,255,255,.45);margin-bottom:20px;text-decoration:none}
+.post-breadcrumb{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(255,255,255,.45);margin-bottom:20px;text-decoration:none}
 .post-breadcrumb a{color:rgba(255,255,255,.45);text-decoration:none}
 .post-breadcrumb a:hover{color:rgba(255,255,255,.8)}
 .post-breadcrumb span{opacity:.4}
