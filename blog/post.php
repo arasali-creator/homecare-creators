@@ -36,8 +36,9 @@ $page_css = <<<CSS
 .post-kw{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);background:rgba(29,158,117,.15);padding:5px 12px;border-radius:20px;display:inline-block;margin-bottom:16px}
 .post-hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(28px,4vw,52px);color:#fff;line-height:1.18;margin-bottom:20px;max-width:800px}
 .post-meta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center}
-.post-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--forest));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.post-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--forest));display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
 .post-avatar span{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700}
+.post-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
 .post-author-info{display:flex;flex-direction:column}
 .post-author-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:#fff}
 .post-author-meta{font-size:12px;color:rgba(255,255,255,.4)}
@@ -75,13 +76,10 @@ $page_css = <<<CSS
 .sidebar-cta-btn{display:block;background:var(--teal);color:#fff;border:none;padding:13px 20px;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:.2s;text-align:center}
 .sidebar-cta-btn:hover{background:#178a64;transform:translateY(-2px)}
 .sidebar-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px}
-.sidebar-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-.toc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
-.toc-list li a{font-size:13px;color:var(--muted);text-decoration:none;line-height:1.4;border-left:2px solid var(--border);padding-left:10px;display:block;transition:.15s}
-.toc-list li a:hover{color:var(--teal);border-left-color:var(--teal)}
 .author-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
-.author-avatar-lg{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--forest));display:flex;align-items:center;justify-content:center}
+.author-avatar-lg{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--forest));display:flex;align-items:center;justify-content:center;overflow:hidden}
 .author-avatar-lg span{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700}
+.author-avatar-lg img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
 .author-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--forest)}
 .author-title{font-size:12px;color:var(--muted)}
 .author-bio{font-size:12.5px;color:var(--muted);line-height:1.65;text-align:left}
@@ -129,10 +127,6 @@ $page_css = <<<CSS
 CSS;
 
 include '../includes/header.php';
-
-// Extract H2 headings for table of contents
-preg_match_all('/<h2[^>]*>(.*?)<\/h2>/i', $post['content'] ?? '', $headings);
-$toc = $headings[1] ?? [];
 ?>
 <script type="application/ld+json">
 <?= json_encode([
@@ -166,7 +160,7 @@ $toc = $headings[1] ?? [];
     <?php endif ?>
     <h1><?= htmlspecialchars($post['title']) ?></h1>
     <div class="post-meta-row">
-      <div class="post-avatar"><span>AR</span></div>
+      <div class="post-avatar"><img src="/images/team/asifa-rani-founder-ceo.jpg" alt="Asifa Rani"></div>
       <div class="post-author-info">
         <span class="post-author-name">Asifa Rani</span>
         <span class="post-author-meta">Founder &amp; CEO, Homecare Creators</span>
@@ -219,33 +213,14 @@ $toc = $headings[1] ?? [];
       </button>
     </div>
 
-    <!-- Table of Contents -->
-    <?php if (count($toc) > 1): ?>
-    <div class="sidebar-card">
-      <div class="sidebar-card-title">In This Article</div>
-      <ul class="toc-list">
-        <?php foreach ($toc as $h): ?>
-        <li><a href="#<?= h(strtolower(preg_replace('/[^a-z0-9]+/i','-',strip_tags($h)))) ?>"><?= strip_tags($h) ?></a></li>
-        <?php endforeach ?>
-      </ul>
-    </div>
-    <?php endif ?>
-
     <!-- Author -->
     <div class="sidebar-card">
       <div class="author-card">
-        <div class="author-avatar-lg"><span>AR</span></div>
+        <div class="author-avatar-lg"><img src="/images/team/asifa-rani-founder-ceo.jpg" alt="Asifa Rani"></div>
         <div class="author-name">Asifa Rani</div>
         <div class="author-title">Founder &amp; CEO, Homecare Creators</div>
         <p class="author-bio">Asifa writes from direct experience running a marketing agency built exclusively for home care agencies. <a href="/about/" style="color:var(--teal);text-decoration:none;font-weight:700">More about Asifa &rarr;</a></p>
       </div>
-    </div>
-
-    <!-- Mini CTA 2 -->
-    <div class="sidebar-card" style="background:rgba(29,158,117,.05);border-color:rgba(29,158,117,.2)">
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px">Struggling to get new clients?</div>
-      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px;line-height:1.65">See the exact SEO strategy we use to rank homecare agencies on page 1 nationwide.</p>
-      <button onclick="openPopup('starter')" style="background:var(--teal);color:#fff;border:none;padding:10px 18px;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:.2s">View Our Packages</button>
     </div>
 
   </aside>
