@@ -15,7 +15,11 @@ $page_css = <<<CSS
 .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 30% 50%,black 20%,transparent 80%)}
 .hero-blob1{position:absolute;width:700px;height:700px;top:-200px;right:-150px;background:radial-gradient(circle,rgba(29,158,117,.16) 0%,transparent 65%);animation:float 10s ease-in-out infinite}
 .hero-blob2{position:absolute;width:500px;height:500px;bottom:-150px;left:-100px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 65%);animation:float 13s ease-in-out infinite reverse}
-.hero-content{position:relative;z-index:2;max-width:780px}
+.hero-grid{position:relative;z-index:2;max-width:1320px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.hero-content{max-width:620px}
+.hero-visual{position:relative}
+.hero-visual-glow{position:absolute;inset:-30px;background:radial-gradient(circle,rgba(29,158,117,.3),transparent 70%);filter:blur(30px);z-index:-1}
+.hero-visual img{width:100%;aspect-ratio:4/4.5;object-fit:cover;border-radius:var(--r-lg);display:block;box-shadow:0 30px 80px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1)}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;width:fit-content;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
 .hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(38px,5vw,64px);line-height:1.06;color:#fff;margin-bottom:22px;animation:fadeUp .8s .1s ease both}
@@ -30,11 +34,26 @@ $page_css = <<<CSS
 
 /* WHAT-IS SECTION */
 .market-section{background:#fff}
-.market-inner{display:flex;flex-direction:column;gap:40px}
-.market-body{text-align:center;max-width:780px;margin:0 auto}
-.market-body .section-label{justify-content:center}
-.market-body p{font-size:18px;line-height:1.8;color:var(--muted);margin-bottom:16px}
-.market-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.market-inner{display:flex;flex-direction:column;gap:48px}
+.market-header{max-width:680px}
+.market-columns{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
+.market-text p{font-size:17px;line-height:1.85;color:var(--muted);margin-bottom:18px}
+.market-text p:last-child{margin-bottom:0}
+.market-quote{display:flex;gap:16px;background:var(--warm);border-left:4px solid var(--gold);border-radius:0 var(--r) var(--r) 0;padding:20px 24px;margin:4px 0 22px}
+.market-quote i{color:var(--gold);font-size:18px;flex-shrink:0;margin-top:2px}
+.market-quote p{font-size:16px;font-style:italic;color:var(--forest);line-height:1.7;margin:0}
+.market-compare{background:var(--cream);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;position:sticky;top:110px}
+.market-compare-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--teal);margin-bottom:22px;display:flex;align-items:center;gap:8px}
+.market-compare-title::before{content:'';width:18px;height:2px;background:var(--teal);border-radius:2px;flex-shrink:0}
+.compare-head{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-bottom:12px;margin-bottom:6px;border-bottom:2px solid var(--border)}
+.compare-head div{font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--muted)}
+.compare-head div:last-child{color:var(--teal)}
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--border)}
+.compare-row:last-child{border-bottom:none;padding-bottom:0}
+.compare-row div{font-size:13px;line-height:1.55}
+.compare-row div:first-child{color:var(--muted)}
+.compare-row div:last-child{color:var(--forest);font-weight:600}
+.market-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .fact-card{background:var(--warm);border:1px solid var(--border);border-radius:var(--r);padding:22px;border-left:4px solid var(--teal)}
 .fact-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;color:var(--teal);line-height:1;margin-bottom:6px}
 .fact-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:var(--forest);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
@@ -92,7 +111,9 @@ $page_css = <<<CSS
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .market-inner,.cta-inner{grid-template-columns:1fr;gap:40px}
+  .market-columns,.cta-inner{grid-template-columns:1fr;gap:40px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-visual{order:-1;max-width:420px;margin:0 auto}
   .services-grid,.why-grid{grid-template-columns:1fr 1fr}
   .market-facts{grid-template-columns:1fr 1fr}
   .hero{padding:110px 40px 60px}
@@ -101,8 +122,11 @@ $page_css = <<<CSS
   .services-grid,.why-grid{grid-template-columns:1fr}
   .market-facts{grid-template-columns:1fr}
   .hero{padding:100px 24px 60px}
+  .hero-visual{display:none}
   section{padding:64px 24px}
   .cta-image{display:none}
+  .compare-head,.compare-row{grid-template-columns:1fr}
+  .compare-head div:last-child{margin-top:6px}
 }
 CSS;
 include '../includes/header.php';
@@ -115,23 +139,29 @@ include '../includes/header.php';
   <div class="hero-bg-grid"></div>
   <div class="hero-blob1"></div>
   <div class="hero-blob2"></div>
-  <div class="hero-content">
-    <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <span>AI &amp; Automation</span></div>
-    <div class="hero-badge"><div class="hero-badge-pulse"></div>AI-Powered Operations for Home Care</div>
-    <h1 class="hero-h1">AI &amp; Automation<br>for <em>Home Care Agencies</em></h1>
-    <p class="hero-desc">Every missed call or unanswered inquiry is a family that moves on to the next agency on their list. We build AI chat assistants, automated follow-ups, and scheduling workflows so your team can focus on providing care while every lead gets a timely response, day or night.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-robot"></i>Get My Free Automation Audit</button>
-      <a href="#services" class="btn-secondary"><i class="fa-solid fa-play"></i>See What's Included</a>
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <span>AI &amp; Automation</span></div>
+      <div class="hero-badge"><div class="hero-badge-pulse"></div>AI-Powered Operations for Home Care</div>
+      <h1 class="hero-h1">AI &amp; Automation<br>for <em>Home Care Agencies</em></h1>
+      <p class="hero-desc">Every missed call or unanswered inquiry is a family that moves on to the next agency on their list. We build AI chat assistants, automated follow-ups, and scheduling workflows so your team can focus on providing care while every lead gets a timely response, day or night.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-robot"></i>Get My Free Automation Audit</button>
+        <a href="#services" class="btn-secondary"><i class="fa-solid fa-play"></i>See What's Included</a>
+      </div>
+      <div class="hero-proof">
+        <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
+        <div class="hero-proof-divider"></div>
+        <div class="hero-proof-item"><div class="hero-proof-num">24/7</div><div class="hero-proof-label">Automated Response</div></div>
+        <div class="hero-proof-divider"></div>
+        <div class="hero-proof-item"><div class="hero-proof-num">30-Day</div><div class="hero-proof-label">Satisfaction Guarantee</div></div>
+        <div class="hero-proof-divider"></div>
+        <div class="hero-proof-item"><div class="hero-proof-num">$0</div><div class="hero-proof-label">Free Audit Cost</div></div>
+      </div>
     </div>
-    <div class="hero-proof">
-      <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
-      <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">24/7</div><div class="hero-proof-label">Automated Response</div></div>
-      <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">30-Day</div><div class="hero-proof-label">Satisfaction Guarantee</div></div>
-      <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">$0</div><div class="hero-proof-label">Free Audit Cost</div></div>
+    <div class="hero-visual">
+      <div class="hero-visual-glow"></div>
+      <img src="/images/home/hero-team-ai-automation.jpg" alt="Homecare Creators team reviewing AI and automation workflows for a home care agency" title="AI and automation strategy session">
     </div>
   </div>
 </section>
@@ -179,13 +209,28 @@ include '../includes/header.php';
 <section class="market-section">
   <div class="container">
     <div class="market-inner">
-      <div class="market-body" data-reveal>
+      <div class="market-header" data-reveal>
         <p class="section-label">What Is AI &amp; Automation?</p>
         <h2 class="section-h2">Why <em>Speed to Lead</em> Decides Who Gets the Client</h2>
-        <p>When a family reaches out to a home care agency, they're usually contacting two or three others at the same time. Whoever responds first, clearly and professionally, has a real edge before a single conversation happens. AI & Automation is the practice of putting that fast, consistent response on autopilot: AI chat assistants that answer questions the moment someone lands on your site, automated follow-ups that go out within minutes instead of hours, and scheduling workflows that remove the back-and-forth of booking a call.</p>
-        <p>None of this replaces your office staff or your intake process. It handles the repetitive, time-sensitive parts, the first reply, the appointment reminder, the follow-up email, so your team's time goes toward the conversations that actually need a person: answering detailed questions, building trust, and closing the inquiry.</p>
       </div>
-      <div class="market-facts" data-reveal style="transition-delay:.15s">
+      <div class="market-columns">
+        <div class="market-text" data-reveal style="transition-delay:.05s">
+          <p>When a family reaches out to a home care agency, they're usually contacting two or three others at the same time. AI & Automation is the practice of putting a fast, consistent response on autopilot: AI chat assistants that answer questions the moment someone lands on your site, automated follow-ups that go out within minutes instead of hours, and scheduling workflows that remove the back-and-forth of booking a call.</p>
+          <div class="market-quote">
+            <i class="fa-solid fa-quote-left"></i>
+            <p>Whoever responds first, clearly and professionally, has a real edge before a single conversation happens.</p>
+          </div>
+          <p>None of this replaces your office staff or your intake process. It handles the repetitive, time-sensitive parts, the first reply, the appointment reminder, the follow-up email, so your team's time goes toward the conversations that actually need a person: answering detailed questions, building trust, and closing the inquiry.</p>
+        </div>
+        <div class="market-compare" data-reveal style="transition-delay:.15s">
+          <div class="market-compare-title">Before vs. After</div>
+          <div class="compare-head"><div>Without Automation</div><div>With Automation</div></div>
+          <div class="compare-row"><div>Inquiry waits until someone checks email</div><div>AI chat replies the moment they land on your site</div></div>
+          <div class="compare-row"><div>Follow-up goes out hours or days later</div><div>Automated follow-up within minutes</div></div>
+          <div class="compare-row"><div>Booking means phone tag back and forth</div><div>Scheduling link sent instantly</div></div>
+        </div>
+      </div>
+      <div class="market-facts" data-reveal style="transition-delay:.2s">
         <div class="fact-card"><div class="fact-num">24/7</div><h4>Always-On Response</h4><p>AI chat assistants and automated follow-ups work nights, weekends, and holidays, not just office hours.</p></div>
         <div class="fact-card"><div class="fact-num">Instant</div><h4>Faster Lead Follow-Up</h4><p>Automated workflows respond to a new inquiry the moment it comes in, before a competitor gets the chance to.</p></div>
         <div class="fact-card"><div class="fact-num">Fewer</div><h4>Repetitive Tasks</h4><p>Scheduling confirmations, reminders, and routine messages run automatically instead of eating up staff time.</p></div>
@@ -366,7 +411,7 @@ include '../includes/header.php';
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; 30-day satisfaction guarantee</div>
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
-        <img src="/images/home/cta-business-owner.jpg" alt="Home care agency owner reviewing automated lead follow-up with Homecare Creators" title="Home care agency owner using AI and automation">
+        <img src="/images/home/cta-owner-ai-automation.jpg" alt="Home care agency owner reviewing automated lead follow-up with Homecare Creators" title="Home care agency owner using AI and automation">
         <div class="cta-image-badge">
           <div class="cta-image-badge-title"><i class="fa-solid fa-circle-dot" style="color:var(--teal-lt);margin-right:4px"></i>Audit Includes</div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Current intake &amp; follow-up review</div></div>
