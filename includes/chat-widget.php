@@ -29,7 +29,17 @@
 .hc-chat-status-dot.online{background:#2ec68f;box-shadow:0 0 0 3px rgba(46,198,143,.25)}
 #hcChatClose{background:none;border:none;color:rgba(255,255,255,.6);font-size:16px;cursor:pointer;padding:4px}
 #hcChatClose:hover{color:#fff}
-.hc-chat-body{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;min-height:0}
+.hc-chat-body{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;min-height:0;position:relative}
+.hc-chat-msg-sender-label{font-size:10px;color:var(--muted);margin:0 0 3px;padding:0 3px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif}
+.hc-chat-msg a{color:inherit;text-decoration:underline}
+.hc-chat-scroll-pill{position:absolute;bottom:72px;left:50%;transform:translateX(-50%);background:var(--forest);color:#fff;font-size:11.5px;font-weight:700;padding:7px 16px;border-radius:20px;cursor:pointer;box-shadow:0 6px 18px rgba(10,46,30,.3);display:none;align-items:center;gap:6px;z-index:5;font-family:'Plus Jakarta Sans',sans-serif}
+.hc-chat-scroll-pill.show{display:flex}
+.hc-chat-rating{text-align:center;padding:18px 14px;background:var(--cream);border-radius:var(--r);margin-bottom:12px}
+.hc-chat-rating-title{font-size:13px;color:var(--forest);font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:10px}
+.hc-chat-rating-stars{display:flex;justify-content:center;gap:7px}
+.hc-chat-rating-star{font-size:24px;color:#d1d5db;cursor:pointer;transition:.15s;background:none;border:none;padding:0}
+.hc-chat-rating-star.active{color:var(--gold)}
+.hc-chat-rating-thanks{font-size:13px;color:var(--teal);font-weight:700;font-family:'Plus Jakarta Sans',sans-serif}
 .hc-chat-greeting{font-size:14.5px;color:var(--text);margin-bottom:16px;line-height:1.5}
 .hc-chat-option{display:flex;align-items:center;gap:14px;text-align:left;background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;cursor:pointer;margin-bottom:10px;transition:.15s;font-family:inherit}
 .hc-chat-option:hover{border-color:var(--teal);background:#fff;box-shadow:0 6px 20px rgba(10,46,30,.08)}
@@ -73,7 +83,14 @@
 .hc-chat-footer input{flex:1;padding:11px 13px;border:1px solid var(--border);border-radius:9px;font-size:13.5px;font-family:inherit;outline:none}
 .hc-chat-footer input:focus{border-color:var(--teal)}
 .hc-chat-footer button{flex-shrink:0;width:40px;background:var(--teal);color:#fff;border:none;border-radius:9px;cursor:pointer}
-@media(max-width:480px){.hc-chat-panel{right:16px;bottom:88px;width:calc(100vw - 32px)}#hcChatRoot{right:16px;bottom:16px}.hc-chat-greet{right:-8px;width:240px}}
+@media(max-width:480px){#hcChatRoot{right:16px;bottom:16px}.hc-chat-greet{right:-8px;width:240px}}
+@media(max-width:600px){
+  .hc-chat-panel{position:fixed;inset:0;right:0;bottom:0;top:0;left:0;width:100%;max-width:100%;height:100%;max-height:100%;border-radius:0;border:none}
+  .hc-chat-panel.open{animation:hcPanelInMobile .22s ease both}
+  .hc-chat-header{padding:18px 20px calc(18px + env(safe-area-inset-top,0px))}
+  .hc-chat-footer{padding-bottom:env(safe-area-inset-bottom,0px)}
+}
+@keyframes hcPanelInMobile{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 </style>
 
 <div id="hcChatRoot">
@@ -110,8 +127,18 @@
     token: localStorage.getItem('hcChatToken') || ''
   };
   var unreadCount = 0;
+  var agentName = 'Homecare Creators Team';
+  var hasRated = false;
 
   function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : String(s); return d.innerHTML; }
+
+  // Escapes the text, then linkifies URLs and preserves line breaks —
+  // safe because esc() runs first, so only our own <a>/<br> tags are real HTML.
+  function richText(s) {
+    var escaped = esc(s);
+    var linked = escaped.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+    return linked.replace(/\n/g, '<br>');
+  }
 
   function formatTime(dateStr) {
     if (!dateStr) return '';
@@ -297,6 +324,7 @@
           if (d.success && d.session_id) {
             state.sessionId = d.session_id;
             state.token = d.token;
+            if (d.agent_name) agentName = d.agent_name;
             localStorage.setItem('hcChatSessionId', d.session_id);
             localStorage.setItem('hcChatToken', d.token);
             lastMsgId = 0;
@@ -316,10 +344,12 @@
   }
 
   function renderExpertChat(online) {
+    hasRated = false;
     setOnline(!!online);
     body.innerHTML = backHeader('New Chat') +
       '<div class="hc-chat-status" id="hcChatStatus">Connecting you with our team…</div>' +
       '<div class="hc-chat-thread" id="hcChatThread"></div>' +
+      '<div class="hc-chat-scroll-pill" id="hcScrollPill"><i class="fa-solid fa-arrow-down"></i> New messages</div>' +
       '<div class="hc-chat-footer"><input type="text" id="hcChatMsgInput" placeholder="Type a message…" autocomplete="off"><button id="hcChatSendBtn"><i class="fa-solid fa-paper-plane"></i></button></div>';
 
     document.getElementById('hcChatBack').onclick = function() {
@@ -340,6 +370,14 @@
         fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'typing', session_id: state.sessionId, token: state.token }) }).catch(function() {});
       }
     });
+    document.getElementById('hcScrollPill').addEventListener('click', function() {
+      var thread = document.getElementById('hcChatThread');
+      thread.scrollTop = thread.scrollHeight;
+      hideScrollPill();
+    });
+    document.getElementById('hcChatThread').addEventListener('scroll', function() {
+      if (isNearBottom(this)) hideScrollPill();
+    });
 
     lastMsgId = 0;
     pollNow();
@@ -359,14 +397,33 @@
     }).catch(function() {});
   }
 
+  function isNearBottom(el) {
+    return el.scrollHeight - el.scrollTop - el.clientHeight < 60;
+  }
+  function showScrollPill() {
+    var pill = document.getElementById('hcScrollPill');
+    if (pill) pill.classList.add('show');
+  }
+  function hideScrollPill() {
+    var pill = document.getElementById('hcScrollPill');
+    if (pill) pill.classList.remove('show');
+  }
+
   function appendMessage(sender, text, time) {
     var thread = document.getElementById('hcChatThread');
     if (!thread) return;
+    var wasNearBottom = isNearBottom(thread);
     var row = document.createElement('div');
     row.className = 'hc-chat-msg-row sender-' + sender;
+    if (sender === 'admin') {
+      var label = document.createElement('div');
+      label.className = 'hc-chat-msg-sender-label';
+      label.textContent = agentName;
+      row.appendChild(label);
+    }
     var bubbleEl = document.createElement('div');
     bubbleEl.className = 'hc-chat-msg';
-    bubbleEl.textContent = text;
+    bubbleEl.innerHTML = richText(text);
     row.appendChild(bubbleEl);
     if (time) {
       var t = document.createElement('div');
@@ -375,7 +432,43 @@
       row.appendChild(t);
     }
     thread.appendChild(row);
-    thread.scrollTop = thread.scrollHeight;
+    if (wasNearBottom || sender === 'visitor') {
+      thread.scrollTop = thread.scrollHeight;
+      hideScrollPill();
+    } else {
+      showScrollPill();
+    }
+  }
+
+  function showRatingPrompt() {
+    if (hasRated || document.getElementById('hcRatingCard')) return;
+    var footer = document.querySelector('.hc-chat-footer');
+    if (!footer) return;
+    var card = document.createElement('div');
+    card.className = 'hc-chat-rating';
+    card.id = 'hcRatingCard';
+    card.innerHTML =
+      '<div class="hc-chat-rating-title">How was your experience?</div>' +
+      '<div class="hc-chat-rating-stars" id="hcRatingStars">' +
+        [1, 2, 3, 4, 5].map(function(n) { return '<button type="button" class="hc-chat-rating-star" data-n="' + n + '">★</button>'; }).join('') +
+      '</div>';
+    footer.parentNode.insertBefore(card, footer);
+    footer.style.display = 'none';
+
+    var stars = card.querySelectorAll('.hc-chat-rating-star');
+    document.getElementById('hcRatingStars').addEventListener('mouseleave', function() { paintStars(0); });
+    stars.forEach(function(star) {
+      star.addEventListener('mouseenter', function() { paintStars(parseInt(star.dataset.n, 10)); });
+      star.addEventListener('click', function() {
+        var n = parseInt(star.dataset.n, 10);
+        hasRated = true;
+        fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'rate', session_id: state.sessionId, token: state.token, rating: n }) }).catch(function() {});
+        card.innerHTML = '<div class="hc-chat-rating-thanks">Thanks for your feedback! 💚</div>';
+      });
+    });
+    function paintStars(n) {
+      stars.forEach(function(s) { s.classList.toggle('active', parseInt(s.dataset.n, 10) <= n); });
+    }
   }
 
   function setTypingIndicator(show) {
@@ -401,12 +494,14 @@
       .then(function(d) {
         if (!d.success) return;
         setOnline(d.online);
+        if (d.agent_name) agentName = d.agent_name;
         var statusEl = document.getElementById('hcChatStatus');
         if (statusEl) {
           if (d.status === 'closed') statusEl.textContent = 'This conversation has ended.';
           else if (lastMsgId === 0 && !d.messages.length) statusEl.textContent = 'Connecting you with our team…';
           else statusEl.style.display = 'none';
         }
+        if (d.status === 'closed' && !d.already_rated) showRatingPrompt();
         var hadAdminReply = false;
         setTypingIndicator(false);
         d.messages.forEach(function(m) {

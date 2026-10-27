@@ -36,10 +36,12 @@ hc_db()->exec("CREATE TABLE IF NOT EXISTS hc_chat_messages (
     INDEX (session_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
-// Defensive ALTERs for installs created before typing-indicator support was added.
+// Defensive ALTERs for installs created before typing-indicator/rating support was added.
 foreach ([
     "ALTER TABLE hc_chat_sessions ADD COLUMN admin_typing_until TIMESTAMP NULL DEFAULT NULL",
     "ALTER TABLE hc_chat_sessions ADD COLUMN visitor_typing_until TIMESTAMP NULL DEFAULT NULL",
+    "ALTER TABLE hc_chat_sessions ADD COLUMN rating TINYINT NULL DEFAULT NULL",
+    "ALTER TABLE hc_chat_sessions ADD COLUMN rating_feedback VARCHAR(500) DEFAULT ''",
 ] as $alter) {
     try { hc_db()->exec($alter); } catch (Exception $e) { /* column already exists */ }
 }
@@ -60,6 +62,10 @@ function hc_chat_session_for_token(int $id, string $token): ?array {
 function hc_chat_is_online(): bool {
     $lastSeen = (int)hc_setting('chat_admin_last_seen', '0');
     return $lastSeen > 0 && (time() - $lastSeen) < HC_CHAT_ONLINE_WINDOW;
+}
+
+function hc_chat_agent_name(): string {
+    return hc_setting('chat_agent_name', '') ?: 'Homecare Creators Team';
 }
 
 $method = $_SERVER['REQUEST_METHOD'];
@@ -141,7 +147,7 @@ switch ($action) {
 
         HcMailer::send($notifyEmail, $subject, $plain, $email, '', $html);
 
-        echo json_encode(['success' => true, 'session_id' => $sessionId, 'token' => $token, 'online' => hc_chat_is_online()]);
+        echo json_encode(['success' => true, 'session_id' => $sessionId, 'token' => $token, 'online' => hc_chat_is_online(), 'agent_name' => hc_chat_agent_name()]);
         exit;
     }
 
@@ -187,7 +193,23 @@ switch ($action) {
             'messages'     => $messages,
             'admin_typing' => (bool)$adminTyping,
             'online'       => hc_chat_is_online(),
+            'agent_name'   => hc_chat_agent_name(),
+            'already_rated'=> $session['rating'] !== null,
         ]);
+        exit;
+    }
+
+    // ── Visitor rates the conversation after it's closed ────────────────────
+    case 'rate': {
+        if ($method !== 'POST') hc_chat_fail('Method not allowed', 405);
+        $session = hc_chat_session_for_token((int)($body['session_id'] ?? 0), trim($body['token'] ?? ''));
+        if (!$session) hc_chat_fail('Invalid session.', 404);
+        $rating   = (int)($body['rating'] ?? 0);
+        $feedback = strip_tags(trim($body['feedback'] ?? ''));
+        if ($rating < 1 || $rating > 5) hc_chat_fail('Rating must be between 1 and 5.');
+
+        hc_q("UPDATE hc_chat_sessions SET rating=?, rating_feedback=? WHERE id=?", [$rating, $feedback, $session['id']]);
+        echo json_encode(['success' => true]);
         exit;
     }
 

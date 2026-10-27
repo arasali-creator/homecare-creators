@@ -32,11 +32,24 @@ hc_db()->exec("CREATE TABLE IF NOT EXISTS hc_chat_messages (
 foreach ([
     "ALTER TABLE hc_chat_sessions ADD COLUMN admin_typing_until TIMESTAMP NULL DEFAULT NULL",
     "ALTER TABLE hc_chat_sessions ADD COLUMN visitor_typing_until TIMESTAMP NULL DEFAULT NULL",
+    "ALTER TABLE hc_chat_sessions ADD COLUMN rating TINYINT NULL DEFAULT NULL",
+    "ALTER TABLE hc_chat_sessions ADD COLUMN rating_feedback VARCHAR(500) DEFAULT ''",
 ] as $alter) {
     try { hc_db()->exec($alter); } catch (Exception $e) { /* column already exists */ }
 }
 
 $open_session = (int)($_GET['session'] ?? 0);
+
+$canned_raw = hc_setting('chat_canned_replies', '');
+$canned_replies = $canned_raw
+    ? array_values(array_filter(array_map('trim', explode("\n", $canned_raw))))
+    : [
+        "Thanks for reaching out! Could you tell me a bit more about your agency?",
+        "One moment, let me check on that for you.",
+        "What city or area does your agency serve?",
+        "You can book a time directly with us here: https://homecarecreators.com/contact/",
+        "Happy to help! Is this regarding SEO, website design, or something else?",
+    ];
 
 hc_head('Live Chat');
 hc_topbar('Live Chat', '<a href="/admin/">Admin</a> › Live Chat');
@@ -65,6 +78,7 @@ hc_topbar('Live Chat', '<a href="/admin/">Admin</a> › Live Chat');
 .chat-msg-row.from-admin{align-self:flex-end;align-items:flex-end}
 .chat-msg-row.from-visitor{align-self:flex-start;align-items:flex-start}
 .chat-msg{padding:10px 14px;border-radius:14px;font-size:13.5px;line-height:1.5;word-wrap:break-word}
+.chat-msg a{color:inherit;text-decoration:underline}
 .chat-msg-row.from-visitor .chat-msg{background:#fff;border:1px solid #e5e7eb;color:#111827;border-bottom-left-radius:4px}
 .chat-msg-row.from-admin .chat-msg{background:linear-gradient(135deg,#1d9e75,#2ec68f);color:#fff;border-bottom-right-radius:4px}
 .chat-msg-time{font-size:10px;color:#9ca3af;margin-top:3px;padding:0 4px}
@@ -104,15 +118,26 @@ var typingPingAt = 0;
 var pageTitle = document.title;
 var titleFlashTimer = null;
 
-var CANNED_REPLIES = [
-  "Thanks for reaching out! Could you tell me a bit more about your agency?",
-  "One moment, let me check on that for you.",
-  "What city or area does your agency serve?",
-  "You can book a time directly with us here: https://homecarecreators.com/contact/",
-  "Happy to help! Is this regarding SEO, website design, or something else?"
-];
+var CANNED_REPLIES = <?= json_encode($canned_replies, JSON_UNESCAPED_SLASHES) ?>;
+
+if ('Notification' in window && Notification.permission === 'default') {
+  document.addEventListener('click', function requestOnce() {
+    Notification.requestPermission();
+    document.removeEventListener('click', requestOnce);
+  }, { once: true });
+}
+function desktopNotify(title, body) {
+  if (!('Notification' in window) || Notification.permission !== 'granted' || !document.hidden) return;
+  try { new Notification(title, { body: body, icon: '/favicon.ico' }); } catch (e) {}
+}
 
 function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : String(s); return d.innerHTML; }
+
+function richText(s) {
+  var escaped = esc(s);
+  var linked = escaped.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+  return linked.replace(/\n/g, '<br>');
+}
 
 function timeAgo(dateStr) {
   var d = new Date(dateStr.replace(' ', 'T') + 'Z');
@@ -169,7 +194,12 @@ function loadList() {
     .then(function(d) {
       if (!d.success) return;
       var unreadTotal = d.sessions.reduce(function(n, s) { return n + (s.admin_unread == 1 ? 1 : 0); }, 0);
-      if (unreadTotal > lastUnreadTotal) { playChime(); if (document.hidden) flashTitle(true); }
+      if (unreadTotal > lastUnreadTotal) {
+        playChime();
+        if (document.hidden) flashTitle(true);
+        var newest = d.sessions.find(function(s) { return s.admin_unread == 1; });
+        desktopNotify('New chat message', newest ? (newest.visitor_name || 'A visitor') + ': ' + (newest.last_message || '') : 'You have a new chat message.');
+      }
       lastUnreadTotal = unreadTotal;
 
       var el = document.getElementById('chatList');
@@ -213,10 +243,11 @@ function loadThread(scrollDown) {
       if (!sameCount) {
         lastMsgCount = d.messages.length;
         var closedBadge = d.session.status === 'closed' ? ' (closed)' : '';
+        var ratingBadge = d.session.rating ? ' &middot; ' + '★'.repeat(d.session.rating) + '<span style="color:#d1d5db">' + '★'.repeat(5 - d.session.rating) + '</span>' : '';
         wrap.innerHTML =
           '<div class="chat-thread-header">' +
             '<div><div class="chat-thread-title">' + esc(d.session.visitor_name || 'Anonymous') + closedBadge + '</div>' +
-            '<div class="chat-thread-sub">' + esc(d.session.visitor_email) + ' &middot; from ' + esc(d.session.page_url || '—') + '</div></div>' +
+            '<div class="chat-thread-sub">' + esc(d.session.visitor_email) + ' &middot; from ' + esc(d.session.page_url || '—') + ratingBadge + '</div></div>' +
             '<button class="btn btn-ghost btn-sm" id="chatCloseBtn">Close Chat</button>' +
           '</div>' +
           '<div class="chat-thread-messages" id="chatMessages"></div>' +
@@ -225,7 +256,7 @@ function loadThread(scrollDown) {
 
         var msgsEl = document.getElementById('chatMessages');
         msgsEl.innerHTML = d.messages.map(function(m) {
-          return '<div class="chat-msg-row from-' + m.sender + '"><div class="chat-msg">' + esc(m.message) + '</div><div class="chat-msg-time">' + formatTime(m.created_at) + '</div></div>';
+          return '<div class="chat-msg-row from-' + m.sender + '"><div class="chat-msg">' + richText(m.message) + '</div><div class="chat-msg-time">' + formatTime(m.created_at) + '</div></div>';
         }).join('');
         if (scrollDown !== false) msgsEl.scrollTop = msgsEl.scrollHeight;
 
