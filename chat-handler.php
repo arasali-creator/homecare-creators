@@ -36,6 +36,16 @@ hc_db()->exec("CREATE TABLE IF NOT EXISTS hc_chat_messages (
     INDEX (session_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
+// Defensive ALTERs for installs created before typing-indicator support was added.
+foreach ([
+    "ALTER TABLE hc_chat_sessions ADD COLUMN admin_typing_until TIMESTAMP NULL DEFAULT NULL",
+    "ALTER TABLE hc_chat_sessions ADD COLUMN visitor_typing_until TIMESTAMP NULL DEFAULT NULL",
+] as $alter) {
+    try { hc_db()->exec($alter); } catch (Exception $e) { /* column already exists */ }
+}
+
+define('HC_CHAT_ONLINE_WINDOW', 180); // seconds since admin's last dashboard activity to show "online"
+
 function hc_chat_fail(string $msg, int $code = 400): void {
     http_response_code($code);
     echo json_encode(['success' => false, 'message' => $msg]);
@@ -45,6 +55,11 @@ function hc_chat_fail(string $msg, int $code = 400): void {
 function hc_chat_session_for_token(int $id, string $token): ?array {
     if (!$id || !$token) return null;
     return hc_one("SELECT * FROM hc_chat_sessions WHERE id=? AND token=?", [$id, $token]);
+}
+
+function hc_chat_is_online(): bool {
+    $lastSeen = (int)hc_setting('chat_admin_last_seen', '0');
+    return $lastSeen > 0 && (time() - $lastSeen) < HC_CHAT_ONLINE_WINDOW;
 }
 
 $method = $_SERVER['REQUEST_METHOD'];
@@ -73,6 +88,13 @@ switch ($action) {
         usort($scored, fn($a, $b) => $b['score'] <=> $a['score']);
         $results = array_slice(array_map(fn($s) => ['question' => $s['question'], 'answer' => $s['answer']], $scored), 0, 3);
         echo json_encode(['success' => true, 'results' => $results]);
+        exit;
+    }
+
+    // ── A handful of FAQs to show as clickable quick-reply chips ────────────
+    case 'top_faqs': {
+        $faqs = hc_all("SELECT question FROM hc_faqs ORDER BY RAND() LIMIT 4");
+        echo json_encode(['success' => true, 'questions' => array_column($faqs, 'question')]);
         exit;
     }
 
@@ -119,7 +141,7 @@ switch ($action) {
 
         HcMailer::send($notifyEmail, $subject, $plain, $email, '', $html);
 
-        echo json_encode(['success' => true, 'session_id' => $sessionId, 'token' => $token]);
+        echo json_encode(['success' => true, 'session_id' => $sessionId, 'token' => $token, 'online' => hc_chat_is_online()]);
         exit;
     }
 
@@ -132,8 +154,18 @@ switch ($action) {
         if (!$message) hc_chat_fail('Message is empty.');
 
         hc_q("INSERT INTO hc_chat_messages (session_id, sender, message) VALUES (?,'visitor',?)", [$session['id'], $message]);
-        hc_q("UPDATE hc_chat_sessions SET admin_unread=1, last_message_at=NOW() WHERE id=?", [$session['id']]);
+        hc_q("UPDATE hc_chat_sessions SET admin_unread=1, last_message_at=NOW(), visitor_typing_until=NULL WHERE id=?", [$session['id']]);
 
+        echo json_encode(['success' => true]);
+        exit;
+    }
+
+    // ── Visitor is actively typing — lets the admin see a live indicator ────
+    case 'typing': {
+        if ($method !== 'POST') hc_chat_fail('Method not allowed', 405);
+        $session = hc_chat_session_for_token((int)($body['session_id'] ?? 0), trim($body['token'] ?? ''));
+        if (!$session) hc_chat_fail('Invalid session.', 404);
+        hc_q("UPDATE hc_chat_sessions SET visitor_typing_until=DATE_ADD(NOW(), INTERVAL 5 SECOND) WHERE id=?", [$session['id']]);
         echo json_encode(['success' => true]);
         exit;
     }
@@ -147,7 +179,15 @@ switch ($action) {
         $messages = hc_all("SELECT id, sender, message, created_at FROM hc_chat_messages WHERE session_id=? AND id>? ORDER BY id ASC", [$session['id'], $since]);
         hc_q("UPDATE hc_chat_sessions SET visitor_unread=0 WHERE id=?", [$session['id']]);
 
-        echo json_encode(['success' => true, 'status' => $session['status'], 'messages' => $messages]);
+        $adminTyping = hc_val("SELECT admin_typing_until > NOW() FROM hc_chat_sessions WHERE id=?", [$session['id']]);
+
+        echo json_encode([
+            'success'      => true,
+            'status'       => $session['status'],
+            'messages'     => $messages,
+            'admin_typing' => (bool)$adminTyping,
+            'online'       => hc_chat_is_online(),
+        ]);
         exit;
     }
 
