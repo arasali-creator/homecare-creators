@@ -21,7 +21,12 @@ $page_css = <<<CSS
 .hero-h1 em{font-style:italic;color:var(--teal-lt)}
 .hero-tagline{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(17px,2vw,23px);color:rgba(255,255,255,.5);margin-bottom:22px}
 .hero-desc{font-size:18px;line-height:1.8;color:rgba(255,255,255,.62);max-width:640px;margin:0 auto 36px}
-.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
+.hero-proof{display:flex;gap:32px;flex-wrap:wrap;justify-content:center}
+.hero-proof-item{display:flex;flex-direction:column;gap:2px}
+.hero-proof-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:34px;color:var(--teal-lt);line-height:1}
+.hero-proof-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.42)}
+.hero-proof-divider{width:1px;background:rgba(255,255,255,.1);align-self:stretch}
 
 /* PRIVACY NOTE */
 .privacy-section{background:var(--cream);padding:44px 40px}
@@ -95,6 +100,18 @@ include '../includes/header.php';
 
 $case_studies = require '../includes/case-studies-data.php';
 
+// Real aggregate stats for the hero proof row, computed from the case study data
+$agg_leads = $agg_quote = $agg_sales = 0;
+foreach ($case_studies as $c) {
+    $agg_leads += (int)$c['stats'][0][0];
+    foreach ($c['stats'] as $s) {
+        $val = (float)str_replace(['$','K'], '', $s[0]);
+        if (stripos($s[1], 'quote value') !== false) $agg_quote += $val;
+        if (stripos($s[1], 'sales') !== false) $agg_sales += $val;
+    }
+}
+$agg_count = count($case_studies);
+
 $_faqs = [
     ["Are these real results?", "Yes. Every metric shown on this page comes from real campaigns managed by HomeCareCreators. To protect our clients' privacy, identifying details have been removed or generalized."],
     ["Can you guarantee the same results?", "No. Every agency operates in a different market with different levels of competition. While we can't guarantee identical outcomes, we build every strategy around proven SEO, local marketing, and conversion best practices."],
@@ -137,11 +154,19 @@ echo '<script type="application/ld+json">' . json_encode([
     <div class="hero-breadcrumb"><a href="/">Home</a> / <span>Case Studies</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Home Care Marketing Case Studies</div>
     <h1 class="hero-h1">Real Growth. Real Campaigns.<br><em>Real Results.</em></h1>
-    <div class="hero-tagline">Home Care Marketing Case Studies</div>
-    <p class="hero-desc">Growing a home care agency takes more than a great website or ranking higher on Google. It requires a marketing strategy that helps families find your agency, builds trust, and turns website visitors into qualified inquiries. At HomeCareCreators, we specialize in helping home care agencies grow through Home Care SEO, Local SEO, Website Design, AI Search Optimization (GEO), and AI Automation. Below are examples of real campaign results we've achieved for home care agencies across the United States.</p>
+    <p class="hero-desc">Growing a home care agency takes more than a great website or a high Google ranking. It takes a strategy that helps families find you, trust you, and reach out. Here's what that's looked like for agencies we've worked with across the United States.</p>
     <div class="hero-actions">
       <a href="/#services" class="btn-primary"><i class="fa-solid fa-layer-group"></i>View Our Services</a>
       <button class="btn-secondary" onclick="openPopup()"><i class="fa-solid fa-calendar-check"></i>Book a Strategy Call</button>
+    </div>
+    <div class="hero-proof">
+      <div class="hero-proof-item"><div class="hero-proof-num"><?= $agg_count ?></div><div class="hero-proof-label">Case Studies</div></div>
+      <div class="hero-proof-divider"></div>
+      <div class="hero-proof-item"><div class="hero-proof-num"><?= $agg_leads ?>+</div><div class="hero-proof-label">Leads Generated</div></div>
+      <div class="hero-proof-divider"></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">$<?= round($agg_quote) ?>K+</div><div class="hero-proof-label">Quote Value Generated</div></div>
+      <div class="hero-proof-divider"></div>
+      <div class="hero-proof-item"><div class="hero-proof-num">$<?= round($agg_sales) ?>K+</div><div class="hero-proof-label">Sales Generated</div></div>
     </div>
   </div>
 </section>
