@@ -50,12 +50,6 @@ $page_css = <<<CSS
 .post-kw{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);background:rgba(29,158,117,.15);padding:5px 12px;border-radius:20px;display:inline-block;margin-bottom:16px}
 .post-hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(28px,4vw,52px);color:#fff;line-height:1.18;margin:0 auto 20px;max-width:800px}
 .post-meta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center}
-.post-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--forest));display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
-.post-avatar span{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700}
-.post-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
-.post-author-info{display:flex;flex-direction:column}
-.post-author-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:#fff}
-.post-author-meta{font-size:12px;color:rgba(255,255,255,.4)}
 .post-sep{width:1px;height:24px;background:rgba(255,255,255,.15)}
 .post-reading{font-size:12px;color:rgba(255,255,255,.45);font-family:'Plus Jakarta Sans',sans-serif}
 
@@ -206,12 +200,6 @@ include '../includes/header.php';
     <?php endif ?>
     <h1><?= htmlspecialchars($post['title']) ?></h1>
     <div class="post-meta-row">
-      <div class="post-avatar"><img src="/images/team/asifa-rani-founder-ceo.jpg" alt="Asifa Rani"></div>
-      <div class="post-author-info">
-        <span class="post-author-name">Asifa Rani</span>
-        <span class="post-author-meta">Founder &amp; CEO, Homecare Creators</span>
-      </div>
-      <div class="post-sep"></div>
       <span class="post-reading"><?= date('M j, Y', strtotime($post['published_at'] ?? $post['created_at'])) ?></span>
       <div class="post-sep"></div>
       <span class="post-reading"><?= $reading_time ?> min read</span>
