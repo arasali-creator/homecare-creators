@@ -111,13 +111,16 @@ $page_css = <<<CSS
 
 /* ── SIDEBAR ── */
 .post-sidebar{position:sticky;top:90px;display:flex;flex-direction:column;gap:20px}
-.sidebar-cta-card{background:var(--forest);border-radius:16px;padding:28px;text-align:center}
-.sidebar-cta-card .sc-icon{width:52px;height:52px;background:rgba(29,158,117,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.sidebar-cta-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px 24px;text-align:center;position:relative;overflow:hidden}
+.sidebar-cta-card::before{content:'';position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--teal),var(--teal-lt))}
+.sidebar-cta-card .sc-icon{width:52px;height:52px;background:rgba(29,158,117,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:8px auto 16px}
 .sidebar-cta-card .sc-icon svg{width:24px;height:24px;color:var(--teal);stroke:var(--teal)}
-.sidebar-cta-card h3{font-size:16px;font-weight:600;color:#fff;margin-bottom:8px;line-height:1.3}
-.sidebar-cta-card p{font-size:14.5px;color:rgba(255,255,255,.5);margin-bottom:20px;line-height:1.6}
-.sidebar-cta-btn{display:block;background:var(--teal);color:#fff;border:none;padding:13px 20px;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:.2s;text-align:center}
-.sidebar-cta-btn:hover{background:#178a64;transform:translateY(-2px)}
+.sidebar-cta-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:16.5px;font-weight:700;color:var(--forest);margin-bottom:8px;line-height:1.3}
+.sidebar-cta-card p{font-size:13.5px;color:var(--muted);margin-bottom:20px;line-height:1.6}
+.sidebar-cta-btn{display:block;background:linear-gradient(135deg,var(--teal),#178a64);color:#fff;border:none;padding:13px 20px;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:.2s;text-align:center;box-shadow:0 8px 20px rgba(29,158,117,.25)}
+.sidebar-cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(29,158,117,.35)}
+.sidebar-cta-trust{margin-top:14px;font-size:11px;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:6px}
+.sidebar-cta-trust i{color:var(--teal)}
 .sidebar-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px}
 .author-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
 .author-avatar-lg{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--forest));display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -254,6 +257,7 @@ include '../includes/header.php';
       <button class="sidebar-cta-btn" onclick="openPopup('audit')">
         Request Free Audit →
       </button>
+      <div class="sidebar-cta-trust"><i class="fa-solid fa-circle-check"></i>Free &middot; No obligation</div>
     </div>
 
     <!-- Author -->
