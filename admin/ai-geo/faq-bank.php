@@ -6,6 +6,15 @@ require_once dirname(__DIR__) . '/includes/functions.php';
 require_once dirname(__DIR__) . '/includes/layout.php';
 hc_require_auth();
 
+hc_db()->exec("CREATE TABLE IF NOT EXISTS hc_faqs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    question VARCHAR(500) NOT NULL,
+    answer TEXT NOT NULL,
+    pages VARCHAR(1000) DEFAULT '',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
 

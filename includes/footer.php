@@ -334,5 +334,6 @@ window.addEventListener('resize', function() {
 <?php if (!empty($page_js)): ?>
 <script><?= $page_js ?></script>
 <?php endif; ?>
+<?php include __DIR__ . '/chat-widget.php'; ?>
 </body>
 </html>
