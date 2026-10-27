@@ -64,7 +64,7 @@ try {
 <?php if (!empty($og_desc)): ?><meta property="og:description" content="<?= htmlspecialchars($og_desc) ?>"><?php endif; ?>
 <?php if (!empty($page_canonical)): ?><meta property="og:url" content="<?= htmlspecialchars($page_canonical) ?>"><?php endif; ?>
 <?php if (!empty($og_image)): ?><meta property="og:image" content="<?= htmlspecialchars($og_image) ?>"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="<?= htmlspecialchars($og_image) ?>"><?php endif; ?>
-<meta property="og:type" content="website">
+<meta property="og:type" content="<?= htmlspecialchars($og_type ?? 'website') ?>">
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/images/home/favicon.svg?v=3">
 <link rel="apple-touch-icon" href="/images/home/favicon-180.png?v=3">

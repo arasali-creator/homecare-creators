@@ -31,10 +31,15 @@ if (strpos($rendered_content, '[case_studies') !== false) {
 }
 
 $page_title    = $post['meta_title'] ?: ($post['title'] . ' | Homecare Creators Blog');
-$page_desc     = $post['meta_desc'] ?: ($post['excerpt'] ?? '');
+$page_desc     = $post['meta_desc'] ?: ($post['excerpt'] ?: ($post['title'] . ' — insights from Homecare Creators.'));
 $page_canonical = "https://homecarecreators.com/blog/" . $post['slug'];
 $og_title      = $post['title'];
 $og_desc       = $page_desc;
+$og_type       = 'article';
+$schema_image  = $post['featured_image']
+    ? (preg_match('#^https?://#i', $post['featured_image']) ? $post['featured_image'] : 'https://homecarecreators.com' . $post['featured_image'])
+    : 'https://homecarecreators.com/images/home/homecarecreators-logo.png';
+$og_image      = $schema_image;
 
 $page_css = <<<CSS
 /* ── POST LAYOUT ── */
@@ -173,12 +178,12 @@ include '../includes/header.php';
     '@context'         => 'https://schema.org',
     '@type'            => 'Article',
     'headline'         => $post['title'],
-    'description'      => $post['excerpt'] ?? $page_desc,
-    'image'            => $post['featured_image'] ?: 'https://homecarecreators.com/images/home/homecarecreators-logo.png',
+    'description'      => $post['excerpt'] ?: $page_desc,
+    'image'            => $schema_image,
     'datePublished'    => date('c', strtotime($post['published_at'] ?? $post['created_at'])),
     'dateModified'     => date('c', strtotime($post['updated_at'] ?? $post['published_at'] ?? $post['created_at'])),
     'author'           => ['@type' => 'Person', 'name' => 'Asifa Rani', 'jobTitle' => 'Founder & CEO', 'url' => 'https://homecarecreators.com/about/', 'sameAs' => ['https://www.linkedin.com/in/asifa-rani/']],
-    'publisher'        => ['@type' => 'Organization', 'name' => 'Homecare Creators', 'url' => 'https://homecarecreators.com', 'logo' => ['@type' => 'ImageObject', 'url' => 'https://homecarecreators.com/images/home/homecarecreators-logo.png']],
+    'publisher'        => ['@id' => 'https://homecarecreators.com/#organization'],
     'mainEntityOfPage' => ['@type' => 'WebPage', '@id' => $page_canonical],
 ], JSON_UNESCAPED_SLASHES) ?>
 </script>

@@ -147,9 +147,12 @@ function hc_build_org_schema(array $od, array $sameAs): array {
         'addressCountry'  => 'US',
     ]);
 
+    $site_url = defined('SITE_URL') ? SITE_URL : 'https://homecarecreators.com';
+
     return array_filter([
         '@context'      => 'https://schema.org',
         '@type'         => $od['org_type'] ?? 'LocalBusiness',
+        '@id'           => rtrim($site_url, '/') . '/#organization',
         'name'          => $od['org_name'] ?? '',
         'description'   => $od['org_desc'] ?? '',
         'url'           => defined('SITE_URL') ? SITE_URL : '',
