@@ -278,6 +278,7 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/blog/">Bl
       <button class="editor-btn" type="button" onclick="openMedia('content')" title="Upload / insert image" style="background:var(--forest);color:#fff;border-color:var(--forest)">📷 Image</button>
       <button class="editor-btn" type="button" onclick="openFaqModal()" title="Insert an interactive FAQ question" style="background:var(--teal);color:#fff;border-color:var(--teal)">❓ FAQ</button>
       <button class="editor-btn" type="button" onclick="openHtmlModal()" title="Insert raw HTML / CSS (rendered, not escaped)" style="background:#2b2b2b;color:#fff;border-color:#2b2b2b">&lt;/&gt; HTML</button>
+      <button class="editor-btn" type="button" onclick="insertCaseStudies()" title="Insert a 2-up real case study block" style="background:var(--gold,#c9a84c);color:#fff;border-color:var(--gold,#c9a84c)">📊 Case Studies</button>
       <div class="editor-sep"></div>
       <button class="editor-btn" type="button" onclick="cmd('removeFormat')" title="Clear formatting">✕ Clear</button>
     </div>
@@ -701,6 +702,13 @@ function insertHtmlBlock() {
 document.getElementById('htmlModal').addEventListener('click', function(e) {
   if (e.target === this) closeHtmlModal();
 });
+
+// ── Case studies shortcode ───────────────────────────────────────────────────
+function insertCaseStudies() {
+  editor.focus();
+  document.execCommand('insertHTML', false, '<p>[case_studies]</p>');
+  hiddenField.value = editor.innerHTML;
+}
 
 // ── Prevent submit without syncing hidden field ───────────────────────────────
 document.getElementById('postForm').addEventListener('submit', function() {

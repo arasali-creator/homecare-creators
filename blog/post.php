@@ -16,6 +16,20 @@ if (!$post) { http_response_code(404); header('Location: /blog'); exit; }
 $word_count   = str_word_count(strip_tags($post['content'] ?? ''));
 $reading_time = max(1, round($word_count / 200));
 
+// Expand [case_studies] shortcode into the inline case-study block
+$rendered_content = $post['content'] ?? '';
+if (strpos($rendered_content, '[case_studies') !== false) {
+    // The editor inserts the shortcode as its own paragraph — unwrap the <p>
+    // first so we don't end up with a block-level div nested inside it.
+    $rendered_content = preg_replace('/<p[^>]*>\s*(\[case_studies[^\]]*\])\s*<\/p>/i', '$1', $rendered_content);
+    $rendered_content = preg_replace_callback('/\[case_studies(?:\s+count="(\d+)")?\s*\]/', function ($m) {
+        $csi_count = isset($m[1]) ? (int)$m[1] : 2;
+        ob_start();
+        include __DIR__ . '/../includes/case-study-inline.php';
+        return ob_get_clean();
+    }, $rendered_content);
+}
+
 $page_title    = $post['meta_title'] ?: ($post['title'] . ' | Homecare Creators Blog');
 $page_desc     = $post['meta_desc'] ?: ($post['excerpt'] ?? '');
 $page_canonical = "https://homecarecreators.com/blog/" . $post['slug'];
@@ -48,16 +62,45 @@ $page_css = <<<CSS
 /* ── TWO-COLUMN LAYOUT ── */
 .post-body-wrap{max-width:1400px;margin:0 auto;padding:60px 48px;display:grid;grid-template-columns:1fr 320px;gap:60px;align-items:start}
 .post-article{}
-.post-article h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(22px,2.8vw,34px);font-weight:600;color:var(--forest);margin:52px 0 16px;line-height:1.25}
-.post-article h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(19px,2.2vw,26px);font-weight:400;color:var(--forest);margin:36px 0 12px;line-height:1.3}
-.post-article p{font-size:18px;line-height:1.88;color:#374151;margin-bottom:22px}
-.post-article ul,.post-article ol{margin:0 0 22px 22px;display:flex;flex-direction:column;gap:10px}
-.post-article li{font-size:18px;line-height:1.7;color:#374151}
+.post-article>*:first-child{margin-top:0}
+.post-article h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(22px,2.8vw,32px);font-weight:700;color:var(--forest);margin:48px 0 18px;line-height:1.3;padding-bottom:14px;border-bottom:2px solid var(--border)}
+.post-article h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(18px,2.1vw,22px);font-weight:700;color:var(--forest);margin:34px 0 14px;line-height:1.35}
+.post-article p{font-size:18px;line-height:1.8;color:#374151;margin:0 0 20px}
+.post-article p:last-child{margin-bottom:0}
+.post-article ul,.post-article ol{margin:0 0 20px;padding-left:4px;display:flex;flex-direction:column;gap:12px}
+.post-article li{font-size:17px;line-height:1.65;color:#374151;margin-left:22px;padding-left:4px}
+.post-article li::marker{color:var(--teal);font-weight:700}
+.post-article li>p{margin:0}
 .post-article strong{color:var(--forest);font-weight:700}
-.post-article a{color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(29,158,117,.3)}
+.post-article a{color:var(--teal);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(29,158,117,.3);transition:border-color .15s}
 .post-article a:hover{border-bottom-color:var(--teal)}
 .post-article blockquote{border-left:4px solid var(--teal);padding:18px 24px;margin:28px 0;background:rgba(29,158,117,.05);border-radius:0 10px 10px 0;font-style:italic;font-size:17px;color:var(--forest);line-height:1.7}
-.post-article img{max-width:100%;border-radius:var(--r);margin:24px 0;display:block;border:1px solid var(--border)}
+.post-article img{max-width:100%;border-radius:var(--r);margin:28px 0;display:block;border:1px solid var(--border);box-shadow:0 10px 28px rgba(10,46,30,.08)}
+.post-article table{width:100%;border-collapse:collapse;margin:24px 0 28px;font-size:15px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.post-article th{background:var(--forest);color:#fff;padding:13px 16px;text-align:left;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px}
+.post-article td{padding:12px 16px;border-bottom:1px solid var(--border)}
+.post-article tr:last-child td{border-bottom:0}
+
+/* ── INLINE CASE STUDIES (blog [case_studies] shortcode) ── */
+.csi-block{margin:40px 0;padding:28px;background:var(--cream);border-radius:16px;border:1px solid var(--border)}
+.csi-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.csi-label::before{content:'';width:18px;height:2px;background:var(--teal);border-radius:2px}
+.csi-grid{display:grid;grid-template-columns:repeat(var(--csi-cols,2),1fr);gap:16px}
+.csi-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.2s}
+.csi-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(10,46,30,.1)}
+.csi-card img{width:100%;height:140px;object-fit:cover;display:block;border-bottom:1px solid var(--border);margin:0;border-radius:0;box-shadow:none}
+.csi-card-body{padding:16px 18px 18px}
+.csi-card-badge{font-family:'Plus Jakarta Sans',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.csi-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--forest);margin:0 0 12px;line-height:1.3}
+.csi-card-title span{color:var(--muted);font-weight:500}
+.csi-stats-row{display:flex;gap:8px}
+.csi-stat{flex:1;background:var(--warm);border:1px solid var(--border);border-radius:9px;padding:8px 6px;text-align:center}
+.csi-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;color:var(--teal);line-height:1}
+.csi-stat-label{font-size:8.5px;color:var(--muted);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;margin-top:3px}
+.csi-cta{text-align:center;margin-top:18px}
+.csi-cta a{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--teal);border-bottom:none}
+.csi-cta a:hover{color:var(--forest);border-bottom:none}
+@media(max-width:560px){.csi-grid{grid-template-columns:1fr}}
 
 /* ── IN-CONTENT CTA ── */
 .inline-cta{background:linear-gradient(135deg,var(--forest) 0%,#0f3d28 100%);border-radius:14px;padding:28px 32px;margin:40px 0;display:flex;align-items:center;gap:24px}
@@ -185,7 +228,7 @@ include '../includes/header.php';
     </p>
     <?php endif ?>
 
-    <?= $post['content'] ?>
+    <?= $rendered_content ?>
 
     <!-- IN-CONTENT CTA (appended after content) -->
     <div class="inline-cta">
