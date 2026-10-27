@@ -48,7 +48,7 @@ $page_css = <<<CSS
 .post-breadcrumb a:hover{color:rgba(255,255,255,.8)}
 .post-breadcrumb span{opacity:.4}
 .post-kw{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);background:rgba(29,158,117,.15);padding:5px 12px;border-radius:20px;display:inline-block;margin-bottom:16px}
-.post-hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(28px,4vw,52px);color:#fff;line-height:1.18;margin-bottom:20px;max-width:800px}
+.post-hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(28px,4vw,52px);color:#fff;line-height:1.18;margin:0 auto 20px;max-width:800px}
 .post-meta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center}
 .post-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--forest));display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
 .post-avatar span{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700}
