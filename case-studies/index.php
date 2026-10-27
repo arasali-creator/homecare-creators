@@ -10,17 +10,17 @@ $page_css = <<<CSS
 .hero{min-height:70vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:140px 40px 80px}
 .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 30%,black 20%,transparent 80%)}
 .hero-blob1{position:absolute;width:700px;height:700px;top:-250px;right:-150px;background:radial-gradient(circle,rgba(29,158,117,.16) 0%,transparent 65%);animation:float 10s ease-in-out infinite}
-.hero-inner{position:relative;z-index:2;max-width:820px;margin:0 auto;text-align:center}
+.hero-inner{position:relative;z-index:2;max-width:920px;margin:0 auto;text-align:center}
 .hero-breadcrumb{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,.4);margin-bottom:20px}
 .hero-breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none}
 .hero-breadcrumb a:hover{color:rgba(255,255,255,.7)}
 .hero-breadcrumb span{color:var(--teal-lt)}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(36px,5vw,62px);line-height:1.06;color:#fff;margin-bottom:14px}
+.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,4.3vw,52px);line-height:1.15;color:#fff;margin-bottom:14px}
 .hero-h1 em{font-style:italic;color:var(--teal-lt)}
 .hero-tagline{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(17px,2vw,23px);color:rgba(255,255,255,.5);margin-bottom:22px}
-.hero-desc{font-size:18px;line-height:1.8;color:rgba(255,255,255,.62);max-width:640px;margin:0 auto 36px}
+.hero-desc{font-size:18px;line-height:1.8;color:rgba(255,255,255,.62);max-width:780px;margin:0 auto 36px}
 .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
 .hero-proof{display:flex;gap:32px;flex-wrap:wrap;justify-content:center}
 .hero-proof-item{display:flex;flex-direction:column;gap:2px}
@@ -154,7 +154,7 @@ echo '<script type="application/ld+json">' . json_encode([
     <div class="hero-breadcrumb"><a href="/">Home</a> / <span>Case Studies</span></div>
     <div class="hero-badge"><div class="hero-badge-pulse"></div>Home Care Marketing Case Studies</div>
     <h1 class="hero-h1">Real Growth. Real Campaigns.<br><em>Real Results.</em></h1>
-    <p class="hero-desc">Growing a home care agency takes more than a great website or a high Google ranking. It takes a strategy that helps families find you, trust you, and reach out. Here's what that's looked like for agencies we've worked with across the United States.</p>
+    <p class="hero-desc">Growing a home care agency takes more than a great website or a high Google ranking — it takes a strategy that helps families find you, trust you, and reach out.</p>
     <div class="hero-actions">
       <a href="/#services" class="btn-primary"><i class="fa-solid fa-layer-group"></i>View Our Services</a>
       <button class="btn-secondary" onclick="openPopup()"><i class="fa-solid fa-calendar-check"></i>Book a Strategy Call</button>
