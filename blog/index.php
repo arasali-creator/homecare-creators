@@ -20,8 +20,7 @@ $page_css = <<<CSS
 .blog-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--forest);line-height:1.35;margin-bottom:10px}
 .blog-card-title a{color:inherit;text-decoration:none}
 .blog-card-title a:hover{color:var(--teal)}
-.blog-card-excerpt{font-size:16px;color:var(--muted);line-height:1.65;flex:1;margin-bottom:16px}
-.blog-card-meta{font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:14px;display:flex;align-items:center;justify-content:space-between}
+.blog-card-meta{font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:14px;margin-top:auto;display:flex;align-items:center;justify-content:space-between}
 .empty-blog{text-align:center;padding:80px 20px;color:var(--muted)}
 @media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.blog-section{padding:60px 20px}.blog-grid{grid-template-columns:1fr}.blog-hero{padding:100px 24px 60px}}
@@ -60,7 +59,6 @@ try {
         <div class="blog-card-cat"><?= htmlspecialchars($p['focus_keyword']) ?></div>
         <?php endif ?>
         <div class="blog-card-title"><a href="/blog/<?= htmlspecialchars($p['slug']) ?>"><?= htmlspecialchars($p['title']) ?></a></div>
-        <div class="blog-card-excerpt"><?= htmlspecialchars($p['excerpt'] ?? '') ?></div>
         <div class="blog-card-meta">
           <span><?= htmlspecialchars($p['author']) ?></span>
           <span><?= date('M j, Y', strtotime($p['published_at'])) ?></span>
