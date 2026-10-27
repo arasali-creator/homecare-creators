@@ -183,27 +183,6 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/blog/">Bl
   </div>
 </div>
 
-<!-- ── HTML/CSS MODAL ────────────────────────────────────────────────────── -->
-<div class="faq-modal-overlay" id="htmlModal">
-  <div class="faq-modal" style="max-width:720px">
-    <div class="faq-modal-head">
-      <h3>Insert Custom HTML / CSS</h3>
-      <button type="button" onclick="closeHtmlModal()" style="background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);line-height:1">×</button>
-    </div>
-    <div class="faq-modal-body">
-      <div class="form-group" style="margin-bottom:0">
-        <label>Paste your HTML (a &lt;style&gt; block works too)</label>
-        <textarea id="rawHtmlInput" rows="14" style="font-family:monospace;font-size:12.5px;white-space:pre" placeholder="&lt;div class=&quot;my-box&quot;&gt;...&lt;/div&gt;&#10;&lt;style&gt;.my-box{...}&lt;/style&gt;"></textarea>
-        <div class="form-hint">Inserted as real markup — it will render on the live post exactly as written, not shown as escaped text.</div>
-      </div>
-    </div>
-    <div class="faq-modal-footer">
-      <button type="button" onclick="closeHtmlModal()" class="btn btn-secondary btn-sm">Cancel</button>
-      <button type="button" onclick="insertHtmlBlock()" class="btn btn-primary btn-sm">Insert</button>
-    </div>
-  </div>
-</div>
-
 <!-- ── FAQ MODAL ─────────────────────────────────────────────────────────── -->
 <div class="faq-modal-overlay" id="faqModal">
   <div class="faq-modal">
@@ -277,7 +256,6 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/blog/">Bl
       <button class="editor-btn" type="button" onclick="insertLink()" title="Insert link">🔗 Link</button>
       <button class="editor-btn" type="button" onclick="openMedia('content')" title="Upload / insert image" style="background:var(--forest);color:#fff;border-color:var(--forest)">📷 Image</button>
       <button class="editor-btn" type="button" onclick="openFaqModal()" title="Insert an interactive FAQ question" style="background:var(--teal);color:#fff;border-color:var(--teal)">❓ FAQ</button>
-      <button class="editor-btn" type="button" onclick="openHtmlModal()" title="Insert raw HTML / CSS (rendered, not escaped)" style="background:#2b2b2b;color:#fff;border-color:#2b2b2b">&lt;/&gt; HTML</button>
       <button class="editor-btn" type="button" onclick="insertCaseStudies()" title="Insert a 2-up real case study block" style="background:var(--gold,#c9a84c);color:#fff;border-color:var(--gold,#c9a84c)">📊 Case Studies</button>
       <div class="editor-sep"></div>
       <button class="editor-btn" type="button" onclick="cmd('removeFormat')" title="Clear formatting">✕ Clear</button>
@@ -682,25 +660,6 @@ function insertFaq() {
 }
 document.getElementById('faqModal').addEventListener('click', function(e) {
   if (e.target === this) closeFaqModal();
-});
-
-// ── Raw HTML/CSS insert ──────────────────────────────────────────────────────
-function openHtmlModal() {
-  document.getElementById('rawHtmlInput').value = '';
-  document.getElementById('htmlModal').classList.add('open');
-  document.getElementById('rawHtmlInput').focus();
-}
-function closeHtmlModal() { document.getElementById('htmlModal').classList.remove('open'); }
-function insertHtmlBlock() {
-  var code = document.getElementById('rawHtmlInput').value;
-  if (!code.trim()) { closeHtmlModal(); return; }
-  editor.focus();
-  document.execCommand('insertHTML', false, code);
-  hiddenField.value = editor.innerHTML;
-  closeHtmlModal();
-}
-document.getElementById('htmlModal').addEventListener('click', function(e) {
-  if (e.target === this) closeHtmlModal();
 });
 
 // ── Case studies shortcode ───────────────────────────────────────────────────
