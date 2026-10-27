@@ -15,7 +15,11 @@ $page_css = <<<CSS
 .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 30% 50%,black 20%,transparent 80%)}
 .hero-blob1{position:absolute;width:700px;height:700px;top:-200px;right:-150px;background:radial-gradient(circle,rgba(29,158,117,.16) 0%,transparent 65%);animation:float 10s ease-in-out infinite}
 .hero-blob2{position:absolute;width:500px;height:500px;bottom:-150px;left:-100px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 65%);animation:float 13s ease-in-out infinite reverse}
-.hero-content{position:relative;z-index:2;max-width:780px}
+.hero-grid{position:relative;z-index:2;max-width:1320px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.hero-content{max-width:620px}
+.hero-visual{position:relative}
+.hero-visual-glow{position:absolute;inset:-30px;background:radial-gradient(circle,rgba(29,158,117,.3),transparent 70%);filter:blur(30px);z-index:-1}
+.hero-visual img{width:100%;aspect-ratio:4/4.5;object-fit:cover;border-radius:var(--r-lg);display:block;box-shadow:0 30px 80px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1)}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;width:fit-content;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
 .hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(38px,5vw,64px);line-height:1.06;color:#fff;margin-bottom:22px;animation:fadeUp .8s .1s ease both}
@@ -30,11 +34,26 @@ $page_css = <<<CSS
 
 /* WHAT-IS SECTION */
 .market-section{background:#fff}
-.market-inner{display:flex;flex-direction:column;gap:40px}
-.market-body{text-align:center;max-width:780px;margin:0 auto}
-.market-body .section-label{justify-content:center}
-.market-body p{font-size:18px;line-height:1.8;color:var(--muted);margin-bottom:16px}
-.market-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.market-inner{display:flex;flex-direction:column;gap:48px}
+.market-header{max-width:680px}
+.market-columns{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
+.market-text p{font-size:17px;line-height:1.85;color:var(--muted);margin-bottom:18px}
+.market-text p:last-child{margin-bottom:0}
+.market-quote{display:flex;gap:16px;background:var(--warm);border-left:4px solid var(--gold);border-radius:0 var(--r) var(--r) 0;padding:20px 24px;margin-top:22px}
+.market-quote i{color:var(--gold);font-size:18px;flex-shrink:0;margin-top:2px}
+.market-quote p{font-size:16px;font-style:italic;color:var(--forest);line-height:1.7;margin:0}
+.market-compare{background:var(--cream);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;position:sticky;top:110px}
+.market-compare-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--teal);margin-bottom:22px;display:flex;align-items:center;gap:8px}
+.market-compare-title::before{content:'';width:18px;height:2px;background:var(--teal);border-radius:2px;flex-shrink:0}
+.compare-head{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-bottom:12px;margin-bottom:6px;border-bottom:2px solid var(--border)}
+.compare-head div{font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--muted)}
+.compare-head div:last-child{color:var(--teal)}
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--border)}
+.compare-row:last-child{border-bottom:none;padding-bottom:0}
+.compare-row div{font-size:13px;line-height:1.55}
+.compare-row div:first-child{color:var(--muted)}
+.compare-row div:last-child{color:var(--forest);font-weight:600}
+.market-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .fact-card{background:var(--warm);border:1px solid var(--border);border-radius:var(--r);padding:22px;border-left:4px solid var(--teal)}
 .fact-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;color:var(--teal);line-height:1;margin-bottom:6px}
 .fact-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:var(--forest);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
@@ -92,7 +111,9 @@ $page_css = <<<CSS
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .market-inner,.cta-inner{grid-template-columns:1fr;gap:40px}
+  .market-columns,.cta-inner{grid-template-columns:1fr;gap:40px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-visual{order:-1;max-width:420px;margin:0 auto}
   .services-grid,.why-grid{grid-template-columns:1fr 1fr}
   .market-facts{grid-template-columns:1fr 1fr}
   .hero{padding:110px 40px 60px}
@@ -101,8 +122,11 @@ $page_css = <<<CSS
   .services-grid,.why-grid{grid-template-columns:1fr}
   .market-facts{grid-template-columns:1fr}
   .hero{padding:100px 24px 60px}
+  .hero-visual{display:none}
   section{padding:64px 24px}
   .cta-image{display:none}
+  .compare-head,.compare-row{grid-template-columns:1fr}
+  .compare-head div:last-child{margin-top:6px}
 }
 CSS;
 include '../includes/header.php';
@@ -115,23 +139,29 @@ include '../includes/header.php';
   <div class="hero-bg-grid"></div>
   <div class="hero-blob1"></div>
   <div class="hero-blob2"></div>
-  <div class="hero-content">
-    <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <span>AI Search SEO</span></div>
-    <div class="hero-badge"><div class="hero-badge-pulse"></div>GEO &amp; AEO for Home Care</div>
-    <h1 class="hero-h1">AI Search SEO<br>for <em>Home Care Agencies</em></h1>
-    <p class="hero-desc">Families researching care for a parent are increasingly asking ChatGPT, Google AI Overviews, and Perplexity for home care recommendations instead of scrolling through search results. Most home care agencies are completely invisible to these tools. We build the structured data, entity signals, and answer-formatted content that give your agency a real shot at being the one AI mentions.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-robot"></i>Get My Free AI Visibility Audit</button>
-      <a href="#services" class="btn-secondary"><i class="fa-solid fa-play"></i>See What's Included</a>
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <span>AI Search SEO</span></div>
+      <div class="hero-badge"><div class="hero-badge-pulse"></div>GEO &amp; AEO for Home Care</div>
+      <h1 class="hero-h1">AI Search SEO<br>for <em>Home Care Agencies</em></h1>
+      <p class="hero-desc">Families researching care for a parent are increasingly asking ChatGPT, Google AI Overviews, and Perplexity for home care recommendations instead of scrolling through search results. Most home care agencies are completely invisible to these tools. We build the structured data, entity signals, and answer-formatted content that give your agency a real shot at being the one AI mentions.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-robot"></i>Get My Free AI Visibility Audit</button>
+        <a href="#services" class="btn-secondary"><i class="fa-solid fa-play"></i>See What's Included</a>
+      </div>
+      <div class="hero-proof">
+        <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
+        <div class="hero-proof-divider"></div>
+        <div class="hero-proof-item"><div class="hero-proof-num">SEO</div><div class="hero-proof-label">+ AI Search Visibility</div></div>
+        <div class="hero-proof-divider"></div>
+        <div class="hero-proof-item"><div class="hero-proof-num">30-Day</div><div class="hero-proof-label">Satisfaction Guarantee</div></div>
+        <div class="hero-proof-divider"></div>
+        <div class="hero-proof-item"><div class="hero-proof-num">$0</div><div class="hero-proof-label">Free Audit Cost</div></div>
+      </div>
     </div>
-    <div class="hero-proof">
-      <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
-      <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">SEO</div><div class="hero-proof-label">+ AI Search Visibility</div></div>
-      <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">30-Day</div><div class="hero-proof-label">Satisfaction Guarantee</div></div>
-      <div class="hero-proof-divider"></div>
-      <div class="hero-proof-item"><div class="hero-proof-num">$0</div><div class="hero-proof-label">Free Audit Cost</div></div>
+    <div class="hero-visual">
+      <div class="hero-visual-glow"></div>
+      <img src="/images/home/hero-team-ai-search-strategy.jpg" alt="Homecare Creators team reviewing AI search visibility strategy for a home care agency" title="AI Search SEO strategy session">
     </div>
   </div>
 </section>
@@ -183,14 +213,29 @@ include '../includes/header.php';
 <section class="market-section">
   <div class="container">
     <div class="market-inner">
-      <div class="market-body" data-reveal>
+      <div class="market-header" data-reveal>
         <p class="section-label">What Is AI Search SEO?</p>
         <h2 class="section-h2">GEO, AEO, and Why <em>AI Search</em> Is Different</h2>
-        <p>AI Search SEO is the practice of structuring your agency's website and content so generative AI tools, like ChatGPT, Google's AI Overviews, and Perplexity, can accurately understand your agency, trust it, and cite it when someone asks a question. Inside the industry, you'll see this called GEO (Generative Engine Optimization) or AEO (Answer Engine Optimization). They describe the same shift: search results are no longer just a list of ten blue links, they're increasingly a single AI-written answer.</p>
-        <p>Traditional SEO is built around ranking a specific page for a specific keyword. AI search optimization works differently. Generative models pull from structured data, entity information, third-party mentions, and clearly formatted answer content when they decide what to summarize and who to cite. That means the technical foundation, your schema markup, your Google Business Profile consistency, your FAQ content, and how clearly your site answers direct questions, matters just as much as the words on the page.</p>
-        <p>This matters enormously for home care. Adult children researching care options for a parent often start with a conversational question, something like "what should I look for in a home care agency near me" or "how much does in-home care cost," typed directly into ChatGPT or asked through an AI Overview. If your agency's site isn't built to be understood and cited by those tools, you're not in the conversation at all, no matter how good your Google Maps ranking is.</p>
       </div>
-      <div class="market-facts" data-reveal style="transition-delay:.15s">
+      <div class="market-columns">
+        <div class="market-text" data-reveal style="transition-delay:.05s">
+          <p>AI Search SEO is the practice of structuring your agency's website and content so generative AI tools, like ChatGPT, Google's AI Overviews, and Perplexity, can accurately understand your agency, trust it, and cite it when someone asks a question. Inside the industry, you'll see this called GEO (Generative Engine Optimization) or AEO (Answer Engine Optimization). They describe the same shift: search results are no longer just a list of ten blue links, they're increasingly a single AI-written answer.</p>
+          <p>Traditional SEO is built around ranking a specific page for a specific keyword. AI search optimization works differently. Generative models pull from structured data, entity information, third-party mentions, and clearly formatted answer content when they decide what to summarize and who to cite. That means the technical foundation, your schema markup, your Google Business Profile consistency, your FAQ content, and how clearly your site answers direct questions, matters just as much as the words on the page.</p>
+          <p>This matters enormously for home care. Adult children researching care options for a parent often start with a conversational question, something like "what should I look for in a home care agency near me" or "how much does in-home care cost," typed directly into ChatGPT or asked through an AI Overview.</p>
+          <div class="market-quote">
+            <i class="fa-solid fa-quote-left"></i>
+            <p>If your agency's site isn't built to be understood and cited by these tools, you're not in the conversation at all, no matter how good your Google Maps ranking is.</p>
+          </div>
+        </div>
+        <div class="market-compare" data-reveal style="transition-delay:.15s">
+          <div class="market-compare-title">Why It's Different</div>
+          <div class="compare-head"><div>Traditional Search</div><div>AI Search</div></div>
+          <div class="compare-row"><div>Ranks one page per keyword</div><div>Understands your whole agency as an entity</div></div>
+          <div class="compare-row"><div>Ten blue links to click through</div><div>One AI-written answer</div></div>
+          <div class="compare-row"><div>Success = where you rank</div><div>Success = being cited, or invisible</div></div>
+        </div>
+      </div>
+      <div class="market-facts" data-reveal style="transition-delay:.2s">
         <div class="fact-card"><div class="fact-num">GEO</div><h4>Generative Engine Optimization</h4><p>Structuring content so generative AI tools can understand, summarize, and recommend your agency.</p></div>
         <div class="fact-card"><div class="fact-num">AEO</div><h4>Answer Engine Optimization</h4><p>Formatting your content, especially FAQs, to directly answer the exact questions families ask AI assistants.</p></div>
         <div class="fact-card"><div class="fact-num">Zero-Click</div><h4>A New Kind of Search</h4><p>More searches now end with an AI-generated answer instead of a list of links. If you're not part of that answer, the click never happens.</p></div>
@@ -367,7 +412,7 @@ include '../includes/header.php';
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; 30-day satisfaction guarantee</div>
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
-        <img src="/images/home/cta-business-owner.jpg" alt="Home care agency owner reviewing their AI search visibility with Homecare Creators" title="Home care agency owner growth with AI Search SEO">
+        <img src="/images/home/cta-owner-ai-search-seo.jpg" alt="Home care agency owner reviewing their AI search visibility with Homecare Creators" title="Home care agency owner growth with AI Search SEO">
         <div class="cta-image-badge">
           <div class="cta-image-badge-title"><i class="fa-solid fa-circle-dot" style="color:var(--teal-lt);margin-right:4px"></i>Audit Includes</div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">AI visibility snapshot</div></div>
