@@ -51,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') !== 'test_
         'logo_url','favicon_url',
         'wa_phone','wa_apikey',
         'calc_offer_discount_pct','calc_offer_spots_left',
-        'chat_agent_name','chat_canned_replies',
     ];
     foreach ($keys as $k) {
         if ($k === 'smtp_pass' && trim($_POST[$k] ?? '') === '') continue;
@@ -258,30 +257,6 @@ $smtp_configured = !empty($smtp_host);
   </div>
 </div>
 
-
-<!-- Live Chat Widget -->
-<div class="card">
-  <div class="card-header">
-    <div>
-      <div class="card-title">Live Chat Widget</div>
-      <div class="card-sub">Controls how the chat bubble identifies itself and your quick-reply shortcuts in /admin/chat/</div>
-    </div>
-  </div>
-  <div class="form-grid">
-    <div class="form-group">
-      <label for="chat_agent_name">Agent Display Name</label>
-      <input type="text" id="chat_agent_name" name="chat_agent_name"
-             value="<?= h(hc_setting('chat_agent_name','')) ?>"
-             placeholder="e.g. Asifa or Homecare Creators Team">
-      <div class="form-hint">Shown to visitors next to your replies in the chat widget. Leave blank to show "Homecare Creators Team".</div>
-    </div>
-  </div>
-  <div class="form-group" style="margin-top:4px">
-    <label for="chat_canned_replies">Canned Quick Replies <span>(one per line)</span></label>
-    <textarea id="chat_canned_replies" name="chat_canned_replies" rows="6" placeholder="Thanks for reaching out! Could you tell me a bit more about your agency?&#10;One moment, let me check on that for you."><?= h(hc_setting('chat_canned_replies','')) ?></textarea>
-    <div class="form-hint">Shown as one-click chips above the reply box in the admin chat screen. Leave blank to use the built-in defaults.</div>
-  </div>
-</div>
 
 <!-- Growth Calculator Offer -->
 <div class="card">
