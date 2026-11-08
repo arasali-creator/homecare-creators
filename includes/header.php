@@ -500,13 +500,13 @@ try {
     <li class="nav-dropdown">
       <a href="#" class="nav-dropdown-trigger">Resources <i class="fa-solid fa-chevron-down"></i></a>
       <div class="simple-menu">
-        <a href="/products/">
-          <div class="mega-icon"><i class="fa-solid fa-layer-group"></i></div>
-          <div><div class="mega-item-title">Products</div><div class="mega-item-desc">CareOS, CareMails &amp; Care Scheduling</div></div>
-        </a>
         <a href="/blog">
           <div class="mega-icon"><i class="fa-solid fa-newspaper"></i></div>
           <div><div class="mega-item-title">Blog</div><div class="mega-item-desc">SEO and growth tips for home care agencies</div></div>
+        </a>
+        <a href="/products/">
+          <div class="mega-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <div><div class="mega-item-title">Products</div><div class="mega-item-desc">CareOS, CareMails &amp; Care Scheduling</div></div>
         </a>
         <a href="/events/">
           <div class="mega-icon"><i class="fa-solid fa-calendar-days"></i></div>
