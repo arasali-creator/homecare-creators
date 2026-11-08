@@ -9,16 +9,16 @@ $page_css = <<<CSS
 /* ── HERO ── */
 .hero{background:var(--forest);position:relative;overflow:hidden;padding:0}
 .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.06) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
-.hero-grid{position:relative;z-index:2;max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}
-.hero-left{padding:78px 24px 64px 0px;display:flex;flex-direction:column;justify-content:center}
+.hero-grid{position:relative;z-index:2;max-width:1360px;margin:0 auto;padding-left:48px;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}
+.hero-left{padding:124px 24px 72px 0;display:flex;flex-direction:column;justify-content:center}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:24px;width:fit-content;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
 .hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(30px,3.2vw,46px);line-height:1.1;margin:0;animation:fadeUp .8s .1s ease both;white-space:nowrap}
 .hero-h1-line1{display:block;color:#fff}
 .hero-rotator{display:block;position:relative;width:100%;height:1.2em;margin-top:12px;overflow:hidden}
-.hero-rotator-word{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;color:var(--teal-lt);opacity:0;transform:translateY(45%);transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .4s ease}
+.hero-rotator-word{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;color:var(--teal-lt);opacity:0;transform:translateY(100%);transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .4s ease}
 .hero-rotator-word.is-active{opacity:1;transform:translateY(0)}
-.hero-rotator-word.is-leaving{opacity:0;transform:translateY(-45%)}
+.hero-rotator-word.is-leaving{opacity:0;transform:translateY(-100%)}
 .hero-swoosh{display:block;margin:10px 0 0}
 .hero-swoosh path{stroke:var(--gold-lt)}
 .hero-desc{font-size:17px;line-height:1.7;color:rgba(255,255,255,.62);max-width:460px;margin:20px 0 32px;animation:fadeUp .8s .3s ease both}
@@ -77,7 +77,7 @@ $page_css = <<<CSS
 .slider-wrap{overflow:hidden;position:relative}
 .slider-track{display:flex;gap:24px;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform}
 .review-card{background:var(--cream);border:1px solid var(--border);border-radius:22px;padding:32px;min-width:360px;max-width:360px;position:relative;overflow:hidden;flex-shrink:0}
-.review-card::before{content:'\201C';position:absolute;top:-12px;right:20px;font-family:'Plus Jakarta Sans',sans-serif;font-size:120px;color:rgba(29,158,117,.08);line-height:1;pointer-events:none}
+.review-card::before{content:'\\201C';position:absolute;top:-12px;right:20px;font-family:'Plus Jakarta Sans',sans-serif;font-size:120px;color:rgba(29,158,117,.08);line-height:1;pointer-events:none}
 .review-stars{color:var(--gold);font-size:15px;margin-bottom:16px;letter-spacing:2px}
 .review-quote{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;line-height:1.65;color:var(--forest);font-style:italic;margin-bottom:24px}
 .review-author{display:flex;align-items:center;gap:13px}
@@ -130,7 +130,7 @@ $page_css = <<<CSS
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .hero-grid{grid-template-columns:1fr;min-height:0}
+  .hero-grid{grid-template-columns:1fr;min-height:0;padding-left:0}
   .hero-right{min-height:0;aspect-ratio:10/9;margin-top:16px}
   .hero-left{padding:140px 32px 64px}
   .hero-h1{font-size:clamp(28px,6vw,44px)}
@@ -275,13 +275,13 @@ try {
     </div>
     <div class="hero-right">
       <div class="hero-cutout cutout-left">
-        <img src="/images/team/hero-cutout-1.png" alt="Homecare Creators team member" loading="lazy">
+        <img src="/images/team/hero-cutout-1.png" alt="Homecare Creators team member">
       </div>
       <div class="hero-cutout cutout-center">
-        <img src="/images/team/hero-cutout-2.png" alt="Homecare Creators team member" loading="lazy">
+        <img src="/images/team/hero-cutout-2.png" alt="Homecare Creators team member" fetchpriority="high">
       </div>
       <div class="hero-cutout cutout-right">
-        <img src="/images/team/hero-cutout-3.png" alt="Homecare Creators team member" loading="lazy">
+        <img src="/images/team/hero-cutout-3.png" alt="Homecare Creators team member">
       </div>
     </div>
   </div>
