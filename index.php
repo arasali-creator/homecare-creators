@@ -8,7 +8,6 @@ $og_desc       = "A marketing agency built 100% for homecare - website design, l
 $page_css = <<<CSS
 /* ── HERO ── */
 .hero{background:var(--forest);position:relative;overflow:hidden;padding:0}
-.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.06) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
 .hero-grid{position:relative;z-index:2;max-width:1360px;margin:0 auto;padding-left:48px;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}
 .hero-left{padding:124px 24px 72px 0;display:flex;flex-direction:column;justify-content:center}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:24px;width:fit-content;animation:fadeIn .6s ease both}
@@ -248,7 +247,6 @@ try {
    HERO
 ══════════════════════════ -->
 <section class="hero" id="home">
-  <div class="hero-bg-grid"></div>
   <div class="hero-grid">
     <div class="hero-left">
       <div class="hero-badge">
