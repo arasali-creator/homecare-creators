@@ -106,8 +106,8 @@ nav.scrolled{height:62px;background:rgba(8,36,22,.97);box-shadow:0 4px 32px rgba
 .nav-links{display:flex;gap:4px;list-style:none;align-items:center}
 .nav-links a{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none;padding:7px 13px;border-radius:8px;transition:.2s}
 .nav-links a:hover{color:#fff;background:rgba(255,255,255,.07)}
-.nav-cta{background:linear-gradient(135deg,var(--teal),var(--teal-lt))!important;color:#fff!important;font-weight:700!important;padding:9px 20px!important;border-radius:9px!important;box-shadow:0 4px 16px rgba(29,158,117,.4)!important}
-.nav-cta:hover{transform:translateY(-2px)!important;box-shadow:0 8px 24px rgba(29,158,117,.5)!important}
+.nav-cta{background:var(--teal)!important;color:#fff!important;font-weight:600!important;padding:9px 18px!important;border-radius:8px!important;box-shadow:none!important;margin-left:8px;transition:background .2s ease!important}
+.nav-cta:hover{background:#17875f!important;transform:none!important}
 .nav-hamburger{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:8px}
 
 /* NAV DROPDOWNS (Services mega menu, Resources menu) */
@@ -165,10 +165,13 @@ nav.scrolled{height:62px;background:rgba(8,36,22,.97);box-shadow:0 4px 32px rgba
 .simple-menu a .mega-item-desc{font-size:12px;color:var(--muted);line-height:1.5}
 
 /* BUTTONS */
-.btn-primary{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,var(--teal),var(--teal-lt));color:#fff;text-decoration:none;padding:15px 30px;border-radius:11px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14.5px;box-shadow:0 4px 24px rgba(29,158,117,.45);transition:.3s cubic-bezier(.34,1.56,.64,1);border:none;cursor:pointer}
-.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 40px rgba(29,158,117,.55)}
+.btn-primary{display:inline-flex;align-items:center;gap:9px;background:var(--teal);color:#fff;text-decoration:none;padding:15px 28px;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:15px;transition:background .2s ease;border:none;cursor:pointer}
+.btn-primary:hover{background:#17875f}
 .btn-secondary{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#fff;text-decoration:none;padding:15px 30px;border-radius:11px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:14.5px;backdrop-filter:blur(8px);transition:.25s;cursor:pointer}
-.btn-secondary:hover{background:rgba(255,255,255,.11);transform:translateY(-2px)}
+.btn-secondary:hover{background:rgba(255,255,255,.11)}
+/* Flat buttons site-wide: no glow shadows or hover lift on any button style */
+.btn-primary,.btn-secondary,.nav-cta,.cta-pill-btn,.btn-cta-primary,.sidebar-cta-btn,.cta-btn,.pkg-btn-teal,.pkg-btn,.popup-submit,button[type=submit]{box-shadow:none!important}
+.btn-primary:hover,.btn-secondary:hover,.cta-pill-btn:hover,.btn-cta-primary:hover,.sidebar-cta-btn:hover,.cta-btn:hover,.pkg-btn-teal:hover,.pkg-btn:hover,.popup-submit:hover,button[type=submit]:hover{box-shadow:none!important;transform:none!important}
 
 /* SECTION COMMONS */
 section{padding:96px 40px}
@@ -520,7 +523,7 @@ try {
       </div>
     </li>
     <li><a href="/contact/">Contact Us</a></li>
-    <li><a href="#" class="nav-cta" onclick="openPopup();return false;"><i class="fa-solid fa-calendar-check" style="font-size:12px"></i> Free Audit</a></li>
+    <li><a href="#" class="nav-cta" onclick="openPopup();return false;">Free Audit</a></li>
   </ul>
   <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
 </nav>

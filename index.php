@@ -267,8 +267,7 @@ try {
       </svg>
       <p class="hero-desc">Grow your home care agency with marketing built for your industry. We help agencies nationwide attract more qualified leads through SEO, high-converting websites, local SEO, and AI-powered marketing.</p>
       <div class="hero-actions">
-        <button class="btn-primary" onclick="openPopup('audit')"><i class="fa-solid fa-rocket"></i>Book Free Growth
-          Audit</button>
+        <button class="btn-primary" onclick="openPopup('audit')">Book Free Growth Audit <i class="fa-solid fa-arrow-right" style="font-size:13px"></i></button>
       </div>
     </div>
     <div class="hero-right">
