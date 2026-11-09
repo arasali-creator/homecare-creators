@@ -37,7 +37,7 @@ $page_css = <<<CSS
 .hero-fact-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:700;color:#fff;line-height:1.1}
 .hero-fact-label{font-size:13px;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.4}
 .hero-media{position:relative;z-index:2;animation:fadeIn .8s .2s ease both}
-.hero-media-img{width:100%;aspect-ratio:4/4.3;object-fit:cover;object-position:center 25%;display:block;border-radius:24px}
+.hero-media-img{width:100%;height:auto;aspect-ratio:4/4.3;object-fit:cover;object-position:center 25%;display:block;border-radius:24px}
 .hero-media-card{position:absolute;left:-28px;bottom:32px;background:#fff;border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:12px;max-width:290px}
 .hero-media-card-icon{width:38px;height:38px;border-radius:10px;background:rgba(29,158,117,.12);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .hero-media-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--forest)}
@@ -62,7 +62,7 @@ $page_css = <<<CSS
 /* RULES */
 .rules-section{background:var(--cream)}
 .rules{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center}
-.rules-img{width:100%;aspect-ratio:4/4.4;object-fit:cover;object-position:center 30%;border-radius:var(--r-lg);display:block}
+.rules-img{width:100%;height:auto;aspect-ratio:4/4;object-fit:cover;object-position:center 30%;border-radius:var(--r-lg);display:block}
 .rules-points{margin-top:32px;display:flex;flex-direction:column}
 .rules-point{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px 0;border-top:1px solid var(--border)}
 .rules-point:last-child{border-bottom:1px solid var(--border)}
@@ -181,7 +181,7 @@ $page_css = <<<CSS
 .why-list{margin-top:32px;display:flex;flex-direction:column;gap:24px}
 .why-item h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700;color:var(--forest);margin-bottom:6px}
 .why-item p{font-size:15.5px;color:var(--muted);line-height:1.7}
-.why-img{width:100%;aspect-ratio:4/4.6;object-fit:cover;border-radius:var(--r-lg);display:block}
+.why-img{width:100%;height:auto;aspect-ratio:4/4.2;object-fit:cover;border-radius:var(--r-lg);display:block}
 .creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .creds span{font-size:12.5px;font-weight:600;color:var(--forest);background:#fff;border:1px solid var(--border);border-radius:6px;padding:6px 10px}
 
