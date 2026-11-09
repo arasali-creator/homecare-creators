@@ -82,16 +82,35 @@ $page_css = <<<CSS
 .svc-item p{font-size:15.5px;color:var(--muted);line-height:1.7}
 .tag{font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#8a6d1f;background:rgba(201,168,76,.16);padding:4px 9px;border-radius:6px}
 
-/* TESTIMONIALS */
-.quotes-section{background:#fff}
-.quotes{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
-.quote{background:var(--warm);border:1px solid var(--border);border-radius:var(--r-lg);padding:32px;display:flex;flex-direction:column}
-.quote-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:16px}
-.quote p{font-size:17px;line-height:1.75;color:var(--text);flex:1;margin-bottom:24px}
-.quote-who{display:flex;align-items:center;gap:12px;padding-top:20px;border-top:1px solid var(--border)}
-.quote-avatar{width:40px;height:40px;border-radius:50%;background:var(--forest);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700}
-.quote-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--forest)}
-.quote-role{font-size:13px;color:var(--muted)}
+/* ── REVIEWS SLIDER ── */
+.reviews{background:var(--forest);overflow:hidden;position:relative}
+.reviews::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.reviews .container{position:relative;z-index:1}
+.reviews-header{text-align:center;margin-bottom:56px}
+.reviews-header .section-label{justify-content:center;color:var(--mint)}
+.reviews-header .section-label::before{background:var(--mint)}
+.reviews-header .section-h2{color:#fff}
+.reviews-header .section-h2 em{color:var(--mint)}
+.slider-wrap{overflow:hidden;position:relative}
+.slider-track{display:flex;gap:24px;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform}
+.review-card{background:var(--cream);border:1px solid var(--border);border-radius:22px;padding:32px;min-width:360px;max-width:360px;position:relative;overflow:hidden;flex-shrink:0}
+.review-card::before{content:'\\201C';position:absolute;top:-12px;right:20px;font-family:'Plus Jakarta Sans',sans-serif;font-size:120px;color:rgba(29,158,117,.08);line-height:1;pointer-events:none}
+.review-stars{color:var(--gold);font-size:15px;margin-bottom:16px;letter-spacing:2px}
+.review-quote{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;line-height:1.65;color:var(--forest);font-style:italic;margin-bottom:24px}
+.review-author{display:flex;align-items:center;gap:13px}
+.review-avatar{width:48px;height:48px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;flex-shrink:0}
+.review-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--forest)}
+.review-role{font-size:12px;color:var(--muted);margin-top:2px}
+.slider-controls{display:flex;justify-content:center;gap:12px;margin-top:40px;align-items:center}
+.slider-btn{width:44px;height:44px;border-radius:50%;background:var(--forest);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:.25s}
+.slider-btn:hover{background:var(--teal);transform:scale(1.05)}
+.slider-dots{display:flex;gap:8px;align-items:center}
+.slider-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:.3s;border:none}
+.slider-dot.active{background:var(--teal);width:24px;border-radius:4px}
+.reviews .slider-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+.reviews .slider-btn:hover{background:var(--teal);border-color:var(--teal)}
+.reviews .slider-dot{background:rgba(255,255,255,.2)}
+.reviews .slider-dot.active{background:var(--mint)}
 
 /* BRANDS */
 .brands-section{background:#fff;padding:80px 40px}
@@ -234,7 +253,8 @@ $page_css = <<<CSS
   .hero{padding:100px 24px 56px}
   .hero-facts{flex-direction:column;gap:14px}
   .hero-fact + .hero-fact{padding-left:0;border-left:none}
-  .svc-list,.quotes,.related{grid-template-columns:1fr}
+  .svc-list,.related{grid-template-columns:1fr}
+  .review-card{min-width:calc(100vw - 80px);max-width:calc(100vw - 80px)}
   .svc-item,.svc-item:nth-child(even){padding:26px 0;border-left:none}
   .steps{grid-template-columns:1fr}
   .step + .step{padding-left:0;border-left:none;border-top:1px solid var(--border)}
@@ -245,6 +265,36 @@ $page_css = <<<CSS
   .cta-image img{height:400px}
 }
 CSS;
+$page_js = <<<JS
+// ── REVIEW SLIDER ──
+var currentSlide = 0;
+var TOTAL_CARDS = 6;
+var VISIBLE = 3;
+var MAX_SLIDE = TOTAL_CARDS - VISIBLE;
+var CARD_W = 360 + 24;
+
+function buildDots() {
+  var dots = document.getElementById('sliderDots');
+  if (!dots) return;
+  dots.innerHTML = '';
+  for (var i = 0; i <= MAX_SLIDE; i++) {
+    var d = document.createElement('button');
+    d.className = 'slider-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i + 1));
+    (function(idx) { d.addEventListener('click', function() { goSlide(idx); }); })(i);
+    dots.appendChild(d);
+  }
+}
+function goSlide(n) {
+  currentSlide = Math.max(0, Math.min(n, MAX_SLIDE));
+  document.getElementById('sliderTrack').style.transform = 'translateX(-' + (currentSlide * CARD_W) + 'px)';
+  document.querySelectorAll('.slider-dot').forEach(function(d, i) {
+    d.classList.toggle('active', i === currentSlide);
+  });
+}
+function slideReviews(dir) { goSlide(currentSlide + dir); }
+buildDots();
+JS;
 include '../includes/header.php';
 ?>
 
@@ -362,34 +412,98 @@ include '../includes/header.php';
 <!-- CASE STUDIES -->
 <?php include '../includes/case-study-slider.php'; ?>
 
-<!-- TESTIMONIALS -->
-<section class="quotes-section">
+<!-- REVIEWS (same slider as home page) -->
+<section class="reviews" id="reviews">
   <div class="container">
-    <div data-reveal>
-      <p class="section-label">Owner Reviews</p>
-      <h2 class="section-h2">What home care <em>owners say</em></h2>
+    <div class="reviews-header" data-reveal>
+      <p class="section-label">What Owners Say</p>
+      <h2 class="section-h2">Homecare Owners<br><em>Love the Results</em></h2>
     </div>
-    <div class="quotes" data-reveal style="transition-delay:.1s">
-      <div class="quote">
-        <div class="quote-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"We had 6 Google reviews before Homecare Creators and almost no website traffic to speak of. Four months later we're at 52 reviews, ranked #1 in our city, and our inquiry calls have tripled. Worth every penny."</p>
-        <div class="quote-who"><div class="quote-avatar">SR</div><div><div class="quote-name">Sarah R.</div><div class="quote-role">Owner, Comfort Home Care · Chicago, IL</div></div></div>
+    <div class="slider-wrap" data-reveal style="transition-delay:.1s">
+      <div class="slider-track" id="sliderTrack">
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-quote">"We had 6 Google reviews before Homecare Creators and almost no website traffic
+            to speak of. Four months later we're at 52 reviews, ranked #1 in our city, and our inquiry calls have
+            tripled. Worth every penny."</p>
+          <div class="review-author">
+            <div class="review-avatar">SR</div>
+            <div>
+              <div class="review-name">Sarah R.</div>
+              <div class="review-role">Owner, Comfort Home Care &middot; Chicago, IL</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-quote">"I'd tried two other marketing agencies before this one, and neither understood
+            homecare at all. Homecare Creators knew exactly what we needed. Their SEO strategy was nothing like
+            what we'd seen, and it worked."</p>
+          <div class="review-author">
+            <div class="review-avatar">MJ</div>
+            <div>
+              <div class="review-name">Marcus J.</div>
+              <div class="review-role">Founder, Golden Years Care &middot; Atlanta, GA</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-quote">"Their AI Search SEO is unlike anything I've seen from a marketing agency. We
+            show up now when families search on ChatGPT and Google AI, and honestly, I don't think our competitors
+            even know this is possible yet."</p>
+          <div class="review-author">
+            <div class="review-avatar">LD</div>
+            <div>
+              <div class="review-name">Linda D.</div>
+              <div class="review-role">CEO, Caring Hands Agency &middot; Houston, TX</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-quote">"Zero to 28 private-pay clients in 7 months. The website redesign paired with
+            local SEO is genuinely a powerful combination, and the monthly strategy calls keep us honest."</p>
+          <div class="review-author">
+            <div class="review-avatar">TW</div>
+            <div>
+              <div class="review-name">Tamara W.</div>
+              <div class="review-role">Owner, Sunrise Senior Care &middot; Phoenix, AZ</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-quote">"The follow-up automation alone paid for the retainer. Leads used to sit for days,
+            now they get a response in minutes, day or night."</p>
+          <div class="review-author">
+            <div class="review-avatar">RB</div>
+            <div>
+              <div class="review-name">Robert B.</div>
+              <div class="review-role">CEO, Premier Home Health &middot; Dallas, TX</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-quote">"Three months in, a family told us they found us through ChatGPT. I was floored,
+            honestly. This team is ahead of the curve, and homecare is the only thing they do."</p>
+          <div class="review-author">
+            <div class="review-avatar">AC</div>
+            <div>
+              <div class="review-name">Angela C.</div>
+              <div class="review-role">Director, CareFirst Agency &middot; Miami, FL</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="quote">
-        <div class="quote-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Zero to 28 private-pay clients in 7 months. The website redesign paired with local SEO is genuinely a powerful combination, and the monthly strategy calls keep us honest."</p>
-        <div class="quote-who"><div class="quote-avatar">TW</div><div><div class="quote-name">Tamara W.</div><div class="quote-role">Owner, Sunrise Senior Care · Phoenix, AZ</div></div></div>
-      </div>
-      <div class="quote">
-        <div class="quote-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Three months in, a family told us they found us through ChatGPT. I was floored, honestly. This team is ahead of the curve, and homecare is the only thing they do."</p>
-        <div class="quote-who"><div class="quote-avatar">AC</div><div><div class="quote-name">Angela C.</div><div class="quote-role">Director, CareFirst Agency · Miami, FL</div></div></div>
-      </div>
-      <div class="quote">
-        <div class="quote-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"The follow-up automation alone paid for the retainer. Leads used to sit for days, now they get a response in minutes, day or night."</p>
-        <div class="quote-who"><div class="quote-avatar">RB</div><div><div class="quote-name">Robert B.</div><div class="quote-role">CEO, Premier Home Health · Dallas, TX</div></div></div>
-      </div>
+    </div>
+    <div class="slider-controls">
+      <button class="slider-btn" onclick="slideReviews(-1)" aria-label="Previous"><i
+          class="fa-solid fa-chevron-left"></i></button>
+      <div class="slider-dots" id="sliderDots"></div>
+      <button class="slider-btn" onclick="slideReviews(1)" aria-label="Next"><i
+          class="fa-solid fa-chevron-right"></i></button>
     </div>
   </div>
 </section>
