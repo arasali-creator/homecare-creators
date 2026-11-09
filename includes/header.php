@@ -293,25 +293,37 @@ footer{background:var(--forest);padding:28px}
      doesn't fit below 1024px - switch to the hamburger menu here instead of
      waiting until 640px, where it was overflowing/wrapping on tablets. */
   nav{padding:0 24px}
-  .nav-links{display:none}
-  .nav-links a{display:block;padding:14px 16px;font-size:15px}
-  .nav-hamburger{display:block;min-width:44px;min-height:44px}
-  /* The hover-bridge only matters for the desktop hover gap; on mobile the
-     panel is position:static (no gap to bridge) and the invisible 14px
-     strip can sit over the item just below the dropdown, intercepting taps. */
+  .nav-hamburger{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;font-size:20px}
   .nav-dropdown::after{display:none}
 
-  /* Dropdowns become inline accordions inside the mobile menu. Services
-     shows the plain link list (like Resources) instead of the full
-     mega menu, which is too dense for a touch accordion. */
-  .nav-dropdown:hover .mega-menu,.nav-dropdown:hover .simple-menu{display:none}
-  .nav-dropdown.open .mega-menu{display:none}
-  .nav-dropdown.open .services-mobile-menu{display:flex}
-  .simple-menu{position:static;transform:none;width:auto;max-width:none;min-width:0;box-shadow:none;border:none;background:rgba(255,255,255,.04);margin-top:4px;border-radius:8px;padding:8px}
-  .simple-menu a{color:rgba(255,255,255,.85)}
-  .simple-menu a .mega-item-title{color:#fff}
-  .simple-menu a .mega-item-desc{color:rgba(255,255,255,.5)}
-  .simple-menu a .mega-icon{background:rgba(255,255,255,.1);color:var(--teal-lt)}
+  /* MOBILE MENU: full-height panel, plain rows, accordion dropdowns.
+     Every dropdown rule uses !important so touch "sticky hover" can
+     never hide a panel that was opened by tap (this is what broke
+     Resources on phones). */
+  .nav-links{display:none}
+  /* backdrop-filter makes nav the containing block for position:fixed children, which collapsed the panel; drop it while open */
+  nav.menu-open{height:72px;background:var(--forest);box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+  nav.menu-open .nav-links{display:flex;flex-direction:column;align-items:stretch;gap:0;position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--forest);padding:8px 24px 40px;overflow-y:auto;-webkit-overflow-scrolling:touch;border-top:1px solid rgba(255,255,255,.08)}
+  .nav-links > li{border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav-links > li > a{display:flex!important;justify-content:space-between;align-items:center;padding:18px 2px;font-size:17px;font-weight:600;color:#fff;border-radius:0;background:none!important}
+  .nav-dropdown-trigger i{font-size:12px;color:rgba(255,255,255,.45)}
+  .nav-dropdown.open .nav-dropdown-trigger{color:var(--teal-lt)}
+  .nav-dropdown.open .nav-dropdown-trigger i{color:var(--teal-lt)}
+
+  .nav-dropdown .mega-menu{display:none!important}
+  .nav-dropdown .simple-menu{display:none!important}
+  .nav-dropdown.open .simple-menu{display:flex!important}
+  .simple-menu{position:static;transform:none;width:auto;max-width:none;min-width:0;box-shadow:none;border:none;border-radius:0;background:none;margin:0;padding:0 0 16px 2px;gap:0;flex-direction:column}
+  .simple-menu a{display:block;padding:11px 0 11px 16px;border-left:2px solid rgba(255,255,255,.12);border-radius:0;background:none}
+  .simple-menu a:hover,.simple-menu a:active{border-left-color:var(--teal-lt);background:none}
+  .simple-menu a .mega-icon,.simple-menu a .mega-item-desc{display:none}
+  .simple-menu a .mega-item-title{font-size:15.5px;font-weight:500;color:rgba(255,255,255,.82);margin:0}
+  .simple-menu a:hover .mega-item-title{color:#fff}
+  .mobile-sub-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.4);padding:16px 0 6px 18px}
+
+  .nav-links > li:last-child{border-bottom:none;margin-top:28px}
+  .nav-links > li > a.nav-cta{justify-content:center;margin:0;padding:16px!important;font-size:16px;border-radius:10px!important;background:var(--teal)!important}
+  body.menu-lock{overflow:hidden}
 }
 @media(max-width:900px){
   .footer-card{padding:48px 36px 0;border-radius:28px}
@@ -492,6 +504,14 @@ try {
           <div class="mega-icon"><i class="fa-solid fa-map-location-dot"></i></div>
           <div><div class="mega-item-title">Franchise SEO</div><div class="mega-item-desc">Win your territory on Google Maps, within brand rules.</div></div>
         </a>
+        <div class="mobile-sub-title">Senior Care Marketing</div>
+        <a href="/memory-care-marketing/"><div class="mega-item-title">Memory Care</div></a>
+        <a href="/hospice-marketing/"><div class="mega-item-title">Hospice</div></a>
+        <a href="/nursing-home-marketing/"><div class="mega-item-title">Nursing Homes</div></a>
+        <a href="/senior-living-marketing/"><div class="mega-item-title">Senior Living</div></a>
+        <a href="/assisted-living-marketing/"><div class="mega-item-title">Assisted Living</div></a>
+        <div class="mobile-sub-title">Free Tool</div>
+        <a href="/growth-calculator/"><div class="mega-item-title">Website Growth Calculator</div></a>
       </div>
     </li>
     <li><a href="/case-studies/">Case Studies</a></li>

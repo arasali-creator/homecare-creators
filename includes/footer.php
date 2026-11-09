@@ -258,39 +258,29 @@ function markError(id, msg) {
 }
 
 // Mobile hamburger nav
+function hcSetMenu(open) {
+  var nav = document.getElementById('mainNav');
+  var btn = document.getElementById('navHamburger');
+  nav.classList.toggle('menu-open', open);
+  document.body.classList.toggle('menu-lock', open);
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  btn.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+  if (!open) document.querySelectorAll('.nav-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
+}
 document.getElementById('navHamburger').addEventListener('click', function() {
-  var links = document.querySelector('.nav-links');
-  var isOpen = links.style.display === 'flex';
-  if (isOpen) {
-    links.style.display = '';
-    links.style.flexDirection = '';
-    links.style.position = '';
-  } else {
-    links.style.display = 'flex';
-    links.style.flexDirection = 'column';
-    links.style.position = 'absolute';
-    links.style.top = '72px';
-    links.style.left = '0';
-    links.style.right = '0';
-    links.style.background = 'rgba(8,36,22,.98)';
-    links.style.padding = '20px';
-    links.style.gap = '4px';
-  }
-  this.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-  this.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+  hcSetMenu(!document.getElementById('mainNav').classList.contains('menu-open'));
+});
+// Tapping a real link (or the Free Audit button) closes the menu
+document.querySelector('.nav-links').addEventListener('click', function(e) {
+  var a = e.target.closest('a');
+  if (a && !a.classList.contains('nav-dropdown-trigger') && document.getElementById('mainNav').classList.contains('menu-open')) hcSetMenu(false);
 });
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    var links = document.querySelector('.nav-links');
-    var hamburger = document.getElementById('navHamburger');
-    if (links.style.display === 'flex') {
-      links.style.display = '';
-      links.style.flexDirection = '';
-      links.style.position = '';
-      hamburger.setAttribute('aria-expanded', 'false');
-      hamburger.setAttribute('aria-label', 'Open menu');
-    }
-  }
+  if (e.key === 'Escape' && document.getElementById('mainNav').classList.contains('menu-open')) hcSetMenu(false);
+});
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 1024 && document.getElementById('mainNav').classList.contains('menu-open')) hcSetMenu(false);
 });
 
 // Nav dropdowns (Services mega menu, Resources menu) — click-toggle,
