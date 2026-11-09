@@ -14,13 +14,13 @@ $page_css = <<<CSS
 .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 30% 50%,black 20%,transparent 80%)}
 .hero-blob1{position:absolute;width:700px;height:700px;top:-200px;right:-150px;background:radial-gradient(circle,rgba(29,158,117,.16) 0%,transparent 65%);animation:float 10s ease-in-out infinite}
 .hero-blob2{position:absolute;width:500px;height:500px;bottom:-150px;left:-100px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 65%);animation:float 13s ease-in-out infinite reverse}
-.hero-content{position:relative;z-index:2;max-width:680px;flex:1 1 0;min-width:0}
-.hero{gap:64px;justify-content:space-between}
-.hero-media{position:relative;z-index:2;flex:0 0 400px;max-width:400px;animation:fadeIn .8s .2s ease both}
-.hero-media img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 30%;display:block;border-radius:20px;border:1px solid rgba(255,255,255,.12)}
+.hero-content{position:relative;z-index:2;min-width:0}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:150px max(48px,calc((100% - 1280px) / 2 + 48px)) 80px}
+.hero-media{position:relative;z-index:2;animation:fadeIn .8s .2s ease both}
+.hero-media img{width:100%;aspect-ratio:4/4.3;object-fit:cover;object-position:center 30%;display:block;border-radius:24px}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;width:fit-content;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(36px,4.2vw,56px);line-height:1.06;color:#fff;margin-bottom:22px;animation:fadeUp .8s .1s ease both}
+.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(36px,4.2vw,48px);line-height:1.46;color:#fff;margin-bottom:22px;animation:fadeUp .8s .1s ease both}
 .hero-h1 em{font-style:italic;color:var(--teal-lt)}
 .hero-desc{font-size:19px;line-height:1.78;color:rgba(255,255,255,.65);max-width:560px;margin-bottom:40px;animation:fadeUp .8s .25s ease both}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .38s ease both;margin-bottom:52px}
@@ -104,8 +104,8 @@ $page_css = <<<CSS
 @media(max-width:900px){
   .market-inner,.cta-inner{grid-template-columns:1fr;gap:40px}
   .services-grid,.why-grid{grid-template-columns:1fr 1fr}
-  .hero{padding:110px 40px 60px;flex-direction:column;align-items:flex-start;gap:40px}
-  .hero-media{flex:none;width:100%;max-width:440px}
+  .hero{padding:110px 40px 60px;grid-template-columns:1fr;gap:40px}
+  .hero-media{width:100%;max-width:440px}
 }
 @media(max-width:640px){
   .services-grid,.why-grid{grid-template-columns:1fr}
