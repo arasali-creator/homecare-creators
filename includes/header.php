@@ -387,14 +387,12 @@ try {
         <label class="sr-only" for="pService">What Do You Need Most?</label>
         <select class="form-select" id="pService">
           <option value="">What Do You Need Most?</option>
-          <option>Website Design &amp; Development</option>
-          <option>Local SEO — Google Maps Rankings</option>
-          <option>AI Search SEO (ChatGPT &amp; Google AI)</option>
-          <option>Full Bundle Package</option>
+          <option>Homecare SEO &amp; AI Search</option>
+          <option>Website Design</option>
+          <option>Franchise SEO &amp; AI Search</option>
           <option>Free Growth Audit</option>
-          <option>CareOS Demo</option>
-          <option>CareMails Demo</option>
-          <option>Care Scheduling Demo</option>
+          <option>Advanced Growth Audit - $300 (One Time)</option>
+          <option>Product Demo</option>
         </select>
       </div>
       <div class="popup-form-group"><label class="sr-only" for="pMsg">Message</label><textarea class="form-textarea" id="pMsg" placeholder="Message (optional) — tell us about your agency..." style="min-height:80px"></textarea></div>

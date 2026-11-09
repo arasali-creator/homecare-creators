@@ -282,6 +282,10 @@ function goSlide(n) {
 }
 function slideReviews(dir) { goSlide(currentSlide + dir); }
 buildDots();
+
+// Pre-select Franchise SEO in the popup form on this page
+var _hcOpenPopup = openPopup;
+openPopup = function(t) { _hcOpenPopup(t); var s = document.getElementById('pService'); if (s) s.value = 'Franchise SEO & AI Search'; };
 JS;
 include '../includes/header.php';
 ?>
