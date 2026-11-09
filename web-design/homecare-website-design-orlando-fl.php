@@ -12,13 +12,20 @@ $og_image = "https://homecarecreators.com/images/home/service-website-dev.jpg";
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
-.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 30% 50%,black 20%,transparent 80%)}
 .hero-blob1{position:absolute;width:700px;height:700px;top:-200px;right:-150px;background:radial-gradient(circle,rgba(29,158,117,.16) 0%,transparent 65%);animation:float 10s ease-in-out infinite}
 .hero-blob2{position:absolute;width:500px;height:500px;bottom:-150px;left:-100px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 65%);animation:float 13s ease-in-out infinite reverse}
-.hero-content{position:relative;z-index:2;max-width:820px}
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center}
+.hero-content{position:relative;z-index:2;min-width:0}
+.hero-media{position:relative;z-index:2;animation:fadeIn .8s .2s ease both}
+.hero-media-img{border-radius:24px;overflow:hidden;aspect-ratio:4/4.3}
+.hero-media-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+.hero-media-card{position:absolute;left:-28px;bottom:32px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:12px;max-width:calc(100% - 8px)}
+.hero-media-card-icon{width:40px;height:40px;border-radius:10px;background:rgba(29,158,117,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.hero-media-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:16px;color:var(--forest);line-height:1.2}
+.hero-media-card-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;color:var(--muted);margin-top:2px}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;width:fit-content;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite;flex-shrink:0}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(36px,5vw,64px);line-height:1.06;color:#fff;margin-bottom:22px;animation:fadeUp .8s .1s ease both}
+.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(30px,3.3vw,48px);line-height:1.46;color:#fff;margin-bottom:22px;animation:fadeUp .8s .1s ease both}
 .hero-h1 em{font-style:italic;color:var(--teal-lt)}
 .hero-desc{font-size:19px;line-height:1.78;color:rgba(255,255,255,.65);max-width:580px;margin-bottom:40px;animation:fadeUp .8s .25s ease both}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .38s ease both;margin-bottom:52px}
@@ -93,7 +100,7 @@ $page_css = <<<CSS
 
 /* KEYWORDS */
 .kw-section{background:var(--cream)}
-.kw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:11px;margin-top:32px}
+.kw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:32px}
 .kw-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:15px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:border-color .2s}
 .kw-card:hover{border-color:var(--teal)}
 .kw-term{font-size:13.5px;font-weight:500;color:var(--forest)}
@@ -138,7 +145,7 @@ $page_css = <<<CSS
 .cta-guarantee{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:8px;margin-top:16px}
 .cta-guarantee i{color:var(--teal-lt)}
 .cta-img-wrap{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.3)}
-.cta-img-wrap img{width:100%;height:380px;object-fit:cover;display:block}
+.cta-img-wrap img{width:100%;height:520px;object-fit:cover;object-position:center 28%;display:block}
 .cta-img-badge{position:absolute;bottom:18px;left:18px;right:18px;background:rgba(10,46,30,.88);backdrop-filter:blur(12px);border:1px solid rgba(46,198,143,.22);border-radius:12px;padding:15px 17px}
 .cta-img-badge-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:#fff;margin-bottom:9px}
 .cta-badge-row{display:flex;align-items:center;gap:7px;margin-bottom:5px}
@@ -147,15 +154,14 @@ $page_css = <<<CSS
 .cta-badge-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:rgba(255,255,255,.65)}
 
 /* RESPONSIVE */
-@media(max-width:960px){.two-col,.two-col-center,.cta-inner{grid-template-columns:1fr;gap:40px}.inc-grid,.pkg-grid{grid-template-columns:1fr 1fr}.results-grid{grid-template-columns:repeat(2,1fr)}.how-grid{grid-template-columns:repeat(2,1fr)}.cta-img-wrap{display:none}.hero{padding:110px 40px 60px}}
-@media(max-width:640px){section{padding:60px 20px}.inc-grid,.pkg-grid,.results-grid{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr}.hero{padding:100px 20px 60px}.market-facts{grid-template-columns:1fr}}
+@media(max-width:960px){.two-col,.two-col-center,.cta-inner{grid-template-columns:1fr;gap:40px}.inc-grid,.pkg-grid{grid-template-columns:1fr 1fr}.results-grid{grid-template-columns:repeat(2,1fr)}.how-grid{grid-template-columns:repeat(2,1fr)}.kw-grid{grid-template-columns:1fr 1fr}.cta-img-wrap{display:none}.hero{padding:110px 40px 60px}.hero{grid-template-columns:1fr;gap:40px}.hero-media{max-width:440px;width:100%}.hero-media-card{left:16px}}
+@media(max-width:640px){section{padding:60px 20px}.inc-grid,.pkg-grid,.results-grid{grid-template-columns:1fr}.how-grid,.kw-grid{grid-template-columns:1fr}.hero{padding:100px 20px 60px}.market-facts{grid-template-columns:1fr}}
 CSS;
 include '../includes/header.php';
 ?>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-grid"></div>
   <div class="hero-blob1"></div>
   <div class="hero-blob2"></div>
   <div class="hero-content">
@@ -164,8 +170,8 @@ include '../includes/header.php';
     <h1 class="hero-h1">Orlando Home Care<br>Websites <em>That Rank #1</em></h1>
     <p class="hero-desc">We build homecare websites for Orlando agencies, nothing else. Fast, mobile-first sites that rank on Google, turn Orange County families into clients, and keep your careers page working around the clock. Plans start from $699.</p>
     <div class="hero-actions">
-      <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Orlando Website Quote</button>
-      <a href="/homecare-website-design/" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i>View All Packages</a>
+      <button class="btn-primary" onclick="openPopup()">Get Your Orlando Website Quote <i class="fa-solid fa-arrow-right"></i></button>
+      <a href="/homecare-website-design/" class="btn-secondary">View All Packages</a>
     </div>
     <div class="hero-proof">
       <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
@@ -175,6 +181,13 @@ include '../includes/header.php';
       <div class="hero-proof-item"><div class="hero-proof-num">14</div><div class="hero-proof-label">Days to Live</div></div>
       <div class="hero-proof-divider"></div>
       <div class="hero-proof-item"><div class="hero-proof-num">$0</div><div class="hero-proof-label">Free Quote</div></div>
+    </div>
+  </div>
+  <div class="hero-media">
+    <div class="hero-media-img"><img src="/images/team/team-member-desk-openplan-office.jpg" alt="Homecare Creators team member planning a local SEO campaign" fetchpriority="high"></div>
+    <div class="hero-media-card">
+      <div class="hero-media-card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+      <div><div class="hero-media-card-title">Websites from $699</div><div class="hero-media-card-label">Live in 14 days · Mobile-first</div></div>
     </div>
   </div>
 </section>
@@ -296,7 +309,7 @@ include '../includes/header.php';
           <li><i class="fa-solid fa-check"></i>Google Business Profile optimization</li>
           <li><i class="fa-solid fa-check"></i>Live in 14 days</li>
         </ul>
-        <button class="pkg-btn pkg-btn-teal" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Started</button>
+        <button class="pkg-btn pkg-btn-teal" onclick="openPopup()">Get Started <i class="fa-solid fa-arrow-right"></i></button>
       </div>
       <div class="pkg-card">
         <div class="pkg-name">Dominate</div>
@@ -342,13 +355,13 @@ include '../includes/header.php';
     <!-- INTERNAL LINK: Local SEO -->
     <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <div><i class="fa-solid fa-magnifying-glass-chart" style="font-size:28px;color:var(--teal)"></i></div>
-      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website still needs to be found. Our <a href="/home-care-agency-seo-orlando-fl/" style="color:var(--teal);font-weight:600">Orlando Home Care Agency SEO</a> service works to get your new site ranking on Google Maps, so leads start coming in sooner.</div></div>
+      <div style="flex:1"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">Pair Your Website with Local SEO</div><div style="font-size:14px;color:var(--muted)">A great website still needs to be found. Our <a href="/home-care-agency-seo-orlando-fl/" style="color:var(--teal);font-weight:600">Orlando Home Care Agency SEO</a> service works to get your new site ranking on Google Maps, so leads start coming in sooner.</div></div>
       <a href="/home-care-agency-seo-orlando-fl/" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View SEO Packages</a>
     </div>
 
     <div style="background:rgba(29,158,117,.06);border:1px solid rgba(29,158,117,.2);border-radius:16px;padding:28px 32px;margin-top:16px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <div><i class="fa-solid fa-laptop-code" style="font-size:28px;color:var(--teal)"></i></div>
-      <div style="flex:1"><div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">See Every Homecare Website Design Plan</div><div style="font-size:14px;color:var(--muted)">Explore the full <a href="/web-design/homecare-website-design/" style="color:var(--teal);font-weight:600">Homecare Website Design</a> service, pricing, and everything included, beyond what's built for Orlando alone.</div></div>
+      <div style="flex:1"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;color:var(--forest);margin-bottom:4px">See Every Homecare Website Design Plan</div><div style="font-size:14px;color:var(--muted)">Explore the full <a href="/web-design/homecare-website-design/" style="color:var(--teal);font-weight:600">Homecare Website Design</a> service, pricing, and everything included, beyond what's built for Orlando alone.</div></div>
       <a href="/web-design/homecare-website-design/" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px"><i class="fa-solid fa-arrow-right"></i>View All Plans</a>
     </div>
   </div>
@@ -371,7 +384,7 @@ include '../includes/header.php';
       <div class="kw-card"><div><div class="kw-term">home care Winter Park / Kissimmee</div><div class="kw-intent">Neighborhood-level, lower competition</div></div><span class="kw-badge kw-med">MED</span></div>
       <div class="kw-card"><div><div class="kw-term">in-home care for elderly Orlando</div><div class="kw-intent">Informational → decision stage buyer</div></div><span class="kw-badge kw-high">HIGH</span></div>
       <div class="kw-card"><div><div class="kw-term">24-hour home care Orlando</div><div class="kw-intent">High urgency, premium private-pay</div></div><span class="kw-badge kw-high">HIGH</span></div>
-      <div class="kw-card"><div><div class="kw-term">best home care agency Orlando 2025</div><div class="kw-intent">AI search &amp; voice search query</div></div><span class="kw-badge kw-med">MED</span></div>
+      <div class="kw-card"><div><div class="kw-term">best home care agency Orlando</div><div class="kw-intent">AI search &amp; voice search query</div></div><span class="kw-badge kw-med">MED</span></div>
     </div>
   </div>
 </section>
@@ -465,11 +478,11 @@ include '../includes/header.php';
         <p class="section-label" style="color:var(--teal-lt)"><span style="background:var(--teal-lt);display:inline-block;width:24px;height:2px;border-radius:2px;margin-right:8px;vertical-align:middle"></span>Get Started Today</p>
         <h2 class="cta-h2">Ready for an Orlando Website That<br><em>Actually Gets You Clients?</em></h2>
         <p class="cta-desc">Book a free 30-minute call. We'll take a look at your current Orlando digital presence and hand you a clear, honest plan. No obligation, no pressure to sign anything.</p>
-        <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get My Orlando Website Quote</button>
+        <button class="btn-primary" style="font-size:15px;padding:16px 32px;" onclick="openPopup()">Get My Orlando Website Quote <i class="fa-solid fa-arrow-right"></i></button>
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free quote &nbsp;·&nbsp; Live in 14 days &nbsp;·&nbsp; No hidden fees</div>
       </div>
       <div class="cta-img-wrap" data-reveal style="transition-delay:.15s">
-        <img src="/images/home/service-website-dev.jpg" width="600" height="427" alt="Orlando home care agency website design results — fast, mobile-first site built by Homecare Creators" title="Orlando home care agency website design results">
+        <img src="/images/team/team-member-working-library.jpg" alt="Homecare Creators team member researching local search trends" title="Homecare Creators team member researching local search trends" loading="lazy">
         <div class="cta-img-badge">
           <div class="cta-img-badge-title"><i class="fa-solid fa-circle-dot" style="color:var(--teal-lt);margin-right:4px"></i>Your Quote Includes</div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Current website audit</div></div>

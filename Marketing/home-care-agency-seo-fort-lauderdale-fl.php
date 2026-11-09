@@ -11,16 +11,23 @@ $og_desc = "Running a home care agency in Fort Lauderdale? We get you found on G
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
-.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,.055) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 30% 50%,black 20%,transparent 80%)}
 .hero-blob1{position:absolute;width:700px;height:700px;top:-200px;right:-150px;background:radial-gradient(circle,rgba(29,158,117,.16) 0%,transparent 65%);animation:float 10s ease-in-out infinite}
 .hero-blob2{position:absolute;width:500px;height:500px;bottom:-150px;left:-100px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 65%);animation:float 13s ease-in-out infinite reverse}
-.hero-content{position:relative;z-index:2;max-width:780px}
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center}
+.hero-content{position:relative;z-index:2;min-width:0}
+.hero-media{position:relative;z-index:2;animation:fadeIn .8s .2s ease both}
+.hero-media-img{border-radius:24px;overflow:hidden;aspect-ratio:4/4.3}
+.hero-media-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+.hero-media-card{position:absolute;left:-28px;bottom:32px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:12px;max-width:calc(100% - 8px)}
+.hero-media-card-icon{width:40px;height:40px;border-radius:10px;background:rgba(29,158,117,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.hero-media-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:16px;color:var(--forest);line-height:1.2}
+.hero-media-card-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;color:var(--muted);margin-top:2px}
 .hero-breadcrumb{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,.4);margin-bottom:20px}
 .hero-breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none}
 .hero-breadcrumb span{color:var(--teal-lt)}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;width:fit-content;animation:fadeIn .6s ease both}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(38px,5vw,64px);line-height:1.06;color:#fff;margin-bottom:22px;animation:fadeUp .8s .1s ease both}
+.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(30px,3.3vw,48px);line-height:1.46;color:#fff;margin-bottom:22px;animation:fadeUp .8s .1s ease both}
 .hero-h1 em{font-style:italic;color:var(--teal-lt)}
 .hero-desc{font-size:19px;line-height:1.78;color:rgba(255,255,255,.65);max-width:560px;margin-bottom:40px;animation:fadeUp .8s .25s ease both}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .38s ease both;margin-bottom:52px}
@@ -69,7 +76,7 @@ $page_css = <<<CSS
 
 /* KEYWORDS */
 .kw-section{background:#fff}
-.kw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:36px}
+.kw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:36px}
 .kw-card{background:var(--warm);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:border-color .2s}
 .kw-card:hover{border-color:var(--teal)}
 .kw-term{font-size:14px;font-weight:500;color:var(--forest)}
@@ -85,6 +92,18 @@ $page_css = <<<CSS
 .area-pill:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-1px)}
 .area-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0}
 .areas-note{margin-top:24px;background:rgba(201,168,76,.08);border:1px dashed rgba(201,168,76,.35);border-radius:var(--r);padding:14px 20px;font-size:13px;color:#7a5f18;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600}
+
+/* PROCESS */
+.process-section{background:#fff}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.process-step{background:var(--warm);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px 24px;transition:border-color .2s}
+.process-step:hover{border-color:var(--teal)}
+.process-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.process-icon{width:44px;height:44px;border-radius:11px;background:var(--forest);color:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:17px}
+.process-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:28px;color:rgba(29,158,117,.25);line-height:1}
+.process-step h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;color:var(--forest);margin-bottom:8px}
+.process-step p{font-size:15px;color:var(--muted);line-height:1.7}
+.kw-section .section-sub{margin-bottom:0}
 
 /* WHY */
 .why-section{background:var(--forest)}
@@ -118,7 +137,7 @@ $page_css = <<<CSS
 .cta-guarantee{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:8px}
 .cta-guarantee i{color:var(--teal-lt)}
 .cta-image{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.3)}
-.cta-image img{width:100%;height:380px;object-fit:cover;display:block}
+.cta-image img{width:100%;height:520px;object-fit:cover;object-position:center 28%;display:block}
 .cta-image-badge{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(10,46,30,.88);backdrop-filter:blur(12px);border:1px solid rgba(46,198,143,.22);border-radius:12px;padding:16px 18px}
 .cta-image-badge-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:10px}
 .cta-badge-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
@@ -131,10 +150,13 @@ $page_css = <<<CSS
   .market-inner,.cta-inner{grid-template-columns:1fr;gap:40px}
   .services-grid,.why-grid{grid-template-columns:1fr 1fr}
   .hero{padding:110px 40px 60px}
+  .hero{grid-template-columns:1fr;gap:40px}.hero-media{max-width:440px;width:100%}.hero-media-card{left:16px}
+  .process-grid,.kw-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
   .services-grid,.why-grid{grid-template-columns:1fr}
   .hero{padding:100px 24px 60px}
+  .process-grid,.kw-grid{grid-template-columns:1fr}
   section{padding:64px 24px}
   .cta-image{display:none}
   .market-facts{grid-template-columns:1fr}
@@ -147,7 +169,6 @@ include '../includes/header.php';
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-grid"></div>
   <div class="hero-blob1"></div>
   <div class="hero-blob2"></div>
   <div class="hero-content">
@@ -156,7 +177,7 @@ include '../includes/header.php';
     <h1 class="hero-h1">Ranking <em>Fort Lauderdale</em><br>Home Care Agencies</h1>
     <p class="hero-desc">We help Fort Lauderdale home care agencies climb to the top of Google, build websites that actually convert, and bring in more private-pay families across Broward County. When someone searches for care here, we want your name to come up first.</p>
     <div class="hero-actions">
-      <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-rocket"></i>Get Your Free Fort Lauderdale SEO Audit</button>
+      <button class="btn-primary" onclick="openPopup()">Get Your Free Fort Lauderdale SEO Audit <i class="fa-solid fa-arrow-right"></i></button>
       <a href="https://homecarecreators.com/#services" class="btn-secondary"><i class="fa-solid fa-play"></i>View Our Services</a>
     </div>
     <div class="hero-proof">
@@ -167,6 +188,13 @@ include '../includes/header.php';
       <div class="hero-proof-item"><div class="hero-proof-num">30-Day</div><div class="hero-proof-label">Satisfaction Guarantee</div></div>
       <div class="hero-proof-divider"></div>
       <div class="hero-proof-item"><div class="hero-proof-num">$0</div><div class="hero-proof-label">Free Audit Cost</div></div>
+    </div>
+  </div>
+  <div class="hero-media">
+    <div class="hero-media-img"><img src="/images/team/asifa-presenting-whiteboard-session.jpg" alt="Asifa Rani, founder of Homecare Creators, presenting a local SEO plan to the team" fetchpriority="high"></div>
+    <div class="hero-media-card">
+      <div class="hero-media-card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+      <div><div class="hero-media-card-title">Free Fort Lauderdale SEO Audit</div><div class="hero-media-card-label">Google Maps · Website · AI search</div></div>
     </div>
   </div>
 </section>
@@ -309,6 +337,23 @@ include '../includes/header.php';
   </div>
 </section>
 
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="container">
+    <div data-reveal>
+      <p class="section-label">How It Works</p>
+      <h2 class="section-h2">How We Get Your Fort Lauderdale Agency<br><em>Found First on Google</em></h2>
+      <p class="section-sub">A clear, four-step plan. You run your agency; we handle every ranking signal Google and AI search look at in Broward County.</p>
+    </div>
+    <div class="process-grid" data-reveal style="transition-delay:.1s">
+      <div class="process-step"><div class="process-top"><div class="process-icon"><i class="fa-solid fa-magnifying-glass"></i></div><div class="process-num">01</div></div><h3>Free Fort Lauderdale Audit</h3><p>We review your Google Business Profile, website, reviews, and the agencies currently outranking you in Fort Lauderdale, then show you exactly where the gaps are.</p></div>
+      <div class="process-step"><div class="process-top"><div class="process-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div><div class="process-num">02</div></div><h3>Fix the Foundation</h3><p>Profile cleanup, Broward County citations, on-page SEO, and schema markup, so Google fully trusts your agency's name, location, and services.</p></div>
+      <div class="process-step"><div class="process-top"><div class="process-icon"><i class="fa-solid fa-map-location-dot"></i></div><div class="process-num">03</div></div><h3>Build Local Pages</h3><p>Dedicated pages for the Fort Lauderdale neighborhoods you serve, written around the exact words families there use when they search for care.</p></div>
+      <div class="process-step"><div class="process-top"><div class="process-icon"><i class="fa-solid fa-chart-line"></i></div><div class="process-num">04</div></div><h3>Grow &amp; Report</h3><p>Steady review growth, fresh content, and AI search optimization, with a monthly report showing your rankings, calls, and inquiries.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- AREAS -->
 <section class="areas-section">
   <div class="container">
@@ -330,6 +375,28 @@ include '../includes/header.php';
       <div class="area-pill"><div class="area-dot"></div>Coral Springs</div>
       <div class="area-pill"><div class="area-dot"></div>Weston</div>
       <div class="area-pill"><div class="area-dot"></div>Lauderdale-by-the-Sea</div>
+    </div>
+  </div>
+</section>
+
+<!-- KEYWORDS -->
+<section class="kw-section">
+  <div class="container">
+    <div data-reveal>
+      <p class="section-label">Fort Lauderdale Keyword Strategy</p>
+      <h2 class="section-h2">The Fort Lauderdale Searches<br>We <em>Rank Your Agency For</em></h2>
+      <p class="section-sub">These are the terms families in Broward County type into Google and AI tools when they need care. We build your pages, profile, and content around them.</p>
+    </div>
+    <div class="kw-grid" data-reveal style="transition-delay:.1s">
+      <div class="kw-card"><div><div class="kw-term">home care agency Fort Lauderdale FL</div><div class="kw-intent">Families ready to hire, highest intent</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">home care near me in Fort Lauderdale</div><div class="kw-intent">Mobile "near me" searches, fast to convert</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">senior home care Fort Lauderdale</div><div class="kw-intent">Adult children searching for a parent</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">24-hour home care Fort Lauderdale</div><div class="kw-intent">Urgent need, high-value private pay</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">in-home care for elderly Fort Lauderdale</div><div class="kw-intent">Comparing agencies before they call</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">caregiver jobs Fort Lauderdale FL</div><div class="kw-intent">Your caregiver recruitment pipeline</div></div><span class="kw-badge kw-high">HIGH</span></div>
+      <div class="kw-card"><div><div class="kw-term">home care Las Olas / Coral Ridge</div><div class="kw-intent">Neighborhood level, lower competition</div></div><span class="kw-badge kw-med">MED</span></div>
+      <div class="kw-card"><div><div class="kw-term">dementia care at home Fort Lauderdale</div><div class="kw-intent">Specialized, premium-rate services</div></div><span class="kw-badge kw-med">MED</span></div>
+      <div class="kw-card"><div><div class="kw-term">best home care agency in Fort Lauderdale</div><div class="kw-intent">ChatGPT, AI Overviews and voice search</div></div><span class="kw-badge kw-med">MED</span></div>
     </div>
   </div>
 </section>
@@ -412,11 +479,11 @@ include '../includes/header.php';
     <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:32px">
       <a href="/homecare-website-design-fort-lauderdale-fl/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
         <i class="fa-solid fa-laptop-code" style="font-size:20px;color:var(--teal)"></i>
-        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Fort Lauderdale Website Design</div><div style="font-size:12px;color:var(--muted)">Your dedicated Fort Lauderdale web design page</div></div>
+        <div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Fort Lauderdale Website Design</div><div style="font-size:12px;color:var(--muted)">Your dedicated Fort Lauderdale web design page</div></div>
       </a>
       <a href="/seo/home-care-seo/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
         <i class="fa-solid fa-bullhorn" style="font-size:20px;color:var(--teal)"></i>
-        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Home Care Agency Marketing</div><div style="font-size:12px;color:var(--muted)">Full-service SEO built for home care</div></div>
+        <div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Home Care Agency Marketing</div><div style="font-size:12px;color:var(--muted)">Full-service SEO built for home care</div></div>
       </a>
     </div>
   </div>
@@ -435,7 +502,7 @@ include '../includes/header.php';
         <div class="cta-guarantee"><i class="fa-solid fa-shield-halved"></i>Free audit &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; 30-day satisfaction guarantee</div>
       </div>
       <div class="cta-image" data-reveal style="transition-delay:.15s">
-        <img src="/images/home/cta-business-owner.jpg" alt="Fort Lauderdale home care agency owner growing their business with Homecare Creators" title="Fort Lauderdale home care agency owner growth">
+        <img src="/images/team/team-member-outdoor-market.jpg" alt="Homecare Creators team member" title="Homecare Creators team member" loading="lazy">
         <div class="cta-image-badge">
           <div class="cta-image-badge-title"><i class="fa-solid fa-circle-dot" style="color:var(--teal-lt);margin-right:4px"></i>Audit Includes</div>
           <div class="cta-badge-row"><div class="cta-badge-dot"></div><div class="cta-badge-text">Website &amp; speed analysis</div></div>
