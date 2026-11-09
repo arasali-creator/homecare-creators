@@ -5,10 +5,11 @@ if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
     exit;
 }
 $page_title = "AI Search SEO for Home Care Agencies (GEO & AEO) | Homecare Creators";
-$page_desc = "AI Search SEO for home care agencies: get found in ChatGPT, Google AI Overviews, and Perplexity. Entity building, FAQ schema, and GEO/AEO built for homecare.";
+$page_desc = "AI Search SEO for home care agencies: get found in ChatGPT, Google AI Overviews and Perplexity. Plans from \$797/month, with tracked family questions and monthly reports.";
 $og_title = "AI Search SEO for Home Care Agencies (GEO & AEO) | Homecare Creators";
-$og_desc = "Families now ask AI tools for home care recommendations. We build the structured data and entity signals AI systems look for, so your agency has a real shot at being named.";
+$og_desc = "Families can now ask AI tools for home care recommendations. We build the structured data and entity signals AI systems look for, so your agency has a real shot at being named.";
 $og_image = "https://homecarecreators.com/images/home/service-ai-search-seo.jpg";
+$ai = require __DIR__ . '/../includes/ai-search-seo-data.php';
 $page_css = <<<CSS
 /* HERO */
 .hero{min-height:88vh;background:var(--forest);position:relative;overflow:hidden;display:flex;align-items:center;padding:120px 80px 80px}
@@ -109,8 +110,61 @@ $page_css = <<<CSS
 .cta-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--teal-lt);flex-shrink:0}
 .cta-badge-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(255,255,255,.65)}
 
+/* PRICING */
+.ai-pricing{background:var(--warm);border-top:1px solid var(--border)}
+.ai-pricing-head{text-align:center;max-width:720px;margin:0 auto 52px}
+.ai-pricing-head .section-label{justify-content:center}
+.ai-pricing-head .section-sub{margin:0 auto}
+.ai-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.ai-plan{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:34px 30px;display:flex;flex-direction:column;position:relative}
+.ai-plan.featured{border:2px solid var(--teal)}
+.ai-plan-flag{position:absolute;top:-13px;left:30px;background:var(--teal);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:6px}
+.ai-plan-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700;color:var(--forest)}
+.ai-plan-for{font-size:14.5px;color:var(--muted);margin:6px 0 22px;line-height:1.5;min-height:44px}
+.ai-plan-price{font-family:'Plus Jakarta Sans',sans-serif;font-size:44px;font-weight:700;color:var(--forest);line-height:1}
+.ai-plan-price span{font-size:15px;font-weight:500;color:var(--muted)}
+.ai-plan-intro{font-size:14.5px;font-weight:600;color:var(--forest);padding:16px 0;margin-top:22px;border-top:1px solid var(--border)}
+.ai-plan ul{list-style:none;display:flex;flex-direction:column;gap:12px;flex:1;margin-bottom:28px}
+.ai-plan li{display:grid;grid-template-columns:18px 1fr;gap:10px;font-size:14.5px;color:var(--text);line-height:1.55}
+.ai-plan li i{color:var(--teal);font-size:13px;margin-top:4px}
+.ai-plan-btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:15px;border-radius:11px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14.5px;cursor:pointer;border:1.5px solid var(--forest);background:#fff;color:var(--forest);transition:background .2s,color .2s}
+.ai-plan-btn:hover{background:var(--forest);color:#fff}
+.ai-plan.featured .ai-plan-btn{background:var(--teal);border-color:var(--teal);color:#fff}
+.ai-plan.featured .ai-plan-btn:hover{background:#17875f;border-color:#17875f}
+.ai-more{text-align:center;margin:28px auto 36px;max-width:760px;font-size:15.5px;color:var(--muted);line-height:1.6}
+.ai-more i{color:var(--teal);margin-right:8px}
+.ai-extras{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ai-extra{border-radius:var(--r-lg);padding:30px 32px}
+.ai-extra.dark{background:var(--forest);color:#fff}
+.ai-extra.light{background:#fff;border:1px solid var(--border)}
+.ai-extra-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+.ai-extra h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:700}
+.ai-extra.light h3{color:var(--forest)}
+.ai-extra-price{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:700;color:var(--teal)}
+.ai-extra.dark .ai-extra-price{color:var(--teal-lt)}
+.ai-extra-price span{font-size:14px;font-weight:500;color:var(--muted)}
+.ai-extra.dark .ai-extra-price span{color:rgba(255,255,255,.55)}
+.ai-extra-sub{font-size:14.5px;color:var(--muted);margin-bottom:18px}
+.ai-extra.dark .ai-extra-sub{color:rgba(255,255,255,.6)}
+.ai-extra ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ai-extra li{display:grid;grid-template-columns:16px 1fr;gap:10px;font-size:14.5px;line-height:1.5;color:var(--text)}
+.ai-extra.dark li{color:rgba(255,255,255,.82)}
+.ai-extra li i{color:var(--teal);font-size:12px;margin-top:4px}
+.ai-extra.dark li i{color:var(--teal-lt)}
+
+/* REPORT */
+.ai-report{background:#fff}
+.ai-report-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}
+.ai-report-list{border-top:2px solid var(--forest)}
+.ai-report-item{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--border)}
+.ai-report-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--teal);padding-top:2px}
+.ai-report-item h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700;color:var(--forest);margin-bottom:5px}
+.ai-report-item p{font-size:15.5px;color:var(--muted);line-height:1.65}
+
 /* RESPONSIVE */
 @media(max-width:900px){
+  .ai-plans{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+  .ai-extras,.ai-report-grid{grid-template-columns:1fr;gap:32px}
   .market-columns,.cta-inner{grid-template-columns:1fr;gap:40px}
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .hero-visual{order:-1;max-width:420px;margin:0 auto}
@@ -144,15 +198,15 @@ include '../includes/header.php';
       <div class="hero-breadcrumb"><a href="https://homecarecreators.com">Home</a> / <span>AI Search SEO</span></div>
       <div class="hero-badge"><div class="hero-badge-pulse"></div>GEO &amp; AEO for Home Care</div>
       <h1 class="hero-h1">AI Search SEO<br>for <em>Home Care Agencies</em></h1>
-      <p class="hero-desc">Families researching care for a parent are increasingly asking ChatGPT, Google AI Overviews, and Perplexity for home care recommendations instead of scrolling through search results. Most home care agencies are completely invisible to these tools. We build the structured data, entity signals, and answer-formatted content that give your agency a real shot at being the one AI mentions.</p>
+      <p class="hero-desc">Families researching care for a parent can now ask ChatGPT, Google AI Overviews, and Perplexity for home care recommendations, and get one answer instead of a page of links. Most home care agencies are not set up to be part of that answer. We build the structured data, entity signals, and answer-formatted content that give your agency a real shot at being the one AI mentions.</p>
       <div class="hero-actions">
         <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-robot"></i>Get My Free AI Visibility Audit</button>
-        <a href="#services" class="btn-secondary"><i class="fa-solid fa-play"></i>See What's Included</a>
+        <a href="#pricing" class="btn-secondary">See Pricing</a>
       </div>
       <div class="hero-proof">
         <div class="hero-proof-item"><div class="hero-proof-num">100%</div><div class="hero-proof-label">Homecare-Only Focus</div></div>
         <div class="hero-proof-divider"></div>
-        <div class="hero-proof-item"><div class="hero-proof-num">SEO</div><div class="hero-proof-label">+ AI Search Visibility</div></div>
+        <div class="hero-proof-item"><div class="hero-proof-num">$797/mo</div><div class="hero-proof-label">Plans Start At</div></div>
         <div class="hero-proof-divider"></div>
         <div class="hero-proof-item"><div class="hero-proof-num">30-Day</div><div class="hero-proof-label">Satisfaction Guarantee</div></div>
         <div class="hero-proof-divider"></div>
@@ -236,7 +290,7 @@ include '../includes/header.php';
       <div class="market-facts" data-reveal style="transition-delay:.2s">
         <div class="fact-card"><div class="fact-num">GEO</div><h4>Generative Engine Optimization</h4><p>Structuring content so generative AI tools can understand, summarize, and recommend your agency.</p></div>
         <div class="fact-card"><div class="fact-num">AEO</div><h4>Answer Engine Optimization</h4><p>Formatting your content, especially FAQs, to directly answer the exact questions families ask AI assistants.</p></div>
-        <div class="fact-card"><div class="fact-num">Zero-Click</div><h4>A New Kind of Search</h4><p>More searches now end with an AI-generated answer instead of a list of links. If you're not part of that answer, the click never happens.</p></div>
+        <div class="fact-card"><div class="fact-num">Zero-Click</div><h4>A New Kind of Search</h4><p>Many searches now show an AI-written answer above the links. If you're not part of that answer, the family may never scroll down to you.</p></div>
         <div class="fact-card"><div class="fact-num">Early</div><h4>Still a Wide-Open Channel</h4><p>Very few home care agencies have optimized for AI search yet. Building the groundwork now is a real head start.</p></div>
       </div>
     </div>
@@ -302,9 +356,106 @@ include '../includes/header.php';
             <li><i class="fa-solid fa-check"></i>Question-based content mapped to real search queries</li>
             <li><i class="fa-solid fa-check"></i>Service &amp; HowTo schema where relevant</li>
             <li><i class="fa-solid fa-check"></i>Clear, scannable formatting built for AI parsing</li>
-            <li><i class="fa-solid fa-check"></i>Ongoing content expansion every month</li>
+            <li><i class="fa-solid fa-check"></i>New answer-style pages or FAQ updates every month</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="ai-pricing" id="pricing">
+  <div class="container">
+    <div class="ai-pricing-head" data-reveal>
+      <p class="section-label">Pricing</p>
+      <h2 class="section-h2">AI Search SEO <em>pricing</em></h2>
+      <p class="section-sub">Clear monthly plans, measured by how many real family questions mention your agency.</p>
+    </div>
+    <div class="ai-plans" data-reveal style="transition-delay:.1s">
+      <div class="ai-plan">
+        <div class="ai-plan-name">Essentials</div>
+        <div class="ai-plan-for">Agencies starting with AI search</div>
+        <div class="ai-plan-price">$797<span>/month</span></div>
+        <div class="ai-plan-intro">What you get each month:</div>
+        <ul>
+          <li><i class="fa-solid fa-check"></i>25 family questions tracked (like "best home care in [city]")</li>
+          <li><i class="fa-solid fa-check"></i>ChatGPT, Google AI Overviews and Perplexity</li>
+          <li><i class="fa-solid fa-check"></i>2 answer-style pages or FAQ updates</li>
+          <li><i class="fa-solid fa-check"></i>Schema upkeep</li>
+          <li><i class="fa-solid fa-check"></i>Monthly AI visibility report</li>
+        </ul>
+        <button class="ai-plan-btn" onclick="openPopup()">Book a Free AI Audit</button>
+      </div>
+      <div class="ai-plan featured">
+        <div class="ai-plan-flag">Most popular</div>
+        <div class="ai-plan-name">Growth</div>
+        <div class="ai-plan-for">Agencies ready to be named more often</div>
+        <div class="ai-plan-price">$1,297<span>/month</span></div>
+        <div class="ai-plan-intro">Everything in Essentials, plus:</div>
+        <ul>
+          <li><i class="fa-solid fa-check"></i>50 family questions tracked</li>
+          <li><i class="fa-solid fa-check"></i>4 content pieces a month</li>
+          <li><i class="fa-solid fa-check"></i>3 third-party mentions or directory placements a month</li>
+          <li><i class="fa-solid fa-check"></i>Competitor citation check</li>
+        </ul>
+        <button class="ai-plan-btn" onclick="openPopup()">Book a Free AI Audit <i class="fa-solid fa-arrow-right" style="font-size:12px"></i></button>
+      </div>
+      <div class="ai-plan">
+        <div class="ai-plan-name">Authority</div>
+        <div class="ai-plan-for">Competitive markets and multi-location agencies</div>
+        <div class="ai-plan-price">$1,997<span>/month</span></div>
+        <div class="ai-plan-intro">Everything in Growth, plus:</div>
+        <ul>
+          <li><i class="fa-solid fa-check"></i>100 family questions tracked</li>
+          <li><i class="fa-solid fa-check"></i>8 content pieces and 5 mentions a month</li>
+          <li><i class="fa-solid fa-check"></i>Gemini and Copilot tracking</li>
+          <li><i class="fa-solid fa-check"></i>Review strategy</li>
+          <li><i class="fa-solid fa-check"></i>Monthly strategy call</li>
+        </ul>
+        <button class="ai-plan-btn" onclick="openPopup()">Talk to Us About Authority</button>
+      </div>
+    </div>
+    <p class="ai-more"><i class="fa-solid fa-circle-info"></i>These are the highlights. We'll walk you through everything included during your free AI visibility audit.</p>
+    <div class="ai-extras" data-reveal>
+      <div class="ai-extra light">
+        <div class="ai-extra-top"><h3>AI Search Setup</h3><div class="ai-extra-price">$997<span> one-time</span></div></div>
+        <p class="ai-extra-sub">The foundation most agencies start with.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i>Full AI search audit</li>
+          <li><i class="fa-solid fa-check"></i>Organization, Service, FAQ and author schema</li>
+          <li><i class="fa-solid fa-check"></i>Entity and name, address and phone cleanup</li>
+          <li><i class="fa-solid fa-check"></i>Google Knowledge Panel groundwork</li>
+          <li><i class="fa-solid fa-check"></i>90-day roadmap</li>
+        </ul>
+      </div>
+      <div class="ai-extra dark">
+        <div class="ai-extra-top"><h3>Already an SEO client?</h3><div class="ai-extra-price">+$497<span>/month</span></div></div>
+        <p class="ai-extra-sub">Add AI search to your current SEO plan.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i>AI visibility tracking</li>
+          <li><i class="fa-solid fa-check"></i>Schema setup and upkeep</li>
+          <li><i class="fa-solid fa-check"></i>Answer-formatting of the content we already produce for you</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPORT -->
+<section class="ai-report">
+  <div class="container">
+    <div class="ai-report-grid">
+      <div data-reveal>
+        <p class="section-label">Your Monthly Report</p>
+        <h2 class="section-h2">What we <em>measure</em> every month</h2>
+        <p class="section-sub">Every month we ask the AI tools the same set of real family questions for your area, then show you exactly where your agency appears.</p>
+      </div>
+      <div class="ai-report-list" data-reveal style="transition-delay:.1s">
+        <div class="ai-report-item"><div class="ai-report-num">01</div><div><h3>How often you're mentioned</h3><p>How many of your tracked family questions name your agency, and how that number changes month to month.</p></div></div>
+        <div class="ai-report-item"><div class="ai-report-num">02</div><div><h3>Which AI tools mention you</h3><p>Results for ChatGPT, Google AI Overviews and Perplexity, plus Gemini and Copilot on the Authority plan.</p></div></div>
+        <div class="ai-report-item"><div class="ai-report-num">03</div><div><h3>How you compare with competitors</h3><p>Which local agencies get named when you don't, so we know where to focus next.</p></div></div>
+        <div class="ai-report-item"><div class="ai-report-num">04</div><div><h3>What we did and what's next</h3><p>Pages published, schema updates, new mentions earned, and next month's plan.</p></div></div>
       </div>
     </div>
   </div>
@@ -319,7 +470,7 @@ include '../includes/header.php';
       <p class="section-sub" style="color:rgba(255,255,255,.58)">We can't control what any AI model decides to say. What we can do is build the structured data and entity signals these systems look for, so your agency has a real, defensible shot at being part of the answer.</p>
     </div>
     <div class="why-grid" data-reveal style="transition-delay:.1s">
-      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-comments"></i></div><h4>Families Ask AI First</h4><p>A growing number of families now start their search for care with a conversational question to ChatGPT or a Google AI Overview instead of a traditional keyword search. If your site isn't structured for that, you're invisible before the process even starts.</p></div>
+      <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-comments"></i></div><h4>Families Can Ask AI First</h4><p>A family can now start their search for care with a conversational question to ChatGPT or see a Google AI Overview before any search result. If your site isn't structured for that, you can be left out before the process even starts.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-handshake"></i></div><h4>Trust Before the First Call</h4><p>Being named or cited by an AI assistant carries a built-in credibility a plain search listing doesn't. Showing up in that first AI-generated answer can shape a family's shortlist before they ever land on your website.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-seedling"></i></div><h4>An Early, Low-Competition Channel</h4><p>Very few home care agencies have invested any real effort into AI search optimization yet. Building this groundwork now, while most competitors haven't started, is one of the more efficient ways to gain visibility.</p></div>
       <div class="why-card"><div class="why-card-icon"><i class="fa-solid fa-database"></i></div><h4>We Build the Signals AI Looks For</h4><p>Structured data, consistent entity information, and clear answer-formatted content are what generative models rely on when forming a recommendation. That's the work we do, honestly and without shortcuts.</p></div>
@@ -338,42 +489,12 @@ include '../includes/header.php';
       <p class="section-sub">Straight answers for home care agency owners deciding whether AI Search SEO is worth investing in right now.</p>
     </div>
     <div class="faq-list" data-reveal style="transition-delay:.1s">
-
+      <?php foreach ($ai['faqs'] as $f): ?>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What is AI Search SEO (GEO/AEO), exactly?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) are the practices of structuring your website and content so tools like ChatGPT, Google AI Overviews, and Perplexity can understand, trust, and cite your agency when a family asks for a home care recommendation. Think of it as the AI-era counterpart to traditional SEO, built around how these tools actually pull and summarize information.</div></div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text"><?= htmlspecialchars($f[0]) ?></span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><?= htmlspecialchars($f[1]) ?></div></div>
       </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How is this different from regular local SEO?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Traditional SEO is built around ranking a page in a list of results for specific keywords. AI search optimization leans much more heavily on structured data, entity consistency, clear direct-answer content, and third-party authority signals, since that's what a generative model relies on to decide what to summarize and who to cite. We run both together, since they reinforce each other rather than compete.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does it take to show up in AI answers?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Honestly, there's no fixed timeline the way there is for something like Google Maps rankings, since this is such a new field. Most agencies see early signals, like being pulled into an AI Overview or referenced by a chatbot, within a few months of consistent work. But the AI platforms control their own models and update them on their own schedule, so visibility can shift as those models change, not just based on our work.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you guarantee my agency will be cited by ChatGPT?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">No, and we won't pretend otherwise. No agency can honestly guarantee a placement inside a system it doesn't control. What we do guarantee is the work itself: building the structured data, entity signals, and answer-formatted content that give your agency a real, defensible shot at being included. Every engagement is also backed by our standard 30-day satisfaction guarantee.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What's included in the AI Search SEO service?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">AI Overviews and ChatGPT citation optimization, entity and knowledge graph building, FAQ schema and structured content, and a monthly AI visibility report showing what's changed. We also coordinate this work with your local SEO so both channels reinforce each other instead of working in isolation.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can this be bundled with local SEO or website design?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Most agencies bundle AI Search SEO with local SEO and/or website design, since all three draw on the same technical foundation and content. If you're already a local SEO client, we can also add AI Search SEO on to your existing retainer.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you require a long-term contract?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a"><div class="faq-a-inner">No. Like the rest of our services, AI Search SEO starts with a 90-day ramp-up period so the foundational work, schema, entity data, and structured content, can be built properly. After that, everything moves to month-to-month.</div></div>
-      </div>
-
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
@@ -386,11 +507,11 @@ include '../includes/header.php';
     <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:32px">
       <a href="/seo/home-care-seo/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
         <i class="fa-solid fa-bullhorn" style="font-size:20px;color:var(--teal)"></i>
-        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Home Care Agency SEO</div><div style="font-size:12px;color:var(--muted)">Full-service SEO built for home care</div></div>
+        <div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Home Care Agency SEO</div><div style="font-size:12px;color:var(--muted)">Full-service SEO built for home care</div></div>
       </a>
       <a href="/web-design/homecare-website-design/" style="display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-decoration:none;transition:.25s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
         <i class="fa-solid fa-laptop-code" style="font-size:20px;color:var(--teal)"></i>
-        <div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Homecare Website Design</div><div style="font-size:12px;color:var(--muted)">Professional, SEO-optimized websites</div></div>
+        <div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--forest)">Homecare Website Design</div><div style="font-size:12px;color:var(--muted)">Professional, SEO-optimized websites</div></div>
       </a>
     </div>
   </div>

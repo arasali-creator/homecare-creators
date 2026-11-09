@@ -44,6 +44,27 @@ function bc(array $items): array {
     return ['itemListElement' => $out];
 }
 
+function ai_search_service_schema(array $ai): array {
+    $offers = [];
+    foreach ($ai['plans'] as $pl) {
+        $offers[] = ['@type'=>'Offer','name'=>$pl['name'],'price'=>$pl['price'],'priceCurrency'=>'USD','availability'=>'https://schema.org/InStock',
+            'priceSpecification'=>['@type'=>'UnitPriceSpecification','price'=>$pl['price'],'priceCurrency'=>'USD','unitText'=>'MONTH']];
+    }
+    $offers[] = ['@type'=>'Offer','name'=>$ai['setup']['name'].' (one-time)','price'=>$ai['setup']['price'],'priceCurrency'=>'USD','availability'=>'https://schema.org/InStock'];
+    $offers[] = ['@type'=>'Offer','name'=>$ai['addon']['name'],'price'=>$ai['addon']['price'],'priceCurrency'=>'USD','availability'=>'https://schema.org/InStock',
+        'priceSpecification'=>['@type'=>'UnitPriceSpecification','price'=>$ai['addon']['price'],'priceCurrency'=>'USD','unitText'=>'MONTH']];
+    return [
+        'name'        => 'AI Search SEO for Home Care Agencies',
+        'description' => 'AI Search SEO (GEO/AEO) for home care agencies nationwide: tracked family questions across ChatGPT, Google AI Overviews and Perplexity, structured data, entity building and answer-formatted content. Plans from $797/month.',
+        'provider'    => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
+        'serviceType' => 'Generative Engine Optimization (GEO) / Answer Engine Optimization (AEO)',
+        'areaServed'  => nationwideAreaServed(),
+        'url'         => SITE.'/ai-search-seo/',
+        'audience'    => ['@type'=>'Audience','audienceType'=>'Home Care Agency Owners'],
+        'offers'      => $offers,
+    ];
+}
+
 const SITE  = 'https://homecarecreators.com';
 const ORG   = 'Homecare Creators';
 const EMAIL = 'info@homecarecreators.com';
@@ -304,28 +325,12 @@ if ($run) {
 
     // ── AI SEARCH SEO SERVICE PAGE (nationwide) ────────────────
     $p = '/ai-search-seo/';
-    add_schema($p, 'Service', [
-        'name'        => 'AI Search SEO for Home Care Agencies',
-        'description' => 'AI Search SEO (GEO/AEO) for home care agencies nationwide — structured data, entity building, and answer-formatted content built to help agencies get cited by ChatGPT, Google AI Overviews, and Perplexity.',
-        'provider'    => ['@type'=>'Organization','name'=>ORG,'url'=>SITE],
-        'serviceType' => 'Generative Engine Optimization (GEO) / Answer Engine Optimization (AEO)',
-        'areaServed'  => nationwideAreaServed(),
-        'url'         => SITE.$p,
-        'audience'    => ['@type'=>'Audience','audienceType'=>'Home Care Agency Owners'],
-        'offers'      => ['@type'=>'Offer','priceCurrency'=>'USD','availability'=>'https://schema.org/InStock'],
-    ]);
+    $ai = require dirname(__DIR__) . '/includes/ai-search-seo-data.php';
+    add_schema($p, 'Service', ai_search_service_schema($ai));
     $log[] = '✓ '.$p.' → Service';
 
-    add_schema($p, 'FAQPage', faq([
-        ['What is AI Search SEO (GEO/AEO), exactly?', 'Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) are the practices of structuring your website and content so tools like ChatGPT, Google AI Overviews, and Perplexity can understand, trust, and cite your agency when a family asks for a home care recommendation. Think of it as the AI-era counterpart to traditional SEO, built around how these tools actually pull and summarize information.'],
-        ['How is this different from regular local SEO?', "Traditional SEO is built around ranking a page in a list of results for specific keywords. AI search optimization leans much more heavily on structured data, entity consistency, clear direct-answer content, and third-party authority signals, since that's what a generative model relies on to decide what to summarize and who to cite. We run both together, since they reinforce each other rather than compete."],
-        ['How long does it take to show up in AI answers?', "Honestly, there's no fixed timeline the way there is for something like Google Maps rankings, since this is such a new field. Most agencies see early signals, like being pulled into an AI Overview or referenced by a chatbot, within a few months of consistent work. But the AI platforms control their own models and update them on their own schedule, so visibility can shift as those models change, not just based on our work."],
-        ['Do you guarantee my agency will be cited by ChatGPT?', "No, and we won't pretend otherwise. No agency can honestly guarantee a placement inside a system it doesn't control. What we do guarantee is the work itself: building the structured data, entity signals, and answer-formatted content that give your agency a real, defensible shot at being included. Every engagement is also backed by our standard 30-day satisfaction guarantee."],
-        ["What's included in the AI Search SEO service?", 'AI Overviews and ChatGPT citation optimization, entity and knowledge graph building, FAQ schema and structured content, and a monthly AI visibility report showing what\'s changed. We also coordinate this work with your local SEO so both channels reinforce each other instead of working in isolation.'],
-        ['Can this be bundled with local SEO or website design?', "Yes. Most agencies bundle AI Search SEO with local SEO and/or website design, since all three draw on the same technical foundation and content. If you're already a local SEO client, we can also add AI Search SEO on to your existing retainer."],
-        ['Do you require a long-term contract?', 'No. Like the rest of our services, AI Search SEO starts with a 90-day ramp-up period so the foundational work, schema, entity data, and structured content, can be built properly. After that, everything moves to month-to-month.'],
-    ]));
-    $log[] = '✓ '.$p.' → FAQPage (7 questions)';
+    add_schema($p, 'FAQPage', faq($ai['faqs']));
+    $log[] = '✓ '.$p.' → FAQPage ('.count($ai['faqs']).' questions)';
 
     add_schema($p, 'BreadcrumbList', bc([
         ['Home', SITE.'/'], ['AI Search SEO', SITE.$p]
