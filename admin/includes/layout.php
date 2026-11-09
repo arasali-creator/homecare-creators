@@ -18,11 +18,14 @@ function hc_head(string $title): void { ?>
 <?php
 function hc_topbar(string $title, string $breadcrumb = ''): void { ?>
 <div class="topbar">
-  <div class="topbar-left">
-    <h2><?= htmlspecialchars($title) ?></h2>
-    <?php if ($breadcrumb): ?><div class="breadcrumb"><?= $breadcrumb ?></div><?php endif ?>
+  <div class="topbar-left-wrap">
+    <button class="topbar-menu" onclick="hcSidebar(true)" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    <div class="topbar-left">
+      <h2><?= htmlspecialchars($title) ?></h2>
+      <?php if ($breadcrumb): ?><div class="breadcrumb"><?= $breadcrumb ?></div><?php endif ?>
+    </div>
   </div>
-  <div style="font-size:12px;color:#9ca3af">
+  <div class="topbar-user">
     <?= htmlspecialchars($_SESSION['hc_user'] ?? 'admin') ?> &middot; <a href="/admin/logout.php">Logout</a>
   </div>
 </div>

@@ -14,20 +14,28 @@ function is_active(string ...$paths): bool {
 }
 ?>
 <nav class="sidebar">
-  <div class="sidebar-logo">
-    <strong>Homecare Creators</strong>
-    <small>Admin Panel</small>
+  <div style="display:flex;align-items:center;padding-right:12px">
+    <a href="/admin/" class="sidebar-logo">
+      <span class="sidebar-mark">HC</span>
+      <span><strong>Homecare Creators</strong><small>Admin panel</small></span>
+    </a>
+    <button class="sidebar-close" onclick="hcSidebar(false)" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   </div>
 
   <div class="nav-group">
+    <div class="nav-group-label">Overview</div>
     <a href="/admin/" class="nav-item <?= ($cur==='/admin/'||$cur==='/admin/index.php') ? 'active' : '' ?>">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
       Dashboard
     </a>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Leads &amp; Content</div>
     <a href="/admin/form-log.php" class="nav-item <?= is_active('form-log') ? 'active' : '' ?>">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       Form Log
-      <?php if ($new_submissions > 0): ?><span class="badge badge-red" style="margin-left:auto;font-size:9px"><?= $new_submissions ?></span><?php endif ?>
+      <?php if ($new_submissions > 0): ?><span class="badge badge-red"><?= $new_submissions ?></span><?php endif ?>
     </a>
     <a href="/admin/events/" class="nav-item <?= is_active('/admin/events') ? 'active' : '' ?>">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -36,18 +44,18 @@ function is_active(string ...$paths): bool {
     <a href="/admin/directory/" class="nav-item <?= is_active('/admin/directory') ? 'active' : '' ?>">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       Directory
-      <?php if ($pending_listings > 0): ?><span class="badge badge-red" style="margin-left:auto;font-size:9px"><?= $pending_listings ?></span><?php endif ?>
+      <?php if ($pending_listings > 0): ?><span class="badge badge-red"><?= $pending_listings ?></span><?php endif ?>
     </a>
     <a href="/admin/calculator-leads.php" class="nav-item <?= is_active('calculator-leads') ? 'active' : '' ?>">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="9" y2="11"/><line x1="12" y1="11" x2="13" y2="11"/><line x1="16" y1="11" x2="17" y2="11"/><line x1="8" y1="15" x2="9" y2="15"/><line x1="12" y1="15" x2="13" y2="15"/></svg>
       Growth Calculator
-      <?php if ($new_calc_leads > 0): ?><span class="badge badge-red" style="margin-left:auto;font-size:9px"><?= $new_calc_leads ?></span><?php endif ?>
+      <?php if ($new_calc_leads > 0): ?><span class="badge badge-red"><?= $new_calc_leads ?></span><?php endif ?>
     </a>
     <!-- Blog toggle -->
     <div class="nav-item nav-toggle <?= is_active('/admin/blog') ? 'open' : '' ?>" onclick="toggleNav(this)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
       Blog
-      <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px;margin-left:auto;transition:.2s"><polyline points="6 9 12 15 18 9"/></svg>
+      <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="nav-sub-group <?= is_active('/admin/blog') ? 'open' : '' ?>">
       <a href="/admin/blog/" class="nav-item <?= (str_contains($cur,'/admin/blog/edit') || $cur==='/admin/blog/' || $cur==='/admin/blog/index.php') ? 'active' : '' ?>">All Posts</a>
@@ -67,7 +75,7 @@ function is_active(string ...$paths): bool {
     <div class="nav-item nav-toggle <?= is_active('technical') ? 'open' : '' ?>" onclick="toggleNav(this)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       Technical SEO
-      <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px;margin-left:auto;transition:.2s"><polyline points="6 9 12 15 18 9"/></svg>
+      <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="nav-sub-group <?= is_active('technical') ? 'open' : '' ?>">
       <a href="/admin/technical/sitemap.php" class="nav-item <?= is_active('sitemap') ? 'active' : '' ?>">Sitemap</a>
@@ -83,7 +91,7 @@ function is_active(string ...$paths): bool {
     <div class="nav-item nav-toggle <?= is_active('ai-geo') ? 'open' : '' ?>" onclick="toggleNav(this)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       AI / GEO Panel
-      <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px;margin-left:auto;transition:.2s"><polyline points="6 9 12 15 18 9"/></svg>
+      <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="nav-sub-group <?= is_active('ai-geo') ? 'open' : '' ?>">
       <a href="/admin/ai-geo/entity.php" class="nav-item <?= is_active('entity') ? 'active' : '' ?>">Entity Data</a>
@@ -97,7 +105,7 @@ function is_active(string ...$paths): bool {
     <div class="nav-item nav-toggle <?= is_active('content/') ? 'open' : '' ?>" onclick="toggleNav(this)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
       Content Tools
-      <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px;margin-left:auto;transition:.2s"><polyline points="6 9 12 15 18 9"/></svg>
+      <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="nav-sub-group <?= is_active('content/') ? 'open' : '' ?>">
       <a href="/admin/content/image-alts.php" class="nav-item <?= is_active('image-alts') ? 'active' : '' ?>">Image Alt Text</a>
@@ -109,7 +117,7 @@ function is_active(string ...$paths): bool {
     <div class="nav-item nav-toggle <?= is_active('schema','org-schema') ? 'open' : '' ?>" onclick="toggleNav(this)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       Schema / LD+JSON
-      <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px;margin-left:auto;transition:.2s"><polyline points="6 9 12 15 18 9"/></svg>
+      <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="nav-sub-group <?= is_active('schema','org-schema') ? 'open' : '' ?>">
       <a href="/admin/org-schema.php" class="nav-item <?= is_active('org-schema') ? 'active' : '' ?>">Organization</a>
@@ -117,30 +125,27 @@ function is_active(string ...$paths): bool {
     </div>
   </div>
 
-  <div class="nav-group" style="margin-top:auto;border-top:1px solid rgba(255,255,255,.08);padding-top:8px">
+  <div class="sidebar-foot">
     <a href="/admin/settings.php" class="nav-item <?= is_active('settings') ? 'active' : '' ?>">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
       Settings
     </a>
-    <a href="/" target="_blank" class="nav-item">
+    <a href="/" target="_blank" rel="noopener" class="nav-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       View Site
     </a>
-    <a href="/admin/logout.php" class="nav-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-      Logout
-    </a>
+    <div class="sidebar-user">
+      <div class="sidebar-avatar"><?= htmlspecialchars(strtoupper(substr($_SESSION['hc_user'] ?? 'A', 0, 1))) ?></div>
+      <div style="min-width:0"><div class="sidebar-user-name"><?= htmlspecialchars(ucfirst($_SESSION['hc_user'] ?? 'Admin')) ?></div><div class="sidebar-user-role">Administrator</div></div>
+      <a href="/admin/logout.php" class="sidebar-logout" title="Log out" aria-label="Log out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></a>
+    </div>
   </div>
 </nav>
 
-<style>
-.nav-sub-group{display:none;background:rgba(0,0,0,.15)}
-.nav-sub-group.open{display:block}
-.nav-sub-group .nav-item{padding:7px 18px 7px 44px;font-size:12.5px}
-.nav-toggle{cursor:pointer}
-.nav-toggle.open .toggle-arrow{transform:rotate(180deg)}
-</style>
+<div class="sidebar-overlay" onclick="hcSidebar(false)"></div>
 <script>
+function hcSidebar(open) { document.body.classList.toggle('sidebar-open', open); }
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') hcSidebar(false); });
 function toggleNav(el) {
   const sub = el.nextElementSibling;
   const isOpen = sub.classList.contains('open');
