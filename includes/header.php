@@ -452,9 +452,9 @@ try {
               <div class="mega-icon"><i class="fa-solid fa-brain"></i></div>
               <div><div class="mega-item-title">AI Search SEO (GEO)</div><div class="mega-item-desc">Get found in ChatGPT, Google AI, and beyond.</div></div>
             </a>
-            <a href="/ai-automation/">
-              <div class="mega-icon"><i class="fa-solid fa-gears"></i></div>
-              <div><div class="mega-item-title">AI &amp; Automation</div><div class="mega-item-desc">AI chat, automated follow-ups, and scheduling.</div></div>
+            <a href="/home-care-franchise-seo/">
+              <div class="mega-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+              <div><div class="mega-item-title">Franchise SEO</div><div class="mega-item-desc">Win your territory on Google Maps, within brand rules.</div></div>
             </a>
           </div>
           <div class="mega-divider"></div>
@@ -490,9 +490,9 @@ try {
           <div class="mega-icon"><i class="fa-solid fa-brain"></i></div>
           <div><div class="mega-item-title">AI Search SEO (GEO)</div><div class="mega-item-desc">Get found in ChatGPT, Google AI, and beyond.</div></div>
         </a>
-        <a href="/ai-automation/">
-          <div class="mega-icon"><i class="fa-solid fa-gears"></i></div>
-          <div><div class="mega-item-title">AI &amp; Automation</div><div class="mega-item-desc">AI chat, automated follow-ups, and scheduling.</div></div>
+        <a href="/home-care-franchise-seo/">
+          <div class="mega-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+          <div><div class="mega-item-title">Franchise SEO</div><div class="mega-item-desc">Win your territory on Google Maps, within brand rules.</div></div>
         </a>
       </div>
     </li>
