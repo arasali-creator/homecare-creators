@@ -1,9 +1,9 @@
 <?php
 $page_title = "Home Care SEO Services & Pricing | Homecare Creators";
-$page_desc = "Home Care SEO plans starting at \$599/month. Google Maps optimization, keyword research, technical SEO, and monthly reporting built for home care agencies.";
+$page_desc = "Home Care SEO plans starting at \$697/month. Google Maps optimization, keyword research, technical SEO, and monthly reporting built for home care agencies.";
 $page_canonical = "https://homecarecreators.com/seo/home-care-seo/";
 $og_title = "Home Care SEO Services & Pricing | Homecare Creators";
-$og_desc = "Families searching for care find agencies on Google Maps and in local results. We help home care agencies show up for those searches, with plans starting at \$599/month.";
+$og_desc = "Families searching for care find agencies on Google Maps and in local results. We help home care agencies show up for those searches, with plans starting at \$697/month.";
 $page_css = <<<CSS
 /* HERO */
 .hero{background:var(--forest);position:relative;overflow:hidden;padding:0}
@@ -125,7 +125,7 @@ $_bc = [
     ["@type"=>"ListItem","position"=>3,"name"=>"Home Care SEO","item"=>$page_canonical],
 ];
 $_faqs = [
-    ["How much does home care SEO cost?", "Plans start at \$599 per month. Care Plus is \$899 per month, and Care Advanced is \$1,599 per month. Optional add-ons are available. We'll recommend the right plan during your free strategy call."],
+    ["How much does home care SEO cost?", "Plans start at \$697 per month. Care Plus is \$1,097 per month, and Care Advanced is \$1,597 per month. Optional add-ons are available. We'll recommend the right plan during your free strategy call."],
     ["How long until I see results?", "Results depend on your market and competition. Most agencies see movement in local visibility over several months, with growth building over time. We'll share a realistic timeline for your agency during the audit."],
     ["How many keywords will you target?", "Starter targets 5 keywords, Care Plus targets 10, and Care Advanced targets 15. We choose terms based on what families search for in your service areas."],
     ["Is Google Business Profile management included?", "Yes. Starter and Care Plus include management for one location, and Care Advanced includes two. Additional locations are available as an add-on."],
@@ -143,9 +143,9 @@ echo '<script type="application/ld+json">' . json_encode([
     "description"=>$page_desc,
     "url"=>$page_canonical,
     "offers"=>[
-        ["@type"=>"Offer","name"=>"Starter","price"=>"599","priceCurrency"=>"USD","priceSpecification"=>["@type"=>"UnitPriceSpecification","price"=>"599","priceCurrency"=>"USD","unitText"=>"MONTH"]],
-        ["@type"=>"Offer","name"=>"Care Plus","price"=>"899","priceCurrency"=>"USD","priceSpecification"=>["@type"=>"UnitPriceSpecification","price"=>"899","priceCurrency"=>"USD","unitText"=>"MONTH"]],
-        ["@type"=>"Offer","name"=>"Care Advanced","price"=>"1599","priceCurrency"=>"USD","priceSpecification"=>["@type"=>"UnitPriceSpecification","price"=>"1599","priceCurrency"=>"USD","unitText"=>"MONTH"]],
+        ["@type"=>"Offer","name"=>"Starter","price"=>"697","priceCurrency"=>"USD","priceSpecification"=>["@type"=>"UnitPriceSpecification","price"=>"697","priceCurrency"=>"USD","unitText"=>"MONTH"]],
+        ["@type"=>"Offer","name"=>"Care Plus","price"=>"1097","priceCurrency"=>"USD","priceSpecification"=>["@type"=>"UnitPriceSpecification","price"=>"1097","priceCurrency"=>"USD","unitText"=>"MONTH"]],
+        ["@type"=>"Offer","name"=>"Care Advanced","price"=>"1597","priceCurrency"=>"USD","priceSpecification"=>["@type"=>"UnitPriceSpecification","price"=>"1597","priceCurrency"=>"USD","unitText"=>"MONTH"]],
     ],
 ], JSON_UNESCAPED_SLASHES) . "</script>\n";
 echo '<script type="application/ld+json">' . json_encode([
@@ -162,7 +162,7 @@ echo '<script type="application/ld+json">' . json_encode([
       <div class="hero-breadcrumb"><a href="/">Home</a> / <a href="/#services">Services</a> / <span>Home Care SEO</span></div>
       <div class="hero-badge"><div class="hero-badge-pulse"></div>Home Care SEO Services</div>
       <h1 class="hero-h1">Home Care SEO That Brings Qualified Leads to Your Agency</h1>
-      <p class="hero-desc">Families searching for care find agencies on Google Maps and in local results. We help home care agencies show up for those searches, with plans starting at $599 per month.</p>
+      <p class="hero-desc">Families searching for care find agencies on Google Maps and in local results. We help home care agencies show up for those searches, with plans starting at $697 per month.</p>
       <div class="hero-check-list">
         <div class="hero-check-item"><i class="fa-solid fa-circle-check"></i>Google Maps and local search optimization</div>
         <div class="hero-check-item"><i class="fa-solid fa-circle-check"></i>Keyword research and on-page SEO</div>
@@ -180,7 +180,7 @@ echo '<script type="application/ld+json">' . json_encode([
       <div class="hero-photo-badge">
         <div class="hero-photo-badge-icon"><i class="fa-solid fa-tag"></i></div>
         <div>
-          <div class="hero-photo-badge-num">$599/mo</div>
+          <div class="hero-photo-badge-num">$697/mo</div>
           <div class="hero-photo-badge-label">Plans Starting At</div>
         </div>
       </div>
@@ -307,7 +307,7 @@ echo '<script type="application/ld+json">' . json_encode([
     <div class="pricing-grid" data-reveal style="transition-delay:.1s">
       <div class="price-card">
         <div class="price-name">Starter</div>
-        <div class="price-amount"><span class="price-amount-num">$599</span><span class="price-amount-period">/month</span></div>
+        <div class="price-amount"><span class="price-amount-num">$697</span><span class="price-amount-period">/month</span></div>
         <ul class="price-feature-list">
           <li><i class="fa-solid fa-check"></i><span><strong>5</strong> keywords targeted</span></li>
           <li><i class="fa-solid fa-check"></i><span><strong>1</strong> competitor analyzed</span></li>
@@ -324,7 +324,7 @@ echo '<script type="application/ld+json">' . json_encode([
       <div class="price-card featured">
         <div class="price-featured-tag">Most Popular</div>
         <div class="price-name">Care Plus</div>
-        <div class="price-amount"><span class="price-amount-num">$899</span><span class="price-amount-period">/month</span></div>
+        <div class="price-amount"><span class="price-amount-num">$1,097</span><span class="price-amount-period">/month</span></div>
         <ul class="price-feature-list">
           <li><i class="fa-solid fa-check"></i><span><strong>10</strong> keywords targeted</span></li>
           <li><i class="fa-solid fa-check"></i><span><strong>2</strong> competitors analyzed</span></li>
@@ -343,7 +343,7 @@ echo '<script type="application/ld+json">' . json_encode([
       </div>
       <div class="price-card">
         <div class="price-name">Care Advanced</div>
-        <div class="price-amount"><span class="price-amount-num">$1,599</span><span class="price-amount-period">/month</span></div>
+        <div class="price-amount"><span class="price-amount-num">$1,597</span><span class="price-amount-period">/month</span></div>
         <ul class="price-feature-list">
           <li><i class="fa-solid fa-check"></i><span><strong>15</strong> keywords targeted</span></li>
           <li><i class="fa-solid fa-check"></i><span><strong>2</strong> competitors analyzed</span></li>

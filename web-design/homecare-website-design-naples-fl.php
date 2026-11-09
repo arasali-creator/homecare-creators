@@ -462,7 +462,7 @@ include '../includes/header.php';
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5"><span class="faq-q-text">Can I add Local SEO to my Naples website package?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner">Yes, and the return tends to be strong in a market like Naples. Our Local SEO retainer here starts at $400/mo. A single new private-pay client can bring in $5,000–$12,000 a year, so landing even one client from that SEO work often covers the retainer for months. Ask about bundle pricing when you book your quote.</div></div>
+        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner">Yes, and the return tends to be strong in a market like Naples. Our Local SEO retainer here starts at $697/mo. A single new private-pay client can bring in $5,000–$12,000 a year, so landing even one client from that SEO work often covers the retainer for months. Ask about bundle pricing when you book your quote.</div></div>
       </div>
     </div>
   </div>

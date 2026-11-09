@@ -463,7 +463,7 @@ include '../includes/header.php';
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5"><span class="faq-q-text">Can I add Local SEO to my Fort Lauderdale website package?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner">Yes, and honestly, we recommend pairing website design with our Local SEO retainer ($400/mo) right from the start. It covers Broward County citation building, Google Business Profile management, review growth, and ongoing Fort Lauderdale content, which together give you the fastest realistic path to #1.</div></div>
+        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner">Yes, and honestly, we recommend pairing website design with our Local SEO retainer (from $697/mo) right from the start. It covers Broward County citation building, Google Business Profile management, review growth, and ongoing Fort Lauderdale content, which together give you the fastest realistic path to #1.</div></div>
       </div>
     </div>
   </div>

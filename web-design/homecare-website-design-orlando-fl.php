@@ -450,7 +450,7 @@ include '../includes/header.php';
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2"><span class="faq-q-text">Will my Orlando homecare website rank on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2"><div class="faq-a-inner">Yes. Every Orlando page we build gets proper SEO for Orange County homecare keywords: schema markup, fast load speed, mobile optimization, the works. Most clients start seeing Google Maps movement within 60 to 90 days. If you want to push further, our Local SEO retainer ($400/mo) takes on Orlando citation building, review management, and ongoing content.</div></div>
+        <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2"><div class="faq-a-inner">Yes. Every Orlando page we build gets proper SEO for Orange County homecare keywords: schema markup, fast load speed, mobile optimization, the works. Most clients start seeing Google Maps movement within 60 to 90 days. If you want to push further, our Local SEO retainer (from $697/mo) takes on Orlando citation building, review management, and ongoing content.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3"><span class="faq-q-text">Do you build websites for agencies serving both Orlando and surrounding areas like Kissimmee or Sanford?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
@@ -462,7 +462,7 @@ include '../includes/header.php';
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5"><span class="faq-q-text">Can I add Local SEO to my Orlando website package?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner">You can, and honestly, we'd recommend it. Our Orlando Local SEO retainer starts at $400/mo and covers Google Business Profile management, Orange County citation building, review velocity, and ongoing content. Most clients pair website design with Local SEO right from the start since it's the quickest route to a top Orlando ranking.</div></div>
+        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner">You can, and honestly, we'd recommend it. Our Orlando Local SEO retainer starts at $697/mo and covers Google Business Profile management, Orange County citation building, review velocity, and ongoing content. Most clients pair website design with Local SEO right from the start since it's the quickest route to a top Orlando ranking.</div></div>
       </div>
     </div>
   </div>

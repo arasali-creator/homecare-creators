@@ -450,7 +450,7 @@ include '../includes/header.php';
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2"><span class="faq-q-text">Will my Tampa homecare website rank on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2"><div class="faq-a-inner">Yes. Every Tampa page we build includes proper SEO for Hillsborough County keywords, schema markup, fast load speed, and mobile optimization from the start. Most clients start seeing Google Maps movement within 60 to 90 days. If you want to speed that up, our Local SEO retainer ($400/mo) covers Tampa citation building, review management, and ongoing content.</div></div>
+        <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2"><div class="faq-a-inner">Yes. Every Tampa page we build includes proper SEO for Hillsborough County keywords, schema markup, fast load speed, and mobile optimization from the start. Most clients start seeing Google Maps movement within 60 to 90 days. If you want to speed that up, our Local SEO retainer (from $697/mo) covers Tampa citation building, review management, and ongoing content.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3"><span class="faq-q-text">Do you build websites for agencies serving both Tampa and surrounding areas?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
@@ -462,7 +462,7 @@ include '../includes/header.php';
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5"><span class="faq-q-text">Can I add Local SEO to my Tampa website package?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner">Yes, and honestly, we'd recommend it. Our Tampa Local SEO retainer starts at $400/mo and covers Google Business Profile management, Hillsborough County citation building, review velocity, and ongoing content. Most of our clients bundle website design with Local SEO right from day one because it's the fastest route we've seen to the top of Google in Tampa.</div></div>
+        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner">Yes, and honestly, we'd recommend it. Our Tampa Local SEO retainer starts at $697/mo and covers Google Business Profile management, Hillsborough County citation building, review velocity, and ongoing content. Most of our clients bundle website design with Local SEO right from day one because it's the fastest route we've seen to the top of Google in Tampa.</div></div>
       </div>
     </div>
   </div>

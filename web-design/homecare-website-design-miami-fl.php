@@ -451,7 +451,7 @@ include '../includes/header.php';
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2"><span class="faq-q-text">Will my Miami homecare website rank on Google?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2"><div class="faq-a-inner">Every page we build includes proper on-page SEO for Miami homecare keywords, schema markup, fast load speed, and mobile-first indexing readiness, so you're starting from solid ground. Most clients see their Google Maps position improve within 60–90 days. If you want it faster, our Local SEO retainer ($400/mo) handles citation building, review management, and ongoing Miami-specific content on top of the site itself.</div></div>
+        <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2"><div class="faq-a-inner">Every page we build includes proper on-page SEO for Miami homecare keywords, schema markup, fast load speed, and mobile-first indexing readiness, so you're starting from solid ground. Most clients see their Google Maps position improve within 60–90 days. If you want it faster, our Local SEO retainer (from $697/mo) handles citation building, review management, and ongoing Miami-specific content on top of the site itself.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3"><span class="faq-q-text">Do you build bilingual websites for Miami agencies?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
@@ -463,7 +463,7 @@ include '../includes/header.php';
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5"><span class="faq-q-text">Can I add Local SEO to my Miami website package?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner">You can, and honestly we'd recommend it. Our Local SEO retainer starts at $400/mo and covers Google Business Profile management, Miami citation building, review velocity, and ongoing content updates. Most of our clients bundle website design with Local SEO from the start; it's the fastest path we've seen to #1 on Google Maps in Miami. Ask about bundle pricing when you book your free quote.</div></div>
+        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner">You can, and honestly we'd recommend it. Our Local SEO retainer starts at $697/mo and covers Google Business Profile management, Miami citation building, review velocity, and ongoing content updates. Most of our clients bundle website design with Local SEO from the start; it's the fastest path we've seen to #1 on Google Maps in Miami. Ask about bundle pricing when you book your free quote.</div></div>
       </div>
     </div>
   </div>

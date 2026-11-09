@@ -476,7 +476,7 @@ include '../includes/header.php';
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5"><span class="faq-q-text">Can I add Local SEO to my Jacksonville website package?</span><div class="faq-q-icon"><i class="fa-solid fa-plus"></i></div></div>
-        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner">You can. Lower competition in Jacksonville tends to make Local SEO go further here than it would in Miami or Tampa. Our Jacksonville Local SEO retainer starts at $400/mo, and most of our clients add it on from day one since pairing it with the website build is the fastest route to #1 on Google Maps in Jacksonville.</div></div>
+        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner">You can. Lower competition in Jacksonville tends to make Local SEO go further here than it would in Miami or Tampa. Our Jacksonville Local SEO retainer starts at $697/mo, and most of our clients add it on from day one since pairing it with the website build is the fastest route to #1 on Google Maps in Jacksonville.</div></div>
       </div>
     </div>
   </div>
