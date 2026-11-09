@@ -285,13 +285,11 @@ include '../includes/header.php';
   <div class="container">
     <p class="certs-label">Certified &amp; Trusted By</p>
     <div class="certs-row">
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-BBB-Certified.png" alt="Homecare Creators BBB accredited business certification badge" title="BBB Accredited Business" loading="lazy"><span>BBB Certified</span></div>
       <div class="cert-item"><img src="/images/blog/Homecarecreators-Google-my-business-profile.png" alt="Homecare Creators verified Google Business Profile badge" title="Verified Google Business Profile" loading="lazy"><span>Google Business Profile</span></div>
       <div class="cert-item"><img src="/images/blog/Homecarecreators-google-partner.jpg" alt="Homecare Creators Google Partner certification badge" title="Google Partner Certified Agency" loading="lazy"><span>Google Partner</span></div>
       <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" alt="Homecare Creators HubSpot certified partner badge" title="HubSpot Certified Partner" loading="lazy"><span>HubSpot Partner</span></div>
       <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" alt="Homecare Creators Meta certified marketing partner badge" title="Meta Certified Marketing Partner" loading="lazy"><span>Meta Certified</span></div>
       <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" alt="Homecare Creators SEMrush certified SEO partner badge" title="SEMrush Certified Agency Partner" loading="lazy"><span>SEMrush Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-NACH.webp" alt="Homecare Creators National Association for Home Care and Hospice member badge" title="NAHC Member Agency" loading="lazy"><span>NAHC Member</span></div>
     </div>
   </div>
 </section>
@@ -564,7 +562,7 @@ include '../includes/header.php';
           <div class="why-item"><h3>A real team, not just software.</h3><p>Automated tools post content. We plan, write, reply and report.</p></div>
           <div class="why-item"><h3>Pick the plan that fits.</h3><p>Three packages, one partner for local growth, and social media whenever you want it.</p></div>
           <div class="why-item"><h3>Verified credentials.</h3>
-            <div class="creds"><span>BBB Accredited</span><span>Google Partner</span><span>HubSpot Partner</span><span>Meta Certified Marketing Partner</span><span>SEMrush Certified Agency Partner</span><span>NAHC Member Agency</span></div>
+            <div class="creds"><span>Google Partner</span><span>HubSpot Partner</span><span>Meta Certified Marketing Partner</span><span>SEMrush Certified Agency Partner</span></div>
           </div>
         </div>
       </div>

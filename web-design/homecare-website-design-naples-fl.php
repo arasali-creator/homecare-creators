@@ -199,13 +199,11 @@ include '../includes/header.php';
   <div class="container">
     <p class="certs-label">Certified &amp; Trusted By</p>
     <div class="certs-row">
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-BBB-Certified.png" width="600" height="257" alt="Homecare Creators BBB accredited business certification badge" title="BBB Accredited Business" loading="lazy"><span>BBB Certified</span></div>
       <div class="cert-item"><img src="/images/blog/Homecarecreators-Google-my-business-profile.png" width="1024" height="1024" alt="Homecare Creators verified Google Business Profile badge" title="Verified Google Business Profile" loading="lazy"><span>Google Business Profile</span></div>
       <div class="cert-item"><img src="/images/blog/Homecarecreators-google-partner.jpg" width="399" height="395" alt="Homecare Creators Google Partner certification badge" title="Google Partner Certified Agency" loading="lazy"><span>Google Partner</span></div>
       <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" width="600" height="400" alt="Homecare Creators HubSpot certified partner badge" title="HubSpot Certified Partner" loading="lazy"><span>HubSpot Partner</span></div>
       <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" width="783" height="391" alt="Homecare Creators Meta certified marketing partner badge" title="Meta Certified Marketing Partner" loading="lazy"><span>Meta Certified</span></div>
       <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" width="283" height="283" alt="Homecare Creators SEMrush certified SEO partner badge" title="SEMrush Certified Agency Partner" loading="lazy"><span>SEMrush Certified</span></div>
-      <div class="cert-item"><img src="/images/blog/Homecarecreators-NACH.webp" width="660" height="153" alt="Homecare Creators National Association for Home Care and Hospice member badge" title="NAHC Member Agency" loading="lazy"><span>NAHC Member</span></div>
     </div>
   </div>
 </section>
@@ -338,7 +336,7 @@ include '../includes/header.php';
     <div data-reveal>
       <p class="section-label">Everything Included</p>
       <h2 class="section-h2">Built for Naples.<br><em>Nothing Left Out.</em></h2>
-      <p class="section-sub">These aren't add-ons. Every Naples homecare website we build includes them, tuned specifically to Collier County families and how they search. It's part of why we're a Google Partner and BBB-accredited agency that works exclusively with home care companies.</p>
+      <p class="section-sub">These aren't add-ons. Every Naples homecare website we build includes them, tuned specifically to Collier County families and how they search. It's part of why we're a Google Partner agency that works exclusively with home care companies.</p>
     </div>
     <div class="inc-grid" data-reveal style="transition-delay:.1s">
       <div class="inc-card"><div class="inc-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>100% Mobile-First</h3><p>More than 70% of Naples families start their search on a phone, not a laptop. We design for that screen first and scale up to desktop after, not the other way around.</p></div>
