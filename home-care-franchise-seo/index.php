@@ -311,7 +311,7 @@ include '../includes/header.php';
     </div>
   </div>
   <div class="hero-media">
-    <img class="hero-media-img" src="/images/team/team-presenting-results-screen.jpg" alt="Homecare Creators team presenting Google Maps ranking results for a home care franchise territory" width="765" height="1024" fetchpriority="high">
+    <img class="hero-media-img" src="/images/team/team-presenting-results-screen.jpg" alt="Homecare Creators team presenting home care franchise SEO results: Google Maps rankings for a franchise territory" width="765" height="1024" fetchpriority="high">
     <div class="hero-media-card">
       <div class="hero-media-card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
       <div>
@@ -386,7 +386,7 @@ include '../includes/header.php';
         <p class="section-label">What We Do</p>
         <h2 class="section-h2">What we do for <em>franchise owners</em></h2>
       </div>
-      <p>Seven pieces of local work, managed by one team and reported per territory — so you know exactly what moved and why.</p>
+      <p>Local SEO for franchise locations: seven pieces of work, managed by one team and reported per territory — so you know exactly what moved and why.</p>
     </div>
     <div class="svc-list" data-reveal style="transition-delay:.1s">
       <div class="svc-item"><div class="svc-num">01</div><div><h3>Google Business Profile optimization</h3><p>Full profile setup and cleanup, correct categories and service areas, weekly posts, photos and Q&amp;A — so you rank in the Google Maps "3-pack" for your territory.</p></div></div>
@@ -524,8 +524,8 @@ include '../includes/header.php';
   <div class="container">
     <div class="pricing-head" data-reveal>
       <p class="section-label">Pricing</p>
-      <h2 class="section-h2">Simple, <em>per-territory</em> pricing</h2>
-      <p class="section-sub">Three packages, one partner for local growth, and social media whenever you want it.</p>
+      <h2 class="section-h2">Home care franchise SEO <em>pricing</em></h2>
+      <p class="section-sub">Simple, per-territory pricing. Three packages, one partner for local growth, and social media whenever you want it.</p>
     </div>
 
     <div class="plans" data-reveal style="transition-delay:.1s">
@@ -671,7 +671,7 @@ include '../includes/header.php';
     <p class="section-label">Related Services</p>
     <div class="related">
       <a href="/seo/home-care-seo/"><i class="fa-solid fa-magnifying-glass-chart"></i><div><div class="related-title">Home Care SEO</div><div class="related-sub">For independent agencies</div></div></a>
-      <a href="/local-seo-for-home-care-agencies/"><i class="fa-solid fa-map-location-dot"></i><div><div class="related-title">Local SEO</div><div class="related-sub">Google Maps rankings</div></div></a>
+      <a href="/web-design/homecare-website-design/"><i class="fa-solid fa-laptop-code"></i><div><div class="related-title">Website Design</div><div class="related-sub">Sites that turn visits into calls</div></div></a>
       <a href="/ai-search-seo/"><i class="fa-solid fa-brain"></i><div><div class="related-title">AI Search SEO</div><div class="related-sub">ChatGPT &amp; Google AI</div></div></a>
       <a href="/blog/google-business-profile-checklist-home-care"><i class="fa-solid fa-list-check"></i><div><div class="related-title">GBP Checklist</div><div class="related-sub">Free guide on our blog</div></div></a>
     </div>

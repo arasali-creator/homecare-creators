@@ -382,6 +382,7 @@ echo '<script type="application/ld+json">' . json_encode([
       </div>
       <?php endforeach; ?>
     </div>
+    <p style="margin-top:28px;font-size:16px;color:var(--muted)">Own a franchise location? See our <a href="/home-care-franchise-seo/" style="color:var(--teal);font-weight:600">home care franchise SEO</a> packages, built to work inside your brand's rules.</p>
   </div>
 </section>
 
