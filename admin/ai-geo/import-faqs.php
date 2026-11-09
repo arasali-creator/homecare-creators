@@ -39,13 +39,15 @@ function hc_url_for_path(string $root, string $file): string {
 }
 
 // A few pages (seo/home-care-seo, web-design/homecare-website-design,
-// case-studies) render their FAQ section from a literal `$_faqs = [...]`
+// case-studies, franchise SEO, AI search data) render their FAQ section from a
+// literal `$_faqs = [...]`, `$faqs = [...]` or `'faqs' => [...]` array
 // PHP array instead of static text, so the regex scan below sees only the
-// `<?= ... ?>` template code, not real content. Pull the literal array out
+// PHP echo-tag template code, not real content. Pull the literal array out
+// (NOTE: never write the PHP close tag inside a // comment - it ends PHP mode.)
 // of those files directly. eval() here only ever runs against our own
 // trusted source files read off disk, never user input.
 function hc_extract_faqs_array(string $content): array {
-    if (!preg_match('/\$_?faqs\s*=\s*\[/', $content, $m, PREG_OFFSET_CAPTURE)) return [];
+    if (!preg_match('/(\$_?faqs\s*=\s*|\'faqs\'\s*=>\s*)\[/', $content, $m, PREG_OFFSET_CAPTURE)) return [];
     $start = $m[0][1] + strlen($m[0][0]) - 1;
     $depth = 0;
     $inStr = null;
@@ -100,9 +102,12 @@ function hc_scan_faq_files(string $root): array {
         if (in_array($topDir, $skipDirs, true)) continue;
 
         $content = file_get_contents($file->getPathname());
-        if (strpos($content, 'faq-q-text') === false && strpos($content, '_faqs') === false && strpos($content, '$faqs') === false) continue;
+        if (strpos($content, 'faq-q-text') === false && strpos($content, '_faqs') === false && strpos($content, '$faqs') === false && strpos($content, "'faqs'") === false) continue;
 
-        $url = hc_url_for_path($root, $file->getPathname());
+        // Shared data files live in /includes but belong to a real page URL
+        $dataFileUrls = ['includes/ai-search-seo-data.php' => '/ai-search-seo/'];
+        if ($topDir === 'includes' && !isset($dataFileUrls[$rel])) continue;
+        $url = $dataFileUrls[$rel] ?? hc_url_for_path($root, $file->getPathname());
 
         preg_match_all('/<span class="faq-q-text">(.*?)<\/span>/s', $content, $qm);
         preg_match_all('/<div class="faq-a-inner">(.*?)<\/div>/s', $content, $am);
