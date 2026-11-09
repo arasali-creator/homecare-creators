@@ -7,6 +7,31 @@ require_once dirname(__DIR__) . '/includes/layout.php';
 hc_require_auth();
 
 $scanning = isset($_GET['scan']);
+
+// Does an internal link resolve to a real page? Mirrors how the server
+// actually serves URLs, not just the literal on-disk path:
+//  - /foo, /foo.php, /foo/index.php on disk
+//  - flat URLs for files in Marketing/, web-design/, seo/ (e.g.
+//    /home-care-agency-seo-miami-fl/ -> Marketing/home-care-agency-seo-miami-fl.php)
+//  - /blog/<slug> -> a published row in hc_blog_posts
+function hc_internal_link_exists(string $path): bool {
+    $file_path = SITE_ROOT . $path;
+    $base      = rtrim($file_path, '/');
+    if (file_exists($file_path) || file_exists($base . '.php') || file_exists($base . '/index.php')) return true;
+
+    $slug = trim($path, '/');
+    if ($slug !== '' && !str_contains($slug, '/')) {
+        foreach (['Marketing', 'web-design', 'seo'] as $folder) {
+            if (file_exists(SITE_ROOT . "/$folder/$slug.php") || file_exists(SITE_ROOT . "/$folder/$slug/index.php")) return true;
+        }
+    }
+    if (preg_match('#^/blog/([a-z0-9-]+)/?$#i', $path, $m)) {
+        try {
+            if (hc_val("SELECT id FROM hc_blog_posts WHERE slug=? AND status='published'", [$m[1]])) return true;
+        } catch (Throwable $e) {}
+    }
+    return false;
+}
 $results  = [];
 
 if ($scanning) {
@@ -27,11 +52,7 @@ if ($scanning) {
                 }
                 continue;
             }
-            // Check file exists
-            $file_path = SITE_ROOT . $path;
-            $php_file  = rtrim($file_path,'/') . '.php';
-            $idx_file  = rtrim($file_path,'/') . '/index.php';
-            if (file_exists($file_path) || file_exists($php_file) || file_exists($idx_file)) {
+            if (hc_internal_link_exists($path)) {
                 $checked[$path] = 200;
             } else {
                 $checked[$path] = 404;
