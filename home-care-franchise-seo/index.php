@@ -135,7 +135,7 @@ $page_css = <<<CSS
 .plan-price span{font-size:15px;font-weight:500;color:var(--muted)}
 .plan-unit{font-size:13px;color:var(--muted);margin:8px 0 24px}
 .plan-intro{font-size:14.5px;font-weight:600;color:var(--forest);padding:16px 0;border-top:1px solid var(--border);line-height:1.55}
-.plan ul{list-style:none;display:flex;flex-direction:column;gap:11px;flex:1;margin-bottom:28px}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:12px;flex:1;margin-bottom:28px}
 .plan li{display:grid;grid-template-columns:18px 1fr;gap:10px;font-size:14.5px;color:var(--text);line-height:1.55}
 .plan li i{color:var(--teal);font-size:13px;margin-top:4px}
 .plan-btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:15px;border-radius:11px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14.5px;cursor:pointer;border:1.5px solid var(--forest);background:#fff;color:var(--forest);transition:background .2s,color .2s}
@@ -143,22 +143,10 @@ $page_css = <<<CSS
 .plan.featured .plan-btn{background:var(--teal);border-color:var(--teal);color:#fff}
 .plan.featured .plan-btn:hover{background:#17875f;border-color:#17875f}
 
-.compare-wrap{margin-top:56px;background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
-.compare-toggle{width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 28px;background:none;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;color:var(--forest)}
-.compare-toggle i{transition:transform .25s;color:var(--teal)}
-.compare-wrap.open .compare-toggle i{transform:rotate(180deg)}
-.compare-body{display:none;overflow-x:auto;border-top:1px solid var(--border)}
-.compare-wrap.open .compare-body{display:block}
-.ptable{width:100%;border-collapse:collapse;min-width:640px}
-.ptable th,.ptable td{padding:15px 20px;text-align:center;font-size:14.5px;border-bottom:1px solid var(--border)}
-.ptable th{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:var(--forest);background:var(--warm)}
-.ptable td:first-child,.ptable th:first-child{text-align:left;color:var(--text)}
-.ptable td.hl,.ptable th.hl{background:rgba(29,158,117,.06)}
-.ptable .yes{color:var(--teal)}
-.ptable .no{color:#b8c2ba}
-.ptable tr:last-child td{border-bottom:none}
+.plans-more{text-align:center;margin:28px auto 40px;max-width:760px;font-size:15.5px;color:var(--muted);line-height:1.6}
+.plans-more i{color:var(--teal);margin-right:8px}
 
-.addons{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;margin-top:24px}
+.addons{display:grid;grid-template-columns:1.3fr 1fr;gap:24px}
 .addon-card{background:var(--forest);border-radius:var(--r-lg);padding:32px;color:#fff}
 .addon-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:6px}
 .addon-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700}
@@ -544,90 +532,57 @@ include '../includes/header.php';
         <div class="plan-unit">per territory</div>
         <div class="plan-intro">Get found on Google Maps in your territory.</div>
         <ul>
-          <li><i class="fa-solid fa-check"></i>Full Google Business Profile audit and optimization: categories, services, service areas, business description, hours and attributes, all within your brand guidelines</li>
-          <li><i class="fa-solid fa-check"></i>4 Google Business Profile posts a month (one a week)</li>
-          <li><i class="fa-solid fa-check"></i>5 new photos a month added to your profile</li>
-          <li><i class="fa-solid fa-check"></i>Google Q&amp;A set up with common family questions and answers</li>
-          <li><i class="fa-solid fa-check"></i>Replies to every new Google review within 48 hours</li>
-          <li><i class="fa-solid fa-check"></i>Core citations: your name, address and phone made correct on the top 20 directories (Google, Bing, Apple Maps, Yelp, Facebook and more)</li>
-          <li><i class="fa-solid fa-check"></i>Duplicate or wrong listing removal</li>
-          <li><i class="fa-solid fa-check"></i>Monthly report: Maps rankings, calls, direction requests, website clicks and reviews</li>
+          <li><i class="fa-solid fa-check"></i>Google Business Profile optimization, within your brand guidelines</li>
+          <li><i class="fa-solid fa-check"></i>4 profile posts and 5 new photos a month</li>
+          <li><i class="fa-solid fa-check"></i>Replies to every new Google review</li>
+          <li><i class="fa-solid fa-check"></i>Core citations on the top 20 directories</li>
+          <li><i class="fa-solid fa-check"></i>Monthly report per territory</li>
         </ul>
         <button class="plan-btn" onclick="openPopup('audit')">Start with a Free Audit</button>
       </div>
-
       <div class="plan featured">
         <div class="plan-flag">Most popular</div>
         <div class="plan-name">Growth</div>
         <div class="plan-for">Owners ready to grow calls and leads</div>
         <div class="plan-price">$1,097<span>/month</span></div>
         <div class="plan-unit">per territory</div>
-        <div class="plan-intro">Everything in Starter, plus more reviews, content and AI visibility.</div>
+        <div class="plan-intro">Everything in Starter, plus:</div>
         <ul>
-          <li><i class="fa-solid fa-check"></i>8 Google Business Profile posts a month (two a week)</li>
-          <li><i class="fa-solid fa-check"></i>Review generation system: text and email review requests with QR code cards for your caregivers and office team</li>
-          <li><i class="fa-solid fa-check"></i>Replies to every review on Google, Facebook and Yelp</li>
-          <li><i class="fa-solid fa-check"></i>Full citation build: 50+ directories, including senior care and home care directories (Caring.com, A Place for Mom, SeniorAdvisor and others)</li>
-          <li><i class="fa-solid fa-check"></i>4 local content pieces a month: local care guides, service explainers and city-focused articles in your brand voice, ready for your blog or for corporate approval</li>
-          <li><i class="fa-solid fa-check"></i>AI search visibility: profile and content set up so ChatGPT, Google AI Overviews and Perplexity can recommend your location</li>
-          <li><i class="fa-solid fa-check"></i>Local keyword rank tracking (up to 20 keywords)</li>
-          <li><i class="fa-solid fa-check"></i>Monthly report with what we did, what changed and next month's plan</li>
+          <li><i class="fa-solid fa-check"></i>8 profile posts a month</li>
+          <li><i class="fa-solid fa-check"></i>Review generation system with QR code cards</li>
+          <li><i class="fa-solid fa-check"></i>Full citation build on 50+ directories</li>
+          <li><i class="fa-solid fa-check"></i>4 local content pieces a month</li>
+          <li><i class="fa-solid fa-check"></i>AI search visibility (ChatGPT, Google AI)</li>
         </ul>
         <button class="plan-btn" onclick="openPopup('audit')">Book Free Territory Audit <i class="fa-solid fa-arrow-right" style="font-size:12px"></i></button>
       </div>
-
       <div class="plan">
         <div class="plan-name">Premium</div>
         <div class="plan-for">Competitive markets and multi-territory owners</div>
         <div class="plan-price">$1,597<span>/month</span></div>
         <div class="plan-unit">per territory</div>
-        <div class="plan-intro">Everything in Growth, built for competitive markets and multi-territory owners.</div>
+        <div class="plan-intro">Everything in Growth, plus:</div>
         <ul>
-          <li><i class="fa-solid fa-check"></i>12 Google Business Profile posts a month (three a week)</li>
-          <li><i class="fa-solid fa-check"></i>8 local content pieces a month</li>
-          <li><i class="fa-solid fa-check"></i>Local competitor tracking: see how you compare with the top 3 competitors in your territory every month</li>
-          <li><i class="fa-solid fa-check"></i>Caregiver recruitment content: 2 hiring posts a month and job listing optimization to help you attract caregivers</li>
-          <li><i class="fa-solid fa-check"></i>Quarterly citation audit to catch new wrong or duplicate listings</li>
-          <li><i class="fa-solid fa-check"></i>Rank tracking for up to 50 keywords, with a Maps ranking grid for your whole territory</li>
-          <li><i class="fa-solid fa-check"></i>Monthly 30-minute strategy call</li>
-          <li><i class="fa-solid fa-check"></i>Priority support: replies within 1 business day</li>
+          <li><i class="fa-solid fa-check"></i>12 profile posts and 8 content pieces a month</li>
+          <li><i class="fa-solid fa-check"></i>Local competitor tracking</li>
+          <li><i class="fa-solid fa-check"></i>Caregiver recruitment content</li>
+          <li><i class="fa-solid fa-check"></i>Maps ranking grid for your whole territory</li>
+          <li><i class="fa-solid fa-check"></i>Monthly strategy call and priority support</li>
         </ul>
         <button class="plan-btn" onclick="openPopup('audit')">Talk to Us About Premium</button>
       </div>
     </div>
-
-    <div class="compare-wrap" data-reveal>
-      <button class="compare-toggle" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">Compare all plan features <i class="fa-solid fa-chevron-down"></i></button>
-      <div class="compare-body">
-        <table class="ptable">
-          <thead><tr><th>Feature</th><th>Starter</th><th class="hl">Growth</th><th>Premium</th></tr></thead>
-          <tbody>
-            <tr><td>Price per territory</td><td>$697/mo</td><td class="hl">$1,097/mo</td><td>$1,597/mo</td></tr>
-            <tr><td>Google Business Profile optimization + weekly posts</td><td><i class="fa-solid fa-check yes"></i></td><td class="hl"><i class="fa-solid fa-check yes"></i></td><td><i class="fa-solid fa-check yes"></i></td></tr>
-            <tr><td>Replies to every review</td><td><i class="fa-solid fa-check yes"></i></td><td class="hl"><i class="fa-solid fa-check yes"></i></td><td><i class="fa-solid fa-check yes"></i></td></tr>
-            <tr><td>Review generation system</td><td><span class="no">—</span></td><td class="hl"><i class="fa-solid fa-check yes"></i></td><td><i class="fa-solid fa-check yes"></i></td></tr>
-            <tr><td>Local citations</td><td>Core listings</td><td class="hl">Full build and cleanup</td><td>Full build, cleanup + quarterly audit</td></tr>
-            <tr><td>Local content pieces per month</td><td><span class="no">—</span></td><td class="hl">4</td><td>8</td></tr>
-            <tr><td>AI search visibility (ChatGPT, Google AI)</td><td><span class="no">—</span></td><td class="hl"><i class="fa-solid fa-check yes"></i></td><td><i class="fa-solid fa-check yes"></i></td></tr>
-            <tr><td>Local competitor tracking</td><td><span class="no">—</span></td><td class="hl"><span class="no">—</span></td><td><i class="fa-solid fa-check yes"></i></td></tr>
-            <tr><td>Caregiver recruitment content</td><td><span class="no">—</span></td><td class="hl"><span class="no">—</span></td><td><i class="fa-solid fa-check yes"></i></td></tr>
-            <tr><td>Monthly report per territory</td><td><i class="fa-solid fa-check yes"></i></td><td class="hl"><i class="fa-solid fa-check yes"></i></td><td><i class="fa-solid fa-check yes"></i></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <p class="plans-more"><i class="fa-solid fa-circle-info"></i>These are just the highlights — every plan includes more. We'll walk you through the full list during your free territory audit.</p>
 
     <div class="addons">
       <div class="addon-card" data-reveal>
         <div class="addon-top"><h3>Social Media Add-on</h3><div class="addon-price">+$397<span>/month per territory</span></div></div>
         <p>Available with any package.</p>
         <ul>
-          <li><i class="fa-solid fa-check"></i>12–16 posts a month on Facebook and Instagram (3–4 a week)</li>
-          <li><i class="fa-solid fa-check"></i>Custom branded graphics that follow your franchise brand guidelines</li>
-          <li><i class="fa-solid fa-check"></i>Care tips, team spotlights, review highlights, local community posts and hiring posts</li>
-          <li><i class="fa-solid fa-check"></i>Captions and hashtags written for families in your area</li>
-          <li><i class="fa-solid fa-check"></i>Monthly content calendar sent to you for approval before posting</li>
-          <li><i class="fa-solid fa-check"></i>Monthly social report: reach, engagement and follower growth</li>
+          <li><i class="fa-solid fa-check"></i>12–16 posts a month on Facebook and Instagram</li>
+          <li><i class="fa-solid fa-check"></i>Branded graphics that follow your franchise guidelines</li>
+          <li><i class="fa-solid fa-check"></i>Monthly content calendar sent for your approval</li>
+          <li><i class="fa-solid fa-check"></i>Monthly social report</li>
         </ul>
       </div>
       <div class="extras" data-reveal style="transition-delay:.1s">
