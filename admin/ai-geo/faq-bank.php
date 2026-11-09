@@ -53,7 +53,7 @@ hc_topbar('FAQ Bank', '<a href="/admin/">Admin</a> › AI / GEO Panel › FAQ Ba
 
 <div class="page-header">
   <div><h1>FAQ Bank</h1><div class="sub">Master Q&A repository. FAQs here power FAQ schema (which feeds Google AI Overviews, ChatGPT, and Perplexity citations) and the chat widget's "Get Info from the Website" search.</div></div>
-  <a href="/admin/seed-faqs.php" class="btn btn-secondary">Import From Site Pages</a>
+  <a href="/admin/ai-geo/import-faqs.php" class="btn btn-secondary">Import From Site Pages</a>
 </div>
 
 <div class="alert alert-info">

@@ -5,13 +5,13 @@
 //  marketing, and case-study pages) into the hc_faqs table so the
 //  chat widget's "Get Info from the Website" search has something
 //  to search. Safe to re-run — skips exact question+answer matches
-//  already in the table. Visit /admin/seed-faqs.php?run=1 to execute.
+//  already in the table. Visit /admin/ai-geo/import-faqs.php?run=1 to execute.
 // ================================================================
-require_once __DIR__ . '/config.php';
-require_once __DIR__ . '/includes/auth.php';
-require_once __DIR__ . '/includes/db.php';
-require_once __DIR__ . '/includes/functions.php';
-require_once __DIR__ . '/includes/layout.php';
+require_once dirname(__DIR__) . '/config.php';
+require_once dirname(__DIR__) . '/includes/auth.php';
+require_once dirname(__DIR__) . '/includes/db.php';
+require_once dirname(__DIR__) . '/includes/functions.php';
+require_once dirname(__DIR__) . '/includes/layout.php';
 hc_require_auth();
 
 hc_db()->exec("CREATE TABLE IF NOT EXISTS hc_faqs (
@@ -24,7 +24,7 @@ hc_db()->exec("CREATE TABLE IF NOT EXISTS hc_faqs (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
 $run = isset($_GET['run']);
-$root = dirname(__DIR__);
+$root = dirname(__DIR__, 2);
 
 function hc_clean_faq_text(string $html): string {
     $text = html_entity_decode(strip_tags($html), ENT_QUOTES, 'UTF-8');
@@ -137,7 +137,7 @@ if ($run) {
 }
 
 hc_head('Seed FAQ Bank');
-hc_topbar('Seed FAQ Bank', '<a href="/admin/">Admin</a> › <a href="/admin/ai-geo/faq-bank.php">FAQ Bank</a> › Seed');
+hc_topbar('Import FAQs', '<a href="/admin/">Admin</a> › <a href="/admin/ai-geo/faq-bank.php">FAQ Bank</a> › Import');
 ?>
 <div class="page-content">
 
