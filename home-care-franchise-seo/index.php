@@ -10,8 +10,6 @@ $og_title   = "Home Care Franchise SEO That Wins Your Territory | Homecare Creat
 $og_desc    = "Google Maps, reviews, citations, local content and AI search visibility for home care franchise owners, built inside your franchisor's brand rules.";
 $og_image   = "https://homecarecreators.com/images/team/team-presenting-results-screen.jpg";
 
-$case_studies = require __DIR__ . '/../includes/case-studies-data.php';
-
 $faqs = [
     ['Will this break my franchise agreement or brand rules?', "No. We work inside your franchisor's brand guidelines and only touch what you're allowed to manage. If something needs corporate approval, we prepare it for you to submit."],
     ['Corporate already does marketing. Why do I need this?', 'Corporate marketing builds the national brand. Local rankings — your Google Maps profile, reviews and listings — are usually the owner\'s job, and they drive most local calls.'],
@@ -84,27 +82,10 @@ $page_css = <<<CSS
 .svc-item p{font-size:15.5px;color:var(--muted);line-height:1.7}
 .tag{font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#8a6d1f;background:rgba(201,168,76,.16);padding:4px 9px;border-radius:6px}
 
-/* RESULTS */
-.results-section{background:var(--forest)}
-.results-section .section-h2{color:#fff}
-.results-section .section-label{color:var(--teal-lt)}
-.results-section .section-label::before{background:var(--teal-lt)}
-.results-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:40px;flex-wrap:wrap}
-.results-head p{font-size:17px;color:rgba(255,255,255,.62);line-height:1.75;max-width:520px}
-.results-table{width:100%;border-collapse:collapse}
-.results-table th{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.45);text-align:left;padding:0 0 14px;border-bottom:1px solid rgba(255,255,255,.14)}
-.results-table th.num,.results-table td.num{text-align:right}
-.results-table td{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.1);color:#fff;font-size:16px}
-.results-table td small{display:block;color:rgba(255,255,255,.45);font-size:13px;margin-top:3px}
-.results-table td.num{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:700;color:var(--teal-lt)}
-.results-table td.num.calls{color:#fff}
-.results-link{display:inline-flex;align-items:center;gap:8px;margin-top:28px;color:var(--teal-lt);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;text-decoration:none}
-.results-link:hover{color:#fff}
-
 /* TESTIMONIALS */
-.quotes-section{background:var(--cream)}
+.quotes-section{background:#fff}
 .quotes{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
-.quote{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:32px;display:flex;flex-direction:column}
+.quote{background:var(--warm);border:1px solid var(--border);border-radius:var(--r-lg);padding:32px;display:flex;flex-direction:column}
 .quote-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:16px}
 .quote p{font-size:17px;line-height:1.75;color:var(--text);flex:1;margin-bottom:24px}
 .quote-who{display:flex;align-items:center;gap:12px;padding-top:20px;border-top:1px solid var(--border)}
@@ -258,8 +239,6 @@ $page_css = <<<CSS
   .steps{grid-template-columns:1fr}
   .step + .step{padding-left:0;border-left:none;border-top:1px solid var(--border)}
   .addon-card ul{grid-template-columns:1fr}
-  .results-table th.hide,.results-table td.hide{display:none}
-  .results-table td.num{font-size:22px}
   .compare-row div,.compare-head div{padding:14px 14px;font-size:14px}
   .brands-section,.related-section{padding:56px 24px}
   .cta-section{padding:64px 24px}
@@ -382,32 +361,8 @@ include '../includes/header.php';
   </div>
 </section>
 
-<!-- RESULTS -->
-<section class="results-section">
-  <div class="container">
-    <div class="results-head" data-reveal>
-      <div>
-        <p class="section-label">Results</p>
-        <h2 class="section-h2">Results we've driven for <em>home care providers</em></h2>
-      </div>
-      <p>We work only with home care and senior care — 100% of our clients are in this industry. Recent results:</p>
-    </div>
-    <table class="results-table" data-reveal style="transition-delay:.1s">
-      <thead><tr><th>Client</th><th class="hide">Focus</th><th class="num">Leads</th><th class="num">Phone calls</th></tr></thead>
-      <tbody>
-      <?php foreach ($case_studies as $cs): ?>
-        <tr>
-          <td><?= htmlspecialchars($cs['name']) ?><?php if ($cs['region']): ?><small><?= htmlspecialchars($cs['region']) ?></small><?php endif; ?></td>
-          <td class="hide" style="color:rgba(255,255,255,.55);font-size:14px"><?= htmlspecialchars(implode(' · ', array_slice($cs['strategy'], 0, 2))) ?></td>
-          <td class="num"><?= htmlspecialchars($cs['stats'][0][0]) ?></td>
-          <td class="num calls"><?= htmlspecialchars($cs['stats'][1][0]) ?></td>
-        </tr>
-      <?php endforeach; ?>
-      </tbody>
-    </table>
-    <a href="/case-studies/" class="results-link">View all case studies <i class="fa-solid fa-arrow-right"></i></a>
-  </div>
-</section>
+<!-- CASE STUDIES -->
+<?php include '../includes/case-study-slider.php'; ?>
 
 <!-- TESTIMONIALS -->
 <section class="quotes-section">
