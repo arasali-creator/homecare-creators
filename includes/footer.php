@@ -32,6 +32,7 @@
             <li><a href="/about/">About Us</a></li>
             <li><a href="/contact/">Contact</a></li>
             <li><a href="/case-studies/">Case Studies</a></li>
+            <li><a href="/areas-we-serve/">Areas We Serve</a></li>
             <li><a href="/events/">Events</a></li>
             <li><a href="/blog">Marketing Blog</a></li>
             <li><a href="/sitemap/">Sitemap</a></li>

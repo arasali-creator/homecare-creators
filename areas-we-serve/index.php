@@ -4,8 +4,8 @@ if (strpos($_SERVER['REQUEST_URI'] ?? '', '.php') !== false) {
     header('Location: ' . $page_canonical, true, 301);
     exit;
 }
-$page_title = "Areas We Serve | Home Care Agency Marketing Across Florida | Homecare Creators";
-$page_desc = "Homecare Creators helps home care agencies across Florida get found on Google. See all the Florida markets we specialize in, from Miami to Tampa to Jacksonville.";
+$page_title = "Areas We Serve | Home Care Agency Marketing in Florida & 9 More States | Homecare Creators";
+$page_desc = "Homecare Creators helps home care agencies across Florida get found on Google. See our Florida markets, from Miami to Tampa, plus Texas, California, Georgia, North Carolina and more.";
 $og_title = "Areas We Serve | Home Care Agency Marketing Across Florida | Homecare Creators";
 $og_desc = "See every Florida market Homecare Creators specializes in for home care agency SEO and website design, plus links to each city's dedicated page.";
 $page_css = <<<CSS
@@ -196,6 +196,27 @@ include '../includes/header.php';
         <a class="city-link" href="/home-care-agency-seo-tampa-fl/">View Tampa Page <i class="fa-solid fa-arrow-right"></i></a>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- STATES (content from includes/state-pages-data.php) -->
+<?php $_aws_states = require __DIR__ . '/../includes/state-pages-data.php'; ?>
+<section class="cities-section" id="states" style="padding-top:0">
+  <div class="container">
+    <div data-reveal>
+      <p class="section-label">Beyond Florida</p>
+      <h2 class="section-h2"><?= count($_aws_states) ?> More States We <em>Serve</em></h2>
+      <p class="section-sub">We also work with home care agencies in these states. Each page covers that state's licensing, funding programs, key markets and practical marketing ideas.</p>
+    </div>
+    <div class="cities-grid" data-reveal style="transition-delay:.1s">
+      <?php foreach ($_aws_states as $_k => $_st): ?>
+      <div class="city-card">
+        <div class="city-card-head"><span class="city-name"><?= htmlspecialchars($_st['name']) ?></span><span class="city-county"><?= htmlspecialchars($_st['abbr']) ?></span></div>
+        <p class="city-desc">Key markets: <?= htmlspecialchars(implode(' · ', array_map(fn($m) => $m[0], $_st['metros']))) ?>.</p>
+        <a class="city-link" href="/home-care-agency-marketing-<?= htmlspecialchars($_k) ?>/">View <?= htmlspecialchars($_st['name']) ?> Page <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
