@@ -208,7 +208,7 @@ $_faqs = [
 
 // ── Structured data ─────────────────────────────────────────────
 $_founder_id = "https://homecarecreators.com/about/#founder";
-$_org_id     = "https://homecarecreators.com/#org";
+$_org_id     = "https://homecarecreators.com/#organization";
 echo '<script type="application/ld+json">' . json_encode([
     "@context" => "https://schema.org",
     "@graph" => [

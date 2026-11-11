@@ -65,6 +65,7 @@ $page_css = (require __DIR__ . '/location-page-css.php') . <<<'CSS'
 @media(max-width:1024px){.pricing-grid{grid-template-columns:1fr;max-width:460px;margin-left:auto;margin-right:auto}.process-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.process-grid{grid-template-columns:1fr}}
 CSS;
+$skip_db_page_schema = true; // this template outputs its own schema
 include __DIR__ . '/header.php';
 
 // ── Structured data ─────────────────────────────────────────────

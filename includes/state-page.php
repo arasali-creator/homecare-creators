@@ -26,7 +26,7 @@ $_pct = (float)$S['pct65'];
 $_cmp = $_pct >= 18.5 ? 'above' : ($_pct <= 17.5 ? 'below' : 'close to');
 $_m = array_map(fn($x) => $x[0], $S['metros']);
 $_qa_q = "How do you market a home care agency in {$_name}?";
-$_qa_a = "Focus on three things: rank in the Google Maps pack for the areas you actually staff (for most {$_name} agencies that means {$_m[0]}, {$_m[1]} or {$_m[2]}), make your {$S['license_short']} and caregiver quality obvious on your website and Google profile, and follow up on every inquiry within minutes. {$S['pct65']}% of {$_name} residents are 65 or older, {$_cmp} the U.S. average of 18.0%, so demand is there. The agencies that win are the easiest to find and to trust online.";
+$_qa_a = "Focus on three things: rank in the Google Maps pack for the areas you actually staff (for example {$S['example_areas'][0]}, {$S['example_areas'][1]}, {$S['example_areas'][2]} or {$S['example_areas'][3]}), make your {$S['license_short']} and caregiver quality obvious on your website and Google profile, and follow up on every inquiry within minutes. {$S['pct65']}% of {$_name} residents are 65 or older, {$_cmp} the U.S. average of 18.0%, so demand is there. The agencies that win are the easiest to find and to trust online.";
 
 // State FAQs first, then shared ones with real pricing.
 $_faqs = array_merge($S['faqs'], [
@@ -38,6 +38,7 @@ $_faqs = array_merge($S['faqs'], [
 ]);
 
 $page_css = require __DIR__ . '/location-page-css.php';
+$skip_db_page_schema = true; // this template outputs its own schema
 include __DIR__ . '/header.php';
 
 // ── Structured data ─────────────────────────────────────────────
