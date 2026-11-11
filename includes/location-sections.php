@@ -195,65 +195,38 @@ function hc_loc_trust(array $slugs, array $sources): void {
 <?php }
 
 /**
- * "Where we work": US tile map (served states clickable, current highlighted)
- * + link cards. Optional Florida city links.
+ * "Where we work": centered state link cards + optional Florida city links.
  * $o = ['current' => state key | 'florida', 'cities' => [[label, url, isCurrent], ...], 'cities_title' => string]
  */
 function hc_loc_coverage(array $o): void {
     $states = require __DIR__ . '/state-pages-data.php';
     $served = ['FL' => ['Florida', '/areas-we-serve/', 'florida']];
     foreach ($states as $k => $st) $served[$st['abbr']] = [$st['name'], "/home-care-agency-marketing-{$k}/", $k];
-    ksort($served);
-    $cur = $o['current'] ?? '';
-    // Tile-grid layout: abbr => [col, row]
-    $grid = ['AK'=>[0,0],'ME'=>[11,0],'VT'=>[10,1],'NH'=>[11,1],
-      'WA'=>[1,2],'ID'=>[2,2],'MT'=>[3,2],'ND'=>[4,2],'MN'=>[5,2],'IL'=>[6,2],'WI'=>[7,2],'MI'=>[8,2],'NY'=>[9,2],'RI'=>[10,2],'MA'=>[11,2],
-      'OR'=>[1,3],'NV'=>[2,3],'WY'=>[3,3],'SD'=>[4,3],'IA'=>[5,3],'IN'=>[6,3],'OH'=>[7,3],'PA'=>[8,3],'NJ'=>[9,3],'CT'=>[10,3],
-      'CA'=>[1,4],'UT'=>[2,4],'CO'=>[3,4],'NE'=>[4,4],'MO'=>[5,4],'KY'=>[6,4],'WV'=>[7,4],'VA'=>[8,4],'MD'=>[9,4],'DE'=>[10,4],
-      'AZ'=>[2,5],'NM'=>[3,5],'KS'=>[4,5],'AR'=>[5,5],'TN'=>[6,5],'NC'=>[7,5],'SC'=>[8,5],'DC'=>[9,5],
-      'OK'=>[4,6],'LA'=>[5,6],'MS'=>[6,6],'AL'=>[7,6],'GA'=>[8,6],
-      'HI'=>[1,7],'TX'=>[4,7],'FL'=>[9,7]]; ?>
+    uasort($served, fn($x, $y) => strcmp($x[0], $y[0]));
+    $cur = $o['current'] ?? ''; ?>
 <section class="loc-coverage" id="where-we-work">
-  <div class="container cov-grid">
-    <div class="cov-text" data-reveal>
+  <div class="container">
+    <div class="cov-head" data-reveal>
       <p class="section-label">Where We Work</p>
       <h2 class="section-h2">Home care marketing in <em><?= count($served) ?> states</em></h2>
       <p class="lede">We're based in Lady Lake, Florida, and work with home care agencies across the U.S. Each state page covers local licensing, funding programs, key markets and marketing ideas.</p>
-      <div class="cov-links">
-        <?php foreach ($served as $ab => $sv): $isCur = ($sv[2] === $cur); ?>
-        <a class="cov-link<?= $isCur ? ' is-current' : '' ?>" href="<?= hc_loc_e($sv[1]) ?>"<?= $isCur ? ' aria-current="page"' : '' ?>><span class="cov-abbr"><?= $ab ?></span><?= hc_loc_e($sv[0]) ?><i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="cov-links" data-reveal style="transition-delay:.1s">
+      <?php foreach ($served as $ab => $sv): $isCur = ($sv[2] === $cur); ?>
+      <a class="cov-link<?= $isCur ? ' is-current' : '' ?>" href="<?= hc_loc_e($sv[1]) ?>"<?= $isCur ? ' aria-current="page"' : '' ?>><span class="cov-abbr"><?= $ab ?></span><?= hc_loc_e($sv[0]) ?></a>
+      <?php endforeach; ?>
+    </div>
+    <?php if (!empty($o['cities'])): ?>
+    <div class="cov-cities" data-reveal>
+      <h3 class="cov-cities-title"><?= hc_loc_e($o['cities_title'] ?? 'Florida cities') ?></h3>
+      <div class="cov-city-grid">
+        <?php foreach ($o['cities'] as $c): ?>
+        <a class="cov-city<?= !empty($c[2]) ? ' is-current' : '' ?>" href="<?= hc_loc_e($c[1]) ?>"<?= !empty($c[2]) ? ' aria-current="page"' : '' ?>><i class="fa-solid fa-location-dot"></i><?= hc_loc_e($c[0]) ?></a>
         <?php endforeach; ?>
       </div>
     </div>
-    <div class="cov-map-wrap" data-reveal style="transition-delay:.1s">
-      <div class="cov-map" role="img" aria-label="Map of U.S. states where Homecare Creators works">
-        <?php foreach ($grid as $ab => $pos):
-            $col = $pos[0] + 1; $row = $pos[1] + 1;
-            $style = "grid-column:{$col};grid-row:{$row}";
-            if (isset($served[$ab])):
-                $isCur = ($served[$ab][2] === $cur); ?>
-        <a class="cov-tile is-served<?= $isCur ? ' is-current' : '' ?>" style="<?= $style ?>" href="<?= hc_loc_e($served[$ab][1]) ?>" title="<?= hc_loc_e($served[$ab][0]) ?>"><?= $ab ?></a>
-            <?php else: ?>
-        <span class="cov-tile" style="<?= $style ?>" aria-hidden="true"><?= $ab ?></span>
-            <?php endif; endforeach; ?>
-      </div>
-      <div class="cov-legend">
-        <span><i class="cov-key is-current"></i>This page</span>
-        <span><i class="cov-key is-served"></i>States we serve</span>
-        <span><i class="cov-key"></i>Other states</span>
-      </div>
-    </div>
+    <?php endif; ?>
   </div>
-  <?php if (!empty($o['cities'])): ?>
-  <div class="container cov-cities" data-reveal>
-    <h3 class="cov-cities-title"><?= hc_loc_e($o['cities_title'] ?? 'Florida cities') ?></h3>
-    <div class="cov-city-grid">
-      <?php foreach ($o['cities'] as $c): ?>
-      <a class="cov-city<?= !empty($c[2]) ? ' is-current' : '' ?>" href="<?= hc_loc_e($c[1]) ?>"<?= !empty($c[2]) ? ' aria-current="page"' : '' ?>><i class="fa-solid fa-location-dot"></i><?= hc_loc_e($c[0]) ?></a>
-      <?php endforeach; ?>
-    </div>
-  </div>
-  <?php endif; ?>
 </section>
 <?php }
 
