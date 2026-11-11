@@ -23,9 +23,6 @@ $page_css = <<<CSS
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.28);padding:7px 16px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;color:var(--mint);letter-spacing:.9px;text-transform:uppercase;margin-bottom:24px;width:fit-content}
 .hero-badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-lt);animation:pulse-ring 2s infinite}
 .hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(32px,4vw,50px);line-height:1.12;color:#fff;margin-bottom:14px}
-.hero-byline{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:rgba(255,255,255,.55);margin-bottom:22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hero-byline img{width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid rgba(46,198,143,.4)}
-.hero-byline a{color:var(--mint);text-decoration:none;font-weight:700}
 .hero-desc{font-size:17.5px;line-height:1.75;color:rgba(255,255,255,.68);max-width:520px;margin-bottom:30px}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 .hero-actions .btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:100px;border:1px solid rgba(255,255,255,.22);color:#fff;text-decoration:none;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:14px;transition:.25s}
@@ -41,15 +38,6 @@ $page_css = <<<CSS
 .hero-photo-badge-icon{width:42px;height:42px;border-radius:12px;background:rgba(29,158,117,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
 .hero-photo-badge-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:21px;font-weight:800;color:var(--forest);line-height:1.1}
 .hero-photo-badge-label{font-size:11px;color:var(--muted);font-weight:600;font-family:'Plus Jakarta Sans',sans-serif}
-
-/* INTRO / LETTER */
-.intro-section{background:#fff}
-.intro-inner{max-width:820px;margin:0 auto}
-.intro-inner p{font-size:18px;line-height:1.85;color:var(--text);margin-bottom:18px}
-.intro-sign{display:flex;align-items:center;gap:14px;margin-top:26px}
-.intro-sign img{width:56px;height:56px;border-radius:50%;object-fit:cover}
-.intro-sign-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:var(--forest)}
-.intro-sign-role{font-size:13px;color:var(--muted)}
 
 /* MARKET DATA */
 .market-section{background:var(--cream)}
@@ -269,10 +257,6 @@ echo '<script type="application/ld+json">' . json_encode([
       <div class="hero-breadcrumb"><a href="/">Home</a> / <span>UK Home Care Marketing</span></div>
       <div class="hero-badge"><div class="hero-badge-pulse"></div>For UK Domiciliary Care Providers</div>
       <h1 class="hero-h1">Home Care Marketing for UK Domiciliary Care Providers</h1>
-      <div class="hero-byline">
-        <img src="/images/team/asifa-rani-founder-ceo.jpg" alt="Asifa Rani" width="30" height="30">
-        <span>Written by <a href="/about/">Asifa Rani</a>, Founder of Homecare Creators &middot; Last updated: <time datetime="<?= $last_updated_iso ?>"><?= $last_updated_human ?></time></span>
-      </div>
       <p class="hero-desc">We help UK care agencies win more self-funding clients, recruit carers locally and rank at the top of Google Maps, with marketing built only for care providers.</p>
       <div class="hero-actions">
         <button class="btn-primary" onclick="openPopup()"><i class="fa-solid fa-magnifying-glass-chart"></i>Book a Free Marketing Audit</button>
@@ -310,25 +294,6 @@ echo '<script type="application/ld+json">' . json_encode([
       <div class="cert-item"><img src="/images/blog/Homecarecreators-hubspot-partner.webp" alt="Homecare Creators HubSpot certified partner badge" loading="lazy"><span>HubSpot Partner</span></div>
       <div class="cert-item"><img src="/images/blog/Homecarecreators-meta-certificate.jpg" alt="Homecare Creators Meta certified marketing partner badge" loading="lazy"><span>Meta Certified</span></div>
       <div class="cert-item"><img src="/images/blog/Homecarecreators-semrush-ceticificate.png" alt="Homecare Creators SEMrush certified SEO partner badge" loading="lazy"><span>SEMrush Certified</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- OPENING (first-hand) -->
-<section class="intro-section">
-  <div class="container">
-    <div class="intro-inner" data-reveal>
-      <p class="section-label">Why I Started Homecare Creators</p>
-      <p>I started Homecare Creators because I kept seeing the same thing: excellent care agencies with strong inspection ratings and loyal carers, but almost invisible on Google. Families couldn't find them, so they called whoever ranked first.</p>
-      <p>We've built our playbook with home care providers across the United States, from established agencies to brand-new startups, and the lesson is always the same. The agencies that win aren't always the best. They're the easiest to find and the easiest to trust online.</p>
-      <p>UK domiciliary care has exactly the same problem, with a few extra pressures of its own. This page explains how we help UK providers fix it.</p>
-      <div class="intro-sign">
-        <img src="/images/team/asifa-rani-founder-ceo.jpg" alt="Asifa Rani, Founder and CEO of Homecare Creators" loading="lazy">
-        <div>
-          <div class="intro-sign-name">Asifa Rani</div>
-          <div class="intro-sign-role">Founder &amp; CEO, Homecare Creators</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
