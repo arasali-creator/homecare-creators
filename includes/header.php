@@ -58,8 +58,8 @@ try {
 <title><?= htmlspecialchars($page_title ?? 'Homecare Creators — Market It. Manage It. Grow It.') ?></title>
 <meta name="description" content="<?= htmlspecialchars($page_desc ?? 'Homecare Creators is a marketing agency built exclusively for home care agencies nationwide. Website design, local SEO, and AI search optimization.') ?>">
 <?php if (!empty($page_canonical)): ?><link rel="canonical" href="<?= htmlspecialchars($page_canonical) ?>">
-<link rel="alternate" hreflang="en-us" href="<?= htmlspecialchars($page_canonical) ?>">
-<link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($page_canonical) ?>"><?php endif; ?>
+<link rel="alternate" hreflang="<?= htmlspecialchars($page_hreflang ?? 'en-us') ?>" href="<?= htmlspecialchars($page_canonical) ?>">
+<link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($page_hreflang_default ?? $page_canonical) ?>"><?php endif; ?>
 <?php if (!empty($og_title)): ?><meta property="og:title" content="<?= htmlspecialchars($og_title) ?>"><?php endif; ?>
 <?php if (!empty($og_desc)): ?><meta property="og:description" content="<?= htmlspecialchars($og_desc) ?>"><?php endif; ?>
 <?php if (!empty($page_canonical)): ?><meta property="og:url" content="<?= htmlspecialchars($page_canonical) ?>"><?php endif; ?>

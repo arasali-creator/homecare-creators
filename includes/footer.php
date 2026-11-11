@@ -132,7 +132,12 @@ function generateCaptcha() {
 generateCaptcha();
 
 // ── Phone formatting (US) ─────────────────────────────────────
+// Pages for non-US visitors set $intl_phone = true before including the
+// footer: no US formatting, and any 7–15 digit number is accepted.
+var HC_INTL_PHONE = <?= !empty($intl_phone) ? 'true' : 'false' ?>;
+if (HC_INTL_PHONE) document.getElementById('pPhone').placeholder = 'Phone (with country code) *';
 document.getElementById('pPhone').addEventListener('input', function() {
+  if (HC_INTL_PHONE) return;
   var digits = this.value.replace(/\D/g, '').substring(0, 10);
   var fmt = '';
   if (digits.length > 0) fmt = '(' + digits.substring(0, 3);
@@ -188,7 +193,9 @@ document.getElementById('popupSubmitBtn').addEventListener('click', function() {
   if (!name)  { markError('pName',  'Please enter your full name.'); return; }
   if (!email || !email.includes('@') || !email.includes('.')) { markError('pEmail', 'Please enter a valid email address.'); return; }
   var phoneDigits = phone.replace(/\D/g, '');
-  if (!phone || phoneDigits.length !== 10) { markError('pPhone', 'Please enter a valid 10-digit phone number.'); return; }
+  if (HC_INTL_PHONE) {
+    if (!phone || phoneDigits.length < 7 || phoneDigits.length > 15) { markError('pPhone', 'Please enter a valid phone number.'); return; }
+  } else if (!phone || phoneDigits.length !== 10) { markError('pPhone', 'Please enter a valid 10-digit phone number.'); return; }
   if (isNaN(captcha) || captcha !== _captchaA + _captchaB) {
     markError('pCaptcha', 'Incorrect answer. Please try again.');
     generateCaptcha();
