@@ -209,7 +209,7 @@ foreach ($_cases_all as $_c) {
 $_faqs = [
     ["How do care agencies get more private clients in the UK?", "Most self-funding families start with a Google search. The agencies that appear in the Google Maps pack, have strong reviews and clearly explain their care get most of the enquiries. Local SEO and targeted ads are the most reliable ways to get there."],
     ["How long does it take to rank on Google Maps?", "Most agencies see movement within 6 to 10 weeks, and stronger, steadier rankings after 4 to 6 months. Ads can bring enquiries in the first few weeks while SEO builds."],
-    ["How much does care agency marketing cost?", "SEO plans start at \$697 per month. Care Plus is \$1,097 per month and Care Advanced is \$1,597 per month. Ad spend, if you run ads, is paid directly to Google or Meta. We'll give you a fixed quote after your free audit."],
+    ["How much does care agency marketing cost?", "SEO plans start at £549 per month. Care Plus is £849 per month and Care Advanced is £1,249 per month. Prices exclude VAT. Ad spend, if you run ads, is paid directly to Google or Meta. We'll give you a fixed quote after your free audit."],
     ["Can marketing help with carer recruitment?", "Yes. A strong careers page, local job ads and real carer stories bring in more local applicants. That matters more now that international recruitment is harder."],
     ["Do you work with agencies in Scotland, Wales and Northern Ireland?", "Yes. We work with providers across the UK and adapt messaging to each regulator: CQC, Care Inspectorate, CIW or RQIA."],
     ["Do you only work with home care agencies?", "We work only in care: domiciliary care, live-in care, senior care, memory care, hospice and supported living. We don't take clients outside the sector."],
@@ -546,7 +546,7 @@ echo '<script type="application/ld+json">' . json_encode([
       <div class="price-card">
         <div class="price-name">Starter</div>
         <div class="price-best">Best for a single-town agency getting into the map pack</div>
-        <div class="price-amount"><span class="price-amount-from">From</span><span class="price-amount-num">$697</span><span class="price-amount-period">/month</span></div>
+        <div class="price-amount"><span class="price-amount-from">From</span><span class="price-amount-num">£549</span><span class="price-amount-period">/month</span></div>
         <ul class="price-feature-list">
           <li><i class="fa-solid fa-check"></i><span><strong>5</strong> keywords targeted</span></li>
           <li><i class="fa-solid fa-check"></i><span><strong>1</strong> Google Business Profile location</span></li>
@@ -562,7 +562,7 @@ echo '<script type="application/ld+json">' . json_encode([
         <div class="price-featured-tag">Most Popular</div>
         <div class="price-name">Care Plus</div>
         <div class="price-best">Best for agencies covering several towns</div>
-        <div class="price-amount"><span class="price-amount-from">From</span><span class="price-amount-num">$1,097</span><span class="price-amount-period">/month</span></div>
+        <div class="price-amount"><span class="price-amount-from">From</span><span class="price-amount-num">£849</span><span class="price-amount-period">/month</span></div>
         <ul class="price-feature-list">
           <li><i class="fa-solid fa-check"></i><span><strong>10</strong> keywords targeted</span></li>
           <li><i class="fa-solid fa-check"></i><span><strong>1</strong> Google Business Profile location</span></li>
@@ -578,7 +578,7 @@ echo '<script type="application/ld+json">' . json_encode([
       <div class="price-card">
         <div class="price-name">Care Advanced</div>
         <div class="price-best">Best for competitive areas or two branches</div>
-        <div class="price-amount"><span class="price-amount-from">From</span><span class="price-amount-num">$1,597</span><span class="price-amount-period">/month</span></div>
+        <div class="price-amount"><span class="price-amount-from">From</span><span class="price-amount-num">£1,249</span><span class="price-amount-period">/month</span></div>
         <ul class="price-feature-list">
           <li><i class="fa-solid fa-check"></i><span><strong>15</strong> keywords targeted</span></li>
           <li><i class="fa-solid fa-check"></i><span><strong>2</strong> Google Business Profile locations</span></li>
@@ -592,7 +592,7 @@ echo '<script type="application/ld+json">' . json_encode([
         <button class="btn-secondary price-cta dark" onclick="openPopup()">Book a Free Audit</button>
       </div>
     </div>
-    <p class="addons-note">Prices are in US dollars; we're happy to quote in pounds sterling. Recruitment campaigns and paid ads management are quoted separately after your audit. Optional add-ons include a second Google Business Profile location ($100/month), a 50-citation directory bundle ($100/month), a single town page ($200) and entity optimisation ($1,500, one-time).</p>
+    <p class="addons-note">Prices exclude VAT. Recruitment campaigns and paid ads management are quoted separately after your audit. Optional add-ons include a second Google Business Profile location (£79/month), a 50-citation directory bundle (£79/month), a single town page (£159) and entity optimisation (£1,190, one-time).</p>
   </div>
 </section>
 
