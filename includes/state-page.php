@@ -296,22 +296,9 @@ hc_loc_quick_answer($_qa_q, $_qa_a, [
 </section>
 
 <?php
-hc_loc_reading(['local-seo-home-care-agency-google-maps', 'google-business-profile-checklist-home-care', 'home-care-agency-ai-search-chatgpt-optimization']);
-hc_loc_author(array_merge([hc_loc_src_census(), hc_loc_src_assoc()], $S['sources'] ?? []));
+hc_loc_trust(['local-seo-home-care-agency-google-maps', 'google-business-profile-checklist-home-care', 'home-care-agency-ai-search-chatgpt-optimization'], array_merge([hc_loc_src_census(), hc_loc_src_assoc()], $S['sources'] ?? []));
+hc_loc_coverage(['current' => $state_key]);
 ?>
-
-<!-- OTHER STATES -->
-<section class="states-section">
-  <div class="container">
-    <p class="section-label">Other States We Serve</p>
-    <div class="states-row">
-      <a href="/areas-we-serve/">Florida</a>
-      <?php foreach ($_states as $k => $st): if ($k === $state_key) continue; ?>
-      <a href="/home-care-agency-marketing-<?= htmlspecialchars($k) ?>/"><?= htmlspecialchars($st['name']) ?></a>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
 
 <!-- FINAL CTA -->
 <section class="cta-section">

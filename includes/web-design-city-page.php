@@ -327,22 +327,16 @@ hc_loc_quick_answer($_qa_q, $_qa_a, [
 </section>
 
 <?php
-hc_loc_reading(['home-care-website-design-must-haves', 'home-care-website-design-vs-generic-website', 'why-home-care-agency-not-showing-up-google']);
-hc_loc_author([hc_loc_src_census()]);
+hc_loc_trust(['home-care-website-design-must-haves', 'home-care-website-design-vs-generic-website', 'why-home-care-agency-not-showing-up-google'], [hc_loc_src_census()]);
+hc_loc_coverage([
+    'current' => 'florida',
+    'cities_title' => 'Home care website design in other Florida cities',
+    'cities' => array_merge(
+        [['All website packages', '/web-design/homecare-website-design/', false]],
+        array_map(fn($k) => [$_cities[$k]['name'], "/homecare-website-design-{$k}-fl/", $k === $city_key], array_keys($_wd))
+    ),
+]);
 ?>
-
-<!-- OTHER CITIES -->
-<section class="states-section">
-  <div class="container">
-    <p class="section-label">Website Design in Other Florida Cities</p>
-    <div class="states-row">
-      <a href="/web-design/homecare-website-design/">All website packages</a>
-      <?php foreach ($_wd as $k => $_x): if ($k === $city_key) continue; ?>
-      <a href="/homecare-website-design-<?= htmlspecialchars($k) ?>-fl/"><?= htmlspecialchars($_cities[$k]['name']) ?></a>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
 
 <!-- FINAL CTA -->
 <section class="cta-section">

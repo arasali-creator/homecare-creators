@@ -311,31 +311,17 @@ hc_loc_quick_answer($_qa_q, $_qa_a, [
 </section>
 
 <?php
-hc_loc_reading(['local-seo-home-care-agency-google-maps', 'private-pay-home-care-clients-florida', 'google-reviews-home-care-agency']);
-hc_loc_author([
+hc_loc_trust(['local-seo-home-care-agency-google-maps', 'private-pay-home-care-clients-florida', 'google-reviews-home-care-agency'], [
     hc_loc_src_census(),
     ["USAFacts: which states have the largest elderly populations? (2024)", "https://usafacts.org/articles/america-is-getting-older-which-states-have-the-largest-elderly-populations/"],
     ["AHCA: Homemaker and Companion Services, general information", "https://ahca.myflorida.com/health-quality-assurance/bureau-of-health-facility-regulation/long-term-care-services-unit/homemaker-companion-services-provider/general-information.html"],
 ]);
+hc_loc_coverage([
+    'current' => 'florida',
+    'cities_title' => 'Florida cities we serve',
+    'cities' => array_map(fn($k) => [$_cities[$k]['name'], "/home-care-agency-seo-{$k}-fl/", $k === $city_key], array_keys($_cities)),
+]);
 ?>
-
-<!-- OTHER LOCATIONS -->
-<section class="states-section">
-  <div class="container">
-    <p class="section-label">Other Florida Cities</p>
-    <div class="states-row">
-      <?php foreach ($_cities as $k => $ct): if ($k === $city_key) continue; ?>
-      <a href="/home-care-agency-seo-<?= htmlspecialchars($k) ?>-fl/"><?= htmlspecialchars($ct['name']) ?></a>
-      <?php endforeach; ?>
-    </div>
-    <p class="section-label" style="margin-top:32px">Other States We Serve</p>
-    <div class="states-row">
-      <?php foreach ($_states as $k => $st): ?>
-      <a href="/home-care-agency-marketing-<?= htmlspecialchars($k) ?>/"><?= htmlspecialchars($st['name']) ?></a>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
 
 <!-- FINAL CTA -->
 <section class="cta-section">
