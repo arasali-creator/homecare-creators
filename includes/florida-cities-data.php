@@ -1,0 +1,348 @@
+<?php
+// Per-city content for the Florida pages at /home-care-agency-seo-{city}-fl/.
+// Rendered by includes/florida-city-page.php. Keep everything here specific
+// to the city — shared Florida copy (AHCA licensing, SMMC LTC) is in the template.
+// 'cases' = indexes into includes/case-studies-data.php (0 = Florida).
+return [
+
+'miami' => [
+    'name' => 'Miami', 'county' => 'Miami-Dade County',
+    'meta_desc' => "Home care marketing for Miami agencies: bilingual SEO, Google Maps rankings across Miami-Dade and more private-pay clients. Plans from \$697/mo.",
+    'hero_desc' => "Miami-Dade is one of the most competitive home care markets in Florida, and much of it searches in Spanish. We help Miami agencies rank in English and Spanish, neighborhood by neighborhood.",
+    'img_hero' => 'team-reviewing-seo-dashboard.jpg', 'img_intro' => 'team-member-outdoor-market.jpg',
+    'intro' => [
+        "In Miami, the agency that wins the call is often the one that answers in the family's language. A large share of Miami-Dade households speak Spanish at home, and North Miami and Little Haiti have a large Haitian Creole-speaking community. Many agencies have bilingual caregivers but an English-only website.",
+        "Miami-Dade also has a dense field of agencies and nurse registries, plus heavy Medicaid long-term care activity. To stand out with private-pay families in Coral Gables, Pinecrest, Aventura or Miami Beach, you need clear positioning, strong reviews and neighborhood-level pages.",
+    ],
+    'families' => "Families search by neighborhood (\"cuidado en casa Kendall\", \"home care Aventura\") and often compare several agencies on WhatsApp and phone in the same afternoon.",
+    'areas' => ['Coral Gables', 'Kendall', 'Pinecrest', 'South Miami', 'Coconut Grove', 'Brickell', 'Miami Beach', 'Aventura', 'Sunny Isles Beach', 'North Miami', 'Hialeah', 'Doral', 'Miami Lakes', 'Westchester', 'Little Havana', 'Cutler Bay', 'Homestead'],
+    'keywords' => [
+        ['home care agency Miami FL', 'Families ready to hire'],
+        ['cuidado de ancianos en casa Miami', 'Spanish-speaking families'],
+        ['home care Coral Gables', 'Affluent, private-pay neighborhood'],
+        ['24 hour home care Miami Beach', 'High-value, urgent need'],
+        ['home health aide Hialeah', 'High-volume local searches'],
+        ['caregiver jobs Miami', 'Caregiver recruitment'],
+    ],
+    'ideas' => [
+        ['Build full Spanish-language pages', "Translate your core service pages properly (not machine-translated) and post on your Google Business Profile in Spanish too."],
+        ['Add Haitian Creole where you can staff it', "North Miami and Little Haiti families rarely find agencies that speak their language online."],
+        ['Separate private-pay and Medicaid messaging', "Coral Gables and Pinecrest families want concierge-level service. Keep that message distinct from your Medicaid LTC information."],
+        ['Make WhatsApp a contact option', "Many Miami families prefer WhatsApp to a phone call. Add a WhatsApp button next to click-to-call."],
+        ['Publish hurricane-season care plans', "Show families how you keep clients safe before and after storms. It is useful, local and shareable from June to November."],
+    ],
+    'faqs' => [
+        ["Should a Miami home care agency have a Spanish website?", "If you have Spanish-speaking caregivers and staff, yes. Properly translated service pages and Spanish Google Business Profile posts reach a large share of Miami-Dade families that English-only competitors miss."],
+        ["How do Miami agencies compete with nurse registries?", "Explain clearly what an agency offers: employed, supervised caregivers, backup coverage and insurance. Many families don't know the difference until you show them."],
+        ["Which Miami neighborhoods should we target first?", "Start with the neighborhoods where you already staff well and have reviews, then build a useful page for each one. Coral Gables, Pinecrest, Kendall and Aventura are strong private-pay areas."],
+    ],
+    'cases' => [0, 1],
+],
+
+'fort-lauderdale' => [
+    'name' => 'Fort Lauderdale', 'county' => 'Broward County',
+    'meta_desc' => "Home care marketing for Fort Lauderdale and Broward agencies: Google Maps rankings, snowbird-season campaigns and private-pay growth. From \$697/mo.",
+    'hero_desc' => "Broward County runs from beachfront condos to large 55+ communities out west. We help Fort Lauderdale home care agencies rank in the parts of Broward they actually serve.",
+    'img_hero' => 'team-discussion-desk-meeting.jpg', 'img_intro' => 'team-member-working-laptop-office.jpg',
+    'intro' => [
+        "Fort Lauderdale home care is really several markets: high-rise condos along the beach, established neighborhoods like Coral Ridge and Las Olas, and large 55+ communities in western Broward cities such as Plantation, Sunrise and Coral Springs.",
+        "Demand rises every winter when seasonal residents return, and many of those clients' adult children live in New York, New Jersey or the Midwest. They research agencies remotely and expect a fast, clear answer.",
+    ],
+    'families' => "Adult children often search from out of state. They want to know how quickly you can start, how you communicate and whether you can cover condo buildings with strict access rules.",
+    'areas' => ['Las Olas', 'Coral Ridge', 'Wilton Manors', 'Oakland Park', 'Lauderdale-by-the-Sea', 'Pompano Beach', 'Lighthouse Point', 'Plantation', 'Sunrise', 'Davie', 'Weston', 'Coral Springs', 'Hollywood', 'Pembroke Pines'],
+    'keywords' => [
+        ['home care Fort Lauderdale FL', 'Families ready to hire'],
+        ['in home care Broward County', 'County-wide searches'],
+        ['home care Pembroke Pines', 'Large 55+ community market'],
+        ['companion care Pompano Beach', 'Seasonal and coastal demand'],
+        ['live-in caregiver Fort Lauderdale', 'High-value private pay'],
+        ['caregiver jobs Broward', 'Caregiver recruitment'],
+    ],
+    'ideas' => [
+        ['Plan campaigns around snowbird season', "Increase ads and publish seasonal content from October, when winter residents and their families start arranging help."],
+        ['Write for the adult child up north', "A page explaining how to arrange care from out of state, with updates, video calls and a quick start, converts remote families."],
+        ['Target 55+ communities by name', "Families search for care in specific communities in Pembroke Pines, Coral Springs and Plantation. Useful community pages capture them."],
+        ['Show you are inclusive', "Wilton Manors and Fort Lauderdale have a large LGBTQ+ community, including many older adults. Saying clearly that your care is LGBTQ+-affirming builds trust."],
+        ['Keep a Google profile for each office', "If you have offices in both east and west Broward, a profile for each helps you rank in both."],
+    ],
+    'faqs' => [
+        ["How should a Fort Lauderdale agency handle seasonal demand?", "Plan ahead: publish winter-season content in early fall, raise ad budgets from October to April and make sure your website explains how quickly you can start care for returning residents."],
+        ["Which parts of Broward County should we target?", "Target the cities you can staff reliably. Coastal Fort Lauderdale, Pompano Beach and Lighthouse Point differ a lot from western Broward cities like Plantation, Sunrise and Coral Springs, so each deserves its own page."],
+        ["How do we reach families who live out of state?", "Write a page for long-distance families explaining how updates, scheduling and payments work remotely, and make sure you respond to online inquiries within minutes."],
+    ],
+    'cases' => [0, 3],
+],
+
+'boca-raton' => [
+    'name' => 'Boca Raton', 'county' => 'Palm Beach County',
+    'meta_desc' => "Home care marketing for Boca Raton agencies: Google Maps rankings in Boca, Delray and Highland Beach, and more private-pay clients. From \$697/mo.",
+    'hero_desc' => "Boca Raton is one of Florida's strongest private-pay home care markets, and one of its most competitive. We help Boca agencies rank in the communities they serve and win discerning families.",
+    'img_hero' => 'team-presenting-results-screen.jpg', 'img_intro' => 'team-member-cafe-portrait.jpg',
+    'intro' => [
+        "Boca Raton, at the southern end of Palm Beach County, draws retirees from New York, New Jersey and the Northeast, many of them in gated golf and country-club communities. Families here compare agencies carefully, read every review and expect a polished website.",
+        "Price is rarely the deciding factor. Caregiver consistency, communication and discretion are. Agencies that show those clearly online win more private-pay clients than those competing on hourly rates.",
+    ],
+    'families' => "Searches often name a community or nearby city (\"home care Delray Beach\", \"caregiver Highland Beach\"), and many searchers are adult children in the Northeast arranging care for a parent.",
+    'areas' => ['East Boca Raton', 'West Boca Raton', 'Boca Del Mar', 'Highland Beach', 'Delray Beach', 'Boynton Beach', 'Deerfield Beach', 'Lighthouse Point', 'Parkland'],
+    'keywords' => [
+        ['home care agency Boca Raton FL', 'Families ready to hire'],
+        ['private duty home care Boca Raton', 'Premium private pay'],
+        ['24-hour home care Boca Raton', 'Urgent, high-value need'],
+        ['dementia care at home Boca Raton', 'Specialized care'],
+        ['home care Delray Beach', 'Neighboring city, lower competition'],
+        ['caregiver jobs Boca Raton', 'Caregiver recruitment'],
+    ],
+    'ideas' => [
+        ['Lead with caregiver consistency', "Explain how you match caregivers, limit turnover and introduce replacements. Boca families care about this more than price."],
+        ['Create pages for gated and 55+ communities you serve', "Families search for care within their community. A useful page showing you know the community's access and rules wins trust."],
+        ['Collect detailed reviews', "Ask families to describe their caregiver and their experience. Specific reviews persuade Boca families far more than five stars alone."],
+        ['Offer a remote-family experience', "Many decision-makers live in the Northeast. Show how they'll get updates and how to start care without flying down."],
+        ['Target Delray, Highland Beach and Deerfield too', "Nearby cities often have less competition than \"Boca Raton\" itself and the same private-pay audience."],
+    ],
+    'faqs' => [
+        ["How competitive is home care marketing in Boca Raton?", "Very. Boca has many established agencies and well-funded franchise locations. Agencies win by targeting specific communities and nearby cities, collecting detailed reviews and positioning on quality rather than price."],
+        ["Which areas around Boca Raton should we target?", "Start with the parts of Boca you staff best (east or west Boca, Boca Del Mar), then nearby cities such as Delray Beach, Highland Beach and Deerfield Beach, which often have less competition."],
+        ["How do we attract private-pay clients in Boca Raton?", "Show caregiver quality and consistency, explain your communication with families, collect detailed reviews and make it easy for out-of-state adult children to start care remotely."],
+    ],
+    'cases' => [0, 3],
+],
+
+'west-palm-beach' => [
+    'name' => 'West Palm Beach', 'county' => 'Palm Beach County',
+    'meta_desc' => "Home care marketing for West Palm Beach agencies: rankings in Palm Beach, Jupiter and Wellington, and premium private-pay growth. From \$697/mo.",
+    'hero_desc' => "From Palm Beach island to Jupiter and Wellington, northern Palm Beach County has some of Florida's highest-value private-pay clients. We help West Palm Beach agencies reach them.",
+    'img_hero' => 'team-coffee-break-meeting.jpg', 'img_intro' => 'team-member-desk-openplan-office.jpg',
+    'intro' => [
+        "West Palm Beach is the county seat and the hub for northern and central Palm Beach County. Across the bridge, the town of Palm Beach has some of the wealthiest households in the country. To the north, Jupiter and Palm Beach Gardens attract affluent retirees, and Wellington to the west has its own community.",
+        "Families here often want concierge-level, 24-hour or live-in care, and they expect a discreet, professional experience from the first click to the first visit.",
+    ],
+    'families' => "Searches are very location-specific (\"home care Jupiter FL\", \"caregiver Palm Beach Gardens\"), and family offices, estate managers and private care managers often research on clients' behalf.",
+    'areas' => ['El Cid', 'Flamingo Park', 'Northwood', 'Palm Beach', 'North Palm Beach', 'Palm Beach Gardens', 'Jupiter', 'Tequesta', 'Wellington', 'Royal Palm Beach', 'Greenacres', 'Lake Worth Beach', 'Riviera Beach'],
+    'keywords' => [
+        ['home care West Palm Beach FL', 'Families ready to hire'],
+        ['concierge home care Palm Beach', 'Ultra-premium private pay'],
+        ['live-in caregiver Jupiter FL', 'High-value, long-term care'],
+        ['home care Palm Beach Gardens', 'Affluent northern market'],
+        ['home care Wellington FL', 'Western county market'],
+        ['caregiver jobs West Palm Beach', 'Caregiver recruitment'],
+    ],
+    'ideas' => [
+        ['Build a concierge or private-duty page', "Palm Beach and Jupiter families search for premium, discreet care. A dedicated page with your approach to confidentiality and caregiver matching wins them."],
+        ['Market to professional referrers', "Geriatric care managers, elder-law attorneys and family offices refer high-value clients. A referral-partner page tells them how you work."],
+        ['Give Jupiter, Palm Beach Gardens and Wellington their own pages', "Each is a separate search and a separate audience."],
+        ['Publish 24-hour and live-in care pages', "These are high-value searches here and deserve their own detailed pages."],
+        ['Show your hurricane plan', "Coastal and island clients need to know how you keep care going through storms and evacuations."],
+    ],
+    'faqs' => [
+        ["How do West Palm Beach agencies reach high-net-worth families?", "With a polished website, a dedicated concierge or private-duty page, detailed reviews and relationships with geriatric care managers, elder-law attorneys and family offices who refer clients."],
+        ["Should we create separate pages for Jupiter and Wellington?", "Yes, if you serve them. Families search by city, and each page can rank on its own when it contains useful local detail."],
+        ["What services do Palm Beach families search for most?", "24-hour care, live-in care, dementia care and companion care are common, high-value searches in northern Palm Beach County."],
+    ],
+    'cases' => [0, 1],
+],
+
+'naples' => [
+    'name' => 'Naples', 'county' => 'Collier County',
+    'meta_desc' => "Home care marketing for Naples agencies: Google Maps rankings in Naples, Marco Island and Bonita Springs, plus seasonal campaigns. From \$697/mo.",
+    'hero_desc' => "Collier County has one of the oldest and most affluent populations in Florida. We help Naples home care agencies win private-pay clients in a market where reputation is everything.",
+    'img_hero' => 'team-coffee-break-laughing.jpg', 'img_intro' => 'team-member-cafe-portrait.jpg',
+    'intro' => [
+        "Naples is a small city with an outsized home care market. Collier County's population skews older and wealthier than most of Florida, with many residents in gated golf communities from Pelican Bay to North Naples.",
+        "The market is highly seasonal, and word of mouth inside communities is powerful. Online reviews and a strong Google presence work alongside those referrals: families check you online after a neighbor mentions you.",
+    ],
+    'families' => "Families often search by community or island (\"home care Marco Island\", \"caregiver Pelican Bay\"), and adult children frequently live in the Midwest or Northeast.",
+    'areas' => ['Pelican Bay', 'Park Shore', 'Vanderbilt Beach', 'North Naples', 'Old Naples', 'East Naples', 'Golden Gate', 'Marco Island', 'Bonita Springs', 'Ave Maria'],
+    'keywords' => [
+        ['home care Naples FL', 'Families ready to hire'],
+        ['private caregiver Naples', 'Premium private pay'],
+        ['home care Marco Island', 'Island community, less competition'],
+        ['home care Bonita Springs', 'Neighboring market'],
+        ['dementia care at home Naples', 'Specialized care'],
+        ['caregiver jobs Naples FL', 'Caregiver recruitment'],
+    ],
+    'ideas' => [
+        ['Plan for the season', "Publish seasonal content and raise ad budgets from October to April, when the population swells and families visit."],
+        ['Create community pages', "Gated communities like Pelican Bay and Park Shore have their own rules and expectations. Showing you know them builds trust."],
+        ['Turn word of mouth into reviews', "Ask happy families to share their experience on Google. Naples families check reviews after a neighbor recommends you."],
+        ['Explain your hurricane plan', "After Hurricane Ian, Naples families take storm planning seriously. Show how you keep care going."],
+        ['Recruit caregivers locally', "High housing costs make caregiver recruitment hard in Naples. A strong careers page with pay and travel information helps."],
+    ],
+    'faqs' => [
+        ["How seasonal is home care demand in Naples?", "Very. Many residents are part-year, and demand rises between October and April. Agencies that plan content and ads around the season get more of those inquiries."],
+        ["Should we target Marco Island and Bonita Springs separately?", "Yes, if you serve them. Each is its own search with its own competitors, and Marco Island in particular often has fewer agencies competing online."],
+        ["How important are reviews for a Naples agency?", "Very important. Naples families often hear about an agency from a neighbor, then check its Google reviews before calling. Detailed reviews close the loop."],
+    ],
+    'cases' => [0, 3],
+],
+
+'sarasota' => [
+    'name' => 'Sarasota', 'county' => 'Sarasota County',
+    'meta_desc' => "Home care marketing for Sarasota agencies: Google Maps rankings in Sarasota, Venice and Lakewood Ranch, and private-pay growth. From \$697/mo.",
+    'hero_desc' => "Sarasota County has one of the oldest populations in the United States. We help Sarasota home care agencies rank across Sarasota, Venice and Lakewood Ranch and turn searches into clients.",
+    'img_hero' => 'team-reviewing-laptop-collaboration.jpg', 'img_intro' => 'team-member-working-library.jpg',
+    'intro' => [
+        "Sarasota County's median age is among the highest of any county in the country, and Venice in the south is older still. Demand for home care is steady year-round and grows every winter.",
+        "Growth is shifting east and north. Lakewood Ranch, which straddles Sarasota and Manatee counties, is one of the fastest-growing master-planned communities in the country, with many new retirees and fewer established agencies than central Sarasota.",
+    ],
+    'families' => "Many Sarasota clients research care for themselves rather than through their children. Clear, readable pages with larger text and an easy phone number help.",
+    'areas' => ['Downtown Sarasota', 'Siesta Key', 'Longboat Key', 'Palmer Ranch', 'Osprey', 'Nokomis', 'Venice', 'North Port', 'Lakewood Ranch', 'Bradenton'],
+    'keywords' => [
+        ['home care Sarasota FL', 'Families ready to hire'],
+        ['home care Venice FL', 'Very senior-heavy market'],
+        ['home care Lakewood Ranch', 'Fast-growing, newer market'],
+        ['companion care Sarasota', 'Non-medical companion services'],
+        ['in home care Bradenton', 'Neighboring Manatee County'],
+        ['caregiver jobs Sarasota', 'Caregiver recruitment'],
+    ],
+    'ideas' => [
+        ['Write for the older reader', "Many Sarasota clients research for themselves. Use readable fonts, plain language and a large, tappable phone number."],
+        ['Get into Lakewood Ranch early', "New communities have fewer established agencies. A dedicated page and local reviews can rank quickly."],
+        ['Give Venice its own page', "Venice is a distinct market with a very high share of seniors. Treat it separately from Sarasota."],
+        ['Partner with local communities and clubs', "Sponsoring or speaking at community events earns local links, mentions and referrals."],
+        ['Publish storm-season content', "Explain how you support clients before and after hurricanes along the Gulf Coast."],
+    ],
+    'faqs' => [
+        ["Is Sarasota a good market for home care?", "Yes. Sarasota County has one of the oldest populations in the country, steady year-round demand and a growing retiree base in newer communities like Lakewood Ranch."],
+        ["Should we target Venice and Lakewood Ranch separately?", "Yes. Each is its own search market with different competitors. Lakewood Ranch, in particular, has fewer established agencies than central Sarasota."],
+        ["Who searches for home care in Sarasota?", "Both adult children and older adults themselves. Many Sarasota clients research their own care, so your website should be easy to read and easy to call from."],
+    ],
+    'cases' => [0, 5],
+],
+
+'tampa' => [
+    'name' => 'Tampa', 'county' => 'Hillsborough County',
+    'meta_desc' => "Home care marketing for Tampa agencies: Google Maps rankings from South Tampa to Sun City Center, plus veteran outreach. From \$697/mo.",
+    'hero_desc' => "Tampa is a big, spread-out metro with very different markets, from South Tampa to Sun City Center. We help Tampa home care agencies rank in the parts of Hillsborough they actually serve.",
+    'img_hero' => 'team-reviewing-seo-dashboard.jpg', 'img_intro' => 'team-member-desk-openplan-office.jpg',
+    'intro' => [
+        "Hillsborough County covers urban neighborhoods like South Tampa and Seminole Heights, fast-growing suburbs like Brandon, Riverview and Westchase, and Sun City Center, one of Florida's largest 55+ communities.",
+        "Tampa is also a major medical and veteran hub, with large hospital systems and the James A. Haley Veterans' Hospital. Hospital discharge planners and the veteran community are both important sources of clients.",
+    ],
+    'families' => "Searches are suburb-specific (\"home care Brandon FL\", \"home care Sun City Center\"), and many inquiries start after a hospital stay, when families need care quickly.",
+    'areas' => ['South Tampa', 'Hyde Park', 'Seminole Heights', 'Carrollwood', 'Westchase', 'New Tampa', 'Temple Terrace', 'Brandon', 'Riverview', 'Valrico', 'FishHawk', 'Apollo Beach', 'Sun City Center', 'Lutz', 'Plant City'],
+    'keywords' => [
+        ['home care agency Tampa FL', 'Families ready to hire'],
+        ['home care Sun City Center', 'Large 55+ community'],
+        ['home care Brandon FL', 'Fast-growing suburb'],
+        ['in home care after hospital Tampa', 'Urgent post-discharge need'],
+        ['VA home care Tampa', 'Veteran families'],
+        ['caregiver jobs Tampa', 'Caregiver recruitment'],
+    ],
+    'ideas' => [
+        ['Build a Sun City Center page', "It is one of Florida's largest 55+ communities and a market in its own right."],
+        ['Create a hospital-discharge page', "Explain how fast you can start care after a hospital stay, and share it with discharge planners."],
+        ['Reach veteran families', "A page explaining VA benefits for home care reaches families connected to the Tampa VA and MacDill Air Force Base."],
+        ['Give each suburb its own page', "Brandon, Riverview, Westchase and Carrollwood are separate searches with separate competitors."],
+        ['Recruit caregivers by area', "Tampa traffic makes long drives hard for caregivers. Area-specific job posts help you staff clients nearby."],
+    ],
+    'faqs' => [
+        ["Which parts of Tampa should our agency target?", "Target the areas you can staff reliably and build a useful page for each. South Tampa, Brandon, Riverview, Westchase and Sun City Center are all distinct markets."],
+        ["How can we get referrals from Tampa hospitals?", "Create a clear referral page with your coverage area, start times and intake process, and make sure discharge planners can reach you quickly. Fast responses build referral relationships."],
+        ["Is veteran-focused marketing worth it in Tampa?", "Yes. Tampa has a large veteran community, and a clear page on VA benefits for home care helps families who may not know they qualify."],
+    ],
+    'cases' => [0, 1],
+],
+
+'clearwater' => [
+    'name' => 'Clearwater', 'county' => 'Pinellas County',
+    'meta_desc' => "Home care marketing for Clearwater agencies: Google Maps rankings across Pinellas County, from Dunedin to Largo. Plans from \$697/mo.",
+    'hero_desc' => "Pinellas County is Florida's most densely populated county and one of its oldest. We help Clearwater home care agencies stand out in a crowded peninsula, city by city.",
+    'img_hero' => 'team-presenting-results-screen-2.jpg', 'img_intro' => 'team-member-outdoor-market.jpg',
+    'intro' => [
+        "Pinellas is a small peninsula packed with cities: Clearwater, Dunedin, Largo, Seminole, Palm Harbor, Tarpon Springs and more. Agencies compete in tight geographic areas, so local SEO precision matters more here than in sprawling counties.",
+        "The county has a large older population, from beach condos and waterfront homes to established 55+ and mobile-home communities inland. Each group searches differently and responds to different messages.",
+    ],
+    'families' => "Families search by city name, and Pinellas cities are close together. Accurate service areas and a page for each city you serve help Google show you to the right families.",
+    'areas' => ['Clearwater Beach', 'Countryside', 'Belleair', 'Dunedin', 'Safety Harbor', 'Palm Harbor', 'Tarpon Springs', 'Oldsmar', 'Largo', 'Seminole', 'Pinellas Park', 'Indian Rocks Beach'],
+    'keywords' => [
+        ['home care Clearwater FL', 'Families ready to hire'],
+        ['home care Largo FL', 'Large senior population'],
+        ['home care Dunedin', 'Neighboring city, less competition'],
+        ['companion care Palm Harbor', 'Non-medical companion services'],
+        ['home care Pinellas County', 'County-wide searches'],
+        ['caregiver jobs Clearwater', 'Caregiver recruitment'],
+    ],
+    'ideas' => [
+        ['Build one page per Pinellas city you serve', "Dunedin, Largo, Seminole and Palm Harbor each get their own searches. Give each a useful page."],
+        ['Speak to 55+ and mobile-home communities', "Many inland Pinellas communities have large older populations. Community-specific content and flyers work together."],
+        ['Show your storm plan', "Pinellas is a low-lying peninsula. Clear evacuation and storm-care plans reassure families."],
+        ['Earn local links', "Sponsor events in Dunedin, Safety Harbor or Tarpon Springs for local links and visibility."],
+        ['Ask for reviews that name the city', "Reviews mentioning Largo or Dunedin help you rank in Largo or Dunedin."],
+    ],
+    'faqs' => [
+        ["How do we stand out among so many Pinellas agencies?", "Be precise: build pages for each city you serve, set accurate Google Business Profile service areas, collect reviews that mention the client's city and specialize where you can, for example in dementia or post-hospital care."],
+        ["Should we target all of Pinellas County?", "Only the areas you can staff reliably. It's better to rank strongly in four or five cities than weakly across the whole county."],
+        ["Does Tampa marketing also cover Clearwater?", "No. Clearwater and Tampa are separate search markets with different competitors. If you serve both, each needs its own pages and strategy."],
+    ],
+    'cases' => [0, 4],
+],
+
+'jacksonville' => [
+    'name' => 'Jacksonville', 'county' => 'Duval County',
+    'meta_desc' => "Home care marketing for Jacksonville agencies: rankings across Duval, St. Johns and Clay counties, plus veteran outreach. From \$697/mo.",
+    'hero_desc' => "Jacksonville is the largest city by area in the continental US, so coverage and drive time shape everything. We help Jacksonville home care agencies rank in the areas they can actually serve.",
+    'img_hero' => 'team-discussion-desk-meeting.jpg', 'img_intro' => 'team-member-working-laptop-office.jpg',
+    'intro' => [
+        "Jacksonville's size means a single \"Jacksonville\" page rarely ranks across the whole city. Families search for Mandarin, Southside, Arlington, the Beaches or Ponte Vedra, and Google favors agencies close to the searcher.",
+        "Northeast Florida also has a large military and veteran community around NAS Jacksonville and Naval Station Mayport, and major hospital systems that generate discharge referrals.",
+    ],
+    'families' => "Families search by area of town or nearby county, and drive times matter: they want to know you really cover their part of Jacksonville.",
+    'areas' => ['Riverside', 'Avondale', 'San Marco', 'Mandarin', 'Southside', 'Baymeadows', 'Arlington', 'Jacksonville Beach', 'Atlantic Beach', 'Neptune Beach', 'Ponte Vedra Beach', 'St. Augustine', 'Orange Park', 'Fleming Island'],
+    'keywords' => [
+        ['home care Jacksonville FL', 'Families ready to hire'],
+        ['home care Mandarin', 'Established residential area'],
+        ['home care Ponte Vedra Beach', 'Affluent St. Johns County market'],
+        ['home care Orange Park', 'Clay County market'],
+        ['VA home care Jacksonville', 'Veteran and military families'],
+        ['caregiver jobs Jacksonville', 'Caregiver recruitment'],
+    ],
+    'ideas' => [
+        ['Build pages by area of town', "Mandarin, Southside, Arlington and the Beaches are separate searches. Give each a useful page."],
+        ['Expand into St. Johns and Clay counties', "Ponte Vedra, St. Augustine, Orange Park and Fleming Island are growing, with fewer agencies competing online."],
+        ['Reach Navy and veteran families', "A VA benefits page and military-family messaging reach a large local audience."],
+        ['Be honest about coverage', "Show a clear service-area map. Families trust agencies that are upfront about where they can reliably staff."],
+        ['Partner with hospital discharge teams', "A referral page with start times and coverage helps discharge planners send clients your way."],
+    ],
+    'faqs' => [
+        ["Why doesn't one Jacksonville page rank across the whole city?", "Jacksonville covers a huge area, and Google favors agencies near the searcher. Pages for each area you serve, plus accurate Google Business Profile service areas, work much better."],
+        ["Should we market in St. Johns and Clay counties?", "If you can staff there, yes. Ponte Vedra, St. Augustine, Orange Park and Fleming Island are growing markets with less online competition."],
+        ["How do we reach military and veteran families in Jacksonville?", "Create a clear page on VA benefits for home care, mention your experience with veteran clients and make sure you appear in searches near the bases and VA clinics."],
+    ],
+    'cases' => [0, 5],
+],
+
+'orlando' => [
+    'name' => 'Orlando', 'county' => 'Orange County',
+    'meta_desc' => "Home care marketing for Orlando agencies: Google Maps rankings in Winter Park, Lake Nona and Kissimmee, in English and Spanish. From \$697/mo.",
+    'hero_desc' => "We're based in Lady Lake, about an hour north of Orlando, so Central Florida is home. We help Orlando home care agencies rank from Winter Park to Kissimmee, in English and Spanish.",
+    'img_hero' => 'team-presenting-results-screen.jpg', 'img_intro' => 'asifa-presenting-whiteboard-session.jpg',
+    'intro' => [
+        "Central Florida is growing fast in every direction. Winter Park and Maitland have established, affluent older residents; Lake Nona has a growing medical hub, including the Orlando VA Medical Center; and Kissimmee and the Osceola County suburbs have a large Puerto Rican and Spanish-speaking community.",
+        "Homecare Creators is based in Lady Lake, next to The Villages, so Central Florida is our home market. We know how differently families search in Winter Park, Kissimmee and Clermont.",
+    ],
+    'families' => "Searches are suburb-specific, and a significant share of families in Kissimmee, Buenavista and east Orlando search in Spanish.",
+    'areas' => ['Winter Park', 'Maitland', 'Baldwin Park', 'College Park', 'Lake Nona', 'Dr. Phillips', 'Windermere', 'Winter Garden', 'Ocoee', 'Apopka', 'Kissimmee', 'Clermont'],
+    'keywords' => [
+        ['home care agency Orlando FL', 'Families ready to hire'],
+        ['home care Winter Park', 'Affluent, established market'],
+        ['cuidado en el hogar Kissimmee', 'Spanish-speaking families'],
+        ['home care Lake Nona', 'Growing medical hub'],
+        ['home care Clermont FL', 'Fast-growing western suburbs'],
+        ['caregiver jobs Orlando', 'Caregiver recruitment'],
+    ],
+    'ideas' => [
+        ['Build Spanish pages for Kissimmee and east Orlando', "A large Spanish-speaking community searches for care in Spanish. Properly translated pages reach them."],
+        ['Target Winter Park and Maitland for private pay', "Established, affluent neighborhoods respond to quality-focused messaging and detailed reviews."],
+        ['Reach veterans near Lake Nona', "The Orlando VA Medical Center draws veteran families. A VA benefits page helps them find you."],
+        ['Follow the growth west', "Clermont, Winter Garden and Horizon West are growing quickly and have fewer established agencies online."],
+        ['Recruit caregivers by area', "Orlando traffic and long distances make local recruitment essential. Area-specific job posts help."],
+    ],
+    'faqs' => [
+        ["Is Homecare Creators based in Central Florida?", "Yes. We're based in Lady Lake, about an hour north of Orlando, and Central Florida is our home market."],
+        ["Should an Orlando agency market in Spanish?", "If you have Spanish-speaking caregivers, yes. Kissimmee, Buenavista and parts of east Orlando have large Spanish-speaking communities who search in Spanish."],
+        ["Which Orlando suburbs should we target first?", "Start where you staff best. Winter Park and Maitland are strong private-pay areas, while Clermont, Winter Garden and Lake Nona are growing quickly with less competition."],
+    ],
+    'cases' => [0, 1],
+],
+
+];
