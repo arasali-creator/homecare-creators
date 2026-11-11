@@ -2,6 +2,7 @@
 // Shared template for Florida city pages at /home-care-agency-seo-{city}-fl/.
 // Each Marketing/home-care-agency-seo-{city}-fl.php sets $city_key and includes this.
 // City content lives in includes/florida-cities-data.php.
+require_once __DIR__ . '/location-sections.php';
 $_cities = require __DIR__ . '/florida-cities-data.php';
 if (empty($city_key) || !isset($_cities[$city_key])) { http_response_code(404); exit; }
 $C = $_cities[$city_key];
@@ -22,7 +23,12 @@ $_cases_all = require __DIR__ . '/case-studies-data.php';
 $_cases = array_map(fn($i) => $_cases_all[$i], $C['cases']);
 $_states = require __DIR__ . '/state-pages-data.php';
 
+$_qa_q = "How do you market a home care agency in {$_name}, Florida?";
+$_qa_a = "Focus on three things: rank in the Google Maps pack in the parts of {$C['county']} you actually staff (for example {$C['areas'][0]}, {$C['areas'][1]} or {$C['areas'][2]}), make your AHCA license or registration and your caregiver quality obvious on your website and Google profile, and follow up on every inquiry within minutes. 21.8% of Floridians are 65 or older, the fourth-highest share of any state, so demand is strong. The agencies that win are the easiest to find and to trust online.";
+
 $_faqs = array_merge($C['faqs'], [
+    ["Which directories should a {$_name} home care agency be listed in?", "Start with the Home Care Association of Florida member directory, then Google Business Profile, Bing Places, Apple Business Connect, Caring.com, Care.com, the Better Business Bureau and the {$_name} area chamber of commerce. Keep your business name, address and phone number identical everywhere."],
+    ["Do Florida home care agencies need to show their AHCA license?", "Families increasingly check. Showing your AHCA license or registration number, and explaining whether you are a home health agency, nurse registry or homemaker and companion provider, builds trust and answers a question many families have before calling."],
     ["How much does home care SEO cost for a {$_name} agency?", "Our home care SEO plans start at \$697 per month (Starter), with Care Plus at \$1,097 and Care Advanced at \$1,597 per month. The right plan depends on how many areas you serve and how competitive they are. We'll recommend one after a free audit."],
     ["How long until my {$_name} agency ranks on Google?", "Most agencies see Google Maps movement within 60 to 90 days, with stronger organic rankings building over 4 to 6 months. Timelines depend on your competition and your starting point. No honest agency can guarantee rankings."],
     ["Do you require a long-term contract?", "No. After an initial ramp-up period, every plan moves to month-to-month."],
@@ -65,6 +71,8 @@ echo '<script type="application/ld+json">' . json_encode([
          "offers" => ["@type" => "Offer", "price" => "697", "priceCurrency" => "USD", "priceSpecification" => ["@type" => "UnitPriceSpecification", "price" => "697", "priceCurrency" => "USD", "unitText" => "MONTH"]],
         ],
         ["@type" => "FAQPage", "mainEntity" => array_map(fn($f) => ["@type" => "Question", "name" => $f[0], "acceptedAnswer" => ["@type" => "Answer", "text" => $f[1]]], $_faqs)],
+        hc_loc_webpage_schema($page_canonical, $page_title),
+        hc_loc_author_schema(),
     ],
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "</script>\n";
 ?>
@@ -102,6 +110,15 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
   </div>
 </section>
+
+<?php
+hc_loc_toc(['quick-answer' => 'Quick answer', 'florida' => 'Licensing & funding', 'areas' => 'Areas & keywords', 'playbook' => 'Playbook', 'ideas' => 'Marketing ideas', 'results' => 'Results', 'faq' => 'FAQ']);
+hc_loc_quick_answer($_qa_q, $_qa_a, [
+    ['21.8%', 'of Floridians are 65 or older, the 4th-highest share in the U.S.', 'U.S. Census Bureau, 2024 estimates'],
+    [count($C['areas']), "areas we build {$_name} pages and local SEO for", ''],
+    ['$697/mo', 'Our home care SEO plans start at', ''],
+]);
+?>
 
 <!-- CERTIFICATIONS -->
 <section class="certs">
@@ -187,6 +204,13 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
   </div>
 </section>
+
+<?php hc_loc_playbook([
+    'place' => $_name,
+    'areas' => $C['areas'],
+    'association' => 'Home Care Association of Florida',
+    'regulator_line' => 'In Florida, that includes explaining whether you are an AHCA-licensed home health agency, a nurse registry or a registered homemaker and companion provider.',
+]); ?>
 
 <!-- IDEAS -->
 <section class="ideas-section" id="ideas">
@@ -284,6 +308,15 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
   </div>
 </section>
+
+<?php
+hc_loc_reading(['local-seo-home-care-agency-google-maps', 'private-pay-home-care-clients-florida', 'google-reviews-home-care-agency']);
+hc_loc_author([
+    hc_loc_src_census(),
+    ["USAFacts: which states have the largest elderly populations? (2024)", "https://usafacts.org/articles/america-is-getting-older-which-states-have-the-largest-elderly-populations/"],
+    ["AHCA: Homemaker and Companion Services, general information", "https://ahca.myflorida.com/health-quality-assurance/bureau-of-health-facility-regulation/long-term-care-services-unit/homemaker-companion-services-provider/general-information.html"],
+]);
+?>
 
 <!-- OTHER LOCATIONS -->
 <section class="states-section">

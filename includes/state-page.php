@@ -2,6 +2,7 @@
 // Shared template for /home-care-agency-marketing-{state}/ pages.
 // Each state's index.php sets $state_key and includes this file.
 // State-specific content lives in includes/state-pages-data.php.
+require_once __DIR__ . '/location-sections.php';
 $_states = require __DIR__ . '/state-pages-data.php';
 if (empty($state_key) || !isset($_states[$state_key])) { http_response_code(404); exit; }
 $S = $_states[$state_key];
@@ -21,8 +22,16 @@ $og_image   = "https://homecarecreators.com/images/team/{$S['img_hero']}";
 $_cases_all = require __DIR__ . '/case-studies-data.php';
 $_cases = array_map(fn($i) => $_cases_all[$i], $S['cases']);
 
+$_pct = (float)$S['pct65'];
+$_cmp = $_pct >= 18.5 ? 'above' : ($_pct <= 17.5 ? 'below' : 'close to');
+$_m = array_map(fn($x) => $x[0], $S['metros']);
+$_qa_q = "How do you market a home care agency in {$_name}?";
+$_qa_a = "Focus on three things: rank in the Google Maps pack for the areas you actually staff (for most {$_name} agencies that means {$_m[0]}, {$_m[1]} or {$_m[2]}), make your {$S['license_short']} and caregiver quality obvious on your website and Google profile, and follow up on every inquiry within minutes. {$S['pct65']}% of {$_name} residents are 65 or older, {$_cmp} the U.S. average of 18.0%, so demand is there. The agencies that win are the easiest to find and to trust online.";
+
 // State FAQs first, then shared ones with real pricing.
 $_faqs = array_merge($S['faqs'], [
+    ["Which directories should a {$_name} home care agency be listed in?", "Start with the {$S['association']} member directory, then Google Business Profile, Bing Places, Apple Business Connect, Caring.com, Care.com, the Better Business Bureau and your local chamber of commerce. Keep your business name, address and phone number identical everywhere."],
+    ["How do I get more private-pay clients in {$_name}?", "Rank in Google Maps for the areas you staff, show your {$S['license_short']} and caregiver quality clearly, collect detailed reviews, give honest pricing guidance and respond to every inquiry within minutes. {$S['pct65']}% of {$_name} residents are 65 or older, so demand is steady; visibility and trust decide who gets the call."],
     ["How much does home care agency marketing cost in {$_name}?", "Our home care SEO plans start at \$697 per month (Starter), with Care Plus at \$1,097 and Care Advanced at \$1,597 per month. The right plan depends on how many cities you serve and how competitive your market is. We'll recommend one after a free audit."],
     ["How long does home care SEO take to show results?", "Most agencies see Google Maps and search movement within a few months, with stronger results building over 4 to 6 months. Paid ads can bring inquiries sooner while SEO builds. No honest agency can guarantee rankings."],
     ["Can you help my agency show up in ChatGPT and Google AI Overviews?", "Yes. We structure your website content, FAQs, schema and business information so AI tools can understand what you do and where you operate. Inclusion can't be guaranteed, but clear, specific information makes it far more likely."],
@@ -51,6 +60,8 @@ echo '<script type="application/ld+json">' . json_encode([
          "offers" => ["@type" => "Offer", "price" => "697", "priceCurrency" => "USD", "priceSpecification" => ["@type" => "UnitPriceSpecification", "price" => "697", "priceCurrency" => "USD", "unitText" => "MONTH"]],
         ],
         ["@type" => "FAQPage", "mainEntity" => array_map(fn($f) => ["@type" => "Question", "name" => $f[0], "acceptedAnswer" => ["@type" => "Answer", "text" => $f[1]]], $_faqs)],
+        hc_loc_webpage_schema($page_canonical, $page_title),
+        hc_loc_author_schema(),
     ],
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "</script>\n";
 ?>
@@ -88,6 +99,15 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
   </div>
 </section>
+
+<?php
+hc_loc_toc(['quick-answer' => 'Quick answer', 'state' => 'Licensing & funding', 'cities' => 'Key markets', 'playbook' => 'Playbook', 'ideas' => 'Marketing ideas', 'results' => 'Results', 'faq' => 'FAQ']);
+hc_loc_quick_answer($_qa_q, $_qa_a, [
+    [$S['pct65'] . '%', "of {$_name} residents are 65 or older", 'U.S. Census Bureau, 2024 estimates'],
+    ['18.0%', 'U.S. average, for comparison', 'U.S. Census Bureau, 2024 estimates'],
+    ['$697/mo', 'Our home care SEO plans start at', ''],
+]);
+?>
 
 <!-- CERTIFICATIONS -->
 <section class="certs">
@@ -169,6 +189,13 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
   </div>
 </section>
+
+<?php hc_loc_playbook([
+    'place' => $_name,
+    'areas' => $S['example_areas'],
+    'association' => $S['association'],
+    'regulator_line' => "In {$_name}, that includes explaining your {$S['license_short']} in plain language.",
+]); ?>
 
 <!-- IDEAS -->
 <section class="ideas-section" id="ideas">
@@ -266,6 +293,11 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
   </div>
 </section>
+
+<?php
+hc_loc_reading(['local-seo-home-care-agency-google-maps', 'google-business-profile-checklist-home-care', 'home-care-agency-ai-search-chatgpt-optimization']);
+hc_loc_author(array_merge([hc_loc_src_census(), hc_loc_src_assoc()], $S['sources'] ?? []));
+?>
 
 <!-- OTHER STATES -->
 <section class="states-section">

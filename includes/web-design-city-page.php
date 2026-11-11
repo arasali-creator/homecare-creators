@@ -3,6 +3,7 @@
 // Each web-design/homecare-website-design-{city}-fl.php sets $city_key and includes this.
 // Website-specific copy: includes/web-design-cities-data.php
 // City basics (county, areas, case studies): includes/florida-cities-data.php
+require_once __DIR__ . '/location-sections.php';
 $_wd     = require __DIR__ . '/web-design-cities-data.php';
 $_cities = require __DIR__ . '/florida-cities-data.php';
 if (empty($city_key) || !isset($_wd[$city_key], $_cities[$city_key])) { http_response_code(404); exit; }
@@ -24,7 +25,11 @@ $og_image   = "https://homecarecreators.com/images/home/service-website-dev.jpg"
 $_cases_all = require __DIR__ . '/case-studies-data.php';
 $_cases = array_map(fn($i) => $_cases_all[$i], $C['cases']);
 
+$_qa_q = "What should a home care agency website in {$_name} include?";
+$_qa_a = "Beyond fast, mobile-first design and solid SEO, a {$_name} home care website should have {$W['qa']}. It should answer three questions on the first screen: do you cover my area, can I trust you, and how do I start? Our home care websites start at \$699 and go live in 10 to 21 days.";
+
 $_faqs = array_merge($W['faqs'], [
+    ["What pages does a home care agency website need?", "At minimum: a home page, a page for each core service (such as companion care, personal care, dementia care and 24-hour care), an about page that introduces your team, a careers page, a contact page and a page for each area you serve. Clear pricing guidance and an FAQ page help both families and search engines."],
     ["How much does a home care website cost in {$_name}?", "Websites start at \$699 (Starter, 5 pages), with Growth at \$999 (10 pages, 3 area pages, careers page) and Dominate at \$1,699 (15+ pages, 8 area pages, brand identity). Hosting is \$79 per month and includes SSL, backups and updates to keep the site online."],
     ["How long does it take to build my website?", "Starter sites go live in 10 to 14 days, Growth in about 14 days and Dominate in up to 21 days. We write all the content; you review and approve it."],
     ["Can I add local SEO to my website?", "Yes. Our home care SEO plans start at \$697 per month and push your new site up Google Maps and local search. Most agencies get the best results by pairing the two."],
@@ -82,6 +87,8 @@ echo '<script type="application/ld+json">' . json_encode([
          "offers" => [$_offer('Starter', '699'), $_offer('Growth', '999'), $_offer('Dominate', '1699')],
         ],
         ["@type" => "FAQPage", "mainEntity" => array_map(fn($f) => ["@type" => "Question", "name" => $f[0], "acceptedAnswer" => ["@type" => "Answer", "text" => $f[1]]], $_faqs)],
+        hc_loc_webpage_schema($page_canonical, $page_title),
+        hc_loc_author_schema(),
     ],
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "</script>\n";
 ?>
@@ -119,6 +126,15 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
   </div>
 </section>
+
+<?php
+hc_loc_toc(['quick-answer' => 'Quick answer', 'features' => 'What your site needs', 'areas' => 'Area pages', 'pricing' => 'Pricing', 'process' => 'Process', 'results' => 'Results', 'faq' => 'FAQ']);
+hc_loc_quick_answer($_qa_q, $_qa_a, [
+    ['$699', 'Home care websites start at (one-time)', ''],
+    ['10–21 days', 'From kickoff to a live website', ''],
+    ['21.8%', 'of Floridians are 65 or older, the 4th-highest share in the U.S.', 'U.S. Census Bureau, 2024 estimates'],
+]);
+?>
 
 <!-- CERTIFICATIONS -->
 <section class="certs">
@@ -308,6 +324,11 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
   </div>
 </section>
+
+<?php
+hc_loc_reading(['home-care-website-design-must-haves', 'home-care-website-design-vs-generic-website', 'why-home-care-agency-not-showing-up-google']);
+hc_loc_author([hc_loc_src_census()]);
+?>
 
 <!-- OTHER CITIES -->
 <section class="states-section">

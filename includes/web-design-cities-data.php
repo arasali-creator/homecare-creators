@@ -7,6 +7,7 @@
 return [
 
 'miami' => [
+    'qa' => "properly written English and Spanish pages, WhatsApp and click-to-call buttons, pages for the Miami-Dade neighborhoods you serve, separate paths for private-pay and Medicaid families, and hurricane-season information",
     'meta_desc' => "Home care website design for Miami agencies: bilingual English–Spanish sites, WhatsApp contact and neighborhood pages. Websites from \$699.",
     'hero_desc' => "Miami families compare agencies fast, often in Spanish and often on WhatsApp. We build bilingual home care websites that rank across Miami-Dade and turn visits into calls. Websites from \$699.",
     'intro' => [
@@ -27,6 +28,7 @@ return [
 ],
 
 'tampa' => [
+    'qa' => "pages for the suburbs you serve (including Sun City Center if you cover it), a hospital-discharge page, a veterans page, a clear \"start care fast\" message on the first screen and a careers page that recruits locally",
     'meta_desc' => "Home care website design for Tampa agencies: fast, mobile-first sites with suburb pages, hospital-referral and VA pages. Websites from \$699.",
     'hero_desc' => "Tampa families search suburb by suburb, often after a hospital stay. We build fast home care websites for Tampa agencies with the pages Hillsborough County families and referrers look for. Websites from \$699.",
     'intro' => [
@@ -47,6 +49,7 @@ return [
 ],
 
 'orlando' => [
+    'qa' => "Spanish pages for Kissimmee and east Orlando, pages for suburbs such as Winter Park, Lake Nona and Clermont, a veterans page, fast mobile performance and a careers page by area",
     'meta_desc' => "Home care website design for Orlando agencies: English–Spanish sites, suburb pages from Winter Park to Kissimmee. Built in Central Florida. From \$699.",
     'hero_desc' => "We're based in Lady Lake, about an hour north of Orlando. We build home care websites for Central Florida agencies, in English and Spanish, with pages for every suburb you serve. Websites from \$699.",
     'intro' => [
@@ -67,6 +70,7 @@ return [
 ],
 
 'jacksonville' => [
+    'qa' => "a clear service-area map, pages for each area of town you serve, St. Johns and Clay county pages if you cover them, a military and veterans page and a referral page for hospitals",
     'meta_desc' => "Home care website design for Jacksonville agencies: area pages across Duval, St. Johns and Clay, clear coverage maps and veteran pages. From \$699.",
     'hero_desc' => "Jacksonville is huge, so families want proof you really cover their part of town. We build home care websites for Jacksonville agencies with clear coverage, area pages and fast mobile performance. Websites from \$699.",
     'intro' => [
@@ -87,6 +91,7 @@ return [
 ],
 
 'fort-lauderdale' => [
+    'qa' => "a page for families who live out of state, pages for the 55+ communities and condos you serve, seasonal content for winter residents, separate east and west Broward pages and instant inquiry alerts",
     'meta_desc' => "Home care website design for Fort Lauderdale and Broward agencies: pages for long-distance families, 55+ communities and snowbird season. From \$699.",
     'hero_desc' => "Many Broward clients' adult children live up north and research care from afar. We build home care websites for Fort Lauderdale agencies that win those long-distance families. Websites from \$699.",
     'intro' => [
@@ -107,6 +112,7 @@ return [
 ],
 
 'naples' => [
+    'qa' => "a premium design with larger, easy-to-read text, pages for communities such as Pelican Bay and Marco Island, your Google reviews on the home page, a storm-readiness page and a careers page with pay and travel details",
     'meta_desc' => "Home care website design for Naples agencies: premium, readable sites with community pages for Pelican Bay, Marco Island and Bonita Springs. From \$699.",
     'hero_desc' => "Naples families judge an agency by its first impression. We build polished, easy-to-read home care websites for Naples agencies that match the expectations of Collier County clients. Websites from \$699.",
     'intro' => [

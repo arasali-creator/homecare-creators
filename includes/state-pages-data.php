@@ -9,6 +9,9 @@ return [
 
 'arizona' => [
     'name' => 'Arizona', 'abbr' => 'AZ',
+    'pct65' => '19.6', 'association' => 'Arizona Association for Home Care', 'license_short' => 'caregiver screening and fingerprint clearance cards',
+    'example_areas' => ['Mesa', 'Chandler', 'Gilbert', 'Scottsdale'],
+    'sources' => [['Arizona Commerce Authority: non-medical home care', 'https://azcommerce.com/small-business/checklist-items/medicalhealthcare-related-business-activity/non-medical-home-care']],
     'meta_desc' => "Marketing for Arizona home care agencies: Google Maps rankings across the Valley, Tucson and Sun City, and more private-pay clients. From \$697/mo.",
     'hero_desc' => "Families in Phoenix, Tucson and Arizona's retirement communities compare agencies on Google before they call. We help Arizona home care agencies show up in those searches and turn visits into inquiries.",
     'img_hero' => 'team-coffee-break-meeting.jpg', 'img_intro' => 'team-member-cafe-portrait.jpg',
@@ -44,6 +47,8 @@ return [
 
 'california' => [
     'name' => 'California', 'abbr' => 'CA',
+    'pct65' => '16.5', 'association' => 'California Association for Health Services at Home (CAHSAH)', 'license_short' => 'HCO license and registered Home Care Aides',
+    'example_areas' => ['Pasadena', 'Torrance', 'Irvine', 'San Diego'],
     'meta_desc' => "Marketing for California home care organizations: local SEO in LA, Orange County, San Diego and the Bay Area, plus multilingual reach. From \$697/mo.",
     'hero_desc' => "California families compare a lot of agencies before they call. We help licensed California home care organizations rank in their neighborhoods, explain their care clearly and win private-pay clients.",
     'img_hero' => 'team-discussion-desk-meeting.jpg', 'img_intro' => 'team-member-working-laptop-office.jpg',
@@ -79,6 +84,8 @@ return [
 
 'georgia' => [
     'name' => 'Georgia', 'abbr' => 'GA',
+    'pct65' => '15.7', 'association' => 'Georgia Association for Home Health Agencies', 'license_short' => 'Private Home Care Provider license',
+    'example_areas' => ['Marietta', 'Alpharetta', 'Roswell', 'Sandy Springs'],
     'meta_desc' => "Marketing for Georgia home care agencies: Google Maps rankings in metro Atlanta, Savannah, Augusta and Columbus, and more private-pay clients. From \$697/mo.",
     'hero_desc' => "Families across metro Atlanta and Georgia's regional cities search online before they choose a home care provider. We help licensed Georgia agencies get found, trusted and called.",
     'img_hero' => 'team-reviewing-laptop-collaboration.jpg', 'img_intro' => 'team-member-cafe-portrait.jpg',
@@ -114,6 +121,8 @@ return [
 
 'new-york' => [
     'name' => 'New York', 'abbr' => 'NY',
+    'pct65' => '18.9', 'association' => 'Home Care Association of New York State (HCA-NYS)', 'license_short' => 'LHCSA license',
+    'example_areas' => ['Bay Ridge', 'Forest Hills', 'Yonkers', 'White Plains'],
     'meta_desc' => "Marketing for New York LHCSAs: borough and neighborhood SEO, multilingual pages and caregiver recruitment across NYC, Long Island and upstate. From \$697/mo.",
     'hero_desc' => "New York is one of the most crowded home care markets in the country. We help New York agencies stand out by borough, by language and by service, so the right families find them first.",
     'img_hero' => 'team-presenting-results-screen-2.jpg', 'img_intro' => 'team-member-desk-openplan-office.jpg',
@@ -149,6 +158,9 @@ return [
 
 'north-carolina' => [
     'name' => 'North Carolina', 'abbr' => 'NC',
+    'pct65' => '17.9', 'association' => 'Association for Home & Hospice Care of North Carolina', 'license_short' => 'DHSR home care license',
+    'example_areas' => ['Charlotte', 'Matthews', 'Huntersville', 'Concord'],
+    'sources' => [['NC DHSR: Home Care Licensure', 'https://info.ncdhhs.gov/DHSR/ahc/homecare.html']],
     'meta_desc' => "Marketing for North Carolina home care agencies: Google Maps rankings in Charlotte, the Triangle and the Triad, plus retiree-focused content. From \$697/mo.",
     'hero_desc' => "North Carolina is one of the fastest-growing states for older adults. We help licensed NC home care agencies rank in Charlotte, the Triangle, the Triad and the state's retirement destinations.",
     'img_hero' => 'team-presenting-results-screen.jpg', 'img_intro' => 'team-member-working-library.jpg',
@@ -184,6 +196,9 @@ return [
 
 'ohio' => [
     'name' => 'Ohio', 'abbr' => 'OH',
+    'pct65' => '19.1', 'association' => 'Ohio Council for Home Care & Hospice', 'license_short' => 'PASSPORT certification and caregiver screening',
+    'example_areas' => ['Columbus', 'Dublin', 'Westerville', 'Hilliard'],
+    'sources' => [['Ohio Admin. Code 173-39 (ODA provider certification)', 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-173-39-02-4']],
     'meta_desc' => "Marketing for Ohio home care agencies: Google Maps rankings in Columbus, Cleveland, Cincinnati and Dayton, and more private-pay clients. From \$697/mo.",
     'hero_desc' => "Ohio families are often managing a parent's care from another city or state. We help Ohio home care agencies show up in local searches and make it easy for those families to choose them.",
     'img_hero' => 'team-reviewing-seo-dashboard.jpg', 'img_intro' => 'team-member-outdoor-market.jpg',
@@ -219,6 +234,9 @@ return [
 
 'pennsylvania' => [
     'name' => 'Pennsylvania', 'abbr' => 'PA',
+    'pct65' => '20.4', 'association' => 'Pennsylvania Homecare Association', 'license_short' => 'Department of Health home care license',
+    'example_areas' => ['Doylestown', 'King of Prussia', 'Media', 'West Chester'],
+    'sources' => [['Pennsylvania Department of Health: Home Care', 'https://www.pa.gov/en/agencies/health/facilities/out-patient-healthcare-facilities/home-care.html']],
     'meta_desc' => "Marketing for Pennsylvania home care agencies: local SEO in Philadelphia, Pittsburgh, the Lehigh Valley and Central PA. From \$697/mo.",
     'hero_desc' => "Pennsylvania has one of the oldest populations in the country, and families search hard for good care. We help licensed Pennsylvania agencies rank in their counties and convert those searches into clients.",
     'img_hero' => 'team-coffee-break-laughing.jpg', 'img_intro' => 'team-discussion-desk-meeting.jpg',
@@ -254,6 +272,8 @@ return [
 
 'texas' => [
     'name' => 'Texas', 'abbr' => 'TX',
+    'pct65' => '13.9', 'association' => 'Texas Association for Home Care & Hospice', 'license_short' => 'HCSSA license',
+    'example_areas' => ['Katy', 'Sugar Land', 'The Woodlands', 'Pearland'],
     'meta_desc' => "Marketing for Texas home care agencies: Google Maps rankings in Houston, Dallas–Fort Worth, San Antonio and Austin, in English and Spanish. From \$697/mo.",
     'hero_desc' => "Texas metros are huge and competitive, and families search suburb by suburb. We help licensed Texas home care agencies rank where they actually serve, in English and Spanish.",
     'img_hero' => 'team-reviewing-seo-dashboard.jpg', 'img_intro' => 'team-member-working-laptop-office.jpg',
@@ -289,6 +309,9 @@ return [
 
 'virginia' => [
     'name' => 'Virginia', 'abbr' => 'VA',
+    'pct65' => '17.6', 'association' => 'Virginia Association for Home Care and Hospice', 'license_short' => 'VDH home care organization license',
+    'example_areas' => ['Reston', 'McLean', 'Ashburn', 'Fairfax'],
+    'sources' => [['Virginia Administrative Code 12VAC5-381', 'https://law.lis.virginia.gov/admincode/title12/agency5/chapter381/section10/']],
     'meta_desc' => "Marketing for Virginia home care agencies: Google Maps rankings in Northern Virginia, Richmond and Hampton Roads, plus veteran outreach. From \$697/mo.",
     'hero_desc' => "Virginia combines high-income Northern Virginia, a large military community and fast-growing retirement areas. We help licensed Virginia home care organizations reach each of those families.",
     'img_hero' => 'team-discussion-desk-meeting.jpg', 'img_intro' => 'team-member-desk-openplan-office.jpg',
