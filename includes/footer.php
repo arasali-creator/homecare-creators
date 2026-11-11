@@ -44,6 +44,7 @@
             <li><a href="/web-design/homecare-website-design/">Website Design</a></li>
             <li><a href="/ai-search-seo/">AI Search SEO</a></li>
             <li><a href="/home-care-franchise-seo/">Franchise SEO</a></li>
+            <li><a href="/uk/home-care-marketing/">UK Home Care Marketing</a></li>
             <li><a href="/ai-automation/">AI &amp; Automation</a></li>
             <li><a href="/#bundles">Pricing &amp; Packages</a></li>
             <li><a href="/products/">Products</a></li>

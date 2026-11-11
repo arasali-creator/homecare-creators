@@ -310,20 +310,20 @@ echo '<script type="application/ld+json">' . json_encode([
       <div class="market-card">
         <div class="market-num">13,000+</div>
         <div class="market-title">Competition is high</div>
-        <div class="market-desc">Registered home care providers across the UK, including 11,951 in England. Much of the growth comes from new single-location agencies, so more agencies compete in every town.</div>
-        <div class="market-src">Source: homecare.co.uk (June 2026); NIHR PRU policy brief</div>
+        <div class="market-desc">Registered home care providers across the UK, including 11,951 in England. That means more agencies competing in every town.</div>
+        <div class="market-src">Source: <a href="https://www.homecare.co.uk/advice/home-care-facts-and-stats-number-of-providers-service-users-workforce" style="color:inherit;text-decoration:underline" target="_blank" rel="noopener">homecare.co.uk</a> (June 2026)</div>
       </div>
       <div class="market-card">
         <div class="market-num">48.8%</div>
         <div class="market-title">Half the market is invisible</div>
         <div class="market-desc">Of England's registered home care agencies list no website on the CQC register. Families searching "home care near me" simply can't find them.</div>
-        <div class="market-src">Source: Whito (August 2026)</div>
+        <div class="market-src">Source: <a href="https://whito.co.uk/research/cqc-register-missing-websites/" style="color:inherit;text-decoration:underline" target="_blank" rel="noopener">Whito analysis of the CQC register</a> (August 2026)</div>
       </div>
       <div class="market-card">
         <div class="market-num">9.1%</div>
         <div class="market-title">Recruitment is the bottleneck</div>
-        <div class="market-desc">Domiciliary care vacancy rate in 2025/26. Around a third of adult care workers are migrants, and tighter immigration rules are pushing agencies to recruit locally.</div>
-        <div class="market-src">Source: Homecare Association; Business Standard (October 2026)</div>
+        <div class="market-desc">Domiciliary care vacancy rate in 2025/26, over four times the economy-wide average. With tighter immigration rules, agencies increasingly need to recruit locally.</div>
+        <div class="market-src">Source: Skills for Care, via the <a href="https://www.homecareassociation.org.uk/resource/homecare-workers-need-secure-income-not-just-a-higher-hourly-rate.html" style="color:inherit;text-decoration:underline" target="_blank" rel="noopener">Homecare Association</a></div>
       </div>
       <div class="market-card">
         <div class="market-num"><i class="fa-solid fa-sterling-sign"></i></div>

@@ -136,7 +136,9 @@ function hc_csv_list(string $value): array {
  * so the two can never drift out of sync.
  */
 function hc_build_org_schema(array $od, array $sameAs): array {
-    $areaServed = array_map(fn($s) => ['@type' => 'State', 'name' => $s], hc_csv_list($od['org_area'] ?? ''));
+    // Country names become Country entries; anything else is treated as a US state.
+    $countries  = ['united states', 'usa', 'united kingdom', 'uk', 'canada'];
+    $areaServed = array_map(fn($s) => ['@type' => in_array(strtolower($s), $countries, true) ? 'Country' : 'State', 'name' => $s], hc_csv_list($od['org_area'] ?? ''));
     $serviceType = hc_csv_list($od['org_service_types'] ?? '');
     $address = array_filter([
         '@type'           => 'PostalAddress',

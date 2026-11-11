@@ -80,7 +80,7 @@ hc_topbar('Organization Schema', '<a href="/admin/">Admin</a> › Schema › Org
     <div class="form-group"><label>ZIP</label><input type="text" name="field[org_zip]" value="<?= h($data['org_zip']??'') ?>"></div>
   </div>
   <div class="form-group"><label>States Served</label><textarea name="field[org_area]" rows="2" placeholder="Florida, Texas, Georgia, North Carolina, Arizona, Tennessee, South Carolina, Virginia, New York, California"><?= h($data['org_area']??'Florida') ?></textarea>
-    <div class="form-hint">Comma-separated list of states you serve clients in. Each becomes its own <code>areaServed</code> entry in the schema.</div>
+    <div class="form-hint">Comma-separated list of states (or countries, e.g. United Kingdom) you serve clients in. Each becomes its own <code>areaServed</code> entry in the schema.</div>
   </div>
 </div>
 
