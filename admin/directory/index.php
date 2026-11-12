@@ -50,6 +50,13 @@ if (($_GET['action'] ?? '') === 'apply_logo_pack' && is_file($logoPackFile)) {
     header('Location: /admin/directory/'); exit;
 }
 
+// ── Unpublish every live listing that has no logo (reversible: they move to Rejected) ──
+if (($_GET['action'] ?? '') === 'hide_no_logo') {
+    $n = hc_q("UPDATE hc_directory_listings SET status='rejected', rejection_reason='No logo (hidden)' WHERE status='approved' AND (logo IS NULL OR logo='')")->rowCount();
+    hc_flash("{$n} listing(s) without a logo were unpublished. They're in the Rejected tab marked \"No logo\" — re-approve any of them once they have a logo.");
+    header('Location: /admin/directory/?view=rejected'); exit;
+}
+
 // ── Single actions ───────────────────────────────────────────────────────────
 $action = $_GET['action'] ?? '';
 $aid    = (int)($_GET['id'] ?? 0);
@@ -189,6 +196,8 @@ hc_topbar('Agency Directory', '<a href="/admin/">Admin</a> › Directory');
           if ($packSlugs) $packPending = (int)hc_val("SELECT COUNT(*) FROM hc_directory_listings WHERE (logo IS NULL OR logo='') AND slug IN (" . implode(',', array_fill(0, count($packSlugs), '?')) . ")", $packSlugs);
       }
     ?>
+    <?php $liveNoLogo = (int)hc_val("SELECT COUNT(*) FROM hc_directory_listings WHERE status='approved' AND (logo IS NULL OR logo='')"); ?>
+    <?php if ($liveNoLogo && !$packPending): ?><a href="/admin/directory/?action=hide_no_logo" class="btn btn-danger" data-confirm="Unpublish <?= $liveNoLogo ?> live listings that have no logo? They move to the Rejected tab and can be re-approved anytime. Nothing is deleted.">Unpublish listings without logo (<?= $liveNoLogo ?>)</a><?php endif ?>
     <?php if ($packPending): ?><a href="/admin/directory/?action=apply_logo_pack" class="btn btn-primary" data-confirm="Add researched logos (and websites) to <?= $packPending ?> listings that don't have one yet?">Apply logo pack (<?= $packPending ?>)</a><?php endif ?>
     <?php if ($noLogo): ?><a href="/admin/directory/?action=fetch_logos" class="btn btn-secondary" title="Finds the logo on each agency's website, 8 at a time">Fetch logos (<?= $noLogo ?>)</a><?php endif ?>
     <?php if ($unmapped): ?><a href="/admin/directory/?action=geocode_batch" class="btn btn-secondary" title="Looks up map pins for listings (15 at a time, takes ~20 seconds)">Map listings (<?= $unmapped ?>)</a><?php endif ?>
@@ -269,7 +278,7 @@ hc_topbar('Agency Directory', '<a href="/admin/">Admin</a> › Directory');
             <span style="color:var(--muted)">No owner on file</span>
           <?php endif ?>
         </td>
-        <td><span class="badge <?= $l['status'] === 'approved' ? 'badge-green' : ($l['status'] === 'rejected' ? 'badge-red' : 'badge-gray') ?>"><?= h($l['status'] === 'approved' ? 'live' : $l['status']) ?></span></td>
+        <td><span class="badge <?= $l['status'] === 'approved' ? 'badge-green' : ($l['status'] === 'rejected' ? 'badge-red' : 'badge-gray') ?>"><?= h($l['status'] === 'approved' ? 'live' : $l['status']) ?></span><?php if ($l['status'] === 'rejected' && $l['rejection_reason']): ?><div class="dir-sub"><?= h($l['rejection_reason']) ?></div><?php endif ?></td>
         <td style="font-size:12px;color:var(--muted);white-space:nowrap"><?= date('M j, Y', strtotime($l['created_at'])) ?></td>
         <td class="td-actions">
           <?php if ($l['status'] !== 'approved'): ?>
