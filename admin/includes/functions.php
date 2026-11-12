@@ -3,7 +3,7 @@
 function hc_scan_pages(): array {
     $root  = SITE_ROOT;
     $pages = [];
-    $skip  = ['admin','blog','includes','assets'];
+    $skip  = ['admin','blog','includes','assets','proposals']; // proposals = private, noindex pages
     // These folders are served at clean, flat URLs by the server's rewrite rules
     // (e.g. Marketing/foo.php -> /foo/), not at their real on-disk path.
     $flatten = ['Marketing','web-design','seo'];
