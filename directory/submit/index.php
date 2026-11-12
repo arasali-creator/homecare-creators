@@ -131,9 +131,6 @@ include '../../includes/header.php';
       <h1 class="dx-h1"><?= $claim ? 'Claim <em>' . htmlspecialchars($claim['company_name']) . '.</em>' : 'List your agency<br><em>in five minutes.</em>' ?></h1>
     </div>
     <div>
-      <p class="dx-lead"><?= $claim
-          ? 'Confirm you represent this agency to manage the listing, update its details and upgrade your profile.'
-          : 'Every listing is confirmed with the agency owner and reviewed by our team before it goes live.' ?></p>
       <div class="sx-trust"><span><i class="fa-solid fa-check"></i>Free plan available</span><span><i class="fa-solid fa-check"></i>No card needed</span><span><i class="fa-solid fa-check"></i>Owner-verified</span></div>
     </div>
   </div>
@@ -162,7 +159,7 @@ include '../../includes/header.php';
 
         <!-- STEP 1: PLAN -->
         <div class="sx-step">
-          <div class="sx-step-h"><span class="sx-step-n">01</span><div><h2>Choose your <em>plan.</em></h2><p>Paid plans are invoiced by email, so you don't need a card today. You can change plans anytime.</p></div></div>
+          <div class="sx-step-h"><span class="sx-step-n">01</span><div><h2>Choose your <em>plan.</em></h2></div></div>
           <div class="sx-plans">
             <?php foreach ($plans as $k => $p): ?>
             <label class="sx-plan<?= $plan === $k ? ' on' : '' ?>">
@@ -179,7 +176,7 @@ include '../../includes/header.php';
         <?php if (!$claim): ?>
         <!-- STEP 2: AGENCY -->
         <div class="sx-step">
-          <div class="sx-step-h"><span class="sx-step-n">02</span><div><h2>About your <em>agency.</em></h2><p>This is what families see on your public profile.</p></div></div>
+          <div class="sx-step-h"><span class="sx-step-n">02</span><div><h2>About your <em>agency.</em></h2></div></div>
 
           <div class="sx-f"><label for="fName">Agency name</label><input id="fName" name="company_name" required autocomplete="organization"></div>
           <div class="sx-row-3">
@@ -256,20 +253,19 @@ include '../../includes/header.php';
 
           <div class="sx-paid-only" id="paidFields">
             <h3>Profile extras <span>Premium &amp; Featured</span></h3>
-            <p class="sx-hint" style="margin:0 0 14px">After you confirm, you can email us your cover photo and gallery photos.</p>
             <div class="sx-f" style="margin-bottom:0"><label for="fTag">Tagline</label><input id="fTag" name="tagline" maxlength="160" placeholder="e.g. Compassionate in-home care across Central Florida since 2014"></div>
           </div>
         </div>
         <?php else: ?>
         <div class="sx-step">
-          <div class="sx-step-h"><span class="sx-step-n">02</span><div><h2>Anything to <em>update?</em></h2><p>Tell us what's wrong or missing on the current listing and we'll update it after you confirm.</p></div></div>
+          <div class="sx-step-h"><span class="sx-step-n">02</span><div><h2>Anything to <em>update?</em></h2></div></div>
           <div class="sx-f" style="margin-bottom:0"><textarea name="claim_notes" rows="4" placeholder="e.g. New phone number, add Skilled Nursing, we now serve Lake County…"></textarea></div>
         </div>
         <?php endif ?>
 
         <!-- STEP 3: OWNER -->
         <div class="sx-step">
-          <div class="sx-step-h"><span class="sx-step-n">03</span><div><h2>Owner or <em>authorized rep.</em></h2><p>We send a confirmation link to this person, and nothing is published until they confirm. This is kept private and never shown on your listing.</p></div></div>
+          <div class="sx-step-h"><span class="sx-step-n">03</span><div><h2>Owner or <em>authorized rep.</em></h2></div></div>
           <div class="sx-row">
             <div class="sx-f"><label for="oName">Full name</label><input id="oName" name="owner_name" required autocomplete="name"></div>
             <div class="sx-f"><label for="oTitle">Your role</label>

@@ -12,17 +12,17 @@
 function hc_dir_base_css(): string {
     return <<<CSS
 /* ── Directory design system ─────────────────────────────── */
-body{background:var(--forest)}
+body{background:var(--cream)}
 .dx{--ink:#0a2e1e;--txt:#2b342f;--mut:#6b7b6e;--hair:rgba(10,46,30,.1);--hair-2:rgba(10,46,30,.06);--paper:#fff;--panel:var(--cream);--gold-ink:#7a5c12;--gold-bg:#f6ecd0;font-family:'DM Sans',sans-serif;color:var(--txt);-webkit-font-smoothing:antialiased}
 .dx a{color:inherit;text-decoration:none}
 .dx h1,.dx h2,.dx h3,.dx h4{font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);letter-spacing:-.02em}
 .dx em{font-style:italic;color:var(--teal)}
 
 /* frame + panels (same recipe as the footer) */
-.dx-frame{background:var(--forest);padding:0 28px 28px}
-.dx-frame.is-first{padding-top:96px}
-.dx-panel{max-width:1400px;margin:0 auto;background:var(--panel);border-radius:40px;padding:72px 64px;position:relative;overflow:hidden}
-.dx-panel+.dx-panel{margin-top:28px}
+.dx-frame{background:var(--cream);padding:0}
+.dx-frame.is-first{padding-top:72px}
+.dx-panel{max-width:none;margin:0;background:var(--cream);border-radius:0;padding:72px 32px;position:relative}
+.dx-panel+.dx-panel{border-top:1px solid var(--hair)}
 .dx-in{max-width:1200px;margin:0 auto;position:relative}
 
 /* type */
@@ -69,8 +69,8 @@ body{background:var(--forest)}
 
 /* pricing (inside a forest frame) */
 .dx-pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.dx-plan{background:var(--cream);border-radius:32px;padding:36px 32px 32px;display:flex;flex-direction:column;position:relative}
-.dx-plan.is-pop{background:#fff;box-shadow:0 0 0 2px var(--teal-lt)}
+.dx-plan{background:#fff;border-radius:32px;padding:36px 32px 32px;display:flex;flex-direction:column;position:relative}
+.dx-plan.is-pop{background:#fff;box-shadow:0 0 0 2px var(--teal),0 24px 60px rgba(10,46,30,.08)}
 .dx-plan-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
 .dx-plan-top h3{font-size:15px;font-weight:700}
 .dx-plan-tag{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:#fff;background:var(--teal);padding:6px 11px;border-radius:100px}
@@ -83,14 +83,12 @@ body{background:var(--forest)}
 .dx-plan .dx-btn{width:100%;padding:16px}
 
 @media(max-width:1024px){
-  .dx-panel{padding:56px 36px}
+  .dx-panel{padding:56px 24px}
   .dx-pricing{grid-template-columns:1fr;max-width:480px;margin:0 auto}
 }
 @media(max-width:640px){
-  .dx-frame{padding:0 10px 10px}
-  .dx-frame.is-first{padding-top:80px}
-  .dx-panel{padding:40px 20px;border-radius:28px}
-  .dx-panel+.dx-panel{margin-top:10px}
+  .dx-frame.is-first{padding-top:62px}
+  .dx-panel{padding:40px 16px}
   .dx-lead{font-size:16px}
   .dx-plan{padding:28px 24px;border-radius:24px}
 }
@@ -156,16 +154,14 @@ function hc_dir_extra_css(): string {
 .os.is-open{color:#0b8a5a}
 .os.is-closed{color:#c2410c}
 .os span{color:var(--mut);font-weight:400}
-.ad{position:relative;background:var(--ink);border-radius:28px;padding:26px;color:#fff;overflow:hidden}
-.ad::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;right:-90px;bottom:-110px;border:1px solid rgba(255,255,255,.08);box-shadow:0 0 0 34px rgba(255,255,255,.025),0 0 0 68px rgba(255,255,255,.015)}
-.ad-lab{position:relative;display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
-.ad-lab b{background:rgba(255,255,255,.12);color:#fff;border-radius:4px;padding:2px 6px;letter-spacing:.5px}
-.ad h4{position:relative;color:#fff;font-size:21px;font-weight:800;letter-spacing:-.03em;line-height:1.2;margin-bottom:8px}
-.ad h4 em{color:var(--teal-lt)}
-.ad p{position:relative;font-size:14px;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:18px}
-.ad ul{position:relative;list-style:none;margin:0 0 20px;padding:0}
-.ad li{font-size:13.5px;color:rgba(255,255,255,.8);padding:4px 0;display:flex;gap:10px}
-.ad li i{color:var(--teal-lt);font-size:11px;margin-top:4px}
+.ad{position:relative;background:#fff;border:1px solid var(--hair);border-radius:28px;padding:26px;color:var(--ink);overflow:hidden}
+.ad-lab{position:relative;display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.ad h4{position:relative;color:var(--ink);font-size:20px;font-weight:800;letter-spacing:-.03em;line-height:1.2;margin-bottom:8px}
+.ad h4 em{color:var(--teal)}
+.ad p{position:relative;font-size:14px;color:var(--mut);line-height:1.6;margin-bottom:16px}
+.ad ul{position:relative;list-style:none;margin:0 0 18px;padding:0}
+.ad li{font-size:13.5px;color:var(--txt);padding:4px 0;display:flex;gap:10px}
+.ad li i{color:var(--teal);font-size:11px;margin-top:4px}
 .ad .dx-btn{position:relative}
 .ad.is-row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;border-radius:24px;padding:24px 28px}
 .ad.is-row p{margin-bottom:0}
@@ -203,12 +199,11 @@ function hc_dir_hc_ad(string $variant = 'side'): string {
     if ($variant === 'row') {
         return '<aside class="ad is-row"><div><div class="ad-lab">Homecare Creators</div>'
             . '<h4>Own a home care agency? <em>Get more private-pay clients.</em></h4>'
-            . '<p>We build websites, local SEO and Google Maps rankings for home care agencies, so families find you first.</p></div>'
+            . '</div>'
             . '<a class="dx-btn is-teal" href="/contact/?ref=directory">Get a free marketing audit <i class="fa-solid fa-arrow-right" style="font-size:12px"></i></a></aside>';
     }
     return '<aside class="ad"><div class="ad-lab">Homecare Creators</div>'
         . '<h4>Grow your agency with <em>more client calls.</em></h4>'
-        . '<p>Marketing built only for home care agencies.</p>'
         . '<ul><li><i class="fa-solid fa-check"></i>Websites that turn visits into calls</li><li><i class="fa-solid fa-check"></i>Rank higher on Google Maps</li><li><i class="fa-solid fa-check"></i>Show up in AI search results</li></ul>'
         . '<a class="dx-btn is-teal" href="/contact/?ref=directory" style="width:100%">Free marketing audit <i class="fa-solid fa-arrow-right" style="font-size:12px"></i></a></aside>';
 }
@@ -230,22 +225,21 @@ function hc_dir_popup_html(): string {
     $prem  = (int)$plans['premium']['price'];
     return <<<HTML
 <style>
-.dxp{position:fixed;right:24px;bottom:24px;z-index:450;width:360px;max-width:calc(100vw - 32px);background:#0a2e1e;color:#fff;border-radius:26px;padding:24px 24px 22px;box-shadow:0 30px 80px rgba(0,0,0,.35);font-family:'DM Sans',sans-serif;transform:translateY(24px);opacity:0;pointer-events:none;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s;overflow:hidden}
+.dxp{position:fixed;right:24px;bottom:24px;z-index:450;width:360px;max-width:calc(100vw - 32px);background:#fff;color:#0a2e1e;border:1px solid rgba(10,46,30,.1);border-radius:26px;padding:24px 24px 22px;box-shadow:0 30px 80px rgba(0,0,0,.35);font-family:'DM Sans',sans-serif;transform:translateY(24px);opacity:0;pointer-events:none;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s;overflow:hidden}
 .dxp.show{transform:none;opacity:1;pointer-events:auto}
-.dxp::after{content:"";position:absolute;width:200px;height:200px;border-radius:50%;right:-80px;top:-90px;border:1px solid rgba(255,255,255,.08);box-shadow:0 0 0 30px rgba(255,255,255,.025)}
-.dxp-x{position:absolute;top:14px;right:14px;z-index:1;width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;cursor:pointer;font-size:13px}
-.dxp-x:hover{background:rgba(255,255,255,.1)}
-.dxp-k{position:relative;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#9fe1cb;margin-bottom:10px;font-family:'Plus Jakarta Sans',sans-serif}
-.dxp h4{position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-size:21px;font-weight:800;letter-spacing:-.03em;line-height:1.2;margin:0 34px 8px 0;color:#fff}
-.dxp h4 em{font-style:italic;color:#2ec68f}
-.dxp p{position:relative;font-size:14px;line-height:1.55;color:rgba(255,255,255,.7);margin:0 0 16px}
+.dxp-x{position:absolute;top:14px;right:14px;z-index:1;width:32px;height:32px;border-radius:50%;border:1px solid rgba(10,46,30,.15);background:transparent;color:#0a2e1e;cursor:pointer;font-size:13px}
+.dxp-x:hover{background:#f5f2ec}
+.dxp-k{position:relative;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#1d9e75;margin-bottom:10px;font-family:'Plus Jakarta Sans',sans-serif}
+.dxp h4{position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-size:21px;font-weight:800;letter-spacing:-.03em;line-height:1.2;margin:0 34px 14px 0;color:#0a2e1e}
+.dxp h4 em{font-style:italic;color:#1d9e75}
+.dxp p{position:relative;font-size:14px;line-height:1.55;color:#6b7b6e;margin:0 0 16px}
 .dxp ul{position:relative;list-style:none;margin:0 0 18px;padding:0}
-.dxp li{font-size:13.5px;color:rgba(255,255,255,.85);padding:3px 0;display:flex;gap:9px}
-.dxp li:before{content:"✓";color:#2ec68f;font-weight:700}
+.dxp li{font-size:13.5px;color:#2b342f;padding:3px 0;display:flex;gap:9px}
+.dxp li:before{content:"✓";color:#1d9e75;font-weight:700}
 .dxp-a{position:relative;display:flex;gap:8px}
 .dxp-a a{flex:1;display:inline-flex;justify-content:center;align-items:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;padding:13px 16px;border-radius:100px;text-decoration:none!important;transition:background .2s}
-.dxp-a a.p{background:#1d9e75;color:#fff}.dxp-a a.p:hover{background:#2ec68f}
-.dxp-a a.s{border:1px solid rgba(255,255,255,.25);color:#fff}.dxp-a a.s:hover{border-color:#fff}
+.dxp-a a.p{background:#0a2e1e;color:#fff}.dxp-a a.p:hover{background:#1d9e75}
+.dxp-a a.s{border:1px solid rgba(10,46,30,.2);color:#0a2e1e}.dxp-a a.s:hover{border-color:#0a2e1e}
 @media(max-width:700px){.dxp{right:16px;left:16px;bottom:84px;width:auto;border-radius:22px;padding:20px}}
 </style>
 <div class="dxp" id="dxPop" role="dialog" aria-live="polite" aria-label="Agency owners">
@@ -266,7 +260,6 @@ function hc_dir_popup_html(): string {
         + '<div class="dxp-a"><a class="p" href="/directory/account/#upgrade">Go Premium · \${$prem}/mo</a></div>', 1500);
     } else if (!me.loggedIn) {
       show('owner', '<div class="dxp-k">For agency owners</div><h4>Is your agency <em>listed?</em></h4>'
-        + '<p>Families use this directory to find home care. Add your agency free, or claim your existing listing.</p>'
         + '<div class="dxp-a"><a class="p" href="/directory/submit/">List free</a><a class="s" href="/directory/account/">Owner log in</a></div>', 9000);
     }
   }).catch(function(){});

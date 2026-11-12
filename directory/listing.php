@@ -430,7 +430,6 @@ $cityLink = '/directory/?loc=' . urlencode($l['city'] . ', ' . $l['state']) . '#
             <?php endforeach ?>
           </div>
           <?php if (count($areas) > 12): ?><button class="dx-btn am-btn" type="button" onclick="var g=document.getElementById('arGrid');g.classList.toggle('open');this.textContent=g.classList.contains('open')?'Show fewer':'Show all <?= count($areas) ?> areas'">Show all <?= count($areas) ?> areas</button><?php endif ?>
-          <p class="ar-note"><i class="fa-solid fa-circle-info"></i>Not on the list? Many agencies travel further. Ask when you call.</p>
         </div>
         <?php endif ?>
 
@@ -562,7 +561,6 @@ $cityLink = '/directory/?loc=' . urlencode($l['city'] . ', ' . $l['state']) . '#
         <?php if ($featured): ?>
         <div class="cc">
           <h3>Request a <em>free</em> consultation</h3>
-          <p class="cc-sub">Tell <?= htmlspecialchars($l['company_name']) ?> what you need. Your request goes straight to the agency.</p>
           <form class="fm" id="lxLead" onsubmit="return lxSend(event)">
             <div class="hp-field" aria-hidden="true"><input type="text" name="hp_website" tabindex="-1" autocomplete="off"></div>
             <label for="lxName">Your name</label><input id="lxName" name="name" required autocomplete="name">
@@ -591,7 +589,7 @@ $cityLink = '/directory/?loc=' . urlencode($l['city'] . ', ' . $l['state']) . '#
         <?php if ($hasOwner && !$paid): ?>
         <div class="claim">
           <span class="dx-arrow" style="background:var(--gold-bg);border:0;color:var(--gold-ink)"><i class="fa-solid fa-arrow-trend-up"></i></span>
-          <div><b>Stand out in <?= htmlspecialchars($l['city']) ?></b><p>Add photos and your website, and rank above nearby agencies.</p><a class="go" href="/directory/submit/?claim=<?= urlencode($l['slug']) ?>&plan=premium">See upgrade options →</a></div>
+          <div><b>Stand out in <?= htmlspecialchars($l['city']) ?></b><a class="go" href="/directory/submit/?claim=<?= urlencode($l['slug']) ?>&plan=premium">See upgrade options →</a></div>
         </div>
         <?php endif ?>
 

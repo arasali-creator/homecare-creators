@@ -114,7 +114,7 @@ $page_css = hc_dir_base_css() . hc_dir_extra_css() . <<<CSS
 /* ── HERO (landing) / SEARCH HEAD (filtered) ── */
 .hx{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
 .hx .dx-label{margin-bottom:26px}
-.hx .dx-h1{margin-bottom:22px}
+.hx .dx-h1{margin-bottom:34px}
 .hx .dx-lead{max-width:520px;margin-bottom:34px}
 .sb{display:flex;align-items:center;background:#fff;border:1px solid var(--hair);border-radius:100px;padding:7px 7px 7px 8px;max-width:660px;box-shadow:0 20px 50px rgba(10,46,30,.08)}
 .sb label{flex:1;display:flex;align-items:center;gap:12px;padding:0 18px;min-width:0}
@@ -264,15 +264,13 @@ $page_css = hc_dir_base_css() . hc_dir_extra_css() . <<<CSS
 .ct a:hover{color:var(--teal);padding-left:6px}
 
 /* owners */
-.ow{max-width:1400px;margin:0 auto;padding:100px 36px 84px}
+.ow{padding:88px 32px;border-top:1px solid var(--hair)}
 .ow-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;max-width:1200px;margin:0 auto 52px}
-.ow-head .dx-h2{color:#fff}
-.ow-head .dx-h2 em{color:var(--teal-lt)}
-.ow-head p{color:rgba(255,255,255,.6);font-size:17px;line-height:1.7}
-.ow .dx-label{color:#fff;border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.04);margin-bottom:22px}
+.ow-head{display:block!important;text-align:center}
+.ow .dx-label{margin-bottom:20px}
 .ow .dx-pricing{max-width:1200px;margin:0 auto}
-.ow-foot{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 36px;margin-top:40px;font-size:14px;color:rgba(255,255,255,.6)}
-.ow-foot i{color:var(--teal-lt);margin-right:8px}
+.ow-foot{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 36px;margin-top:36px;font-size:14px;color:var(--mut)}
+.ow-foot i{color:var(--teal);margin-right:8px}
 
 .m-filter{display:none!important}
 @media(max-width:1280px){
@@ -321,7 +319,7 @@ $page_css = hc_dir_base_css() . hc_dir_extra_css() . <<<CSS
   .sh{flex-direction:column;align-items:flex-start;gap:10px}
   .fe-grid,.gd{grid-template-columns:1fr}
   .ct{grid-template-columns:1fr 1fr;gap:0 20px}
-  .ow{padding:64px 10px 48px}
+  .ow{padding:56px 16px}
 }
 CSS;
 include '../includes/header.php';
@@ -354,7 +352,6 @@ $faqs = [
         <div>
           <span class="dx-label">Home Care Agency Directory</span>
           <h1 class="dx-h1">Find home care<br>you can <em>trust.</em></h1>
-          <p class="dx-lead">Compare local agencies side by side: services, hours, payment options and reviews from real families. Then call or request info directly.</p>
           <form class="sb" method="GET" action="/directory/#results" role="search">
             <label><i class="fa-solid fa-magnifying-glass"></i><input type="text" name="q" placeholder="Type of care or agency name" aria-label="Type of care or agency name"></label>
             <label><i class="fa-solid fa-location-dot"></i><input type="text" name="loc" placeholder="City or state" list="dxLocs" aria-label="City or state"></label>
@@ -370,7 +367,7 @@ $faqs = [
           <div class="hx-photo"><img src="/images/home/hero-caregiver-elderly.jpg" alt=""></div>
           <div class="hx-tag"><i class="fa-solid fa-shield-heart"></i>Every listing reviewed</div>
           <div class="hx-card">
-            <div class="hx-card-top"><span class="dx-arrow is-dark" style="width:38px;height:38px"><i class="fa-solid fa-star"></i></span><div><b>Reviews from real families</b><small>Checked by our team before they're published</small></div></div>
+            <div class="hx-card-top"><span class="dx-arrow is-dark" style="width:38px;height:38px"><i class="fa-solid fa-star"></i></span><div><b>Reviews from real families</b></div></div>
           </div>
         </div>
       </div>
@@ -576,7 +573,6 @@ $faqs = [
     <div class="dx-in">
       <div class="sh">
         <div><div class="dx-kick" style="margin-bottom:14px">Featured</div><h2 class="dx-h2">Agencies in <em>the spotlight.</em></h2></div>
-        <p>Featured agencies are paid placements, reviewed like every other listing.</p>
       </div>
       <div class="fe-grid">
         <?php foreach ($spotlight as $l): $mc = hc_dir_mono_color($l['company_name']); ?>
@@ -604,7 +600,6 @@ $faqs = [
 
       <div class="sh" style="margin-top:96px">
         <div><div class="dx-kick" style="margin-bottom:14px">Family guide</div><h2 class="dx-h2">How to choose <em>the right agency.</em></h2></div>
-        <p>Four things families ask about most when they compare home care agencies.</p>
       </div>
       <div class="gd">
         <div><b>01</b><h3>Check licensing</h3><p>Ask for the agency's state license number. Our directory shows it whenever the agency provides one.</p></div>
@@ -645,7 +640,6 @@ $faqs = [
         <span class="dx-label">For agency owners</span>
         <h2 class="dx-h2">Be the agency families <em>call first.</em></h2>
       </div>
-      <p>Start with a free listing. Upgrade for a verified profile with photos and your website link, top placement in your city, and inquiries sent straight to your inbox.</p>
     </div>
     <?= hc_dir_pricing_html(fn($k) => '/directory/submit/?plan=' . $k) ?>
     <div class="ow-foot">
