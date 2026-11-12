@@ -198,6 +198,21 @@ function hc_dir_mark_paid(int $id, int $months = 1): void {
     hc_q("UPDATE hc_directory_listings SET featured = (plan='featured') WHERE id=?", [$id]);
 }
 
+/** True when the description is the placeholder text from the bulk import (never show that publicly). */
+function hc_dir_is_placeholder_desc(?string $d): bool {
+    $d = (string)$d;
+    return $d === '' || stripos($d, 'directory research') !== false || stripos($d, 'before approving') !== false;
+}
+
+/** Public-safe description: real text, or a neutral generated sentence for imported placeholders. */
+function hc_dir_public_desc(array $l): string {
+    if (!hc_dir_is_placeholder_desc($l['description'] ?? '')) return trim($l['description']);
+    $svcs = hc_dir_lines($l['services'] ?? '');
+    $s = $l['company_name'] . ' is a home care agency based in ' . $l['city'] . ', ' . $l['state'] . '.';
+    if ($svcs) $s .= ' Services include ' . strtolower(implode(', ', array_slice($svcs, 0, 3))) . '.';
+    return $s;
+}
+
 /** SQL expression ranking tiers (higher first) — mirrors hc_dir_tier(). */
 function hc_dir_rank_sql(): string {
     $active = "payment_status IN ('paid','comp') AND (paid_until IS NULL OR paid_until >= CURDATE())";

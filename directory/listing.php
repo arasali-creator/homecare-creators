@@ -19,24 +19,25 @@ $services = hc_dir_lines($l['services']);
 $areas    = hc_dir_areas($l['service_areas']);
 $payments = hc_dir_lines($l['payment_accepted']);
 $photos   = $paid ? array_slice(hc_dir_lines($l['photos']), 0, 9) : [];
-$claimed  = !empty($l['owner_confirmed_at']); // claimed or claim in progress — hides the claim prompt
+$hasOwner = !empty($l['owner_confirmed_at']);           // claimed or claim in progress — hides the claim prompt
+$isPlaceholder = hc_dir_is_placeholder_desc($l['description']);
+$about    = hc_dir_public_desc($l);
 $canonical = "https://homecarecreators.com/directory/" . $l['slug'];
 $mapQuery  = trim(($l['address'] ? $l['address'] . ', ' : '') . $l['city'] . ', ' . $l['state']);
 $phoneHref = preg_replace('/[^0-9+]/', '', (string)$l['phone']);
+$cover     = ($paid && $l['cover_image']) ? $l['cover_image'] : '';
 
-// Nearby agencies (not on paid profiles — that's a Premium perk)
 $nearby = $paid ? [] : hc_all(
     "SELECT * FROM hc_directory_listings WHERE status='approved' AND id<>? AND state=? ORDER BY (city=?) DESC, " . hc_dir_rank_sql() . " DESC, RAND() LIMIT 3",
     [$l['id'], $l['state'], $l['city']]
 );
 
-$descText   = $l['description'];
 $page_title = $l['company_name'] . ' — Home Care in ' . $l['city'] . ', ' . $l['state'] . ' | Homecare Creators Directory';
-$page_desc  = mb_strlen($descText) > 158 ? rtrim(mb_substr($descText, 0, 155)) . '…' : $descText;
+$page_desc  = mb_strlen($about) > 158 ? rtrim(mb_substr($about, 0, 155)) . '…' : $about;
 $page_canonical = $canonical;
 $og_title = $l['company_name'] . ' — Home Care in ' . $l['city'] . ', ' . $l['state'];
 $og_desc  = $page_desc;
-$og_image = $paid ? ($l['cover_image'] ?: ($l['logo'] ?: null)) : null;
+$og_image = $paid ? ($cover ?: ($l['logo'] ?: null)) : null;
 
 $svcIcons = [
     'Personal Care' => 'fa-hand-holding-heart', 'Companion Care' => 'fa-people-arrows', 'Skilled Nursing' => 'fa-user-nurse',
@@ -44,103 +45,137 @@ $svcIcons = [
     'Respite Care' => 'fa-mug-hot', 'Post-Hospital Care' => 'fa-hospital', 'Medication Management' => 'fa-pills',
     'Homemaker Services' => 'fa-broom', 'Transportation' => 'fa-car', 'Hospice Support' => 'fa-dove',
 ];
+$mono = hc_dir_mono_color($l['company_name']);
 
 $page_css = hc_dir_base_css() . <<<CSS
-body{background:#fff}
-.lx-cover{height:260px;background:#0f3d28 center/cover no-repeat;margin-top:72px;position:relative}
-.lx-cover.is-blank{background-color:var(--forest);background-image:radial-gradient(circle at 18% 120%,rgba(46,198,143,.22),transparent 45%),radial-gradient(circle at 90% -20%,rgba(201,168,76,.16),transparent 40%);height:180px}
-.lx-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.28))}
-.lx-cover.is-blank::after{display:none}
-.lx-cover .dx-crumbs{position:absolute;top:18px;left:0;right:0;z-index:2}
+body{background:var(--bg,#f4f5f1)}
+.dx{background:var(--bg)}
 
-.lx-head{border-bottom:1px solid var(--line);background:#fff}
-.lx-head-in{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:end;padding-bottom:22px}
-.lx-head .dx-logo{margin-top:-52px;position:relative;z-index:2;box-shadow:0 6px 20px rgba(0,0,0,.1);border:3px solid #fff}
-.lx-title{padding-top:18px;min-width:0}
-.lx-title h1{font-size:clamp(24px,3vw,34px);font-weight:800;line-height:1.15;margin-bottom:8px}
-.lx-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-.lx-meta{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--ink-3)}
-.lx-meta i{margin-right:6px;color:var(--ink-3)}
-.lx-actions{display:flex;gap:8px;flex-wrap:wrap}
+/* ── HEADER ─────────────────────────────── */
+.lh{position:relative;background:var(--forest);padding:104px 0 0;overflow:hidden}
+.lh-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.lh-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,46,30,.55),rgba(10,46,30,.92))}
+.lh-glow{position:absolute;inset:0;background:radial-gradient(800px 380px at 90% 0%,rgba(46,198,143,.16),transparent 60%),radial-gradient(600px 320px at 0% 100%,rgba(201,168,76,.10),transparent 60%)}
+.lh .dx-wrap{position:relative}
+.lh-top{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;padding:26px 0 34px}
+.lh-top .dx-logo{border:4px solid rgba(255,255,255,.95);box-shadow:0 14px 36px rgba(0,0,0,.3)}
+.lh h1{color:#fff;font-size:clamp(28px,3.6vw,44px);font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:12px}
+.lh-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.lh-meta{display:flex;flex-wrap:wrap;gap:8px 22px;color:rgba(255,255,255,.72);font-size:15px}
+.lh-meta i{color:var(--teal-lt);margin-right:7px}
+.lh-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.lh-actions .dx-btn{padding:13px 18px}
 
-.lx-tabs{position:sticky;top:62px;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.lx-tabs .dx-wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
-.lx-tabs a{font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;font-weight:700;color:var(--ink-3);text-decoration:none;padding:14px 12px;border-bottom:2px solid transparent;white-space:nowrap}
-.lx-tabs a:hover,.lx-tabs a.on{color:var(--ink);border-bottom-color:var(--teal)}
+/* glance strip */
+.lg{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:18px 18px 0 0;box-shadow:0 -10px 30px rgba(0,0,0,.08)}
+.lg-item{display:flex;gap:14px;align-items:center;padding:20px 22px;min-width:0}
+.lg-item+.lg-item{border-left:1px solid var(--line-2)}
+.lg-ic{width:42px;height:42px;border-radius:12px;background:#eef4f0;color:var(--forest);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.lg-item small{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:2px}
+.lg-item b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lg-item a b:hover{color:var(--teal)}
 
-.lx-body{display:grid;grid-template-columns:1fr 360px;gap:48px;padding:36px 0 72px}
-.lx-sec{padding:28px 0;border-bottom:1px solid var(--line-2);scroll-margin-top:130px}
-.lx-sec:first-child{padding-top:0}
-.lx-sec h2{font-size:20px;font-weight:800;margin-bottom:14px}
-.lx-tagline{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:600;color:var(--ink);line-height:1.5;margin-bottom:12px}
-.lx-about{font-size:16px;line-height:1.8;color:var(--ink-2);white-space:pre-line}
-.lx-svc{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
-.lx-svc div{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--ink-2);padding:6px 0}
-.lx-svc i{width:34px;height:34px;border-radius:8px;background:#eef3ef;color:var(--forest);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
-.lx-facts{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.lx-fact{padding:16px 18px;border-bottom:1px solid var(--line-2)}
-.lx-fact:nth-child(odd){border-right:1px solid var(--line-2)}
-.lx-fact dt{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);margin-bottom:4px;font-family:'Plus Jakarta Sans',sans-serif}
-.lx-fact dd{font-size:15px;color:var(--ink);margin:0;line-height:1.5}
-.lx-chips{display:flex;flex-wrap:wrap;gap:8px}
-.lx-chips span{font-size:13.5px;color:var(--ink-2);border:1px solid var(--line);padding:6px 12px;border-radius:6px}
-.lx-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.lx-photos a{display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:#eee}
-.lx-photos img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
-.lx-photos a:hover img{transform:scale(1.04)}
-.lx-map{border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.lx-map iframe{display:block;width:100%;height:280px;border:0}
-.lx-map-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;font-size:14px;color:var(--ink-2)}
-.lx-locked{display:flex;gap:14px;align-items:flex-start;border:1px dashed #cfd6d1;border-radius:12px;padding:18px;color:var(--ink-3);font-size:14px;line-height:1.55}
-.lx-locked i{color:var(--ink-3);margin-top:3px}
+/* sticky tabs */
+.lt{position:sticky;top:62px;z-index:30;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 6px 16px rgba(16,26,21,.04)}
+.lt-in{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.lt-in::-webkit-scrollbar{display:none}
+.lt-in a{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--ink-3);padding:16px 14px;border-bottom:2.5px solid transparent;white-space:nowrap;transition:color .15s}
+.lt-in a:hover{color:var(--ink)}
+.lt-in a.on{color:var(--ink);border-bottom-color:var(--teal)}
 
-.lx-side{position:sticky;top:130px;align-self:start;display:flex;flex-direction:column;gap:16px}
-.lx-card{border:1px solid var(--line);border-radius:14px;padding:22px;background:#fff}
-.lx-card h3{font-size:16px;font-weight:800;margin-bottom:4px}
-.lx-card-sub{font-size:13.5px;color:var(--ink-3);margin-bottom:16px;line-height:1.5}
-.lx-crow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-top:1px solid var(--line-2);font-size:14.5px}
-.lx-crow:first-of-type{border-top:0;padding-top:0}
-.lx-crow a{color:var(--teal);font-weight:700;text-decoration:none;word-break:break-word}
-.lx-crow span{color:var(--ink-2);word-break:break-word}
-.lx-crow i{color:var(--ink-3);font-size:15px;width:18px;text-align:center}
-.lx-form label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-2);margin:0 0 5px;font-family:'Plus Jakarta Sans',sans-serif}
-.lx-form input,.lx-form select,.lx-form textarea{width:100%;font:inherit;font-size:14.5px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:12px;background:#fff;color:var(--ink);outline:0}
-.lx-form input:focus,.lx-form select:focus,.lx-form textarea:focus{border-color:var(--teal)}
-.lx-form .dx-btn{width:100%;padding:13px}
-.lx-form small{display:block;font-size:11.5px;color:var(--ink-3);margin-top:10px;line-height:1.5}
-.lx-ok{display:none;text-align:center;padding:12px 0}
-.lx-ok i{font-size:34px;color:var(--teal);margin-bottom:10px}
-.lx-claim{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px 20px;font-size:14px;color:var(--ink-2);line-height:1.55}
-.lx-claim strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);margin-bottom:4px}
-.lx-claim a{color:var(--teal);font-weight:700;text-decoration:none}
-.lx-report{font-size:12.5px;color:var(--ink-3);text-align:center}
-.lx-report a{color:var(--ink-3)}
+/* body */
+.lb{display:grid;grid-template-columns:1fr 380px;gap:28px;padding:28px 0 88px;align-items:start}
+.lc{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:30px;margin-bottom:18px;scroll-margin-top:140px}
+.lc h2{font-size:21px;font-weight:800;margin-bottom:16px}
+.lc-tagline{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--ink);line-height:1.45;margin-bottom:12px}
+.lc-about{font-size:16.5px;line-height:1.8;color:var(--ink-2);white-space:pre-line}
+.lc-note{display:flex;gap:14px;align-items:flex-start;background:#f6f7f3;border-radius:14px;padding:16px 18px;margin-top:20px;font-size:14px;color:var(--ink-2);line-height:1.55}
+.lc-note i{color:var(--gold);font-size:16px;margin-top:2px}
+.lc-note a{color:var(--teal);font-weight:700}
+.sv{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.sv div{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;background:#f6f8f5;font-size:15px;font-weight:600;color:var(--ink)}
+.sv i{width:38px;height:38px;border-radius:11px;background:#fff;color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.sv-empty{font-size:15px;color:var(--ink-3)}
+.fx{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line-2);border-radius:14px;overflow:hidden}
+.fx div{padding:18px 20px}
+.fx div:nth-child(odd){border-right:1px solid var(--line-2)}
+.fx div:nth-child(n+3){border-top:1px solid var(--line-2)}
+.fx small{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:5px}
+.fx p{font-size:15px;color:var(--ink);line-height:1.5}
+.fx p.muted{color:var(--ink-3)}
+.ar{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.ar span{font-size:14px;color:var(--ink-2);background:#f6f8f5;padding:8px 14px;border-radius:100px}
+.ar i{color:var(--teal);margin-right:6px;font-size:11px}
+.ph{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ph a{display:block;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#eee}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.ph a:hover img{transform:scale(1.05)}
+.mp{border-radius:14px;overflow:hidden;background:#e9ece7}
+.mp iframe{display:block;width:100%;height:320px;border:0}
+.mp-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:16px;font-size:15px;color:var(--ink-2)}
+.mp-foot i{color:var(--teal);margin-right:8px}
 
-.lx-near{background:var(--bg);border-top:1px solid var(--line);padding:48px 0 64px}
-.lx-near h2{font-size:19px;font-weight:800;margin-bottom:16px}
-.lx-near-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.lx-near-card{display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;transition:border-color .15s,box-shadow .15s}
-.lx-near-card:hover{border-color:#cfd6d1;box-shadow:0 8px 24px rgba(20,32,26,.06)}
-.lx-near-card h3{font-size:15px;font-weight:800;margin-bottom:3px;line-height:1.3}
-.lx-near-card p{font-size:13px;color:var(--ink-3)}
+/* sidebar */
+.ls{position:sticky;top:140px;display:flex;flex-direction:column;gap:16px}
+.sc{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:26px}
+.sc h3{font-size:18px;font-weight:800;margin-bottom:6px}
+.sc-sub{font-size:14px;color:var(--ink-3);line-height:1.55;margin-bottom:18px}
+.sc-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px solid var(--line-2);font-size:15px;min-width:0}
+.sc-row:first-of-type{border-top:0;padding-top:4px}
+.sc-row .ic{width:38px;height:38px;border-radius:11px;background:#eef4f0;color:var(--forest);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.sc-row small{display:block;font-size:12px;color:var(--ink-3)}
+.sc-row b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:var(--ink);word-break:break-word}
+.sc-row a:hover b{color:var(--teal)}
+.sc-call{width:100%;padding:15px;font-size:15px;margin-top:6px}
+.lf label{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--ink);margin:0 0 6px}
+.lf input,.lf select,.lf textarea{width:100%;font:inherit;font-size:15px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:14px;background:#fff;color:var(--ink);outline:0;transition:border-color .15s,box-shadow .15s}
+.lf input:focus,.lf select:focus,.lf textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(29,158,117,.12)}
+.lf-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lf .dx-btn{width:100%;padding:15px;font-size:15px}
+.lf small{display:block;font-size:12px;color:var(--ink-3);margin-top:12px;text-align:center}
+.lf-ok{display:none;text-align:center;padding:16px 0}
+.lf-ok .ic{width:56px;height:56px;border-radius:50%;background:#e3f4ec;color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 14px}
+.cl{background:var(--forest);border-radius:18px;padding:24px;color:#fff;position:relative;overflow:hidden}
+.cl::after{content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;background:rgba(46,198,143,.14)}
+.cl h3{color:#fff;font-size:17px;margin-bottom:6px;position:relative}
+.cl p{font-size:14px;color:rgba(255,255,255,.68);line-height:1.55;margin-bottom:16px;position:relative}
+.cl .dx-btn{position:relative}
+.rp{text-align:center;font-size:13px;color:var(--ink-3)}
+.rp a{text-decoration:underline!important;text-underline-offset:3px}
 
-@media(max-width:1024px){
-  .lx-body{grid-template-columns:1fr}
-  .lx-side{position:static}
-  .lx-head-in{grid-template-columns:auto 1fr}
-  .lx-actions{grid-column:1/-1}
+/* nearby */
+.nb{padding:0 0 88px}
+.nb h2{font-size:22px;font-weight:800;margin-bottom:18px}
+.nb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.nb-card{display:flex;gap:16px;align-items:center;background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:18px;transition:transform .2s,box-shadow .2s}
+.nb-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(16,26,21,.1)}
+.nb-card h3{font-size:16px;font-weight:800;line-height:1.3;margin-bottom:3px}
+.nb-card p{font-size:13.5px;color:var(--ink-3)}
+
+@media(max-width:1100px){
+  .lb{grid-template-columns:1fr}
+  .ls{position:static}
+  .lh-top{grid-template-columns:auto 1fr}
+  .lh-actions{grid-column:1/-1;justify-content:flex-start}
+  .lg{grid-template-columns:1fr 1fr}
+  .lg-item:nth-child(3){border-left:0}
+  .lg-item:nth-child(n+3){border-top:1px solid var(--line-2)}
 }
-@media(max-width:640px){
-  .lx-cover{height:170px}
-  .lx-cover.is-blank{height:130px}
-  .lx-head-in{grid-template-columns:1fr;gap:0}
-  .lx-head .dx-logo{width:84px!important;height:84px!important}
-  .lx-title{padding-top:12px;margin-bottom:16px}
-  .lx-actions .dx-btn{flex:1}
-  .lx-svc,.lx-facts{grid-template-columns:1fr}
-  .lx-fact:nth-child(odd){border-right:0}
-  .lx-photos{grid-template-columns:1fr 1fr}
-  .lx-near-grid{grid-template-columns:1fr}
+@media(max-width:700px){
+  .lh{padding-top:88px}
+  .lh-top{grid-template-columns:1fr;gap:16px;padding:18px 0 26px}
+  .lh-top .dx-logo{width:84px!important;height:84px!important;font-size:28px!important}
+  .lh-actions .dx-btn{flex:1}
+  .lg{grid-template-columns:1fr;border-radius:18px 18px 0 0}
+  .lg-item+.lg-item{border-left:0;border-top:1px solid var(--line-2)}
+  .lg-item{padding:14px 18px}
+  .lc,.sc{padding:22px 18px}
+  .sv,.fx,.lf-row{grid-template-columns:1fr}
+  .fx div:nth-child(odd){border-right:0}
+  .fx div:nth-child(n+2){border-top:1px solid var(--line-2)}
+  .ph{grid-template-columns:1fr 1fr}
+  .nb-grid{grid-template-columns:1fr}
+  .mp-foot{flex-direction:column;align-items:flex-start}
 }
 CSS;
 include '../includes/header.php';
@@ -150,7 +185,7 @@ $ld = array_filter([
     '@type'       => 'LocalBusiness',
     '@id'         => $canonical . '#business',
     'name'        => $l['company_name'],
-    'description' => $l['description'],
+    'description' => $about,
     'image'       => ($paid && $l['logo']) ? $l['logo'] : null,
     'telephone'   => $l['phone'] ?: null,
     'url'         => ($paid && $l['website']) ? $l['website'] : $canonical,
@@ -171,155 +206,167 @@ $crumbs = ['@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'ite
 <div id="scrollProgress"></div>
 <div class="dx">
 
-<!-- COVER -->
-<div class="lx-cover<?= ($paid && $l['cover_image']) ? '' : ' is-blank' ?>"<?= ($paid && $l['cover_image']) ? ' style="background-image:url(\'' . htmlspecialchars($l['cover_image']) . '\')"' : '' ?>>
-  <div class="dx-wrap dx-crumbs">
-    <a href="/directory/">Directory</a><span>/</span><a href="/directory/?loc=<?= urlencode($l['state']) ?>"><?= htmlspecialchars($l['state']) ?></a><span>/</span><a href="/directory/?loc=<?= urlencode($l['city'] . ', ' . $l['state']) ?>"><?= htmlspecialchars($l['city']) ?></a>
-  </div>
-</div>
-
 <!-- HEADER -->
-<header class="lx-head">
-  <div class="dx-wrap lx-head-in">
-    <?= hc_dir_logo($l, 116, $paid) ?>
-    <div class="lx-title">
-      <h1><?= htmlspecialchars($l['company_name']) ?></h1>
-      <?php if ($b = hc_dir_badges($l, $tier)): ?><div class="lx-badges"><?= $b ?></div><?php endif ?>
-      <div class="lx-meta">
-        <span><i class="fa-solid fa-location-dot"></i><?= htmlspecialchars($l['city'] . ', ' . $l['state']) ?></span>
-        <?php if ($l['years_in_business']): ?><span><i class="fa-regular fa-calendar"></i><?= htmlspecialchars($l['years_in_business']) ?> years in business</span><?php endif ?>
-        <?php if ($l['license_number']): ?><span><i class="fa-regular fa-id-card"></i>License #<?= htmlspecialchars($l['license_number']) ?></span><?php endif ?>
+<header class="lh">
+  <?php if ($cover): ?><div class="lh-bg" style="background-image:url('<?= htmlspecialchars($cover) ?>')"></div><?php else: ?><div class="lh-glow"></div><?php endif ?>
+  <div class="dx-wrap">
+    <div class="dx-crumbs">
+      <a href="/directory/">Directory</a><i class="fa-solid fa-chevron-right"></i>
+      <a href="/directory/?loc=<?= urlencode($l['state']) ?>"><?= htmlspecialchars($l['state']) ?></a><i class="fa-solid fa-chevron-right"></i>
+      <a href="/directory/?loc=<?= urlencode($l['city'] . ', ' . $l['state']) ?>"><?= htmlspecialchars($l['city']) ?></a>
+    </div>
+    <div class="lh-top">
+      <?= hc_dir_logo($l, 112, $paid) ?>
+      <div style="min-width:0">
+        <?php if ($b = hc_dir_badges($l, $tier)): ?><div class="lh-badges"><?= $b ?></div><?php endif ?>
+        <h1><?= htmlspecialchars($l['company_name']) ?></h1>
+        <div class="lh-meta">
+          <span><i class="fa-solid fa-location-dot"></i>Home care in <?= htmlspecialchars($l['city'] . ', ' . $l['state']) ?></span>
+          <?php if ($l['years_in_business']): ?><span><i class="fa-regular fa-calendar"></i><?= htmlspecialchars($l['years_in_business']) ?> years in business</span><?php endif ?>
+        </div>
+      </div>
+      <div class="lh-actions">
+        <?php if ($l['phone']): ?><a class="dx-btn is-primary" href="tel:<?= htmlspecialchars($phoneHref) ?>"><i class="fa-solid fa-phone"></i>Call now</a><?php endif ?>
+        <?php if ($paid && $l['website']): ?><a class="dx-btn is-ghost-light" href="<?= htmlspecialchars($l['website']) ?>" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i>Website</a><?php endif ?>
+        <a class="dx-btn is-ghost-light" href="https://www.google.com/maps/dir/?api=1&destination=<?= urlencode($mapQuery) ?>" target="_blank" rel="noopener nofollow"><i class="fa-solid fa-diamond-turn-right"></i>Directions</a>
+        <button class="dx-btn is-ghost-light" type="button" id="lxShare" aria-label="Share"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
       </div>
     </div>
-    <div class="lx-actions">
-      <?php if ($l['phone']): ?><a class="dx-btn is-primary" href="tel:<?= htmlspecialchars($phoneHref) ?>"><i class="fa-solid fa-phone"></i>Call</a><?php endif ?>
-      <?php if ($paid && $l['website']): ?><a class="dx-btn" href="<?= htmlspecialchars($l['website']) ?>" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i>Website</a><?php endif ?>
-      <a class="dx-btn" href="https://www.google.com/maps/dir/?api=1&destination=<?= urlencode($mapQuery) ?>" target="_blank" rel="noopener nofollow"><i class="fa-solid fa-diamond-turn-right"></i>Directions</a>
-      <button class="dx-btn" type="button" id="lxShare" aria-label="Share"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+    <div class="lg">
+      <div class="lg-item"><span class="lg-ic"><i class="fa-solid fa-location-dot"></i></span><div style="min-width:0"><small>Location</small><b><?= htmlspecialchars($l['city'] . ', ' . $l['state']) ?></b></div></div>
+      <div class="lg-item"><span class="lg-ic"><i class="fa-solid fa-phone"></i></span><div style="min-width:0"><small>Phone</small><?php if ($l['phone']): ?><a href="tel:<?= htmlspecialchars($phoneHref) ?>"><b><?= htmlspecialchars($l['phone']) ?></b></a><?php else: ?><b style="color:var(--ink-3)">Not listed</b><?php endif ?></div></div>
+      <div class="lg-item"><span class="lg-ic"><i class="fa-solid fa-hand-holding-heart"></i></span><div style="min-width:0"><small>Services</small><b><?= $services ? count($services) . ' type' . (count($services) === 1 ? '' : 's') . ' of care' : 'Contact agency' ?></b></div></div>
+      <div class="lg-item"><span class="lg-ic"><i class="fa-regular fa-id-card"></i></span><div style="min-width:0"><small>License</small><b><?= $l['license_number'] ? '#' . htmlspecialchars($l['license_number']) : 'Not provided' ?></b></div></div>
     </div>
   </div>
 </header>
 
-<!-- SECTION NAV -->
-<nav class="lx-tabs" aria-label="Sections">
-  <div class="dx-wrap">
-    <a href="#about">About</a>
-    <?php if ($services): ?><a href="#services">Services</a><?php endif ?>
+<!-- SECTION TABS -->
+<div class="lt">
+  <div class="dx-wrap lt-in" role="navigation" aria-label="Sections">
+    <a href="#about">Overview</a>
+    <a href="#services">Services</a>
     <a href="#details">Details</a>
     <?php if ($photos): ?><a href="#photos">Photos</a><?php endif ?>
     <a href="#location">Location</a>
     <a href="#contact">Contact</a>
   </div>
-</nav>
+</div>
 
 <div class="dx-wrap">
-  <div class="lx-body">
+  <div class="lb">
     <main>
-      <section class="lx-sec" id="about">
+      <section class="lc" id="about">
         <h2>About <?= htmlspecialchars($l['company_name']) ?></h2>
-        <?php if ($paid && $l['tagline']): ?><p class="lx-tagline"><?= htmlspecialchars($l['tagline']) ?></p><?php endif ?>
-        <div class="lx-about"><?= htmlspecialchars($l['description']) ?></div>
+        <?php if ($paid && $l['tagline']): ?><p class="lc-tagline"><?= htmlspecialchars($l['tagline']) ?></p><?php endif ?>
+        <div class="lc-about"><?= htmlspecialchars($about) ?></div>
+        <?php if (!$hasOwner): ?>
+        <div class="lc-note"><i class="fa-solid fa-circle-info"></i><div>This profile hasn't been claimed by the agency yet, so some details may be incomplete. Please confirm services and availability when you call. <a href="/directory/submit/?claim=<?= urlencode($l['slug']) ?>">Own this agency? Claim it.</a></div></div>
+        <?php endif ?>
       </section>
 
-      <?php if ($services): ?>
-      <section class="lx-sec" id="services">
+      <section class="lc" id="services">
         <h2>Services offered</h2>
-        <div class="lx-svc">
-          <?php foreach ($services as $s): ?>
-          <div><i class="fa-solid <?= $svcIcons[$s] ?? 'fa-check' ?>"></i><?= htmlspecialchars($s) ?></div>
-          <?php endforeach ?>
+        <?php if ($services): ?>
+        <div class="sv">
+          <?php foreach ($services as $s): ?><div><i class="fa-solid <?= $svcIcons[$s] ?? 'fa-check' ?>"></i><?= htmlspecialchars($s) ?></div><?php endforeach ?>
         </div>
+        <?php else: ?>
+        <p class="sv-empty">This agency hasn't listed its services yet. Call <?= $l['phone'] ? '<a href="tel:' . htmlspecialchars($phoneHref) . '" style="color:var(--teal);font-weight:700">' . htmlspecialchars($l['phone']) . '</a>' : 'them' ?> to ask about personal care, companion care, skilled nursing and more.</p>
+        <?php endif ?>
       </section>
-      <?php endif ?>
 
-      <section class="lx-sec" id="details">
+      <section class="lc" id="details">
         <h2>Agency details</h2>
-        <dl class="lx-facts">
-          <div class="lx-fact"><dt>Payment accepted</dt><dd><?= $payments ? htmlspecialchars(implode(', ', $payments)) : 'Contact agency' ?></dd></div>
-          <div class="lx-fact"><dt>Languages</dt><dd><?= $l['languages'] ? htmlspecialchars($l['languages']) : 'English' ?></dd></div>
-          <div class="lx-fact"><dt>Hours</dt><dd><?= $l['hours'] ? htmlspecialchars($l['hours']) : 'Contact agency' ?></dd></div>
-          <div class="lx-fact"><dt>License</dt><dd><?= $l['license_number'] ? '#' . htmlspecialchars($l['license_number']) : 'Not provided' ?></dd></div>
-        </dl>
+        <div class="fx">
+          <div><small>Payment accepted</small><p class="<?= $payments ? '' : 'muted' ?>"><?= $payments ? htmlspecialchars(implode(', ', $payments)) : 'Ask the agency' ?></p></div>
+          <div><small>Languages</small><p class="<?= $l['languages'] ? '' : 'muted' ?>"><?= $l['languages'] ? htmlspecialchars($l['languages']) : 'Ask the agency' ?></p></div>
+          <div><small>Hours</small><p class="<?= $l['hours'] ? '' : 'muted' ?>"><?= $l['hours'] ? htmlspecialchars($l['hours']) : 'Ask the agency' ?></p></div>
+          <div><small>Years in business</small><p class="<?= $l['years_in_business'] ? '' : 'muted' ?>"><?= $l['years_in_business'] ? htmlspecialchars($l['years_in_business']) . ' years' : 'Not provided' ?></p></div>
+        </div>
         <?php if ($areas): ?>
-        <h2 style="margin-top:26px;font-size:16px">Service area</h2>
-        <div class="lx-chips"><?php foreach ($areas as $a): ?><span><?= htmlspecialchars($a) ?></span><?php endforeach ?></div>
+        <h2 style="font-size:16px;margin:24px 0 8px">Areas served</h2>
+        <div class="ar"><?php foreach ($areas as $a): ?><span><i class="fa-solid fa-location-dot"></i><?= htmlspecialchars($a) ?></span><?php endforeach ?></div>
         <?php endif ?>
       </section>
 
       <?php if ($photos): ?>
-      <section class="lx-sec" id="photos">
+      <section class="lc" id="photos">
         <h2>Photos</h2>
-        <div class="lx-photos">
+        <div class="ph">
           <?php foreach ($photos as $p): ?><a href="<?= htmlspecialchars($p) ?>" target="_blank" rel="noopener"><img src="<?= htmlspecialchars($p) ?>" alt="<?= htmlspecialchars($l['company_name']) ?> photo" loading="lazy"></a><?php endforeach ?>
         </div>
       </section>
       <?php endif ?>
 
-      <section class="lx-sec" id="location" style="border-bottom:0">
+      <section class="lc" id="location">
         <h2>Location</h2>
-        <div class="lx-map">
-          <iframe loading="lazy" title="Map of <?= htmlspecialchars($l['company_name']) ?>" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=<?= urlencode($mapQuery) ?>&z=<?= $l['address'] ? 14 : 11 ?>&output=embed"></iframe>
-          <div class="lx-map-foot">
-            <span><?= htmlspecialchars($mapQuery) ?></span>
-            <a class="dx-btn" href="https://www.google.com/maps/dir/?api=1&destination=<?= urlencode($mapQuery) ?>" target="_blank" rel="noopener nofollow">Get directions</a>
-          </div>
+        <div class="mp"><iframe loading="lazy" title="Map of <?= htmlspecialchars($l['company_name']) ?>" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=<?= urlencode($mapQuery) ?>&z=<?= $l['address'] ? 14 : 11 ?>&output=embed"></iframe></div>
+        <div class="mp-foot">
+          <span><i class="fa-solid fa-location-dot"></i><?= htmlspecialchars($mapQuery) ?></span>
+          <a class="dx-btn" href="https://www.google.com/maps/dir/?api=1&destination=<?= urlencode($mapQuery) ?>" target="_blank" rel="noopener nofollow"><i class="fa-solid fa-diamond-turn-right"></i>Get directions</a>
         </div>
       </section>
     </main>
 
-    <aside class="lx-side" id="contact">
+    <aside class="ls" id="contact">
       <?php if ($featured): ?>
-      <div class="lx-card">
+      <div class="sc">
         <h3>Request a free consultation</h3>
-        <p class="lx-card-sub">Tell <?= htmlspecialchars($l['company_name']) ?> what you need. They usually respond within one business day.</p>
-        <form class="lx-form" id="lxLead" onsubmit="return lxSend(event)">
+        <p class="sc-sub">Tell <?= htmlspecialchars($l['company_name']) ?> what you need. Your request goes straight to the agency.</p>
+        <form class="lf" id="lxLead" onsubmit="return lxSend(event)">
           <div class="hp-field" aria-hidden="true"><input type="text" name="hp_website" tabindex="-1" autocomplete="off"></div>
           <label for="lxName">Your name</label><input id="lxName" name="name" required autocomplete="name">
-          <label for="lxPhone">Phone</label><input id="lxPhone" name="phone" type="tel" required autocomplete="tel">
-          <label for="lxEmail">Email</label><input id="lxEmail" name="email" type="email" autocomplete="email">
+          <div class="lf-row">
+            <div><label for="lxPhone">Phone</label><input id="lxPhone" name="phone" type="tel" required autocomplete="tel"></div>
+            <div><label for="lxEmail">Email</label><input id="lxEmail" name="email" type="email" autocomplete="email"></div>
+          </div>
           <label for="lxFor">Care is for</label>
           <select id="lxFor" name="care_for"><option>A parent</option><option>A spouse or partner</option><option>Myself</option><option>Another relative</option><option>A client or patient</option></select>
           <label for="lxMsg">How can they help?</label><textarea id="lxMsg" name="message" rows="3" placeholder="Type of care, schedule, start date…"></textarea>
           <button class="dx-btn is-primary" type="submit" id="lxBtn">Send request</button>
-          <small>Your details go only to this agency. No spam.</small>
+          <small><i class="fa-solid fa-lock" style="margin-right:5px"></i>Shared only with this agency</small>
         </form>
-        <div class="lx-ok" id="lxOk"><i class="fa-solid fa-circle-check"></i><h3>Request sent</h3><p class="lx-card-sub" style="margin:6px 0 0">The agency will contact you shortly.</p></div>
+        <div class="lf-ok" id="lxOk"><div class="ic"><i class="fa-solid fa-check"></i></div><h3>Request sent</h3><p class="sc-sub" style="margin:6px 0 0">The agency will be in touch shortly.</p></div>
       </div>
       <?php endif ?>
 
-      <div class="lx-card">
-        <?php if (!$featured): ?><h3>Contact</h3><p class="lx-card-sub">Reach out directly to ask about availability and rates.</p><?php endif ?>
-        <?php if ($l['phone']): ?><div class="lx-crow"><a href="tel:<?= htmlspecialchars($phoneHref) ?>"><?= htmlspecialchars($l['phone']) ?></a><i class="fa-solid fa-phone"></i></div><?php endif ?>
-        <?php if ($paid && $l['website']): ?><div class="lx-crow"><a href="<?= htmlspecialchars($l['website']) ?>" target="_blank" rel="noopener"><?= htmlspecialchars(hc_dir_domain($l['website'])) ?></a><i class="fa-solid fa-arrow-up-right-from-square"></i></div><?php endif ?>
-        <?php if ($paid && $l['email']): ?><div class="lx-crow"><a href="mailto:<?= htmlspecialchars($l['email']) ?>"><?= htmlspecialchars($l['email']) ?></a><i class="fa-regular fa-envelope"></i></div><?php endif ?>
-        <div class="lx-crow"><span><?= htmlspecialchars($mapQuery) ?></span><i class="fa-solid fa-location-dot"></i></div>
+      <div class="sc">
+        <?php if (!$featured): ?><h3>Contact this agency</h3><p class="sc-sub">Call to ask about availability, rates and how they match caregivers.</p><?php endif ?>
+        <?php if ($l['phone']): ?><a class="sc-row" href="tel:<?= htmlspecialchars($phoneHref) ?>"><span class="ic"><i class="fa-solid fa-phone"></i></span><span><small>Phone</small><b><?= htmlspecialchars($l['phone']) ?></b></span></a><?php endif ?>
+        <?php if ($paid && $l['website']): ?><a class="sc-row" href="<?= htmlspecialchars($l['website']) ?>" target="_blank" rel="noopener"><span class="ic"><i class="fa-solid fa-globe"></i></span><span><small>Website</small><b><?= htmlspecialchars(hc_dir_domain($l['website'])) ?></b></span></a><?php endif ?>
+        <?php if ($paid && $l['email']): ?><a class="sc-row" href="mailto:<?= htmlspecialchars($l['email']) ?>"><span class="ic"><i class="fa-regular fa-envelope"></i></span><span><small>Email</small><b><?= htmlspecialchars($l['email']) ?></b></span></a><?php endif ?>
+        <div class="sc-row"><span class="ic"><i class="fa-solid fa-location-dot"></i></span><span><small>Location</small><b><?= htmlspecialchars($mapQuery) ?></b></span></div>
+        <?php if ($l['phone'] && !$featured): ?><a class="dx-btn is-primary sc-call" href="tel:<?= htmlspecialchars($phoneHref) ?>"><i class="fa-solid fa-phone"></i>Call <?= htmlspecialchars($l['phone']) ?></a><?php endif ?>
       </div>
 
-      <?php if (!$claimed): ?>
-      <div class="lx-claim">
-        <strong>Is this your agency?</strong>
-        Claim this listing to update your details, add photos and get a Verified badge. <a href="/directory/submit/?claim=<?= urlencode($l['slug']) ?>">Claim it now&nbsp;&rarr;</a>
+      <?php if (!$hasOwner): ?>
+      <div class="cl">
+        <h3>Is this your agency?</h3>
+        <p>Claim this free profile to update your details, add your logo and photos, and earn a Verified badge.</p>
+        <a class="dx-btn is-primary" href="/directory/submit/?claim=<?= urlencode($l['slug']) ?>">Claim this listing</a>
       </div>
       <?php elseif (!$paid): ?>
-      <div class="lx-claim">
-        <strong>Own this listing?</strong>
-        Upgrade to add your logo, photos and website link, and get placed above other agencies. <a href="/directory/submit/?claim=<?= urlencode($l['slug']) ?>&plan=premium">See plans&nbsp;&rarr;</a>
+      <div class="cl">
+        <h3>Own this listing?</h3>
+        <p>Upgrade to add your logo, photos and website link, and appear above other agencies in <?= htmlspecialchars($l['city']) ?>.</p>
+        <a class="dx-btn is-primary" href="/directory/submit/?claim=<?= urlencode($l['slug']) ?>&plan=premium">See upgrade options</a>
       </div>
       <?php endif ?>
-      <div class="lx-report"><a href="mailto:info@homecarecreators.com?subject=<?= rawurlencode('Directory listing correction: ' . $l['company_name']) ?>">Suggest an edit or report this listing</a></div>
+      <div class="rp"><a href="mailto:info@homecarecreators.com?subject=<?= rawurlencode('Directory listing correction: ' . $l['company_name']) ?>">Suggest an edit or report this listing</a></div>
     </aside>
   </div>
 </div>
 
 <?php if ($nearby): ?>
-<section class="lx-near">
+<section class="nb">
   <div class="dx-wrap">
-    <h2>Other home care agencies near <?= htmlspecialchars($l['city']) ?></h2>
-    <div class="lx-near-grid">
+    <h2>More home care agencies near <?= htmlspecialchars($l['city']) ?></h2>
+    <div class="nb-grid">
       <?php foreach ($nearby as $n): $nt = hc_dir_tier($n); ?>
-      <a class="lx-near-card" href="/directory/<?= urlencode($n['slug']) ?>">
-        <?= hc_dir_logo($n, 52, $nt !== 'free') ?>
-        <div>
+      <a class="nb-card" href="/directory/<?= urlencode($n['slug']) ?>">
+        <?= hc_dir_logo($n, 56, $nt !== 'free') ?>
+        <div style="min-width:0">
           <h3><?= htmlspecialchars($n['company_name']) ?></h3>
           <p><?= htmlspecialchars($n['city'] . ', ' . $n['state']) ?><?= $nt === 'featured' ? ' · Featured' : '' ?></p>
         </div>
@@ -335,19 +382,17 @@ $crumbs = ['@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'ite
 $lid = (int)$l['id'];
 $page_js = <<<JS
 (function(){
-  // Share
   var sh = document.getElementById('lxShare');
   if (sh) sh.addEventListener('click', function(){
     if (navigator.share) { navigator.share({title: document.title, url: location.href}).catch(function(){}); }
-    else if (navigator.clipboard) { navigator.clipboard.writeText(location.href); sh.innerHTML = '<i class="fa-solid fa-check"></i> Copied'; }
+    else if (navigator.clipboard) { navigator.clipboard.writeText(location.href); sh.innerHTML = '<i class="fa-solid fa-check"></i>'; }
   });
-  // Section nav highlight
-  var links = Array.prototype.slice.call(document.querySelectorAll('.lx-tabs a'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('.lt-in a'));
   var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function(es){
       es.forEach(function(e){ if (e.isIntersecting) { links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); }); } });
-    }, {rootMargin: '-140px 0px -60% 0px'});
+    }, {rootMargin: '-150px 0px -60% 0px'});
     secs.forEach(function(s){ io.observe(s); });
   }
 })();
