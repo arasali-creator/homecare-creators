@@ -155,7 +155,7 @@ include '../../includes/header.php';
 
         <?php if ($claim): ?>
         <div class="sx-claimbox">
-          <?= hc_dir_logo($claim, 56, hc_dir_tier($claim) !== 'free') ?>
+          <?= hc_dir_logo($claim, 56) ?>
           <div><h3><?= htmlspecialchars($claim['company_name']) ?></h3><p><?= htmlspecialchars($claim['city'] . ', ' . $claim['state']) ?> · <a href="/directory/<?= urlencode($claim['slug']) ?>" target="_blank">View listing</a></p></div>
         </div>
         <?php endif ?>
@@ -248,6 +248,7 @@ include '../../includes/header.php';
             <div class="sx-f"><label for="fWebsite">Website</label><input id="fWebsite" name="website" type="url" placeholder="https://"></div>
             <div class="sx-f"><label for="fLicense">State license number</label><input id="fLicense" name="license_number" placeholder="e.g. AHCA #"></div>
           </div>
+          <div class="sx-f"><label for="fLogo">Logo URL <em>(optional; leave blank and we'll fetch it from your website)</em></label><input id="fLogo" name="logo" type="url" placeholder="https://yourwebsite.com/logo.png"></div>
           <div class="sx-row">
             <div class="sx-f"><label for="fLang">Languages spoken <em>(optional)</em></label><input id="fLang" name="languages" placeholder="English, Spanish, Haitian Creole"></div>
             <div class="sx-f"><label for="fHours">Hours <em>(optional)</em></label><input id="fHours" name="hours" placeholder="24/7, or Mon–Fri 8am–6pm"></div>
@@ -256,8 +257,7 @@ include '../../includes/header.php';
           <div class="sx-paid-only" id="paidFields">
             <h3>Profile extras <span>Premium &amp; Featured</span></h3>
             <p class="sx-hint" style="margin:0 0 14px">After you confirm, you can email us your cover photo and gallery photos.</p>
-            <div class="sx-f"><label for="fTag">Tagline</label><input id="fTag" name="tagline" maxlength="160" placeholder="e.g. Compassionate in-home care across Central Florida since 2014"></div>
-            <div class="sx-f" style="margin-bottom:0"><label for="fLogo">Logo URL <em>(optional)</em></label><input id="fLogo" name="logo" type="url" placeholder="https://yourwebsite.com/logo.png"></div>
+            <div class="sx-f" style="margin-bottom:0"><label for="fTag">Tagline</label><input id="fTag" name="tagline" maxlength="160" placeholder="e.g. Compassionate in-home care across Central Florida since 2014"></div>
           </div>
         </div>
         <?php else: ?>

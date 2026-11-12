@@ -28,6 +28,28 @@ if (($_GET['action'] ?? '') === 'geocode_batch') {
     header('Location: /admin/directory/'); exit;
 }
 
+// ── Logos: fetch from agency websites, or apply the researched logo pack ──
+if (($_GET['action'] ?? '') === 'fetch_logos') {
+    @set_time_limit(120);
+    $todo = hc_all("SELECT id, company_name FROM hc_directory_listings WHERE (logo IS NULL OR logo='') AND website IS NOT NULL AND website<>'' ORDER BY status='approved' DESC, id LIMIT 8");
+    $ok = 0; $miss = [];
+    foreach ($todo as $t) { if (hc_dir_fetch_logo((int)$t['id'])) $ok++; else $miss[] = $t['company_name']; }
+    hc_flash("Found logos for {$ok} of " . count($todo) . " listings." . ($miss ? ' No usable logo found for: ' . implode(', ', array_slice($miss, 0, 5)) . (count($miss) > 5 ? '…' : '') . ' — upload these manually.' : ''));
+    header('Location: /admin/directory/'); exit;
+}
+$logoPackFile = dirname(dirname(__DIR__)) . '/images/directory/logos/manifest.json';
+if (($_GET['action'] ?? '') === 'apply_logo_pack' && is_file($logoPackFile)) {
+    $pack = json_decode((string)file_get_contents($logoPackFile), true) ?: [];
+    $logos = 0; $sites = 0;
+    foreach ($pack as $row) {
+        if (empty($row['slug'])) continue;
+        if (!empty($row['logo'])) $logos += hc_q("UPDATE hc_directory_listings SET logo=? WHERE slug=? AND (logo IS NULL OR logo='')", [$row['logo'], $row['slug']])->rowCount();
+        if (!empty($row['website'])) $sites += hc_q("UPDATE hc_directory_listings SET website=? WHERE slug=? AND (website IS NULL OR website='')", [$row['website'], $row['slug']])->rowCount();
+    }
+    hc_flash("Logo pack applied: {$logos} logos and {$sites} websites added. Existing logos and websites were left unchanged.");
+    header('Location: /admin/directory/'); exit;
+}
+
 // ── Single actions ───────────────────────────────────────────────────────────
 $action = $_GET['action'] ?? '';
 $aid    = (int)($_GET['id'] ?? 0);
@@ -159,6 +181,16 @@ hc_topbar('Agency Directory', '<a href="/admin/">Admin</a> › Directory');
   <div style="display:flex;gap:8px;flex-wrap:wrap">
     <?php $pendRev = (int)hc_val("SELECT COUNT(*) FROM hc_directory_reviews WHERE status='pending'"); $unmapped = (int)hc_val("SELECT COUNT(*) FROM hc_directory_listings WHERE status='approved' AND lat IS NULL AND geocoded_at IS NULL"); ?>
     <a href="/admin/directory/reviews.php" class="btn btn-secondary">Reviews<?php if ($pendRev): ?> <span class="badge badge-red" style="margin-left:4px"><?= $pendRev ?></span><?php endif ?></a>
+    <?php
+      $noLogo = (int)hc_val("SELECT COUNT(*) FROM hc_directory_listings WHERE (logo IS NULL OR logo='') AND website IS NOT NULL AND website<>''");
+      $packPending = 0;
+      if (is_file($logoPackFile)) {
+          $packSlugs = array_column(array_filter(json_decode((string)file_get_contents($logoPackFile), true) ?: [], fn($r) => !empty($r['logo'])), 'slug');
+          if ($packSlugs) $packPending = (int)hc_val("SELECT COUNT(*) FROM hc_directory_listings WHERE (logo IS NULL OR logo='') AND slug IN (" . implode(',', array_fill(0, count($packSlugs), '?')) . ")", $packSlugs);
+      }
+    ?>
+    <?php if ($packPending): ?><a href="/admin/directory/?action=apply_logo_pack" class="btn btn-primary" data-confirm="Add researched logos (and websites) to <?= $packPending ?> listings that don't have one yet?">Apply logo pack (<?= $packPending ?>)</a><?php endif ?>
+    <?php if ($noLogo): ?><a href="/admin/directory/?action=fetch_logos" class="btn btn-secondary" title="Finds the logo on each agency's website, 8 at a time">Fetch logos (<?= $noLogo ?>)</a><?php endif ?>
     <?php if ($unmapped): ?><a href="/admin/directory/?action=geocode_batch" class="btn btn-secondary" title="Looks up map pins for listings (15 at a time, takes ~20 seconds)">Map listings (<?= $unmapped ?>)</a><?php endif ?>
     <a href="/admin/directory/leads.php" class="btn btn-secondary">Inquiries</a>
     <a href="/admin/directory/settings.php" class="btn btn-secondary">Plans &amp; pricing</a>

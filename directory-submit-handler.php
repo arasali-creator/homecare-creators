@@ -177,6 +177,10 @@ if ($mode === 'claim') {
         dir_fail('Could not save your listing. Please try again.', 500);
     }
     hc_dir_geocode($id);
+    // Profile picture: store the supplied logo locally, or find it on their website.
+    $savedLogo = $logo ? hc_dir_store_logo($logo, $slug) : null;
+    if ($savedLogo) hc_q("UPDATE hc_directory_listings SET logo=? WHERE id=?", [$savedLogo, $id]);
+    elseif ($website) { if (!hc_dir_fetch_logo($id) && $logo) hc_q("UPDATE hc_directory_listings SET logo=NULL WHERE id=?", [$id]); }
 }
 
 // ── Owner confirmation email ───────────────────────────────────

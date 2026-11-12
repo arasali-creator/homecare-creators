@@ -63,7 +63,8 @@ body{background:var(--forest)}
 
 /* monograms / logos — circles, like the footer socials */
 .dx-logo{display:flex;align-items:center;justify-content:center;background:#fff;border-radius:50%;overflow:hidden;flex-shrink:0;border:1px solid var(--hair)}
-.dx-logo img{width:100%;height:100%;object-fit:contain;padding:14%}
+.dx-logo:not(.is-mono){border-radius:24%!important;background:#fff}
+.dx-logo img{width:100%;height:100%;object-fit:contain;padding:9%}
 .dx-logo.is-mono{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;letter-spacing:.01em;border:0}
 
 /* pricing (inside a forest frame) */

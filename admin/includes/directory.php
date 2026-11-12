@@ -68,7 +68,7 @@ function hc_dir_plans(): array {
             'blurb' => 'A complete, trusted profile that converts.',
             'features' => [
                 'Everything in Basic',
-                'Logo, cover photo & photo gallery',
+                'Cover photo & photo gallery',
                 'Website link (do-follow) & email',
                 'Verified Agency badge',
                 'Ranked above Basic listings',
@@ -353,7 +353,7 @@ function hc_dir_send_approved(int $id): bool {
     $url  = $site . '/directory/' . $l['slug'];
     $tier = hc_dir_tier($l);
     $upsell = $tier === 'free'
-        ? '<p>Want more inquiries? Premium and Featured listings add your logo, photos, website link, a Verified badge and top placement. Just reply to this email to upgrade.</p>'
+        ? '<p>Want more inquiries? Premium and Featured listings add photos, your website link, a Verified badge and top placement. Just reply to this email to upgrade.</p>'
         : '';
     $body = "Good news — {$l['company_name']} is now live in the Homecare Creators Agency Directory:\n{$url}\n\n— Homecare Creators\n";
     $html = hc_dir_email_html('Listing approved', $l['company_name'],
@@ -472,3 +472,119 @@ function hc_dir_geocode(int $id): bool {
     return false;
 }
 
+
+/* ── Logos ─────────────────────────────────────────────────── */
+
+/** Fetch a URL with a browser-like UA. Returns [body, finalUrl, contentType] or null. */
+function hc_dir_http_get(string $url, int $maxBytes = 3000000): ?array {
+    if (!preg_match('#^https?://#i', $url)) return null;
+    $host = parse_url($url, PHP_URL_HOST);
+    if (!$host) return null;
+    // Don't let a listing point the server at internal addresses.
+    $ip = gethostbyname($host);
+    if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) return null;
+    $ctx = stream_context_create(['http' => [
+        'timeout' => 10, 'follow_location' => 1, 'max_redirects' => 5, 'ignore_errors' => true,
+        'header' => "User-Agent: Mozilla/5.0 (compatible; HomecareCreatorsDirectory/1.0; +https://homecarecreators.com/directory/)\r\nAccept: text/html,image/*,*/*;q=0.8\r\n",
+    ], 'ssl' => ['verify_peer' => true, 'verify_peer_name' => true]]);
+    $body = @file_get_contents($url, false, $ctx, 0, $maxBytes);
+    if ($body === false || $body === '') return null;
+    $status = 0; $type = ''; $final = $url;
+    foreach ($http_response_header ?? [] as $h) {
+        if (preg_match('#^HTTP/\S+\s+(\d+)#', $h, $m)) $status = (int)$m[1];
+        elseif (stripos($h, 'Content-Type:') === 0) $type = strtolower(trim(substr($h, 13)));
+        elseif (stripos($h, 'Location:') === 0) $final = hc_dir_abs_url(trim(substr($h, 9)), $final);
+    }
+    return $status >= 200 && $status < 300 ? [$body, $final, $type] : null;
+}
+
+function hc_dir_abs_url(string $u, string $base): string {
+    $u = html_entity_decode(trim($u), ENT_QUOTES);
+    if ($u === '' || str_starts_with($u, 'data:')) return '';
+    if (preg_match('#^https?://#i', $u)) return $u;
+    $b = parse_url($base);
+    $root = ($b['scheme'] ?? 'https') . '://' . ($b['host'] ?? '');
+    if (str_starts_with($u, '//')) return ($b['scheme'] ?? 'https') . ':' . $u;
+    if (str_starts_with($u, '/')) return $root . $u;
+    $dir = preg_replace('#/[^/]*$#', '/', $b['path'] ?? '/');
+    return $root . $dir . $u;
+}
+
+/** Candidate logo URLs from a homepage, best first. */
+function hc_dir_logo_candidates(string $html, string $base): array {
+    $c = [];
+    // 1. JSON-LD "logo"
+    if (preg_match_all('#<script[^>]+application/ld\+json[^>]*>(.*?)</script>#is', $html, $mm)) {
+        foreach ($mm[1] as $js) {
+            if (preg_match('#"logo"\s*:\s*(?:\{[^}]*?"url"\s*:\s*)?"([^"]+)"#i', $js, $m)) $c[] = stripslashes($m[1]);
+        }
+    }
+    // 2. <img> that looks like the logo (class/id/alt/src mention "logo"), header first
+    $head = preg_match('#<header\b.*?</header>#is', $html, $hm) ? $hm[0] : '';
+    foreach ([$head, $html] as $chunk) {
+        if (!$chunk) continue;
+        if (preg_match_all('#<img\b[^>]*>#i', $chunk, $imgs)) {
+            foreach ($imgs[0] as $tag) {
+                if (!preg_match('#logo#i', $tag)) continue;
+                if (preg_match('#\s(?:data-src|data-lazy-src|src)\s*=\s*["\']([^"\']+)#i', $tag, $m) && !str_starts_with($m[1], 'data:')) $c[] = $m[1];
+                elseif (preg_match('#\ssrcset\s*=\s*["\']([^"\'\s,]+)#i', $tag, $m)) $c[] = $m[1];
+            }
+        }
+    }
+    // 3. Apple touch icon, then large favicons
+    if (preg_match_all('#<link\b[^>]*>#i', $html, $links)) {
+        $icons = [];
+        foreach ($links[0] as $tag) {
+            if (!preg_match('#rel\s*=\s*["\']([^"\']+)#i', $tag, $r) || !preg_match('#href\s*=\s*["\']([^"\']+)#i', $tag, $h)) continue;
+            $rel = strtolower($r[1]);
+            $size = preg_match('#sizes\s*=\s*["\'](\d+)#i', $tag, $sz) ? (int)$sz[1] : 0;
+            if (str_contains($rel, 'apple-touch-icon')) $icons[] = [1000 + $size, $h[1]];
+            elseif (str_contains($rel, 'icon') && $size >= 96) $icons[] = [$size, $h[1]];
+        }
+        usort($icons, fn($a, $b) => $b[0] <=> $a[0]);
+        foreach ($icons as $i) $c[] = $i[1];
+    }
+    $out = [];
+    foreach ($c as $u) { $a = hc_dir_abs_url($u, $base); if ($a && !in_array($a, $out, true)) $out[] = $a; }
+    return $out;
+}
+
+/** Download an image and store it locally. Returns the public path or null. */
+function hc_dir_store_logo(string $imgUrl, string $slug): ?string {
+    $r = hc_dir_http_get($imgUrl, 2000000);
+    if (!$r) return null;
+    [$bin, , $type] = $r;
+    $ext = null;
+    if (str_contains($type, 'svg') || preg_match('#^\s*(<\?xml[^>]*>\s*)?<svg\b#i', substr($bin, 0, 500))) {
+        if (!preg_match('#<svg\b#i', $bin)) return null;
+        $bin = preg_replace('#<script\b.*?</script>#is', '', $bin);
+        $bin = preg_replace('#\son\w+\s*=\s*("[^"]*"|\'[^\']*\')#i', '', $bin);
+        $ext = 'svg';
+    } else {
+        $info = @getimagesizefromstring($bin);
+        if (!$info || $info[0] < 48 || $info[1] < 24) return null;
+        $ext = [IMAGETYPE_PNG => 'png', IMAGETYPE_JPEG => 'jpg', IMAGETYPE_GIF => 'gif', IMAGETYPE_WEBP => 'webp', IMAGETYPE_ICO => 'ico'][$info[2]] ?? null;
+        if (!$ext || $ext === 'ico') return null;
+    }
+    $root = defined('SITE_ROOT') ? SITE_ROOT : dirname(__DIR__, 2);
+    $dir = $root . '/images/blog/directory-logos';
+    if (!is_dir($dir) && !@mkdir($dir, 0755, true) && !is_dir($dir)) return null;
+    $file = preg_replace('/[^a-z0-9-]/', '', $slug) . '-' . substr(md5($bin), 0, 8) . '.' . $ext;
+    if (@file_put_contents($dir . '/' . $file, $bin) === false) return null;
+    return '/images/blog/directory-logos/' . $file;
+}
+
+/** Find the logo on a listing's website and save it as the listing's logo. Returns the path or null. */
+function hc_dir_fetch_logo(int $id): ?string {
+    $l = hc_one("SELECT id, slug, website FROM hc_directory_listings WHERE id=?", [$id]);
+    if (!$l || empty($l['website'])) return null;
+    $page = hc_dir_http_get($l['website']);
+    if (!$page) return null;
+    foreach (array_slice(hc_dir_logo_candidates($page[0], $page[1]), 0, 6) as $cand) {
+        if ($path = hc_dir_store_logo($cand, $l['slug'])) {
+            hc_q("UPDATE hc_directory_listings SET logo=? WHERE id=?", [$path, $id]);
+            return $path;
+        }
+    }
+    return null;
+}

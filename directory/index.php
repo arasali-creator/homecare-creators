@@ -339,7 +339,7 @@ $faqs = [
     ['How are agencies listed and checked?', 'Every listing is reviewed by our team before it goes live, and agency owners confirm their listing by email. Agencies marked Verified have had their license details checked.'],
     ['Are the reviews real?', 'Reviews are written by families and clients, and our team checks every review before it is published. We never publish reviews written or paid for by the agency.'],
     ['What is the difference between home care and home health care?', 'Home care helps with daily living: bathing, meals, companionship, errands. Home health care is medical care prescribed by a doctor, such as skilled nursing or therapy. Many agencies offer both, so check the services on each profile.'],
-    ['I own an agency. How do I get listed?', 'Create a free listing in about five minutes, or claim your existing profile. Upgraded plans add your logo, photos, website link, a Verified badge and top placement.'],
+    ['I own an agency. How do I get listed?', 'Create a free listing in about five minutes, or claim your existing profile. Upgraded plans add photos, your website link, a Verified badge and top placement.'],
 ];
 ?>
 <div id="scrollProgress"></div>
@@ -491,7 +491,7 @@ $faqs = [
           <article class="cd<?= $tier === 'featured' ? ' is-feat' : '' ?>" data-pin="<?= $num ?>">
             <?php if ($imgSrc): ?>
             <div class="cd-img" style="background-image:url('<?= htmlspecialchars($imgSrc) ?>')"><?php if ($tier === 'featured'): ?><span class="spon">Sponsored</span><?php endif ?></div>
-            <?php elseif ($paid && $l['logo']): ?>
+            <?php elseif ($l['logo']): ?>
             <div class="cd-img" style="background:#f4f1ea"><img class="logo" src="<?= htmlspecialchars($l['logo']) ?>" alt="<?= htmlspecialchars($l['company_name']) ?> logo" loading="lazy"><?php if ($tier === 'featured'): ?><span class="spon">Sponsored</span><?php endif ?></div>
             <?php else: ?>
             <div class="cd-img" style="background:linear-gradient(140deg,<?= $mc ?>,#0a2e1e)"><span class="mono"><?= htmlspecialchars(hc_dir_initials($l['company_name'])) ?></span><?php if ($tier === 'featured'): ?><span class="spon">Sponsored</span><?php endif ?></div>
@@ -645,7 +645,7 @@ $faqs = [
         <span class="dx-label">For agency owners</span>
         <h2 class="dx-h2">Be the agency families <em>call first.</em></h2>
       </div>
-      <p>Start with a free listing. Upgrade for a verified profile with your logo, photos and website link, top placement in your city, and inquiries sent straight to your inbox.</p>
+      <p>Start with a free listing. Upgrade for a verified profile with photos and your website link, top placement in your city, and inquiries sent straight to your inbox.</p>
     </div>
     <?= hc_dir_pricing_html(fn($k) => '/directory/submit/?plan=' . $k) ?>
     <div class="ow-foot">

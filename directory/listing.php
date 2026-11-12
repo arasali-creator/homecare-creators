@@ -63,7 +63,8 @@ $page_desc  = mb_strlen($about) > 158 ? rtrim(mb_substr($about, 0, 155)) . '…'
 $page_canonical = $canonical;
 $og_title = $l['company_name'] . ' — Home Care in ' . $l['city'] . ', ' . $l['state'];
 $og_desc  = $page_desc;
-$og_image = $paid ? (($l['cover_image'] ?: ($photos[0] ?? '')) ?: ($l['logo'] ?: null)) : null;
+$og_image = ($paid ? ($l['cover_image'] ?: ($photos[0] ?? '')) : '') ?: ($l['logo'] ?: null);
+if ($og_image && !str_starts_with($og_image, 'http')) $og_image = 'https://homecarecreators.com' . $og_image;
 
 $svcIcons = [
     'Personal Care' => 'fa-hand-holding-heart', 'Companion Care' => 'fa-people-arrows', 'Skilled Nursing' => 'fa-user-nurse',
@@ -242,7 +243,7 @@ $ld = array_filter([
     '@id'         => $canonical . '#business',
     'name'        => $l['company_name'],
     'description' => $about,
-    'image'       => ($paid && $l['logo']) ? $l['logo'] : null,
+    'image'       => $l['logo'] ? (str_starts_with($l['logo'], 'http') ? $l['logo'] : 'https://homecarecreators.com' . $l['logo']) : null,
     'telephone'   => $l['phone'] ?: null,
     'url'         => ($paid && $l['website']) ? $l['website'] : $canonical,
     'address'     => array_filter(['@type' => 'PostalAddress', 'streetAddress' => $l['address'] ?: null, 'addressLocality' => $l['city'], 'addressRegion' => $l['state'], 'addressCountry' => 'US']),
@@ -285,7 +286,7 @@ $cityLink = '/directory/?loc=' . urlencode($l['city'] . ', ' . $l['state']) . '#
       <?php endif ?>
 
       <div class="bh">
-        <?= hc_dir_logo($l, 104, $paid) ?>
+        <?= hc_dir_logo($l, 104) ?>
         <div style="min-width:0">
           <h1><?= htmlspecialchars($l['company_name']) ?></h1>
           <div class="bh-rate">
@@ -487,7 +488,7 @@ $cityLink = '/directory/?loc=' . urlencode($l['city'] . ', ' . $l['state']) . '#
           <div class="pv">
             <?php foreach ($nearby as $nb): $nt = hc_dir_tier($nb); ?>
             <a href="/directory/<?= urlencode($nb['slug']) ?>">
-              <?= hc_dir_logo($nb, 58, $nt !== 'free') ?>
+              <?= hc_dir_logo($nb, 58) ?>
               <div style="min-width:0"><b><?= htmlspecialchars($nb['company_name']) ?></b><div style="margin-bottom:4px"><?= hc_dir_rating_line($nb) ?></div><span><?= htmlspecialchars($nb['city'] . ', ' . $nb['state']) ?><?= $nt === 'featured' ? ' · Sponsored' : '' ?></span></div>
             </a>
             <?php endforeach ?>

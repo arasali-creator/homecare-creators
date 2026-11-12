@@ -75,6 +75,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $id = (int)hc_db()->lastInsertId();
             }
             $msg = 'Listing saved.';
+            $websiteChanged = !$listing || ($listing['website'] ?? '') !== $fields['website'];
+            if ($fields['website'] && (!empty($_POST['do_logo']) || (!$fields['logo'] && $websiteChanged))) {
+                $msg .= hc_dir_fetch_logo($id) ? ' Logo fetched from the website.' : ' (No usable logo found on the website. Upload one manually.)';
+            } elseif ($fields['logo'] && preg_match('#^https?://#i', $fields['logo']) && !empty($_POST['do_logo'])) {
+                if ($p = hc_dir_store_logo($fields['logo'], $fields['slug'])) { hc_q("UPDATE hc_directory_listings SET logo=? WHERE id=?", [$p, $id]); $msg .= ' Logo saved locally.'; }
+            }
             if (!empty($_POST['do_geocode']) || ($locChanged && $fields['lat'] === null)) {
                 $msg .= hc_dir_geocode($id) ? ' Map location found.' : ' (Could not find this address on the map.)';
             }
@@ -235,6 +241,7 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
           <?= !empty($L['logo']) ? '<img src="' . h($L['logo']) . '" alt="">' : '<div class="dz-label">Upload logo</div>' ?>
         </div>
         <input type="text" id="f-logo" name="logo" value="<?= $v('logo') ?>" placeholder="Image URL" style="margin-top:8px">
+        <label style="display:flex;align-items:center;gap:8px;font-size:12.5px;margin-top:8px;cursor:pointer;font-weight:400"><input type="checkbox" name="do_logo" value="1" style="width:auto">Fetch logo from website on save</label>
       </div>
       <div>
         <label style="font-size:13px;font-weight:600">Cover photo <span style="font-weight:400;color:var(--muted)">(wide, 1600×500+)</span></label>
