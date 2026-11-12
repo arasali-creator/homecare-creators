@@ -13,6 +13,53 @@ $id      = (int)($_GET['id'] ?? 0);
 $listing = $id ? hc_one("SELECT * FROM hc_directory_listings WHERE id=?", [$id]) : null;
 $plans   = hc_dir_plans();
 
+// ── Quick actions ────────────────────────────────────────────────────────────
+$do = $_GET['do'] ?? '';
+if ($listing && $do) {
+    $back = '/admin/directory/edit.php?id=' . $id;
+    switch ($do) {
+        case 'approve':
+            $was = $listing['status'] === 'approved';
+            hc_q("UPDATE hc_directory_listings SET status='approved', approved_at=IFNULL(approved_at,NOW()), rejection_reason=NULL WHERE id=?", [$id]);
+            hc_flash('Listing approved and live.' . (!$was && hc_dir_send_approved($id) ? ' The agency was emailed.' : ''));
+            break;
+        case 'invoiced':
+            hc_q("UPDATE hc_directory_listings SET payment_status='invoiced' WHERE id=?", [$id]);
+            hc_flash('Marked as invoiced.');
+            break;
+        case 'paid':
+            $months = max(1, min(12, (int)($_GET['months'] ?? 1)));
+            hc_dir_mark_paid($id, $months);
+            hc_flash("Payment recorded. The paid plan is active for {$months} more month(s).");
+            break;
+        case 'resend':
+            hc_flash(hc_dir_send_owner_confirmation($id) ? 'Confirmation email sent to ' . $listing['owner_email'] . '.' : 'Could not send. Check that there is an owner email and that SMTP is set up.', 'error');
+            break;
+        case 'fetch_logo':
+            hc_flash(hc_dir_fetch_logo($id) ? 'Logo fetched from the website.' : 'No usable logo found on the website (or no website set). Upload one manually.', 'error');
+            break;
+        case 'geocode':
+            hc_flash(hc_dir_geocode($id) ? 'Map location found.' : 'Could not find this address on the map.', 'error');
+            break;
+        case 'rv_approve': case 'rv_reject': case 'rv_delete':
+            $rid = (int)($_GET['rid'] ?? 0);
+            if ($do === 'rv_delete') hc_q("DELETE FROM hc_directory_reviews WHERE id=? AND listing_id=?", [$rid, $id]);
+            else hc_q("UPDATE hc_directory_reviews SET status=?, approved_at=IF(?='approved', IFNULL(approved_at,NOW()), approved_at) WHERE id=? AND listing_id=?", [$do === 'rv_approve' ? 'approved' : 'rejected', $do === 'rv_approve' ? 'approved' : 'rejected', $rid, $id]);
+            hc_dir_recalc_rating($id);
+            hc_flash('Review updated.');
+            $back .= '#reviews';
+            break;
+        case 'delete':
+            hc_q("DELETE FROM hc_directory_leads WHERE listing_id=?", [$id]);
+            hc_q("DELETE FROM hc_directory_reviews WHERE listing_id=?", [$id]);
+            hc_q("DELETE FROM hc_directory_listings WHERE id=?", [$id]);
+            hc_flash('Listing "' . $listing['company_name'] . '" deleted.');
+            $back = '/admin/directory/';
+            break;
+    }
+    header('Location: ' . $back); exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $f = fn($k) => trim((string)($_POST[$k] ?? ''));
     $company_name = $f('company_name');
@@ -37,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'company_name' => $company_name, 'slug' => $slug, 'logo' => $f('logo'), 'cover_image' => $f('cover_image'),
         'photos' => implode("\n", hc_dir_lines($_POST['photos'] ?? '')), 'tagline' => mb_substr($f('tagline'), 0, 160),
         'description' => $f('description'), 'services' => $services, 'payment_accepted' => $payments,
-        'languages' => $f('languages'), 'hours' => $f('hours'),
+        'languages' => $f('languages'), 'hours' => $f('hours_text'),
         'city' => $f('city'), 'state' => $state, 'service_areas' => $f('service_areas'), 'address' => $f('address'),
         'phone' => $f('phone'), 'email' => $f('email'), 'website' => $website,
         'license_number' => $f('license_number'), 'years_in_business' => $f('years_in_business'),
@@ -46,6 +93,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'invoice_ref' => $f('invoice_ref'), 'featured' => $plan === 'featured' ? 1 : 0,
         'owner_name' => $f('owner_name'), 'owner_title' => $f('owner_title'), 'owner_email' => $owner_email, 'owner_phone' => $f('owner_phone'),
         'admin_notes' => $f('admin_notes'),
+        'owner_authorized' => !empty($_POST['owner_authorized']) ? 1 : 0,
+        'claim_status' => in_array($_POST['claim_status'] ?? '', ['pending', 'confirmed', 'verified'], true) ? $_POST['claim_status'] : null,
+        'rejection_reason' => $status === 'rejected' ? (mb_substr($f('rejection_reason'), 0, 500) ?: null) : null,
         'features' => implode("\n", array_values(array_intersect((array)($_POST['features'] ?? []), array_keys(HC_DIR_FEATURES)))),
         'hours_json' => hc_dir_hours_from_input(!empty($_POST['hours_always']), (array)($_POST['hours'] ?? [])),
         'lat' => is_numeric($_POST['lat'] ?? '') ? (float)$_POST['lat'] : null,
@@ -54,6 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $locChanged = !$listing || $listing['address'] !== $fields['address'] || $listing['city'] !== $fields['city'] || $listing['state'] !== $fields['state'];
     if ($owner_changed) { $fields['owner_confirmed_at'] = null; $fields['confirm_token'] = null; }
     if (!empty($_POST['mark_confirmed'])) { $fields['owner_confirmed_at'] = date('Y-m-d H:i:s'); $fields['confirm_token'] = null; }
+    if (!empty($_POST['clear_confirmed'])) { $fields['owner_confirmed_at'] = null; }
 
     if (!$company_name || !$fields['description'] || !$fields['city']) {
         hc_flash('Agency name, description and city are required.', 'error');
@@ -71,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 $cols = implode(',', array_map(fn($k) => "`$k`", array_keys($fields)));
                 $ph   = implode(',', array_fill(0, count($fields), '?'));
-                hc_q("INSERT INTO hc_directory_listings ($cols, owner_authorized, approved_at) VALUES ($ph, 0, " . ($status === 'approved' ? "NOW()" : "NULL") . ")", array_values($fields));
+                hc_q("INSERT INTO hc_directory_listings ($cols, approved_at) VALUES ($ph, " . ($status === 'approved' ? "NOW()" : "NULL") . ")", array_values($fields));
                 $id = (int)hc_db()->lastInsertId();
             }
             $msg = 'Listing saved.';
@@ -108,6 +159,8 @@ $featSel = hc_dir_lines($L['features'] ?? '');
 $hrs = hc_dir_hours($L) ?? [];
 $tier = $listing ? hc_dir_tier($L) : 'free';
 $leads = $id ? hc_all("SELECT * FROM hc_directory_leads WHERE listing_id=? ORDER BY created_at DESC LIMIT 10", [$id]) : [];
+$reviewsAll = $id ? hc_all("SELECT * FROM hc_directory_reviews WHERE listing_id=? ORDER BY created_at DESC LIMIT 30", [$id]) : [];
+$qa = fn($d, $extra = '') => '/admin/directory/edit.php?id=' . $id . '&do=' . $d . $extra;
 
 $title_val = $listing && $id ? 'Edit: ' . $L['company_name'] : 'Add Listing';
 hc_head($title_val);
@@ -128,6 +181,10 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
 .photo-strip img{width:64px;height:48px;object-fit:cover;border-radius:6px;border:1px solid var(--border)}
 .lead-row{padding:10px 0;border-top:1px solid var(--border);font-size:13px}
 .lead-row:first-child{border-top:0}
+.qa{display:flex;flex-wrap:wrap;gap:6px}
+.meta{display:grid;grid-template-columns:105px 1fr;gap:6px 10px;margin:0;font-size:12.5px}
+.meta dt{color:var(--muted)}
+.meta dd{margin:0;min-width:0;overflow-wrap:anywhere}
 .tier-pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:5px;margin-left:6px}
 @media(max-width:1100px){.dir-edit-grid{grid-template-columns:1fr!important}.chk-grid{grid-template-columns:1fr 1fr}}
 </style>
@@ -201,6 +258,7 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
         <?php endforeach ?>
       </div>
       <div class="form-hint">Leave all times empty if hours are unknown.</div>
+      <input type="text" name="hours_text" value="<?= $v('hours') ?>" placeholder="Optional note, e.g. 'Care available 24/7, office Mon–Fri'" style="margin-top:10px">
     </div>
   </div>
 
@@ -232,7 +290,7 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
   </div>
 
   <div class="card">
-    <div class="card-title" style="margin-bottom:4px">Images <span style="font-weight:400;color:var(--muted)">(shown on Premium &amp; Featured only)</span></div>
+    <div class="card-title" style="margin-bottom:4px">Images <span style="font-weight:400;color:var(--muted)">(logo shows on every plan; cover &amp; gallery on Premium/Featured)</span></div>
     <div class="form-hint" style="margin-bottom:14px">Drop an image or paste a URL.</div>
     <div class="form-grid">
       <div>
@@ -262,7 +320,7 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
 </div>
 
 <!-- SIDEBAR -->
-<div style="position:sticky;top:70px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:column;gap:16px">
 
   <div class="card">
     <div class="card-title" style="margin-bottom:14px">Publish</div>
@@ -273,6 +331,10 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
         <option value="<?= $k ?>" <?= ($L['status'] ?? 'pending') === $k ? 'selected' : '' ?>><?= $lab ?></option>
         <?php endforeach ?>
       </select>
+    </div>
+    <div class="form-group" id="rejWrap" style="<?= ($L['status'] ?? '') === 'rejected' ? '' : 'display:none' ?>">
+      <label>Rejection reason <span>(internal)</span></label>
+      <input type="text" name="rejection_reason" value="<?= $v('rejection_reason') ?>" placeholder="e.g. Duplicate, no license, no logo">
     </div>
     <?php if (($L['status'] ?? '') !== 'approved'): ?>
     <label style="display:flex;align-items:center;gap:8px;font-size:13px;margin-bottom:10px;cursor:pointer"><input type="checkbox" name="notify_approved" value="1" checked style="width:auto">Email the agency when approved</label>
@@ -287,6 +349,26 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
       <a href="/admin/directory/" class="btn btn-ghost btn-sm" style="text-align:center">← Back to Directory</a>
     </div>
   </div>
+
+  <?php if ($id): ?>
+  <div class="card">
+    <div class="card-title" style="margin-bottom:12px">Quick actions</div>
+    <div class="qa">
+      <?php if (($L['status'] ?? '') !== 'approved'): ?><a class="btn btn-primary btn-sm" href="<?= $qa('approve') ?>" <?= empty($L['owner_confirmed_at']) && !empty($L['owner_email']) ? 'data-confirm="The owner hasn\'t confirmed by email yet. Approve anyway?"' : '' ?>>Approve &amp; publish</a><?php endif ?>
+      <?php if (($L['payment_status'] ?? '') === 'pending'): ?><a class="btn btn-secondary btn-sm" href="<?= $qa('invoiced') ?>">Mark invoiced</a><?php endif ?>
+      <?php if (($L['requested_plan'] ?? '') || ($L['plan'] ?? 'free') !== 'free'): ?>
+      <a class="btn btn-secondary btn-sm" href="<?= $qa('paid', '&months=1') ?>" data-confirm="Record a 1-month payment?"><?= ($L['payment_status'] ?? '') === 'paid' ? 'Renew +1 month' : 'Mark paid (1 month)' ?></a>
+      <a class="btn btn-secondary btn-sm" href="<?= $qa('paid', '&months=12') ?>" data-confirm="Record a 12-month payment?">Mark paid (12 months)</a>
+      <?php endif ?>
+      <?php if (!empty($L['owner_email'])): ?><a class="btn btn-secondary btn-sm" href="<?= $qa('resend') ?>">Send confirmation email</a><?php endif ?>
+      <?php if (!empty($L['website'])): ?><a class="btn btn-secondary btn-sm" href="<?= $qa('fetch_logo') ?>">Fetch logo from website</a><?php endif ?>
+      <a class="btn btn-secondary btn-sm" href="<?= $qa('geocode') ?>">Find map location</a>
+      <?php if (!empty($L['owner_email'])): ?><a class="btn btn-ghost btn-sm" href="mailto:<?= $v('owner_email') ?>">Email owner</a><?php endif ?>
+      <?php if (!empty($L['owner_phone'])): ?><a class="btn btn-ghost btn-sm" href="tel:<?= h(preg_replace('/[^0-9+]/', '', $L['owner_phone'])) ?>">Call owner</a><?php endif ?>
+      <a class="btn btn-danger btn-sm" href="<?= $qa('delete') ?>" data-confirm="Permanently delete this listing, its reviews and inquiries? This cannot be undone.">Delete listing</a>
+    </div>
+  </div>
+  <?php endif ?>
 
   <div class="card">
     <div class="card-title" style="margin-bottom:12px">Plan &amp; billing
@@ -327,17 +409,63 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
     <div class="form-group"><label>Direct phone</label><input type="text" name="owner_phone" value="<?= $v('owner_phone') ?>"></div>
     <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;margin-bottom:6px"><input type="checkbox" name="send_confirm" value="1" style="width:auto">Send (or re-send) confirmation email on save</label>
     <?php if (empty($L['owner_confirmed_at'])): ?>
-    <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input type="checkbox" name="mark_confirmed" value="1" style="width:auto">Mark confirmed manually (verified by phone)</label>
+    <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;margin-bottom:6px"><input type="checkbox" name="mark_confirmed" value="1" style="width:auto">Mark confirmed manually (verified by phone)</label>
+    <?php else: ?>
+    <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;margin-bottom:6px"><input type="checkbox" name="clear_confirmed" value="1" style="width:auto">Remove confirmation (owner must confirm again)</label>
     <?php endif ?>
+    <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;margin-bottom:12px"><input type="checkbox" name="owner_authorized" value="1" style="width:auto" <?= !empty($L['owner_authorized']) ? 'checked' : '' ?>>Owner attested they're authorized</label>
+    <div class="form-group" style="margin-bottom:0"><label>Claim status <span>(for claims of existing listings)</span></label>
+      <select name="claim_status">
+        <?php foreach (['' => '— Not a claim', 'pending' => 'Pending (owner not confirmed)', 'confirmed' => 'Confirmed by owner, needs your check', 'verified' => 'Verified'] as $ck => $cl): ?>
+        <option value="<?= $ck ?>" <?= ($L['claim_status'] ?? '') === $ck ? 'selected' : '' ?>><?= $cl ?></option>
+        <?php endforeach ?>
+      </select>
+    </div>
   </div>
 
   <div class="card">
     <div class="card-title" style="margin-bottom:10px">Internal notes</div>
     <textarea name="admin_notes" rows="4" placeholder="Call notes, invoice history…"><?= $v('admin_notes') ?></textarea>
-    <?php if (!empty($L['ip_address'])): ?>
-    <div class="form-hint" style="margin-top:8px">Submitted from <?= h($L['ip_address']) ?><?= !empty($L['geo_city']) ? ' (' . h(trim($L['geo_city'] . ', ' . $L['geo_region'], ', ')) . ')' : '' ?> · <?= h($L['device_type'] ?? '') ?></div>
-    <?php endif ?>
   </div>
+
+  <?php if ($id):
+    $dt = fn($k) => !empty($L[$k]) ? date('M j, Y g:ia', strtotime($L[$k])) : '—'; ?>
+  <div class="card">
+    <div class="card-title" style="margin-bottom:10px">Submission details</div>
+    <dl class="meta">
+      <dt>Submitted</dt><dd><?= $dt('created_at') ?></dd>
+      <dt>Approved</dt><dd><?= $dt('approved_at') ?></dd>
+      <dt>Last updated</dt><dd><?= $dt('updated_at') ?></dd>
+      <dt>Confirm sent</dt><dd><?= $dt('confirm_sent_at') ?></dd>
+      <dt>Source page</dt><dd><?= $v('source_page') ?: '—' ?></dd>
+      <dt>IP address</dt><dd><?= $v('ip_address') ?: '—' ?></dd>
+      <dt>Location (IP)</dt><dd><?= h(trim(implode(', ', array_filter([$L['geo_city'] ?? '', $L['geo_region'] ?? '', $L['geo_country'] ?? ''])))) ?: '—' ?></dd>
+      <dt>Device</dt><dd><?= $v('device_type') ?: '—' ?></dd>
+      <dt>Browser</dt><dd style="font-size:11px;word-break:break-all"><?= $v('user_agent') ?: '—' ?></dd>
+      <dt>Map looked up</dt><dd><?= $dt('geocoded_at') ?></dd>
+    </dl>
+  </div>
+
+  <div class="card" id="reviews">
+    <div class="card-title" style="margin-bottom:6px">Reviews <span style="font-weight:400;color:var(--muted)">(<?= !empty($L['rating_count']) ? h($L['rating_avg']) . '★ · ' . (int)$L['rating_count'] . ' published' : 'none published' ?>)</span></div>
+    <?php if ($reviewsAll): foreach ($reviewsAll as $rv): ?>
+    <div class="lead-row">
+      <span style="color:#e0a020"><?= str_repeat('★', (int)$rv['rating']) . str_repeat('☆', 5 - (int)$rv['rating']) ?></span>
+      <span class="badge <?= $rv['status'] === 'approved' ? 'badge-green' : ($rv['status'] === 'rejected' ? 'badge-red' : 'badge-gold') ?>" style="margin-left:6px"><?= h($rv['status']) ?></span>
+      <div style="margin:4px 0"><strong><?= h($rv['title'] ?: '') ?></strong> <?= h(mb_strimwidth($rv['body'], 0, 160, '…')) ?></div>
+      <span style="color:var(--muted)"><?= h($rv['name']) ?> &lt;<?= h($rv['email']) ?>&gt; · <?= date('M j, Y', strtotime($rv['created_at'])) ?></span>
+      <div style="display:flex;gap:10px;margin-top:4px">
+        <?php if ($rv['status'] !== 'approved'): ?><a href="<?= $qa('rv_approve', '&rid=' . $rv['id']) ?>">Approve</a><?php endif ?>
+        <?php if ($rv['status'] !== 'rejected'): ?><a href="<?= $qa('rv_reject', '&rid=' . $rv['id']) ?>">Reject</a><?php endif ?>
+        <a href="<?= $qa('rv_delete', '&rid=' . $rv['id']) ?>" style="color:var(--red)" data-confirm="Delete this review?">Delete</a>
+      </div>
+    </div>
+    <?php endforeach; else: ?>
+    <div class="form-hint">No reviews yet.</div>
+    <?php endif ?>
+    <a href="/admin/directory/reviews.php?view=all" class="btn btn-ghost btn-sm" style="margin-top:8px">All reviews & agency responses →</a>
+  </div>
+  <?php endif ?>
 
   <?php if ($leads): ?>
   <div class="card">
@@ -355,6 +483,7 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
 </div>
 
 <script>
+document.querySelector('select[name=status]').addEventListener('change', function(){ document.getElementById('rejWrap').style.display = this.value === 'rejected' ? '' : 'none'; });
 function autoSlug(val) {
   var s = document.getElementById('co-slug');
   if (s.dataset.locked) return;
