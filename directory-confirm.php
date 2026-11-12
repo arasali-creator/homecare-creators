@@ -30,6 +30,11 @@ if ($l) {
         $msg .= "Email domain matches website: " . (hc_dir_domain_match($l) ? 'YES' : 'no') . "\n\n";
         $msg .= "Open: https://homecarecreators.com/admin/directory/edit.php?id={$l['id']}\n";
         HcMailer::send($notification_email, "✓ Owner confirmed: {$l['company_name']}" . ($req !== 'free' ? " [{$planName}]" : ''), $msg, $l['owner_email']);
+        // Owner account: link if one exists, otherwise offer instant setup (this link already proved the email).
+        hc_dir_session();
+        $acct = hc_one("SELECT * FROM hc_directory_owners WHERE LOWER(email)=LOWER(?) AND verified_at IS NOT NULL", [$l['owner_email']]);
+        if ($acct) { hc_dir_owner_link((int)$acct['id'], $acct['email']); }
+        else { $_SESSION['hc_dir_setup'] = ['email' => $l['owner_email'], 'name' => $l['owner_name'], 'exp' => time() + 3600]; }
     }
 }
 
@@ -72,7 +77,14 @@ include __DIR__ . '/includes/header.php';
       <div><b>02</b><span>You'll get an email as soon as it's live.</span></div>
       <?php endif ?>
     </div>
-    <a href="/directory/" class="dx-btn is-dark">Back to the directory</a>
+    <?php if (!empty($acct)): ?>
+    <p style="margin-top:24px">This listing is now linked to your owner account.</p>
+    <a href="/directory/account/" class="dx-btn is-dark">Go to my dashboard</a>
+    <?php else: ?>
+    <div class="cf-steps" style="margin-top:16px"><div><b>✓</b><span><strong>Create your free owner account</strong> to update your listing, see inquiries and manage your plan any time.</span></div></div>
+    <a href="/directory/account/?p=setup" class="dx-btn is-dark">Create my account</a>
+    <a href="/directory/" class="dx-btn" style="margin-left:8px">Maybe later</a>
+    <?php endif ?>
   <?php elseif ($state === 'expired'): ?>
     <div class="cf-icon bad"><i class="fa-regular fa-clock"></i></div>
     <h1>This link has <em>expired.</em></h1>

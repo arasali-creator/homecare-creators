@@ -139,6 +139,7 @@ $views = [
     'approved' => ['Live',           "status='approved'"],
     'rejected' => ['Rejected',       "status='rejected'"],
     'all'      => ['All',            "1=1"],
+    'verify'   => ['Verification',   "id IN (SELECT listing_id FROM hc_directory_verifications WHERE status IN ('requested','submitted'))"],
 ];
 $view = isset($views[$_GET['view'] ?? '']) ? $_GET['view'] : (isset($views[$_GET['status'] ?? '']) ? $_GET['status'] : 'pending');
 $planF = in_array($_GET['plan'] ?? '', ['free', 'premium', 'featured'], true) ? $_GET['plan'] : '';
@@ -201,6 +202,9 @@ tr.dir-det>td{background:#fafbf9;border-top:0!important;padding-top:4px!importan
   <div><h1>Agency Directory</h1><div class="sub">Listings, owner confirmations, claims and invoicing</div></div>
   <div style="display:flex;gap:8px;flex-wrap:wrap">
     <?php $pendRev = (int)hc_val("SELECT COUNT(*) FROM hc_directory_reviews WHERE status='pending'"); $unmapped = (int)hc_val("SELECT COUNT(*) FROM hc_directory_listings WHERE status='approved' AND lat IS NULL AND geocoded_at IS NULL"); ?>
+    <?php $pendEdits = (int)hc_val("SELECT COUNT(*) FROM hc_directory_edits WHERE status='pending'"); $pendVer = (int)hc_val("SELECT COUNT(*) FROM hc_directory_verifications WHERE status='submitted'"); ?>
+    <a href="/admin/directory/requests.php" class="btn btn-secondary">Edit requests<?php if ($pendEdits): ?> <span class="badge badge-red" style="margin-left:4px"><?= $pendEdits ?></span><?php endif ?></a>
+    <?php if ($pendVer): ?><a href="/admin/directory/?view=verify" class="btn btn-secondary">Verifications <span class="badge badge-red" style="margin-left:4px"><?= $pendVer ?></span></a><?php endif ?>
     <a href="/admin/directory/reviews.php" class="btn btn-secondary">Reviews<?php if ($pendRev): ?> <span class="badge badge-red" style="margin-left:4px"><?= $pendRev ?></span><?php endif ?></a>
     <?php
       $noLogo = (int)hc_val("SELECT COUNT(*) FROM hc_directory_listings WHERE (logo IS NULL OR logo='') AND website IS NOT NULL AND website<>''");

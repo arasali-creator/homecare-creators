@@ -26,7 +26,10 @@ $hasOwner = !empty($l['owner_confirmed_at']);
 $claimed  = hc_dir_is_claimed($l);
 $about    = hc_dir_public_desc($l);
 $canonical = "https://homecarecreators.com/directory/" . $l['slug'];
-$mapQuery  = trim(($l['address'] ? $l['address'] . ', ' : '') . $l['city'] . ', ' . $l['state']);
+$addrLine  = trim(preg_replace('/,?\s*(United States|USA|US)\.?$/i', '', (string)$l['address']));
+$addrHasCity = $addrLine !== '' && stripos($addrLine, (string)$l['city']) !== false;
+$cityLine  = $l['city'] . ', ' . $l['state'];
+$mapQuery  = $addrLine ? ($addrHasCity ? $addrLine : $addrLine . ', ' . $cityLine) : $cityLine;
 $phoneHref = preg_replace('/[^0-9+]/', '', (string)$l['phone']);
 $dirUrl    = 'https://www.google.com/maps/dir/?api=1&destination=' . urlencode($mapQuery);
 $hasGeo    = $l['lat'] !== null && $l['lng'] !== null;
@@ -114,17 +117,47 @@ $page_css = hc_dir_base_css() . hc_dir_extra_css() . <<<CSS
 .am-btn{margin-top:14px}
 .empty-txt{font-size:15.5px;color:var(--mut);line-height:1.7}
 .empty-txt a{color:var(--ink);font-weight:600;text-decoration:underline!important;text-underline-offset:3px}
-.lh{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
-.lh-map{border-radius:22px;overflow:hidden;height:220px;background:#e6e2d8;position:relative}
-.lh-map iframe,.lh-map #bizMap{position:absolute;inset:0;width:100%;height:100%;border:0}
-.lh-addr{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px}
-.lh-addr b{display:block;font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);font-size:15px}
-.lh-addr span{font-size:13.5px;color:var(--mut)}
-.hr{width:100%;border-collapse:collapse}
-.hr td{padding:7px 0;font-size:15px;color:var(--txt);vertical-align:top}
-.hr td:first-child{width:64px;font-weight:600;color:var(--ink)}
-.hr tr.today td{font-weight:700;color:var(--ink)}
-.hr .os{font-size:13px;margin-left:8px}
+.lo{background:#fff;border-radius:26px;overflow:hidden}
+.lo-map{height:260px;position:relative;background:#e6e2d8}
+.lo-map iframe,.lo-map #bizMap{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lo-body{display:grid;grid-template-columns:1fr 1fr}
+.lo-addr{display:flex;gap:16px;padding:26px 28px}
+.lo-ic{width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.lo-addr small,.lo-hrs-h small{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+.lo-addr b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.3}
+.lo-addr span{display:block;font-size:15px;color:var(--mut);margin-top:3px}
+.lo-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.lo-btns .dx-btn{padding:11px 16px;font-size:13.5px}
+.lo-hrs{padding:26px 28px;border-left:1px solid var(--hair-2)}
+.lo-hrs-h{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.lo-chip{display:inline-flex;align-items:center;gap:7px;border-radius:100px;padding:6px 12px;font-size:12.5px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif}
+.lo-chip i{width:7px;height:7px;border-radius:50%;background:currentColor}
+.lo-chip.is-open{background:#e3f4ec;color:#0b8a5a}
+.lo-chip.is-closed{background:#fdeee6;color:#c2410c}
+.lo-days{list-style:none;margin:6px 0 0;padding:0}
+.lo-days li{display:flex;justify-content:space-between;gap:12px;padding:9px 12px;margin:0 -12px;border-radius:12px;font-size:14.5px;color:var(--txt)}
+.lo-days li span:first-child{font-weight:600;color:var(--ink)}
+.lo-days li.off span:last-child{color:var(--mut)}
+.lo-days li.today{background:var(--cream)}
+.lo-days li.today span{font-weight:700;color:var(--ink)}
+.lo-days em{font-style:normal;font-size:11px;font-weight:700;color:var(--teal);margin-left:6px;text-transform:uppercase;letter-spacing:.6px}
+.lo-247{display:flex;align-items:center;gap:16px;margin-top:10px}
+.lo-247 b{font-family:'Plus Jakarta Sans',sans-serif;font-size:40px;font-weight:800;letter-spacing:-.04em;color:var(--ink)}
+.lo-247 span{font-size:14.5px;color:var(--mut);line-height:1.5}
+.lo-none{font-size:14.5px;color:var(--mut);line-height:1.65;margin-top:8px}
+.lo-none a{color:var(--ink);font-weight:600;text-decoration:underline!important;text-underline-offset:3px}
+.lo-note{font-size:13.5px;color:var(--mut);margin-top:12px;padding-top:12px;border-top:1px solid var(--hair-2)}
+.ar-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ar{display:flex;align-items:center;gap:12px;background:#fff;border-radius:18px;padding:14px 16px;font-size:15px;font-weight:500;color:var(--ink);min-width:0}
+.ar span:last-child{min-width:0;overflow-wrap:anywhere}
+.ar small{display:block;font-size:11.5px;font-weight:600;color:var(--teal);margin-top:1px}
+.ar-ic{width:34px;height:34px;border-radius:50%;background:var(--cream);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.ar.is-home{background:var(--ink);color:#fff}
+.ar.is-home .ar-ic{background:rgba(255,255,255,.12);color:#fff}
+.ar.is-home small{color:var(--teal-lt)}
+.ar.more{display:none}
+.ar-grid.open .ar.more{display:flex}
+.ar-note{display:flex;gap:10px;align-items:center;font-size:13.5px;color:var(--mut);margin-top:16px}
 .ab-tag{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:600;line-height:1.45;color:var(--ink);margin-bottom:14px}
 .ab{font-size:16.5px;line-height:1.8;color:var(--txt);white-space:pre-line}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
@@ -215,7 +248,9 @@ a.cr:hover b{color:var(--teal)}
 @media(max-width:1100px){
   .bz{grid-template-columns:1fr;gap:12px}
   .sd{position:static}
-  .lh{grid-template-columns:1fr}
+  .lo-body{grid-template-columns:1fr}
+  .lo-hrs{border-left:0;border-top:1px solid var(--hair-2)}
+  .ar-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:700px){
   .gl{grid-template-columns:1fr 1fr;grid-template-rows:160px 100px;border-radius:22px}
@@ -338,33 +373,66 @@ $cityLink = '/directory/?loc=' . urlencode($l['city'] . ', ' . $l['state']) . '#
 
         <div class="bs" id="hours">
           <h2>Location &amp; hours</h2>
-          <div class="lh">
-            <div>
-              <div class="lh-map">
-                <?php if ($hasGeo): ?><div id="bizMap"></div>
-                <?php else: ?><iframe loading="lazy" title="Map of <?= htmlspecialchars($l['company_name']) ?>" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=<?= urlencode($mapQuery) ?>&z=<?= $l['address'] ? 14 : 11 ?>&output=embed"></iframe><?php endif ?>
-              </div>
-              <div class="lh-addr">
-                <div><b><?= htmlspecialchars($l['address'] ?: $l['city'] . ', ' . $l['state']) ?></b><span><?= $l['address'] ? htmlspecialchars($l['city'] . ', ' . $l['state']) : 'Serves clients in their homes' ?></span></div>
-                <a class="dx-btn" href="<?= htmlspecialchars($dirUrl) ?>" target="_blank" rel="noopener nofollow" style="padding:11px 16px">Get directions</a>
-              </div>
+          <div class="lo">
+            <div class="lo-map">
+              <?php if ($hasGeo): ?><div id="bizMap"></div>
+              <?php else: ?><iframe loading="lazy" title="Map of <?= htmlspecialchars($l['company_name']) ?>" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=<?= urlencode($mapQuery) ?>&z=<?= $addrLine ? 14 : 11 ?>&output=embed"></iframe><?php endif ?>
             </div>
-            <div>
-              <?php if ($hours && !empty($hours['always'])): ?>
-                <p style="font-size:16px;color:var(--ink);font-weight:600;margin-bottom:6px">Open 24 hours, 7 days a week</p>
-                <p class="empty-txt">Care and on-call support are available around the clock.</p>
-              <?php elseif ($hours): ?>
-              <table class="hr">
-                <?php foreach (HC_DIR_DAYS as $k => $d): $isToday = ($open['today'] ?? '') === $k; ?>
-                <tr class="<?= $isToday ? 'today' : '' ?>"><td><?= $d ?></td><td><?= $hours[$k] ? hc_dir_fmt_time($hours[$k][0]) . ' – ' . hc_dir_fmt_time($hours[$k][1]) : 'Closed' ?><?= $isToday && $open ? ' <span class="os ' . ($open['open'] ? 'is-open' : 'is-closed') . '">' . ($open['open'] ? 'Open now' : 'Closed now') . '</span>' : '' ?></td></tr>
-                <?php endforeach ?>
-              </table>
-              <?php else: ?>
-              <p class="empty-txt">Office hours aren't listed. Many home care agencies offer care around the clock, so call to ask about availability.</p>
-              <?php endif ?>
+            <div class="lo-body">
+              <div class="lo-addr">
+                <span class="lo-ic"><i class="fa-solid fa-location-dot"></i></span>
+                <div>
+                  <small><?= $addrLine ? 'Office address' : 'Based in' ?></small>
+                  <?php if ($addrLine): ?>
+                  <b><?= htmlspecialchars($addrHasCity ? preg_replace('/,\s*' . preg_quote($l['city'], '/') . '.*$/i', '', $addrLine) : $addrLine) ?></b>
+                  <span><?= htmlspecialchars($addrHasCity ? ltrim(substr($addrLine, stripos($addrLine, (string)$l['city'])), ', ') : $cityLine) ?></span>
+                  <?php else: ?>
+                  <b><?= htmlspecialchars($cityLine) ?></b>
+                  <span>Provides care in clients' homes</span>
+                  <?php endif ?>
+                  <div class="lo-btns">
+                    <a class="dx-btn is-dark" href="<?= htmlspecialchars($dirUrl) ?>" target="_blank" rel="noopener nofollow"><i class="fa-solid fa-diamond-turn-right"></i>Directions</a>
+                    <button class="dx-btn" type="button" data-copy="<?= htmlspecialchars($mapQuery) ?>" onclick="var b=this;navigator.clipboard&&navigator.clipboard.writeText(b.dataset.copy).then(function(){b.innerHTML='<i class=&quot;fa-solid fa-check&quot;></i>Copied'})"><i class="fa-regular fa-copy"></i>Copy address</button>
+                  </div>
+                </div>
+              </div>
+              <div class="lo-hrs">
+                <div class="lo-hrs-h">
+                  <small>Office hours</small>
+                  <?php if ($open): ?><span class="lo-chip <?= $open['open'] ? 'is-open' : 'is-closed' ?>"><i></i><?= $open['open'] ? 'Open now' : 'Closed now' ?></span><?php endif ?>
+                </div>
+                <?php if ($hours && !empty($hours['always'])): ?>
+                  <div class="lo-247"><b>24/7</b><span>Care and on-call support around the clock, every day of the year.</span></div>
+                <?php elseif ($hours): ?>
+                  <ul class="lo-days">
+                    <?php foreach (HC_DIR_DAYS as $k => $d): $isToday = ($open['today'] ?? '') === $k; ?>
+                    <li class="<?= $isToday ? 'today' : '' ?><?= $hours[$k] ? '' : ' off' ?>"><span><?= $d ?><?= $isToday ? ' <em>Today</em>' : '' ?></span><span><?= $hours[$k] ? hc_dir_fmt_time($hours[$k][0]) . ' – ' . hc_dir_fmt_time($hours[$k][1]) : 'Closed' ?></span></li>
+                    <?php endforeach ?>
+                  </ul>
+                <?php else: ?>
+                  <p class="lo-none">Hours aren't listed yet. Most home care agencies can arrange care any day of the week<?= $l['phone'] ? ', so <a href="tel:' . htmlspecialchars($phoneHref) . '">call ' . htmlspecialchars($l['phone']) . '</a> to ask about availability' : '' ?>.</p>
+                <?php endif ?>
+                <?php if ($l['hours']): ?><p class="lo-note"><?= htmlspecialchars($l['hours']) ?></p><?php endif ?>
+              </div>
             </div>
           </div>
         </div>
+
+        <?php if ($areas): ?>
+        <div class="bs" id="areas">
+          <h2>Areas served <small><?= count($areas) ?> area<?= count($areas) === 1 ? '' : 's' ?> around <?= htmlspecialchars($l['city']) ?></small></h2>
+          <div class="ar-grid" id="arGrid">
+            <?php
+            $areasSorted = $areas;
+            usort($areasSorted, fn($a, $b) => (stripos($b, $l['city']) === 0) <=> (stripos($a, $l['city']) === 0));
+            foreach ($areasSorted as $i => $a): $home = stripos($a, $l['city']) === 0; ?>
+            <div class="ar<?= $home ? ' is-home' : '' ?><?= $i >= 12 ? ' more' : '' ?>"><span class="ar-ic"><i class="fa-solid <?= $home ? 'fa-house' : 'fa-location-dot' ?>"></i></span><span><?= htmlspecialchars($a) ?><?= $home ? '<small>Based here</small>' : '' ?></span></div>
+            <?php endforeach ?>
+          </div>
+          <?php if (count($areas) > 12): ?><button class="dx-btn am-btn" type="button" onclick="var g=document.getElementById('arGrid');g.classList.toggle('open');this.textContent=g.classList.contains('open')?'Show fewer':'Show all <?= count($areas) ?> areas'">Show all <?= count($areas) ?> areas</button><?php endif ?>
+          <p class="ar-note"><i class="fa-solid fa-circle-info"></i>Not on the list? Many agencies travel further. Ask when you call.</p>
+        </div>
+        <?php endif ?>
 
         <?php if ($features): ?>
         <div class="bs" id="highlights">
@@ -384,13 +452,6 @@ $cityLink = '/directory/?loc=' . urlencode($l['city'] . ', ' . $l['state']) . '#
             <div><small>Languages</small><p><?= $l['languages'] ? htmlspecialchars($l['languages']) : '<span style="color:var(--mut);font-weight:400">Ask the agency</span>' ?></p></div>
             <div><small>License</small><p><?= $l['license_number'] ? '#' . htmlspecialchars($l['license_number']) : '<span style="color:var(--mut);font-weight:400">Not provided</span>' ?></p></div>
           </div>
-          <?php if ($areas): ?>
-          <h3 style="font-size:16px;font-weight:700;margin:26px 0 12px">Areas served</h3>
-          <div class="chips"><?php foreach ($areas as $a): ?><span><?= htmlspecialchars($a) ?></span><?php endforeach ?></div>
-          <?php endif ?>
-          <?php if (!$hasOwner): ?>
-          <div class="note"><i class="fa-solid fa-circle-info"></i><div>This profile hasn't been claimed by the agency yet, so some details may be incomplete. <a href="/directory/submit/?claim=<?= urlencode($l['slug']) ?>">Own this agency? Claim it for free.</a></div></div>
-          <?php endif ?>
         </div>
 
         <?php if ($photos): ?>
@@ -527,12 +588,7 @@ $cityLink = '/directory/?loc=' . urlencode($l['city'] . ', ' . $l['state']) . '#
           <a class="cc-edit" href="mailto:info@homecarecreators.com?subject=<?= rawurlencode('Suggest an edit: ' . $l['company_name']) ?>"><i class="fa-regular fa-pen-to-square" style="margin-right:6px"></i>Suggest an edit</a>
         </div>
 
-        <?php if (!$hasOwner): ?>
-        <div class="claim">
-          <span class="dx-arrow" style="background:var(--gold-bg);border:0;color:var(--gold-ink)"><i class="fa-solid fa-store"></i></span>
-          <div><b>Is this your business?</b><p>Claim it free to update your info, respond to reviews and get the Claimed badge.</p><a class="go" href="/directory/submit/?claim=<?= urlencode($l['slug']) ?>">Claim this business →</a></div>
-        </div>
-        <?php elseif (!$paid): ?>
+        <?php if ($hasOwner && !$paid): ?>
         <div class="claim">
           <span class="dx-arrow" style="background:var(--gold-bg);border:0;color:var(--gold-ink)"><i class="fa-solid fa-arrow-trend-up"></i></span>
           <div><b>Stand out in <?= htmlspecialchars($l['city']) ?></b><p>Add photos and your website, and rank above nearby agencies.</p><a class="go" href="/directory/submit/?claim=<?= urlencode($l['slug']) ?>&plan=premium">See upgrade options →</a></div>
@@ -630,4 +686,5 @@ function lxSend(e){
   return false;
 }
 JS;
+echo hc_dir_popup_html();
 include '../includes/footer.php';

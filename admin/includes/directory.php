@@ -6,7 +6,7 @@
  * Requires admin/config.php + admin/includes/db.php (+ functions.php for hc_setting) to be loaded first.
  */
 
-const HC_DIR_SCHEMA_VERSION = '3';
+const HC_DIR_SCHEMA_VERSION = '4';
 
 /** Standard service list — submit form checkboxes + directory filters. */
 const HC_DIR_SERVICES = [
@@ -169,6 +169,8 @@ function hc_dir_ensure_schema(): void {
             'geocoded_at'        => "TIMESTAMP NULL",
             'rating_avg'         => "DECIMAL(2,1) NULL",
             'rating_count'       => "INT NOT NULL DEFAULT 0",
+            // v4: owner accounts
+            'owner_account_id'   => "INT NULL",
         ];
         foreach ($add as $col => $def) {
             if (!in_array($col, $cols, true)) hc_db()->exec("ALTER TABLE hc_directory_listings ADD COLUMN `$col` $def");
@@ -196,6 +198,48 @@ function hc_dir_ensure_schema(): void {
             ip_address VARCHAR(64),
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             approved_at TIMESTAMP NULL,
+            KEY idx_listing_status (listing_id, status)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+
+        hc_db()->exec("CREATE TABLE IF NOT EXISTS hc_directory_owners (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            email VARCHAR(255) NOT NULL UNIQUE,
+            name VARCHAR(150),
+            password_hash VARCHAR(255),
+            verified_at TIMESTAMP NULL,
+            reset_token VARCHAR(64) NULL,
+            reset_sent_at TIMESTAMP NULL,
+            last_login_at TIMESTAMP NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            KEY idx_reset (reset_token)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+
+        hc_db()->exec("CREATE TABLE IF NOT EXISTS hc_directory_verifications (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            listing_id INT NOT NULL,
+            request_note TEXT,
+            status VARCHAR(20) NOT NULL DEFAULT 'requested',
+            file_path VARCHAR(500),
+            file_mime VARCHAR(100),
+            file_name VARCHAR(255),
+            owner_note TEXT,
+            admin_note VARCHAR(500),
+            requested_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            submitted_at TIMESTAMP NULL,
+            reviewed_at TIMESTAMP NULL,
+            KEY idx_listing (listing_id),
+            KEY idx_status (status)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+
+        hc_db()->exec("CREATE TABLE IF NOT EXISTS hc_directory_edits (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            listing_id INT NOT NULL,
+            owner_id INT NOT NULL,
+            data MEDIUMTEXT NOT NULL,
+            status VARCHAR(20) NOT NULL DEFAULT 'pending',
+            admin_note VARCHAR(500),
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            reviewed_at TIMESTAMP NULL,
             KEY idx_listing_status (listing_id, status)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
@@ -588,3 +632,121 @@ function hc_dir_fetch_logo(int $id): ?string {
     }
     return null;
 }
+
+
+/* ── Owner accounts ────────────────────────────────────────── */
+
+/** Fields an agency owner may change (all changes go to admin for approval). */
+const HC_DIR_OWNER_FIELDS = [
+    'tagline' => 'Tagline', 'description' => 'Description', 'services' => 'Services', 'payment_accepted' => 'Payment accepted',
+    'features' => 'Highlights', 'hours_json' => 'Office hours', 'hours' => 'Hours note', 'phone' => 'Phone', 'email' => 'Email',
+    'website' => 'Website', 'address' => 'Address', 'service_areas' => 'Service areas', 'languages' => 'Languages',
+    'license_number' => 'License number', 'years_in_business' => 'Years in business', 'logo' => 'Logo URL',
+    'cover_image' => 'Cover photo URL', 'photos' => 'Gallery photo URLs',
+];
+
+function hc_dir_session(): void {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_set_cookie_params(['lifetime' => 0, 'path' => '/', 'secure' => !empty($_SERVER['HTTPS']), 'httponly' => true, 'samesite' => 'Lax']);
+        session_start();
+    }
+}
+
+function hc_dir_owner(): ?array {
+    hc_dir_session();
+    $id = (int)($_SESSION['hc_owner_id'] ?? 0);
+    return $id ? hc_one("SELECT * FROM hc_directory_owners WHERE id=? AND verified_at IS NOT NULL", [$id]) : null;
+}
+
+function hc_dir_csrf(): string {
+    hc_dir_session();
+    if (empty($_SESSION['hc_owner_csrf'])) $_SESSION['hc_owner_csrf'] = bin2hex(random_bytes(16));
+    return $_SESSION['hc_owner_csrf'];
+}
+function hc_dir_csrf_ok(): bool {
+    hc_dir_session();
+    return !empty($_POST['csrf']) && hash_equals($_SESSION['hc_owner_csrf'] ?? '', (string)$_POST['csrf']);
+}
+
+/** Link every confirmed listing whose owner email matches this (verified) account. */
+function hc_dir_owner_link(int $ownerId, string $email): void {
+    hc_q("UPDATE hc_directory_listings SET owner_account_id=? WHERE LOWER(owner_email)=LOWER(?) AND owner_confirmed_at IS NOT NULL AND (owner_account_id IS NULL OR owner_account_id=?)", [$ownerId, $email, $ownerId]);
+}
+
+function hc_dir_owner_login(array $o): void {
+    hc_dir_session();
+    session_regenerate_id(true);
+    $_SESSION['hc_owner_id'] = (int)$o['id'];
+    hc_q("UPDATE hc_directory_owners SET last_login_at=NOW() WHERE id=?", [$o['id']]);
+    hc_dir_owner_link((int)$o['id'], $o['email']);
+}
+
+/** Email a link to set (or reset) a password. Creates the account record if needed. */
+function hc_dir_send_password_link(string $email, string $name = ''): bool {
+    $o = hc_one("SELECT * FROM hc_directory_owners WHERE LOWER(email)=LOWER(?)", [$email]);
+    if (!$o) {
+        hc_q("INSERT INTO hc_directory_owners (email, name) VALUES (?, ?)", [strtolower($email), $name ?: null]);
+        $o = hc_one("SELECT * FROM hc_directory_owners WHERE id=?", [(int)hc_db()->lastInsertId()]);
+    }
+    $token = bin2hex(random_bytes(24));
+    hc_q("UPDATE hc_directory_owners SET reset_token=?, reset_sent_at=NOW() WHERE id=?", [$token, $o['id']]);
+    $url = (defined('SITE_URL') ? rtrim(SITE_URL, '/') : 'https://homecarecreators.com') . '/directory/account/?p=reset&token=' . $token;
+    $body = "Use this link to set your password and manage your agency listing:\n{$url}\n\nThe link expires in 24 hours. If you didn't ask for this, you can ignore this email.\n\n— Homecare Creators\n";
+    $html = hc_dir_email_html('Your agency account', 'Set your password', '<p>Use the button below to set your password and manage your agency listing on the Homecare Creators directory.</p>', 'Set my password', $url, 'This link expires in 24 hours. Didn\'t ask for this? You can ignore this email.');
+    if (!class_exists('HcMailer')) require_once __DIR__ . '/mailer.php';
+    return (bool)HcMailer::send($o['email'], 'Set your password — Homecare Creators Directory', $body, 'info@homecarecreators.com', '', $html);
+}
+
+/** Apply an approved edit request to its listing. */
+function hc_dir_apply_edit(int $editId): bool {
+    $e = hc_one("SELECT * FROM hc_directory_edits WHERE id=? AND status='pending'", [$editId]);
+    if (!$e) return false;
+    $data = array_intersect_key(json_decode($e['data'], true) ?: [], HC_DIR_OWNER_FIELDS);
+    if ($data) {
+        $set = implode(',', array_map(fn($k) => "`$k`=?", array_keys($data)));
+        hc_q("UPDATE hc_directory_listings SET $set WHERE id=?", [...array_values($data), $e['listing_id']]);
+        if (isset($data['address'])) { try { hc_dir_geocode((int)$e['listing_id']); } catch (Throwable $t) {} }
+    }
+    hc_q("UPDATE hc_directory_edits SET status='approved', reviewed_at=NOW() WHERE id=?", [$editId]);
+    return true;
+}
+
+function hc_dir_notify_owner(int $ownerId, string $subject, string $title, string $htmlRows, string $text): void {
+    $o = hc_one("SELECT email FROM hc_directory_owners WHERE id=?", [$ownerId]);
+    if (!$o) return;
+    $url = (defined('SITE_URL') ? rtrim(SITE_URL, '/') : 'https://homecarecreators.com') . '/directory/account/';
+    if (!class_exists('HcMailer')) require_once __DIR__ . '/mailer.php';
+    HcMailer::send($o['email'], $subject, $text . "\n\nManage your listing: {$url}\n", 'info@homecarecreators.com', '', hc_dir_email_html('Your agency account', $title, $htmlRows, 'Open my dashboard', $url));
+}
+
+
+/* ── Verification uploads (private: stored outside the web root when possible) ── */
+
+const HC_DIR_VERIFY_TYPES = [
+    'image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp', 'image/heic' => 'heic',
+    'video/mp4' => 'mp4', 'video/quicktime' => 'mov', 'video/webm' => 'webm',
+];
+
+function hc_dir_private_dir(): ?string {
+    $root = defined('SITE_ROOT') ? SITE_ROOT : dirname(__DIR__, 2);
+    foreach ([dirname($root) . '/hc-private/directory-verifications', $root . '/admin/private-uploads/directory-verifications'] as $d) {
+        if ((is_dir($d) || @mkdir($d, 0750, true)) && is_writable($d)) return $d;
+    }
+    return null;
+}
+
+/** Store an uploaded verification file. Returns [path, mime, name] or an error string. */
+function hc_dir_store_verification(array $file) {
+    if (($file['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
+        return in_array($file['error'] ?? 0, [UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE], true) ? 'That file is too large. Please keep it under ' . ini_get('upload_max_filesize') . '.' : 'Please choose a photo or video to upload.';
+    }
+    if ($file['size'] > 100 * 1024 * 1024) return 'Please keep the file under 100 MB.';
+    $mime = function_exists('mime_content_type') ? (string)mime_content_type($file['tmp_name']) : (string)$file['type'];
+    if (!isset(HC_DIR_VERIFY_TYPES[$mime])) return 'Please upload a JPG, PNG, WEBP or HEIC photo, or an MP4, MOV or WEBM video.';
+    $dir = hc_dir_private_dir();
+    if (!$dir) return 'Upload storage is not available right now. Please email the file to info@homecarecreators.com.';
+    $name = bin2hex(random_bytes(24)) . '.' . HC_DIR_VERIFY_TYPES[$mime];
+    if (!move_uploaded_file($file['tmp_name'], $dir . '/' . $name)) return 'The upload failed. Please try again.';
+    return [$dir . '/' . $name, $mime, mb_substr(basename((string)$file['name']), 0, 200)];
+}
+

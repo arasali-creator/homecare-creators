@@ -690,4 +690,5 @@ $page_js = <<<JS
   });
 })();
 JS;
+echo hc_dir_popup_html();
 include '../includes/footer.php';

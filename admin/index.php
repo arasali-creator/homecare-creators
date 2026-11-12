@@ -57,6 +57,8 @@ $pendingDir = (int)db_val("SELECT COUNT(*) FROM hc_directory_listings WHERE stat
 $dirInvoice = (int)db_val("SELECT COUNT(*) FROM hc_directory_listings WHERE payment_status='pending' AND owner_confirmed_at IS NOT NULL");
 $dirClaims  = (int)db_val("SELECT COUNT(*) FROM hc_directory_listings WHERE claim_status IN ('pending','confirmed')");
 $dirReviews = (int)db_val("SELECT COUNT(*) FROM hc_directory_reviews WHERE status='pending'");
+$dirEdits   = (int)db_val("SELECT COUNT(*) FROM hc_directory_edits WHERE status='pending'");
+$dirVerify  = (int)db_val("SELECT COUNT(*) FROM hc_directory_verifications WHERE status='submitted'");
 $totalForm  = (int)db_val("SELECT COUNT(*) FROM hc_form_submissions");
 
 $postsPub   = (int)db_val("SELECT COUNT(*) FROM hc_blog_posts WHERE status='published'");
@@ -111,6 +113,8 @@ if ($newForm)    $attention[] = ['red',  'New form leads waiting',        "$newF
 if ($newCalc)    $attention[] = ['red',  'New growth calculator leads',   "$newCalc new " . ($newCalc === 1 ? 'submission' : 'submissions'), '/admin/calculator-leads.php', 'Open'];
 if ($pendingDir) $attention[] = ['gold', 'Directory listings to review',  "$pendingDir pending approval", '/admin/directory/', 'Review'];
 if ($dirInvoice) $attention[] = ['red',  'Directory invoices to send',    "$dirInvoice confirmed " . ($dirInvoice === 1 ? 'owner wants' : 'owners want') . ' a paid plan', '/admin/directory/?view=billing', 'Invoice'];
+if ($dirEdits)   $attention[] = ['gold', 'Listing changes to approve',    "$dirEdits owner edit " . ($dirEdits === 1 ? 'request' : 'requests'), '/admin/directory/requests.php', 'Review'];
+if ($dirVerify)  $attention[] = ['gold', 'Verification uploads to check', "$dirVerify " . ($dirVerify === 1 ? 'upload' : 'uploads') . ' from agency owners', '/admin/directory/?view=verify', 'Check'];
 if ($dirReviews) $attention[] = ['gold', 'Directory reviews to approve',  "$dirReviews pending " . ($dirReviews === 1 ? 'review' : 'reviews'), '/admin/directory/reviews.php', 'Review'];
 if ($dirClaims)  $attention[] = ['gold', 'Directory claims to verify',    "$dirClaims listing " . ($dirClaims === 1 ? 'claim' : 'claims'), '/admin/directory/?view=claims', 'Review'];
 if ($daysSincePost !== null && $daysSincePost > 14)

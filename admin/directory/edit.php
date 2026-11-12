@@ -49,6 +49,35 @@ if ($listing && $do) {
             hc_flash('Review updated.');
             $back .= '#reviews';
             break;
+        case 'verify_request':
+            $note = trim((string)($_POST['vnote'] ?? $_GET['vnote'] ?? ''));
+            hc_q("INSERT INTO hc_directory_verifications (listing_id, request_note) VALUES (?, ?)", [$id, $note ?: null]);
+            $to = $listing['owner_email'];
+            if ($to) {
+                $url = 'https://homecarecreators.com/directory/account/';
+                $msgHtml = '<p>To keep our directory trustworthy, we\'d like a quick verification for <strong>' . h($listing['company_name']) . '</strong>.</p>'
+                    . '<p style="background:#f6f8f6;border-radius:8px;padding:14px 16px">' . nl2br(h($note ?: 'Please upload a short video or photo that shows you represent this agency, for example a photo of you holding your agency license, or a short video of your office sign.')) . '</p>'
+                    . '<p>Log in to your owner account to upload it from your phone or computer. Don\'t have an account yet? Use "Create an account" with this email address.</p>';
+                HcMailer::send($to, "Verification request — {$listing['company_name']}", "We'd like a quick verification for {$listing['company_name']}.\n\n" . ($note ?: 'Please upload a short video or photo that shows you represent this agency.') . "\n\nUpload it here: {$url}\n", 'info@homecarecreators.com', '', hc_dir_email_html('Verification request', $listing['company_name'], $msgHtml, 'Upload verification', $url));
+            }
+            hc_flash('Verification requested' . ($to ? ' and the owner was emailed.' : '. Note: this listing has no owner email, so nobody was notified.'));
+            $back .= '#verification';
+            break;
+        case 'verify_approve': case 'verify_reject':
+            $vid = (int)($_GET['vid'] ?? 0);
+            if ($do === 'verify_approve') {
+                hc_q("UPDATE hc_directory_verifications SET status='approved', reviewed_at=NOW() WHERE id=? AND listing_id=?", [$vid, $id]);
+                hc_q("UPDATE hc_directory_listings SET verified=1 WHERE id=?", [$id]);
+                if ($listing['owner_account_id']) hc_dir_notify_owner((int)$listing['owner_account_id'], "You're verified — {$listing['company_name']}", 'Verification approved', '<p>Thanks! <strong>' . h($listing['company_name']) . '</strong> is now verified.</p>', "Thanks! {$listing['company_name']} is now verified.");
+                hc_flash('Verification approved. The listing is marked as verified.');
+            } else {
+                $note = trim((string)($_GET['vnote'] ?? ''));
+                hc_q("UPDATE hc_directory_verifications SET status='rejected', admin_note=?, reviewed_at=NOW() WHERE id=? AND listing_id=?", [$note ?: null, $vid, $id]);
+                if ($listing['owner_account_id']) hc_dir_notify_owner((int)$listing['owner_account_id'], "Please re-send your verification — {$listing['company_name']}", 'Verification needs another try', '<p>We couldn\'t verify <strong>' . h($listing['company_name']) . '</strong> from the file you sent.</p>' . ($note ? '<p><strong>Note:</strong> ' . h($note) . '</p>' : '') . '<p>Please upload a new photo or video from your dashboard.</p>', "We couldn't verify {$listing['company_name']} from the file you sent." . ($note ? " Note: {$note}" : '') . " Please upload a new one.");
+                hc_flash('Verification rejected. The owner can upload again.');
+            }
+            $back .= '#verification';
+            break;
         case 'delete':
             hc_q("DELETE FROM hc_directory_leads WHERE listing_id=?", [$id]);
             hc_q("DELETE FROM hc_directory_reviews WHERE listing_id=?", [$id]);
@@ -160,6 +189,9 @@ $hrs = hc_dir_hours($L) ?? [];
 $tier = $listing ? hc_dir_tier($L) : 'free';
 $leads = $id ? hc_all("SELECT * FROM hc_directory_leads WHERE listing_id=? ORDER BY created_at DESC LIMIT 10", [$id]) : [];
 $reviewsAll = $id ? hc_all("SELECT * FROM hc_directory_reviews WHERE listing_id=? ORDER BY created_at DESC LIMIT 30", [$id]) : [];
+$verifs = $id ? hc_all("SELECT * FROM hc_directory_verifications WHERE listing_id=? ORDER BY id DESC LIMIT 10", [$id]) : [];
+$acct = !empty($L['owner_account_id']) ? hc_one("SELECT * FROM hc_directory_owners WHERE id=?", [$L['owner_account_id']]) : null;
+$pendEdit = $id ? hc_one("SELECT id, created_at FROM hc_directory_edits WHERE listing_id=? AND status='pending' ORDER BY id DESC LIMIT 1", [$id]) : null;
 $qa = fn($d, $extra = '') => '/admin/directory/edit.php?id=' . $id . '&do=' . $d . $extra;
 
 $title_val = $listing && $id ? 'Edit: ' . $L['company_name'] : 'Add Listing';
@@ -190,6 +222,7 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
 </style>
 <div class="page-content">
 <?= hc_show_flash() ?>
+<?php if (!empty($pendEdit)): ?><div class="alert alert-info">The owner submitted changes on <?= date('M j, g:ia', strtotime($pendEdit['created_at'])) ?> that are waiting for approval. <a href="/admin/directory/requests.php"><strong>Review changes →</strong></a></div><?php endif ?>
 
 <form method="POST">
 <div class="dir-edit-grid" style="display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start">
@@ -444,6 +477,37 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
       <dt>Browser</dt><dd style="font-size:11px;word-break:break-all"><?= $v('user_agent') ?: '—' ?></dd>
       <dt>Map looked up</dt><dd><?= $dt('geocoded_at') ?></dd>
     </dl>
+  </div>
+
+  <div class="card" id="verification">
+    <div class="card-title" style="margin-bottom:8px">Owner verification <?= !empty($L['verified']) ? '<span class="badge badge-green" style="margin-left:6px">Verified</span>' : '' ?></div>
+    <?php if ($acct): ?><div class="form-hint" style="margin-bottom:10px">Owner account: <strong><?= h($acct['email']) ?></strong> · created <?= date('M j, Y', strtotime($acct['created_at'])) ?><?= $acct['last_login_at'] ? ' · last login ' . date('M j', strtotime($acct['last_login_at'])) : '' ?></div>
+    <?php else: ?><div class="form-hint" style="margin-bottom:10px">No owner account linked yet<?= !empty($L['owner_email']) ? '. The owner can create one with ' . h($L['owner_email']) : '' ?>.</div><?php endif ?>
+    <?php foreach ($verifs as $vf): ?>
+    <div class="lead-row">
+      <span class="badge <?= ['approved' => 'badge-green', 'rejected' => 'badge-red', 'submitted' => 'badge-gold'][$vf['status']] ?? 'badge-gray' ?>"><?= h($vf['status'] === 'requested' ? 'waiting for owner' : $vf['status']) ?></span>
+      <span style="color:var(--muted);margin-left:6px">requested <?= date('M j', strtotime($vf['requested_at'])) ?><?= $vf['submitted_at'] ? ' · uploaded ' . date('M j', strtotime($vf['submitted_at'])) : '' ?></span>
+      <?php if ($vf['request_note']): ?><div style="margin-top:4px;color:var(--muted)">Asked: <?= h($vf['request_note']) ?></div><?php endif ?>
+      <?php if ($vf['file_path']): $src = '/admin/directory/verify-file.php?id=' . $vf['id']; ?>
+        <div style="margin-top:8px">
+          <?php if (str_starts_with((string)$vf['file_mime'], 'video/')): ?><video src="<?= $src ?>" controls preload="metadata" style="width:100%;max-height:260px;border-radius:8px;background:#000"></video>
+          <?php else: ?><a href="<?= $src ?>" target="_blank"><img src="<?= $src ?>" alt="Verification upload" style="width:100%;max-height:260px;object-fit:contain;border-radius:8px;background:#f2f3f5"></a><?php endif ?>
+        </div>
+        <?php if ($vf['owner_note']): ?><div style="margin-top:4px">Owner's note: <?= h($vf['owner_note']) ?></div><?php endif ?>
+        <a href="<?= $src ?>" target="_blank" style="font-size:12px">Open full size ↗</a>
+      <?php endif ?>
+      <?php if ($vf['status'] === 'submitted'): ?>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+        <a class="btn btn-primary btn-sm" href="<?= $qa('verify_approve', '&vid=' . $vf['id']) ?>">Approve, mark verified</a>
+        <a class="btn btn-secondary btn-sm" href="#" onclick="var n=prompt('Reason (sent to the owner):','');if(n!==null)location.href='<?= $qa('verify_reject', '&vid=' . $vf['id']) ?>&vnote='+encodeURIComponent(n);return false">Reject / ask again</a>
+      </div>
+      <?php elseif ($vf['admin_note']): ?><div style="margin-top:4px;color:var(--muted)">Your note: <?= h($vf['admin_note']) ?></div><?php endif ?>
+    </div>
+    <?php endforeach ?>
+    <div style="margin-top:10px">
+      <textarea id="vnote" rows="2" placeholder="What should they send? e.g. A 15-second video showing your office sign and you saying today's date. Leave blank for the standard request."></textarea>
+      <a class="btn btn-secondary btn-sm" style="margin-top:6px" href="#" onclick="location.href='<?= $qa('verify_request') ?>&vnote='+encodeURIComponent(document.getElementById('vnote').value);return false">Request photo / video verification</a>
+    </div>
   </div>
 
   <div class="card" id="reviews">

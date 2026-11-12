@@ -198,15 +198,15 @@ function hc_dir_open_html(array $l, bool $withToday = true): string {
     return $html;
 }
 
-/** Homecare Creators ad — honest, labelled, aimed at agency owners browsing the directory. */
+/** Homecare Creators promo card, aimed at agency owners browsing the directory. */
 function hc_dir_hc_ad(string $variant = 'side'): string {
     if ($variant === 'row') {
-        return '<aside class="ad is-row"><div><div class="ad-lab"><b>Ad</b>Homecare Creators</div>'
+        return '<aside class="ad is-row"><div><div class="ad-lab">Homecare Creators</div>'
             . '<h4>Own a home care agency? <em>Get more private-pay clients.</em></h4>'
             . '<p>We build websites, local SEO and Google Maps rankings for home care agencies, so families find you first.</p></div>'
             . '<a class="dx-btn is-teal" href="/contact/?ref=directory">Get a free marketing audit <i class="fa-solid fa-arrow-right" style="font-size:12px"></i></a></aside>';
     }
-    return '<aside class="ad"><div class="ad-lab"><b>Ad</b>Homecare Creators</div>'
+    return '<aside class="ad"><div class="ad-lab">Homecare Creators</div>'
         . '<h4>Grow your agency with <em>more client calls.</em></h4>'
         . '<p>Marketing built only for home care agencies.</p>'
         . '<ul><li><i class="fa-solid fa-check"></i>Websites that turn visits into calls</li><li><i class="fa-solid fa-check"></i>Rank higher on Google Maps</li><li><i class="fa-solid fa-check"></i>Show up in AI search results</li></ul>'
@@ -218,3 +218,60 @@ function hc_dir_leaflet_head(): string {
     return '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">'
         . '<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>';
 }
+
+/**
+ * Bottom-right popup for directory pages. Pages are cached, so it asks the account API who is visiting:
+ *  - logged-in owner with a free listing  → "Go Premium" upgrade popup
+ *  - everyone else                        → "Own an agency? List or claim free" popup (after a short delay)
+ * Dismissals are remembered per browser for 7 days.
+ */
+function hc_dir_popup_html(): string {
+    $plans = hc_dir_plans();
+    $prem  = (int)$plans['premium']['price'];
+    return <<<HTML
+<style>
+.dxp{position:fixed;right:24px;bottom:24px;z-index:450;width:360px;max-width:calc(100vw - 32px);background:#0a2e1e;color:#fff;border-radius:26px;padding:24px 24px 22px;box-shadow:0 30px 80px rgba(0,0,0,.35);font-family:'DM Sans',sans-serif;transform:translateY(24px);opacity:0;pointer-events:none;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s;overflow:hidden}
+.dxp.show{transform:none;opacity:1;pointer-events:auto}
+.dxp::after{content:"";position:absolute;width:200px;height:200px;border-radius:50%;right:-80px;top:-90px;border:1px solid rgba(255,255,255,.08);box-shadow:0 0 0 30px rgba(255,255,255,.025)}
+.dxp-x{position:absolute;top:14px;right:14px;z-index:1;width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;cursor:pointer;font-size:13px}
+.dxp-x:hover{background:rgba(255,255,255,.1)}
+.dxp-k{position:relative;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#9fe1cb;margin-bottom:10px;font-family:'Plus Jakarta Sans',sans-serif}
+.dxp h4{position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-size:21px;font-weight:800;letter-spacing:-.03em;line-height:1.2;margin:0 34px 8px 0;color:#fff}
+.dxp h4 em{font-style:italic;color:#2ec68f}
+.dxp p{position:relative;font-size:14px;line-height:1.55;color:rgba(255,255,255,.7);margin:0 0 16px}
+.dxp ul{position:relative;list-style:none;margin:0 0 18px;padding:0}
+.dxp li{font-size:13.5px;color:rgba(255,255,255,.85);padding:3px 0;display:flex;gap:9px}
+.dxp li:before{content:"✓";color:#2ec68f;font-weight:700}
+.dxp-a{position:relative;display:flex;gap:8px}
+.dxp-a a{flex:1;display:inline-flex;justify-content:center;align-items:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;padding:13px 16px;border-radius:100px;text-decoration:none!important;transition:background .2s}
+.dxp-a a.p{background:#1d9e75;color:#fff}.dxp-a a.p:hover{background:#2ec68f}
+.dxp-a a.s{border:1px solid rgba(255,255,255,.25);color:#fff}.dxp-a a.s:hover{border-color:#fff}
+@media(max-width:700px){.dxp{right:16px;left:16px;bottom:84px;width:auto;border-radius:22px;padding:20px}}
+</style>
+<div class="dxp" id="dxPop" role="dialog" aria-live="polite" aria-label="Agency owners">
+  <button class="dxp-x" type="button" aria-label="Close" onclick="dxPopClose()">✕</button>
+  <div id="dxPopBody"></div>
+</div>
+<script>
+(function(){
+  var KEY='dxPopHide', pop=document.getElementById('dxPop'), body=document.getElementById('dxPopBody');
+  function hidden(k){ try { return (+localStorage.getItem(KEY+k)||0) > Date.now(); } catch(e){ return false; } }
+  window.dxPopClose=function(){ pop.classList.remove('show'); try { localStorage.setItem(KEY+(pop.dataset.k||''), Date.now()+7*864e5); } catch(e){} };
+  function esc(s){ var d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
+  function show(k, html, delay){ if (hidden(k)) return; pop.dataset.k=k; body.innerHTML=html; setTimeout(function(){ pop.classList.add('show'); }, delay); }
+  fetch('/directory/account/?api=me', {credentials:'same-origin', cache:'no-store'}).then(function(r){ return r.json(); }).then(function(me){
+    if (me.loggedIn && me.freeListing) {
+      show('pro', '<div class="dxp-k">Upgrade '+esc(me.freeListing.name)+'</div><h4>Get more families calling <em>you first.</em></h4>'
+        + '<ul><li>Logo, photos &amp; website link</li><li>Verified badge &amp; higher ranking</li><li>No competitor ads on your profile</li></ul>'
+        + '<div class="dxp-a"><a class="p" href="/directory/account/#upgrade">Go Premium · \${$prem}/mo</a></div>', 1500);
+    } else if (!me.loggedIn) {
+      show('owner', '<div class="dxp-k">For agency owners</div><h4>Is your agency <em>listed?</em></h4>'
+        + '<p>Families use this directory to find home care. Add your agency free, or claim your existing listing.</p>'
+        + '<div class="dxp-a"><a class="p" href="/directory/submit/">List free</a><a class="s" href="/directory/account/">Owner log in</a></div>', 9000);
+    }
+  }).catch(function(){});
+})();
+</script>
+HTML;
+}
+
