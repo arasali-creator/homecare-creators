@@ -283,11 +283,11 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
       <label>Office hours <span>(powers "Open now")</span></label>
       <label style="display:flex;align-items:center;gap:8px;font-weight:400;margin:6px 0 10px;cursor:pointer"><input type="checkbox" name="hours_always" value="1" style="width:auto" <?= !empty($hrs['always']) ? 'checked' : '' ?> onchange="document.getElementById('hrsGrid').style.opacity=this.checked?.4:1">Open 24 hours, 7 days</label>
       <div id="hrsGrid" style="display:grid;grid-template-columns:60px 1fr 1fr 90px;gap:6px 10px;align-items:center;max-width:520px;<?= !empty($hrs['always']) ? 'opacity:.4' : '' ?>">
-        <?php foreach (HC_DIR_DAYS as $dk => $dl): $v = empty($hrs['always']) ? ($hrs[$dk] ?? null) : null; ?>
+        <?php foreach (HC_DIR_DAYS as $dk => $dl): $hv = empty($hrs['always']) ? ($hrs[$dk] ?? null) : null; ?>
         <strong style="font-size:13px"><?= $dl ?></strong>
-        <input type="time" name="hours[<?= $dk ?>][open]" value="<?= h($v[0] ?? '') ?>">
-        <input type="time" name="hours[<?= $dk ?>][close]" value="<?= h($v[1] ?? '') ?>">
-        <label style="display:flex;align-items:center;gap:6px;font-weight:400;font-size:13px;margin:0"><input type="checkbox" name="hours[<?= $dk ?>][closed]" value="1" style="width:auto" <?= $hrs && empty($hrs['always']) && !$v ? 'checked' : '' ?>>Closed</label>
+        <input type="time" name="hours[<?= $dk ?>][open]" value="<?= h($hv[0] ?? '') ?>">
+        <input type="time" name="hours[<?= $dk ?>][close]" value="<?= h($hv[1] ?? '') ?>">
+        <label style="display:flex;align-items:center;gap:6px;font-weight:400;font-size:13px;margin:0"><input type="checkbox" name="hours[<?= $dk ?>][closed]" value="1" style="width:auto" <?= $hrs && empty($hrs['always']) && !$hv ? 'checked' : '' ?>>Closed</label>
         <?php endforeach ?>
       </div>
       <div class="form-hint">Leave all times empty if hours are unknown.</div>
