@@ -56,6 +56,7 @@ $newCalc    = (int)db_val("SELECT COUNT(*) FROM hc_calculator_submissions WHERE 
 $pendingDir = (int)db_val("SELECT COUNT(*) FROM hc_directory_listings WHERE status='pending'");
 $dirInvoice = (int)db_val("SELECT COUNT(*) FROM hc_directory_listings WHERE payment_status='pending' AND owner_confirmed_at IS NOT NULL");
 $dirClaims  = (int)db_val("SELECT COUNT(*) FROM hc_directory_listings WHERE claim_status IN ('pending','confirmed')");
+$dirReviews = (int)db_val("SELECT COUNT(*) FROM hc_directory_reviews WHERE status='pending'");
 $totalForm  = (int)db_val("SELECT COUNT(*) FROM hc_form_submissions");
 
 $postsPub   = (int)db_val("SELECT COUNT(*) FROM hc_blog_posts WHERE status='published'");
@@ -110,6 +111,7 @@ if ($newForm)    $attention[] = ['red',  'New form leads waiting',        "$newF
 if ($newCalc)    $attention[] = ['red',  'New growth calculator leads',   "$newCalc new " . ($newCalc === 1 ? 'submission' : 'submissions'), '/admin/calculator-leads.php', 'Open'];
 if ($pendingDir) $attention[] = ['gold', 'Directory listings to review',  "$pendingDir pending approval", '/admin/directory/', 'Review'];
 if ($dirInvoice) $attention[] = ['red',  'Directory invoices to send',    "$dirInvoice confirmed " . ($dirInvoice === 1 ? 'owner wants' : 'owners want') . ' a paid plan', '/admin/directory/?view=billing', 'Invoice'];
+if ($dirReviews) $attention[] = ['gold', 'Directory reviews to approve',  "$dirReviews pending " . ($dirReviews === 1 ? 'review' : 'reviews'), '/admin/directory/reviews.php', 'Review'];
 if ($dirClaims)  $attention[] = ['gold', 'Directory claims to verify',    "$dirClaims listing " . ($dirClaims === 1 ? 'claim' : 'claims'), '/admin/directory/?view=claims', 'Review'];
 if ($daysSincePost !== null && $daysSincePost > 14)
                  $attention[] = ['gold', 'No new blog post in ' . $daysSincePost . ' days', 'Regular posts help rankings and AI search visibility', '/admin/blog/edit.php', 'Write'];

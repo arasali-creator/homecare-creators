@@ -138,3 +138,82 @@ function hc_dir_pricing_html(callable $hrefFor): string {
     }
     return $html . '</div>';
 }
+
+/* ── Ratings, status, ads ─────────────────────────────────── */
+
+function hc_dir_extra_css(): string {
+    return <<<CSS
+.st-row{display:inline-flex;gap:2px;vertical-align:middle}
+.st-row i{width:20px;height:20px;border-radius:4px;background:#d9d6cc;color:#fff;font-size:11px;display:inline-flex;align-items:center;justify-content:center}
+.st-row i.on{background:#e0a020}
+.st-row i.half{background:linear-gradient(90deg,#e0a020 50%,#d9d6cc 50%)}
+.st-row.is-sm i{width:16px;height:16px;font-size:9px;border-radius:3px}
+.st-row.is-lg i{width:30px;height:30px;font-size:15px;border-radius:6px}
+.st-txt{font-size:14px;color:var(--mut);margin-left:8px;vertical-align:middle}
+.st-txt b{color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif}
+.os{font-size:14px;font-weight:600}
+.os.is-open{color:#0b8a5a}
+.os.is-closed{color:#c2410c}
+.os span{color:var(--mut);font-weight:400}
+.ad{position:relative;background:var(--ink);border-radius:28px;padding:26px;color:#fff;overflow:hidden}
+.ad::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;right:-90px;bottom:-110px;border:1px solid rgba(255,255,255,.08);box-shadow:0 0 0 34px rgba(255,255,255,.025),0 0 0 68px rgba(255,255,255,.015)}
+.ad-lab{position:relative;display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
+.ad-lab b{background:rgba(255,255,255,.12);color:#fff;border-radius:4px;padding:2px 6px;letter-spacing:.5px}
+.ad h4{position:relative;color:#fff;font-size:21px;font-weight:800;letter-spacing:-.03em;line-height:1.2;margin-bottom:8px}
+.ad h4 em{color:var(--teal-lt)}
+.ad p{position:relative;font-size:14px;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:18px}
+.ad ul{position:relative;list-style:none;margin:0 0 20px;padding:0}
+.ad li{font-size:13.5px;color:rgba(255,255,255,.8);padding:4px 0;display:flex;gap:10px}
+.ad li i{color:var(--teal-lt);font-size:11px;margin-top:4px}
+.ad .dx-btn{position:relative}
+.ad.is-row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;border-radius:24px;padding:24px 28px}
+.ad.is-row p{margin-bottom:0}
+@media(max-width:700px){.ad.is-row{grid-template-columns:1fr}}
+CSS;
+}
+
+/** Yelp-style star squares. */
+function hc_dir_stars(?float $avg, string $size = ''): string {
+    $avg = (float)$avg;
+    $out = '<span class="st-row' . ($size ? ' is-' . $size : '') . '" role="img" aria-label="' . ($avg ? number_format($avg, 1) . ' out of 5 stars' : 'No rating yet') . '">';
+    for ($i = 1; $i <= 5; $i++) {
+        $cls = $avg >= $i ? 'on' : ($avg >= $i - .5 ? 'half' : '');
+        $out .= '<i class="fa-solid fa-star ' . $cls . '"></i>';
+    }
+    return $out . '</span>';
+}
+
+function hc_dir_rating_line(array $l, string $size = 'sm', string $suffix = ''): string {
+    $n = (int)($l['rating_count'] ?? 0);
+    if (!$n) return hc_dir_stars(0, $size) . '<span class="st-txt">No reviews yet' . $suffix . '</span>';
+    return hc_dir_stars((float)$l['rating_avg'], $size) . '<span class="st-txt"><b>' . number_format((float)$l['rating_avg'], 1) . '</b> (' . $n . ' review' . ($n === 1 ? '' : 's') . ')' . $suffix . '</span>';
+}
+
+function hc_dir_open_html(array $l, bool $withToday = true): string {
+    $s = hc_dir_open_status($l);
+    if (!$s) return '';
+    $html = '<span class="os ' . ($s['open'] ? 'is-open' : 'is-closed') . '">' . ($s['open'] ? 'Open' : 'Closed');
+    $html .= ' <span>· ' . htmlspecialchars($s['label']) . '</span></span>';
+    return $html;
+}
+
+/** Homecare Creators ad — honest, labelled, aimed at agency owners browsing the directory. */
+function hc_dir_hc_ad(string $variant = 'side'): string {
+    if ($variant === 'row') {
+        return '<aside class="ad is-row"><div><div class="ad-lab"><b>Ad</b>Homecare Creators</div>'
+            . '<h4>Own a home care agency? <em>Get more private-pay clients.</em></h4>'
+            . '<p>We build websites, local SEO and Google Maps rankings for home care agencies, so families find you first.</p></div>'
+            . '<a class="dx-btn is-teal" href="/contact/?ref=directory">Get a free marketing audit <i class="fa-solid fa-arrow-right" style="font-size:12px"></i></a></aside>';
+    }
+    return '<aside class="ad"><div class="ad-lab"><b>Ad</b>Homecare Creators</div>'
+        . '<h4>Grow your agency with <em>more client calls.</em></h4>'
+        . '<p>Marketing built only for home care agencies.</p>'
+        . '<ul><li><i class="fa-solid fa-check"></i>Websites that turn visits into calls</li><li><i class="fa-solid fa-check"></i>Rank higher on Google Maps</li><li><i class="fa-solid fa-check"></i>Show up in AI search results</li></ul>'
+        . '<a class="dx-btn is-teal" href="/contact/?ref=directory" style="width:100%">Free marketing audit <i class="fa-solid fa-arrow-right" style="font-size:12px"></i></a></aside>';
+}
+
+/** Leaflet assets (cdnjs, pinned version). */
+function hc_dir_leaflet_head(): string {
+    return '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">'
+        . '<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>';
+}

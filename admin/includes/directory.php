@@ -6,7 +6,7 @@
  * Requires admin/config.php + admin/includes/db.php (+ functions.php for hc_setting) to be loaded first.
  */
 
-const HC_DIR_SCHEMA_VERSION = '2';
+const HC_DIR_SCHEMA_VERSION = '3';
 
 /** Standard service list — submit form checkboxes + directory filters. */
 const HC_DIR_SERVICES = [
@@ -19,6 +19,24 @@ const HC_DIR_PAYMENTS = [
     'Private Pay', 'Long-Term Care Insurance', 'Medicaid', 'Medicare',
     'VA Benefits', 'Private Health Insurance',
 ];
+
+/** "Highlights" — Yelp-style amenities for home care agencies. key => [label, Font Awesome icon]. */
+const HC_DIR_FEATURES = [
+    'Free in-home assessment'         => 'fa-clipboard-check',
+    'Background-checked caregivers'   => 'fa-user-shield',
+    'Bonded & insured'                => 'fa-shield-halved',
+    'Nurse on staff'                  => 'fa-user-nurse',
+    'No minimum hours'                => 'fa-hourglass-half',
+    'Same or next-day start'          => 'fa-bolt',
+    'Caregiver matching'              => 'fa-people-arrows',
+    '24/7 on-call support'            => 'fa-headset',
+    'Bilingual caregivers'            => 'fa-language',
+    'Family care updates'             => 'fa-mobile-screen',
+    'Hospital discharge coordination' => 'fa-hospital-user',
+    'Veteran-owned'                   => 'fa-flag-usa',
+];
+
+const HC_DIR_DAYS = ['mon' => 'Mon', 'tue' => 'Tue', 'wed' => 'Wed', 'thu' => 'Thu', 'fri' => 'Fri', 'sat' => 'Sat', 'sun' => 'Sun'];
 
 const HC_DIR_PAYMENT_STATUSES = [
     'none'     => 'No payment (free)',
@@ -143,6 +161,14 @@ function hc_dir_ensure_schema(): void {
             'hours'              => "VARCHAR(255) NULL",
             'verified'           => "TINYINT(1) NOT NULL DEFAULT 0",
             'admin_notes'        => "TEXT NULL",
+            // v3: Yelp-style data
+            'features'           => "TEXT NULL",
+            'hours_json'         => "TEXT NULL",
+            'lat'                => "DECIMAL(10,7) NULL",
+            'lng'                => "DECIMAL(10,7) NULL",
+            'geocoded_at'        => "TIMESTAMP NULL",
+            'rating_avg'         => "DECIMAL(2,1) NULL",
+            'rating_count'       => "INT NOT NULL DEFAULT 0",
         ];
         foreach ($add as $col => $def) {
             if (!in_array($col, $cols, true)) hc_db()->exec("ALTER TABLE hc_directory_listings ADD COLUMN `$col` $def");
@@ -154,6 +180,24 @@ function hc_dir_ensure_schema(): void {
         if (!in_array('plan', $cols, true)) {
             hc_q("UPDATE hc_directory_listings SET plan='featured', payment_status='comp' WHERE featured=1");
         }
+
+        hc_db()->exec("CREATE TABLE IF NOT EXISTS hc_directory_reviews (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            listing_id INT NOT NULL,
+            name VARCHAR(120) NOT NULL,
+            email VARCHAR(255) NOT NULL,
+            relationship VARCHAR(80),
+            rating TINYINT NOT NULL,
+            title VARCHAR(150),
+            body TEXT NOT NULL,
+            status VARCHAR(20) NOT NULL DEFAULT 'pending',
+            owner_response TEXT,
+            response_at TIMESTAMP NULL,
+            ip_address VARCHAR(64),
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            approved_at TIMESTAMP NULL,
+            KEY idx_listing_status (listing_id, status)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
         hc_db()->exec("CREATE TABLE IF NOT EXISTS hc_directory_leads (
             id INT PRIMARY KEY AUTO_INCREMENT,
@@ -318,3 +362,113 @@ function hc_dir_send_approved(int $id): bool {
     if (!class_exists('HcMailer')) require_once __DIR__ . '/mailer.php';
     return (bool)HcMailer::send($to, "Your listing is live — {$l['company_name']}", $body, 'info@homecarecreators.com', '', $html);
 }
+
+
+/* ── Hours ─────────────────────────────────────────────────── */
+
+/** Parsed hours: ['always' => true] or ['mon' => ['08:00','18:00'] | null, ...]. Null when not set. */
+function hc_dir_hours(array $l): ?array {
+    $h = json_decode((string)($l['hours_json'] ?? ''), true);
+    if (!is_array($h) || !$h) return null;
+    if (!empty($h['always'])) return ['always' => true];
+    $out = []; $any = false;
+    foreach (HC_DIR_DAYS as $k => $_) {
+        $v = $h[$k] ?? null;
+        if (is_array($v) && count($v) === 2 && preg_match('/^\d{2}:\d{2}$/', $v[0]) && preg_match('/^\d{2}:\d{2}$/', $v[1])) { $out[$k] = $v; $any = true; }
+        else $out[$k] = null;
+    }
+    return $any ? $out : null;
+}
+
+/** Build hours JSON from form input: $always bool, $rows [day => ['open'=>..,'close'=>..,'closed'=>bool]]. */
+function hc_dir_hours_from_input(bool $always, array $rows): ?string {
+    if ($always) return json_encode(['always' => true]);
+    $out = []; $any = false;
+    foreach (HC_DIR_DAYS as $k => $_) {
+        $r = $rows[$k] ?? [];
+        $o = $r['open'] ?? ''; $c = $r['close'] ?? '';
+        if (empty($r['closed']) && preg_match('/^\d{2}:\d{2}$/', $o) && preg_match('/^\d{2}:\d{2}$/', $c)) { $out[$k] = [$o, $c]; $any = true; }
+        else $out[$k] = null;
+    }
+    return $any ? json_encode($out) : null;
+}
+
+function hc_dir_fmt_time(string $t): string {
+    [$h, $m] = array_map('intval', explode(':', $t));
+    if ($h >= 24) return '12:00 AM';
+    $ap = $h >= 12 && $h < 24 ? 'PM' : 'AM';
+    $h12 = $h % 12 ?: 12;
+    return $h12 . ':' . str_pad((string)$m, 2, '0', STR_PAD_LEFT) . ' ' . $ap;
+}
+
+function hc_dir_tz(string $state): string {
+    static $map = [
+        'CA'=>'America/Los_Angeles','WA'=>'America/Los_Angeles','OR'=>'America/Los_Angeles','NV'=>'America/Los_Angeles',
+        'AZ'=>'America/Phoenix','CO'=>'America/Denver','UT'=>'America/Denver','NM'=>'America/Denver','MT'=>'America/Denver','WY'=>'America/Denver','ID'=>'America/Denver',
+        'TX'=>'America/Chicago','IL'=>'America/Chicago','MN'=>'America/Chicago','WI'=>'America/Chicago','IA'=>'America/Chicago','MO'=>'America/Chicago','AR'=>'America/Chicago',
+        'LA'=>'America/Chicago','MS'=>'America/Chicago','AL'=>'America/Chicago','OK'=>'America/Chicago','KS'=>'America/Chicago','NE'=>'America/Chicago','SD'=>'America/Chicago','ND'=>'America/Chicago','TN'=>'America/Chicago',
+        'AK'=>'America/Anchorage','HI'=>'Pacific/Honolulu',
+    ];
+    return $map[strtoupper($state)] ?? 'America/New_York';
+}
+
+/** ['open'=>bool, 'label'=>string, 'today'=>dayKey] or null when hours unknown. */
+function hc_dir_open_status(array $l): ?array {
+    $h = hc_dir_hours($l);
+    if (!$h) return null;
+    $now = new DateTime('now', new DateTimeZone(hc_dir_tz($l['state'] ?? 'FL')));
+    $today = strtolower($now->format('D'));
+    if (!empty($h['always'])) return ['open' => true, 'label' => 'Open 24 hours', 'today' => $today];
+    $cur = $now->format('H:i');
+    $t = $h[$today] ?? null;
+    if ($t && $cur >= $t[0] && $cur < $t[1]) return ['open' => true, 'label' => 'Open until ' . hc_dir_fmt_time($t[1]), 'today' => $today];
+    if ($t && $cur < $t[0]) return ['open' => false, 'label' => 'Opens at ' . hc_dir_fmt_time($t[0]), 'today' => $today];
+    $keys = array_keys(HC_DIR_DAYS);
+    $i = array_search($today, $keys, true);
+    for ($n = 1; $n <= 7; $n++) {
+        $k = $keys[($i + $n) % 7];
+        if (!empty($h[$k])) return ['open' => false, 'label' => 'Opens ' . ($n === 1 ? 'tomorrow' : HC_DIR_DAYS[$k]) . ' ' . hc_dir_fmt_time($h[$k][0]), 'today' => $today];
+    }
+    return ['open' => false, 'label' => 'Closed', 'today' => $today];
+}
+
+/** Today's hours as text, e.g. "8:00 AM – 6:00 PM". */
+function hc_dir_today_hours(array $l): string {
+    $h = hc_dir_hours($l);
+    if (!$h) return '';
+    if (!empty($h['always'])) return 'Open 24 hours';
+    $now = new DateTime('now', new DateTimeZone(hc_dir_tz($l['state'] ?? 'FL')));
+    $t = $h[strtolower($now->format('D'))] ?? null;
+    return $t ? hc_dir_fmt_time($t[0]) . ' – ' . hc_dir_fmt_time($t[1]) : 'Closed today';
+}
+
+/* ── Reviews ───────────────────────────────────────────────── */
+
+function hc_dir_recalc_rating(int $listingId): void {
+    $r = hc_one("SELECT COUNT(*) n, AVG(rating) a FROM hc_directory_reviews WHERE listing_id=? AND status='approved'", [$listingId]);
+    $n = (int)($r['n'] ?? 0);
+    hc_q("UPDATE hc_directory_listings SET rating_count=?, rating_avg=? WHERE id=?", [$n, $n ? round((float)$r['a'], 1) : null, $listingId]);
+}
+
+/* ── Geocoding (OpenStreetMap Nominatim; max 1 request/second) ── */
+
+function hc_dir_geocode(int $id): bool {
+    $l = hc_one("SELECT id,address,city,state FROM hc_directory_listings WHERE id=?", [$id]);
+    if (!$l) return false;
+    $queries = [];
+    if (!empty($l['address'])) $queries[] = $l['address'] . ', ' . $l['city'] . ', ' . $l['state'] . ', USA';
+    $queries[] = $l['city'] . ', ' . $l['state'] . ', USA';
+    $ctx = stream_context_create(['http' => ['timeout' => 6, 'header' => "User-Agent: HomecareCreatorsDirectory/1.0 (+https://homecarecreators.com/directory/)\r\nAccept-Language: en\r\n"]]);
+    foreach ($queries as $i => $q) {
+        if ($i > 0) usleep(1100000);
+        $raw = @file_get_contents('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=' . urlencode($q), false, $ctx);
+        $j = $raw ? json_decode($raw, true) : null;
+        if (!empty($j[0]['lat'])) {
+            hc_q("UPDATE hc_directory_listings SET lat=?, lng=?, geocoded_at=NOW() WHERE id=?", [(float)$j[0]['lat'], (float)$j[0]['lon'], $id]);
+            return true;
+        }
+    }
+    hc_q("UPDATE hc_directory_listings SET geocoded_at=NOW() WHERE id=?", [$id]);
+    return false;
+}
+

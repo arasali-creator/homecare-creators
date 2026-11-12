@@ -212,6 +212,32 @@ include '../../includes/header.php';
             </div>
           </div>
 
+          <div class="sx-f">
+            <label>Highlights <em>(optional; families can filter by these)</em></label>
+            <div class="sx-checks">
+              <?php foreach (HC_DIR_FEATURES as $fk => $ic): ?>
+              <label class="sx-chk"><input type="checkbox" name="features[]" value="<?= htmlspecialchars($fk) ?>"><?= htmlspecialchars($fk) ?></label>
+              <?php endforeach ?>
+            </div>
+          </div>
+
+          <div class="sx-f">
+            <label>Office hours <em>(shows families when you're open)</em></label>
+            <div class="sx-checks" style="margin-bottom:12px">
+              <label class="sx-chk on"><input type="radio" name="hours_mode" value="set" checked>Set office hours</label>
+              <label class="sx-chk"><input type="radio" name="hours_mode" value="always">Open 24/7</label>
+              <label class="sx-chk"><input type="radio" name="hours_mode" value="skip">Skip for now</label>
+            </div>
+            <div id="hrsSet" class="sx-row-3" style="grid-template-columns:110px 1fr 1fr;align-items:center;gap:10px 14px">
+              <?php foreach (['wk' => 'Mon – Fri', 'sat' => 'Saturday', 'sun' => 'Sunday'] as $hk => $hl): ?>
+              <span style="font-size:14px;font-weight:600;color:var(--ink)"><?= $hl ?></span>
+              <input type="time" name="<?= $hk ?>_open" value="<?= $hk === 'wk' ? '08:00' : '' ?>" aria-label="<?= $hl ?> opens" style="width:100%;font:inherit;font-size:15px;border:1px solid var(--hair);border-radius:16px;padding:12px 14px;background:var(--cream)">
+              <input type="time" name="<?= $hk ?>_close" value="<?= $hk === 'wk' ? '18:00' : '' ?>" aria-label="<?= $hl ?> closes" style="width:100%;font:inherit;font-size:15px;border:1px solid var(--hair);border-radius:16px;padding:12px 14px;background:var(--cream)">
+              <?php endforeach ?>
+            </div>
+            <div class="sx-hint">Leave Saturday or Sunday empty if you're closed.</div>
+          </div>
+
           <div class="sx-f"><label for="fAreas">Service area</label><input id="fAreas" name="service_areas" placeholder="Orlando, Winter Park, Kissimmee, Orange County"><div class="sx-hint">Cities or counties you serve, separated by commas.</div></div>
 
           <div class="sx-row">
@@ -314,6 +340,10 @@ $page_js = <<<JS
   }
   form.addEventListener('change', function(e){
     if (e.target.type === 'checkbox' && e.target.closest('.sx-chk')) e.target.closest('.sx-chk').classList.toggle('on', e.target.checked);
+    if (e.target.name === 'hours_mode') {
+      form.querySelectorAll('input[name=hours_mode]').forEach(function(r){ r.closest('.sx-chk').classList.toggle('on', r.checked); });
+      document.getElementById('hrsSet').style.display = e.target.value === 'set' ? '' : 'none';
+    }
     render();
   });
   render();
@@ -331,7 +361,8 @@ $page_js = <<<JS
     e.preventDefault();
     var fd = new FormData(form), data = {services: [], payment_accepted: []};
     fd.forEach(function(v, k){
-      if (k === 'services[]') data.services.push(v);
+      if (k === 'features[]') { (data.features = data.features || []).push(v); }
+      else if (k === 'services[]') data.services.push(v);
       else if (k === 'payment_accepted[]') data.payment_accepted.push(v);
       else data[k] = typeof v === 'string' ? v.trim() : v;
     });

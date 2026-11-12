@@ -46,7 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'invoice_ref' => $f('invoice_ref'), 'featured' => $plan === 'featured' ? 1 : 0,
         'owner_name' => $f('owner_name'), 'owner_title' => $f('owner_title'), 'owner_email' => $owner_email, 'owner_phone' => $f('owner_phone'),
         'admin_notes' => $f('admin_notes'),
+        'features' => implode("\n", array_values(array_intersect((array)($_POST['features'] ?? []), array_keys(HC_DIR_FEATURES)))),
+        'hours_json' => hc_dir_hours_from_input(!empty($_POST['hours_always']), (array)($_POST['hours'] ?? [])),
+        'lat' => is_numeric($_POST['lat'] ?? '') ? (float)$_POST['lat'] : null,
+        'lng' => is_numeric($_POST['lng'] ?? '') ? (float)$_POST['lng'] : null,
     ];
+    $locChanged = !$listing || $listing['address'] !== $fields['address'] || $listing['city'] !== $fields['city'] || $listing['state'] !== $fields['state'];
     if ($owner_changed) { $fields['owner_confirmed_at'] = null; $fields['confirm_token'] = null; }
     if (!empty($_POST['mark_confirmed'])) { $fields['owner_confirmed_at'] = date('Y-m-d H:i:s'); $fields['confirm_token'] = null; }
 
@@ -70,6 +75,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $id = (int)hc_db()->lastInsertId();
             }
             $msg = 'Listing saved.';
+            if (!empty($_POST['do_geocode']) || ($locChanged && $fields['lat'] === null)) {
+                $msg .= hc_dir_geocode($id) ? ' Map location found.' : ' (Could not find this address on the map.)';
+            }
             if (!empty($_POST['send_confirm']) && $owner_email) {
                 $msg .= hc_dir_send_owner_confirmation($id) ? ' Confirmation email sent to ' . $owner_email . '.' : ' (Confirmation email failed. Check SMTP.)';
             }
@@ -90,6 +98,8 @@ $v = fn($k, $d = '') => h($L[$k] ?? $d);
 $svcSel = hc_dir_lines($L['services'] ?? '');
 $svcOther = array_values(array_diff($svcSel, HC_DIR_SERVICES));
 $paySel = hc_dir_lines($L['payment_accepted'] ?? '');
+$featSel = hc_dir_lines($L['features'] ?? '');
+$hrs = hc_dir_hours($L) ?? [];
 $tier = $listing ? hc_dir_tier($L) : 'free';
 $leads = $id ? hc_all("SELECT * FROM hc_directory_leads WHERE listing_id=? ORDER BY created_at DESC LIMIT 10", [$id]) : [];
 
@@ -165,12 +175,41 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
   </div>
 
   <div class="card">
+    <div class="form-group">
+      <label>Highlights <span>(shown with icons, and used as search filters)</span></label>
+      <div class="chk-grid">
+        <?php foreach (HC_DIR_FEATURES as $fk => $ic): ?>
+        <label><input type="checkbox" name="features[]" value="<?= h($fk) ?>" <?= in_array($fk, $featSel, true) ? 'checked' : '' ?>><?= h($fk) ?></label>
+        <?php endforeach ?>
+      </div>
+    </div>
+    <div class="form-group" style="margin-bottom:0">
+      <label>Office hours <span>(powers "Open now")</span></label>
+      <label style="display:flex;align-items:center;gap:8px;font-weight:400;margin:6px 0 10px;cursor:pointer"><input type="checkbox" name="hours_always" value="1" style="width:auto" <?= !empty($hrs['always']) ? 'checked' : '' ?> onchange="document.getElementById('hrsGrid').style.opacity=this.checked?.4:1">Open 24 hours, 7 days</label>
+      <div id="hrsGrid" style="display:grid;grid-template-columns:60px 1fr 1fr 90px;gap:6px 10px;align-items:center;max-width:520px;<?= !empty($hrs['always']) ? 'opacity:.4' : '' ?>">
+        <?php foreach (HC_DIR_DAYS as $dk => $dl): $v = empty($hrs['always']) ? ($hrs[$dk] ?? null) : null; ?>
+        <strong style="font-size:13px"><?= $dl ?></strong>
+        <input type="time" name="hours[<?= $dk ?>][open]" value="<?= h($v[0] ?? '') ?>">
+        <input type="time" name="hours[<?= $dk ?>][close]" value="<?= h($v[1] ?? '') ?>">
+        <label style="display:flex;align-items:center;gap:6px;font-weight:400;font-size:13px;margin:0"><input type="checkbox" name="hours[<?= $dk ?>][closed]" value="1" style="width:auto" <?= $hrs && empty($hrs['always']) && !$v ? 'checked' : '' ?>>Closed</label>
+        <?php endforeach ?>
+      </div>
+      <div class="form-hint">Leave all times empty if hours are unknown.</div>
+    </div>
+  </div>
+
+  <div class="card">
     <div class="form-grid">
       <div class="form-group"><label>City</label><input type="text" name="city" value="<?= $v('city') ?>" required></div>
       <div class="form-group"><label>State</label><input type="text" name="state" value="<?= $v('state', 'FL') ?>" maxlength="2" style="text-transform:uppercase"></div>
     </div>
     <div class="form-group"><label>Street address <span>(optional)</span></label><input type="text" name="address" value="<?= $v('address') ?>"></div>
     <div class="form-group"><label>Service areas <span>(comma-separated)</span></label><textarea name="service_areas" rows="2"><?= $v('service_areas') ?></textarea></div>
+    <div class="form-grid">
+      <div class="form-group"><label>Map latitude</label><input type="text" name="lat" value="<?= $v('lat') ?>" placeholder="auto"></div>
+      <div class="form-group"><label>Map longitude</label><input type="text" name="lng" value="<?= $v('lng') ?>" placeholder="auto"></div>
+    </div>
+    <label style="display:flex;align-items:center;gap:8px;font-size:13px;margin:-6px 0 14px;cursor:pointer"><input type="checkbox" name="do_geocode" value="1" style="width:auto">Look up map location from address on save <span style="color:var(--muted)">(happens automatically when the address changes)</span></label>
     <div class="form-grid">
       <div class="form-group"><label>Languages</label><input type="text" name="languages" value="<?= $v('languages') ?>" placeholder="English, Spanish"></div>
       <div class="form-group"><label>Hours</label><input type="text" name="hours" value="<?= $v('hours') ?>" placeholder="24/7"></div>
@@ -232,6 +271,7 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
     <label style="display:flex;align-items:center;gap:8px;font-size:13px;margin-bottom:10px;cursor:pointer"><input type="checkbox" name="notify_approved" value="1" checked style="width:auto">Email the agency when approved</label>
     <?php endif ?>
     <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input type="checkbox" name="verified" value="1" <?= !empty($L['verified']) ? 'checked' : '' ?> style="width:auto">License verified <span style="color:var(--muted)">(Verified badge on paid plans)</span></label>
+    <?php if ($id): ?><div class="form-hint" style="margin-top:10px">Rating: <strong><?= !empty($L['rating_count']) ? h($L['rating_avg']) . '★ from ' . (int)$L['rating_count'] . ' review(s)' : 'no reviews yet' ?></strong> · <a href="/admin/directory/reviews.php?view=all">Manage reviews</a></div><?php endif ?>
     <div style="display:flex;flex-direction:column;gap:8px;margin-top:16px">
       <button type="submit" class="btn btn-primary btn-lg"><?= $id ? 'Save Changes' : 'Add Listing' ?></button>
       <?php if ($id && ($L['status'] ?? '') === 'approved'): ?>

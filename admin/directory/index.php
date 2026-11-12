@@ -17,6 +17,17 @@ function dir_return_url(string $qs): string {
 }
 $back = dir_return_url((string)($_GET['return'] ?? ''));
 
+// ── Map geocoding in small batches (OpenStreetMap allows ~1 request/second) ──
+if (($_GET['action'] ?? '') === 'geocode_batch') {
+    @set_time_limit(90);
+    $todo = hc_all("SELECT id FROM hc_directory_listings WHERE status='approved' AND lat IS NULL AND geocoded_at IS NULL ORDER BY id LIMIT 15");
+    $ok = 0;
+    foreach ($todo as $i => $t) { if ($i) usleep(1100000); if (hc_dir_geocode((int)$t['id'])) $ok++; }
+    $left = (int)hc_val("SELECT COUNT(*) FROM hc_directory_listings WHERE status='approved' AND lat IS NULL AND geocoded_at IS NULL");
+    hc_flash("Mapped {$ok} of " . count($todo) . " listings." . ($left ? " {$left} still to map — click \"Map listings\" again." : ' All live listings are mapped.'));
+    header('Location: /admin/directory/'); exit;
+}
+
 // ── Single actions ───────────────────────────────────────────────────────────
 $action = $_GET['action'] ?? '';
 $aid    = (int)($_GET['id'] ?? 0);
@@ -146,6 +157,9 @@ hc_topbar('Agency Directory', '<a href="/admin/">Admin</a> › Directory');
 <div class="page-header">
   <div><h1>Agency Directory</h1><div class="sub">Listings, owner confirmations, claims and invoicing</div></div>
   <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <?php $pendRev = (int)hc_val("SELECT COUNT(*) FROM hc_directory_reviews WHERE status='pending'"); $unmapped = (int)hc_val("SELECT COUNT(*) FROM hc_directory_listings WHERE status='approved' AND lat IS NULL AND geocoded_at IS NULL"); ?>
+    <a href="/admin/directory/reviews.php" class="btn btn-secondary">Reviews<?php if ($pendRev): ?> <span class="badge badge-red" style="margin-left:4px"><?= $pendRev ?></span><?php endif ?></a>
+    <?php if ($unmapped): ?><a href="/admin/directory/?action=geocode_batch" class="btn btn-secondary" title="Looks up map pins for listings (15 at a time, takes ~20 seconds)">Map listings (<?= $unmapped ?>)</a><?php endif ?>
     <a href="/admin/directory/leads.php" class="btn btn-secondary">Inquiries</a>
     <a href="/admin/directory/settings.php" class="btn btn-secondary">Plans &amp; pricing</a>
     <a href="/admin/directory/edit.php" class="btn btn-primary">

@@ -134,6 +134,14 @@ if ($mode === 'claim') {
     };
     $services = $listify(array_merge((array)($data['services'] ?? []), preg_split('/[\r\n,]+/', (string)($data['services_other'] ?? ''))));
     $payments = $listify($data['payment_accepted'] ?? [], HC_DIR_PAYMENTS);
+    $features = $listify($data['features'] ?? [], array_keys(HC_DIR_FEATURES));
+    $hoursMode = $data['hours_mode'] ?? 'skip';
+    $hm = fn($k) => preg_match('/^\d{2}:\d{2}$/', (string)($data[$k] ?? '')) ? $data[$k] : '';
+    $rows = [];
+    foreach (['mon', 'tue', 'wed', 'thu', 'fri'] as $d) $rows[$d] = ['open' => $hm('wk_open'), 'close' => $hm('wk_close')];
+    $rows['sat'] = ['open' => $hm('sat_open'), 'close' => $hm('sat_close')];
+    $rows['sun'] = ['open' => $hm('sun_open'), 'close' => $hm('sun_close')];
+    $hours_json = $hoursMode === 'always' ? hc_dir_hours_from_input(true, []) : ($hoursMode === 'set' ? hc_dir_hours_from_input(false, $rows) : null);
 
     if ($website && !preg_match('#^https?://#i', $website)) $website = 'https://' . $website;
     if ($logo && !preg_match('#^https?://#i', $logo)) $logo = '';
@@ -157,17 +165,18 @@ if ($mode === 'claim') {
 
     try {
         hc_q("INSERT INTO hc_directory_listings
-            (company_name,slug,logo,tagline,description,services,payment_accepted,languages,hours,city,state,service_areas,address,phone,email,website,license_number,years_in_business,
+            (company_name,slug,logo,tagline,description,services,payment_accepted,features,hours_json,languages,hours,city,state,service_areas,address,phone,email,website,license_number,years_in_business,
              plan,requested_plan,payment_status,owner_name,owner_title,owner_email,owner_phone,owner_authorized,
              source_page,ip_address,user_agent,device_type,geo_city,geo_region,geo_country)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,1,?,?,?,?,?,?,?)",
-            [$company_name,$slug,$logo,$tagline,$description,$services,$payments,$languages,$hours,$city,$state,$service_areas,$address,$phone,$email,$website,$license,$years,
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,1,?,?,?,?,?,?,?)",
+            [$company_name,$slug,$logo,$tagline,$description,$services,$payments,$features,$hours_json,$languages,$hours,$city,$state,$service_areas,$address,$phone,$email,$website,$license,$years,
              $plan,$plan,$payment_status,$owner_name,$owner_title,$owner_email,$owner_phone,
              $source,$ip,$user_agent,$device_type,$geo_city,$geo_region,$geo_country]);
         $id = (int)hc_db()->lastInsertId();
     } catch (Exception $e) {
         dir_fail('Could not save your listing. Please try again.', 500);
     }
+    hc_dir_geocode($id);
 }
 
 // ── Owner confirmation email ───────────────────────────────────
