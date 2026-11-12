@@ -178,6 +178,20 @@ hc_topbar('Agency Directory', '<a href="/admin/">Admin</a> › Directory');
 .dir-toolbar form{display:flex;gap:8px;margin-left:auto}
 .dir-toolbar input,.dir-toolbar select{padding:7px 10px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;background:#fff}
 .td-actions a{white-space:nowrap}
+.dir-contact{font-size:12.5px;line-height:1.7;min-width:180px}
+.dir-contact i{font-style:normal;color:var(--muted);display:inline-block;width:16px}
+.dir-contact a{word-break:break-all}
+.dir-more{margin-top:6px;background:none;border:0;padding:0;color:var(--teal);font:inherit;font-size:12px;font-weight:600;cursor:pointer}
+tr.dir-det>td{background:#fafbf9;border-top:0!important;padding-top:4px!important;padding-bottom:18px!important}
+.dir-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.dir-grid section{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.dir-grid section.wide{grid-column:span 2}
+.dir-grid h4{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.dir-grid dl{display:grid;grid-template-columns:120px 1fr;gap:6px 12px;margin:0;font-size:13px}
+.dir-grid dt{color:var(--muted)}
+.dir-grid dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.dir-chip{display:inline-block;background:rgba(29,158,117,.1);color:#0d7a57;border-radius:5px;padding:2px 7px;margin:0 4px 4px 0;font-size:12px}
+@media(max-width:1200px){.dir-grid{grid-template-columns:1fr}.dir-grid section.wide{grid-column:auto}}
 </style>
 <div class="page-content">
 
@@ -246,7 +260,7 @@ hc_topbar('Agency Directory', '<a href="/admin/">Admin</a> › Directory');
     </div>
   <div class="table-wrap">
     <table>
-      <thead><tr><th style="width:30px"><input type="checkbox" id="selectAll"></th><th>Agency</th><th>Plan &amp; billing</th><th>Owner / rep</th><th>Status</th><th>Submitted</th><th></th></tr></thead>
+      <thead><tr><th style="width:30px"><input type="checkbox" id="selectAll"></th><th>Agency</th><th>Agency contact</th><th>Plan &amp; billing</th><th>Owner / rep</th><th>Status</th><th>Submitted</th><th></th></tr></thead>
       <tbody>
       <?php foreach ($listings as $l):
         $tier = hc_dir_tier($l);
@@ -260,6 +274,14 @@ hc_topbar('Agency Directory', '<a href="/admin/">Admin</a> › Directory');
           <strong><a href="/admin/directory/edit.php?id=<?= $l['id'] ?>" style="color:inherit;text-decoration:none"><?= h($l['company_name']) ?></a></strong>
           <div class="dir-sub"><?= h($l['city']) ?>, <?= h($l['state']) ?> · <span style="font-family:monospace">/directory/<?= h($l['slug']) ?></span></div>
           <?php if ($l['lead_count']): ?><div class="dir-sub"><?= (int)$l['lead_count'] ?> inquir<?= $l['lead_count'] == 1 ? 'y' : 'ies' ?></div><?php endif ?>
+          <button type="button" class="dir-more" data-target="det-<?= $l['id'] ?>"><?= $view === 'pending' ? 'Hide details ▴' : 'Show all details ▾' ?></button>
+        </td>
+        <td class="dir-contact">
+          <?php if ($l['phone']): ?><div><i>☎</i><a href="tel:<?= h(preg_replace('/[^0-9+]/', '', $l['phone'])) ?>"><?= h($l['phone']) ?></a></div><?php endif ?>
+          <?php if ($l['email']): ?><div><i>✉</i><a href="mailto:<?= h($l['email']) ?>"><?= h($l['email']) ?></a></div><?php endif ?>
+          <?php if ($l['website']): ?><div><i>↗</i><a href="<?= h($l['website']) ?>" target="_blank" rel="noopener"><?= h(hc_dir_domain($l['website'])) ?></a></div><?php endif ?>
+          <?php if ($l['address']): ?><div><i>⌂</i><?= h($l['address']) ?></div><?php endif ?>
+          <?php if (!$l['phone'] && !$l['email'] && !$l['website'] && !$l['address']): ?><span style="color:var(--muted)">None on file</span><?php endif ?>
         </td>
         <td style="font-size:12.5px">
           <span class="badge <?= $tier === 'featured' ? 'badge-gold' : ($tier === 'premium' ? 'badge-green' : 'badge-gray') ?>"><?= h($plans[$tier]['name']) ?></span>
@@ -298,6 +320,97 @@ hc_topbar('Agency Directory', '<a href="/admin/">Admin</a> › Directory');
           <a href="<?= $act('delete') ?>" class="danger" data-confirm="Permanently delete '<?= h($l['company_name']) ?>'?">Delete</a>
         </td>
       </tr>
+      <?php
+        $dash = '<span style="color:var(--muted)">—</span>';
+        $val = fn($v) => ($v === null || $v === '') ? $dash : nl2br(h($v));
+        $list = fn($v) => ($x = hc_dir_lines($v)) ? implode('', array_map(fn($i) => '<span class="dir-chip">' . h($i) . '</span>', $x)) : $dash;
+        $dt = fn($v) => $v ? date('M j, Y g:ia', strtotime($v)) : $dash;
+        $hrs = hc_dir_hours($l);
+        if (!$hrs) $hoursTxt = $l['hours'] ? h($l['hours']) : $dash;
+        elseif (!empty($hrs['always'])) $hoursTxt = 'Open 24/7';
+        else { $hp = []; foreach (HC_DIR_DAYS as $dk => $dl) $hp[] = '<b>' . $dl . '</b> ' . ($hrs[$dk] ? hc_dir_fmt_time($hrs[$dk][0]) . '–' . hc_dir_fmt_time($hrs[$dk][1]) : 'Closed'); $hoursTxt = implode('<br>', $hp); }
+        $revN = (int)hc_val("SELECT COUNT(*) FROM hc_directory_reviews WHERE listing_id=?", [$l['id']]);
+      ?>
+      <tr class="dir-det" id="det-<?= $l['id'] ?>" <?= $view === 'pending' ? '' : 'hidden' ?>>
+        <td></td>
+        <td colspan="7">
+          <div class="dir-grid">
+            <section>
+              <h4>Agency contact</h4>
+              <dl>
+                <dt>Phone</dt><dd><?= $val($l['phone']) ?></dd>
+                <dt>Email</dt><dd><?= $l['email'] ? '<a href="mailto:' . h($l['email']) . '">' . h($l['email']) . '</a>' : $dash ?></dd>
+                <dt>Website</dt><dd><?= $l['website'] ? '<a href="' . h($l['website']) . '" target="_blank" rel="noopener">' . h($l['website']) . '</a>' : $dash ?></dd>
+                <dt>Address</dt><dd><?= $val($l['address']) ?></dd>
+                <dt>City / State</dt><dd><?= h($l['city']) ?>, <?= h($l['state']) ?></dd>
+                <dt>Service areas</dt><dd><?= $val($l['service_areas']) ?></dd>
+                <dt>Map pin</dt><dd><?= $l['lat'] !== null ? h($l['lat']) . ', ' . h($l['lng']) : $dash ?></dd>
+              </dl>
+            </section>
+            <section>
+              <h4>Owner / authorized rep</h4>
+              <dl>
+                <dt>Name</dt><dd><?= $val($l['owner_name']) ?></dd>
+                <dt>Role</dt><dd><?= $val($l['owner_title']) ?></dd>
+                <dt>Email</dt><dd><?= $l['owner_email'] ? '<a href="mailto:' . h($l['owner_email']) . '">' . h($l['owner_email']) . '</a>' : $dash ?></dd>
+                <dt>Direct phone</dt><dd><?= $l['owner_phone'] ? '<a href="tel:' . h(preg_replace('/[^0-9+]/', '', $l['owner_phone'])) . '">' . h($l['owner_phone']) . '</a>' : $dash ?></dd>
+                <dt>Authorized</dt><dd><?= $l['owner_authorized'] ? 'Yes, ticked the attestation' : $dash ?></dd>
+                <dt>Email confirmed</dt><dd><?= $l['owner_confirmed_at'] ? '✓ ' . $dt($l['owner_confirmed_at']) : 'Not yet' . ($l['confirm_sent_at'] ? ' · link sent ' . $dt($l['confirm_sent_at']) : '') ?></dd>
+                <dt>Domain match</dt><dd><?= hc_dir_domain_match($l) ? '✓ Owner email matches website' : $dash ?></dd>
+                <dt>Claim</dt><dd><?= $val($l['claim_status']) ?></dd>
+              </dl>
+            </section>
+            <section>
+              <h4>Plan &amp; billing</h4>
+              <dl>
+                <dt>Plan</dt><dd><?= h($plans[$l['plan']]['name'] ?? $l['plan']) ?> <span style="color:var(--muted)">(active: <?= h($plans[$tier]['name']) ?>)</span></dd>
+                <dt>Requested</dt><dd><?= $req ? h($plans[$req]['name'] ?? $req) : $dash ?></dd>
+                <dt>Payment</dt><dd><?= h(HC_DIR_PAYMENT_STATUSES[$ps] ?? $ps) ?></dd>
+                <dt>Paid until</dt><dd><?= $l['paid_until'] ? date('M j, Y', strtotime($l['paid_until'])) : $dash ?></dd>
+                <dt>Invoice #</dt><dd><?= $val($l['invoice_ref']) ?></dd>
+                <dt>Verified</dt><dd><?= $l['verified'] ? '✓ License verified' : $dash ?></dd>
+                <dt>Rating</dt><dd><?= $l['rating_count'] ? h($l['rating_avg']) . '★ · ' . (int)$l['rating_count'] . ' published' : $dash ?> <span style="color:var(--muted)">(<?= $revN ?> total reviews)</span></dd>
+                <dt>Inquiries</dt><dd><?= (int)$l['lead_count'] ?></dd>
+              </dl>
+            </section>
+            <section class="wide">
+              <h4>Profile</h4>
+              <dl>
+                <dt>Logo</dt><dd><?= $l['logo'] ? '<img src="' . h($l['logo']) . '" alt="" style="max-height:48px;max-width:160px;background:#fff;border:1px solid var(--border);border-radius:6px;padding:4px">' : $dash ?></dd>
+                <dt>Tagline</dt><dd><?= $val($l['tagline']) ?></dd>
+                <dt>Description</dt><dd><?= $val($l['description']) ?></dd>
+                <dt>Services</dt><dd><?= $list($l['services']) ?></dd>
+                <dt>Payment accepted</dt><dd><?= $list($l['payment_accepted']) ?></dd>
+                <dt>Highlights</dt><dd><?= $list($l['features']) ?></dd>
+                <dt>Hours</dt><dd><?= $hoursTxt ?></dd>
+                <dt>Languages</dt><dd><?= $val($l['languages']) ?></dd>
+                <dt>License #</dt><dd><?= $val($l['license_number']) ?></dd>
+                <dt>Years in business</dt><dd><?= $val($l['years_in_business']) ?></dd>
+                <dt>Photos</dt><dd><?= ($ph = hc_dir_lines($l['photos'])) ? count($ph) . ' photo(s)' : $dash ?><?= $l['cover_image'] ? ' + cover image' : '' ?></dd>
+              </dl>
+            </section>
+            <section>
+              <h4>Submission</h4>
+              <dl>
+                <dt>Submitted</dt><dd><?= $dt($l['created_at']) ?></dd>
+                <dt>Approved</dt><dd><?= $dt($l['approved_at']) ?></dd>
+                <dt>Last updated</dt><dd><?= $dt($l['updated_at']) ?></dd>
+                <dt>Source page</dt><dd><?= $val($l['source_page']) ?></dd>
+                <dt>IP address</dt><dd><?= $val($l['ip_address']) ?></dd>
+                <dt>Location (IP)</dt><dd><?= $val(trim(implode(', ', array_filter([$l['geo_city'], $l['geo_region'], $l['geo_country']])))) ?></dd>
+                <dt>Device</dt><dd><?= $val($l['device_type']) ?></dd>
+                <dt>Browser</dt><dd style="font-size:11.5px;word-break:break-all"><?= $val($l['user_agent']) ?></dd>
+                <?php if ($l['rejection_reason']): ?><dt>Rejection reason</dt><dd><?= h($l['rejection_reason']) ?></dd><?php endif ?>
+              </dl>
+            </section>
+            <section>
+              <h4>Internal notes</h4>
+              <div style="font-size:13px;line-height:1.55"><?= $val($l['admin_notes']) ?></div>
+              <a href="/admin/directory/edit.php?id=<?= $l['id'] ?>" class="btn btn-secondary btn-sm" style="margin-top:12px">Edit listing →</a>
+            </section>
+          </div>
+        </td>
+      </tr>
       <?php endforeach ?>
       </tbody>
     </table>
@@ -316,6 +429,13 @@ hc_topbar('Agency Directory', '<a href="/admin/">Admin</a> › Directory');
     }
     selectAll.addEventListener('change', function(){ checks.forEach(function(c){ c.checked = selectAll.checked; }); update(); });
     checks.forEach(function(c){ c.addEventListener('change', update); });
+    document.querySelectorAll('.dir-more').forEach(function(b){
+      b.addEventListener('click', function(){
+        var r = document.getElementById(b.getAttribute('data-target'));
+        r.hidden = !r.hidden;
+        b.textContent = r.hidden ? 'Show all details ▾' : 'Hide details ▴';
+      });
+    });
   })();
   </script>
   <?php else: ?>
