@@ -145,7 +145,7 @@ include '../../includes/header.php';
 <?php else: ?>
   <div class="sx-grid">
     <div>
-      <form id="sxForm" novalidate>
+      <form id="sxForm" novalidate data-validate data-js-submit="1" enctype="multipart/form-data">
         <div class="hp-field" aria-hidden="true"><input type="text" name="hp_website" tabindex="-1" autocomplete="off"></div>
         <input type="hidden" name="mode" value="<?= $claim ? 'claim' : 'new' ?>">
         <?php if ($claim): ?><input type="hidden" name="claim_slug" value="<?= htmlspecialchars($claim['slug']) ?>"><?php endif ?>
@@ -178,26 +178,26 @@ include '../../includes/header.php';
         <div class="sx-step">
           <div class="sx-step-h"><span class="sx-step-n">02</span><div><h2>About your <em>agency.</em></h2></div></div>
 
-          <div class="sx-f"><label for="fName">Agency name</label><input id="fName" name="company_name" required autocomplete="organization"></div>
+          <div class="sx-f"><label for="fName">Agency name</label><input id="fName" name="company_name" required minlength="2" maxlength="255" autocomplete="organization" data-label="your agency name"></div>
           <div class="sx-row-3">
-            <div class="sx-f"><label for="fCity">City</label><input id="fCity" name="city" required></div>
-            <div class="sx-f"><label for="fState">State</label><input id="fState" name="state" maxlength="2" placeholder="FL" required style="text-transform:uppercase"></div>
-            <div class="sx-f"><label for="fYears">Years in business <em>(optional)</em></label><input id="fYears" name="years_in_business" inputmode="numeric" placeholder="e.g. 8"></div>
+            <div class="sx-f"><label for="fCity">City</label><input id="fCity" name="city" required maxlength="100" autocomplete="address-level2" data-label="the city your agency is based in"></div>
+            <div class="sx-f"><label for="fState">State</label><select id="fState" name="state" required data-req="Please choose your state." style="width:100%;font:inherit;font-size:15px;border:1px solid var(--hair);border-radius:16px;padding:14px 16px;background:var(--cream);color:var(--ink)"><?= hc_dir_state_options() ?></select></div>
+            <div class="sx-f"><label for="fYears">Years in business <em>(optional)</em></label><input id="fYears" name="years_in_business" type="number" min="0" max="150" inputmode="numeric" placeholder="e.g. 8"></div>
           </div>
           <div class="sx-f"><label for="fAddress">Street address <em>(optional; leave blank if you only serve clients at home)</em></label><input id="fAddress" name="address" autocomplete="street-address"></div>
           <div class="sx-f">
             <label for="fDesc">Description <span class="sx-count" id="descCount">0 / 40 min</span></label>
-            <textarea id="fDesc" name="description" rows="5" required placeholder="Who you care for, the areas you serve, how you screen and train caregivers, and what makes your agency different."></textarea>
+            <textarea id="fDesc" name="description" rows="5" required minlength="40" maxlength="5000" data-label="a short description of your agency" placeholder="Who you care for, the areas you serve, how you screen and train caregivers, and what makes your agency different."></textarea>
           </div>
 
           <div class="sx-f">
             <label>Services offered</label>
-            <div class="sx-checks">
+            <div class="sx-checks" data-min-checked="1" data-also-field="#fSvcOther" data-req="Please choose at least one service you offer.">
               <?php foreach (HC_DIR_SERVICES as $s): ?>
               <label class="sx-chk"><input type="checkbox" name="services[]" value="<?= htmlspecialchars($s) ?>"><?= htmlspecialchars($s) ?></label>
               <?php endforeach ?>
             </div>
-            <input name="services_other" placeholder="Other services, separated by commas" style="margin-top:10px">
+            <input id="fSvcOther" name="services_other" placeholder="Other services, separated by commas" style="margin-top:10px">
           </div>
 
           <div class="sx-f">
@@ -235,25 +235,27 @@ include '../../includes/header.php';
             <div class="sx-hint">Leave Saturday or Sunday empty if you're closed.</div>
           </div>
 
-          <div class="sx-f"><label for="fAreas">Service area</label><input id="fAreas" name="service_areas" placeholder="Orlando, Winter Park, Kissimmee, Orange County"><div class="sx-hint">Cities or counties you serve, separated by commas.</div></div>
+          <div class="sx-f"><label for="fAreas">Service area <em>(cities or counties you serve)</em></label><input id="fAreas" name="service_areas" data-tags placeholder="Type a city and press Enter"></div>
 
           <div class="sx-row">
-            <div class="sx-f"><label for="fPhone">Agency phone</label><input id="fPhone" name="phone" type="tel" required autocomplete="tel"></div>
-            <div class="sx-f"><label for="fEmail">Agency email</label><input id="fEmail" name="email" type="email" required></div>
+            <div class="sx-f"><label for="fPhone">Agency phone</label><input id="fPhone" name="phone" type="tel" data-phone required autocomplete="tel" placeholder="(555) 123-4567" data-label="your agency phone number"></div>
+            <div class="sx-f"><label for="fEmail">Agency email</label><input id="fEmail" name="email" type="email" required placeholder="office@youragency.com" data-label="your agency email"></div>
           </div>
           <div class="sx-row">
-            <div class="sx-f"><label for="fWebsite">Website</label><input id="fWebsite" name="website" type="url" placeholder="https://"></div>
-            <div class="sx-f"><label for="fLicense">State license number</label><input id="fLicense" name="license_number" placeholder="e.g. AHCA #"></div>
+            <div class="sx-f"><label for="fWebsite">Website</label><input id="fWebsite" name="website" data-url placeholder="youragency.com" autocomplete="url"></div>
+            <div class="sx-f"><label for="fLicense">State license number</label><input id="fLicense" name="license_number" maxlength="100" placeholder="e.g. AHCA #"></div>
           </div>
-          <div class="sx-f"><label for="fLogo">Logo URL <em>(optional; leave blank and we'll fetch it from your website)</em></label><input id="fLogo" name="logo" type="url" placeholder="https://yourwebsite.com/logo.png"></div>
+          <?= hc_dir_image_field('logo', 'Logo (optional; we\'ll try your website if you skip this)', false, [], 'PNG, JPG or WEBP · up to 5 MB') ?>
           <div class="sx-row">
-            <div class="sx-f"><label for="fLang">Languages spoken <em>(optional)</em></label><input id="fLang" name="languages" placeholder="English, Spanish, Haitian Creole"></div>
-            <div class="sx-f"><label for="fHours">Hours <em>(optional)</em></label><input id="fHours" name="hours" placeholder="24/7, or Mon–Fri 8am–6pm"></div>
+            <div class="sx-f"><label for="fLang">Languages spoken <em>(optional)</em></label><input id="fLang" name="languages" data-tags placeholder="Type a language and press Enter"></div>
+            <div class="sx-f"><label for="fHours">Hours note <em>(optional)</em></label><input id="fHours" name="hours" maxlength="255" placeholder="e.g. Care available 24/7"></div>
           </div>
 
           <div class="sx-paid-only" id="paidFields">
             <h3>Profile extras <span>Premium &amp; Featured</span></h3>
-            <div class="sx-f" style="margin-bottom:0"><label for="fTag">Tagline</label><input id="fTag" name="tagline" maxlength="160" placeholder="e.g. Compassionate in-home care across Central Florida since 2014"></div>
+            <div class="sx-f"><label for="fTag">Tagline</label><input id="fTag" name="tagline" maxlength="160" placeholder="e.g. Compassionate in-home care across Central Florida since 2014"></div>
+            <?= hc_dir_image_field('cover', 'Cover photo', false, [], 'Wide photo, 1600×600 or larger · up to 5 MB') ?>
+            <?= hc_dir_image_field('photos', 'Gallery photos', true, [], 'PNG, JPG or WEBP · up to 5 MB each', 9) ?>
           </div>
         </div>
         <?php else: ?>
@@ -267,9 +269,9 @@ include '../../includes/header.php';
         <div class="sx-step">
           <div class="sx-step-h"><span class="sx-step-n">03</span><div><h2>Owner or <em>authorized rep.</em></h2></div></div>
           <div class="sx-row">
-            <div class="sx-f"><label for="oName">Full name</label><input id="oName" name="owner_name" required autocomplete="name"></div>
+            <div class="sx-f"><label for="oName">Full name</label><input id="oName" name="owner_name" required minlength="2" maxlength="150" autocomplete="name" data-label="your full name"></div>
             <div class="sx-f"><label for="oTitle">Your role</label>
-              <select id="oTitle" name="owner_title" required>
+              <select id="oTitle" name="owner_title" required data-req="Please choose your role.">
                 <option value="">Select…</option>
                 <option>Owner</option><option>Co-Owner / Partner</option><option>Administrator</option><option>Director of Operations</option>
                 <option>Marketing Manager</option><option>Office Manager</option><option>Franchisee</option><option>Other authorized staff</option>
@@ -277,10 +279,10 @@ include '../../includes/header.php';
             </div>
           </div>
           <div class="sx-row">
-            <div class="sx-f"><label for="oEmail">Email</label><input id="oEmail" name="owner_email" type="email" required autocomplete="email"><div class="sx-hint">An email on your agency's domain gets verified faster.</div></div>
-            <div class="sx-f"><label for="oPhone">Direct phone</label><input id="oPhone" name="owner_phone" type="tel" required autocomplete="tel"><div class="sx-hint">We may call to verify ownership.</div></div>
+            <div class="sx-f"><label for="oEmail">Email</label><input id="oEmail" name="owner_email" type="email" required autocomplete="email" data-label="your email"><div class="sx-hint">An email on your agency's domain gets verified faster.</div></div>
+            <div class="sx-f"><label for="oPhone">Direct phone</label><input id="oPhone" name="owner_phone" type="tel" data-phone required autocomplete="tel" placeholder="(555) 123-4567" data-label="your direct phone number"><div class="sx-hint">We may call to verify ownership.</div></div>
           </div>
-          <label class="sx-attest"><input type="checkbox" name="owner_authorized" value="1" required><span>I confirm I am the owner or an authorized representative of this agency, and that the information I've provided is accurate. I agree to the <a href="/terms-of-service.php" target="_blank">Terms</a> and <a href="/privacy-policy.php" target="_blank">Privacy Policy</a>.</span></label>
+          <label class="sx-attest"><input type="checkbox" name="owner_authorized" value="1" required data-req="Please confirm you are the owner or an authorized representative."><span>I confirm I am the owner or an authorized representative of this agency, and that the information I've provided is accurate. I agree to the <a href="/terms-of-service.php" target="_blank">Terms</a> and <a href="/privacy-policy.php" target="_blank">Privacy Policy</a>.</span></label>
           <button type="submit" class="dx-btn is-dark sx-submit" id="sxBtn">Submit for review</button>
           <p class="sx-legal" id="sxLegal">You'll receive a confirmation email right away.</p>
         </div>
@@ -351,53 +353,30 @@ $page_js = <<<JS
     c.style.color = n < 40 ? '' : 'var(--teal)';
   });
 
-  function fail(el, msg){ el.classList.add('err'); el.focus(); alert(msg); setTimeout(function(){ el.classList.remove('err'); }, 2500); return false; }
-
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var fd = new FormData(form), data = {services: [], payment_accepted: []};
-    fd.forEach(function(v, k){
-      if (k === 'features[]') { (data.features = data.features || []).push(v); }
-      else if (k === 'services[]') data.services.push(v);
-      else if (k === 'payment_accepted[]') data.payment_accepted.push(v);
-      else data[k] = typeof v === 'string' ? v.trim() : v;
-    });
-    data.source = location.pathname;
-    var q = function(n){ return form.querySelector('[name="' + n + '"]'); };
-
-    if (!IS_CLAIM) {
-      if (!data.company_name) return fail(q('company_name'), 'Please enter your agency name.');
-      if (!data.city) return fail(q('city'), 'Please enter your city.');
-      if (!/^[A-Za-z]{2}$/.test(data.state || '')) return fail(q('state'), 'Please enter your 2-letter state code.');
-      if ((data.description || '').length < 40) return fail(q('description'), 'Please write a description of at least 40 characters.');
-      if (!data.services.length && !data.services_other) { alert('Please select at least one service.'); return; }
-      if (!data.phone) return fail(q('phone'), 'Please enter your agency phone.');
-      if (!/^\S+@\S+\.\S+$/.test(data.email || '')) return fail(q('email'), 'Please enter a valid agency email.');
-    }
-    if (!data.owner_name) return fail(q('owner_name'), 'Please enter the owner or representative name.');
-    if (!data.owner_title) return fail(q('owner_title'), 'Please select your role.');
-    if (!/^\S+@\S+\.\S+$/.test(data.owner_email || '')) return fail(q('owner_email'), 'Please enter a valid email for the owner/representative.');
-    if (!data.owner_phone) return fail(q('owner_phone'), 'Please enter a direct phone number.');
-    if (!q('owner_authorized').checked) { alert('Please confirm you are the owner or an authorized representative.'); return; }
-    data.owner_authorized = 1;
-
+    DXF.banner(form, '');
+    if (!DXF.validate(form)) { DXF.banner(form, 'Please fix the highlighted fields below.'); return; }
+    var fd = new FormData(form);
+    fd.set('source', location.pathname);
     var btn = document.getElementById('sxBtn'), label = btn.textContent;
     btn.disabled = true; btn.textContent = 'Submitting…';
-    fetch('/directory-submit-handler.php', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)})
+    fetch('/directory-submit-handler.php', {method:'POST', body: fd})
       .then(function(r){ return r.json(); })
       .then(function(d){
-        if (!d.success) { alert(d.message || 'Something went wrong. Please try again.'); btn.disabled = false; btn.textContent = label; return; }
+        if (!d.success) { DXF.banner(form, d.message || 'Something went wrong. Please try again.'); btn.disabled = false; btn.textContent = label; return; }
         var k = currentPlan();
         form.style.display = 'none';
-        document.getElementById('sxDoneMail').innerHTML = '<i class="fa-regular fa-envelope" style="color:var(--teal)"></i>' + esc(data.owner_email);
+        document.getElementById('sxDoneMail').innerHTML = '<i class="fa-regular fa-envelope" style="color:var(--teal)"></i>' + esc(fd.get('owner_email'));
         document.getElementById('sxDoneNext').textContent = k === 'free'
           ? 'Click the link to confirm you represent the agency. We review the listing once it’s confirmed.'
           : 'Click the link to confirm you represent the agency. We’ll then email your ' + PLANS[k].name + ' invoice within 1 business day.';
         document.getElementById('sxDone').style.display = 'block';
         window.scrollTo({top: 0, behavior: 'smooth'});
       })
-      .catch(function(){ alert('Connection error. Please try again or email info@homecarecreators.com.'); btn.disabled = false; btn.textContent = label; });
+      .catch(function(){ DXF.banner(form, 'Connection error. Please try again or email info@homecarecreators.com.'); btn.disabled = false; btn.textContent = label; });
   });
 })();
 JS;
+echo hc_dir_form_kit();
 include '../../includes/footer.php';

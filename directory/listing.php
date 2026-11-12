@@ -102,6 +102,49 @@ $page_css = hc_dir_base_css() . hc_dir_extra_css() . <<<CSS
 .bh-acts .dx-btn{padding:14px 20px}
 .bh-acts .dx-btn.saved i{color:#d6455d}
 
+/* ── HERO (profile header) ─────────────── */
+.hz{background:#fff;border-bottom:1px solid var(--hair)}
+.hz-banner{position:relative;height:230px;background-color:color-mix(in srgb,var(--brand) 14%,#fff);background-image:radial-gradient(color-mix(in srgb,var(--brand) 22%,transparent) 1.2px,transparent 1.4px),linear-gradient(120deg,color-mix(in srgb,var(--brand) 26%,#fff) 0%,color-mix(in srgb,var(--brand) 8%,#fff) 60%,#f5f2ec 100%);background-size:18px 18px,cover;background-position:center}
+.hz-banner[style]{background-size:cover}
+.hz-banner.has-gl{height:auto;background:#fff;padding:20px 32px 0}
+.hz-banner .gl{max-width:1200px;margin:0 auto;margin-bottom:0}
+.hz-crumbs{position:absolute;left:0;right:0;top:20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;padding:0 32px}
+.hz-banner.has-gl .hz-crumbs{top:36px;padding:0 48px}
+.hz-crumbs a{background:rgba(255,255,255,.88);backdrop-filter:blur(6px);color:var(--ink);font-weight:600;border-radius:100px;padding:6px 12px}
+.hz-crumbs a:hover{background:#fff}
+.hz-crumbs i{font-size:8px;color:var(--ink);opacity:.5}
+.hz-in{padding:0 32px 40px}
+.hz-top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:-66px;position:relative}
+.hz-banner.has-gl+.hz-in .hz-top{margin-top:-50px}
+.hz-logo .dx-logo{border:5px solid #fff!important;box-shadow:0 12px 32px rgba(10,46,30,.16)}
+.hz-tools{display:flex;gap:8px;padding-bottom:8px}
+.hz-tools .dx-btn{padding:11px 16px;font-size:13.5px}
+.hz-tools .dx-btn.saved i{color:#d6455d}
+.hz-grid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:40px;align-items:start;margin-top:22px}
+.hz-badges{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:12px}
+.hz h1{font-size:clamp(32px,4vw,52px);font-weight:800;letter-spacing:-.045em;line-height:1.04;margin-bottom:12px;overflow-wrap:anywhere}
+.hz-rate{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-bottom:14px}
+.hz-rate a{font-size:14px;color:var(--ink);font-weight:600;text-decoration:underline!important;text-underline-offset:3px}
+.hz-cats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.hz-cats a,.hz-cats span{background:var(--cream);border-radius:100px;padding:7px 14px;font-size:13.5px;font-weight:500;color:var(--ink)}
+.hz-cats a:hover{background:#ece7dc}
+.hz-meta{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14.5px;color:var(--mut);align-items:center}
+.hz-meta i{color:var(--teal);margin-right:7px}
+.hz-meta a{color:var(--ink);font-weight:600;text-decoration:underline!important;text-underline-offset:3px;font-size:14px}
+.hz-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.hz-acts .dx-btn{padding:14px 20px}
+.hz-card{background:var(--cream);border-radius:26px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.hz-card small{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--mut)}
+.hz-phone{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.03em;color:var(--ink);margin-bottom:6px}
+.hz-phone:hover{color:var(--teal)}
+.hz-card .dx-btn{width:100%}
+.hz-none{font-size:14.5px;color:var(--mut)}
+.hz-facts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:8px;padding-top:14px;border-top:1px solid var(--hair)}
+.hz-facts div{text-align:center}
+.hz-facts div+div{border-left:1px solid var(--hair)}
+.hz-facts b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;color:var(--ink);line-height:1.2}
+.hz-facts span{font-size:12px;color:var(--mut)}
+
 /* ── BODY ───────────────────────────────── */
 .bz{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:56px;align-items:start}
 .bs{padding:40px 0;border-top:1px solid var(--hair);scroll-margin-top:100px}
@@ -246,6 +289,7 @@ a.cr:hover b{color:var(--teal)}
 .mbar{display:none}
 
 @media(max-width:1100px){
+  .hz-grid{grid-template-columns:minmax(0,1fr);gap:24px}
   .bz{grid-template-columns:1fr;gap:12px}
   .sd{position:static}
   .lo-body{grid-template-columns:1fr}
@@ -253,6 +297,18 @@ a.cr:hover b{color:var(--teal)}
   .ar-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:700px){
+  .hz-banner{height:150px}
+  .hz-banner.has-gl{padding:10px 10px 0}
+  .hz-crumbs,.hz-banner.has-gl .hz-crumbs{padding:0 16px;top:14px}
+  .hz-in{padding:0 16px 28px}
+  .hz-top{margin-top:-46px}
+  .hz-logo .dx-logo{width:92px!important;height:92px!important;font-size:30px!important}
+  .hz-tools .dx-btn span,.hz-tools .dx-btn{font-size:0;gap:0;padding:12px 14px}
+  .hz-tools .dx-btn i{font-size:14px}
+  .hz-acts .dx-btn{flex:1 1 auto}
+  .hz-phone{font-size:24px}
+  .hz-rate .st-row.is-lg i{width:24px;height:24px;font-size:12px}
+  .hz h1{font-size:30px}
   .gl{grid-template-columns:1fr 1fr;grid-template-rows:160px 100px;border-radius:22px}
   .gl a:first-child{grid-column:1/3;grid-row:1}
   .gl a:nth-child(n+4){display:none}
@@ -303,54 +359,75 @@ $cityLink = '/directory/?loc=' . urlencode($l['city'] . ', ' . $l['state']) . '#
 <div class="dx">
 <div class="dx-frame is-first">
 
-  <!-- HEADER -->
-  <header class="dx-panel" style="padding-top:48px;padding-bottom:48px">
-    <div class="dx-in">
-      <div class="dx-crumbs">
-        <a href="/directory/">Directory</a><i class="fa-solid fa-chevron-right"></i>
-        <a href="/directory/?loc=<?= urlencode($l['state']) ?>#results"><?= htmlspecialchars($l['state']) ?></a><i class="fa-solid fa-chevron-right"></i>
-        <a href="<?= htmlspecialchars($cityLink) ?>"><?= htmlspecialchars($l['city']) ?></a><i class="fa-solid fa-chevron-right"></i>
-        <span><?= htmlspecialchars($l['company_name']) ?></span>
-      </div>
-
+  <!-- HERO -->
+  <header class="hz" style="--brand:<?= hc_dir_mono_color($l['company_name']) ?>">
+    <?php $coverImg = $paid ? ($l['cover_image'] ?: '') : ''; ?>
+    <div class="hz-banner<?= count($gallery) >= 3 ? ' has-gl' : '' ?>"<?= (count($gallery) < 3 && $coverImg) ? ' style="background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.25)),url(\'' . htmlspecialchars($coverImg) . '\')"' : '' ?>>
       <?php if (count($gallery) >= 3): ?>
       <div class="gl">
         <?php foreach (array_slice($gallery, 0, 5) as $g): ?><a href="<?= htmlspecialchars($g) ?>" target="_blank" rel="noopener" style="background-image:url('<?= htmlspecialchars($g) ?>')" aria-label="Photo"></a><?php endforeach ?>
-        <a class="all" href="#photos">See all <?= count($gallery) ?> photos</a>
+        <a class="all" href="#photos"><i class="fa-regular fa-images"></i> See all <?= count($gallery) ?> photos</a>
       </div>
       <?php endif ?>
+      <div class="hz-crumbs dx-in">
+        <a href="/directory/">Directory</a><i class="fa-solid fa-chevron-right"></i>
+        <a href="/directory/?loc=<?= urlencode($l['state']) ?>#results"><?= htmlspecialchars($l['state']) ?></a><i class="fa-solid fa-chevron-right"></i>
+        <a href="<?= htmlspecialchars($cityLink) ?>"><?= htmlspecialchars($l['city']) ?></a>
+      </div>
+    </div>
 
-      <div class="bh">
-        <?= hc_dir_logo($l, 104) ?>
+    <div class="dx-in hz-in">
+      <div class="hz-top">
+        <div class="hz-logo"><?= hc_dir_logo($l, 132) ?></div>
+        <div class="hz-tools">
+          <button class="dx-btn" type="button" id="bzShare"><i class="fa-solid fa-arrow-up-from-bracket"></i>Share</button>
+          <button class="dx-btn" type="button" id="bzSave" data-slug="<?= htmlspecialchars($l['slug']) ?>"><i class="fa-regular fa-heart"></i><span>Save</span></button>
+        </div>
+      </div>
+
+      <div class="hz-grid">
         <div style="min-width:0">
-          <h1><?= htmlspecialchars($l['company_name']) ?></h1>
-          <div class="bh-rate">
-            <span><?= hc_dir_rating_line($l, 'lg') ?></span>
+          <div class="hz-badges">
             <?php if ($claimed): ?><span class="cl-yes"><i class="fa-solid fa-circle-check"></i>Claimed</span>
             <?php elseif (!$hasOwner): ?><span class="cl-no"><i class="fa-regular fa-circle"></i>Unclaimed · <a href="/directory/submit/?claim=<?= urlencode($l['slug']) ?>">Claim this business</a></span><?php endif ?>
             <?= hc_dir_badges($l, $tier, true) ?>
           </div>
-          <div class="bh-cats">
+          <h1><?= htmlspecialchars($l['company_name']) ?></h1>
+          <div class="hz-rate"><?= hc_dir_rating_line($l, 'lg') ?> <a href="#reviews">Read reviews</a></div>
+          <div class="hz-cats">
             <?php if ($services): ?>
-              <?php foreach (array_slice($services, 0, 4) as $i => $s): ?><?= $i ? ', ' : '' ?><a href="/directory/?<?= htmlspecialchars(http_build_query(['svc' => [$s], 'loc' => $l['city'] . ', ' . $l['state']])) ?>#results"><?= htmlspecialchars($s) ?></a><?php endforeach ?>
-              <?= count($services) > 4 ? ' <span style="color:var(--mut)">+' . (count($services) - 4) . ' more</span>' : '' ?>
-            <?php else: ?>Home care agency<?php endif ?>
-            <span style="color:var(--mut)"> · <?= htmlspecialchars($l['city'] . ', ' . $l['state']) ?></span>
+              <?php foreach (array_slice($services, 0, 4) as $s): ?><a href="/directory/?<?= htmlspecialchars(http_build_query(['svc' => [$s], 'loc' => $l['city'] . ', ' . $l['state']])) ?>#results"><?= htmlspecialchars($s) ?></a><?php endforeach ?>
+              <?php if (count($services) > 4): ?><a href="#services">+<?= count($services) - 4 ?> more</a><?php endif ?>
+            <?php else: ?><span>Home care agency</span><?php endif ?>
           </div>
-          <div class="bh-open">
-            <?php if ($open): ?><?= hc_dir_open_html($l) ?> <a href="#hours">See hours</a><?php else: ?><span style="color:var(--mut);font-size:14.5px">Hours not listed</span><?php endif ?>
-            <?php if ($l['years_in_business']): ?><span style="color:var(--mut);font-size:14.5px">· <?= htmlspecialchars($l['years_in_business']) ?> years in business</span><?php endif ?>
+          <div class="hz-meta">
+            <span><i class="fa-solid fa-location-dot"></i><?= htmlspecialchars($cityLine) ?></span>
+            <?php if ($open): ?><span><?= hc_dir_open_html($l) ?> <a href="#hours">See hours</a></span><?php endif ?>
+            <?php if ($l['years_in_business']): ?><span><i class="fa-regular fa-calendar"></i><?= htmlspecialchars($l['years_in_business']) ?> years in business</span><?php endif ?>
+          </div>
+          <div class="hz-acts">
+            <button class="dx-btn is-dark" type="button" onclick="openReview()"><i class="fa-regular fa-star"></i>Write a review</button>
+            <?php if ($featured): ?><a class="dx-btn is-teal" href="#contact"><i class="fa-regular fa-paper-plane"></i>Request a consultation</a><?php endif ?>
+            <?php if ($paid && $l['website']): ?><a class="dx-btn" href="<?= htmlspecialchars($l['website']) ?>" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i>Website</a><?php endif ?>
           </div>
         </div>
-      </div>
 
-      <div class="bh-acts">
-        <button class="dx-btn is-dark" type="button" onclick="openReview()"><i class="fa-regular fa-star"></i>Write a review</button>
-        <?php if ($featured): ?><a class="dx-btn is-teal" href="#contact"><i class="fa-regular fa-paper-plane"></i>Request a consultation</a><?php endif ?>
-        <?php if ($l['phone']): ?><a class="dx-btn" href="tel:<?= htmlspecialchars($phoneHref) ?>"><i class="fa-solid fa-phone"></i>Call</a><?php endif ?>
-        <a class="dx-btn" href="<?= htmlspecialchars($dirUrl) ?>" target="_blank" rel="noopener nofollow"><i class="fa-solid fa-diamond-turn-right"></i>Directions</a>
-        <button class="dx-btn" type="button" id="bzShare"><i class="fa-solid fa-arrow-up-from-bracket"></i>Share</button>
-        <button class="dx-btn" type="button" id="bzSave" data-slug="<?= htmlspecialchars($l['slug']) ?>"><i class="fa-regular fa-heart"></i><span>Save</span></button>
+        <aside class="hz-card">
+          <?php if ($l['phone']): ?>
+          <small>Call the agency</small>
+          <a class="hz-phone" href="tel:<?= htmlspecialchars($phoneHref) ?>"><?= htmlspecialchars($l['phone']) ?></a>
+          <a class="dx-btn is-dark" href="tel:<?= htmlspecialchars($phoneHref) ?>"><i class="fa-solid fa-phone"></i>Call now</a>
+          <?php else: ?>
+          <small>Contact</small>
+          <p class="hz-none">No phone number listed yet.</p>
+          <?php endif ?>
+          <a class="dx-btn" href="<?= htmlspecialchars($dirUrl) ?>" target="_blank" rel="noopener nofollow"><i class="fa-solid fa-diamond-turn-right"></i>Get directions</a>
+          <div class="hz-facts">
+            <div><b><?= $services ? count($services) : '—' ?></b><span>Services</span></div>
+            <div><b><?= $areas ? count($areas) : '—' ?></b><span>Areas</span></div>
+            <div><b><?= $l['license_number'] ? '<i class="fa-solid fa-check" style="color:var(--teal)"></i>' : '—' ?></b><span>Licensed</span></div>
+          </div>
+        </aside>
       </div>
     </div>
   </header>
@@ -477,7 +554,7 @@ $cityLink = '/directory/?loc=' . urlencode($l['city'] . ', ' . $l['state']) . '#
           <div class="wr" id="writeReview">
             <h3>Write a review</h3>
             <p class="wr-sub">Share your experience with <?= htmlspecialchars($l['company_name']) ?> to help other families. Reviews are checked before they're published.</p>
-            <form class="fm" id="rvForm" onsubmit="return sendReview(event)">
+            <form class="fm" id="rvForm" onsubmit="return sendReview(event)" data-validate data-js-submit="1">
               <div class="hp-field" aria-hidden="true"><input type="text" name="hp_website" tabindex="-1" autocomplete="off"></div>
               <input type="hidden" name="rating" id="rvRating" value="0">
               <div class="wr-stars" id="rvStars">
@@ -485,15 +562,15 @@ $cityLink = '/directory/?loc=' . urlencode($l['city'] . ', ' . $l['state']) . '#
               </div>
               <div class="wr-hint" id="rvHint">Select your rating</div>
               <div class="fm-row">
-                <div><label for="rvName">Your name</label><input id="rvName" name="name" required maxlength="120" autocomplete="name"></div>
-                <div><label for="rvEmail">Email <span style="font-weight:400;color:var(--mut)">(not published)</span></label><input id="rvEmail" name="email" type="email" required autocomplete="email"></div>
+                <div><label for="rvName">Your name</label><input id="rvName" name="name" required minlength="2" maxlength="120" autocomplete="name" data-label="your name"></div>
+                <div><label for="rvEmail">Email <span style="font-weight:400;color:var(--mut)">(not published)</span></label><input id="rvEmail" name="email" type="email" required autocomplete="email" data-label="your email"></div>
               </div>
               <label for="rvRel">Your relationship to the agency</label>
               <select id="rvRel" name="relationship">
                 <option>Family member of a client</option><option>Client</option><option>Former client or family</option><option>Healthcare professional</option><option>Caregiver or employee</option>
               </select>
               <label for="rvTitle">Title</label><input id="rvTitle" name="title" maxlength="150" placeholder="Sum up your experience">
-              <label for="rvBody">Your review</label><textarea id="rvBody" name="body" rows="5" required minlength="40" placeholder="What care did you receive? How were the caregivers and communication?"></textarea>
+              <label for="rvBody">Your review</label><textarea id="rvBody" name="body" rows="5" required minlength="40" maxlength="5000" data-label="your review" placeholder="What care did you receive? How were the caregivers and communication?"></textarea>
               <button class="dx-btn is-dark" type="submit" id="rvBtn" style="width:100%;padding:16px">Submit review</button>
               <small>By submitting, you confirm this review reflects your own genuine experience. We don't publish reviews from agency owners or paid reviewers.</small>
             </form>
@@ -561,11 +638,11 @@ $cityLink = '/directory/?loc=' . urlencode($l['city'] . ', ' . $l['state']) . '#
         <?php if ($featured): ?>
         <div class="cc">
           <h3>Request a <em>free</em> consultation</h3>
-          <form class="fm" id="lxLead" onsubmit="return lxSend(event)">
+          <form class="fm" id="lxLead" onsubmit="return lxSend(event)" data-validate data-js-submit="1">
             <div class="hp-field" aria-hidden="true"><input type="text" name="hp_website" tabindex="-1" autocomplete="off"></div>
-            <label for="lxName">Your name</label><input id="lxName" name="name" required autocomplete="name">
+            <label for="lxName">Your name</label><input id="lxName" name="name" required minlength="2" maxlength="150" autocomplete="name" data-label="your name">
             <div class="fm-row">
-              <div><label for="lxPhone">Phone</label><input id="lxPhone" name="phone" type="tel" required autocomplete="tel"></div>
+              <div><label for="lxPhone">Phone</label><input id="lxPhone" name="phone" type="tel" data-phone required autocomplete="tel" placeholder="(555) 123-4567" data-label="your phone number"></div>
               <div><label for="lxEmail">Email</label><input id="lxEmail" name="email" type="email" autocomplete="email"></div>
             </div>
             <label for="lxFor">Care is for</label>
@@ -656,21 +733,26 @@ function sendReview(e){
   var f = e.target, btn = document.getElementById('rvBtn');
   var data = {listing_id: {$lid}};
   new FormData(f).forEach(function(v,k){ data[k] = v; });
-  if (!(+data.rating >= 1)) { alert('Please choose a star rating.'); return false; }
-  if ((data.body || '').trim().length < 40) { alert('Please write at least 40 characters about your experience.'); return false; }
+  DXF.banner(f, '');
+  var okStars = +data.rating >= 1;
+  document.getElementById('rvHint').style.color = okStars ? '' : '#c0392b';
+  if (!okStars) document.getElementById('rvHint').textContent = 'Please choose a star rating.';
+  if (!DXF.validate(f) || !okStars) return false;
   btn.disabled = true; btn.textContent = 'Submitting…';
   fetch('/directory-review-handler.php', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)})
     .then(function(r){ return r.json(); })
     .then(function(d){
       if (d.success) { f.style.display = 'none'; document.getElementById('rvOk').style.display = 'block'; }
-      else { alert(d.message || 'Something went wrong.'); btn.disabled = false; btn.textContent = 'Submit review'; }
+      else { DXF.banner(f, d.message || 'Something went wrong.'); btn.disabled = false; btn.textContent = 'Submit review'; }
     })
-    .catch(function(){ alert('Connection error. Please try again.'); btn.disabled = false; btn.textContent = 'Submit review'; });
+    .catch(function(){ DXF.banner(f, 'Connection error. Please try again.'); btn.disabled = false; btn.textContent = 'Submit review'; });
   return false;
 }
 function lxSend(e){
   e.preventDefault();
   var f = e.target, btn = document.getElementById('lxBtn');
+  DXF.banner(f, '');
+  if (!DXF.validate(f)) return false;
   var data = {listing_id: {$lid}};
   new FormData(f).forEach(function(v,k){ data[k] = v; });
   btn.disabled = true; btn.textContent = 'Sending…';
@@ -678,11 +760,12 @@ function lxSend(e){
     .then(function(r){ return r.json(); })
     .then(function(d){
       if (d.success) { f.style.display = 'none'; document.getElementById('lxOk').style.display = 'block'; }
-      else { alert(d.message || 'Something went wrong.'); btn.disabled = false; btn.textContent = 'Send request'; }
+      else { DXF.banner(f, d.message || 'Something went wrong.'); btn.disabled = false; btn.textContent = 'Send request'; }
     })
-    .catch(function(){ alert('Connection error — please call the agency directly.'); btn.disabled = false; btn.textContent = 'Send request'; });
+    .catch(function(){ DXF.banner(f, 'Connection error. Please call the agency directly.'); btn.disabled = false; btn.textContent = 'Send request'; });
   return false;
 }
 JS;
 echo hc_dir_popup_html();
+echo hc_dir_form_kit();
 include '../includes/footer.php';

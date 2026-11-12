@@ -39,8 +39,12 @@ $owner_email  = filter_var(trim($data['owner_email'] ?? ''), FILTER_SANITIZE_EMA
 $owner_phone  = $clean('owner_phone', 50);
 $authorized   = !empty($data['owner_authorized']);
 
+$tenDigits = fn($p) => strlen(preg_replace('/^1/', '', preg_replace('/\D/', '', (string)$p))) === 10;
 if (!$owner_name || !$owner_title || !$owner_phone || !filter_var($owner_email, FILTER_VALIDATE_EMAIL)) {
     dir_fail('Please complete the owner / authorized representative section with a valid email.');
+}
+if (!$tenDigits($owner_phone)) {
+    dir_fail('Please enter a 10-digit direct phone number for the owner or representative.');
 }
 if (!$authorized) {
     dir_fail('Please confirm you are the owner or an authorized representative of this agency.');
@@ -146,9 +150,20 @@ if ($mode === 'claim') {
     if ($website && !preg_match('#^https?://#i', $website)) $website = 'https://' . $website;
     if ($logo && !preg_match('#^https?://#i', $logo)) $logo = '';
 
-    if (!$company_name || !$city || !$state || mb_strlen($description) < 40 || !$phone
+    if (!$company_name || !$city || mb_strlen($description) < 40 || !$phone
         || !filter_var($email, FILTER_VALIDATE_EMAIL) || !$services) {
         dir_fail('Agency name, city, state, a description (40+ characters), phone, a valid email and at least one service are required.');
+    }
+    if (!isset(HC_DIR_STATES[$state])) dir_fail('Please choose your state from the list.');
+    if (!$tenDigits($phone)) dir_fail('Please enter a 10-digit agency phone number.');
+    if ($website && !filter_var($website, FILTER_VALIDATE_URL)) dir_fail('Please enter a valid website address, like youragency.com.');
+    if ($years !== '' && !preg_match('/^\d{1,3}$/', $years)) dir_fail('Years in business should be a number.');
+    // Validate uploads before saving anything.
+    foreach (['logo_file', 'cover_file', 'photos_file'] as $ff) {
+        foreach (hc_dir_files($ff) as $fx) {
+            if (($fx['error'] ?? 4) === UPLOAD_ERR_NO_FILE) continue;
+            if ($fx['error'] !== UPLOAD_ERR_OK || $fx['size'] > 5 * 1048576 || !@getimagesize($fx['tmp_name'])) dir_fail('Images must be PNG, JPG or WEBP files of 5 MB or less.');
+        }
     }
 
     // Duplicate guard: same name in same city already listed/pending.
@@ -177,10 +192,17 @@ if ($mode === 'claim') {
         dir_fail('Could not save your listing. Please try again.', 500);
     }
     hc_dir_geocode($id);
-    // Profile picture: store the supplied logo locally, or find it on their website.
-    $savedLogo = $logo ? hc_dir_store_logo($logo, $slug) : null;
-    if ($savedLogo) hc_q("UPDATE hc_directory_listings SET logo=? WHERE id=?", [$savedLogo, $id]);
-    elseif ($website) { if (!hc_dir_fetch_logo($id) && $logo) hc_q("UPDATE hc_directory_listings SET logo=NULL WHERE id=?", [$id]); }
+    // Images: uploaded logo (or fetch it from their website), cover and gallery.
+    $up = hc_dir_files('logo_file')[0] ?? null;
+    $savedLogo = $up ? hc_dir_save_upload($up, $slug, 'logo') : '';
+    if ($savedLogo && str_starts_with($savedLogo, '/')) hc_q("UPDATE hc_directory_listings SET logo=? WHERE id=?", [$savedLogo, $id]);
+    elseif ($website) hc_dir_fetch_logo($id);
+    $up = hc_dir_files('cover_file')[0] ?? null;
+    $savedCover = $up ? hc_dir_save_upload($up, $slug, 'cover') : '';
+    if ($savedCover && str_starts_with($savedCover, '/')) hc_q("UPDATE hc_directory_listings SET cover_image=? WHERE id=?", [$savedCover, $id]);
+    $gal = [];
+    foreach (array_slice(hc_dir_files('photos_file'), 0, 9) as $up) { $sp = hc_dir_save_upload($up, $slug, 'photo'); if ($sp && str_starts_with($sp, '/')) $gal[] = $sp; }
+    if ($gal) hc_q("UPDATE hc_directory_listings SET photos=? WHERE id=?", [implode("\n", $gal), $id]);
 }
 
 // ── Owner confirmation email ───────────────────────────────────

@@ -298,7 +298,7 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
   <div class="card">
     <div class="form-grid">
       <div class="form-group"><label>City</label><input type="text" name="city" value="<?= $v('city') ?>" required></div>
-      <div class="form-group"><label>State</label><input type="text" name="state" value="<?= $v('state', 'FL') ?>" maxlength="2" style="text-transform:uppercase"></div>
+      <div class="form-group"><label>State</label><select name="state"><?php foreach (HC_DIR_STATES as $sk => $sn): ?><option value="<?= $sk ?>" <?= strtoupper($L['state'] ?? 'FL') === $sk ? 'selected' : '' ?>><?= h($sn) ?> (<?= $sk ?>)</option><?php endforeach ?></select></div>
     </div>
     <div class="form-group"><label>Street address <span>(optional)</span></label><input type="text" name="address" value="<?= $v('address') ?>"></div>
     <div class="form-group"><label>Service areas <span>(comma-separated)</span></label><textarea name="service_areas" rows="2"><?= $v('service_areas') ?></textarea></div>
@@ -318,7 +318,7 @@ hc_topbar($title_val, '<a href="/admin/">Admin</a> › <a href="/admin/directory
     <div class="form-group"><label>Website <span>(linked on paid plans)</span></label><input type="text" name="website" value="<?= $v('website') ?>" placeholder="https://"></div>
     <div class="form-grid" style="margin-bottom:0">
       <div class="form-group" style="margin-bottom:0"><label>License number</label><input type="text" name="license_number" value="<?= $v('license_number') ?>"></div>
-      <div class="form-group" style="margin-bottom:0"><label>Years in business</label><input type="text" name="years_in_business" value="<?= $v('years_in_business') ?>"></div>
+      <div class="form-group" style="margin-bottom:0"><label>Years in business</label><input type="number" min="0" max="150" name="years_in_business" value="<?= $v('years_in_business') ?>"></div>
     </div>
   </div>
 

@@ -268,3 +268,203 @@ function hc_dir_popup_html(): string {
 HTML;
 }
 
+
+/* ── Form kit: validation, phone formatting, tag inputs, image uploads ── */
+
+function hc_dir_state_options(string $sel = ''): string {
+    $o = '<option value="">State</option>';
+    foreach (HC_DIR_STATES as $k => $n) $o .= '<option value="' . $k . '"' . (strtoupper($sel) === $k ? ' selected' : '') . '>' . htmlspecialchars($n) . '</option>';
+    return $o;
+}
+
+/** Image upload field. $existing = list of current image paths (kept unless removed). */
+function hc_dir_image_field(string $name, string $label, bool $multiple = false, array $existing = [], string $hint = 'PNG, JPG or WEBP · up to 5 MB', int $max = 1): string {
+    $max = $multiple ? max(1, $max) : 1;
+    $h = '<div class="iu" data-name="' . $name . '" data-max="' . $max . '"' . ($multiple ? ' data-multiple="1"' : '') . '>';
+    $h .= '<div class="iu-label">' . htmlspecialchars($label) . '</div>';
+    $h .= '<div class="iu-grid">';
+    foreach ($existing as $src) {
+        if (!$src) continue;
+        $h .= '<div class="iu-item"><img src="' . htmlspecialchars($src) . '" alt=""><input type="hidden" name="' . $name . '_keep[]" value="' . htmlspecialchars($src) . '"><button type="button" class="iu-rm" aria-label="Remove image">✕</button></div>';
+    }
+    $h .= '<label class="iu-drop"><input type="file" name="' . $name . '_file' . ($multiple ? '[]' : '') . '" accept="image/png,image/jpeg,image/webp"' . ($multiple ? ' multiple' : '') . ' hidden>'
+        . '<span class="iu-ic"><i class="fa-solid fa-arrow-up-from-bracket"></i></span><b>' . ($multiple ? 'Add photos' : 'Upload') . '</b><small>or drag &amp; drop</small></label>';
+    $h .= '</div><div class="iu-hint">' . htmlspecialchars($hint) . ($multiple ? ' · up to ' . $max . ' photos' : '') . '</div></div>';
+    return $h;
+}
+
+function hc_dir_form_kit(): string {
+    return <<<'HTML'
+<style>
+.fe-err{display:none;color:#c0392b;font-size:12.5px;font-weight:500;margin:-8px 0 14px 4px;line-height:1.4}
+.fe-err.show{display:block}
+.is-invalid{border-color:#e05a47!important;background:#fff8f7!important}
+.fe-group-err{border-radius:14px;outline:1.5px solid #e05a47;outline-offset:6px}
+.fe-banner{display:none;background:#fdecea;color:#9b2c1f;border-radius:16px;padding:14px 18px;font-size:14.5px;margin-bottom:18px;line-height:1.5}
+.fe-banner.show{display:block}
+.fe-ok{position:relative}
+.tg{display:flex;flex-wrap:wrap;gap:6px;align-items:center;border:1px solid var(--hair,#ddd);border-radius:16px;padding:8px 10px;background:var(--cream,#f5f2ec);margin-bottom:16px;cursor:text;min-height:50px}
+.tg:focus-within{border-color:var(--ink,#0a2e1e);background:#fff}
+.tg span{display:inline-flex;align-items:center;gap:6px;background:var(--ink,#0a2e1e);color:#fff;border-radius:100px;padding:6px 8px 6px 12px;font-size:13.5px}
+.tg span button{border:0;background:rgba(255,255,255,.18);color:#fff;width:18px;height:18px;border-radius:50%;font-size:10px;cursor:pointer;line-height:1}
+.tg input{flex:1;width:auto!important;min-width:140px;border:0!important;outline:0;background:transparent!important;padding:6px 4px!important;margin:0!important;font:inherit;font-size:15px}
+.iu{margin-bottom:18px}
+.iu-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;color:var(--ink,#0a2e1e);margin:0 0 8px 4px}
+.iu-grid{display:flex;flex-wrap:wrap;gap:10px}
+.iu-item{position:relative;width:120px;height:120px;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--hair,#ddd)}
+.iu-item img{width:100%;height:100%;object-fit:contain;background:#fff}
+.iu[data-multiple] .iu-item img{object-fit:cover}
+.iu-rm{position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;border:0;background:rgba(10,46,30,.85);color:#fff;font-size:11px;cursor:pointer}
+.iu-drop{width:120px;height:120px;border-radius:18px;border:1.5px dashed rgba(10,46,30,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;background:var(--cream,#f5f2ec);text-align:center;transition:border-color .15s,background .15s}
+.iu-drop:hover,.iu-drop.drag{border-color:var(--ink,#0a2e1e);background:#fff}
+.iu-drop b{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--ink,#0a2e1e)}
+.iu-drop small{font-size:11.5px;color:var(--mut,#6b7b6e)}
+.iu-ic{width:32px;height:32px;border-radius:50%;background:var(--ink,#0a2e1e);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px}
+.iu.full .iu-drop{display:none}
+.iu-hint{font-size:12px;color:var(--mut,#6b7b6e);margin:8px 0 0 4px}
+.pfx{display:flex;align-items:stretch;margin-bottom:16px}
+.pfx span{display:flex;align-items:center;padding:0 12px 0 16px;border:1px solid var(--hair,#ddd);border-right:0;border-radius:16px 0 0 16px;background:#efece4;color:var(--mut,#6b7b6e);font-size:14px}
+.pfx input{margin:0!important;border-radius:0 16px 16px 0!important}
+</style>
+<script>
+(function(){
+  if (window.DXF) return;
+  var D = window.DXF = {};
+  var reEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function label(el){
+    if (el.dataset.label) return el.dataset.label;
+    var l = el.id && document.querySelector('label[for="' + el.id + '"]');
+    var t = l ? l.childNodes[0].textContent.trim() : (el.placeholder || el.name || 'this field');
+    return t.replace(/[:*]$/, '').toLowerCase();
+  }
+  function errEl(el){
+    var anchor = el.closest('.tg, .pfx, .iu') || el;
+    var n = anchor.nextElementSibling;
+    if (!n || !n.classList.contains('fe-err')) { n = document.createElement('div'); n.className = 'fe-err'; anchor.parentNode.insertBefore(n, anchor.nextSibling); }
+    return n;
+  }
+  D.setErr = function(el, msg){
+    var e = errEl(el); var box = el.closest('.tg, .pfx') || el;
+    if (msg) { e.textContent = msg; e.classList.add('show'); box.classList.add('is-invalid'); if (el !== box) el.classList.add('is-invalid'); }
+    else { e.classList.remove('show'); box.classList.remove('is-invalid'); el.classList.remove('is-invalid'); }
+    return !msg;
+  };
+  D.check = function(el){
+    if (el.disabled || el.type === 'hidden' && !el.dataset.validate || el.closest('[hidden]') || (el.offsetParent === null && el.type !== 'hidden' && !el.closest('.tg'))) return true;
+    var v = (el.value || '').trim(), msg = '';
+    if (el.required && !v) msg = el.dataset.req || ('Please enter ' + (/^(a|an|the|your)\s/.test(label(el)) ? '' : 'your ') + label(el) + '.');
+    else if (v && el.type === 'email' && !reEmail.test(v)) msg = 'Please enter a valid email address, like name@agency.com.';
+    else if (v && el.hasAttribute('data-phone') && v.replace(/\D/g,'').replace(/^1/,'').length !== 10) msg = 'Please enter a 10-digit US phone number.';
+    else if (v && el.hasAttribute('data-url') && !/^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\/\S*)?$/i.test(v)) msg = 'Please enter a valid website, like youragency.com.';
+    else if (v && el.minLength > 0 && v.length < el.minLength) msg = 'Please write at least ' + el.minLength + ' characters (' + v.length + ' so far).';
+    else if (v && el.dataset.match) { var o = document.querySelector(el.dataset.match); if (o && o.value !== el.value) msg = 'The passwords don’t match.'; }
+    else if (v && el.type === 'number' && ((el.min !== '' && +v < +el.min) || (el.max !== '' && +v > +el.max))) msg = 'Please enter a number between ' + el.min + ' and ' + el.max + '.';
+    else if (v && el.pattern && !(new RegExp('^(?:' + el.pattern + ')$')).test(v)) msg = el.title || 'Please check this field.';
+    return D.setErr(el, msg);
+  };
+  D.checkGroups = function(form){
+    var ok = true;
+    form.querySelectorAll('[data-min-checked]').forEach(function(g){
+      if (g.closest('[hidden]')) return;
+      var n = g.querySelectorAll('input:checked').length + ((g.dataset.alsoField && (document.querySelector(g.dataset.alsoField) || {}).value || '').trim() ? 1 : 0);
+      var bad = n < +g.dataset.minChecked;
+      g.classList.toggle('fe-group-err', bad);
+      var e = g.nextElementSibling;
+      if (!e || !e.classList.contains('fe-err')) { e = document.createElement('div'); e.className = 'fe-err'; g.parentNode.insertBefore(e, g.nextSibling); }
+      e.textContent = bad ? (g.dataset.req || 'Please choose at least one option.') : ''; e.style.marginTop = '10px';
+      e.classList.toggle('show', bad);
+      if (bad) ok = false;
+    });
+    return ok;
+  };
+  D.validate = function(form){
+    var first = null, ok = true;
+    form.querySelectorAll('input, select, textarea').forEach(function(el){ if (!D.check(el)) { ok = false; first = first || el; } });
+    if (!D.checkGroups(form)) { ok = false; first = first || form.querySelector('.fe-group-err'); }
+    form.querySelectorAll('input[type=checkbox][required]').forEach(function(cb){ if (!cb.checked) { ok = false; var e = errEl(cb.closest('label') || cb); e.textContent = cb.dataset.req || 'Please tick this box to continue.'; e.classList.add('show'); first = first || cb; } });
+    if (first) { (first.closest('.tg') ? first.closest('.tg').querySelector('input') : first).focus({preventScroll: true}); first.scrollIntoView({behavior: 'smooth', block: 'center'}); }
+    return ok;
+  };
+  D.banner = function(form, msg){
+    var b = form.querySelector('.fe-banner');
+    if (!b) { b = document.createElement('div'); b.className = 'fe-banner'; form.insertBefore(b, form.firstChild); }
+    b.textContent = msg || ''; b.classList.toggle('show', !!msg);
+    if (msg) b.scrollIntoView({behavior: 'smooth', block: 'center'});
+  };
+  function fmtPhone(v){
+    var d = v.replace(/\D/g, ''); if (d.length === 11 && d[0] === '1') d = d.slice(1); d = d.slice(0, 10);
+    if (d.length < 4) return d; if (d.length < 7) return '(' + d.slice(0,3) + ') ' + d.slice(3);
+    return '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6);
+  }
+  function initTags(inp){
+    if (inp.dataset.tagReady) return; inp.dataset.tagReady = 1;
+    var box = document.createElement('div'); box.className = 'tg';
+    var typer = document.createElement('input'); typer.type = 'text'; typer.placeholder = inp.placeholder || 'Type and press Enter';
+    inp.type = 'hidden'; inp.parentNode.insertBefore(box, inp); box.appendChild(typer); box.appendChild(inp);
+    var tags = inp.value.split(/[,\n]+/).map(function(s){ return s.trim(); }).filter(Boolean);
+    function sync(){ inp.value = tags.join(', '); box.querySelectorAll('span').forEach(function(s){ s.remove(); });
+      tags.forEach(function(t, i){ var s = document.createElement('span'); s.textContent = t; var b = document.createElement('button'); b.type = 'button'; b.textContent = '✕'; b.setAttribute('aria-label', 'Remove ' + t); b.onclick = function(){ tags.splice(i, 1); sync(); }; s.appendChild(b); box.insertBefore(s, typer); });
+      if (inp.required) typer.required = !tags.length; }
+    function add(){ typer.value.split(',').map(function(s){ return s.trim(); }).filter(Boolean).forEach(function(t){ if (tags.map(function(x){return x.toLowerCase();}).indexOf(t.toLowerCase()) < 0 && t.length <= 60 && tags.length < 40) tags.push(t); }); typer.value = ''; sync(); D.setErr(typer, ''); }
+    typer.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ',') { e.preventDefault(); add(); } else if (e.key === 'Backspace' && !typer.value && tags.length) { tags.pop(); sync(); } });
+    typer.addEventListener('blur', add);
+    box.addEventListener('click', function(e){ if (e.target === box) typer.focus(); });
+    typer.dataset.label = inp.dataset.label || 'at least one area';
+    sync();
+  }
+  function initUpload(w){
+    if (w.dataset.ready) return; w.dataset.ready = 1;
+    var input = w.querySelector('input[type=file]'), grid = w.querySelector('.iu-grid'), drop = w.querySelector('.iu-drop');
+    var max = +w.dataset.max || 1, multi = !!w.dataset.multiple, dt = new DataTransfer();
+    function count(){ return grid.querySelectorAll('.iu-item').length; }
+    function refresh(){ w.classList.toggle('full', count() >= max); }
+    function err(m){ var e = w.nextElementSibling; if (!e || !e.classList.contains('fe-err')) { e = document.createElement('div'); e.className = 'fe-err'; w.parentNode.insertBefore(e, w.nextSibling); } e.textContent = m || ''; e.style.marginTop = '0'; e.classList.toggle('show', !!m); }
+    grid.addEventListener('click', function(e){
+      var b = e.target.closest('.iu-rm'); if (!b) return;
+      var it = b.closest('.iu-item');
+      if (it.dataset.fileIdx !== undefined) { var nd = new DataTransfer(); Array.prototype.forEach.call(dt.files, function(f, i){ if (String(i) !== it.dataset.fileIdx) nd.items.add(f); }); dt = nd; input.files = dt.files; grid.querySelectorAll('.iu-item[data-file-idx]').forEach(function(x){ x.remove(); }); Array.prototype.forEach.call(dt.files, addPreview); }
+      else it.remove();
+      if (!multi && !count()) { var rm = document.createElement('input'); rm.type = 'hidden'; rm.name = w.dataset.name + '_remove'; rm.value = '1'; w.appendChild(rm); }
+      refresh();
+    });
+    function addPreview(f, i){
+      var it = document.createElement('div'); it.className = 'iu-item'; it.dataset.fileIdx = i;
+      var img = document.createElement('img'); img.src = URL.createObjectURL(f); img.alt = '';
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'iu-rm'; b.textContent = '✕'; b.setAttribute('aria-label', 'Remove image');
+      it.appendChild(img); it.appendChild(b); grid.insertBefore(it, drop);
+    }
+    function take(files){
+      err('');
+      Array.prototype.forEach.call(files, function(f){
+        if (!/^image\/(png|jpe?g|webp)$/.test(f.type)) return err('“' + f.name + '” isn’t a PNG, JPG or WEBP image.');
+        if (f.size > 5 * 1048576) return err('“' + f.name + '” is larger than 5 MB.');
+        if (!multi) { grid.querySelectorAll('.iu-item').forEach(function(x){ x.remove(); }); dt = new DataTransfer(); }
+        if (count() >= max) return err('You can add up to ' + max + ' photos.');
+        dt.items.add(f); addPreview(f, dt.files.length - 1);
+      });
+      input.files = dt.files; refresh();
+    }
+    input.addEventListener('change', function(){ var fs = Array.prototype.slice.call(input.files); input.value = ''; input.files = dt.files; take(fs); });
+    drop.addEventListener('dragover', function(e){ e.preventDefault(); drop.classList.add('drag'); });
+    drop.addEventListener('dragleave', function(){ drop.classList.remove('drag'); });
+    drop.addEventListener('drop', function(e){ e.preventDefault(); drop.classList.remove('drag'); take(e.dataTransfer.files); });
+    refresh();
+  }
+  D.init = function(root){
+    root = root || document;
+    root.querySelectorAll('input[data-phone]').forEach(function(el){ el.addEventListener('input', function(){ var p = el.selectionStart === el.value.length; el.value = fmtPhone(el.value); }); if (el.value) el.value = fmtPhone(el.value); });
+    root.querySelectorAll('[data-tags]').forEach(initTags);
+    root.querySelectorAll('.iu').forEach(initUpload);
+    root.querySelectorAll('form[data-validate]').forEach(function(f){
+      f.setAttribute('novalidate', '');
+      f.addEventListener('blur', function(e){ if (e.target.matches('input, select, textarea') && e.target.value) D.check(e.target); }, true);
+      f.addEventListener('input', function(e){ if (e.target.classList.contains('is-invalid') || (e.target.closest('.tg') || {}).classList && e.target.closest('.tg') && e.target.closest('.tg').classList.contains('is-invalid')) D.check(e.target); });
+      f.addEventListener('change', function(e){ if (e.target.type === 'checkbox') D.checkGroups(f); if (e.target.type === 'checkbox' && e.target.required && e.target.checked) { var er = (e.target.closest('label') || e.target).nextElementSibling; if (er && er.classList.contains('fe-err')) er.classList.remove('show'); } });
+      if (!f.dataset.jsSubmit) f.addEventListener('submit', function(e){ if (!D.validate(f)) e.preventDefault(); });
+    });
+  };
+  if (document.readyState !== 'loading') D.init(); else document.addEventListener('DOMContentLoaded', function(){ D.init(); });
+})();
+</script>
+HTML;
+}

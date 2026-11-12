@@ -128,15 +128,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'phone' => $t('phone', 50), 'email' => filter_var($t('email', 255), FILTER_VALIDATE_EMAIL) ?: '', 'website' => $url('website'),
                 'address' => $t('address', 255), 'service_areas' => $t('service_areas', 2000), 'languages' => $t('languages', 255),
                 'license_number' => $t('license_number', 100), 'years_in_business' => $t('years_in_business', 50),
-                'logo' => $url('logo'), 'cover_image' => $url('cover_image'),
-                'photos' => implode("\n", array_filter(array_map(fn($u) => filter_var(trim($u), FILTER_VALIDATE_URL) ?: '', array_slice(hc_dir_lines($t('photos', 5000)), 0, 12)))),
             ];
-            // Our own hosted images come back as absolute URLs; store them as site paths again.
-            foreach (['logo', 'cover_image'] as $ik) { if (str_starts_with((string)$new[$ik], 'https://homecarecreators.com/')) $new[$ik] = substr($new[$ik], strlen('https://homecarecreators.com')); }
+            // Images: uploaded files (validated) + previously approved/pending images the owner kept.
+            $pendRow = hc_one("SELECT data FROM hc_directory_edits WHERE listing_id=? AND status='pending' ORDER BY id DESC LIMIT 1", [$id]);
+            $base = array_merge($l, $pendRow ? (json_decode($pendRow['data'], true) ?: []) : []);
+            $imgErr = '';
+            foreach (['logo' => 'logo', 'cover_image' => 'cover'] as $col => $fld) {
+                $up = hc_dir_files($fld . '_file')[0] ?? null;
+                $saved = $up ? hc_dir_save_upload($up, $l['slug'], $fld) : '';
+                if ($saved && str_starts_with($saved, '/')) $new[$col] = $saved;
+                elseif ($saved) $imgErr = $saved;
+                elseif (!empty($_POST[$fld . '_remove'])) $new[$col] = '';
+                else $new[$col] = (string)($base[$col] ?? '');
+            }
+            $photos = hc_dir_keep_paths((array)($_POST['photos_keep'] ?? []), array_merge(hc_dir_lines($l['photos'] ?? ''), hc_dir_lines($base['photos'] ?? '')));
+            foreach (hc_dir_files('photos_file') as $up) {
+                if (count($photos) >= 12) break;
+                $saved = hc_dir_save_upload($up, $l['slug'], 'photo');
+                if ($saved && str_starts_with($saved, '/')) $photos[] = $saved; elseif ($saved) $imgErr = $saved;
+            }
+            $new['photos'] = implode("\n", $photos);
             // Keep only what actually changed.
             $changes = [];
             foreach ($new as $k => $v) { if ((string)($l[$k] ?? '') !== (string)$v) $changes[$k] = $v === '' ? null : $v; }
-            if (mb_strlen((string)$new['description']) < 40) $err = 'Please keep the description at least 40 characters.';
+            $digits = preg_replace('/\D/', '', (string)$new['phone']);
+            if ($imgErr) $err = $imgErr;
+            elseif (mb_strlen((string)$new['description']) < 40) $err = 'Please keep the description at least 40 characters.';
+            elseif ($new['phone'] && strlen(ltrim($digits, '1')) !== 10 && strlen($digits) !== 10) $err = 'Please enter a 10-digit phone number.';
+            elseif (!empty($_POST['email']) && !$new['email']) $err = 'Please enter a valid email address.';
+            elseif (!empty($_POST['website']) && !$new['website']) $err = 'Please enter a valid website address.';
+            elseif ($new['years_in_business'] !== '' && !preg_match('/^\d{1,3}$/', (string)$new['years_in_business'])) $err = 'Years in business should be a number.';
             elseif (!$changes) { own_flash('Nothing changed, so there was nothing to send for review.'); own_go('p=home'); }
             else {
                 hc_q("UPDATE hc_directory_edits SET status='replaced', reviewed_at=NOW() WHERE listing_id=? AND status='pending'", [$id]);
@@ -241,7 +262,7 @@ $E = fn() => $err ? '<div class="msg err">' . htmlspecialchars($err) . '</div>' 
     <h1>Log in to <em>your listing.</em></h1>
     <p class="sub">Update your details, see inquiries and manage your plan.</p>
     <?= $F() ?><?= $E() ?>
-    <form class="fm" method="POST" action="?p=login">
+    <form class="fm" method="POST" action="?p=login" data-validate>
       <input type="hidden" name="csrf" value="<?= $csrf ?>">
       <label for="e">Email</label><input id="e" name="email" type="email" required autocomplete="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
       <label for="pw">Password</label><input id="pw" name="password" type="password" required autocomplete="current-password">
@@ -256,9 +277,9 @@ $E = fn() => $err ? '<div class="msg err">' . htmlspecialchars($err) . '</div>' 
     <h1>Create your <em>account.</em></h1>
     <p class="sub">Manage your listing, see inquiries and upgrade your plan. We'll email you a link to verify your address and set your password.</p>
     <?= $E() ?>
-    <form class="fm" method="POST" action="?p=register">
+    <form class="fm" method="POST" action="?p=register" data-validate>
       <input type="hidden" name="csrf" value="<?= $csrf ?>">
-      <label for="n">Your name</label><input id="n" name="name" required autocomplete="name">
+      <label for="n">Your name</label><input id="n" name="name" required minlength="2" maxlength="150" autocomplete="name">
       <label for="e">Email <em>(use the owner email from your listing)</em></label><input id="e" name="email" type="email" required autocomplete="email">
       <button class="dx-btn is-dark" type="submit">Send verification link</button>
     </form>
@@ -272,10 +293,10 @@ $E = fn() => $err ? '<div class="msg err">' . htmlspecialchars($err) . '</div>' 
     <h1>Set your <em>password.</em></h1>
     <p class="sub">For <?= htmlspecialchars($st['email']) ?>. You'll use this to manage your listing.</p>
     <?= $E() ?>
-    <form class="fm" method="POST" action="?p=setup">
+    <form class="fm" method="POST" action="?p=setup" data-validate>
       <input type="hidden" name="csrf" value="<?= $csrf ?>">
       <label for="pw">Password <em>(8+ characters)</em></label><input id="pw" name="password" type="password" minlength="8" required autocomplete="new-password">
-      <label for="pw2">Confirm password</label><input id="pw2" name="password2" type="password" minlength="8" required autocomplete="new-password">
+      <label for="pw2">Confirm password</label><input id="pw2" name="password2" type="password" minlength="8" required autocomplete="new-password" data-match="#pw" data-label="your password again">
       <button class="dx-btn is-dark" type="submit">Create my account</button>
     </form>
     <?php else: ?>
@@ -290,7 +311,7 @@ $E = fn() => $err ? '<div class="msg err">' . htmlspecialchars($err) . '</div>' 
     <h1>Reset your <em>password.</em></h1>
     <p class="sub">Enter your account email and we'll send you a link to choose a new password.</p>
     <?= $E() ?>
-    <form class="fm" method="POST" action="?p=forgot">
+    <form class="fm" method="POST" action="?p=forgot" data-validate>
       <input type="hidden" name="csrf" value="<?= $csrf ?>">
       <label for="e">Owner email</label><input id="e" name="email" type="email" required autocomplete="email">
       <button class="dx-btn is-dark" type="submit">Email me a link</button>
@@ -306,11 +327,11 @@ $E = fn() => $err ? '<div class="msg err">' . htmlspecialchars($err) . '</div>' 
     <h1>Choose a <em>password.</em></h1>
     <p class="sub">For <?= htmlspecialchars($ro['email']) ?></p>
     <?= $E() ?>
-    <form class="fm" method="POST" action="?p=reset&token=<?= $tok ?>">
+    <form class="fm" method="POST" action="?p=reset&token=<?= $tok ?>" data-validate>
       <input type="hidden" name="csrf" value="<?= $csrf ?>">
       <?php if (!$ro['name']): ?><label for="n">Your name</label><input id="n" name="name" autocomplete="name"><?php endif ?>
       <label for="pw">New password <em>(8+ characters)</em></label><input id="pw" name="password" type="password" minlength="8" required autocomplete="new-password">
-      <label for="pw2">Confirm password</label><input id="pw2" name="password2" type="password" minlength="8" required autocomplete="new-password">
+      <label for="pw2">Confirm password</label><input id="pw2" name="password2" type="password" minlength="8" required autocomplete="new-password" data-match="#pw" data-label="your password again">
       <button class="dx-btn is-dark" type="submit">Save password &amp; continue</button>
     </form>
     <?php else: ?>
@@ -404,24 +425,24 @@ $E = fn() => $err ? '<div class="msg err">' . htmlspecialchars($err) . '</div>' 
   </div>
   <?= $E() ?>
   <?php if ($pend): ?><div class="msg ok">You have changes waiting for approval (sent <?= date('M j', strtotime($pend['created_at'])) ?>). The form shows them; saving again replaces that request.</div><?php endif ?>
-  <form class="fm ed" method="POST" action="?p=edit&id=<?= $id ?>">
+  <form class="fm ed" method="POST" action="?p=edit&id=<?= $id ?>" enctype="multipart/form-data" data-validate>
     <input type="hidden" name="csrf" value="<?= $csrf ?>">
     <div>
       <div class="ed-s">
         <h2>About</h2>
         <label>Tagline <em><?= $paid ? '' : '(shows on Premium & Featured)' ?></em></label><input name="tagline" maxlength="160" value="<?= $val('tagline') ?>">
-        <label>Description</label><textarea name="description" rows="7" required minlength="40"><?= $val('description') ?></textarea>
+        <label for="o_desc">Description</label><textarea id="o_desc" name="description" rows="7" required minlength="40" maxlength="5000" data-label="a description of your agency"><?= $val('description') ?></textarea>
         <div class="row2">
           <div><label>License number</label><input name="license_number" value="<?= $val('license_number') ?>"></div>
-          <div><label>Years in business</label><input name="years_in_business" value="<?= $val('years_in_business') ?>"></div>
+          <div><label for="o_years">Years in business</label><input id="o_years" name="years_in_business" type="number" min="0" max="150" inputmode="numeric" value="<?= $val('years_in_business') ?>"></div>
         </div>
-        <label>Languages spoken</label><input name="languages" value="<?= $val('languages') ?>" placeholder="English, Spanish">
+        <label>Languages spoken</label><input name="languages" data-tags value="<?= $val('languages') ?>" placeholder="Type a language and press Enter">
       </div>
       <div class="ed-s">
         <h2>Services &amp; highlights</h2>
         <label>Services</label>
-        <div class="chks"><?php foreach (HC_DIR_SERVICES as $x): ?><label class="chk"><input type="checkbox" name="services[]" value="<?= htmlspecialchars($x) ?>" <?= in_array($x, $svc, true) ? 'checked' : '' ?>><?= htmlspecialchars($x) ?></label><?php endforeach ?></div>
-        <input name="services_other" value="<?= htmlspecialchars(implode(', ', array_diff($svc, HC_DIR_SERVICES))) ?>" placeholder="Other services, comma separated">
+        <div class="chks" data-min-checked="1" data-also-field="#o_svc_other" data-req="Please choose at least one service."><?php foreach (HC_DIR_SERVICES as $x): ?><label class="chk"><input type="checkbox" name="services[]" value="<?= htmlspecialchars($x) ?>" <?= in_array($x, $svc, true) ? 'checked' : '' ?>><?= htmlspecialchars($x) ?></label><?php endforeach ?></div>
+        <input id="o_svc_other" name="services_other" value="<?= htmlspecialchars(implode(', ', array_diff($svc, HC_DIR_SERVICES))) ?>" placeholder="Other services, comma separated">
         <label>Highlights</label>
         <div class="chks"><?php foreach (HC_DIR_FEATURES as $x => $ic): ?><label class="chk"><input type="checkbox" name="features[]" value="<?= htmlspecialchars($x) ?>" <?= in_array($x, $fea, true) ? 'checked' : '' ?>><?= htmlspecialchars($x) ?></label><?php endforeach ?></div>
         <label>Payment accepted</label>
@@ -430,12 +451,12 @@ $E = fn() => $err ? '<div class="msg err">' . htmlspecialchars($err) . '</div>' 
       <div class="ed-s">
         <h2>Contact &amp; location</h2>
         <div class="row2">
-          <div><label>Phone</label><input name="phone" value="<?= $val('phone') ?>"></div>
-          <div><label>Email <em><?= $paid ? '' : '(shows on Premium & Featured)' ?></em></label><input name="email" type="email" value="<?= $val('email') ?>"></div>
+          <div><label for="o_phone">Phone</label><input id="o_phone" name="phone" type="tel" data-phone required autocomplete="tel" value="<?= $val('phone') ?>" placeholder="(555) 123-4567"></div>
+          <div><label for="o_email">Email <em><?= $paid ? '' : '(shows on Premium & Featured)' ?></em></label><input id="o_email" name="email" type="email" value="<?= $val('email') ?>" placeholder="office@youragency.com"></div>
         </div>
-        <label>Website <em><?= $paid ? '' : '(linked on Premium & Featured)' ?></em></label><input name="website" value="<?= $val('website') ?>" placeholder="https://">
+        <label for="o_web">Website <em><?= $paid ? '' : '(linked on Premium & Featured)' ?></em></label><input id="o_web" name="website" data-url value="<?= $val('website') ?>" placeholder="youragency.com">
         <label>Street address <em>(leave blank if you only serve clients at home)</em></label><input name="address" value="<?= $val('address') ?>">
-        <label>Service areas <em>(comma separated)</em></label><textarea name="service_areas" rows="2"><?= $val('service_areas') ?></textarea>
+        <label>Service areas <em>(cities or counties you serve)</em></label><input name="service_areas" data-tags value="<?= $val('service_areas') ?>" placeholder="Type a city and press Enter">
       </div>
       <div class="ed-s">
         <h2>Office hours</h2>
@@ -451,10 +472,12 @@ $E = fn() => $err ? '<div class="msg err">' . htmlspecialchars($err) . '</div>' 
         <label>Hours note <em>(optional)</em></label><input name="hours" value="<?= $val('hours') ?>" placeholder="e.g. Care available 24/7, office Mon–Fri">
       </div>
       <div class="ed-s">
-        <h2>Images</h2>
-        <label>Logo image URL</label><input name="logo" value="<?= htmlspecialchars(preg_match('#^https?://#', (string)$V['logo']) ? $V['logo'] : (($V['logo'] ?? '') ? 'https://homecarecreators.com' . $V['logo'] : '')) ?>" placeholder="https://yourwebsite.com/logo.png">
-        <label>Cover photo URL <em><?= $paid ? '' : '(Premium & Featured)' ?></em></label><input name="cover_image" value="<?= $val('cover_image') ?>">
-        <label>Gallery photo URLs <em>(one per line<?= $paid ? '' : ', Premium & Featured' ?>)</em></label><textarea name="photos" rows="3"><?= $val('photos') ?></textarea>
+        <h2>Photos</h2>
+        <div class="row2">
+          <div><?= hc_dir_image_field('logo', 'Logo', false, array_filter([$V['logo'] ?? '']), 'Square or wide logo · PNG, JPG or WEBP · up to 5 MB') ?></div>
+          <div><?= hc_dir_image_field('cover', 'Cover photo' . ($paid ? '' : ' (Premium & Featured)'), false, array_filter([$V['cover_image'] ?? '']), 'Wide photo, 1600×600 or larger') ?></div>
+        </div>
+        <?= hc_dir_image_field('photos', 'Gallery' . ($paid ? '' : ' (Premium & Featured)'), true, hc_dir_lines($V['photos'] ?? ''), 'PNG, JPG or WEBP · up to 5 MB each', 12) ?>
       </div>
     </div>
     <div class="ed-side">
@@ -489,4 +512,5 @@ $E = fn() => $err ? '<div class="msg err">' . htmlspecialchars($err) . '</div>' 
 
 </div></section></div></div>
 <?php if ($owner && $p === 'home'): echo hc_dir_popup_html(); endif; ?>
+<?= hc_dir_form_kit() ?>
 <?php include '../../includes/footer.php'; ?>

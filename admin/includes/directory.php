@@ -36,6 +36,8 @@ const HC_DIR_FEATURES = [
     'Veteran-owned'                   => 'fa-flag-usa',
 ];
 
+const HC_DIR_STATES = ['AL'=>'Alabama','AK'=>'Alaska','AZ'=>'Arizona','AR'=>'Arkansas','CA'=>'California','CO'=>'Colorado','CT'=>'Connecticut','DE'=>'Delaware','DC'=>'District of Columbia','FL'=>'Florida','GA'=>'Georgia','HI'=>'Hawaii','ID'=>'Idaho','IL'=>'Illinois','IN'=>'Indiana','IA'=>'Iowa','KS'=>'Kansas','KY'=>'Kentucky','LA'=>'Louisiana','ME'=>'Maine','MD'=>'Maryland','MA'=>'Massachusetts','MI'=>'Michigan','MN'=>'Minnesota','MS'=>'Mississippi','MO'=>'Missouri','MT'=>'Montana','NE'=>'Nebraska','NV'=>'Nevada','NH'=>'New Hampshire','NJ'=>'New Jersey','NM'=>'New Mexico','NY'=>'New York','NC'=>'North Carolina','ND'=>'North Dakota','OH'=>'Ohio','OK'=>'Oklahoma','OR'=>'Oregon','PA'=>'Pennsylvania','RI'=>'Rhode Island','SC'=>'South Carolina','SD'=>'South Dakota','TN'=>'Tennessee','TX'=>'Texas','UT'=>'Utah','VT'=>'Vermont','VA'=>'Virginia','WA'=>'Washington','WV'=>'West Virginia','WI'=>'Wisconsin','WY'=>'Wyoming'];
+
 const HC_DIR_DAYS = ['mon' => 'Mon', 'tue' => 'Tue', 'wed' => 'Wed', 'thu' => 'Thu', 'fri' => 'Fri', 'sat' => 'Sat', 'sun' => 'Sun'];
 
 const HC_DIR_PAYMENT_STATUSES = [
@@ -748,5 +750,41 @@ function hc_dir_store_verification(array $file) {
     $name = bin2hex(random_bytes(24)) . '.' . HC_DIR_VERIFY_TYPES[$mime];
     if (!move_uploaded_file($file['tmp_name'], $dir . '/' . $name)) return 'The upload failed. Please try again.';
     return [$dir . '/' . $name, $mime, mb_substr(basename((string)$file['name']), 0, 200)];
+}
+
+
+/* ── Public image uploads (owner portal + submit form) ─────── */
+
+/** Validate and store an uploaded image publicly. Returns the public path, or an error string. */
+function hc_dir_save_upload(array $file, string $slug, string $kind) {
+    if (($file['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_NO_FILE) return '';
+    if ($file['error'] !== UPLOAD_ERR_OK) return in_array($file['error'], [UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE], true) ? 'An image is larger than the server allows (' . ini_get('upload_max_filesize') . ').' : 'An image failed to upload. Please try again.';
+    if ($file['size'] > 5 * 1048576) return 'Images must be 5 MB or smaller.';
+    $info = @getimagesize($file['tmp_name']);
+    $ext = $info ? ([IMAGETYPE_PNG => 'png', IMAGETYPE_JPEG => 'jpg', IMAGETYPE_WEBP => 'webp'][$info[2]] ?? null) : null;
+    if (!$ext) return 'Please upload PNG, JPG or WEBP images only.';
+    if ($info[0] < 80 || $info[1] < 80) return 'Images must be at least 80×80 pixels.';
+    $root = defined('SITE_ROOT') ? SITE_ROOT : dirname(__DIR__, 2);
+    $dir = $root . '/images/blog/directory-uploads';
+    if (!is_dir($dir) && !@mkdir($dir, 0755, true) && !is_dir($dir)) return 'Image storage is not available. Please try again later.';
+    $name = preg_replace('/[^a-z0-9-]/', '', $slug) . '-' . $kind . '-' . bin2hex(random_bytes(6)) . '.' . $ext;
+    if (!move_uploaded_file($file['tmp_name'], $dir . '/' . $name)) return 'Could not save the image. Please try again.';
+    return '/images/blog/directory-uploads/' . $name;
+}
+
+/** Normalise PHP's multi-file array into a list of single-file arrays. */
+function hc_dir_files(string $field): array {
+    $f = $_FILES[$field] ?? null;
+    if (!$f) return [];
+    if (!is_array($f['name'])) return [$f];
+    $out = [];
+    foreach ($f['name'] as $i => $n) $out[] = ['name' => $n, 'type' => $f['type'][$i], 'tmp_name' => $f['tmp_name'][$i], 'error' => $f['error'][$i], 'size' => $f['size'][$i]];
+    return $out;
+}
+
+/** Only allow "keep" paths that belong to this listing already (no arbitrary URLs). */
+function hc_dir_keep_paths(array $posted, array $allowed): array {
+    $allowed = array_filter(array_map('strval', $allowed));
+    return array_values(array_filter(array_map('strval', $posted), fn($p) => in_array($p, $allowed, true)));
 }
 
