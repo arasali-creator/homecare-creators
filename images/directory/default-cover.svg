@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 460" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef4ef"/>
+      <stop offset=".55" stop-color="#f5f2ec"/>
+      <stop offset="1" stop-color="#f8efdc"/>
+    </linearGradient>
+    <linearGradient id="hillA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cfe6d9"/>
+      <stop offset="1" stop-color="#b9dcc8"/>
+    </linearGradient>
+    <linearGradient id="hillB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fd2b9"/>
+      <stop offset="1" stop-color="#7cc3a2"/>
+    </linearGradient>
+    <linearGradient id="hillC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f8f6c"/>
+      <stop offset="1" stop-color="#1d7a5a"/>
+    </linearGradient>
+    <radialGradient id="sun" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#f3d98c"/>
+      <stop offset=".7" stop-color="#ecc865"/>
+      <stop offset="1" stop-color="#e8c25a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#0a2e1e" opacity=".07"/>
+    </pattern>
+  </defs>
+
+  <!-- sky -->
+  <rect width="1600" height="460" fill="url(#sky)"/>
+  <rect width="1600" height="460" fill="url(#dots)"/>
+
+  <!-- sun + soft rings -->
+  <circle cx="1270" cy="236" r="150" fill="#f6e3a8" opacity=".25"/>
+  <circle cx="1270" cy="236" r="100" fill="#f6e3a8" opacity=".35"/>
+  <circle cx="1270" cy="236" r="62" fill="url(#sun)"/>
+
+  <!-- soft clouds -->
+  <g fill="#ffffff" opacity=".85">
+    <rect x="980" y="216" width="150" height="30" rx="15"/>
+    <rect x="1010" y="198" width="80" height="30" rx="15"/>
+    <rect x="1420" y="330" width="130" height="26" rx="13"/>
+    <rect x="1446" y="314" width="64" height="26" rx="13"/>
+    <rect x="640" y="240" width="120" height="24" rx="12" opacity=".7"/>
+  </g>
+
+  <!-- floating hearts -->
+  <g fill="none" stroke="#1d9e75" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".55">
+    <path d="M905 250c-7-9-22-6-22 6 0 9 22 22 22 22s22-13 22-22c0-12-15-15-22-6z"/>
+    <path d="M1470 220c-5-6-15-4-15 4 0 6 15 15 15 15s15-9 15-15c0-8-10-10-15-4z"/>
+  </g>
+  <path d="M1110 236c-6-8-19-5-19 5 0 8 19 19 19 19s19-11 19-19c0-10-13-13-19-5z" fill="#e0a020" opacity=".55"/>
+
+  <!-- back hills -->
+  <path d="M0 330 C 220 280, 420 300, 640 318 S 1060 250, 1300 272 S 1520 300, 1600 290 L1600 460 L0 460Z" fill="url(#hillA)"/>
+  <!-- mid hills -->
+  <path d="M0 380 C 260 340, 520 360, 760 352 S 1180 300, 1420 318 S 1560 330, 1600 326 L1600 460 L0 460Z" fill="url(#hillB)"/>
+
+  <!-- homes (line art) on mid hill -->
+  <g fill="#fffdf8" stroke="#0a2e1e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <!-- home 1 -->
+    <path d="M1010 334 v-46 l40 -32 l40 32 v46 z"/>
+    <path d="M1000 296 l50 -40 l50 40" fill="none"/>
+    <rect x="1038" y="304" width="24" height="30" rx="3"/>
+    <path d="M1050 286 c-3-4-10-3-10 3 0 4 10 10 10 10s10-6 10-10c0-6-7-7-10-3z" fill="#e05a6a" stroke="none"/>
+    <!-- home 2 (larger) -->
+    <path d="M1150 326 v-62 l56 -44 l56 44 v62 z"/>
+    <path d="M1136 274 l70 -56 l70 56" fill="none"/>
+    <rect x="1168" y="270" width="26" height="22" rx="3"/>
+    <rect x="1218" y="270" width="26" height="22" rx="3"/>
+    <rect x="1193" y="294" width="26" height="32" rx="3"/>
+    <path d="M1238 240 v-22 h14 v33" fill="#fffdf8"/>
+    <!-- home 3 -->
+    <path d="M1330 332 v-40 l34 -27 l34 27 v40 z"/>
+    <path d="M1322 298 l42 -34 l42 34" fill="none"/>
+    <rect x="1353" y="306" width="22" height="26" rx="3"/>
+  </g>
+
+  <!-- trees -->
+  <g>
+    <circle cx="1112" cy="300" r="20" fill="#1d7a5a"/><rect x="1109" y="312" width="6" height="22" fill="#0a2e1e"/>
+    <circle cx="1298" cy="296" r="24" fill="#2f8f6c"/><rect x="1295" y="312" width="6" height="22" fill="#0a2e1e"/>
+    <circle cx="1440" cy="306" r="17" fill="#1d7a5a"/><rect x="1437" y="316" width="6" height="18" fill="#0a2e1e"/>
+    <circle cx="960" cy="318" r="14" fill="#2f8f6c"/><rect x="957" y="326" width="6" height="14" fill="#0a2e1e"/>
+  </g>
+
+  <!-- front hill -->
+  <path d="M0 420 C 300 390, 600 410, 900 398 S 1350 370, 1600 384 L1600 460 L0 460Z" fill="url(#hillC)"/>
+
+  <!-- winding path -->
+  <path d="M1206 330 C 1190 360, 1120 372, 1060 392 S 960 430, 940 460" fill="none" stroke="#fffdf8" stroke-width="10" stroke-linecap="round" opacity=".7"/>
+
+  <!-- fence on front hill -->
+  <g stroke="#fffdf8" stroke-width="3" stroke-linecap="round" opacity=".55">
+    <path d="M1280 396 h220"/>
+    <path d="M1290 386 v22 M1320 384 v22 M1350 383 v22 M1380 382 v22 M1410 382 v22 M1440 383 v22 M1470 384 v22 M1495 385 v22"/>
+  </g>
+
+  <!-- left side kept calm: faint large circle accents -->
+  <circle cx="120" cy="80" r="170" fill="#1d9e75" opacity=".05"/>
+  <circle cx="420" cy="-40" r="140" fill="#c9a84c" opacity=".06"/>
+</svg>

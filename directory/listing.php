@@ -105,7 +105,8 @@ $page_css = hc_dir_base_css() . hc_dir_extra_css() . <<<CSS
 /* ── HERO (profile header) ─────────────── */
 .hz{background:#fff;border-bottom:1px solid var(--hair)}
 .hz-banner{position:relative;height:230px;background-color:color-mix(in srgb,var(--brand) 14%,#fff);background-image:radial-gradient(color-mix(in srgb,var(--brand) 22%,transparent) 1.2px,transparent 1.4px),linear-gradient(120deg,color-mix(in srgb,var(--brand) 26%,#fff) 0%,color-mix(in srgb,var(--brand) 8%,#fff) 60%,#f5f2ec 100%);background-size:18px 18px,cover;background-position:center}
-.hz-banner[style]{background-size:cover}
+.hz-banner.has-cover{background-size:cover;background-position:center}
+.hz-banner.is-default{background:#f5f2ec url('/images/directory/default-cover.svg') center bottom/cover no-repeat}
 .hz-banner.has-gl{height:auto;background:#fff;padding:20px 32px 0}
 .hz-banner .gl{max-width:1200px;margin:0 auto;margin-bottom:0}
 .hz-crumbs{position:absolute;left:0;right:0;top:20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;padding:0 32px}
@@ -303,7 +304,8 @@ a.cr:hover b{color:var(--teal)}
   .hz-in{padding:0 16px 28px}
   .hz-top{margin-top:-46px}
   .hz-logo .dx-logo{width:92px!important;height:92px!important;font-size:30px!important}
-  .hz-tools .dx-btn span,.hz-tools .dx-btn{font-size:0;gap:0;padding:12px 14px}
+  .hz-tools .dx-btn{font-size:0;gap:0;padding:12px 14px}
+  .hz-tools .dx-btn span{display:none}
   .hz-tools .dx-btn i{font-size:14px}
   .hz-acts .dx-btn{flex:1 1 auto}
   .hz-phone{font-size:24px}
@@ -362,7 +364,7 @@ $cityLink = '/directory/?loc=' . urlencode($l['city'] . ', ' . $l['state']) . '#
   <!-- HERO -->
   <header class="hz" style="--brand:<?= hc_dir_mono_color($l['company_name']) ?>">
     <?php $coverImg = $paid ? ($l['cover_image'] ?: '') : ''; ?>
-    <div class="hz-banner<?= count($gallery) >= 3 ? ' has-gl' : '' ?>"<?= (count($gallery) < 3 && $coverImg) ? ' style="background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.25)),url(\'' . htmlspecialchars($coverImg) . '\')"' : '' ?>>
+    <div class="hz-banner<?= count($gallery) >= 3 ? ' has-gl' : ($coverImg ? ' has-cover' : ' is-default') ?>"<?= (count($gallery) < 3 && $coverImg) ? ' style="background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.25)),url(\'' . htmlspecialchars($coverImg) . '\')"' : '' ?>>
       <?php if (count($gallery) >= 3): ?>
       <div class="gl">
         <?php foreach (array_slice($gallery, 0, 5) as $g): ?><a href="<?= htmlspecialchars($g) ?>" target="_blank" rel="noopener" style="background-image:url('<?= htmlspecialchars($g) ?>')" aria-label="Photo"></a><?php endforeach ?>

@@ -577,7 +577,7 @@ $faqs = [
       <div class="fe-grid">
         <?php foreach ($spotlight as $l): $mc = hc_dir_mono_color($l['company_name']); ?>
         <a class="fe" href="/directory/<?= urlencode($l['slug']) ?>">
-          <div class="fe-cover" style="<?= $l['cover_image'] ? "background-image:url('" . htmlspecialchars($l['cover_image']) . "')" : "background:linear-gradient(135deg,{$mc},#0a2e1e)" ?>">
+          <div class="fe-cover" style="<?= $l['cover_image'] ? "background-image:url('" . htmlspecialchars($l['cover_image']) . "')" : "background:#f5f2ec url('/images/directory/default-cover.svg') center bottom/cover no-repeat" ?>">
             <span class="dx-badge is-featured"><i class="fa-solid fa-star"></i>Featured</span>
             <?= hc_dir_logo($l, 60) ?>
           </div>
