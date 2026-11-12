@@ -55,6 +55,7 @@ try {
 ?>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php if (!empty($page_noindex)): ?><meta name="robots" content="noindex,nofollow"><?php endif; ?>
 <title><?= htmlspecialchars($page_title ?? 'Homecare Creators — Market It. Manage It. Grow It.') ?></title>
 <meta name="description" content="<?= htmlspecialchars($page_desc ?? 'Homecare Creators is a marketing agency built exclusively for home care agencies nationwide. Website design, local SEO, and AI search optimization.') ?>">
 <?php if (!empty($page_canonical)): ?><link rel="canonical" href="<?= htmlspecialchars($page_canonical) ?>">
