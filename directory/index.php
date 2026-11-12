@@ -82,439 +82,445 @@ function dx_url(array $over = []): string {
 }
 
 
+$stackAgencies = hc_all("SELECT company_name, logo FROM hc_directory_listings WHERE status='approved' ORDER BY RAND() LIMIT 4");
+$activeCount = count($svcSel) + count($paySel) + ($verified ? 1 : 0) + ($loc !== '' ? 1 : 0);
+
 $page_css = hc_dir_base_css() . <<<CSS
-body{background:var(--bg,#f4f5f1)}
-.dx{background:var(--bg)}
+/* ── HERO PANEL ─────────────────────────── */
+.hx{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+.hx .dx-label{margin-bottom:28px}
+.hx .dx-h1{margin-bottom:24px}
+.hx .dx-lead{max-width:520px;margin-bottom:36px}
+.sb{display:flex;align-items:center;background:#fff;border:1px solid var(--hair);border-radius:100px;padding:7px 7px 7px 8px;max-width:640px;box-shadow:0 20px 50px rgba(10,46,30,.08)}
+.sb label{flex:1;display:flex;align-items:center;gap:12px;padding:0 18px;min-width:0}
+.sb label+label{border-left:1px solid var(--hair)}
+.sb label i{color:var(--mut);font-size:14px}
+.sb input{flex:1;min-width:0;border:0;outline:0;background:none;font:inherit;font-size:15.5px;color:var(--ink);padding:14px 0}
+.sb input::placeholder{color:#8a968e}
+.sb button{width:54px;height:54px;border-radius:50%;border:0;background:var(--ink);color:#fff;font-size:16px;cursor:pointer;flex-shrink:0;transition:background .2s}
+.sb button:hover{background:var(--teal)}
+.hx-pop{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:20px;font-size:13.5px;color:var(--mut)}
+.hx-pop a{border:1px solid var(--hair);border-radius:100px;padding:7px 14px;color:var(--ink);font-size:13px;font-weight:500;transition:background .15s,border-color .15s}
+.hx-pop a:hover{background:#fff;border-color:var(--ink)}
 
-/* ── HERO ───────────────────────────────── */
-.dh{background:var(--forest);position:relative;overflow:hidden;padding:120px 0 120px}
-.dh::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 85% 10%,rgba(46,198,143,.16),transparent 60%),radial-gradient(700px 400px at 0% 100%,rgba(201,168,76,.10),transparent 60%)}
-.dh-grid{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
-.dh .dx-crumbs{margin-bottom:22px}
-.dh h1{color:#fff;font-size:clamp(34px,4.4vw,56px);font-weight:800;line-height:1.04;letter-spacing:-.035em;margin-bottom:18px}
-.dh h1 span{color:var(--teal-lt)}
-.dh-sub{color:rgba(255,255,255,.7);font-size:18px;line-height:1.6;max-width:560px;margin-bottom:30px}
-.dh-search{background:#fff;border-radius:18px;padding:8px;display:grid;grid-template-columns:1.2fr 1fr auto;box-shadow:0 30px 70px rgba(0,0,0,.35);max-width:720px}
-.dh-field{display:flex;flex-direction:column;justify-content:center;padding:10px 18px;min-width:0}
-.dh-field+.dh-field{border-left:1px solid var(--line)}
-.dh-field small{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:2px}
-.dh-field input{border:0;outline:0;font:inherit;font-size:16px;color:var(--ink);padding:4px 0;background:transparent;min-width:0}
-.dh-search button{border:0;background:var(--teal);color:#fff;border-radius:12px;padding:0 28px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:background .15s}
-.dh-search button:hover{background:#178a64}
-.dh-pop{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px;font-size:13.5px;color:rgba(255,255,255,.55)}
-.dh-pop a{color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.18);padding:6px 12px;border-radius:100px;font-size:13px;transition:.15s}
-.dh-pop a:hover{background:rgba(255,255,255,.1);color:#fff}
-.dh-art{position:relative;justify-self:end;width:100%;max-width:420px}
-.dh-photo{border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 80px rgba(0,0,0,.4)}
-.dh-photo img{width:100%;height:100%;object-fit:cover;object-position:62% center;display:block}
-.dh-float{position:absolute;background:#fff;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.25);padding:14px 16px;display:flex;align-items:center;gap:12px}
-.dh-float b{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:var(--ink);display:block;line-height:1}
-.dh-float span{font-size:12.5px;color:var(--ink-3)}
-.dh-float .ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px}
-.dh-float.f1{left:-48px;bottom:56px}
-.dh-float.f1 .ic{background:#e3f4ec;color:var(--teal)}
-.dh-float.f2{right:-24px;top:40px}
-.dh-float.f2 .ic{background:var(--gold-bg);color:var(--gold-ink)}
+.hx-art{position:relative}
+.hx-photo{border-radius:32px;overflow:hidden;aspect-ratio:4/4.6}
+.hx-photo img{width:100%;height:100%;object-fit:cover;object-position:60% center;display:block;filter:saturate(.9)}
+.hx-sticker{position:absolute;left:-36px;bottom:36px;background:#fff;border-radius:24px;padding:18px 20px;box-shadow:0 24px 60px rgba(10,46,30,.16);display:flex;align-items:center;gap:14px;max-width:290px}
+.hx-stack{display:flex}
+.hx-stack .dx-logo{border:3px solid #fff!important;margin-left:-12px}
+.hx-stack .dx-logo:first-child{margin-left:0}
+.hx-sticker b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;color:var(--ink);line-height:1.25}
+.hx-sticker span{font-size:12.5px;color:var(--mut)}
+.hx-tag{position:absolute;top:28px;right:-18px;background:var(--ink);color:#fff;border-radius:100px;padding:11px 18px 11px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;display:flex;align-items:center;gap:9px;box-shadow:0 16px 40px rgba(10,46,30,.25)}
+.hx-tag i{color:var(--teal-lt)}
 
-/* ── STATE TILES (overlap hero) ─────────── */
-.ds{margin-top:-64px;position:relative;z-index:2}
-.ds-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.ds-tile{background:#fff;border-radius:18px;padding:22px 22px 20px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.ds-tile:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(16,26,21,.1)}
-.ds-tile .code{position:absolute;right:-6px;bottom:-22px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:96px;letter-spacing:-.06em;color:#f0f2ed;line-height:1}
-.ds-tile small{position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
-.ds-tile h3{position:relative;font-size:20px;font-weight:800;margin:6px 0 2px}
-.ds-tile p{position:relative;font-size:14px;color:var(--ink-3)}
+.hx-stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:72px;border-top:1px solid var(--hair)}
+.hx-stats div{padding:28px 0 0}
+.hx-stats div+div{padding-left:32px;border-left:1px solid var(--hair)}
+.hx-stats b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:44px;font-weight:800;color:var(--ink);letter-spacing:-.04em;line-height:1}
+.hx-stats span{display:block;font-size:14px;color:var(--mut);margin-top:8px}
 
-/* ── SECTION HEADINGS ───────────────────── */
-.dx-sec{padding:64px 0 0}
-.dx-sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px}
-.dx-sec-h h2{font-size:26px;font-weight:800}
-.dx-sec-h p{font-size:14.5px;color:var(--ink-3);margin-top:4px}
-.dx-kicker{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+/* ── BROWSE + FEATURED PANEL ────────────── */
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:36px}
+.sh p{max-width:420px;color:var(--mut);font-size:15.5px;line-height:1.6}
+.st-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.st{background:#fff;border-radius:28px;padding:26px 26px 24px;display:flex;flex-direction:column;justify-content:space-between;min-height:220px;transition:transform .25s}
+.st:hover{transform:translateY(-4px)}
+.st:hover .dx-arrow{background:var(--ink);color:#fff;border-color:var(--ink);transform:rotate(-45deg)}
+.st-top{display:flex;justify-content:space-between;align-items:flex-start}
+.st-code{font-family:'Plus Jakarta Sans',sans-serif;font-size:72px;font-weight:800;letter-spacing:-.06em;line-height:.9;color:var(--ink)}
+.st h3{font-size:18px;font-weight:700;margin-bottom:2px}
+.st p{font-size:14px;color:var(--mut)}
 
-/* ── FEATURED SPOTLIGHT ─────────────────── */
-.sp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.sp-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
-.sp-card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(16,26,21,.12)}
-.sp-cover{height:132px;background:#0f3d28 center/cover;position:relative}
-.sp-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.25))}
-.sp-cover .dx-badge{position:absolute;top:14px;left:14px;z-index:1}
-.sp-cover .dx-logo{position:absolute;left:20px;bottom:-30px;z-index:1;border:4px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,.15)}
-.sp-body{padding:42px 22px 22px;flex:1;display:flex;flex-direction:column}
-.sp-body h3{font-size:18px;font-weight:800;margin-bottom:4px}
-.sp-loc{font-size:13.5px;color:var(--ink-3);margin-bottom:12px}
-.sp-loc i{color:var(--teal);margin-right:5px}
-.sp-desc{font-size:14.5px;color:var(--ink-2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
-.sp-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line-2);margin-top:18px;padding-top:14px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13.5px;color:var(--teal)}
-.sp-empty{border:2px dashed #cdd5cf;border-radius:20px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:30px;background:transparent;transition:border-color .2s,background .2s}
-.sp-empty:hover{border-color:var(--teal);background:#fff}
-.sp-empty .ic{width:46px;height:46px;border-radius:14px;background:var(--gold-bg);color:var(--gold-ink);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px}
-.sp-empty h3{font-size:18px;font-weight:800;margin-bottom:6px}
-.sp-empty p{font-size:14px;color:var(--ink-3);line-height:1.55;margin-bottom:16px}
-.sp-empty span{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:14px;color:var(--teal)}
+.fe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.fe{background:#fff;border-radius:28px;padding:10px;display:flex;flex-direction:column;transition:transform .25s}
+.fe:hover{transform:translateY(-4px)}
+.fe-cover{border-radius:20px;height:150px;position:relative;background-size:cover;background-position:center}
+.fe-cover .dx-badge{position:absolute;top:14px;left:14px}
+.fe-cover .dx-logo{position:absolute;left:18px;bottom:-28px;border:4px solid #fff!important}
+.fe-body{padding:42px 16px 16px;display:flex;flex-direction:column;flex:1}
+.fe-body h3{font-size:19px;font-weight:700;margin-bottom:4px}
+.fe-loc{font-size:14px;color:var(--mut);margin-bottom:12px}
+.fe-desc{font-size:14.5px;color:var(--txt);line-height:1.55;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.fe-foot{display:flex;justify-content:space-between;align-items:center;margin-top:18px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--ink)}
+.fe:hover .dx-arrow{background:var(--ink);color:#fff;border-color:var(--ink);transform:rotate(-45deg)}
+.fe-empty{border:1.5px dashed rgba(10,46,30,.2);border-radius:28px;padding:30px;display:flex;flex-direction:column;justify-content:flex-end;min-height:330px;position:relative;transition:background .2s,border-color .2s}
+.fe-empty:hover{background:rgba(255,255,255,.6);border-color:var(--ink)}
+.fe-empty .big{position:absolute;top:26px;right:30px;font-family:'Plus Jakarta Sans',sans-serif;font-size:96px;font-weight:800;line-height:1;color:rgba(10,46,30,.06)}
+.fe-empty h3{font-size:22px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.fe-empty p{font-size:14.5px;color:var(--mut);line-height:1.55;margin-bottom:18px;max-width:280px}
+.fe-empty span{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--teal)}
 
-/* ── RESULTS LAYOUT ─────────────────────── */
-.dr{display:grid;grid-template-columns:270px 1fr;gap:28px;align-items:start;padding-bottom:88px}
-.df{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:6px 22px 22px;position:sticky;top:88px}
-.df-group{padding:18px 0;border-bottom:1px solid var(--line-2)}
-.df-group:last-of-type{border-bottom:0}
-.df-group h4{font-size:14px;font-weight:800;margin-bottom:10px;display:flex;justify-content:space-between}
-.df-check{display:flex;align-items:center;gap:10px;padding:5px 0;color:var(--ink-2);font-size:14px;cursor:pointer;line-height:1.35}
-.df-check input{width:17px;height:17px;accent-color:var(--teal);flex-shrink:0}
-.df-more{display:none}
-.df-group.open .df-more{display:flex}
-.df-toggle{background:none;border:0;color:var(--teal);font-weight:700;font-size:13px;padding:6px 0 0;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
-.df-state{display:flex;justify-content:space-between;align-items:center;padding:6px 0;color:var(--ink-2);font-size:14px}
-.df-state:hover,.df-state.on{color:var(--teal)}
-.df-state span{font-size:12px;font-weight:700;color:var(--ink-3);background:#f0f2ee;border-radius:100px;padding:2px 8px}
-.df-promo{margin-top:6px;background:var(--forest);border-radius:14px;padding:20px;color:#fff}
-.df-promo h4{color:#fff;font-size:15px;margin-bottom:6px}
-.df-promo p{font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.55;margin-bottom:14px}
-.df-promo .dx-btn{width:100%}
+/* ── RESULTS PANEL ─────────────────────── */
+.rh{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:28px;flex-wrap:wrap}
+.rh-count{font-size:15px;color:var(--mut)}
+.fb{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:20px}
+.fb-dd{position:relative}
+.fb-dd summary{list-style:none;display:inline-flex;align-items:center;gap:8px;cursor:pointer;background:#fff;border:1px solid var(--hair);border-radius:100px;padding:11px 16px 11px 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;font-weight:600;color:var(--ink);user-select:none;transition:border-color .15s}
+.fb-dd summary::-webkit-details-marker{display:none}
+.fb-dd summary:hover,.fb-dd[open] summary{border-color:var(--ink)}
+.fb-dd summary i{font-size:10px;color:var(--mut);transition:transform .2s}
+.fb-dd[open] summary i{transform:rotate(180deg)}
+.fb-dd summary .n{background:var(--ink);color:#fff;border-radius:100px;font-size:11px;min-width:20px;height:20px;padding:0 6px;display:inline-flex;align-items:center;justify-content:center}
+.fb-pop{position:absolute;top:calc(100% + 8px);left:0;z-index:40;background:#fff;border-radius:22px;box-shadow:0 24px 60px rgba(10,46,30,.18);padding:14px;min-width:270px;border:1px solid var(--hair-2)}
+.fb-opt{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;font-size:14.5px;color:var(--txt);cursor:pointer}
+.fb-opt:hover{background:var(--cream)}
+.fb-opt input{width:17px;height:17px;accent-color:var(--ink);flex-shrink:0}
+.fb-opt span{margin-left:auto;font-size:12px;color:var(--mut)}
+.fb-tog{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--hair);border-radius:100px;padding:11px 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;font-weight:600;color:var(--ink);cursor:pointer}
+.fb-tog input{display:none}
+.fb-tog .sw{width:30px;height:18px;border-radius:100px;background:rgba(10,46,30,.15);position:relative;transition:background .2s}
+.fb-tog .sw::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .2s}
+.fb-tog input:checked+.sw{background:var(--teal)}
+.fb-tog input:checked+.sw::after{transform:translateX(12px)}
+.fb-sort{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--mut)}
+.fb-sort select{appearance:none;-webkit-appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%230a2e1e' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") no-repeat right 16px center;border:1px solid var(--hair);border-radius:100px;padding:11px 38px 11px 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;font-weight:600;color:var(--ink);cursor:pointer}
+.fb-chips{display:flex;flex-wrap:wrap;gap:8px;margin:-6px 0 20px}
+.fb-chips a{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border-radius:100px;padding:8px 14px;font-size:13px;font-weight:500}
+.fb-chips a i{font-size:10px;opacity:.7}
+.fb-chips a.clear{background:none;color:var(--ink);text-decoration:underline!important;text-underline-offset:3px}
 
-.rb{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px;flex-wrap:wrap}
-.rb h2{font-size:22px;font-weight:800}
-.rb p{font-size:13.5px;color:var(--ink-3);margin-top:2px}
-.rb-right{display:flex;gap:10px;align-items:center}
-.rb select{font:inherit;font-size:14px;font-weight:600;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:9px 12px;background:#fff;cursor:pointer}
-.rb-chips{display:flex;gap:8px;flex-wrap:wrap;margin:-4px 0 16px}
-.rb-chips a{font-size:13px;font-weight:600;background:#fff;box-shadow:inset 0 0 0 1px var(--line);color:var(--ink);padding:7px 12px;border-radius:100px}
-.rb-chips a i{margin-left:7px;color:var(--ink-3);font-size:11px}
-.rb-chips a.clear{background:none;box-shadow:none;color:var(--teal)}
+.sheet{background:#fff;border-radius:32px;padding:8px 0;overflow:hidden}
+.rw{position:relative;display:grid;grid-template-columns:44px 64px 1fr auto;gap:22px;align-items:center;padding:26px 32px;transition:background .2s}
+.rw+.rw{border-top:1px solid var(--hair-2)}
+.rw:hover{background:#fbfaf6}
+.rw.is-feat{background:linear-gradient(90deg,#fdf8ea,#fff 70%)}
+.rw-n{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;color:#a3ada6;font-variant-numeric:tabular-nums}
+.rw-main{min-width:0}
+.rw-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.rw h3{font-size:19px;font-weight:700;letter-spacing:-.02em;line-height:1.25}
+.rw h3 a::after{content:"";position:absolute;inset:0;z-index:1}
+.rw-meta{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:14px;color:var(--mut);margin-bottom:6px}
+.rw-meta i{font-size:11px;margin-right:6px;color:var(--teal)}
+.rw-desc{font-size:14.5px;color:var(--txt);line-height:1.55;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;max-width:620px}
+.rw-svcs{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.rw-svcs span{font-size:12.5px;color:var(--ink);border:1px solid var(--hair);border-radius:100px;padding:4px 11px}
+.rw-act{display:flex;align-items:center;gap:10px;position:relative;z-index:2}
+.rw-phone{display:inline-flex;align-items:center;gap:9px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--ink);border:1px solid var(--hair);border-radius:100px;padding:11px 16px;background:#fff;transition:border-color .15s}
+.rw-phone i{font-size:12px;color:var(--teal)}
+.rw-phone:hover{border-color:var(--ink)}
+.rw:hover .rw-go{background:var(--ink);color:#fff;border-color:var(--ink);transform:rotate(-45deg)}
 
-.rc{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:24px;display:grid;grid-template-columns:auto 1fr auto;gap:22px;margin-bottom:14px;position:relative;transition:box-shadow .2s}
-.rc:hover{box-shadow:0 12px 34px rgba(16,26,21,.09)}
-.rc.is-feat{box-shadow:0 0 0 1.5px var(--gold-line),var(--shadow)}
-.rc.is-feat::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:4px;border-radius:0 4px 4px 0;background:var(--gold)}
-.rc-main{min-width:0}
-.rc h3{font-size:19px;font-weight:800;line-height:1.25;margin-bottom:6px}
-.rc h3 a:hover{color:var(--teal)}
-.rc-loc{font-size:14px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
-.rc-loc i{color:var(--teal);margin-right:6px;font-size:12.5px}
-.rc-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
-.rc-desc{font-size:15px;color:var(--ink-2);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.rc-svcs{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
-.rc-svcs span{font-size:12.5px;font-weight:600;color:var(--forest);background:#eef4f0;padding:5px 10px;border-radius:8px}
-.rc-svcs span.more{background:none;color:var(--ink-3)}
-.rc-act{display:flex;flex-direction:column;gap:8px;min-width:180px;padding-left:22px;border-left:1px solid var(--line-2);justify-content:center}
-.rc-phone{display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;color:var(--ink);margin-bottom:6px}
-.rc-phone i{width:32px;height:32px;border-radius:10px;background:#e3f4ec;color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:13px}
-.rc-phone:hover{color:var(--teal)}
-.rc-tag{position:absolute;top:14px;right:18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-ink)}
+.r-empty{background:#fff;border-radius:32px;padding:72px 24px;text-align:center}
+.r-empty h3{font-size:24px;font-weight:800;margin-bottom:8px}
+.r-empty p{color:var(--mut);margin-bottom:22px}
 
-.r-empty{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:56px 24px;text-align:center}
-.r-empty .ic{width:56px;height:56px;border-radius:16px;background:#eef4f0;color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px}
-.r-empty h3{font-size:19px;font-weight:800;margin-bottom:6px}
-.r-empty p{color:var(--ink-3);margin-bottom:18px}
+.pg{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:24px;flex-wrap:wrap}
+.pg-info{font-size:14px;color:var(--mut)}
+.pg-nums{display:flex;gap:6px;flex-wrap:wrap}
+.pg-nums a,.pg-nums span{min-width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:14px;color:var(--ink);border:1px solid var(--hair);background:#fff;padding:0 6px}
+.pg-nums a:hover{border-color:var(--ink)}
+.pg-nums .on{background:var(--ink);border-color:var(--ink);color:#fff}
+.pg-nums .gap{border:0;background:none}
 
-.pg{display:flex;gap:6px;justify-content:center;padding-top:26px;flex-wrap:wrap}
-.pg a,.pg span{min-width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;padding:0 12px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);border-radius:12px;font-weight:700;font-size:14px;color:var(--ink-2);font-family:'Plus Jakarta Sans',sans-serif}
-.pg .on{background:var(--forest);box-shadow:none;color:#fff}
-.pg a:hover{box-shadow:inset 0 0 0 1px #aab4ad}
-.pg .gap{background:none;box-shadow:none}
+/* cities */
+.ct{display:grid;grid-template-columns:repeat(4,1fr);gap:0 40px;margin-top:8px}
+.ct a{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--hair);font-size:15.5px;color:var(--ink);transition:padding .2s,color .2s}
+.ct a span{font-size:13px;color:var(--mut)}
+.ct a:hover{color:var(--teal);padding-left:6px}
 
-/* ── CITIES ─────────────────────────────── */
-.dc{background:#fff;padding:64px 0}
-.dc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0 32px}
-.dc-grid a{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line-2);font-size:15px;color:var(--ink-2);transition:color .15s}
-.dc-grid a:hover{color:var(--teal)}
-.dc-grid a span{font-size:12.5px;color:var(--ink-3)}
-
-/* ── OWNERS / PRICING ───────────────────── */
-.do{background:var(--forest);padding:96px 0 104px;position:relative;overflow:hidden}
-.do::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 420px at 50% -10%,rgba(46,198,143,.18),transparent 65%)}
-.do .dx-wrap{position:relative}
-.do-head{text-align:center;max-width:680px;margin:0 auto 56px}
-.do-head h2{color:#fff;font-size:clamp(30px,3.6vw,44px);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:14px}
-.do-head p{color:rgba(255,255,255,.65);font-size:17px;line-height:1.65}
-.do-foot{display:flex;gap:32px;flex-wrap:wrap;justify-content:center;margin-top:40px;font-size:14px;color:rgba(255,255,255,.65)}
-.do-foot i{color:var(--teal-lt);margin-right:8px}
-
-.df-mtoggle{display:none}
+/* ── OWNERS (on forest) ─────────────────── */
+.ow{max-width:1400px;margin:0 auto;padding:110px 36px 90px}
+.ow-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;max-width:1200px;margin:0 auto 56px}
+.ow-head .dx-h2{color:#fff}
+.ow-head .dx-h2 em{color:var(--teal-lt)}
+.ow-head p{color:rgba(255,255,255,.6);font-size:17px;line-height:1.7}
+.ow .dx-label{color:#fff;border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.04);margin-bottom:22px}
+.ow .dx-pricing{max-width:1200px;margin:0 auto}
+.ow-foot{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 36px;margin-top:40px;font-size:14px;color:rgba(255,255,255,.6)}
+.ow-foot i{color:var(--teal-lt);margin-right:8px}
 
 @media(max-width:1100px){
-  .dh-grid{grid-template-columns:1fr}
-  .dh-art{display:none}
-  .dr{grid-template-columns:1fr}
-  .df{position:static;display:none}
-  .df.open{display:block}
-  .df-mtoggle{display:inline-flex}
-  .sp-grid{grid-template-columns:1fr 1fr}
-  .dc-grid{grid-template-columns:repeat(3,1fr)}
+  .hx{grid-template-columns:1fr;gap:48px}
+  .hx-art{max-width:520px}
+  .hx-sticker{left:16px}
+  .hx-tag{right:16px}
+  .st-grid{grid-template-columns:1fr 1fr}
+  .fe-grid{grid-template-columns:1fr 1fr}
+  .ct{grid-template-columns:repeat(3,1fr)}
+  .ow-head{grid-template-columns:1fr;gap:16px}
 }
 @media(max-width:760px){
-  .dh{padding:100px 0 96px}
-  .dh-search{grid-template-columns:1fr;padding:6px}
-  .dh-field+.dh-field{border-left:0;border-top:1px solid var(--line)}
-  .dh-search button{padding:15px;justify-content:center}
-  .ds-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .ds-tile{padding:18px}
-  .ds-tile h3{font-size:17px}
-  .sp-grid{grid-template-columns:1fr}
-  .rc{grid-template-columns:auto 1fr;padding:18px;gap:14px}
-  .rc .dx-logo{width:56px!important;height:56px!important;font-size:19px!important}
-  .rc-act{grid-column:1/-1;border-left:0;padding-left:0;border-top:1px solid var(--line-2);padding-top:14px;flex-direction:row;flex-wrap:wrap;min-width:0}
-  .rc-act .dx-btn{flex:1}
-  .rc-phone{width:100%;margin-bottom:2px}
-  .dc-grid{grid-template-columns:1fr 1fr}
-  .do{padding:72px 0}
+  .sb{flex-direction:column;align-items:stretch;border-radius:28px;padding:8px}
+  .sb label{padding:4px 14px}
+  .sb label+label{border-left:0;border-top:1px solid var(--hair)}
+  .sb button{width:100%;border-radius:100px;height:50px;margin-top:6px}
+  .hx-art{display:none}
+  .hx-stats{grid-template-columns:1fr 1fr;margin-top:48px}
+  .hx-stats div:nth-child(3){padding-left:0;border-left:0}
+  .hx-stats div:nth-child(n+3){margin-top:24px}
+  .hx-stats b{font-size:34px}
+  .sh{flex-direction:column;align-items:flex-start;gap:12px}
+  .st{min-height:170px;border-radius:24px;padding:20px}
+  .st-code{font-size:52px}
+  .fe-grid{grid-template-columns:1fr}
+  .fe-empty{min-height:220px}
+  .fb-sort{margin-left:0;width:100%}
+  .fb-pop{min-width:240px}
+  .sheet{border-radius:24px}
+  .rw{grid-template-columns:52px 1fr;gap:14px;padding:20px 18px}
+  .rw-n{display:none}
+  .rw .dx-logo{width:52px!important;height:52px!important;font-size:17px!important}
+  .rw-act{grid-column:1/-1}
+  .rw-phone{flex:1;justify-content:center}
+  .ct{grid-template-columns:1fr 1fr;gap:0 20px}
+  .ow{padding:72px 10px 56px}
 }
 CSS;
 include '../includes/header.php';
 
-$popular = ['Personal Care', 'Companion Care', 'Dementia Care' => 'Alzheimer\'s & Dementia Care', '24-Hour Care'];
+$popular = ['Personal Care' => 'Personal Care', 'Companion Care' => 'Companion Care', 'Dementia Care' => 'Alzheimer\'s & Dementia Care', '24-Hour Care' => '24-Hour Care'];
 ?>
 <div id="scrollProgress"></div>
 <div class="dx">
 
 <!-- HERO -->
-<section class="dh">
-  <div class="dx-wrap dh-grid">
-    <div>
-      <div class="dx-crumbs"><a href="/">Home</a><i class="fa-solid fa-chevron-right"></i><?= $isFiltered ? '<a href="/directory/">Agency Directory</a><i class="fa-solid fa-chevron-right"></i>Search' : 'Agency Directory' ?></div>
-      <?php if ($isFiltered): ?>
-      <h1><?= htmlspecialchars($heading) ?></h1>
-      <?php else: ?>
-      <h1>Find home care <span>you can trust</span>, close to home.</h1>
-      <?php endif ?>
-      <p class="dh-sub">Compare home care agencies by the care they provide, the areas they serve and how they're paid, then contact them directly.</p>
-      <form class="dh-search" method="GET" action="/directory/" role="search">
-        <label class="dh-field"><small>Looking for</small><input type="text" name="q" value="<?= htmlspecialchars($q) ?>" placeholder="Agency name or type of care"></label>
-        <label class="dh-field"><small>Location</small><input type="text" name="loc" value="<?= htmlspecialchars($loc) ?>" placeholder="City or state" list="dxLocs"></label>
-        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-        <datalist id="dxLocs">
-          <?php foreach ($statesUsed as $s): ?><option value="<?= htmlspecialchars($US_STATES[$s['state']] ?? $s['state']) ?>"><?php endforeach ?>
-          <?php foreach ($locOptions as $o): ?><option value="<?= htmlspecialchars($o['city'] . ', ' . $o['state']) ?>"><?php endforeach ?>
-        </datalist>
-      </form>
-      <div class="dh-pop">Popular:
-        <?php foreach ($popular as $label => $svc): $label = is_int($label) ? $svc : $label; ?>
-        <a href="<?= htmlspecialchars(dx_url(['q' => null, 'svc' => [$svc], 'page' => null])) ?>"><?= htmlspecialchars($label) ?></a>
-        <?php endforeach ?>
-      </div>
-    </div>
-    <div class="dh-art" aria-hidden="true">
-      <div class="dh-photo"><img src="/images/home/hero-caregiver-elderly.jpg" alt=""></div>
-      <div class="dh-float f1"><div class="ic"><i class="fa-solid fa-house-medical"></i></div><div><b><?= $allCount ?></b><span>agencies listed</span></div></div>
-      <div class="dh-float f2"><div class="ic"><i class="fa-solid fa-location-dot"></i></div><div><b><?= count($locOptions) ?></b><span>cities covered</span></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- STATES -->
-<section class="ds">
-  <div class="dx-wrap">
-    <div class="ds-grid">
-      <?php foreach (array_slice($statesUsed, 0, 4) as $s): ?>
-      <a class="ds-tile" href="<?= htmlspecialchars('/directory/?loc=' . urlencode($s['state'])) ?>">
-        <span class="code"><?= htmlspecialchars($s['state']) ?></span>
-        <small>Browse</small>
-        <h3><?= htmlspecialchars($US_STATES[$s['state']] ?? $s['state']) ?></h3>
-        <p><?= (int)$s['n'] ?> agenc<?= $s['n'] == 1 ? 'y' : 'ies' ?></p>
-      </a>
-      <?php endforeach ?>
-    </div>
-  </div>
-</section>
-
-<?php if (!$isFiltered && $page === 1): ?>
-<!-- FEATURED -->
-<section class="dx-sec">
-  <div class="dx-wrap">
-    <div class="dx-sec-h">
-      <div><div class="dx-kicker">Featured</div><h2>Featured agencies</h2></div>
-    </div>
-    <div class="sp-grid">
-      <?php foreach ($spotlight as $l): ?>
-      <a class="sp-card" href="/directory/<?= urlencode($l['slug']) ?>">
-        <div class="sp-cover"<?= $l['cover_image'] ? ' style="background-image:url(\'' . htmlspecialchars($l['cover_image']) . '\')"' : ' style="background:linear-gradient(135deg,' . hc_dir_mono_color($l['company_name']) . ',#0a2e1e)"' ?>>
-          <span class="dx-badge is-featured"><i class="fa-solid fa-star"></i>Featured</span>
-          <?= hc_dir_logo($l, 64) ?>
-        </div>
-        <div class="sp-body">
-          <h3><?= htmlspecialchars($l['company_name']) ?></h3>
-          <div class="sp-loc"><i class="fa-solid fa-location-dot"></i><?= htmlspecialchars($l['city'] . ', ' . $l['state']) ?></div>
-          <div class="sp-desc"><?= htmlspecialchars($l['tagline'] ?: hc_dir_public_desc($l)) ?></div>
-          <div class="sp-foot">View profile <i class="fa-solid fa-arrow-right"></i></div>
-        </div>
-      </a>
-      <?php endforeach ?>
-      <?php for ($i = count($spotlight); $i < 3; $i++): ?>
-      <a class="sp-empty" href="/directory/submit/?plan=featured">
-        <div class="ic"><i class="fa-solid fa-star"></i></div>
-        <h3>Your agency here</h3>
-        <p>Featured agencies appear here and at the top of results in their city.</p>
-        <span>Get featured <i class="fa-solid fa-arrow-right"></i></span>
-      </a>
-      <?php endfor ?>
-    </div>
-  </div>
-</section>
-<?php endif ?>
-
-<!-- RESULTS -->
-<section class="dx-sec" id="results">
-  <div class="dx-wrap dr">
-
-    <form class="df" id="dxFilters" method="GET" action="/directory/#results">
-      <input type="hidden" name="q" value="<?= htmlspecialchars($q) ?>">
-      <input type="hidden" name="loc" value="<?= htmlspecialchars($loc) ?>">
-      <?php if ($sort !== 'recommended'): ?><input type="hidden" name="sort" value="<?= htmlspecialchars($sort) ?>"><?php endif ?>
-
-      <div class="df-group">
-        <h4>Type of care</h4>
-        <?php foreach (HC_DIR_SERVICES as $i => $s): ?>
-        <label class="df-check<?= $i >= 6 && !in_array($s, $svcSel, true) ? ' df-more' : '' ?>"><input type="checkbox" name="svc[]" value="<?= htmlspecialchars($s) ?>" <?= in_array($s, $svcSel, true) ? 'checked' : '' ?>><?= htmlspecialchars($s) ?></label>
-        <?php endforeach ?>
-        <button type="button" class="df-toggle" onclick="var g=this.parentNode;g.classList.toggle('open');this.textContent=g.classList.contains('open')?'Show less':'Show all 12'">Show all 12</button>
-      </div>
-
-      <div class="df-group">
-        <h4>Payment accepted</h4>
-        <?php foreach (HC_DIR_PAYMENTS as $p): ?>
-        <label class="df-check"><input type="checkbox" name="pay[]" value="<?= htmlspecialchars($p) ?>" <?= in_array($p, $paySel, true) ? 'checked' : '' ?>><?= htmlspecialchars($p) ?></label>
-        <?php endforeach ?>
-      </div>
-
-      <div class="df-group">
-        <h4>Trust</h4>
-        <label class="df-check"><input type="checkbox" name="verified" value="1" <?= $verified ? 'checked' : '' ?>>Verified or owner-claimed</label>
-      </div>
-
-      <div class="df-group">
-        <h4>State</h4>
-        <?php foreach ($statesUsed as $s): ?>
-        <a class="df-state<?= $locState === $s['state'] && !$locCity ? ' on' : '' ?>" href="<?= htmlspecialchars(dx_url(['loc' => $s['state'], 'page' => null])) ?>#results"><?= htmlspecialchars($US_STATES[$s['state']] ?? $s['state']) ?><span><?= (int)$s['n'] ?></span></a>
-        <?php endforeach ?>
-      </div>
-
-      <noscript><button type="submit" class="dx-btn is-primary" style="width:100%;margin-bottom:14px">Apply filters</button></noscript>
-
-      <div class="df-promo">
-        <h4>Own a home care agency?</h4>
-        <p>Get listed for free, or claim your existing profile so families can find you.</p>
-        <a href="/directory/submit/" class="dx-btn is-primary">List your agency</a>
-      </div>
-    </form>
-
-    <div>
-      <div class="rb">
+<div class="dx-frame is-first">
+  <section class="dx-panel">
+    <div class="dx-in">
+      <div class="hx">
         <div>
-          <h2><?= $isFiltered ? number_format($total) . ' agenc' . ($total === 1 ? 'y' : 'ies') . ' found' : 'All home care agencies' ?></h2>
-          <p><?= $total ? 'Showing ' . ($offset + 1) . '–' . min($offset + $perPage, $total) . ' of ' . number_format($total) : 'No matches' ?></p>
+          <?php if ($isFiltered): ?>
+          <div class="dx-crumbs"><a href="/directory/">Agency Directory</a><i class="fa-solid fa-chevron-right"></i>Search</div>
+          <h1 class="dx-h1" style="font-size:clamp(36px,4.6vw,64px)"><?= htmlspecialchars($heading) ?></h1>
+          <?php else: ?>
+          <span class="dx-label">Home Care Agency Directory</span>
+          <h1 class="dx-h1">Find home care<br>you can <em>trust.</em></h1>
+          <?php endif ?>
+          <p class="dx-lead">Compare local agencies by the care they offer, where they serve and how they're paid, then reach out directly. No sign-up needed.</p>
+          <form class="sb" method="GET" action="/directory/#results" role="search">
+            <label><i class="fa-solid fa-magnifying-glass"></i><input type="text" name="q" value="<?= htmlspecialchars($q) ?>" placeholder="Agency or type of care" aria-label="Agency or type of care"></label>
+            <label><i class="fa-solid fa-location-dot"></i><input type="text" name="loc" value="<?= htmlspecialchars($loc) ?>" placeholder="City or state" list="dxLocs" aria-label="City or state"></label>
+            <button type="submit" aria-label="Search"><i class="fa-solid fa-arrow-right"></i></button>
+            <datalist id="dxLocs">
+              <?php foreach ($statesUsed as $s): ?><option value="<?= htmlspecialchars($US_STATES[$s['state']] ?? $s['state']) ?>"><?php endforeach ?>
+              <?php foreach ($locOptions as $o): ?><option value="<?= htmlspecialchars($o['city'] . ', ' . $o['state']) ?>"><?php endforeach ?>
+            </datalist>
+          </form>
+          <div class="hx-pop">Popular
+            <?php foreach ($popular as $label => $svc): ?>
+            <a href="<?= htmlspecialchars(dx_url(['q' => null, 'svc' => [$svc], 'page' => null])) ?>#results"><?= htmlspecialchars($label) ?></a>
+            <?php endforeach ?>
+          </div>
         </div>
-        <div class="rb-right">
-          <button type="button" class="dx-btn df-mtoggle" onclick="document.getElementById('dxFilters').classList.toggle('open')"><i class="fa-solid fa-sliders"></i>Filters</button>
+        <div class="hx-art" aria-hidden="true">
+          <div class="hx-photo"><img src="/images/home/hero-caregiver-elderly.jpg" alt=""></div>
+          <div class="hx-tag"><i class="fa-solid fa-shield-heart"></i>Every listing reviewed</div>
+          <div class="hx-sticker">
+            <div class="hx-stack"><?php foreach ($stackAgencies as $a) echo hc_dir_logo($a, 40, false); ?></div>
+            <div><b><?= $allCount ?> agencies</b><span>across <?= count($locOptions) ?> cities</span></div>
+          </div>
+        </div>
+      </div>
+      <?php if (!$isFiltered): ?>
+      <div class="hx-stats">
+        <div><b><?= $allCount ?></b><span>Agencies listed</span></div>
+        <div><b><?= count($locOptions) ?></b><span>Cities covered</span></div>
+        <div><b><?= $stateCount ?></b><span>States</span></div>
+        <div><b>$0</b><span>Free for families, always</span></div>
+      </div>
+      <?php endif ?>
+    </div>
+  </section>
+
+  <?php if (!$isFiltered && $page === 1): ?>
+  <!-- BROWSE + FEATURED -->
+  <section class="dx-panel">
+    <div class="dx-in">
+      <div class="sh">
+        <div><div class="dx-kick" style="margin-bottom:14px">Browse by state</div><h2 class="dx-h2">Start <em>where you are.</em></h2></div>
+        <p>Pick a state to see every agency we list there, or search for a city above.</p>
+      </div>
+      <div class="st-grid">
+        <?php foreach (array_slice($statesUsed, 0, 4) as $s): ?>
+        <a class="st" href="/directory/?loc=<?= urlencode($s['state']) ?>#results">
+          <div class="st-top"><span class="st-code"><?= htmlspecialchars($s['state']) ?></span><span class="dx-arrow"><i class="fa-solid fa-arrow-right"></i></span></div>
+          <div><h3><?= htmlspecialchars($US_STATES[$s['state']] ?? $s['state']) ?></h3><p><?= (int)$s['n'] ?> agenc<?= $s['n'] == 1 ? 'y' : 'ies' ?></p></div>
+        </a>
+        <?php endforeach ?>
+      </div>
+
+      <div class="sh" style="margin:88px 0 0">
+        <div><div class="dx-kick" style="margin-bottom:14px">Featured</div><h2 class="dx-h2">Agencies in <em>the spotlight.</em></h2></div>
+        <p>Featured agencies are paid placements. They're reviewed like every other listing.</p>
+      </div>
+      <div class="fe-grid" style="margin-top:36px">
+        <?php foreach ($spotlight as $l): $mc = hc_dir_mono_color($l['company_name']); ?>
+        <a class="fe" href="/directory/<?= urlencode($l['slug']) ?>">
+          <div class="fe-cover" style="<?= $l['cover_image'] ? "background-image:url('" . htmlspecialchars($l['cover_image']) . "')" : "background:linear-gradient(135deg,{$mc},#0a2e1e)" ?>">
+            <span class="dx-badge is-featured"><i class="fa-solid fa-star"></i>Featured</span>
+            <?= hc_dir_logo($l, 60) ?>
+          </div>
+          <div class="fe-body">
+            <h3><?= htmlspecialchars($l['company_name']) ?></h3>
+            <div class="fe-loc"><?= htmlspecialchars($l['city'] . ', ' . $l['state']) ?></div>
+            <div class="fe-desc"><?= htmlspecialchars($l['tagline'] ?: hc_dir_public_desc($l)) ?></div>
+            <div class="fe-foot">View profile<span class="dx-arrow"><i class="fa-solid fa-arrow-right"></i></span></div>
+          </div>
+        </a>
+        <?php endforeach ?>
+        <?php for ($i = count($spotlight); $i < 3; $i++): ?>
+        <a class="fe-empty" href="/directory/submit/?plan=featured">
+          <span class="big">0<?= $i + 1 ?></span>
+          <h3>Your agency here.</h3>
+          <p>Featured agencies show up here and at the top of results in their city.</p>
+          <span>Get featured →</span>
+        </a>
+        <?php endfor ?>
+      </div>
+    </div>
+  </section>
+  <?php endif ?>
+
+  <!-- RESULTS -->
+  <section class="dx-panel" id="results">
+    <div class="dx-in">
+      <div class="rh">
+        <div>
+          <div class="dx-kick" style="margin-bottom:14px">The directory</div>
+          <h2 class="dx-h2"><?= $isFiltered ? number_format($total) . ' agenc' . ($total === 1 ? 'y' : 'ies') . ' <em>found.</em>' : 'Every agency, <em>one place.</em>' ?></h2>
+        </div>
+        <div class="rh-count"><?= $total ? 'Showing ' . ($offset + 1) . '–' . min($offset + $perPage, $total) . ' of ' . number_format($total) : '' ?></div>
+      </div>
+
+      <form class="fb" id="dxFilters" method="GET" action="/directory/#results">
+        <input type="hidden" name="q" value="<?= htmlspecialchars($q) ?>">
+        <input type="hidden" name="loc" value="<?= htmlspecialchars($loc) ?>">
+        <details class="fb-dd">
+          <summary>Type of care<?php if ($svcSel): ?><span class="n"><?= count($svcSel) ?></span><?php endif ?><i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="fb-pop">
+            <?php foreach (HC_DIR_SERVICES as $s): ?>
+            <label class="fb-opt"><input type="checkbox" name="svc[]" value="<?= htmlspecialchars($s) ?>" <?= in_array($s, $svcSel, true) ? 'checked' : '' ?>><?= htmlspecialchars($s) ?></label>
+            <?php endforeach ?>
+          </div>
+        </details>
+        <details class="fb-dd">
+          <summary>Payment<?php if ($paySel): ?><span class="n"><?= count($paySel) ?></span><?php endif ?><i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="fb-pop">
+            <?php foreach (HC_DIR_PAYMENTS as $p): ?>
+            <label class="fb-opt"><input type="checkbox" name="pay[]" value="<?= htmlspecialchars($p) ?>" <?= in_array($p, $paySel, true) ? 'checked' : '' ?>><?= htmlspecialchars($p) ?></label>
+            <?php endforeach ?>
+          </div>
+        </details>
+        <details class="fb-dd">
+          <summary><?= $locState && !$locCity ? htmlspecialchars($US_STATES[$locState] ?? $locState) : 'State' ?><i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="fb-pop">
+            <a class="fb-opt" href="<?= htmlspecialchars(dx_url(['loc' => null, 'page' => null])) ?>#results">All states</a>
+            <?php foreach ($statesUsed as $s): ?>
+            <a class="fb-opt" href="<?= htmlspecialchars(dx_url(['loc' => $s['state'], 'page' => null])) ?>#results"><?= htmlspecialchars($US_STATES[$s['state']] ?? $s['state']) ?><span><?= (int)$s['n'] ?></span></a>
+            <?php endforeach ?>
+          </div>
+        </details>
+        <label class="fb-tog"><input type="checkbox" name="verified" value="1" <?= $verified ? 'checked' : '' ?>><span class="sw"></span>Verified &amp; claimed</label>
+        <div class="fb-sort">
           <select aria-label="Sort" onchange="location.href=this.value">
-            <?php foreach (['recommended' => 'Sort: Recommended', 'az' => 'Sort: Name (A–Z)', 'newest' => 'Sort: Newest'] as $k => $v): ?>
+            <?php foreach (['recommended' => 'Recommended', 'az' => 'Name A–Z', 'newest' => 'Newest'] as $k => $v): ?>
             <option value="<?= htmlspecialchars(dx_url(['sort' => $k === 'recommended' ? null : $k, 'page' => null])) ?>#results" <?= $sort === $k ? 'selected' : '' ?>><?= $v ?></option>
             <?php endforeach ?>
           </select>
         </div>
-      </div>
+        <?php if ($sort !== 'recommended'): ?><input type="hidden" name="sort" value="<?= htmlspecialchars($sort) ?>"><?php endif ?>
+        <noscript><button class="dx-btn is-dark" type="submit">Apply</button></noscript>
+      </form>
 
       <?php if ($isFiltered): ?>
-      <div class="rb-chips">
-        <?php if ($q !== ''): ?><a href="<?= htmlspecialchars(dx_url(['q' => null, 'page' => null])) ?>">“<?= htmlspecialchars($q) ?>”<i class="fa-solid fa-xmark"></i></a><?php endif ?>
-        <?php if ($loc !== ''): ?><a href="<?= htmlspecialchars(dx_url(['loc' => null, 'page' => null])) ?>"><?= htmlspecialchars($where_label ?: $loc) ?><i class="fa-solid fa-xmark"></i></a><?php endif ?>
-        <?php foreach ($svcSel as $s): ?><a href="<?= htmlspecialchars(dx_url(['svc' => array_values(array_diff($svcSel, [$s])), 'page' => null])) ?>"><?= htmlspecialchars($s) ?><i class="fa-solid fa-xmark"></i></a><?php endforeach ?>
-        <?php foreach ($paySel as $p): ?><a href="<?= htmlspecialchars(dx_url(['pay' => array_values(array_diff($paySel, [$p])), 'page' => null])) ?>"><?= htmlspecialchars($p) ?><i class="fa-solid fa-xmark"></i></a><?php endforeach ?>
-        <?php if ($verified): ?><a href="<?= htmlspecialchars(dx_url(['verified' => null, 'page' => null])) ?>">Verified<i class="fa-solid fa-xmark"></i></a><?php endif ?>
+      <div class="fb-chips">
+        <?php if ($q !== ''): ?><a href="<?= htmlspecialchars(dx_url(['q' => null, 'page' => null])) ?>#results">“<?= htmlspecialchars($q) ?>”<i class="fa-solid fa-xmark"></i></a><?php endif ?>
+        <?php if ($loc !== ''): ?><a href="<?= htmlspecialchars(dx_url(['loc' => null, 'page' => null])) ?>#results"><?= htmlspecialchars($where_label ?: $loc) ?><i class="fa-solid fa-xmark"></i></a><?php endif ?>
+        <?php foreach ($svcSel as $s): ?><a href="<?= htmlspecialchars(dx_url(['svc' => array_values(array_diff($svcSel, [$s])), 'page' => null])) ?>#results"><?= htmlspecialchars($s) ?><i class="fa-solid fa-xmark"></i></a><?php endforeach ?>
+        <?php foreach ($paySel as $p): ?><a href="<?= htmlspecialchars(dx_url(['pay' => array_values(array_diff($paySel, [$p])), 'page' => null])) ?>#results"><?= htmlspecialchars($p) ?><i class="fa-solid fa-xmark"></i></a><?php endforeach ?>
+        <?php if ($verified): ?><a href="<?= htmlspecialchars(dx_url(['verified' => null, 'page' => null])) ?>#results">Verified &amp; claimed<i class="fa-solid fa-xmark"></i></a><?php endif ?>
         <a class="clear" href="/directory/#results">Clear all</a>
       </div>
       <?php endif ?>
 
       <?php if ($listings): ?>
-      <?php foreach ($listings as $l):
-        $tier = hc_dir_tier($l);
-        $paid = $tier !== 'free';
-        $svcs = hc_dir_lines($l['services']);
-        $url  = '/directory/' . urlencode($l['slug']);
-      ?>
-      <article class="rc<?= $tier === 'featured' ? ' is-feat' : '' ?>">
-        <?php if ($tier === 'featured'): ?><span class="rc-tag">Featured</span><?php endif ?>
-        <a href="<?= $url ?>" tabindex="-1" aria-hidden="true"><?= hc_dir_logo($l, 76, $paid) ?></a>
-        <div class="rc-main">
-          <h3><a href="<?= $url ?>"><?= htmlspecialchars($l['company_name']) ?></a></h3>
-          <div class="rc-loc">
-            <span><i class="fa-solid fa-location-dot"></i><?= htmlspecialchars($l['city'] . ', ' . $l['state']) ?></span>
-            <?php if ($l['years_in_business']): ?><span><i class="fa-regular fa-calendar"></i><?= htmlspecialchars($l['years_in_business']) ?> years in business</span><?php endif ?>
+      <div class="sheet">
+        <?php foreach ($listings as $i => $l):
+          $tier = hc_dir_tier($l);
+          $paid = $tier !== 'free';
+          $svcs = hc_dir_lines($l['services']);
+          $url  = '/directory/' . urlencode($l['slug']);
+        ?>
+        <article class="rw<?= $tier === 'featured' ? ' is-feat' : '' ?>">
+          <span class="rw-n"><?= str_pad((string)($offset + $i + 1), 2, '0', STR_PAD_LEFT) ?></span>
+          <?= hc_dir_logo($l, 64, $paid) ?>
+          <div class="rw-main">
+            <div class="rw-title"><h3><a href="<?= $url ?>"><?= htmlspecialchars($l['company_name']) ?></a></h3><?= hc_dir_badges($l, $tier, false) ?></div>
+            <div class="rw-meta">
+              <span><i class="fa-solid fa-location-dot"></i><?= htmlspecialchars($l['city'] . ', ' . $l['state']) ?></span>
+              <?php if ($l['years_in_business']): ?><span><?= htmlspecialchars($l['years_in_business']) ?> years in business</span><?php endif ?>
+              <?php if ($l['license_number']): ?><span>Licensed</span><?php endif ?>
+            </div>
+            <?php if (($paid && $l['tagline']) || !hc_dir_is_placeholder_desc($l['description'])): ?>
+            <p class="rw-desc"><?= htmlspecialchars(($paid && $l['tagline']) ? $l['tagline'] : $l['description']) ?></p>
+            <?php endif ?>
+            <?php if ($svcs): ?>
+            <div class="rw-svcs"><?php foreach (array_slice($svcs, 0, 4) as $s): ?><span><?= htmlspecialchars($s) ?></span><?php endforeach ?><?php if (count($svcs) > 4): ?><span>+<?= count($svcs) - 4 ?></span><?php endif ?></div>
+            <?php endif ?>
           </div>
-          <?php if ($b = hc_dir_badges($l, $tier)): ?><div class="rc-badges"><?= $b ?></div><?php endif ?>
-          <p class="rc-desc"><?= htmlspecialchars(($paid && $l['tagline']) ? $l['tagline'] : hc_dir_public_desc($l)) ?></p>
-          <?php if ($svcs): ?>
-          <div class="rc-svcs">
-            <?php foreach (array_slice($svcs, 0, 4) as $s): ?><span><?= htmlspecialchars($s) ?></span><?php endforeach ?>
-            <?php if (count($svcs) > 4): ?><span class="more">+<?= count($svcs) - 4 ?> more</span><?php endif ?>
+          <div class="rw-act">
+            <?php if ($l['phone']): ?><a class="rw-phone" href="tel:<?= htmlspecialchars(preg_replace('/[^0-9+]/', '', $l['phone'])) ?>"><i class="fa-solid fa-phone"></i><?= htmlspecialchars($l['phone']) ?></a><?php endif ?>
+            <span class="dx-arrow rw-go"><i class="fa-solid fa-arrow-right"></i></span>
           </div>
-          <?php endif ?>
-        </div>
-        <div class="rc-act">
-          <?php if ($l['phone']): ?>
-          <a class="rc-phone" href="tel:<?= htmlspecialchars(preg_replace('/[^0-9+]/', '', $l['phone'])) ?>"><i class="fa-solid fa-phone"></i><?= htmlspecialchars($l['phone']) ?></a>
-          <?php endif ?>
-          <?php if ($tier === 'featured'): ?>
-          <a class="dx-btn is-primary" href="<?= $url ?>#contact">Request info</a>
-          <?php endif ?>
-          <a class="dx-btn<?= $tier === 'featured' ? '' : ' is-dark' ?>" href="<?= $url ?>">View profile</a>
-        </div>
-      </article>
-      <?php endforeach ?>
+        </article>
+        <?php endforeach ?>
+      </div>
 
       <?php if ($pages > 1): ?>
-      <div class="pg" role="navigation" aria-label="Pages">
-        <?php if ($page > 1): ?><a href="<?= htmlspecialchars(dx_url(['page' => $page - 1 > 1 ? $page - 1 : null])) ?>#results" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></a><?php endif ?>
-        <?php for ($p = 1; $p <= $pages; $p++):
-          if ($p !== 1 && $p !== $pages && abs($p - $page) > 2) { if (abs($p - $page) === 3) echo '<span class="gap">…</span>'; continue; } ?>
-          <?php if ($p === $page): ?><span class="on"><?= $p ?></span><?php else: ?><a href="<?= htmlspecialchars(dx_url(['page' => $p > 1 ? $p : null])) ?>#results"><?= $p ?></a><?php endif ?>
-        <?php endfor ?>
-        <?php if ($page < $pages): ?><a href="<?= htmlspecialchars(dx_url(['page' => $page + 1])) ?>#results" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></a><?php endif ?>
+      <div class="pg">
+        <div class="pg-info">Page <?= $page ?> of <?= $pages ?></div>
+        <div class="pg-nums" role="navigation" aria-label="Pages">
+          <?php if ($page > 1): ?><a href="<?= htmlspecialchars(dx_url(['page' => $page - 1 > 1 ? $page - 1 : null])) ?>#results" aria-label="Previous"><i class="fa-solid fa-arrow-left" style="font-size:12px"></i></a><?php endif ?>
+          <?php for ($p = 1; $p <= $pages; $p++):
+            if ($p !== 1 && $p !== $pages && abs($p - $page) > 2) { if (abs($p - $page) === 3) echo '<span class="gap">…</span>'; continue; } ?>
+            <?php if ($p === $page): ?><span class="on"><?= $p ?></span><?php else: ?><a href="<?= htmlspecialchars(dx_url(['page' => $p > 1 ? $p : null])) ?>#results"><?= $p ?></a><?php endif ?>
+          <?php endfor ?>
+          <?php if ($page < $pages): ?><a href="<?= htmlspecialchars(dx_url(['page' => $page + 1])) ?>#results" aria-label="Next"><i class="fa-solid fa-arrow-right" style="font-size:12px"></i></a><?php endif ?>
+        </div>
       </div>
       <?php endif ?>
 
       <?php else: ?>
       <div class="r-empty">
-        <div class="ic"><i class="fa-solid fa-magnifying-glass"></i></div>
-        <h3>No agencies match those filters yet</h3>
-        <p>Try removing a filter or searching a nearby city.</p>
+        <h3>Nothing matches <em>just yet.</em></h3>
+        <p>Try removing a filter, or search a nearby city.</p>
         <a href="/directory/#results" class="dx-btn is-dark">Clear filters</a>
       </div>
       <?php endif ?>
-    </div>
-  </div>
-</section>
 
-<?php if ($topCities): ?>
-<!-- CITIES -->
-<section class="dc">
-  <div class="dx-wrap">
-    <div class="dx-sec-h"><div><div class="dx-kicker">Browse</div><h2>Home care by city</h2></div></div>
-    <div class="dc-grid">
-      <?php foreach ($topCities as $c): ?>
-      <a href="/directory/?loc=<?= urlencode($c['city'] . ', ' . $c['state']) ?>#results"><?= htmlspecialchars($c['city'] . ', ' . $c['state']) ?><span><?= (int)$c['n'] ?> agenc<?= $c['n'] == 1 ? 'y' : 'ies' ?></span></a>
-      <?php endforeach ?>
+      <?php if ($topCities && !$isFiltered): ?>
+      <div style="margin-top:96px">
+        <div class="dx-kick" style="margin-bottom:14px">Browse by city</div>
+        <h2 class="dx-h2" style="margin-bottom:28px">Home care <em>near you.</em></h2>
+        <div class="ct">
+          <?php foreach ($topCities as $c): ?>
+          <a href="/directory/?loc=<?= urlencode($c['city'] . ', ' . $c['state']) ?>#results"><?= htmlspecialchars($c['city'] . ', ' . $c['state']) ?><span><?= (int)$c['n'] ?></span></a>
+          <?php endforeach ?>
+        </div>
+      </div>
+      <?php endif ?>
     </div>
-  </div>
-</section>
-<?php endif ?>
+  </section>
 
-<!-- FOR AGENCY OWNERS -->
-<section class="do" id="list-your-agency">
-  <div class="dx-wrap">
-    <div class="do-head">
-      <div class="dx-kicker" style="color:var(--teal-lt)">For agency owners</div>
-      <h2>Get found by families who are choosing care right now.</h2>
-      <p>Start free, or upgrade for a verified profile with your logo, photos, website link and top placement in your city.</p>
+  <!-- FOR AGENCY OWNERS -->
+  <section class="ow" id="list-your-agency">
+    <div class="ow-head">
+      <div>
+        <span class="dx-label">For agency owners</span>
+        <h2 class="dx-h2">Be the agency families <em>call first.</em></h2>
+      </div>
+      <p>Start with a free listing. Upgrade for a verified profile with your logo, photos and website link, top placement in your city, and inquiries sent straight to your inbox.</p>
     </div>
     <?= hc_dir_pricing_html(fn($k) => '/directory/submit/?plan=' . $k) ?>
-    <div class="do-foot">
-      <span><i class="fa-solid fa-file-invoice"></i>No card needed: paid plans are invoiced</span>
+    <div class="ow-foot">
+      <span><i class="fa-solid fa-file-invoice"></i>Invoiced monthly, no card needed</span>
       <span><i class="fa-solid fa-rotate"></i>Change or cancel anytime</span>
       <span><i class="fa-solid fa-user-shield"></i>Every listing confirmed with the owner</span>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 </div>
 <?php
@@ -523,6 +529,9 @@ $page_js = <<<JS
   var f = document.getElementById('dxFilters');
   if (!f) return;
   f.addEventListener('change', function(e){ if (e.target.matches('input[type=checkbox]')) f.submit(); });
+  var dds = f.querySelectorAll('details');
+  dds.forEach(function(d){ d.addEventListener('toggle', function(){ if (d.open) dds.forEach(function(o){ if (o !== d) o.open = false; }); }); });
+  document.addEventListener('click', function(e){ if (!e.target.closest('.fb-dd')) dds.forEach(function(d){ d.open = false; }); });
 })();
 JS;
 include '../includes/footer.php';

@@ -21,112 +21,128 @@ $og_title = 'List Your Home Care Agency | Homecare Creators Directory';
 $og_desc  = $page_desc;
 
 $page_css = hc_dir_base_css() . <<<CSS
-body{background:#f7f7f5}
-.sx-band{background:var(--forest);padding:104px 0 36px}
-.sx-band h1{color:#fff;font-size:clamp(26px,3.2vw,36px);font-weight:800;line-height:1.15;margin-bottom:8px}
-.sx-band p{color:rgba(255,255,255,.62);font-size:15.5px;max-width:620px}
-.sx-grid{display:grid;grid-template-columns:1fr 340px;gap:32px;padding:32px 0 80px;align-items:start}
-.sx-step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px;margin-bottom:18px}
-.sx-step-h{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
-.sx-step-n{width:28px;height:28px;border-radius:50%;background:var(--forest);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.sx-step-h h2{font-size:18px;font-weight:800;line-height:1.3}
-.sx-step-h p{font-size:13.5px;color:var(--ink-3);margin-top:2px}
+.sx-head{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:end;margin-bottom:56px}
+.sx-head .dx-h1{font-size:clamp(38px,5vw,68px)}
+.sx-head .dx-lead{max-width:440px}
+.sx-trust{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.sx-trust span{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--hair);border-radius:100px;padding:8px 14px;font-size:13px;color:var(--ink);background:rgba(255,255,255,.5)}
+.sx-trust i{color:var(--teal);font-size:11px}
+.sx-grid{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:start}
+.sx-step{background:#fff;border-radius:32px;padding:40px;margin-bottom:12px}
+.sx-step-h{display:grid;grid-template-columns:56px 1fr;gap:8px;margin-bottom:30px}
+.sx-step-n{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;color:#a3ada6;padding-top:8px}
+.sx-step-h h2{font-size:28px;font-weight:800;letter-spacing:-.035em;line-height:1.15}
+.sx-step-h h2 em{font-weight:700}
+.sx-step-h p{font-size:14.5px;color:var(--mut);margin-top:6px;line-height:1.55}
 
-.sx-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.sx-plan{position:relative;border:1.5px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;transition:border-color .15s,background .15s;display:block}
-.sx-plan:hover{border-color:#b9c2bc}
+.sx-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sx-plan{position:relative;border:1.5px solid var(--hair);border-radius:24px;padding:20px;cursor:pointer;transition:border-color .15s,background .15s;display:block;background:var(--cream)}
+.sx-plan:hover{border-color:rgba(10,46,30,.35)}
 .sx-plan input{position:absolute;opacity:0;pointer-events:none}
-.sx-plan.on{border-color:var(--teal);background:#f6fbf9;box-shadow:0 0 0 3px rgba(29,158,117,.12)}
-.sx-plan-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.sx-plan-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px}
-.sx-radio{width:18px;height:18px;border-radius:50%;border:2px solid #c6cdc8;position:relative}
-.sx-plan.on .sx-radio{border-color:var(--teal)}
-.sx-plan.on .sx-radio::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--teal)}
-.sx-plan-price{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;margin-bottom:6px}
-.sx-plan-price small{font-size:12.5px;color:var(--ink-3);font-weight:600}
-.sx-plan-blurb{font-size:12.5px;color:var(--ink-3);line-height:1.45}
-.sx-plan-pop{position:absolute;top:-9px;left:14px;background:var(--teal);color:#fff;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:4px;font-family:'Plus Jakarta Sans',sans-serif}
+.sx-plan.on{border-color:var(--ink);background:#fff;box-shadow:0 0 0 1px var(--ink)}
+.sx-plan-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.sx-plan-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14.5px;color:var(--ink)}
+.sx-radio{width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(10,46,30,.3);position:relative;background:#fff}
+.sx-plan.on .sx-radio{border-color:var(--ink);background:var(--ink)}
+.sx-plan.on .sx-radio::after{content:"";position:absolute;inset:5px;border-radius:50%;background:#fff}
+.sx-plan-price{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:34px;letter-spacing:-.04em;color:var(--ink);line-height:1;margin-bottom:10px}
+.sx-plan-price small{font-size:13px;color:var(--mut);font-weight:600;letter-spacing:0}
+.sx-plan-blurb{font-size:13px;color:var(--mut);line-height:1.45}
+.sx-plan-pop{position:absolute;top:-10px;right:16px;background:var(--teal);color:#fff;font-size:10.5px;font-weight:700;padding:5px 10px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif}
 
 .sx-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .sx-row-3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
-.sx-f{margin-bottom:16px}
-.sx-f label{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px}
-.sx-f label em{font-style:normal;font-weight:500;color:var(--ink-3)}
-.sx-f input,.sx-f select,.sx-f textarea{width:100%;font:inherit;font-size:14.5px;border:1px solid var(--line);border-radius:8px;padding:11px 13px;background:#fff;color:var(--ink);outline:0;transition:border-color .15s}
-.sx-f input:focus,.sx-f select:focus,.sx-f textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(29,158,117,.1)}
-.sx-f .err{border-color:#dc2626}
-.sx-hint{font-size:12.5px;color:var(--ink-3);margin-top:5px}
-.sx-count{float:right;font-weight:500;color:var(--ink-3);font-size:12px}
-.sx-checks{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.sx-chk{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13.5px;color:var(--ink-2);cursor:pointer;transition:.15s;line-height:1.3}
-.sx-chk:hover{border-color:#b9c2bc}
-.sx-chk input{accent-color:var(--teal);width:15px;height:15px;flex-shrink:0}
-.sx-chk.on{border-color:var(--teal);background:#f6fbf9;color:var(--ink)}
-.sx-paid-only{border-top:1px dashed var(--line);margin-top:6px;padding-top:18px}
-.sx-paid-only h3{font-size:14px;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-.sx-paid-only h3 span{font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);background:#e7f5ef;padding:3px 6px;border-radius:4px}
-.sx-attest{display:flex;gap:12px;align-items:flex-start;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:13.5px;color:var(--ink-2);line-height:1.55;cursor:pointer}
-.sx-attest input{accent-color:var(--teal);width:17px;height:17px;margin-top:2px;flex-shrink:0}
-.sx-submit{width:100%;padding:16px;font-size:15px;margin-top:6px}
-.sx-legal{font-size:12px;color:var(--ink-3);text-align:center;margin-top:12px;line-height:1.5}
+.sx-f{margin-bottom:18px}
+.sx-f label{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;color:var(--ink);margin:0 0 8px 4px}
+.sx-f label em{font-style:normal;font-weight:400;color:var(--mut)}
+.sx-f input,.sx-f select,.sx-f textarea{width:100%;font:inherit;font-size:15px;border:1px solid var(--hair);border-radius:16px;padding:14px 16px;background:var(--cream);color:var(--ink);outline:0;transition:border-color .15s,background .15s}
+.sx-f input:focus,.sx-f select:focus,.sx-f textarea:focus{border-color:var(--ink);background:#fff}
+.sx-f .err{border-color:#dc2626!important;background:#fff}
+.sx-hint{font-size:12.5px;color:var(--mut);margin:7px 0 0 4px}
+.sx-count{float:right;font-weight:500;color:var(--mut);font-size:12px}
+.sx-checks{display:flex;flex-wrap:wrap;gap:8px}
+.sx-chk{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--hair);border-radius:100px;padding:10px 16px;font-size:14px;color:var(--ink);cursor:pointer;transition:.15s;background:#fff;user-select:none}
+.sx-chk:hover{border-color:var(--ink)}
+.sx-chk input{display:none}
+.sx-chk::before{content:"+";font-weight:600;color:var(--mut);width:10px}
+.sx-chk.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.sx-chk.on::before{content:"✓";color:var(--teal-lt)}
+.sx-paid-only{background:var(--cream);border-radius:24px;padding:24px;margin-top:8px}
+.sx-paid-only h3{font-size:16px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.sx-paid-only h3 span{font-size:11px;font-weight:700;color:#fff;background:var(--teal);padding:4px 9px;border-radius:100px}
+.sx-paid-only .sx-f input{background:#fff}
+.sx-attest{display:flex;gap:14px;align-items:flex-start;background:var(--cream);border-radius:20px;padding:18px 20px;font-size:14px;color:var(--txt);line-height:1.6;cursor:pointer;margin-top:6px}
+.sx-attest input{accent-color:var(--ink);width:18px;height:18px;margin-top:2px;flex-shrink:0}
+.sx-attest a{color:var(--ink);text-decoration:underline!important;text-underline-offset:3px}
+.sx-submit{width:100%;padding:18px!important;font-size:15.5px!important;margin-top:20px}
+.sx-legal{font-size:12.5px;color:var(--mut);text-align:center;margin-top:14px}
 
-.sx-claimbox{display:flex;gap:16px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:18px}
-.sx-claimbox h3{font-size:16px;font-weight:800}
-.sx-claimbox p{font-size:13.5px;color:var(--ink-3)}
+.sx-claimbox{display:flex;gap:16px;align-items:center;background:#fff;border-radius:28px;padding:20px 24px;margin-bottom:12px}
+.sx-claimbox h3{font-size:18px;font-weight:700}
+.sx-claimbox p{font-size:14px;color:var(--mut)}
+.sx-claimbox a{color:var(--ink);text-decoration:underline!important;text-underline-offset:3px}
 
-.sx-side{position:sticky;top:90px;display:flex;flex-direction:column;gap:16px}
-.sx-sum{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.sx-sum-h{padding:18px 20px;border-bottom:1px solid var(--line-2)}
-.sx-sum-h small{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-family:'Plus Jakarta Sans',sans-serif}
-.sx-sum-h div{display:flex;justify-content:space-between;align-items:baseline;margin-top:4px}
-.sx-sum-h b{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px}
-.sx-sum-h span{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:19px}
-.sx-sum ul{list-style:none;margin:0;padding:14px 20px 18px}
-.sx-sum li{display:flex;gap:10px;font-size:13.5px;color:var(--ink-2);padding:5px 0;line-height:1.45}
-.sx-sum li i{color:var(--teal);font-size:11px;margin-top:5px}
-.sx-next{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px}
-.sx-next h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;margin-bottom:10px}
-.sx-next ol{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink-2);line-height:1.6}
-.sx-next li{padding:3px 0}
+.sx-side{position:sticky;top:96px;display:flex;flex-direction:column;gap:12px}
+.sx-sum{background:var(--ink);border-radius:32px;padding:30px;color:#fff}
+.sx-sum-h small{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.sx-sum-h div{display:flex;justify-content:space-between;align-items:baseline;margin:10px 0 20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.12)}
+.sx-sum-h b{font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;letter-spacing:-.03em}
+.sx-sum-h span{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:30px;letter-spacing:-.04em}
+.sx-sum ul{list-style:none;margin:0;padding:0}
+.sx-sum li{display:flex;gap:12px;font-size:14px;color:rgba(255,255,255,.78);padding:6px 0;line-height:1.45}
+.sx-sum li i{color:var(--teal-lt);font-size:11px;margin-top:5px}
+.sx-next{background:#fff;border-radius:32px;padding:28px 30px}
+.sx-next h4{font-size:16px;font-weight:700;margin-bottom:14px}
+.sx-next ol{margin:0;padding:0;list-style:none;counter-reset:s}
+.sx-next li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:6px;padding:9px 0;font-size:14px;color:var(--txt);line-height:1.5;border-top:1px solid var(--hair-2)}
+.sx-next li:first-child{border-top:0}
+.sx-next li::before{content:"0" counter(s);font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;color:#a3ada6;padding-top:2px}
 
-.sx-done{display:none;background:#fff;border:1px solid var(--line);border-radius:14px;padding:44px 32px;text-align:center}
-.sx-done i.big{width:64px;height:64px;border-radius:50%;background:#e7f5ef;color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 18px}
-.sx-done h2{font-size:24px;font-weight:800;margin-bottom:10px}
-.sx-done p{font-size:15.5px;color:var(--ink-2);line-height:1.65;max-width:480px;margin:0 auto 8px}
-.sx-mail{display:inline-flex;gap:10px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:14px 0;font-weight:700;font-size:14.5px}
+.sx-done{display:none;background:#fff;border-radius:32px;padding:56px 36px;text-align:center}
+.sx-done .dx-arrow{width:64px;height:64px;font-size:22px;background:var(--teal);color:#fff;border:0;margin-bottom:22px}
+.sx-done h2{font-size:32px;font-weight:800;letter-spacing:-.035em;margin-bottom:12px}
+.sx-done p{font-size:16px;color:var(--mut);line-height:1.65;max-width:460px;margin:0 auto 8px}
+.sx-mail{display:inline-flex;gap:10px;align-items:center;background:var(--cream);border-radius:100px;padding:12px 20px;margin:12px 0 16px;font-weight:600;font-size:15px;color:var(--ink)}
 
-@media(max-width:1024px){
+@media(max-width:1100px){
+  .sx-head{grid-template-columns:1fr;gap:16px}
   .sx-grid{grid-template-columns:1fr}
   .sx-side{position:static;order:-1}
   .sx-next{display:none}
 }
-@media(max-width:640px){
-  .sx-step{padding:20px 16px}
+@media(max-width:700px){
+  .sx-step{padding:26px 20px;border-radius:26px}
+  .sx-step-h{grid-template-columns:1fr;gap:4px}
+  .sx-step-h h2{font-size:24px}
   .sx-plans,.sx-row,.sx-row-3{grid-template-columns:1fr}
-  .sx-checks{grid-template-columns:1fr 1fr}
+  .sx-sum{padding:24px;border-radius:26px}
 }
 CSS;
 include '../../includes/header.php';
 ?>
 <div id="scrollProgress"></div>
 <div class="dx">
-
-<section class="sx-band">
-  <div class="dx-wrap">
-    <div class="dx-crumbs"><a href="/directory/">Directory</a><span>/</span><?= $claim ? 'Claim listing' : 'List your agency' ?></div>
-    <h1><?= $claim ? 'Claim ' . htmlspecialchars($claim['company_name']) : 'List your home care agency' ?></h1>
-    <p><?= $claim
-        ? 'Confirm you represent this agency to manage the listing, update details and upgrade your profile.'
-        : 'Takes about 5 minutes. Every listing is confirmed with the agency owner and reviewed by our team before it goes live.' ?></p>
+<div class="dx-frame is-first">
+<section class="dx-panel">
+<div class="dx-in">
+  <div class="sx-head">
+    <div>
+      <div class="dx-crumbs"><a href="/directory/">Directory</a><i class="fa-solid fa-chevron-right"></i><?= $claim ? 'Claim listing' : 'List your agency' ?></div>
+      <h1 class="dx-h1"><?= $claim ? 'Claim <em>' . htmlspecialchars($claim['company_name']) . '.</em>' : 'List your agency<br><em>in five minutes.</em>' ?></h1>
+    </div>
+    <div>
+      <p class="dx-lead"><?= $claim
+          ? 'Confirm you represent this agency to manage the listing, update its details and upgrade your profile.'
+          : 'Every listing is confirmed with the agency owner and reviewed by our team before it goes live.' ?></p>
+      <div class="sx-trust"><span><i class="fa-solid fa-check"></i>Free plan available</span><span><i class="fa-solid fa-check"></i>No card needed</span><span><i class="fa-solid fa-check"></i>Owner-verified</span></div>
+    </div>
   </div>
-</section>
 
-<div class="dx-wrap">
 <?php if ($claimTaken): ?>
   <div class="sx-grid" style="grid-template-columns:1fr">
     <div class="sx-step" style="text-align:center;padding:44px">
       <h2 style="font-size:20px;font-weight:800;margin-bottom:8px">This listing has already been claimed</h2>
-      <p style="color:var(--ink-3)">If you're the owner and didn't claim it, email <a href="mailto:info@homecarecreators.com">info@homecarecreators.com</a> and we'll verify and transfer it.</p>
+      <p style="color:var(--mut)">If you're the owner and didn't claim it, email <a href="mailto:info@homecarecreators.com">info@homecarecreators.com</a> and we'll verify and transfer it.</p>
     </div>
   </div>
 <?php else: ?>
@@ -146,7 +162,7 @@ include '../../includes/header.php';
 
         <!-- STEP 1: PLAN -->
         <div class="sx-step">
-          <div class="sx-step-h"><span class="sx-step-n">1</span><div><h2>Choose your plan</h2><p>Paid plans are invoiced by email, so you don't need a card today. You can change plans anytime.</p></div></div>
+          <div class="sx-step-h"><span class="sx-step-n">01</span><div><h2>Choose your <em>plan.</em></h2><p>Paid plans are invoiced by email, so you don't need a card today. You can change plans anytime.</p></div></div>
           <div class="sx-plans">
             <?php foreach ($plans as $k => $p): ?>
             <label class="sx-plan<?= $plan === $k ? ' on' : '' ?>">
@@ -163,7 +179,7 @@ include '../../includes/header.php';
         <?php if (!$claim): ?>
         <!-- STEP 2: AGENCY -->
         <div class="sx-step">
-          <div class="sx-step-h"><span class="sx-step-n">2</span><div><h2>About your agency</h2><p>This is what families see on your public profile.</p></div></div>
+          <div class="sx-step-h"><span class="sx-step-n">02</span><div><h2>About your <em>agency.</em></h2><p>This is what families see on your public profile.</p></div></div>
 
           <div class="sx-f"><label for="fName">Agency name</label><input id="fName" name="company_name" required autocomplete="organization"></div>
           <div class="sx-row-3">
@@ -220,14 +236,14 @@ include '../../includes/header.php';
         </div>
         <?php else: ?>
         <div class="sx-step">
-          <div class="sx-step-h"><span class="sx-step-n">2</span><div><h2>Anything to update?</h2><p>Tell us what's wrong or missing on the current listing and we'll update it after you confirm.</p></div></div>
+          <div class="sx-step-h"><span class="sx-step-n">02</span><div><h2>Anything to <em>update?</em></h2><p>Tell us what's wrong or missing on the current listing and we'll update it after you confirm.</p></div></div>
           <div class="sx-f" style="margin-bottom:0"><textarea name="claim_notes" rows="4" placeholder="e.g. New phone number, add Skilled Nursing, we now serve Lake County…"></textarea></div>
         </div>
         <?php endif ?>
 
         <!-- STEP 3: OWNER -->
         <div class="sx-step">
-          <div class="sx-step-h"><span class="sx-step-n">3</span><div><h2>Owner or authorized representative</h2><p>We send a confirmation link to this person, and nothing is published until they confirm. This is kept private and never shown on your listing.</p></div></div>
+          <div class="sx-step-h"><span class="sx-step-n">03</span><div><h2>Owner or <em>authorized rep.</em></h2><p>We send a confirmation link to this person, and nothing is published until they confirm. This is kept private and never shown on your listing.</p></div></div>
           <div class="sx-row">
             <div class="sx-f"><label for="oName">Full name</label><input id="oName" name="owner_name" required autocomplete="name"></div>
             <div class="sx-f"><label for="oTitle">Your role</label>
@@ -243,18 +259,18 @@ include '../../includes/header.php';
             <div class="sx-f"><label for="oPhone">Direct phone</label><input id="oPhone" name="owner_phone" type="tel" required autocomplete="tel"><div class="sx-hint">We may call to verify ownership.</div></div>
           </div>
           <label class="sx-attest"><input type="checkbox" name="owner_authorized" value="1" required><span>I confirm I am the owner or an authorized representative of this agency, and that the information I've provided is accurate. I agree to the <a href="/terms-of-service.php" target="_blank">Terms</a> and <a href="/privacy-policy.php" target="_blank">Privacy Policy</a>.</span></label>
-          <button type="submit" class="dx-btn is-primary sx-submit" id="sxBtn">Submit for review</button>
+          <button type="submit" class="dx-btn is-dark sx-submit" id="sxBtn">Submit for review</button>
           <p class="sx-legal" id="sxLegal">You'll receive a confirmation email right away.</p>
         </div>
       </form>
 
       <div class="sx-done" id="sxDone">
-        <i class="fa-regular fa-envelope big"></i>
-        <h2>Check your inbox to confirm</h2>
+        <span class="dx-arrow"><i class="fa-regular fa-envelope"></i></span>
+        <h2>Check your <em>inbox.</em></h2>
         <p>We sent a confirmation link to</p>
         <div class="sx-mail" id="sxDoneMail"></div>
         <p id="sxDoneNext"></p>
-        <p style="font-size:13.5px;color:var(--ink-3);margin-top:16px">Can't find it? Check your spam folder or email info@homecarecreators.com.</p>
+        <p style="font-size:13.5px;color:var(--mut);margin-top:16px">Can't find it? Check your spam folder or email info@homecarecreators.com.</p>
       </div>
     </div>
 
@@ -267,6 +283,8 @@ include '../../includes/header.php';
     </aside>
   </div>
 <?php endif ?>
+</div>
+</section>
 </div>
 </div>
 <?php
@@ -285,7 +303,7 @@ $page_js = <<<JS
     form.querySelectorAll('.sx-plan').forEach(function(el){ el.classList.toggle('on', el.querySelector('input').checked); });
     var pf = document.getElementById('paidFields'); if (pf) pf.style.display = k === 'free' ? 'none' : '';
     document.getElementById('sxSum').innerHTML =
-      '<div class="sx-sum-h"><small>Your plan</small><div><b>' + esc(p.name) + '</b><span>' + (p.price ? '$' + p.price + '<small style="font-size:12px;color:var(--ink-3)">/mo</small>' : 'Free') + '</span></div></div>' +
+      '<div class="sx-sum-h"><small>Your plan</small><div><b>' + esc(p.name) + '</b><span>' + (p.price ? '$' + p.price + '<small style="font-size:13px;color:rgba(255,255,255,.5);font-weight:600">/mo</small>' : 'Free') + '</span></div></div>' +
       '<ul>' + p.features.map(function(f){ return '<li><i class="fa-solid fa-check"></i>' + esc(f) + '</li>'; }).join('') + '</ul>';
     var steps = ['Confirm ownership from the email we send you.'];
     if (k !== 'free') steps.push('We email your invoice within 1 business day.');
