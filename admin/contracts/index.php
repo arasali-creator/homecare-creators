@@ -25,9 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'uploa
             $orig  = mb_substr(basename((string)$file['name']), 0, 200);
             $title = mb_substr($title ?: preg_replace('/\.pdf$/i', '', $orig), 0, 250) ?: 'Contract';
             $path  = hc_es_path($stored);
-            hc_q("INSERT INTO hc_contracts (title, token, status, original_file, original_name, original_sha256, fields, sender_name, sender_email)
-                  VALUES (?,?,?,?,?,?,?,?,?)",
-                [$title, bin2hex(random_bytes(24)), 'draft', $stored, $orig, hash_file('sha256', $path), '[]',
+            hc_q("INSERT INTO hc_contracts (title, token, code, status, original_file, original_name, original_sha256, fields, sender_name, sender_email)
+                  VALUES (?,?,?,?,?,?,?,?,?,?)",
+                [$title, bin2hex(random_bytes(24)), hc_es_new_code(), 'draft', $stored, $orig, hash_file('sha256', $path), '[]',
                  hc_setting('site_name', 'Homecare Creators'), hc_es_default_sender_email()]);
             header('Location: /admin/contracts/edit.php?id=' . (int)hc_db()->lastInsertId());
             exit;

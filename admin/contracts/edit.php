@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $c['status'] !== 'signed') {
         if ($errors) {
             hc_flash('Saved, but not sent yet. Please add ' . implode(', ', $errors) . '.', 'error');
         } else {
-            if ($c['status'] === 'void') hc_q("UPDATE hc_contracts SET token=? WHERE id=?", [bin2hex(random_bytes(24)), $id]);
+            if ($c['status'] === 'void') hc_q("UPDATE hc_contracts SET token=?, code=? WHERE id=?", [bin2hex(random_bytes(24)), hc_es_new_code(), $id]);
             hc_q("UPDATE hc_contracts SET sent_at=COALESCE(IF(status='sent', sent_at, NULL), NOW()), status='sent' WHERE id=?", [$id]);
             $c = hc_one("SELECT * FROM hc_contracts WHERE id=?", [$id]);
             if ($do === 'email') {

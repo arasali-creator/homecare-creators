@@ -10,7 +10,10 @@ header('X-Robots-Tag: noindex, nofollow');
 header('Referrer-Policy: no-referrer');
 
 $token = (string)($_GET['t'] ?? $_POST['t'] ?? '');
-$c = preg_match('/^[a-f0-9]{48}$/', $token) ? hc_one("SELECT * FROM hc_contracts WHERE token=?", [$token]) : null;
+$code  = explode('&', (string)($_SERVER['QUERY_STRING'] ?? ''))[0]; // ignore ?CODE&fbclid=… style extras
+if (preg_match('/^[a-f0-9]{48}$/', $token))         $c = hc_one("SELECT * FROM hc_contracts WHERE token=?", [$token]);
+elseif (preg_match('/^[A-Za-z0-9]{10}$/', $code))   $c = hc_one("SELECT * FROM hc_contracts WHERE BINARY code=?", [$code]);
+else                                                $c = null;
 if ($c && $c['status'] === 'draft') $c = null;
 $ip = trim(explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'] ?? '')[0]) ?: ($_SERVER['REMOTE_ADDR'] ?? '');
 

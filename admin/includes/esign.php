@@ -46,6 +46,25 @@ function hc_es_install(): void {
             hc_db()->exec("ALTER TABLE hc_contracts ADD COLUMN payment_url VARCHAR(1000) NULL AFTER message");
         }
     } catch (Exception $e) {}
+    // Short link code (/sign/?Kx7mQ2pRtz); older ?t=TOKEN links keep working
+    try {
+        if (!hc_one("SHOW COLUMNS FROM hc_contracts LIKE 'code'")) {
+            hc_db()->exec("ALTER TABLE hc_contracts ADD COLUMN code VARCHAR(16) NULL UNIQUE AFTER token");
+        }
+        foreach (hc_all("SELECT id FROM hc_contracts WHERE code IS NULL") as $r) {
+            hc_q("UPDATE hc_contracts SET code=? WHERE id=?", [hc_es_new_code(), $r['id']]);
+        }
+    } catch (Exception $e) {}
+}
+
+/** New unique 10-character link code (no look-alike characters such as 0/O or 1/l/I). */
+function hc_es_new_code(): string {
+    $abc = '23456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
+    do {
+        $code = '';
+        for ($i = 0; $i < 10; $i++) $code .= $abc[random_int(0, strlen($abc) - 1)];
+    } while (hc_val("SELECT COUNT(*) FROM hc_contracts WHERE code=?", [$code]));
+    return $code;
 }
 
 /** Returns a cleaned http(s) URL, or '' if it isn't one. */
@@ -123,7 +142,7 @@ function hc_es_clean_value(string $type, $v): string {
 
 function hc_es_sign_url(array $c): string {
     $site = defined('SITE_URL') ? rtrim(SITE_URL, '/') : 'https://homecarecreators.com';
-    return $site . '/sign/?t=' . $c['token'];
+    return $site . '/sign/?' . (!empty($c['code']) ? $c['code'] : 't=' . $c['token']);
 }
 
 function hc_es_default_sender_email(): string {
