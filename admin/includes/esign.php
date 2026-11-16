@@ -40,6 +40,20 @@ function hc_es_install(): void {
             KEY idx_status (status)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
     } catch (Exception $e) {}
+    // Columns added after the first release
+    try {
+        if (!hc_one("SHOW COLUMNS FROM hc_contracts LIKE 'payment_url'")) {
+            hc_db()->exec("ALTER TABLE hc_contracts ADD COLUMN payment_url VARCHAR(1000) NULL AFTER message");
+        }
+    } catch (Exception $e) {}
+}
+
+/** Returns a cleaned http(s) URL, or '' if it isn't one. */
+function hc_es_clean_url(string $u): string {
+    $u = trim($u);
+    if ($u === '') return '';
+    if (!preg_match('#^https?://#i', $u)) $u = 'https://' . $u;
+    return (filter_var($u, FILTER_VALIDATE_URL) && preg_match('#^https?://[^\s"<>]+$#i', $u)) ? mb_substr($u, 0, 1000) : '';
 }
 
 /** Private storage folder for contract PDFs (outside the web root when possible). */
@@ -177,8 +191,12 @@ function hc_es_send_completed(array $c, string $pdfBytes): string {
 
     // Signer copy
     $text = "Hi {$c['signer_name']},\n\nYou signed \"{$c['title']}\" on {$when}. Your signed copy is attached.\n\nThank you,\n{$from}";
+    $pay  = (string)($c['payment_url'] ?? '');
+    if ($pay) $text .= "\n\nNext step — complete your payment here:\n{$pay}";
     $html = hc_es_email_html('Your signed copy',
-        '<p>Hi ' . h($c['signer_name']) . ',</p><p>You signed <strong>' . h($c['title']) . '</strong> on ' . h($when) . '. Your signed copy is attached to this email.</p><p>Thank you,<br>' . h($from) . '</p>');
+        '<p>Hi ' . h($c['signer_name']) . ',</p><p>You signed <strong>' . h($c['title']) . '</strong> on ' . h($when) . '. Your signed copy is attached to this email.</p>'
+        . ($pay ? '<p><strong>Next step:</strong> please complete your payment using the button below.</p>' : '') . '<p>Thank you,<br>' . h($from) . '</p>',
+        $pay, $pay ? 'Complete Payment' : '');
     $ok = HcMailer::send($c['signer_email'], "Signed: {$c['title']}", $text, (string)$c['sender_email'], '', $html, $att);
     $res[] = 'signer ' . ($ok ? 'sent' : 'FAILED');
 

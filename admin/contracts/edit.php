@@ -12,6 +12,20 @@ $id = (int)($_GET['id'] ?? 0);
 $c  = hc_one("SELECT * FROM hc_contracts WHERE id=?", [$id]);
 if (!$c) { hc_flash('Contract not found.', 'error'); header('Location: /admin/contracts/'); exit; }
 
+// ── Update payment link only (allowed even after signing) ───────────────────
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['do'] ?? '') === 'payment') {
+    $raw = trim($_POST['payment_url'] ?? '');
+    $url = hc_es_clean_url($raw);
+    if ($raw !== '' && $url === '') {
+        hc_flash('That payment link is not a valid web address.', 'error');
+    } else {
+        hc_q("UPDATE hc_contracts SET payment_url=? WHERE id=?", [$url ?: null, $id]);
+        hc_flash($url ? 'Payment link saved.' : 'Payment link removed.');
+    }
+    header('Location: /admin/contracts/edit.php?id=' . $id);
+    exit;
+}
+
 // ── Save / send ──────────────────────────────────────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $c['status'] !== 'signed') {
     $do     = $_POST['do'] ?? 'save';
@@ -25,13 +39,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $c['status'] !== 'signed') {
         'sender_name'  => mb_substr(trim($_POST['sender_name'] ?? ''), 0, 250),
         'sender_email' => mb_substr(trim($_POST['sender_email'] ?? ''), 0, 250),
         'message'      => mb_substr(trim($_POST['message'] ?? ''), 0, 2000),
+        'payment_url'  => hc_es_clean_url((string)($_POST['payment_url'] ?? '')),
     ];
-    hc_q("UPDATE hc_contracts SET title=?, signer_name=?, signer_email=?, sender_name=?, sender_email=?, message=?, fields=? WHERE id=?",
-        [$data['title'], $data['signer_name'], $data['signer_email'], $data['sender_name'], $data['sender_email'], $data['message'],
+    $payBad = trim($_POST['payment_url'] ?? '') !== '' && $data['payment_url'] === '';
+    hc_q("UPDATE hc_contracts SET title=?, signer_name=?, signer_email=?, sender_name=?, sender_email=?, message=?, payment_url=?, fields=? WHERE id=?",
+        [$data['title'], $data['signer_name'], $data['signer_email'], $data['sender_name'], $data['sender_email'], $data['message'], $data['payment_url'] ?: null,
          json_encode($fields, JSON_UNESCAPED_SLASHES), $id]);
 
     if (in_array($do, ['link', 'email'], true)) {
         $errors = [];
+        if ($payBad) $errors[] = 'a valid payment link (or leave it blank)';
         if ($data['signer_name'] === '') $errors[] = "the signer's name";
         if (!filter_var($data['signer_email'], FILTER_VALIDATE_EMAIL)) $errors[] = "a valid signer email";
         if ($data['sender_email'] !== '' && !filter_var($data['sender_email'], FILTER_VALIDATE_EMAIL)) $errors[] = 'a valid email for you (or leave it blank)';
@@ -52,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $c['status'] !== 'signed') {
             }
         }
     } else {
-        hc_flash('Saved.');
+        hc_flash($payBad ? 'Saved, but the payment link is not a valid web address, so it was cleared.' : 'Saved.', $payBad ? 'error' : 'success');
     }
     header('Location: /admin/contracts/edit.php?id=' . $id);
     exit;
@@ -120,6 +137,13 @@ hc_topbar($c['title'], '<a href="/admin/">Admin</a> › <a href="/admin/contract
         <dt>Email</dt><dd style="font-size:12px"><?= h($c['mail_status'] ?: '—') ?></dd>
       </dl>
       <div class="divider"></div>
+      <form method="post">
+        <input type="hidden" name="do" value="payment">
+        <div class="form-group" style="margin-bottom:8px"><label for="pay">Payment link</label><input type="url" id="pay" name="payment_url" value="<?= h($c['payment_url'] ?? '') ?>" maxlength="1000" placeholder="https://buy.stripe.com/…"></div>
+        <div class="form-hint" style="font-size:11.5px;color:var(--muted);margin-bottom:8px">Shown to the client on their “already signed” page.</div>
+        <button class="btn btn-secondary btn-sm" type="submit">Save payment link</button>
+      </form>
+      <div class="divider"></div>
       <div class="esa-btns">
         <a class="btn btn-primary" href="/admin/contracts/file.php?id=<?= $id ?>&amp;kind=signed&amp;dl=1">Download signed PDF</a>
         <a class="btn btn-secondary" href="/admin/contracts/file.php?id=<?= $id ?>&amp;kind=original" target="_blank">View original</a>
@@ -162,6 +186,8 @@ hc_topbar($c['title'], '<a href="/admin/">Admin</a> › <a href="/admin/contract
       <div class="form-group"><label for="sn">Signer name</label><input type="text" id="sn" name="signer_name" value="<?= h($c['signer_name']) ?>" maxlength="250" placeholder="Client's full name"></div>
       <div class="form-group"><label for="se">Signer email</label><input type="email" id="se" name="signer_email" value="<?= h($c['signer_email']) ?>" maxlength="250" placeholder="client@agency.com"></div>
       <div class="form-group"><label for="msg">Message <span>(optional, goes in the email)</span></label><textarea id="msg" name="message" maxlength="2000" placeholder="Hi, here's our agreement. Let me know if you have any questions."><?= h($c['message']) ?></textarea></div>
+      <div class="form-group"><label for="pay">Payment link <span>(optional)</span></label><input type="url" id="pay" name="payment_url" value="<?= h($c['payment_url'] ?? '') ?>" maxlength="1000" placeholder="https://buy.stripe.com/…">
+        <div class="form-hint" style="font-size:11.5px;color:var(--muted);margin-top:4px">After signing, the client goes straight to this link. It's also in their confirmation email.</div></div>
       <details style="margin-bottom:12px"><summary style="font-size:12.5px;font-weight:700;cursor:pointer">Your details (sender)</summary>
         <div class="form-group" style="margin-top:10px"><label for="yn">Your name</label><input type="text" id="yn" name="sender_name" value="<?= h($c['sender_name']) ?>" maxlength="250"></div>
         <div class="form-group"><label for="ye">Your email <span>(gets the signed copy)</span></label><input type="email" id="ye" name="sender_email" value="<?= h($c['sender_email']) ?>" maxlength="250"></div>

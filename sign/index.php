@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $c = hc_one("SELECT * FROM hc_contracts WHERE id=?", [$c['id']]);
     $status = hc_es_send_completed($c, $bytes);
     hc_q("UPDATE hc_contracts SET mail_status=? WHERE id=?", [mb_substr($status, 0, 500), $c['id']]);
-    echo json_encode(['ok' => true, 'emailed' => !str_contains($status, 'signer FAILED')]);
+    echo json_encode(['ok' => true, 'emailed' => !str_contains($status, 'signer FAILED'), 'pay' => (string)($c['payment_url'] ?? '')]);
     exit;
 }
 
@@ -111,7 +111,12 @@ main{max-width:960px;margin:0 auto;padding:20px 16px 60px}
   <?php else: ?>
     <div class="ic">✓</div><h1>Already signed</h1>
     <p>“<?= h($c['title']) ?>” was signed on <?= h(date('F j, Y', strtotime($c['signed_at']))) ?>. A copy was emailed to both parties.</p>
+    <?php if (!empty($c['payment_url'])): ?>
+    <a class="btn" href="<?= h($c['payment_url']) ?>" rel="noopener">Continue to payment</a>
+    <div style="margin-top:12px"><a href="/sign/file.php?t=<?= h($c['token']) ?>&amp;dl=1" style="color:#1d9e75;font-weight:700;font-size:14px">Download signed copy</a></div>
+    <?php else: ?>
     <a class="btn" href="/sign/file.php?t=<?= h($c['token']) ?>&amp;dl=1">Download signed copy</a>
+    <?php endif ?>
   <?php endif ?>
   </div>
 <?php else: ?>
@@ -221,6 +226,20 @@ main{max-width:960px;margin:0 auto;padding:20px 16px 60px}
         document.querySelector('.state p').textContent = j.emailed ? 'Your document is signed. We’ve emailed a copy to you and to the sender.' : 'Your document is signed. Please download your copy below.';
         var a = document.querySelector('.state a'); a.href = url; a.download = C.file; a.textContent = 'Download signed copy';
         window.scrollTo(0, 0);
+        if (j.pay) {
+          // Payment step: show a button and send them there automatically
+          var p = document.querySelector('.state p');
+          p.textContent = 'Your document is signed' + (j.emailed ? ' and a copy has been emailed to you' : '') + '. Taking you to payment in 4 seconds…';
+          var go = document.createElement('a');
+          go.className = 'btn'; go.href = j.pay; go.rel = 'noopener'; go.textContent = 'Continue to payment';
+          a.parentNode.insertBefore(go, a);
+          a.className = ''; a.style.cssText = 'display:block;margin-top:12px;color:#1d9e75;font-weight:700;font-size:14px';
+          var n = 4, timer = setInterval(function () {
+            n--;
+            if (n > 0) p.textContent = p.textContent.replace(/in \d+ seconds?/, 'in ' + n + ' second' + (n === 1 ? '' : 's'));
+            else { clearInterval(timer); window.location.href = j.pay; }
+          }, 1000);
+        }
       } catch (e) {
         showErr(e.message || String(e));
         finishBtn.disabled = false; finishBtn.textContent = 'Finish & sign';
