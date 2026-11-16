@@ -15,3 +15,6 @@ admin/config.php
 
 # Logs
 *.log
+
+# Private uploads (contracts, verifications) — never commit
+admin/private-uploads/

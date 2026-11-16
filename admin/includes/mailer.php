@@ -47,8 +47,40 @@ class HcMailer
         if ($this->sock) { @fclose($this->sock); $this->sock = null; }
     }
 
-    public $lastError = '';
-    public $htmlBody  = '';
+    public $lastError   = '';
+    public $htmlBody    = '';
+    public $attachments = []; // [['name' => 'file.pdf', 'data' => <raw bytes>, 'mime' => 'application/pdf'], ...]
+
+    /**
+     * Builds a multipart/mixed MIME body (text + optional HTML + attachments).
+     * Returns [header lines ending in \r\n, body].
+     */
+    public static function mimeWithAttachments(string $text, string $html, array $attachments): array
+    {
+        $mix = 'hcmix_' . md5(uniqid('', true));
+        $alt = 'hcalt_' . md5(uniqid('', true));
+        $out = "--{$mix}\r\n";
+        if ($html !== '') {
+            $out .= "Content-Type: multipart/alternative; boundary=\"{$alt}\"\r\n\r\n";
+            $out .= "--{$alt}\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n";
+            $out .= chunk_split(base64_encode($text)) . "\r\n";
+            $out .= "--{$alt}\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n";
+            $out .= chunk_split(base64_encode($html)) . "\r\n";
+            $out .= "--{$alt}--\r\n";
+        } else {
+            $out .= "Content-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n";
+            $out .= chunk_split(base64_encode($text)) . "\r\n";
+        }
+        foreach ($attachments as $a) {
+            $name = preg_replace('/[^A-Za-z0-9._ -]/', '', (string)($a['name'] ?? 'attachment')) ?: 'attachment';
+            $mime = preg_replace('/[^a-z0-9.\/+-]/', '', strtolower((string)($a['mime'] ?? 'application/octet-stream')));
+            $out .= "--{$mix}\r\nContent-Type: {$mime}; name=\"{$name}\"\r\nContent-Transfer-Encoding: base64\r\n";
+            $out .= "Content-Disposition: attachment; filename=\"{$name}\"\r\n\r\n";
+            $out .= chunk_split(base64_encode((string)$a['data'])) . "\r\n";
+        }
+        $out .= "--{$mix}--";
+        return ["Content-Type: multipart/mixed; boundary=\"{$mix}\"\r\n", $out];
+    }
 
     public function sendSmtp(
         string $smtpHost,
@@ -147,7 +179,10 @@ class HcMailer
             $msg .= "Subject: {$encSubj}\r\n";
             $msg .= "MIME-Version: 1.0\r\n";
 
-            if (!empty($this->htmlBody)) {
+            if (!empty($this->attachments)) {
+                [$mimeHead, $mimeBody] = self::mimeWithAttachments($body, (string)$this->htmlBody, $this->attachments);
+                $msg .= $mimeHead . "\r\n" . $mimeBody;
+            } elseif (!empty($this->htmlBody)) {
                 $msg .= "Content-Type: multipart/alternative; boundary=\"{$boundary}\"\r\n";
                 $msg .= "\r\n";
                 $msg .= "--{$boundary}\r\n";
@@ -194,7 +229,8 @@ class HcMailer
         string $body,
         string $replyTo = '',
         string $cc      = '',
-        string $html    = ''
+        string $html    = '',
+        array  $attachments = []
     ): bool {
         $fromAddr = hc_setting('reply_to_email', 'noreply@homecarecreators.com');
         $fromName = hc_setting('site_name', 'Homecare Creators');
@@ -207,6 +243,7 @@ class HcMailer
         if ($smtpHost && $smtpUser) {
             $mailer = new self();
             $mailer->htmlBody = $html;
+            $mailer->attachments = $attachments;
             $ok = $mailer->sendSmtp(
                 $smtpHost, $smtpPort, $smtpEnc,
                 $smtpUser, $smtpPass,
@@ -221,6 +258,14 @@ class HcMailer
         }
 
         // Fallback: PHP mail()
+        if ($attachments) {
+            [$mimeHead, $mimeBody] = self::mimeWithAttachments($body, $html, $attachments);
+            $headers  = "From: {$fromAddr}\r\n";
+            if ($replyTo) $headers .= "Reply-To: {$replyTo}\r\n";
+            if ($cc)      $headers .= "Cc: {$cc}\r\n";
+            $headers .= "MIME-Version: 1.0\r\n" . rtrim($mimeHead, "\r\n");
+            return mail($to, '=?UTF-8?B?' . base64_encode($subject) . '?=', $mimeBody, $headers);
+        }
         $boundary = 'hcbnd_' . md5(uniqid());
         if ($html) {
             $headers  = "From: {$fromAddr}\r\n";

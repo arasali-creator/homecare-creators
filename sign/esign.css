@@ -1,0 +1,68 @@
+/* Homecare Creators e-sign — document viewer, fields and signature dialog */
+.es-doc{max-width:900px;margin:0 auto}
+.es-page{position:relative;width:100%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12),0 6px 24px rgba(0,0,0,.06);border-radius:3px;overflow:hidden}
+.es-page canvas{display:block;width:100%;height:100%}
+.es-layer{position:absolute;inset:0}
+.es-pagenum{text-align:center;font-size:11.5px;color:#6b7280;margin:8px 0 22px}
+.es-loading{padding:80px 20px;text-align:center;color:#6b7280}
+
+.es-field{position:absolute;container-type:size;border:1.5px dashed;border-radius:4px;display:flex;align-items:center;justify-content:center;touch-action:none;user-select:none;-webkit-user-select:none}
+.es-field.es-signer{border-color:#2563eb;background:rgba(37,99,235,.09)}
+.es-field.es-sender{border-color:#1d9e75;background:rgba(29,158,117,.10)}
+.es-field.filled{background:transparent;border-style:solid;border-color:transparent}
+.es-field.filled:hover,.es-field.sel{border-color:currentColor}
+.es-field.es-signer.filled.mine{border-color:rgba(37,99,235,.35)}
+.es-field.theirs.filled{border-color:transparent!important;background:transparent}
+.es-field.mine.es-signature{cursor:pointer}
+.es-field.sel{box-shadow:0 0 0 2px rgba(37,99,235,.25)}
+.es-field.es-sender.sel{box-shadow:0 0 0 2px rgba(29,158,117,.3)}
+.es-field img{max-width:100%;max-height:100%;object-fit:contain;pointer-events:none}
+.es-field .es-ph{font:600 max(9px,min(45cqh,14px))/1 -apple-system,Segoe UI,Roboto,sans-serif;color:#1e3a8a;opacity:.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 4px}
+.es-field.es-sender .es-ph{color:#0d5c40}
+.es-field .es-text,.es-field .es-in{font:400 62cqh/1 Helvetica,Arial,sans-serif;color:#0a1433;white-space:nowrap;overflow:hidden;width:100%;padding:0 2px;text-align:left}
+.es-field .es-in{border:0;background:transparent;outline:none;height:100%;min-width:0;border-radius:0;box-shadow:none;margin:0}
+.es-field .es-in::placeholder{color:#1e3a8a;opacity:.55}
+.es-field .es-in:focus{background:rgba(255,255,255,.7)}
+.es-tag{position:absolute;left:-1.5px;bottom:100%;margin-bottom:2px;font:600 10px/1 -apple-system,Segoe UI,Roboto,sans-serif;color:#fff;background:#2563eb;padding:3px 6px;border-radius:3px;white-space:nowrap;pointer-events:none}
+.es-sender .es-tag{background:#1d9e75}
+.es-field.theirs .es-tag{display:none}
+.es-del{position:absolute;top:-9px;right:-9px;width:18px;height:18px;border-radius:50%;border:0;background:#dc2626;color:#fff;font:700 13px/18px sans-serif;cursor:pointer;padding:0;display:none;z-index:2}
+.es-rz{position:absolute;right:-5px;bottom:-5px;width:11px;height:11px;background:#fff;border:2px solid #2563eb;border-radius:2px;cursor:nwse-resize;display:none}
+.es-sender .es-rz{border-color:#1d9e75}
+.es-edit .es-field{cursor:move}
+.es-edit .es-field .es-tag{pointer-events:auto;cursor:move}
+.es-edit .es-field:hover .es-del,.es-edit .es-field.sel .es-del,.es-edit .es-field:hover .es-rz,.es-edit .es-field.sel .es-rz{display:block}
+.es-edit .es-field.filled{border-style:dashed;border-color:rgba(29,158,117,.55)}
+.es-arming .es-layer{cursor:crosshair}
+@keyframes esflash{0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,0)}40%{box-shadow:0 0 0 6px rgba(37,99,235,.35)}}
+.es-flash{animation:esflash .9s ease 2}
+
+/* Signature dialog */
+.es-modal{position:fixed;inset:0;background:rgba(10,20,30,.55);display:none;align-items:center;justify-content:center;z-index:1000;padding:16px}
+.es-modal.open{display:flex}
+.es-dialog{background:#fff;border-radius:12px;width:100%;max-width:560px;box-shadow:0 20px 60px rgba(0,0,0,.3);overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#111827}
+.es-dlg-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid #eee;font-size:15px}
+.es-x{border:0;background:none;font-size:24px;line-height:1;cursor:pointer;color:#6b7280}
+.es-tabs{display:flex;gap:4px;padding:10px 18px 0;border-bottom:1px solid #eee}
+.es-tabs button{border:0;background:none;padding:9px 14px;font:600 13.5px inherit;font-family:inherit;color:#6b7280;cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-1px}
+.es-tabs button.on{color:#0a2e1e;border-bottom-color:#1d9e75}
+.es-panel{padding:16px 18px}
+.es-pad{width:100%;height:190px;border:1.5px dashed #cbd5e1;border-radius:8px;background:#fafbfc;touch-action:none;display:block;cursor:crosshair}
+.es-pad-foot{display:flex;justify-content:space-between;font-size:12px;color:#6b7280;margin-top:6px}
+.es-link{border:0;background:none;color:#1d9e75;font-weight:600;cursor:pointer;font-size:12.5px}
+.es-type-in{width:100%;padding:10px 12px;border:1.5px solid #d1d5db;border-radius:8px;font-size:15px;font-family:inherit}
+.es-fonts{display:grid;gap:8px;margin-top:12px}
+.es-font{border:1.5px solid #e5e7eb;background:#fff;border-radius:8px;padding:10px 14px;font-size:32px;color:#0b1f4d;text-align:left;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3}
+.es-font.on{border-color:#1d9e75;box-shadow:0 0 0 3px rgba(29,158,117,.15)}
+.es-drop{display:flex;align-items:center;justify-content:center;text-align:center;border:1.5px dashed #cbd5e1;border-radius:8px;padding:30px 16px;cursor:pointer;color:#374151;font-size:14px;background:#fafbfc}
+.es-drop small{color:#6b7280}
+.es-up-prev{text-align:center;margin-top:12px}
+.es-up-prev img{max-width:100%;max-height:110px}
+.es-err{color:#b91c1c;font-size:13px}
+.es-dlg-foot{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 18px 16px;border-top:1px solid #eee;flex-wrap:wrap}
+.es-legal{font-size:11.5px;color:#6b7280;flex:1;min-width:200px}
+.es-btn{border:0;background:#1d9e75;color:#fff;padding:10px 16px;border-radius:8px;font:600 13.5px inherit;font-family:inherit;cursor:pointer}
+.es-btn:hover{background:#178a64}
+.es-btn-ghost{background:#f3f4f6;color:#374151}
+.es-btn-ghost:hover{background:#e5e7eb}
+@media(max-width:560px){.es-pad{height:160px}.es-font{font-size:26px}}

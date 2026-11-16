@@ -30,6 +30,7 @@ No framework, no CMS, no npm. Pure PHP, vanilla JS, MySQL via PDO.
 - `hc_redirects` — 301/302 redirects
 - `hc_page_schema` — per-page LD+JSON schema
 - `hc_org_schema` — organization schema fields
+- `hc_contracts` — e-signature contracts (PDFs stored privately in `../hc-private/contracts/`, fields JSON, signer audit trail)
 
 ## New Admin Page Template
 ```php
@@ -60,6 +61,7 @@ hc_topbar('Page Title', '<a href="/admin/">Admin</a> › Page Title');
 - `/admin/content/` — Image alts, internal links, broken links
 - `/admin/org-schema.php`, `/admin/schema/` — Schema management
 - `/admin/settings.php` — SMTP, logo, WhatsApp, site identity
+- `/admin/contracts/` — E-signature: upload PDF, place Signature/Name/Date fields, sign yourself or send a private `/sign/?t=TOKEN` link; signed PDF is emailed to both parties (helpers in `admin/includes/esign.php`, shared JS/CSS in `/sign/esign.js` + `esign.css`)
 
 ## Blog Posts Published (8 total)
 1. `home-care-agency-marketing-mistakes`

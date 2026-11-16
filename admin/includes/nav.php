@@ -5,6 +5,8 @@ $pending_listings = 0;
 try { $pending_listings = (int)hc_val("SELECT COUNT(*) FROM hc_directory_listings WHERE status='pending'"); } catch(Exception $e){}
 $new_calc_leads = 0;
 try { $new_calc_leads = (int)hc_val("SELECT COUNT(*) FROM hc_calculator_submissions WHERE status='new'"); } catch(Exception $e){}
+$awaiting_contracts = 0;
+try { $awaiting_contracts = (int)hc_val("SELECT COUNT(*) FROM hc_contracts WHERE status='sent'"); } catch(Exception $e){}
 $cur = $_SERVER['REQUEST_URI'] ?? '';
 
 function is_active(string ...$paths): bool {
@@ -50,6 +52,11 @@ function is_active(string ...$paths): bool {
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="9" y2="11"/><line x1="12" y1="11" x2="13" y2="11"/><line x1="16" y1="11" x2="17" y2="11"/><line x1="8" y1="15" x2="9" y2="15"/><line x1="12" y1="15" x2="13" y2="15"/></svg>
       Growth Calculator
       <?php if ($new_calc_leads > 0): ?><span class="badge badge-red"><?= $new_calc_leads ?></span><?php endif ?>
+    </a>
+    <a href="/admin/contracts/" class="nav-item <?= is_active('/admin/contracts') ? 'active' : '' ?>">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M8 17c1.5-2 2.5-2 3.5 0s2 2 3.5-1"/></svg>
+      Contracts
+      <?php if ($awaiting_contracts > 0): ?><span class="badge badge-gray"><?= $awaiting_contracts ?></span><?php endif ?>
     </a>
     <!-- Blog toggle -->
     <div class="nav-item nav-toggle <?= is_active('/admin/blog') ? 'open' : '' ?>" onclick="toggleNav(this)">
