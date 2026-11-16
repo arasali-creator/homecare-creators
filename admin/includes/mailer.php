@@ -144,7 +144,9 @@ class HcMailer
             }
 
             // Zoho and many providers require MAIL FROM to match the authenticated user
-            $envelopeFrom = $smtpUser ?: $fromAddr;
+            // ...but relay services (Brevo etc.) use a non-mailbox login and send as any verified sender.
+            $isRelay = (bool)preg_match('/brevo|sendinblue|sendgrid|mailgun|mailjet|postmark|amazonaws/i', $smtpHost);
+            $envelopeFrom = ($isRelay && filter_var($fromAddr, FILTER_VALIDATE_EMAIL)) ? $fromAddr : ($smtpUser ?: $fromAddr);
 
             $resp = $this->cmd("MAIL FROM:<{$envelopeFrom}>");
             if (substr($resp, 0, 3) !== '250') {
