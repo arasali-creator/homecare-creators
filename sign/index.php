@@ -203,13 +203,8 @@ main{max-width:960px;margin:0 auto;padding:20px 16px 60px}
       if (!document.getElementById('consent').checked) { showErr('Please tick the box to agree to sign electronically.'); return; }
       showErr(''); finishBtn.disabled = true; finishBtn.textContent = 'Signing…';
       try {
-        var signedAt = new Date();
-        var sig = mine.find(function (f) { return f.type === 'signature'; });
-        var rows = C.cert.rows.concat([
-          ['Signed on', signedAt.toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'long' })],
-          ['Device', navigator.userAgent.slice(0, 160)]
-        ]);
-        var out = await ESign.stamp(pdfBytes, FIELDS, { brand: C.cert.brand, rows: rows, signature: sig ? sig.value : null });
+        // No certificate page is appended; the audit trail (IP, time, device, hashes) is kept in the admin.
+        var out = await ESign.stamp(pdfBytes, FIELDS, null);
         var values = {};
         mine.forEach(function (f) { values[f.id] = f.value; });
         var fd = new FormData();
